@@ -17,7 +17,7 @@ cache:
 main:
   script:
    - npm test
-   - istanbul cover _mocha
+   - npm run coverage
   coverage: /^Statements\s*:\s*([^%]+)/
 
 

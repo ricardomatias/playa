@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha -c -r './test/config.js' './test/*spec.js'",
-    "test:watch": "mocha -w -c -r './test/config.js' './test/*spec.js'"
+    "test:watch": "mocha -w -c -r './test/config.js' './test/*spec.js'",
+    "coverage": "nyc --reporter=html --reporter=text-summary mocha"
   },
   "author": "Ricardo Matias<ricardo.matias0@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1"
   }
 }
