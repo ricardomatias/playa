@@ -11,6 +11,11 @@ cache:
 
 test:
   script:
+   - npm install -g codecov
    - npm install
-   - npm test
+   - npm test && codecov
+  coverage: /^Statements\s*:\s*([^%]+)/
+
+
+
 
