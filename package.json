@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -c -r './test/config.js' './test/*spec.js'",
     "test:watch": "mocha -w -c -r './test/config.js' './test/*spec.js'",
-    "coverage": "nyc --reporter=html --reporter=text-summary mocha"
+    "test:coverage": "nyc --reporter=html --reporter=text-summary npm test"
   },
   "author": "Ricardo Matias<ricardo.matias0@gmail.com>",
   "license": "MIT",

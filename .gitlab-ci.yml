@@ -16,8 +16,7 @@ cache:
 
 main:
   script:
-   - npm test
-   - npm run coverage
+   - npm run test:coverage
   coverage: /^Statements\s*:\s*([^%]+)/
 
 
