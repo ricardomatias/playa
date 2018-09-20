@@ -3,17 +3,21 @@
 # https://hub.docker.com/r/library/node/tags/
 image: node:latest
 
+before_script:
+  - npm i npm@latest -g
+  - npm install
+
+
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
   paths:
   - node_modules/
 
-test:
+main:
   script:
-   - npm install -g codecov
-   - npm install
-   - npm test && codecov
+   - npm test
+   - istanbul cover _mocha
   coverage: /^Statements\s*:\s*([^%]+)/
 
 
