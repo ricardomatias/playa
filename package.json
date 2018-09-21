@@ -4,15 +4,36 @@
   "description": "be a playa",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -c -r './test/config.js' './test/*spec.js'",
+    "test": "xo && mocha -c -r './test/config.js' './test/*spec.js'",
     "test:watch": "mocha -w -c -r './test/config.js' './test/*spec.js'",
-    "test:coverage": "nyc --reporter=html --reporter=text-summary npm test"
+    "test:coverage": "nyc --reporter=html --reporter=text-summary npm test",
+    "lint:fix": "xo --fix"
   },
   "author": "Ricardo Matias<ricardo.matias0@gmail.com>",
   "license": "MIT",
+  "xo": {
+    "env": [
+      "mocha",
+      "node"
+    ],
+    "globals": [
+      "expect"
+		],
+		"rules": {
+			"unicorn/explicit-length-check": 0,
+			"unicorn/filename-case": 0,
+			"no-multi-assign": 0,
+			"no-warning-comments": 0,
+			"object-curly-spacing": ["error", "always", { "objectsInObjects": false }]
+		},
+		"ignores": [
+			"**/test/**"
+		]
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
-    "nyc": "^13.0.1"
+    "nyc": "^13.0.1",
+    "xo": "^0.23.0"
   }
 }
