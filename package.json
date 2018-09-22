@@ -18,22 +18,31 @@
     ],
     "globals": [
       "expect"
-		],
-		"rules": {
-			"unicorn/explicit-length-check": 0,
-			"unicorn/filename-case": 0,
-			"no-multi-assign": 0,
-			"no-warning-comments": 0,
-			"object-curly-spacing": ["error", "always", { "objectsInObjects": false }]
-		},
-		"ignores": [
-			"**/test/**"
-		]
+    ],
+    "rules": {
+      "unicorn/explicit-length-check": 0,
+      "unicorn/filename-case": 0,
+      "no-multi-assign": 0,
+      "no-warning-comments": 0,
+      "object-curly-spacing": [
+        "error",
+        "always",
+        {
+          "objectsInObjects": false
+        }
+      ]
+    },
+    "ignores": [
+      "**/test/**"
+    ]
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "xo": "^0.23.0"
+  },
+  "dependencies": {
+    "tone": "^0.12.80"
   }
 }
