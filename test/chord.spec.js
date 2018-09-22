@@ -1,4 +1,4 @@
-const Chord = require('../lib/Chord');
+import Chord from '../lib/Chord';
 
 describe('Chord Test Suite', () => {
 	it('should set natural', () => {

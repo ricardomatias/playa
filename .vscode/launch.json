@@ -14,24 +14,10 @@
         "tdd",
         "--timeout",
         "999999",
-        "--colors",
         "${workspaceFolder}/test"
       ],
       "internalConsoleOptions": "openOnSessionStart",
-      "runtimeExecutable": "/Users/feral/.nvm/versions/node/v8.12.0/bin/node"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Run AVA test",
-      "program": "${workspaceRoot}/node_modules/ava/profile.js",
-      "runtimeExecutable": "/Users/feral/.nvm/versions/node/v8.12.0/bin/node",
-      "args": [
-        "${file}"
-      ],
-      "skipFiles": [
-        "<node_internals>/**/*.js"
-      ]
+      "runtimeExecutable": "/Users/feral/.nvm/versions/node/v10.10.0/bin/node"
     }
   ]
 }

@@ -4,8 +4,9 @@
   "description": "be a playa",
   "main": "index.js",
   "scripts": {
-    "test": "xo && mocha -c -r './test/config.js' './test/*spec.js'",
-    "test:watch": "mocha -w -c -r './test/config.js' './test/*spec.js'",
+		"mocha": "mocha './test/*spec.js'",
+    "test": "xo && npm run mocha",
+    "test:watch": "npm run mocha -- --watch",
     "test:coverage": "nyc --reporter=html --reporter=text-summary npm test",
     "lint:fix": "xo --fix"
   },
@@ -13,8 +14,10 @@
   "license": "MIT",
   "xo": {
     "env": [
+			"browser",
       "mocha",
-      "node"
+			"node",
+			"es6"
     ],
     "globals": [
       "expect"
@@ -43,6 +46,7 @@
     "xo": "^0.23.0"
   },
   "dependencies": {
+    "esm": "^3.0.84",
     "tone": "^0.12.80"
   }
 }
