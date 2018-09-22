@@ -1,0 +1,41 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"google",
+		"plugin:import/errors",
+  		"plugin:import/warnings"
+	],
+	"env": {
+		"browser": true,
+		"mocha": true,
+		"node": true,
+		"es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module"
+	},
+	"globals": {
+		"expect": true
+	},
+	"rules": {
+		"indent": [2, "tab"],
+		"no-tabs": 0,
+		"max-len": [
+			"error",
+			{
+				"code": 120
+			}
+		],
+		"import/no-unresolved": "off",
+		"no-multi-assign": 0,
+		"no-warning-comments": 0,
+		"object-curly-spacing": [
+			"error",
+			"always",
+			{
+				"objectsInObjects": false
+			}
+		]
+	}
+}

@@ -5,6 +5,7 @@ image: node:latest
 
 before_script:
   - npm i npm@latest -g
+  - npm install -g parcel-bundler
   - npm install
 
 
@@ -14,9 +15,13 @@ cache:
   paths:
   - node_modules/
 
-main:
+build:
   script:
-   - npm run test:coverage
+    - npm run build
+
+test:
+  script:
+    - npm run test:coverage
   coverage: /^Statements\s*:\s*([^%]+)/
 
 

@@ -1,6 +1,18 @@
 {
+	"typeAcquisition": {
+		"include": [
+			"tone"
+		]
+	},
 	"compilerOptions": {
 		"target": "ES6",
+		"module": "es6",
+		"baseUrl": "./",
+		"paths": {
+			"playa": [
+				"./lib/index.js"
+			]
+		}
 	},
 	"exclude": [
 		"node_modules",
