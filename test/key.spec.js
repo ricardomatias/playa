@@ -1,5 +1,5 @@
-const Key = require('../lib/Key');
-const Scale = require('../lib/Scale');
+import Key from '../lib/Key';
+import Scale from '../lib/Scale';
 
 const modesToString = modes => {
   return modes.map(mode => {

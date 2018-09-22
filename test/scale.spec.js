@@ -1,4 +1,4 @@
-const Scale = require('../lib/Scale');
+import Scale from '../lib/Scale';
 
 describe('Scale Test Suite', () => {
 	describe('#_createScale', () => {

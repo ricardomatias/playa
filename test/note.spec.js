@@ -1,4 +1,4 @@
-const Note = require('../lib/Note');
+import Note from '../lib/Note';
 
 describe('Note Test Suite', () => {
 	it('should set natural', () => {
