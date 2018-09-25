@@ -3,7 +3,7 @@
 		"eslint:recommended",
 		"google",
 		"plugin:import/errors",
-  		"plugin:import/warnings"
+		"plugin:import/warnings"
 	],
 	"env": {
 		"browser": true,
@@ -19,7 +19,10 @@
 		"expect": true
 	},
 	"rules": {
-		"indent": [2, "tab"],
+		"indent": [
+			2,
+			"tab"
+		],
 		"no-tabs": 0,
 		"max-len": [
 			"error",
@@ -36,6 +39,10 @@
 			{
 				"objectsInObjects": false
 			}
+		],
+		"array-bracket-spacing": [
+			"error",
+			"always"
 		]
 	}
 }

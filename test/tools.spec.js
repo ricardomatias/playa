@@ -1,6 +1,6 @@
 import { ring } from '../lib/tools';
 
-const AM7 = ['A', 'C', 'E', 'G'];
+const AM7 = [ 'A', 'C', 'E', 'G' ];
 
 describe('A Tools test suite', () => {
 	it('should create a ring', () => {

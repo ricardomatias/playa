@@ -26,6 +26,7 @@
 	},
 	"dependencies": {
 		"esm": "^3.0.84",
+		"fast-memoize": "^2.5.1",
 		"tone": "^0.12.80"
 	}
 }
