@@ -1,8 +1,19 @@
 import Chord from '../lib/Chord';
 
+const TEST = { noteType: 'str' };
+
 describe('Chord Test Suite', () => {
+	it('should return MIDI by default', () => {
+		const chord = new Chord('Am7', TEST);
+
+		expect(chord.r).to.eql('A');
+		expect(chord.q).to.eql('m');
+		expect(chord.ext).to.eql([ '7' ]);
+		expect(chord.n).to.eql([ 'A', 'C', 'E', 'G' ]);
+	});
+
 	it('should set natural', () => {
-		const chord = new Chord('Am7');
+		const chord = new Chord('Am7', TEST);
 
 		expect(chord.r).to.eql('A');
 		expect(chord.q).to.eql('m');
@@ -11,7 +22,7 @@ describe('Chord Test Suite', () => {
 	});
 
 	it('should set sharp', () => {
-		const chord = new Chord('D#m6');
+		const chord = new Chord('D#m6', TEST);
 
 		expect(chord.r).to.eql('D#');
 		expect(chord.q).to.eql('m');
@@ -20,7 +31,7 @@ describe('Chord Test Suite', () => {
 	});
 
 	it('should set flat', () => {
-		const chord = new Chord('Bbm9');
+		const chord = new Chord('Bbm9', TEST);
 
 		expect(chord.r).to.eql('Bb');
 		expect(chord.q).to.eql('m');
@@ -29,7 +40,7 @@ describe('Chord Test Suite', () => {
 	});
 
 	it('should set 13 chord', () => {
-		const chord = new Chord('E13');
+		const chord = new Chord('E13', TEST);
 
 		expect(chord.r).to.eql('E');
 		expect(chord.q).to.eql('M');
@@ -38,7 +49,7 @@ describe('Chord Test Suite', () => {
 	});
 
 	it('should set m11 chord', () => {
-		const chord = new Chord('Gbm11');
+		const chord = new Chord('Gbm11', TEST);
 
 		expect(chord.r).to.eql('Gb');
 		expect(chord.q).to.eql('m');
