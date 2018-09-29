@@ -4,17 +4,20 @@
 	"description": "be a playa",
 	"main": "index.js",
 	"scripts": {
-		"mocha": "mocha './test/*spec.js'",
+		"mocha": "mocha './test/**/*spec.js'",
 		"test": "npm run lint && npm run mocha",
 		"test:watch": "npm run mocha -- --watch",
 		"test:coverage": "nyc --reporter=html --reporter=text-summary npm test",
 		"lint": "eslint lib src test",
-		"build": "rm -rf ./dist && parcel build ./index.html"
+		"build": "rm -rf ./dist && parcel build ./index.html",
+		"start": "parcel ./index.html"
 	},
 	"author": "Ricardo Matias<ricardo.matias0@gmail.com>",
 	"license": "MIT",
 	"alias": {
-		"playa": "./lib/index.js"
+		"playa": "./lib/index.js",
+		"playa/core": "./lib/core/index.js",
+		"playa/tools": "./lib/tools/index.js"
 	},
 	"devDependencies": {
 		"chai": "^4.1.2",
@@ -27,6 +30,7 @@
 	"dependencies": {
 		"esm": "^3.0.84",
 		"fast-memoize": "^2.5.1",
+		"parcel-bundler": "^1.10.1",
 		"tone": "^0.12.80"
 	}
 }

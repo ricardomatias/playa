@@ -1,7 +1,8 @@
-import Key from '../lib/Key';
-import Scale from '../lib/Scale';
+import Key from '../../lib/core/Key';
+import Scale from '../../lib/core/Scale';
+import NoteType from '../../lib/core/types';
 
-const TEST = 'str';
+const TEST = { noteType: NoteType.STR };
 
 
 describe('Key Test Suite', () => {

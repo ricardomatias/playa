@@ -1,4 +1,4 @@
-import Note from '../lib/Note';
+import Note from '../../lib/core/Note';
 
 describe('Note Test Suite', () => {
 	it('should set natural', () => {

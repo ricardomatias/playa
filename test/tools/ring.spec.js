@@ -1,8 +1,8 @@
-import { ring } from '../lib/tools';
+import { ring } from '../../lib/tools';
 
 const AM7 = [ 'A', 'C', 'E', 'G' ];
 
-describe('A Tools test suite', () => {
+describe('A Ring test suite', () => {
 	it('should create a ring', () => {
 		const am7 = ring(AM7);
 
