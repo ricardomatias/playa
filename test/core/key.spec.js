@@ -56,23 +56,32 @@ describe('Key Test Suite', () => {
 				'DM7',
 			]);
 		});
+
+		it('should allow accessing a mode through Proxy', () => {
+			const key = new Key('E', Scale.MAJOR, TEST);
+
+			const eMyxo = key.MIXOLYDIAN;
+
+			expect(eMyxo.chord.name).to.eql('B7');
+			expect(eMyxo.notes).to.eql([ 'B', 'C#', 'D#', 'E', 'F#', 'G#', 'A' ]);
+		});
 	});
 
 	describe('#modulate', () => {
 		it('should modulate UP', () => {
 			const key = new Key('C', Scale.MAJOR, TEST);
 
-			key.modulate(key.MOD_UP);
+			key.modulate(Key.MOD_UP);
 
-			expect(key.scale.notes).to.eql([ 'G', 'A', 'B', 'C', 'D', 'E', 'F#' ]);
+			expect(key.notes).to.eql([ 'G', 'A', 'B', 'C', 'D', 'E', 'F#' ]);
 		});
 
 		it('should modulate DOWN', () => {
 			const key = new Key('A', Scale.MAJOR, TEST);
 
-			key.modulate(key.MOD_DOWN);
+			key.modulate(Key.MOD_DOWN);
 
-			expect(key.scale.notes).to.eql([ 'D', 'E', 'F#', 'G', 'A', 'B', 'C#' ]);
+			expect(key.notes).to.eql([ 'D', 'E', 'F#', 'G', 'A', 'B', 'C#' ]);
 		});
 	});
 });

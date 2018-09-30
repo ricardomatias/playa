@@ -7,7 +7,7 @@ describe('Chord Test Suite', () => {
 		const chord = new Chord('Am7', TEST);
 
 		expect(chord.root).to.eql('A');
-		expect(chord.quality).to.eql('m');
+		expect(chord.type).to.eql('m');
 		expect(chord.ext).to.eql([ '7' ]);
 		expect(chord.notes).to.eql([ 'A', 'C', 'E', 'G' ]);
 	});
@@ -16,7 +16,7 @@ describe('Chord Test Suite', () => {
 		const chord = new Chord('Am7', TEST);
 
 		expect(chord.root).to.eql('A');
-		expect(chord.quality).to.eql('m');
+		expect(chord.type).to.eql('m');
 		expect(chord.ext).to.eql([ '7' ]);
 		expect(chord.notes).to.eql([ 'A', 'C', 'E', 'G' ]);
 	});
@@ -25,7 +25,7 @@ describe('Chord Test Suite', () => {
 		const chord = new Chord('D#m6', TEST);
 
 		expect(chord.root).to.eql('D#');
-		expect(chord.quality).to.eql('m');
+		expect(chord.type).to.eql('m');
 		expect(chord.ext).to.eql([ '6' ]);
 		expect(chord.notes).to.eql([ 'D#', 'F#', 'A#', 'C' ]);
 	});
@@ -34,7 +34,7 @@ describe('Chord Test Suite', () => {
 		const chord = new Chord('Bbm9', TEST);
 
 		expect(chord.root).to.eql('Bb');
-		expect(chord.quality).to.eql('m');
+		expect(chord.type).to.eql('m');
 		expect(chord.ext).to.eql([ '9' ]);
 		expect(chord.notes).to.eql([ 'Bb', 'Db', 'F', 'Ab', 'C' ]);
 	});
@@ -43,7 +43,7 @@ describe('Chord Test Suite', () => {
 		const chord = new Chord('E13', TEST);
 
 		expect(chord.root).to.eql('E');
-		expect(chord.quality).to.eql('M');
+		expect(chord.type).to.eql('M');
 		expect(chord.ext).to.eql([ '13' ]);
 		expect(chord.notes).to.eql([ 'E', 'G#', 'B', 'D', 'F#', 'C#' ]);
 	});
@@ -52,7 +52,7 @@ describe('Chord Test Suite', () => {
 		const chord = new Chord('Gbm11', TEST);
 
 		expect(chord.root).to.eql('Gb');
-		expect(chord.quality).to.eql('m');
+		expect(chord.type).to.eql('m');
 		expect(chord.ext).to.eql([ '11' ]);
 		expect(chord.notes).to.eql([ 'Gb', 'A', 'Db', 'E', 'Ab', 'B' ]);
 	});

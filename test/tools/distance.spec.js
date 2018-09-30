@@ -3,10 +3,6 @@ import Note from '../../lib/core/Note';
 
 const { semitones, interval, transpose } = distance;
 
-// * [ ]  I can get the distance of 2 given notes in semitones: `semitones("C" ,"D") // => 2`
-// * [ ]  I can get the distance of 2 intervals: `interval("C", "G") // => "5P"`
-// * [ ]  I can **transpose** a note by an interval: `transpose("C", "P5") // => "G"`
-
 
 describe('A Distance test suite', () => {
 	describe('#semitones', () => {
