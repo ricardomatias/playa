@@ -26,14 +26,14 @@ describe('Note Test Suite', () => {
 	it('should set with MIDI', () => {
 		const note = new Note('C', 60);
 
-		expect(note.n).to.eql('C');
+		expect(note.n).to.eql('C4');
 		expect(note.m).to.eql(60);
 	});
 
 	it('should get octave with MIDI', () => {
 		const note = new Note('Gb', 102);
 
-		expect(note.noct).to.eql('Gb7');
+		expect(note.n).to.eql('Gb7');
 	});
 
 	it('should get enharmonic with MIDI', () => {

@@ -5,12 +5,16 @@
 		]
 	},
 	"compilerOptions": {
-		"target": "ES6",
-		"module": "es6",
 		"baseUrl": "./",
 		"paths": {
 			"playa": [
-				"./lib/index.js"
+				"./lib/index.js",
+			],
+			"playa/core": [
+				"./lib/core/index.js"
+			],
+			"playa/tools": [
+				"./lib/tools/index.js"
 			]
 		}
 	},
@@ -20,7 +24,7 @@
 		"**/typings/*",
 		"**/.nyc_output/*",
 		"**/coverage/*",
-		"node_modules",
-		"**/node_modules/*"
+		"**/node_modules/*",
+		"src/vendor/*"
 	]
 }

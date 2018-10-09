@@ -1,7 +1,0 @@
-{
-  "name": "PLAYA",
-  "dependencies": {},
-  "globalDependencies": {
-    "tone": "registry:global/tone#1.0.0+20160211003958"
-  }
-}

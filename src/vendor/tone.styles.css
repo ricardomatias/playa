@@ -1,0 +1,175 @@
+#content {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  margin-bottom: 15px; }
+  #content #Title {
+    height: 23px;
+    line-height: 23px;
+    font-size: 1.2em;
+    color: white;
+    width: calc(100% - 15px);
+    padding-left: 15px;
+    background-color: black; }
+  #content #Explanation {
+    position: relative;
+    padding: 15px;
+    color: black;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: 3px solid black;
+    border-top-width: 0px;
+    width: 100%; }
+    #content #Explanation img {
+      width: 80%;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block; }
+  #content a {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none; }
+  #content a:hover {
+    color: #1EDF3E; }
+  #content a:hover:active {
+    color: #ED33CF; }
+  #content #DragContainer {
+    margin-left: 3px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    width: calc(100% - 3px);
+    height: 400px;
+    position: relative;
+    color: white; }
+  #content .Slider.x {
+    position: relative;
+    height: 94px;
+    width: 100%;
+    margin-top: 3px; }
+    #content .Slider.x .Axis {
+      top: 50%;
+      margin-top: -1.5px; }
+  #content .Slider.y {
+    position: relative;
+    width: 94px;
+    height: 400px; }
+    #content .Slider.y .Axis {
+      left: 50%;
+      margin-left: -1.5px; }
+  #content .Dragger {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    background-color: black;
+    border-radius: 50%;
+    z-index: 1;
+    margin-top: -2px;
+    border: 2px solid white;
+    cursor: -webkit-grab; }
+    #content .Dragger #Name {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      text-align: center;
+      font-size: 12px;
+      line-height: 90px;
+      color: white; }
+  #content .Dragger:hover {
+    background-color: #3833ED;
+    color: white; }
+  #content .Dragger.is-pointer-down {
+    cursor: -webkit-grabbing;
+    background-color: #ED33CF; }
+    #content .Dragger.is-pointer-down #Name {
+      color: #1EDF3E; }
+  #content .Axis {
+    position: absolute;
+    background-color: black;
+    width: 3px;
+    height: 3px;
+    top: 3px;
+    left: 3px;
+    border-radius: 1.5px;
+    z-index: 0; }
+  #content #xAxis {
+    width: calc(100% - 6px); }
+  #content #yAxis {
+    height: calc(100% - 6px); }
+  #content .Button {
+    width: 100%;
+    margin-top: 3px;
+    height: 90px;
+    background-color: black;
+    line-height: 90px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer; }
+  #content .Button:hover {
+    color: white;
+    background-color: #3833ED; }
+  #content .Button:hover:active, #content #content .Button:hover:active.Active {
+    color: #22DBC0;
+    background-color: #ED33CF; }
+  #content .Button.Toggle.Active {
+    box-sizing: border-box;
+    border: 3px solid black;
+    line-height: 84px;
+    color: black;
+    background-color: white; }
+  #content .Transport {
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    line-height: 30px;
+    color: white;
+    border-radius: 10px;
+    margin-top: 3px;
+    position: relative; }
+    #content .Transport #Position {
+      width: 70px;
+      left: 50%;
+      margin-left: -35px;
+      text-align: left;
+      height: 100%;
+      position: absolute;
+      color: white; }
+
+.Keyboard {
+  height: 100px;
+  width: 100%;
+  position: relative; }
+
+code {
+  background-color: #ECECEC;
+  color: #333;
+  padding: 1px; }
+
+#Loading {
+  z-index: 100000;
+  position: absolute;
+  background-color: rgba(140, 140, 140, 0.5);
+  width: 100%;
+  height: calc(100% - 37.5px);
+  top: 37.5px;
+  left: 0px;
+  opacity: 1;
+  transition: opacity 0.4s; }
+  #Loading #Text {
+    color: white;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    height: 60px;
+    margin-top: -30px;
+    line-height: 60px;
+    font-size: 42px; }
+
+#Loading.Loaded {
+  pointer-events: none;
+  opacity: 0; }

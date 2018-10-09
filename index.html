@@ -5,9 +5,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>PLAYA</title>
+	<link rel="icon" type="image/png" sizes="174x174" href="./src/favicon.png">
+	<link rel="stylesheet" href="./src/vendor/tone.styles.css">
+	<link rel="stylesheet" href="https://tonejs.github.io/assets/css/interface.css">
+	<style>
+		#bpm {
+			width: 200px;
+		}
+	</style>
 </head>
 <body>
-	<button id="chord">CLICK</button>
+	<div id='content'>
+		<input type='checkbox' class='playToggle'>
+		<br>
+		<br>
+		bpm:
+		<input type='range' value='120' min='80' max='200' id='bpm'>
+		<br>
+		<br>
+		<button id="chord">CLICK</button>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cash/2.3.3/cash.min.js"></script>
+	<script src="https://tonejs.github.io/Logo/build/Waveform.js"></script>
+	<script src="./src/vendor/Interface.js"></script>
 	<script src="./src/index.js"></script>
 </body>
 </html>
