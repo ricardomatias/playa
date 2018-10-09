@@ -21,11 +21,17 @@
 		"playa/functional": "./lib/functional/index.js",
 		"Interface": "./src/vendor/Interface.js"
 	},
+	"husky": {
+		"hooks": {
+			"pre-push": "npm test"
+		}
+	},
 	"devDependencies": {
 		"chai": "^4.2.0",
 		"eslint": "^5.6.1",
 		"eslint-config-google": "^0.10.0",
 		"eslint-plugin-import": "^2.14.0",
+		"husky": "^1.1.1",
 		"mocha": "^5.2.0",
 		"nyc": "^13.0.1"
 	},
