@@ -1,94 +1,110 @@
-/* eslint new-cap: 0 */
+/* eslint new-cap: 0, no-console: 0 */
 
 import Tone from 'tone';
+import WebMidi from 'webmidi';
 import Interface from 'Interface';
+import { motif, chord } from 'playa/functional';
+import { motifs, ring } from 'playa/tools';
+
+const { normal } = motifs;
 
 window.Tone = Tone;
 
 Tone.Transport.bpm.value = 102;
-Tone.Transport.timeSignature = [ 3, 4 ];
+Tone.Transport.timeSignature = [ 4, 4 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-	Interface.Transport();
-});
-
-// bpm slider
-document.querySelector('#bpm').addEventListener('input', function(e) {
-	Tone.Transport.bpm.value = parseInt(e.target.value);
-});
-
-// Transport
-document.querySelector('.playToggle').addEventListener('change', function(e) {
-	if (e.target.checked) {
-		Tone.Transport.start('+0.1');
-	} else {
-		Tone.Transport.stop();
-	}
-});
-
-let synthB = new Tone.Synth({
-	oscillator: {
-		type: 'triangle8',
-	},
-	envelope: {
-		attack: 2,
-		decay: 1,
-		sustain: 0.4,
-		release: 4,
-	},
+let drumCompress = new Tone.Compressor({
+	'threshold': -10,
+	'ratio': 4,
+	'attack': 0.3,
+	'release': 0.1,
 }).toMaster();
 
-/**
- *
- *
- * @param {*} time
- */
-function triggerSynth(time) {
-	// the time is the sample-accurate time of the event
-	synthB.triggerAttackRelease('C3', '8n', time);
-}
+let kick = new Tone.MembraneSynth({
+	'pitchDecay': 0.01,
+	'octaves': 6,
+	'oscillator': {
+		'type': 'square4',
+	},
+	'envelope': {
+		'attack': 0.001,
+		'decay': 0.2,
+		'sustain': 0,
+	},
+}).connect(drumCompress);
 
-Tone.Transport.schedule(triggerSynth, 0);
+let kickPart = new Tone.Part(function(time, event) {
+	kick.triggerAttack('C1', time);
+}, [ 0, 'C1' ]);
 
-// set the transport to repeat
-let synth = new Tone.Synth().toMaster();
+Tone.Master.volume.rampTo(2, 0);
 
-// pass in an array of events
-let part = new Tone.Part(function(time, event) {
-	// the events will be given to the callback with the time they occur
-	synth.triggerAttackRelease(event.note, event.dur, time);
-}, [ { time: 0, note: 'C4', dur: '4n' },
-	{ time: '4n + 8n', note: 'E4', dur: '8n' },
-	{ time: '2n', note: 'G4', dur: '16n' },
-	{ time: '2n + 8t', note: 'B4', dur: '4n' } ]);
+kickPart.start(0);
 
-// start the part at the beginning of the Transport's timeline
-part.start(0);
+kickPart.loop = true;
+kickPart.loopEnd = '4n';
 
-// loop the part 3 times
+WebMidi.enable(function(err) {
+	console.log(WebMidi.inputs);
+	console.log(WebMidi.outputs);
 
-// /**
-//  *  PIANO
-//  */
-// let piano = new Tone.PolySynth(4, Tone.Synth, {
-// 	'volume': -8,
-// 	'oscillator': {
-// 		'partials': [ 1, 2, 1 ],
-// 	},
-// 	'portamento': 0.05,
-// }).toMaster();
+	let clarett = WebMidi.getOutputByName('Clarett 4Pre USB');
 
-// let c = chord('C');
-// let d = chord('D6');
-// let g = chord('G7', [ 3 ]);
+	document.addEventListener('DOMContentLoaded', () => {
+		Interface.Transport();
+	});
 
-// let pianoPart = new Tone.Part(function(time, chord) {
-// 	piano.triggerAttackRelease(chord, '8n', time);
-// }, [
-// 	[ '0:0:0', c.str ], [ '0:1', c.str ], [ '0:1:3', d.str ],
-// 	[ '0:2:2', c.str ], [ '0:3', c.str ], [ '0:3:2', g.str ] ]).start();
+	// bpm slider
+	document.querySelector('#bpm').addEventListener('input', function(e) {
+		Tone.Transport.bpm.value = parseInt(e.target.value);
+	});
 
-// pianoPart.loop = true;
-// pianoPart.loopEnd = '1m';
-// pianoPart.humanize = true;
+	// Transport
+	document.querySelector('.playToggle').addEventListener('change', function(e) {
+		if (e.target.checked) {
+			Tone.Transport.start('+0.1');
+		} else {
+			Tone.Transport.stop();
+			clarett.stopNote('all');
+		}
+	});
+
+	let m1 = ring(motif(chord('Am').notes, '1:0:0', normal));
+	console.log(JSON.stringify(m1, null, '\t'));
+
+	// pass in an array of events
+	let part = new Tone.Part(function(time, event) {
+		const prevEvent = m1[m1.indexOf(event) - 1];
+
+		clarett.stopNote(prevEvent.note);
+		clarett.playNote(event.note);
+		// the events will be given to the callback with the time they occur
+		// synth.triggerAttackRelease(event.note, event.dur, time, 0.7);
+	}, m1);
+
+	let m2 = ring(motif(chord('Dm', [ 3, 2 ]).notes, '0:3:0', normal));
+
+	console.log(JSON.stringify(m2, null, '\t'));
+
+	let part2 = new Tone.Part(function(time, event) {
+		// the events will be given to the callback with the time they occur
+		const prevEvent = m2[m1.indexOf(event) - 1];
+
+		clarett.stopNote(prevEvent.note);
+		clarett.playNote(event.note);
+		// synthB.triggerAttackRelease(event.note, event.dur, time, 0.5);
+	}, m2);
+
+	part.start(0);
+
+	part.loop = true;
+	part.loopEnd = '1m';
+	part.humanize = true;
+
+	part2.start('0:2:0');
+
+	part2.loop = true;
+	part2.loopEnd = '2n';
+	part2.humanize = true;
+});
 

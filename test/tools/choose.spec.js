@@ -1,11 +1,16 @@
 import { choose } from '../../lib/tools';
+import { seedRandom } from '../../lib/tools/random';
 
 const AM7 = [ 'A', 'C', 'E', 'G' ];
 
 describe('A Choose test suite', () => {
-	it('should return an element', () => {
-		for (let index = 0; index < 100; index++) {
-			expect(choose(AM7)).to.not.be.empty;
-		}
+	before(() => seedRandom('CHOOSE'));
+
+	it('should return a random element', () => {
+		expect(choose(AM7)).to.eql('E');
+		expect(choose(AM7)).to.eql('C');
+		expect(choose(AM7)).to.eql('E');
+		expect(choose(AM7)).to.eql('E');
+		expect(choose(AM7)).to.eql('G');
 	});
 });

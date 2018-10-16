@@ -15,6 +15,9 @@
 			],
 			"playa/tools": [
 				"./lib/tools/index.js"
+			],
+			"playa/functional": [
+				"./lib/functional/index.js"
 			]
 		}
 	},

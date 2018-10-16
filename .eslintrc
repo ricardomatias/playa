@@ -12,13 +12,14 @@
 		"es6": true
 	},
 	"parserOptions": {
-		"ecmaVersion": 6,
+		"ecmaVersion": 2016,
 		"sourceType": "module"
 	},
 	"globals": {
 		"expect": true
 	},
 	"rules": {
+		"require-jsdoc": 0,
 		"indent": [
 			2,
 			"tab"

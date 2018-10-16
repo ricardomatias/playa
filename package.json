@@ -5,9 +5,10 @@
 	"main": "index.js",
 	"scripts": {
 		"mocha": "mocha './test/**/*spec.js'",
-		"test": "npm run lint && npm run mocha",
+		"test": "npm run check:comments && npm run lint && npm run mocha",
 		"test:watch": "npm run mocha -- --watch",
 		"test:coverage": "nyc --reporter=html --reporter=text-summary npm test",
+		"check:comments": "leasot -x lib/**/*.js",
 		"lint": "eslint lib src test",
 		"build": "rm -rf ./dist && parcel build ./index.html",
 		"start": "parcel ./index.html"
@@ -32,13 +33,17 @@
 		"eslint-config-google": "^0.10.0",
 		"eslint-plugin-import": "^2.14.0",
 		"husky": "^1.1.1",
+		"leasot": "^7.0.0-rc.5",
 		"mocha": "^5.2.0",
 		"nyc": "^13.0.1"
 	},
 	"dependencies": {
+		"alea": "^1.0.0",
 		"esm": "^3.0.84",
 		"fast-memoize": "^2.5.1",
 		"parcel-bundler": "^1.10.1",
-		"tone": "^0.12.80"
+		"simplex-noise": "^2.4.0",
+		"tone": "^0.12.80",
+		"webmidi": "^2.2.0"
 	}
 }
