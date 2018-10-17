@@ -42,6 +42,7 @@
 		"esm": "^3.0.84",
 		"fast-memoize": "^2.5.1",
 		"parcel-bundler": "^1.10.1",
+		"rambda": "^1.2.4",
 		"simplex-noise": "^2.4.0",
 		"tone": "^0.12.80",
 		"webmidi": "^2.2.0"
