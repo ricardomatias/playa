@@ -8,8 +8,6 @@ import { motifs, ring } from 'playa/tools';
 
 const { normal } = motifs;
 
-window.Tone = Tone;
-
 Tone.Transport.bpm.value = 102;
 Tone.Transport.timeSignature = [ 4, 4 ];
 

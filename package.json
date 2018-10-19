@@ -10,24 +10,20 @@
 		"test:coverage": "nyc --reporter=html --reporter=text-summary npm test",
 		"check:comments": "leasot -x lib/**/*.js",
 		"lint": "eslint lib src test",
-		"build": "rm -rf ./dist && parcel build ./index.html",
-		"start": "parcel ./index.html"
+		"build": "rm -rf ./dist && webpack --mode production",
+		"start": "webpack-dev-server --open --mode development"
 	},
 	"author": "Ricardo Matias<ricardo.matias0@gmail.com>",
 	"license": "MIT",
-	"alias": {
-		"playa": "./lib/index.js",
-		"playa/core": "./lib/core/index.js",
-		"playa/tools": "./lib/tools/index.js",
-		"playa/functional": "./lib/functional/index.js",
-		"Interface": "./src/vendor/Interface.js"
-	},
 	"husky": {
 		"hooks": {
 			"pre-push": "npm test"
 		}
 	},
 	"devDependencies": {
+		"@babel/core": "^7.1.2",
+		"@babel/preset-env": "^7.1.0",
+		"babel-loader": "^8.0.4",
 		"chai": "^4.2.0",
 		"eslint": "^5.6.1",
 		"eslint-config-google": "^0.10.0",
@@ -35,16 +31,21 @@
 		"husky": "^1.1.1",
 		"leasot": "^7.0.0-rc.5",
 		"mocha": "^5.2.0",
-		"nyc": "^13.0.1"
+		"nyc": "^13.0.1",
+		"webpack": "^4.21.0",
+		"webpack-bundle-analyzer": "^3.0.3",
+		"webpack-cli": "^3.1.2",
+		"webpack-dev-server": "^3.1.9"
 	},
 	"dependencies": {
 		"alea": "^1.0.0",
+		"clean-webpack-plugin": "^0.1.19",
 		"esm": "^3.0.84",
 		"fast-memoize": "^2.5.1",
-		"parcel-bundler": "^1.10.1",
+		"html-webpack-plugin": "^3.2.0",
 		"rambda": "^1.2.4",
 		"simplex-noise": "^2.4.0",
-		"tone": "^0.12.80",
+		"tone": "^13.3.10",
 		"webmidi": "^2.2.0"
 	}
 }
