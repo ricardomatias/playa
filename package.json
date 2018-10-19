@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"mocha": "mocha './test/**/*spec.js'",
-		"test": "npm run check:comments && npm run lint && npm run mocha",
+		"test": "npm run lint && npm run mocha && npm run check:comments",
 		"test:watch": "npm run mocha -- --watch",
 		"test:coverage": "nyc --reporter=html --reporter=text-summary npm test",
 		"check:comments": "leasot -x lib/**/*.js",
