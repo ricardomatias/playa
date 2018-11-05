@@ -1,8 +1,9 @@
 {
-	"name": "PLAYA",
+	"name": "@ricardomatias/playa",
 	"version": "0.0.1",
 	"description": "be a playa",
 	"main": "index.js",
+	"module": "index.js",
 	"scripts": {
 		"mocha": "mocha './test/**/*spec.js'",
 		"test": "npm run lint && npm run mocha && npm run check:comments",
@@ -10,8 +11,9 @@
 		"test:coverage": "nyc --reporter=html --reporter=text-summary npm test",
 		"check:comments": "leasot -x lib/**/*.js",
 		"lint": "eslint lib src test",
-		"build": "rm -rf ./dist && webpack --mode production",
-		"start": "webpack-dev-server --open --mode development"
+		"build": "rm -rf ./build && rollup -c rollup.config.js",
+		"start": "webpack-dev-server --config webpack.config.dev.js --open",
+		"prepare": "npm run build"
 	},
 	"author": "Ricardo Matias<ricardo.matias0@gmail.com>",
 	"license": "MIT",
@@ -20,11 +22,15 @@
 			"pre-push": "npm test"
 		}
 	},
+	"files": [
+		"build"
+	],
 	"devDependencies": {
 		"@babel/core": "^7.1.2",
 		"@babel/preset-env": "^7.1.0",
 		"babel-loader": "^8.0.4",
 		"chai": "^4.2.0",
+		"css-loader": "^1.0.0",
 		"eslint": "^5.6.1",
 		"eslint-config-google": "^0.10.0",
 		"eslint-plugin-import": "^2.14.0",
@@ -32,6 +38,13 @@
 		"leasot": "^7.0.0-rc.5",
 		"mocha": "^5.2.0",
 		"nyc": "^13.0.1",
+		"rollup-plugin-babel": "^4.0.3",
+		"rollup-plugin-cleanup": "^3.0.0",
+		"rollup-plugin-clear": "^2.0.7",
+		"rollup-plugin-commonjs": "^9.2.0",
+		"rollup-plugin-node-resolve": "^3.4.0",
+		"style-loader": "^0.23.1",
+		"uglifyjs-webpack-plugin": "^2.0.1",
 		"webpack": "^4.21.0",
 		"webpack-bundle-analyzer": "^3.0.3",
 		"webpack-cli": "^3.1.2",
@@ -39,11 +52,15 @@
 	},
 	"dependencies": {
 		"alea": "^1.0.0",
+		"cheerio": "^1.0.0-rc.2",
 		"clean-webpack-plugin": "^0.1.19",
+		"codemirror": "^5.40.2",
 		"esm": "^3.0.84",
 		"fast-memoize": "^2.5.1",
 		"html-webpack-plugin": "^3.2.0",
 		"rambda": "^1.2.4",
+		"rollup": "^0.66.6",
+		"rollup-plugin-terser": "^3.0.0",
 		"simplex-noise": "^2.4.0",
 		"tone": "^13.3.10",
 		"webmidi": "^2.2.0"

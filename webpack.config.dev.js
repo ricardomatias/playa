@@ -10,16 +10,17 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = {
 	mode: 'development',
 	entry: {
-		main: path.resolve(__dirname, 'index.js'),
+		'main': path.resolve(__dirname, 'src/index.js'),
 	},
 	output: {
 		path: path.join(__dirname, 'dist'),
-		filename: '[name].[contenthash].js',
+		filename: '[name].js',
 	},
 	resolve: {
 		alias: {
 			'playa': path.resolve(__dirname, 'lib'),
 			'Interface': path.resolve(__dirname, 'src/vendor/Interface.js'),
+			'Waveform': path.resolve(__dirname, 'src/vendor/Waveform.js'),
 		},
 	},
 	target: 'web',
@@ -38,6 +39,10 @@ module.exports = {
 					compact: true, // what is this for?
 					presets: [ '@babel/preset-env' ],
 				},
+			},
+			{
+				test: /\.css$/,
+				use: [ 'style-loader', 'css-loader' ],
 			},
 		],
 	},

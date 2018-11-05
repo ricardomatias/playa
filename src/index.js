@@ -1,10 +1,15 @@
 /* eslint new-cap: 0, no-console: 0 */
 
-import Tone from 'tone';
+import Tone from 'tone/Tone';
 import WebMidi from 'webmidi';
 import Interface from 'Interface';
+import Waveform from 'Waveform';
 import { motif, chord } from 'playa/functional';
 import { motifs, ring } from 'playa/tools';
+
+window.Tone = Tone;
+
+Waveform(document.querySelector('#tone-container'));
 
 const { normal } = motifs;
 
@@ -42,15 +47,21 @@ kickPart.start(0);
 kickPart.loop = true;
 kickPart.loopEnd = '4n';
 
+document.addEventListener('DOMContentLoaded', () => {
+	console.log('FOOOOO');
+	Interface.Transport();
+});
+
+
 WebMidi.enable(function(err) {
+	if (err) {
+		return;
+	}
+
 	console.log(WebMidi.inputs);
 	console.log(WebMidi.outputs);
 
 	let clarett = WebMidi.getOutputByName('Clarett 4Pre USB');
-
-	document.addEventListener('DOMContentLoaded', () => {
-		Interface.Transport();
-	});
 
 	// bpm slider
 	document.querySelector('#bpm').addEventListener('input', function(e) {
@@ -66,6 +77,10 @@ WebMidi.enable(function(err) {
 			clarett.stopNote('all');
 		}
 	});
+
+	if (!clarett) {
+		return;
+	}
 
 	let m1 = ring(motif(chord('Am').notes, '1:0:0', normal));
 	console.log(JSON.stringify(m1, null, '\t'));
