@@ -10,7 +10,7 @@
 		"test:watch": "npm run mocha -- --watch",
 		"test:coverage": "nyc --reporter=html --reporter=text-summary npm test",
 		"check:comments": "leasot -x lib/**/*.js",
-		"lint": "eslint lib src test",
+		"lint": "eslint lib test",
 		"build": "rm -rf ./build && rollup -c rollup.config.js",
 		"start": "webpack-dev-server --config webpack.config.dev.js --open",
 		"prepare": "npm run build"
@@ -58,7 +58,7 @@
 		"esm": "^3.0.84",
 		"fast-memoize": "^2.5.1",
 		"html-webpack-plugin": "^3.2.0",
-		"rambda": "^1.2.4",
+		"ramda": "^0.25.0",
 		"rollup": "^0.66.6",
 		"rollup-plugin-terser": "^3.0.0",
 		"simplex-noise": "^2.4.0",

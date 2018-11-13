@@ -3,7 +3,7 @@ import { interval } from '../../lib/tools';
 const { add, subtract, semitones, invert } = interval;
 
 
-describe('A Distance test suite', () => {
+describe('An Interval test suite', () => {
 	describe('#get', () => {
 		it('should return interval when given semitones', () => {
 			const result = interval(4);

@@ -1,10 +1,9 @@
 import Scale from '../../lib/core/Scale';
 import Chord from '../../lib/core/Chord';
-import { seedRandom } from '../../lib/tools/random';
 import assignOctaves from '../../lib/utils/assignOctaves';
 import motif, { generateRhythm } from '../../lib/functional/motif';
-import { motifs } from '../../lib/tools';
-import TICKS from '../../lib/functional/ticks';
+import { motifs, seedRandom } from '../../lib/tools';
+import { TICKS } from '../../lib/constants';
 
 const { normal } = motifs;
 

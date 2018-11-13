@@ -19,6 +19,7 @@
 		"expect": true
 	},
 	"rules": {
+		"no-console": "off",
 		"require-jsdoc": 0,
 		"indent": [
 			2,
@@ -31,7 +32,7 @@
 				"code": 120
 			}
 		],
-		"import/no-unresolved": "off",
+		"import/no-unresolved": "warn",
 		"no-multi-assign": 0,
 		"no-warning-comments": 0,
 		"object-curly-spacing": [

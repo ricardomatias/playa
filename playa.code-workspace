@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "/Users/feral/Creative-Coding/playa-lab"
+			"path": "."
 		},
 		{
-			"path": "."
+			"path": "/Users/feral/Creative-Coding/playa-lab"
 		}
 	],
 	"settings": {}
