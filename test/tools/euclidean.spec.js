@@ -5,7 +5,7 @@ describe('An Euclidean test suite', () => {
 	describe('create', () => {
 		it('should create a simple 4/4', () => {
 			// when
-			const pattern = euclidean.create(2, 2);
+			const pattern = euclidean.create(4, 2);
 
 			// then
 			expect(pattern).to.eql([ 'x', '-', 'x', '-' ]);
@@ -13,7 +13,7 @@ describe('An Euclidean test suite', () => {
 
 		it('should create 8 -> 5, 3', () => {
 			// when
-			const pattern = euclidean.create(5, 3);
+			const pattern = euclidean.create(8, 3);
 
 			// then
 			expect(pattern).to.eql([
@@ -24,17 +24,17 @@ describe('An Euclidean test suite', () => {
 
 		it('should create 7', () => {
 			// when
-			const pattern = euclidean.create(5, 2);
+			const pattern = euclidean.create(7, 2);
 
 			// then
 			expect(pattern).to.eql([
-				'x', '-', '-', 'x', '-', '-', '-',
+				'x', '-', '-', '-', 'x', '-', '-',
 			]);
 		});
 
 		it('should create 9 -> 5, 4', () => {
 			// when
-			const pattern = euclidean.create(5, 4);
+			const pattern = euclidean.create(9, 4);
 
 			// then
 			expect(pattern).to.eql([
@@ -44,7 +44,7 @@ describe('An Euclidean test suite', () => {
 
 		it('should create 7 -> 4, 3', () => {
 			// when
-			const pattern = euclidean.create(4, 3);
+			const pattern = euclidean.create(7, 3);
 
 			// then
 			expect(pattern).to.eql([
@@ -52,14 +52,24 @@ describe('An Euclidean test suite', () => {
 			]);
 		});
 
-		it('should create 16', () => {
+		it('should create 16 : 6', () => {
 			// when
-			const pattern = euclidean.create(10, 6);
+			const pattern = euclidean.create(16, 6);
+
+			expect(pattern).to.eql([
+				'x', '-', '-', 'x', '-', '-', 'x', '-',
+				'x', '-', '-', 'x', '-', '-', 'x', '-',
+			]);
+		});
+
+		it('should create 16 : 4', () => {
+			// when
+			const pattern = euclidean.create(16, 4);
 
 			// then
 			expect(pattern).to.eql([
-				'x', '-', '-', 'x', '-', 'x', '-', '-',
-				'x', '-', '-', 'x', '-', 'x', '-', '-',
+				'x', '-', '-', '-', 'x', '-', '-', '-',
+				'x', '-', '-', '-', 'x', '-', '-', '-',
 			]);
 		});
 	});

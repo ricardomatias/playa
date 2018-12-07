@@ -36,10 +36,40 @@ describe('Scale Test Suite', () => {
 			expect(scale.notes).to.eql([ 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb', 'C' ]);
 		});
 
+		it('should create scale - locrian', () => {
+			const scale = new Scale('A', Scale.LOCRIAN, TYPE);
+
+			expect(scale.notes).to.eql([ 'A', 'Bb', 'C', 'D', 'Eb', 'F', 'G' ]);
+		});
+
+		it('should create scale - phrygian', () => {
+			const scale = new Scale('G', Scale.PHRYGIAN, TYPE);
+
+			expect(scale.notes).to.eql([ 'G', 'Ab', 'Bb', 'C', 'D', 'Eb', 'F' ]);
+		});
+
 		it('should create scale - pentatonic', () => {
 			const scale = new Scale('C', Scale.MINOR_PENTATONIC, TYPE);
 
 			expect(scale.notes).to.eql([ 'C', 'D#', 'F', 'G', 'A#' ]);
+		});
+
+		it('should create scale - MELODIC_MINOR', () => {
+			const scale = new Scale('C', Scale.MELODIC_MINOR, TYPE);
+
+			expect(scale.notes).to.eql([ 'C', 'D', 'Eb', 'F', 'G', 'A', 'B' ]);
+		});
+
+		it('should create scale - ALTERED', () => {
+			const scale = new Scale('F#', Scale.ALTERED, TYPE);
+
+			expect(scale.notes).to.eql([ 'F#', 'G', 'A', 'A#', 'C', 'D', 'E' ]);
+		});
+
+		it('should create scale - LYDIAN', () => {
+			const scale = new Scale('B', Scale.LYDIAN, TYPE);
+
+			expect(scale.notes).to.eql([ 'B', 'C#', 'D#', 'F', 'F#', 'G#', 'A#' ]);
 		});
 	});
 });

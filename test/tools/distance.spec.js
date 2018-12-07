@@ -1,6 +1,6 @@
 import { distance } from '../../lib/tools';
 
-const { semitones, interval, transpose } = distance;
+const { semitones, interval, transposeUp, transposeDown } = distance;
 
 
 describe('A Distance test suite', () => {
@@ -91,41 +91,79 @@ describe('A Distance test suite', () => {
 		});
 	});
 
-	describe('#transpose', () => {
+	describe('#transposeUp', () => {
 		it('should return the transposed of: C, 2M', () => {
-			const dist = transpose('C', '2M');
+			const dist = transposeUp('C', '2M');
 
 			expect(dist).to.equal('D');
 		});
 
 		it('should return the transposed of: Db, 4P', () => {
-			const dist = transpose('Db', '4P');
+			const dist = transposeUp('Db', '4P');
 
 			expect(dist).to.equal('Gb');
 		});
 
 		it('should return the transposed of: F#, A#', () => {
-			const dist = transpose('F#', '3M');
+			const dist = transposeUp('F#', '3M');
 
 			expect(dist).to.equal('A#');
 		});
 
 		it('should return the transposed of: Gb, Db', () => {
-			const dist = transpose('Gb', '5P');
+			const dist = transposeUp('Gb', '5P');
 
 			expect(dist).to.equal('Db');
 		});
 
 		it('should return the transposed of: B, C', () => {
-			const dist = transpose('B', '2m');
+			const dist = transposeUp('B', '2m');
 
 			expect(dist).to.equal('C');
 		});
 
 		it('should return the transposed of: Gb, E', () => {
-			const dist = transpose('Gb', '7m');
+			const dist = transposeUp('Gb', '7m');
 
 			expect(dist).to.equal('E');
+		});
+	});
+
+	describe('#transposeDown', () => {
+		it('should return the transposed of: C, 2M', () => {
+			const dist = transposeDown('C', '2M');
+
+			expect(dist).to.equal('Bb');
+		});
+
+		it('should return the transposed of: Db, 4P', () => {
+			const dist = transposeDown('Db', '4P');
+
+			expect(dist).to.equal('Ab');
+		});
+
+		it('should return the transposed of: F#, 3M', () => {
+			const dist = transposeDown('F#', '3M');
+
+			expect(dist).to.equal('D');
+		});
+
+		it('should return the transposed of: Gb, 5P', () => {
+			const dist = transposeDown('Gb', '5P');
+
+			expect(dist).to.equal('B');
+		});
+
+		it('should return the transposed of: B, 2m', () => {
+			const dist = transposeDown('B', '2m');
+
+			expect(dist).to.equal('A#');
+		});
+
+		it('should return the transposed of: Gb, 7m', () => {
+			const dist = transposeDown('Gb', '7m');
+
+			expect(dist).to.equal('Ab');
 		});
 	});
 });

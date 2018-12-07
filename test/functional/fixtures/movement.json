@@ -1,0 +1,94 @@
+{
+	"basic": {
+		"timeline": [
+			{
+				"quarter": 1,
+				"time": "0i",
+				"dur": "576i",
+				"key": {
+					"root": "B",
+					"scale": "1P 2M 3m 4P 5P 6M 7m"
+				}
+			},
+			{
+				"quarter": 4,
+				"time": "576i",
+				"dur": "576i",
+				"key": {
+					"root": "D",
+					"scale": "1P 2M 3M 4A 5P 6M 7M"
+				}
+			},
+			{
+				"quarter": 7,
+				"time": "1152i",
+				"dur": "384i",
+				"key": {
+					"root": "E",
+					"scale": "1P 2M 3M 4P 5P 6M 7m"
+				}
+			},
+			{
+				"quarter": 9,
+				"time": "1536i",
+				"dur": "576i",
+				"key": {
+					"root": "F#",
+					"scale": "1P 2M 3M 4P 5P 6M 7m"
+				}
+			},
+			{
+				"quarter": 12,
+				"time": "2112i",
+				"dur": "576i",
+				"key": {
+					"root": "E",
+					"scale": "1P 2M 3M 4P 5P 6M 7m"
+				}
+			},
+			{
+				"quarter": 15,
+				"time": "2688i",
+				"dur": "192i",
+				"key": {
+					"root": "F#",
+					"scale": "1P 2M 3m 4P 5P 6m 7m"
+				}
+			}
+		],
+		"events": [
+			{
+				"key": "A",
+				"type": "modulateMode",
+				"scaleName": "DORIAN"
+			},
+			{
+				"key": "A",
+				"type": "modulateMode",
+				"scaleName": "LYDIAN"
+			},
+			{
+				"key": "A",
+				"type": "modulateMode",
+				"scaleName": "MIXOLYDIAN"
+			},
+			{
+				"key": "F#",
+				"interval": "7m",
+				"type": "modulate",
+				"scaleName": "MIXOLYDIAN"
+			},
+			{
+				"key": "E",
+				"interval": "2M",
+				"type": "modulate",
+				"scaleName": "MIXOLYDIAN"
+			},
+			{
+				"key": "E",
+				"type": "modulateMode",
+				"scaleName": "AEOLIAN"
+			}
+		]
+	}
+}

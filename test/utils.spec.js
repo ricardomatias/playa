@@ -1,4 +1,5 @@
 import assignOctaves from '../lib/utils/assignOctaves';
+import whilst from '../lib/utils/whilst';
 import Scale from '../lib/core/Scale';
 import Chord from '../lib/core/Chord';
 import NoteType from '../lib/core/types';
@@ -78,6 +79,33 @@ describe('A Utils Test Suite', () => {
 			expect(octaves[half].n).to.eql('C6');
 			expect(octaves[octaves.length - 1].n).to.eql('A7');
 			expect(octaves).to.have.length(12);
+		});
+	});
+
+	describe('#whilst', () => {
+		it('should work as a simple for loop', () => {
+			let idx = 0;
+
+			whilst(() => {
+				idx++;
+			}, () => (idx < 100));
+
+			expect(idx).to.eql(100);
+		});
+
+		it('should work as a normal while', () => {
+			let idx = 0;
+			let exists = true;
+
+			whilst(() => {
+				if (idx > 500) {
+					exists = false;
+				}
+
+				idx++;
+			}, () => (exists));
+
+			expect(exists).to.be.false;
 		});
 	});
 });

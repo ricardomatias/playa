@@ -8,9 +8,9 @@ describe('A Shuffle test suite', () => {
 		seedRandom('test');
 
 		for (let index = 0; index < 25; index++) {
-			shuffle(AM7);
+			const shuffledAM7 = shuffle(AM7);
 
-			expect(AM7).to.not.eql([ 'A', 'C', 'E', 'G', 'B', 'Eb' ]);
+			expect(shuffledAM7).to.not.eql([ 'A', 'C', 'E', 'G', 'B', 'Eb' ]);
 		}
 	});
 });
