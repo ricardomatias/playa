@@ -59,33 +59,39 @@
 		"events": [
 			{
 				"key": "A",
+				"position": "II",
 				"type": "modulateMode",
 				"scaleName": "DORIAN"
 			},
 			{
 				"key": "A",
+				"position": "IV",
 				"type": "modulateMode",
 				"scaleName": "LYDIAN"
 			},
 			{
 				"key": "A",
+				"position": "V",
 				"type": "modulateMode",
 				"scaleName": "MIXOLYDIAN"
 			},
 			{
 				"key": "F#",
 				"interval": "7m",
+				"position": "V",
 				"type": "modulate",
 				"scaleName": "MIXOLYDIAN"
 			},
 			{
 				"key": "E",
 				"interval": "2M",
+				"position": "V",
 				"type": "modulate",
 				"scaleName": "MIXOLYDIAN"
 			},
 			{
 				"key": "E",
+				"position": "VI",
 				"type": "modulateMode",
 				"scaleName": "AEOLIAN"
 			}

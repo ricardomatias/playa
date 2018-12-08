@@ -152,6 +152,8 @@ describe('Key Test Suite', () => {
 				'PHRYGIAN',
 				'LYDIAN',
 			]);
+
+			expect(key.modePosition).to.eql('V');
 		});
 
 		it('should modulate to another mode - IONIAN', () => {
@@ -161,6 +163,8 @@ describe('Key Test Suite', () => {
 			expect(Key.NAMES[key.type]).to.eql('IONIAN');
 			expect(key.chord.name).to.eql('AbM7');
 			expect(key.notes).to.eql([ 'Ab', 'Bb', 'C', 'Db', 'Eb', 'F', 'G' ]);
+
+			expect(key.modePosition).to.eql('I');
 		});
 
 		it('should modulate to another mode', () => {
@@ -170,6 +174,8 @@ describe('Key Test Suite', () => {
 			expect(Key.NAMES[key.type]).to.eql('AEOLIAN');
 			expect(key.chord.name).to.eql('Fm7');
 			expect(key.notes).to.eql([ 'F', 'G', 'Ab', 'Bb', 'C', 'Db', 'Eb' ]);
+
+			expect(key.modePosition).to.eql('VI');
 		});
 	});
 });
