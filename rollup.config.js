@@ -43,8 +43,11 @@ const publicFiles = getFiles(join(__dirname, 'lib'));
 
 
 const baseConfig = {
-	input: publicFiles,
-	experimentalCodeSplitting: true,
+	input: 'index.js',
+	output: {
+		file: 'build/playa.js',
+		format: 'cjs'
+	},
 	external: [
 		'tone',
 	],
@@ -59,12 +62,13 @@ const baseConfig = {
 			output: {
 				comments: 'all',
 			},
+
 		}),
 	],
 };
 
 // const outputCJS = {
-// 	dir: 'build/cjs',
+// 	dir: 'build',
 // 	entryFileNames: '[name].js',
 // 	exports: 'named',
 // 	format: 'cjs',
@@ -72,16 +76,16 @@ const baseConfig = {
 // 	sourcemap: true,
 // };
 
-const outputESM = {
-	dir: 'build',
-	entryFileNames: '[name].js',
-	exports: 'named',
-	format: 'esm',
-	name: 'playa',
-	sourcemap: true,
-};
+// const outputESM = {
+// 	dir: 'build',
+// 	entryFileNames: '[name].js',
+// 	exports: 'named',
+// 	format: 'esm',
+// 	name: 'playa',
+// 	sourcemap: true,
+// };
 
 export default [
+	Object.assign({}, baseConfig),
 	// Object.assign({}, baseConfig, { output: outputCJS }),
-	Object.assign({}, baseConfig, { output: outputESM }),
 ];

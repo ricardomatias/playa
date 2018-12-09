@@ -2,7 +2,7 @@
 	"name": "@ricardomatias/playa",
 	"version": "0.0.1",
 	"description": "be a playa",
-	"main": "index.js",
+	"main": "build/playa.js",
 	"module": "index.js",
 	"scripts": {
 		"mocha": "mocha './test/**/*spec.js'",

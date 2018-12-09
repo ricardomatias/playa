@@ -57,9 +57,21 @@ describe('A Utils Test Suite', () => {
 			expect(octaves).to.have.length(6);
 		});
 
+		it('should map - major with flats', () => {
+			const scale = new Scale('F', Scale.MAJOR, TYPE);
+			const octaves = assignOctaves(scale.notes, [ -1 ], { type: Scale, hasFlats: true });
+
+			const half = Math.round(octaves.length / 2);
+
+			expect(octaves[0].n).to.eql('F-1');
+			expect(octaves[half].n).to.eql('C0');
+			expect(octaves[octaves.length - 1].n).to.eql('F0');
+			expect(octaves).to.have.length(8);
+		});
+
 		it('should map 9m chord', () => {
 			const chord = new Chord('Abm9', TYPE);
-			const octaves = assignOctaves(chord.notes, [ 4 ], 'chord');
+			const octaves = assignOctaves(chord.notes, [ 4 ], { type: 'chord' });
 
 			const half = Math.round(octaves.length / 2);
 
@@ -71,7 +83,7 @@ describe('A Utils Test Suite', () => {
 
 		it('should map M13 chord', () => {
 			const chord = new Chord('CM13', TYPE);
-			const octaves = assignOctaves(chord.notes, [ 4, 2 ], 'chord');
+			const octaves = assignOctaves(chord.notes, [ 4, 2 ], { type: 'chord' });
 
 			const half = Math.round(octaves.length / 2);
 
