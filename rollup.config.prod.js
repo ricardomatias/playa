@@ -62,7 +62,6 @@ const baseConfig = {
 			output: {
 				comments: 'all',
 			},
-
 		}),
 	],
 };

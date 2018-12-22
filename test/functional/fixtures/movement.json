@@ -4,7 +4,7 @@
 			{
 				"quarter": 1,
 				"time": "0i",
-				"dur": "576i",
+				"dur": "1440i",
 				"key": {
 					"root": "B",
 					"scale": "1P 2M 3m 4P 5P 6M 7m"
@@ -12,8 +12,8 @@
 			},
 			{
 				"quarter": 4,
-				"time": "576i",
-				"dur": "576i",
+				"time": "1440i",
+				"dur": "1440i",
 				"key": {
 					"root": "D",
 					"scale": "1P 2M 3M 4A 5P 6M 7M"
@@ -21,8 +21,8 @@
 			},
 			{
 				"quarter": 7,
-				"time": "1152i",
-				"dur": "384i",
+				"time": "2880i",
+				"dur": "960i",
 				"key": {
 					"root": "E",
 					"scale": "1P 2M 3M 4P 5P 6M 7m"
@@ -30,8 +30,8 @@
 			},
 			{
 				"quarter": 9,
-				"time": "1536i",
-				"dur": "576i",
+				"time": "3840i",
+				"dur": "1440i",
 				"key": {
 					"root": "F#",
 					"scale": "1P 2M 3M 4P 5P 6M 7m"
@@ -39,8 +39,8 @@
 			},
 			{
 				"quarter": 12,
-				"time": "2112i",
-				"dur": "576i",
+				"time": "5280i",
+				"dur": "1440i",
 				"key": {
 					"root": "E",
 					"scale": "1P 2M 3M 4P 5P 6M 7m"
@@ -48,8 +48,8 @@
 			},
 			{
 				"quarter": 15,
-				"time": "2688i",
-				"dur": "192i",
+				"time": "6720i",
+				"dur": "480i",
 				"key": {
 					"root": "F#",
 					"scale": "1P 2M 3m 4P 5P 6m 7m"
@@ -59,41 +59,41 @@
 		"events": [
 			{
 				"key": "A",
-				"position": "II",
 				"type": "modulateMode",
-				"scaleName": "DORIAN"
+				"scaleName": "DORIAN",
+				"position": "II"
 			},
 			{
 				"key": "A",
-				"position": "IV",
 				"type": "modulateMode",
-				"scaleName": "LYDIAN"
+				"scaleName": "LYDIAN",
+				"position": "IV"
 			},
 			{
 				"key": "A",
-				"position": "V",
 				"type": "modulateMode",
-				"scaleName": "MIXOLYDIAN"
+				"scaleName": "MIXOLYDIAN",
+				"position": "V"
 			},
 			{
 				"key": "F#",
 				"interval": "7m",
-				"position": "V",
 				"type": "modulate",
+				"position": "V",
 				"scaleName": "MIXOLYDIAN"
 			},
 			{
 				"key": "E",
 				"interval": "2M",
-				"position": "V",
 				"type": "modulate",
+				"position": "V",
 				"scaleName": "MIXOLYDIAN"
 			},
 			{
 				"key": "E",
-				"position": "VI",
 				"type": "modulateMode",
-				"scaleName": "AEOLIAN"
+				"scaleName": "AEOLIAN",
+				"position": "VI"
 			}
 		]
 	}

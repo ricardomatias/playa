@@ -7,7 +7,7 @@ import { TICKS } from '../../lib/constants';
 const { basic } = motifs;
 
 const noteOpts = { octaves: [ 4, 1 ], noteType: 'note' };
-const ONE_BAR = TICKS.get('1m');
+const ONE_BAR = TICKS.get('1n');
 
 
 describe('A Motif test suite', () => {
@@ -19,7 +19,7 @@ describe('A Motif test suite', () => {
 		let rhythm = generateRhythm(ONE_BAR, basic);
 
 		// then
-		expect(rhythm).to.eql([ '4n.', '8n', '4n', '4n' ]);
+		expect(rhythm).to.eql([ '4t', '4t', '8n', '8t', '4nd', '8t' ]);
 
 		// given
 		seedRandom('test2');
@@ -28,7 +28,7 @@ describe('A Motif test suite', () => {
 		rhythm = generateRhythm(ONE_BAR, basic);
 
 		// then
-		expect(rhythm).to.eql([ '4n', '4n.', '4n.' ]);
+		expect(rhythm).to.eql([ '8n', '8n', '4nd', '4n', '8n' ]);
 
 		// given
 		seedRandom('test3');
@@ -36,6 +36,7 @@ describe('A Motif test suite', () => {
 		// when
 		rhythm = generateRhythm(ONE_BAR, basic);
 
+		console.log(rhythm);
 		// then
 		expect(rhythm).to.eql([ '8n', '4t', '8n', '4t', '8n', '4t', '8n' ]);
 	});
@@ -47,14 +48,16 @@ describe('A Motif test suite', () => {
 		const scale = new Scale('A', Scale.MAJOR, noteOpts);
 
 		// when
-		let motif = createMotif(scale.notes, '1:0:0', basic);
+		let motif = createMotif(scale.notes, '2.1.0', basic);
 
 		// then
 		expect(motif).to.eql([
-			{ time: 0, note: 'D5', midi: 74, dur: '4n.' },
-			{ time: '288i', note: 'F#5', midi: 78, dur: '8n' },
-			{ time: '384i', note: 'D5', midi: 74, dur: '4n' },
-			{ time: '576i', note: 'F#5', midi: 78, dur: '4n' },
+			{ time: 0, note: 'E5', midi: 76, dur: '4t' },
+			{ time: 320, note: 'F#5', midi: 78, dur: '4t' },
+			{ time: 640, note: 'G#5', midi: 80, dur: '8n' },
+			{ time: 880, note: 'D5', midi: 74, dur: '8t' },
+			{ time: 1040, note: 'F#5', midi: 78, dur: '4nd' },
+			{ time: 1760, note: 'A5', midi: 81, dur: '8t' },
 		]);
 
 		expect(calcDuration(motif)).to.eql(ONE_BAR);
@@ -62,19 +65,19 @@ describe('A Motif test suite', () => {
 		// when
 		seedRandom('test2');
 
-		motif = createMotif(scale.notes, '2:0:0', basic);
+		motif = createMotif(scale.notes, '3.1.0', basic);
 
 		// then
 		expect(motif).to.eql([
-			{ time: 0, note: 'E5', midi: 76, dur: '4n.' },
-			{ time: '288i', note: 'E5', midi: 76, dur: '4t' },
-			{ time: '416i', note: 'C#5', midi: 73, dur: '4t' },
-			{ time: '544i', note: 'C#5', midi: 73, dur: '8n' },
-			{ time: '640i', note: 'D5', midi: 74, dur: '4n.' },
-			{ time: '928i', note: 'F#5', midi: 78, dur: '8n' },
-			{ time: '1024i', note: 'E5', midi: 76, dur: '4n.' },
-			{ time: '1312i', note: 'A4', midi: 69, dur: '4t' },
-			{ time: '1440i', note: 'A5', midi: 81, dur: '8n' },
+			{ time: 0, note: 'E5', midi: 76, dur: '4nd' },
+			{ time: 720, note: 'E5', midi: 76, dur: '4t' },
+			{ time: 1040, note: 'C#5', midi: 73, dur: '4t' },
+			{ time: 1360, note: 'C#5', midi: 73, dur: '8n' },
+			{ time: 1600, note: 'D5', midi: 74, dur: '4nd' },
+			{ time: 2320, note: 'F#5', midi: 78, dur: '8n' },
+			{ time: 2560, note: 'E5', midi: 76, dur: '4nd' },
+			{ time: 3280, note: 'A4', midi: 69, dur: '4t' },
+			{ time: 3600, note: 'A5', midi: 81, dur: '8n' },
 		]);
 
 		expect(calcDuration(motif)).to.eql(ONE_BAR * 2);
@@ -88,13 +91,15 @@ describe('A Motif test suite', () => {
 		const chord = new Chord('Dbm6', noteOpts);
 
 		// when
-		let motif = createMotif(chord.notes, '1:0:0', basic);
+		let motif = createMotif(chord.notes, '2.1.0', basic);
 
 		expect(motif).to.eql([
-			{ time: 0, note: 'E4', midi: 63, dur: '4n.' },
-			{ time: '288i', note: 'Ab4', midi: 68, dur: '8n' },
-			{ time: '384i', note: 'E4', midi: 63, dur: '4n' },
-			{ time: '576i', note: 'Ab4', midi: 68, dur: '4n' },
+			{ time: 0, note: 'Ab4', midi: 68, dur: '4t' },
+			{ time: 320, note: 'Ab4', midi: 68, dur: '4t' },
+			{ time: 640, note: 'Bb4', midi: 70, dur: '8n' },
+			{ time: 880, note: 'E4', midi: 63, dur: '8t' },
+			{ time: 1040, note: 'Ab4', midi: 68, dur: '4nd' },
+			{ time: 1760, note: 'Bb4', midi: 70, dur: '8t' },
 		]);
 
 		expect(calcDuration(motif)).to.eql(ONE_BAR);
@@ -102,18 +107,18 @@ describe('A Motif test suite', () => {
 		// when
 		seedRandom('test2');
 
-		motif = createMotif(chord.notes, '2:0:0', basic);
+		motif = createMotif(chord.notes, '3.1.0', basic);
 
 		expect(motif).to.eql([
-			{ time: 0, note: 'Ab4', midi: 68, dur: '4n.' },
-			{ time: '288i', note: 'Ab4', midi: 68, dur: '4t' },
-			{ time: '416i', note: 'E4', midi: 63, dur: '4t' },
-			{ time: '544i', note: 'E4', midi: 63, dur: '8n' },
-			{ time: '640i', note: 'E4', midi: 63, dur: '4n.' },
-			{ time: '928i', note: 'Ab4', midi: 68, dur: '8n' },
-			{ time: '1024i', note: 'Ab4', midi: 68, dur: '4n.' },
-			{ time: '1312i', note: 'Db4', midi: 61, dur: '4t' },
-			{ time: '1440i', note: 'Bb4', midi: 70, dur: '8n' },
+			{ time: 0, note: 'Ab4', midi: 68, dur: '4nd' },
+			{ time: 720, note: 'Ab4', midi: 68, dur: '4t' },
+			{ time: 1040, note: 'E4', midi: 63, dur: '4t' },
+			{ time: 1360, note: 'E4', midi: 63, dur: '8n' },
+			{ time: 1600, note: 'E4', midi: 63, dur: '4nd' },
+			{ time: 2320, note: 'Ab4', midi: 68, dur: '8n' },
+			{ time: 2560, note: 'Ab4', midi: 68, dur: '4nd' },
+			{ time: 3280, note: 'Db4', midi: 61, dur: '4t' },
+			{ time: 3600, note: 'Bb4', midi: 70, dur: '8n' },
 		]);
 
 		expect(calcDuration(motif)).to.eql(ONE_BAR * 2);
@@ -127,21 +132,22 @@ describe('A Motif test suite', () => {
 		const chord = new Chord('Dbm6', noteOpts);
 
 		// when
-		let motif = createMotif(chord.notes, '0:1:0', basic, 0, true);
+		let motif = createMotif(chord.notes, '1.2.0', basic, 0);
 
 		expect(motif).to.eql([
 			{ time: 0, note: 'E4', midi: 63, dur: '4t' },
-			{ time: 0, note: 'Ab4', midi: 68, dur: '8t' },
+			{ time: 320, note: 'Ab4', midi: 68, dur: '8t' },
 		]);
 
 
-		motif = createMotif(chord.notes, '0:3:0', basic, '768i', true);
+		motif = createMotif(chord.notes, '1.4.0', basic, 480);
 
 		expect(motif).to.eql([
-			{ time: '768i', note: 'Ab4', midi: 68, dur: '4t' },
-			{ time: '768i', note: 'E4', midi: 63, dur: '8n' },
-			{ time: '768i', note: 'Db4', midi: 61, dur: '8t' },
-			{ time: '768i', note: 'Ab4', midi: 68, dur: '4n.' },
+			{ time: 480, note: 'Ab4', midi: 68, dur: '4t' },
+			{ time: 800, note: 'Ab4', midi: 68, dur: '4t' },
+			{ time: 1120, note: 'Ab4', midi: 68, dur: '8n' },
+			{ time: 1360, note: 'Bb4', midi: 70, dur: '8t' },
+			{ time: 1520, note: 'Ab4', midi: 68, dur: '8nd' },
 		]);
 	});
 });
