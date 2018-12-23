@@ -3,8 +3,8 @@
 		"timeline": [
 			{
 				"quarter": 1,
-				"time": "0i",
-				"dur": "1440i",
+				"time": 0,
+				"dur": 1440,
 				"key": {
 					"root": "B",
 					"scale": "1P 2M 3m 4P 5P 6M 7m"
@@ -12,8 +12,8 @@
 			},
 			{
 				"quarter": 4,
-				"time": "1440i",
-				"dur": "1440i",
+				"time": 1440,
+				"dur": 1440,
 				"key": {
 					"root": "D",
 					"scale": "1P 2M 3M 4A 5P 6M 7M"
@@ -21,8 +21,8 @@
 			},
 			{
 				"quarter": 7,
-				"time": "2880i",
-				"dur": "960i",
+				"time": 2880,
+				"dur": 960,
 				"key": {
 					"root": "E",
 					"scale": "1P 2M 3M 4P 5P 6M 7m"
@@ -30,8 +30,8 @@
 			},
 			{
 				"quarter": 9,
-				"time": "3840i",
-				"dur": "1440i",
+				"time": 3840,
+				"dur": 1440,
 				"key": {
 					"root": "F#",
 					"scale": "1P 2M 3M 4P 5P 6M 7m"
@@ -39,8 +39,8 @@
 			},
 			{
 				"quarter": 12,
-				"time": "5280i",
-				"dur": "1440i",
+				"time": 5280,
+				"dur": 1440,
 				"key": {
 					"root": "E",
 					"scale": "1P 2M 3M 4P 5P 6M 7m"
@@ -48,8 +48,8 @@
 			},
 			{
 				"quarter": 15,
-				"time": "6720i",
-				"dur": "480i",
+				"time": 6720,
+				"dur": 480,
 				"key": {
 					"root": "F#",
 					"scale": "1P 2M 3m 4P 5P 6m 7m"

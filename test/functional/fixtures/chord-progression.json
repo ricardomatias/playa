@@ -1,0 +1,132 @@
+{
+	"basic": [
+		{
+			"time": 0,
+			"dur": 1440,
+			"chord": [
+				71,
+				74,
+				78
+			],
+			"chordName": "Bm"
+		},
+		{
+			"time": 1440,
+			"dur": 1440,
+			"chord": [
+				62,
+				66,
+				69
+			],
+			"chordName": "Dmaj"
+		},
+		{
+			"time": 2880,
+			"dur": 960,
+			"chord": [
+				64,
+				68,
+				71
+			],
+			"chordName": "Emaj"
+		},
+		{
+			"time": 3840,
+			"dur": 1440,
+			"chord": [
+				66,
+				70,
+				73
+			],
+			"chordName": "F#maj"
+		},
+		{
+			"time": 5280,
+			"dur": 1440,
+			"chord": [
+				64,
+				68,
+				71
+			],
+			"chordName": "Emaj"
+		},
+		{
+			"time": 6720,
+			"dur": 480,
+			"chord": [
+				66,
+				69,
+				73
+			],
+			"chordName": "F#m"
+		}
+	],
+	"structure": [
+		{
+			"time": 0,
+			"dur": 960,
+			"chord": [
+				63,
+				66,
+				70,
+				72
+			],
+			"chordName": "Ebm6"
+		},
+		{
+			"time": 960,
+			"dur": 480,
+			"chord": [
+				66,
+				68,
+				73,
+				75
+			],
+			"chordName": "Gbm6"
+		},
+		{
+			"time": 1440,
+			"dur": 480,
+			"chord": [
+				71,
+				74,
+				78,
+				80
+			],
+			"chordName": "Bm6"
+		},
+		{
+			"time": 1920,
+			"dur": 960,
+			"chord": [
+				66,
+				69,
+				73,
+				74
+			],
+			"chordName": "F#m6m"
+		},
+		{
+			"time": 2880,
+			"dur": 480,
+			"chord": [
+				64,
+				68,
+				71,
+				73
+			],
+			"chordName": "E6"
+		},
+		{
+			"time": 3360,
+			"dur": 0,
+			"chord": [
+				68,
+				71,
+				74,
+				76
+			],
+			"chordName": "G#dimadd6"
+		}
+	]
+}

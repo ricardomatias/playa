@@ -36,7 +36,6 @@ describe('A Motif test suite', () => {
 		// when
 		rhythm = generateRhythm(ONE_BAR, basic);
 
-		console.log(rhythm);
 		// then
 		expect(rhythm).to.eql([ '8n', '4t', '8n', '4t', '8n', '4t', '8n' ]);
 	});
