@@ -4,7 +4,7 @@ import createMotif, { generateRhythm, calcDuration } from '../../lib/functional/
 import { motifs, seedRandom } from '../../lib/tools';
 import { TICKS } from '../../lib/constants';
 
-const { basic } = motifs;
+const { descending } = motifs;
 
 const noteOpts = { octaves: [ 4, 1 ], noteType: 'note' };
 const ONE_BAR = TICKS.get('1n');
@@ -16,7 +16,7 @@ describe('A Motif test suite', () => {
 		seedRandom('test');
 
 		// when
-		let rhythm = generateRhythm(ONE_BAR, basic);
+		let rhythm = generateRhythm(ONE_BAR, descending);
 
 		// then
 		expect(rhythm).to.eql([ '4t', '4t', '8n', '8t', '4nd', '8t' ]);
@@ -25,7 +25,7 @@ describe('A Motif test suite', () => {
 		seedRandom('test2');
 
 		// when
-		rhythm = generateRhythm(ONE_BAR, basic);
+		rhythm = generateRhythm(ONE_BAR, descending);
 
 		// then
 		expect(rhythm).to.eql([ '8n', '8n', '4nd', '4n', '8n' ]);
@@ -34,7 +34,7 @@ describe('A Motif test suite', () => {
 		seedRandom('test3');
 
 		// when
-		rhythm = generateRhythm(ONE_BAR, basic);
+		rhythm = generateRhythm(ONE_BAR, descending);
 
 		// then
 		expect(rhythm).to.eql([ '8n', '4t', '8n', '4t', '8n', '4t', '8n' ]);
@@ -47,7 +47,7 @@ describe('A Motif test suite', () => {
 		const scale = new Scale('A', Scale.MAJOR, noteOpts);
 
 		// when
-		let motif = createMotif(scale.notes, '2.1.0', basic);
+		let motif = createMotif(scale.notes, '2.1.0', descending);
 
 		// then
 		expect(motif).to.eql([
@@ -64,7 +64,7 @@ describe('A Motif test suite', () => {
 		// when
 		seedRandom('test2');
 
-		motif = createMotif(scale.notes, '3.1.0', basic);
+		motif = createMotif(scale.notes, '3.1.0', descending);
 
 		// then
 		expect(motif).to.eql([
@@ -90,7 +90,7 @@ describe('A Motif test suite', () => {
 		const chord = new Chord('Dbm6', noteOpts);
 
 		// when
-		let motif = createMotif(chord.notes, '2.1.0', basic);
+		let motif = createMotif(chord.notes, '2.1.0', descending);
 
 		expect(motif).to.eql([
 			{ time: 0, note: 'Ab4', midi: 68, dur: '4t' },
@@ -106,7 +106,7 @@ describe('A Motif test suite', () => {
 		// when
 		seedRandom('test2');
 
-		motif = createMotif(chord.notes, '3.1.0', basic);
+		motif = createMotif(chord.notes, '3.1.0', descending);
 
 		expect(motif).to.eql([
 			{ time: 0, note: 'Ab4', midi: 68, dur: '4nd' },
@@ -131,7 +131,7 @@ describe('A Motif test suite', () => {
 		const chord = new Chord('Dbm6', noteOpts);
 
 		// when
-		let motif = createMotif(chord.notes, '1.2.0', basic, 0);
+		let motif = createMotif(chord.notes, '1.2.0', descending, 0);
 
 		expect(motif).to.eql([
 			{ time: 0, note: 'E4', midi: 63, dur: '4t' },
@@ -139,7 +139,7 @@ describe('A Motif test suite', () => {
 		]);
 
 
-		motif = createMotif(chord.notes, '1.4.0', basic, 480);
+		motif = createMotif(chord.notes, '1.4.0', descending, 480);
 
 		expect(motif).to.eql([
 			{ time: 480, note: 'Ab4', midi: 68, dur: '4t' },
