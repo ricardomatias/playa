@@ -1,4 +1,5 @@
 import { Chord, Scale } from '../../lib/core';
+import { seedRandom } from '../../lib/tools/random';
 
 const TEST = { noteType: 'str' };
 
@@ -54,28 +55,54 @@ describe('Chord Test Suite', () => {
 	});
 
 	describe('create with scale', () => {
-		it('should set natural without structure', () => {
-			const chord = new Chord({ root: 'A', type: Scale.MINOR }, TEST);
+		describe('with Structure', () => {
+			it('should set natural', () => {
+				seedRandom('test');
 
-			expect(chord.root).to.eql('A');
-			expect(chord.type).to.eql('m');
-			expect(chord.notes).to.eql([ 'A', 'C', 'E' ]);
+				const chord = new Chord({ root: 'A', type: Scale.EGYPTIAN, structure: Chord.TRIAD }, TEST);
+
+				expect(chord.root).to.eql('A');
+				expect(chord.type).to.eql('sus2');
+				expect(chord.notes).to.eql([ 'A', 'B', 'E' ]);
+			});
+
+			it('should set sixth & midi note type', () => {
+				const chord = new Chord({ root: 'G', type: Scale.DORIAN, structure: Chord.SIXTH });
+
+				expect(chord.root).to.eql('G');
+				expect(chord.type).to.eql('m6');
+				expect(chord.notes).to.eql([ 67, 70, 73, 75 ]);
+			});
+
+			it('should set 13 chord', () => {
+				const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.THIRTEENTH }, TEST);
+
+				expect(chord.root).to.eql('A');
+				expect(chord.type).to.eql('m9add13');
+				expect(chord.notes).to.eql([ 'A', 'C', 'E', 'G', 'B', 'F' ]);
+			});
 		});
 
-		it('should set natural with structure', () => {
-			const chord = new Chord({ root: 'A', type: Scale.EGYPTIAN, structure: Chord.TRIAD }, TEST);
+		describe('withOUT Structure', () => {
+			it('should set natural', () => {
+				seedRandom('test');
 
-			expect(chord.root).to.eql('A');
-			expect(chord.type).to.eql('sus2');
-			expect(chord.notes).to.eql([ 'A', 'B', 'E' ]);
-		});
+				const chord = new Chord({ root: 'A', type: Scale.MINOR }, TEST);
 
-		it('should set 13 chord', () => {
-			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.THIRTEENTH }, TEST);
+				expect(chord.root).to.eql('A');
+				expect(chord.type).to.eql('m');
+				expect(chord.notes).to.eql([ 'A', 'C', 'E' ]);
+			});
 
-			expect(chord.root).to.eql('A');
-			expect(chord.type).to.eql('m9add13');
-			expect(chord.notes).to.eql([ 'A', 'C', 'E', 'G', 'B', 'F' ]);
+			it('should set flat', () => {
+				seedRandom('test-2');
+
+				const chord = new Chord({ root: 'F', type: Scale.MAJOR }, TEST);
+
+				expect(chord.root).to.eql('F');
+				expect(chord.type).to.eql('maj');
+				expect(chord.notes).to.eql([ 'F', 'A', 'C' ]);
+			});
 		});
 	});
 

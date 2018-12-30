@@ -132,8 +132,6 @@ describe('Key Test Suite', () => {
 	describe('#modulateMode', () => {
 		const key = new Key('Eb', Key.MIXOLYDIAN, TEST);
 
-		seedRandom('test');
-
 		it('should have key', () => {
 			expect(key.root).to.eql('Eb');
 			expect(Key.NAMES[key.type]).to.eql('MIXOLYDIAN');
@@ -157,6 +155,8 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode - IONIAN', () => {
+			seedRandom('test');
+
 			key.modulateMode();
 
 			expect(key.root).to.eql('Ab');
@@ -168,14 +168,16 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode', () => {
+			seedRandom('test-2');
+
 			key.modulateMode();
 
-			expect(key.root).to.eql('F');
-			expect(Key.NAMES[key.type]).to.eql('AEOLIAN');
-			expect(key.chord.name).to.eql('Fm7');
-			expect(key.notes).to.eql([ 'F', 'G', 'Ab', 'Bb', 'C', 'Db', 'Eb' ]);
+			expect(key.root).to.eql('Db');
+			expect(Key.NAMES[key.type]).to.eql('LYDIAN');
+			expect(key.chord.name).to.eql('DbM7');
+			expect(key.notes).to.eql([ 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb', 'C' ]);
 
-			expect(key.modePosition).to.eql('VI');
+			expect(key.modePosition).to.eql('IV');
 		});
 	});
 });

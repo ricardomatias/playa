@@ -6,9 +6,10 @@
 			"chord": [
 				71,
 				74,
-				78
+				78,
+				80
 			],
-			"chordName": "Bm"
+			"chordName": "Bm6"
 		},
 		{
 			"time": 1440,
@@ -16,9 +17,10 @@
 			"chord": [
 				62,
 				66,
-				69
+				69,
+				71
 			],
-			"chordName": "Dmaj"
+			"chordName": "D6"
 		},
 		{
 			"time": 2880,
@@ -26,9 +28,10 @@
 			"chord": [
 				64,
 				68,
-				71
+				71,
+				73
 			],
-			"chordName": "Emaj"
+			"chordName": "E6"
 		},
 		{
 			"time": 3840,
@@ -46,9 +49,10 @@
 			"chord": [
 				64,
 				68,
-				71
+				71,
+				74
 			],
-			"chordName": "Emaj"
+			"chordName": "E7"
 		},
 		{
 			"time": 6720,
@@ -56,9 +60,12 @@
 			"chord": [
 				66,
 				69,
-				73
+				73,
+				76,
+				80,
+				83
 			],
-			"chordName": "F#m"
+			"chordName": "F#m11"
 		}
 	],
 	"structure": [
