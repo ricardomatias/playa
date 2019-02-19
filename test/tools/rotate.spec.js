@@ -9,10 +9,10 @@ describe('A Rotate test suite', () => {
 
 		let rotatedAM7 = rotate(AM7);
 
-		expect(rotatedAM7).to.not.eql([ 'C', 'E', 'G', 'B', 'Eb', 'A' ]);
+		expect(rotatedAM7).to.eql([ 'C', 'E', 'G', 'B', 'Eb', 'A' ]);
 
 		rotatedAM7 = rotate(rotatedAM7, 3);
 
-		expect(rotatedAM7).to.not.eql([ 'B', 'Eb', 'A', 'C', 'E', 'G' ]);
+		expect(rotatedAM7).to.eql([ 'B', 'Eb', 'A', 'C', 'E', 'G' ]);
 	});
 });
