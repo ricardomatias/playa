@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import * as R from 'ramda';
 import assignOctaves from '../../lib/utils/octaves';
 import { Scale, Chord } from '../../lib/core';
@@ -5,8 +7,22 @@ import NoteType from '../../lib/core/types';
 
 const TYPE = { noteType: NoteType.NOTE };
 
+let fixtures;
+
+const fixturePath = path.join(__dirname, 'fixtures', 'octaves.json');
 
 describe('An Octaves Test Suite', () => {
+	before(() => {
+		fixtures = JSON.parse(fs.readFileSync(fixturePath, { encoding: 'utf8' }));
+	});
+
+	it('should map - chromatic', () => {
+		const scale = new Scale('C', Scale.CHROMATIC, TYPE);
+		const octaves = R.map((note) => ({ [note.n]: note.m }), assignOctaves(scale.notes));
+
+		expect(fixtures.allMidiNotes).to.eql(octaves);
+	});
+
 	it('should map - natural', () => {
 		const scale = new Scale('C', Scale.MAJOR, TYPE);
 		const octaves = assignOctaves(scale.notes);

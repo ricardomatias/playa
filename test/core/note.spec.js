@@ -28,18 +28,21 @@ describe('Note Test Suite', () => {
 
 		expect(note.n).to.eql('C4');
 		expect(note.m).to.eql(60);
+		expect(note.note).to.eql('C');
 	});
 
 	it('should get octave with MIDI', () => {
 		const note = new Note('Gb', 102);
 
 		expect(note.n).to.eql('Gb7');
+		expect(note.note).to.eql('Gb');
 	});
 
 	it('should get enharmonic with MIDI', () => {
 		const note = new Note('Gb', 102);
 
 		expect(note.eoct).to.eql('F#7');
+		expect(note.e).to.eql('F#');
 	});
 
 	it('should get Gb freq based on MIDI', () => {
@@ -94,5 +97,11 @@ describe('Note Test Suite', () => {
 
 		expect(note.n).to.be.null;
 		expect(note.e).to.be.null;
+	});
+
+	it('should get distC', () => {
+		const note = new Note('A');
+
+		expect(note.distC).to.eql(9);
 	});
 });
