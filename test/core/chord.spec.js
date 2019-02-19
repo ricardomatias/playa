@@ -10,7 +10,7 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).to.eql('A');
 			expect(chord.type).to.eql('m7');
-			expect(chord.notes).to.eql([ 69, 72, 76, 79 ]);
+			expect(chord.notes).to.eql([ 57, 60, 64, 67 ]);
 		});
 
 		it('should set natural', () => {
@@ -18,7 +18,7 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).to.eql('A');
 			expect(chord.type).to.eql('m7');
-			expect(chord.notes).to.eql([ 'A', 'C', 'E', 'G' ]);
+			expect(chord.notes).to.eql([ 'A3', 'C4', 'E4', 'G4' ]);
 		});
 
 		it('should set sharp', () => {
@@ -26,7 +26,7 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).to.eql('D#');
 			expect(chord.type).to.eql('m6');
-			expect(chord.notes).to.eql([ 'D#', 'F#', 'A#', 'C' ]);
+			expect(chord.notes).to.eql([ 'D#3', 'F#3', 'A#3', 'C4' ]);
 		});
 
 		it('should set flat', () => {
@@ -34,7 +34,7 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).to.eql('Bb');
 			expect(chord.type).to.eql('m9');
-			expect(chord.notes).to.eql([ 'Bb', 'Db', 'F', 'Ab', 'C' ]);
+			expect(chord.notes).to.eql([ 'Bb3', 'Db4', 'F4', 'Ab4', 'C5' ]);
 		});
 
 		it('should set 13 chord', () => {
@@ -42,7 +42,7 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).to.eql('E');
 			expect(chord.type).to.eql('13');
-			expect(chord.notes).to.eql([ 'E', 'G#', 'B', 'D', 'F#', 'C#' ]);
+			expect(chord.notes).to.eql([ 'E3', 'G#3', 'B3', 'D4', 'F#4', 'C#5' ]);
 		});
 
 		it('should set M11 chord', () => {
@@ -50,7 +50,7 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).to.eql('Gb');
 			expect(chord.type).to.eql('M11');
-			expect(chord.notes).to.eql([ 'Gb', 'Bb', 'Db', 'F', 'Ab', 'B' ]);
+			expect(chord.notes).to.eql([ 'Gb3', 'Bb3', 'Db4', 'F4', 'Ab4', 'B4' ]);
 		});
 	});
 
@@ -63,7 +63,7 @@ describe('Chord Test Suite', () => {
 
 				expect(chord.root).to.eql('A');
 				expect(chord.type).to.eql('sus2');
-				expect(chord.notes).to.eql([ 'A', 'B', 'E' ]);
+				expect(chord.notes).to.eql([ 'A3', 'B3', 'E4' ]);
 			});
 
 			it('should set sixth & midi note type', () => {
@@ -71,7 +71,7 @@ describe('Chord Test Suite', () => {
 
 				expect(chord.root).to.eql('G');
 				expect(chord.type).to.eql('m6');
-				expect(chord.notes).to.eql([ 67, 70, 73, 75 ]);
+				expect(chord.notes).to.eql([ 55, 58, 62, 64 ]);
 			});
 
 			it('should set 13 chord', () => {
@@ -79,7 +79,7 @@ describe('Chord Test Suite', () => {
 
 				expect(chord.root).to.eql('A');
 				expect(chord.type).to.eql('m9add13');
-				expect(chord.notes).to.eql([ 'A', 'C', 'E', 'G', 'B', 'F' ]);
+				expect(chord.notes).to.eql([ 'A3', 'C4', 'E4', 'G4', 'B4', 'F5' ]);
 			});
 		});
 
@@ -91,7 +91,7 @@ describe('Chord Test Suite', () => {
 
 				expect(chord.root).to.eql('A');
 				expect(chord.type).to.eql('m');
-				expect(chord.notes).to.eql([ 'A', 'C', 'E' ]);
+				expect(chord.notes).to.eql([ 'A3', 'C4', 'E4' ]);
 			});
 
 			it('should set flat', () => {
@@ -101,8 +101,50 @@ describe('Chord Test Suite', () => {
 
 				expect(chord.root).to.eql('F');
 				expect(chord.type).to.eql('maj');
-				expect(chord.notes).to.eql([ 'F', 'A', 'C' ]);
+				expect(chord.notes).to.eql([ 'F3', 'A3', 'C4' ]);
 			});
+		});
+	});
+
+	describe('inversions', () => {
+		it('should create 1st inversion', () => {
+			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.TRIAD }, TEST);
+
+			chord.invert(1);
+
+			expect(chord.notes).to.eql([ 'C3', 'E3', 'A3' ]);
+
+			chord.assignOctaves([ 4, 1 ]);
+
+			expect(chord.notes).to.eql([ 'C4', 'E4', 'A4' ]);
+		});
+
+		it('should create 2nd inversion', () => {
+			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.TRIAD }, TEST);
+
+			chord.invert(2);
+
+			expect(chord.notes).to.eql([ 'E3', 'A3', 'C4' ]);
+		});
+
+		it('should create 3rd inversion', () => {
+			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.SEVENTH }, TEST);
+
+			chord.invert(3);
+
+			expect(chord.notes).to.eql([ 'G3', 'A3', 'C4', 'E4' ]);
+		});
+
+		it('should create random inversion', () => {
+			seedRandom('test-foddds');
+
+			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.THIRTEENTH }, TEST);
+
+			chord.invert();
+
+			expect(chord.notes).to.eql([ 'B3', 'F4', 'A4', 'C5', 'E5', 'G5' ]);
+
+			chord.assignOctaves([ 4, 1 ]);
 		});
 	});
 
