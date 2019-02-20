@@ -17,6 +17,14 @@ describe('A Time test suite', () => {
 		it('should convert to 12322', () => {
 			expect(transportToTicks('7.2.322')).to.eql(12322);
 		});
+
+		it('should convert to 7680', () => {
+			expect(transportToTicks('5.1.0')).to.eql(7680);
+		});
+
+		it('should convert to 15360', () => {
+			expect(transportToTicks('9.1.0')).to.eql(15360);
+		});
 	});
 
 	describe('#ticksToTransport', () => {
@@ -46,6 +54,14 @@ describe('A Time test suite', () => {
 
 		it('should convert to 3.4.240', () => {
 			expect(ticksToTransport(5520)).to.eql('3.4.240');
+		});
+
+		it('should convert to 9.1.0', () => {
+			expect(ticksToTransport(15360)).to.eql('9.1.0');
+		});
+
+		it('should convert to 5.1.0', () => {
+			expect(ticksToTransport(7680)).to.eql('5.1.0');
 		});
 	});
 });

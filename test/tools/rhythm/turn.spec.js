@@ -21,13 +21,13 @@ describe('#generateTurnRhythm', () => {
 		// then
 		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 2);
 		expect(rhythm).to.eql([
-			{ time: 0, dur: '8n' },
-			{ time: 240, dur: '8n' },
-			{ time: 480, dur: '8n' },
-			{ time: 720, dur: '8n' },
-			{ time: 960, dur: '2n' },
-			{ time: 1920, dur: '2n' },
-			{ time: 2880, dur: '2n' },
+			{ time: 0, dur: 240 },
+			{ time: 240, dur: 240 },
+			{ time: 480, dur: 240 },
+			{ time: 720, dur: 240 },
+			{ time: 960, dur: 960 },
+			{ time: 1920, dur: 960 },
+			{ time: 2880, dur: 960 },
 		]);
 	});
 
@@ -41,15 +41,15 @@ describe('#generateTurnRhythm', () => {
 		});
 
 		// then
-		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 2 - TICKS.get('8t'));
+		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 2);
 		expect(rhythm).to.eql([
-			{ time: 0, dur: '4n' },
-			{ time: 480, dur: '4n' },
-			{ time: 960, dur: '4n' },
-			{ time: 1440, dur: '2t' },
-			{ time: 2080, dur: '2t' },
-			{ time: 2720, dur: '4t' },
-			{ time: 3040, dur: '2t' },
+			{ time: 0, dur: 480 },
+			{ time: 480, dur: 480 },
+			{ time: 960, dur: 480 },
+			{ time: 1440, dur: 640 },
+			{ time: 2080, dur: 640 },
+			{ time: 2720, dur: 320 },
+			{ time: 3040, dur: 800 },
 		]);
 	});
 
@@ -65,14 +65,14 @@ describe('#generateTurnRhythm', () => {
 		// then
 		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 3);
 		expect(rhythm).to.eql([
-			{ time: 0, dur: '4n' },
-			{ time: 480, dur: '4n' },
-			{ time: 960, dur: '4n' },
-			{ time: 1440, dur: '4n' },
-			{ time: 1920, dur: '2n' },
-			{ time: 2880, dur: '2n' },
-			{ time: 3840, dur: '2n' },
-			{ time: 4800, dur: '2n' },
+			{ time: 0, dur: 480 },
+			{ time: 480, dur: 480 },
+			{ time: 960, dur: 480 },
+			{ time: 1440, dur: 480 },
+			{ time: 1920, dur: 960 },
+			{ time: 2880, dur: 960 },
+			{ time: 3840, dur: 960 },
+			{ time: 4800, dur: 960 },
 		]);
 	});
 
@@ -89,11 +89,11 @@ describe('#generateTurnRhythm', () => {
 		// then
 		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 3);
 		expect(rhythm).to.eql([
-			{ time: 0, dur: '2n' },
-			{ time: 960, dur: '2n' },
-			{ time: 1920, dur: '2n' },
-			{ time: 2880, dur: '2n' },
-			{ time: 3840, dur: '1n' },
+			{ time: 0, dur: 960 },
+			{ time: 960, dur: 960 },
+			{ time: 1920, dur: 960 },
+			{ time: 2880, dur: 960 },
+			{ time: 3840, dur: 1920 },
 		]);
 	});
 });

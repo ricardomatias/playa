@@ -15,8 +15,8 @@
 				"time": 1440,
 				"dur": 1440,
 				"key": {
-					"root": "D",
-					"scale": "1P 2M 3M 4A 5P 6M 7M"
+					"root": "C#",
+					"scale": "1P 2m 3m 4P 5P 6m 7m"
 				}
 			},
 			{
@@ -33,7 +33,7 @@
 				"time": 3840,
 				"dur": 1440,
 				"key": {
-					"root": "F#",
+					"root": "G#",
 					"scale": "1P 2M 3M 4P 5P 6M 7m"
 				}
 			},
@@ -42,17 +42,17 @@
 				"time": 5280,
 				"dur": 1440,
 				"key": {
-					"root": "E",
+					"root": "B",
 					"scale": "1P 2M 3M 4P 5P 6M 7m"
 				}
 			},
 			{
 				"quarter": 15,
 				"time": 6720,
-				"dur": 480,
+				"dur": 960,
 				"key": {
-					"root": "F#",
-					"scale": "1P 2M 3m 4P 5P 6m 7m"
+					"root": "E",
+					"scale": "1P 2M 3M 4P 5P 6M 7M"
 				}
 			}
 		],
@@ -66,8 +66,8 @@
 			{
 				"key": "A",
 				"type": "modulateMode",
-				"scaleName": "LYDIAN",
-				"position": "IV"
+				"scaleName": "PHRYGIAN",
+				"position": "III"
 			},
 			{
 				"key": "A",
@@ -76,24 +76,116 @@
 				"position": "V"
 			},
 			{
-				"key": "F#",
-				"interval": "7m",
+				"key": "G#",
+				"interval": "6m",
 				"type": "modulate",
 				"position": "V",
 				"scaleName": "MIXOLYDIAN"
 			},
 			{
-				"key": "E",
-				"interval": "2M",
+				"key": "B",
+				"interval": "6M",
 				"type": "modulate",
 				"position": "V",
 				"scaleName": "MIXOLYDIAN"
 			},
 			{
-				"key": "E",
+				"key": "B",
+				"type": "modulateMode",
+				"scaleName": "IONIAN",
+				"position": "I"
+			}
+		]
+	},
+	"turn": {
+		"timeline": [
+			{
+				"time": 0,
+				"dur": 480,
+				"key": {
+					"root": "G#",
+					"scale": "1P 2m 3m 4P 5d 6m 7m"
+				}
+			},
+			{
+				"time": 480,
+				"dur": 480,
+				"key": {
+					"root": "C#",
+					"scale": "1P 2m 3m 4P 5P 6m 7m"
+				}
+			},
+			{
+				"time": 960,
+				"dur": 1920,
+				"key": {
+					"root": "F#",
+					"scale": "1P 2M 3m 4P 5P 6m 7m"
+				}
+			},
+			{
+				"time": 2880,
+				"dur": 1920,
+				"key": {
+					"root": "A",
+					"scale": "1P 2M 3m 4P 5P 6m 7m"
+				}
+			},
+			{
+				"time": 4800,
+				"dur": 1280,
+				"key": {
+					"root": "D",
+					"scale": "1P 2M 3m 4P 5P 6M 7m"
+				}
+			},
+			{
+				"time": 6080,
+				"dur": 1600,
+				"key": {
+					"root": "A",
+					"scale": "1P 2M 3m 4P 5P 6M 7m"
+				}
+			}
+		],
+		"events": [
+			{
+				"key": "A",
+				"type": "modulateMode",
+				"scaleName": "LOCRIAN",
+				"position": "VII"
+			},
+			{
+				"key": "A",
+				"type": "modulateMode",
+				"scaleName": "PHRYGIAN",
+				"position": "III"
+			},
+			{
+				"key": "A",
 				"type": "modulateMode",
 				"scaleName": "AEOLIAN",
 				"position": "VI"
+			},
+			{
+				"key": "A",
+				"interval": "6M",
+				"type": "modulate",
+				"position": "VI",
+				"scaleName": "AEOLIAN"
+			},
+			{
+				"key": "A",
+				"type": "modulateMode",
+				"scaleName": "DORIAN",
+				"position": "II"
+			},
+			{
+				"key": "A",
+				"interval": "5P",
+				"type": "modulate",
+				"position": "II",
+				"scaleName": "DORIAN"
 			}
 		]
 	}

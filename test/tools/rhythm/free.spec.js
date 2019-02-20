@@ -5,6 +5,8 @@ import {
 	distribute,
 } from '../../../lib/tools';
 
+import { calcRythmDuration } from '../../helpers';
+
 const ONE_BAR = TICKS.get('1n');
 
 const { mixed, slow, robotic, straight } = RHYTHMS_DISTRIBUTIONS;
@@ -18,6 +20,7 @@ describe('#generateFreeRhythm', () => {
 		let rhythm = generateFreeRhythm(ONE_BAR, mixed, distribute.descending);
 
 		// then
+		expect(calcRythmDuration(rhythm)).to.equal(ONE_BAR);
 		expect(rhythm).to.eql([ '8n', '4n', '8t', '8n', '16n', '4t', '8n', '16n' ]);
 	});
 	it('should generate rhythm - slow', () => {
@@ -28,6 +31,7 @@ describe('#generateFreeRhythm', () => {
 		let rhythm = generateFreeRhythm(ONE_BAR, slow, distribute.equal);
 
 		// then
+		expect(calcRythmDuration(rhythm)).to.equal(ONE_BAR);
 		expect(rhythm).to.eql([ '4nd', '4nd', '4n' ]);
 	});
 
@@ -39,6 +43,7 @@ describe('#generateFreeRhythm', () => {
 		let rhythm = generateFreeRhythm(ONE_BAR, robotic, distribute.equal);
 
 		// then
+		expect(calcRythmDuration(rhythm)).to.equal(ONE_BAR);
 		expect(rhythm).to.eql([
 			'16n',
 			'8n',
@@ -69,6 +74,7 @@ describe('#generateFreeRhythm', () => {
 		let rhythm = generateFreeRhythm(ONE_BAR, straight, distribute.equal);
 
 		// then
+		expect(calcRythmDuration(rhythm)).to.equal(ONE_BAR);
 		expect(rhythm).to.eql([ '4n', '4n', '16n', '4n', '16n', '8n' ]);
 	});
 });

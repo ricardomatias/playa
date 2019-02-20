@@ -4,7 +4,7 @@ import { Key, Chord } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/functional';
 import { seedRandom } from '../../lib/tools';
 
-const noteOpts = { noteType: 'note' };
+const noteType = 'str';
 
 let fixtures;
 
@@ -15,11 +15,11 @@ describe('A Chord Progression test suite', () => {
 		fixtures = JSON.parse(fs.readFileSync(fixturePath, { encoding: 'utf8' }));
 	});
 
-	it('should generate chords based on a movement timeline', () => {
+	it('should generate chords based on a movement timeline - free rhythm', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('A', Key.MAJOR, noteOpts);
+		const aMaj = new Key('A', Key.MAJOR, { noteType: 'note' });
 
 		const opts = {
 			timeSignatures: [ [ 4, 4 ] ],
@@ -30,16 +30,16 @@ describe('A Chord Progression test suite', () => {
 		// when
 		const movement = createMovement(aMaj, '5.1.0', opts);
 
-		const prog = createChordProgression(movement.timeline);
+		const prog = createChordProgression(movement.timeline, { noteType });
 
 		expect(prog).to.eql(fixtures.basic);
 	});
 
-	it('should generate progression with defined structures', () => {
+	it('should generate chords based on a movement timeline - turn rhythm', () => {
 		// given
-		seedRandom('test-2');
+		seedRandom('test');
 
-		const aMaj = new Key('Db', Key.MAJOR, noteOpts);
+		const aMaj = new Key('A', Key.MAJOR, { noteType: 'note' });
 
 		const opts = {
 			timeSignatures: [ [ 4, 4 ] ],
@@ -48,9 +48,36 @@ describe('A Chord Progression test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '3.1.0', opts);
+		const movement = createMovement(aMaj, '5.1.0', opts);
 
-		const prog = createChordProgression(movement.timeline, { structures: [ Chord.SIXTH ] });
+		const prog = createChordProgression(movement.timeline, { noteType, rhythmType: 'turn' });
+
+		expect(prog).to.eql(fixtures.turn);
+	});
+
+	it('should generate progression with defined structures', () => {
+		// given
+		seedRandom('test-2');
+
+		const aMaj = new Key('Db', Key.MAJOR, { noteType: 'note' });
+
+		const opts = {
+			timeSignatures: [ [ 4, 4 ] ],
+			turns: 6,
+			modProb: 0.40,
+		};
+
+		// when
+		const movement = createMovement(aMaj, '5.1.0', opts);
+
+		const prog = createChordProgression(movement.timeline, {
+			structures: [ Chord.SIXTH ],
+			inversionProb: 0.5,
+			octaves: [ [ 5, 1 ], [ 2, 2 ] ],
+			rhythmDistribution: [ '4t', '4n' ],
+			minChordNotes: 2,
+			noteType,
+		});
 
 		expect(prog).to.eql(fixtures.structure);
 	});

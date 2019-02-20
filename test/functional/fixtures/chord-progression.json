@@ -2,138 +2,666 @@
 	"basic": [
 		{
 			"time": 0,
-			"dur": 1440,
 			"chord": [
-				71,
-				74,
-				78,
-				80
+				"B3",
+				"F#4",
+				"D4"
 			],
-			"chordName": "Bm6"
+			"chordName": "Bm6",
+			"dur": 960
+		},
+		{
+			"time": 960,
+			"chord": [
+				"B3",
+				"F#4",
+				"D4"
+			],
+			"chordName": "Bm6",
+			"dur": 480
 		},
 		{
 			"time": 1440,
-			"dur": 1440,
 			"chord": [
-				62,
-				66,
-				69,
-				71
+				"C#3",
+				"E3",
+				"G#3",
+				"B3"
 			],
-			"chordName": "D6"
+			"chordName": "C#m7",
+			"dur": 480
+		},
+		{
+			"time": 1920,
+			"chord": [
+				"C#3",
+				"E3",
+				"G#3",
+				"B3"
+			],
+			"chordName": "C#m7",
+			"dur": 640
+		},
+		{
+			"time": 2560,
+			"chord": [
+				"C#3",
+				"E3",
+				"G#3",
+				"B3"
+			],
+			"chordName": "C#m7",
+			"dur": 320
 		},
 		{
 			"time": 2880,
-			"dur": 960,
 			"chord": [
-				64,
-				68,
-				71,
-				73
+				"E3",
+				"D4",
+				"F#4",
+				"C#5",
+				"B3"
 			],
-			"chordName": "E6"
+			"chordName": "E13",
+			"dur": 480
+		},
+		{
+			"time": 3360,
+			"chord": [
+				"E3",
+				"D4",
+				"F#4",
+				"C#5",
+				"B3"
+			],
+			"chordName": "E13",
+			"dur": 480
 		},
 		{
 			"time": 3840,
-			"dur": 1440,
 			"chord": [
-				66,
-				70,
-				73
+				"G#3",
+				"D#4",
+				"F4",
+				"C4"
 			],
-			"chordName": "F#maj"
+			"chordName": "G#6",
+			"dur": 480
+		},
+		{
+			"time": 4320,
+			"chord": [
+				"G#3",
+				"D#4",
+				"F4",
+				"C4"
+			],
+			"chordName": "G#6",
+			"dur": 960
 		},
 		{
 			"time": 5280,
-			"dur": 1440,
 			"chord": [
-				64,
-				68,
-				71,
-				74
+				"B3",
+				"F#4",
+				"D#4",
+				"C#5"
 			],
-			"chordName": "E7"
+			"chordName": "B13",
+			"dur": 320
+		},
+		{
+			"time": 5600,
+			"chord": [
+				"B3",
+				"F#4",
+				"D#4",
+				"C#5"
+			],
+			"chordName": "B13",
+			"dur": 480
+		},
+		{
+			"time": 6080,
+			"chord": [
+				"B3",
+				"F#4",
+				"D#4",
+				"C#5"
+			],
+			"chordName": "B13",
+			"dur": 320
+		},
+		{
+			"time": 6400,
+			"chord": [
+				"B3",
+				"F#4",
+				"D#4",
+				"C#5"
+			],
+			"chordName": "B13",
+			"dur": 320
 		},
 		{
 			"time": 6720,
-			"dur": 480,
 			"chord": [
-				66,
-				69,
-				73,
-				76,
-				80,
-				83
+				"E3",
+				"B3",
+				"F#3"
 			],
-			"chordName": "F#m11"
+			"chordName": "Esus2",
+			"dur": 640
+		},
+		{
+			"time": 7360,
+			"chord": [
+				"E3",
+				"B3",
+				"F#3"
+			],
+			"chordName": "Esus2",
+			"dur": 320
+		}
+	],
+	"turn": [
+		{
+			"time": 0,
+			"chord": [
+				"B3",
+				"D4",
+				"F#4",
+				"G#4"
+			],
+			"chordName": "Bm6",
+			"dur": 240
+		},
+		{
+			"time": 240,
+			"chord": [
+				"B3",
+				"D4",
+				"F#4",
+				"G#4"
+			],
+			"chordName": "Bm6",
+			"dur": 240
+		},
+		{
+			"time": 480,
+			"chord": [
+				"B3",
+				"D4",
+				"F#4",
+				"G#4"
+			],
+			"chordName": "Bm6",
+			"dur": 240
+		},
+		{
+			"time": 720,
+			"chord": [
+				"B3",
+				"D4",
+				"F#4",
+				"G#4"
+			],
+			"chordName": "Bm6",
+			"dur": 720
+		},
+		{
+			"time": 1440,
+			"chord": [
+				"C#3",
+				"B3",
+				"E3",
+				"G#3"
+			],
+			"chordName": "C#m7add9",
+			"dur": 240
+		},
+		{
+			"time": 1680,
+			"chord": [
+				"C#3",
+				"B3",
+				"E3",
+				"G#3"
+			],
+			"chordName": "C#m7add9",
+			"dur": 240
+		},
+		{
+			"time": 1920,
+			"chord": [
+				"C#3",
+				"B3",
+				"E3",
+				"G#3"
+			],
+			"chordName": "C#m7add9",
+			"dur": 480
+		},
+		{
+			"time": 2400,
+			"chord": [
+				"C#3",
+				"B3",
+				"E3",
+				"G#3"
+			],
+			"chordName": "C#m7add9",
+			"dur": 480
+		},
+		{
+			"time": 2880,
+			"chord": [
+				"E3",
+				"D4",
+				"G#3",
+				"B3"
+			],
+			"chordName": "E9",
+			"dur": 240
+		},
+		{
+			"time": 3120,
+			"chord": [
+				"E3",
+				"D4",
+				"G#3",
+				"B3"
+			],
+			"chordName": "E9",
+			"dur": 240
+		},
+		{
+			"time": 3360,
+			"chord": [
+				"E3",
+				"D4",
+				"G#3",
+				"B3"
+			],
+			"chordName": "E9",
+			"dur": 480
+		},
+		{
+			"time": 3840,
+			"chord": [
+				"G#3",
+				"F#4",
+				"C4",
+				"A#4"
+			],
+			"chordName": "G#9",
+			"dur": 240
+		},
+		{
+			"time": 4080,
+			"chord": [
+				"G#3",
+				"F#4",
+				"C4",
+				"A#4"
+			],
+			"chordName": "G#9",
+			"dur": 240
+		},
+		{
+			"time": 4320,
+			"chord": [
+				"G#3",
+				"F#4",
+				"C4",
+				"A#4"
+			],
+			"chordName": "G#9",
+			"dur": 480
+		},
+		{
+			"time": 4800,
+			"chord": [
+				"G#3",
+				"F#4",
+				"C4",
+				"A#4"
+			],
+			"chordName": "G#9",
+			"dur": 480
+		},
+		{
+			"time": 5280,
+			"chord": [
+				"B3",
+				"C#5",
+				"A4",
+				"E5",
+				"F#4",
+				"D#4"
+			],
+			"chordName": "B11",
+			"dur": 320
+		},
+		{
+			"time": 5600,
+			"chord": [
+				"B3",
+				"C#5",
+				"A4",
+				"E5",
+				"F#4",
+				"D#4"
+			],
+			"chordName": "B11",
+			"dur": 480
+		},
+		{
+			"time": 6080,
+			"chord": [
+				"B3",
+				"C#5",
+				"A4",
+				"E5",
+				"F#4",
+				"D#4"
+			],
+			"chordName": "B11",
+			"dur": 320
+		},
+		{
+			"time": 6400,
+			"chord": [
+				"B3",
+				"C#5",
+				"A4",
+				"E5",
+				"F#4",
+				"D#4"
+			],
+			"chordName": "B11",
+			"dur": 320
+		},
+		{
+			"time": 6720,
+			"chord": [
+				"E3",
+				"B3",
+				"G#3",
+				"F#4"
+			],
+			"chordName": "EM11",
+			"dur": 240
+		},
+		{
+			"time": 6960,
+			"chord": [
+				"E3",
+				"B3",
+				"G#3",
+				"F#4"
+			],
+			"chordName": "EM11",
+			"dur": 240
+		},
+		{
+			"time": 7200,
+			"chord": [
+				"E3",
+				"B3",
+				"G#3",
+				"F#4"
+			],
+			"chordName": "EM11",
+			"dur": 480
 		}
 	],
 	"structure": [
 		{
 			"time": 0,
-			"dur": 960,
 			"chord": [
-				63,
-				66,
-				70,
-				72
+				"Bb2",
+				"Bb3",
+				"Eb3",
+				"C4",
+				"Gb3",
+				"Gb4",
+				"Eb4"
 			],
-			"chordName": "Ebm6"
+			"chordName": "Ebm6",
+			"dur": 320
+		},
+		{
+			"time": 320,
+			"chord": [
+				"Bb2",
+				"Bb3",
+				"Eb3",
+				"C4",
+				"Gb3",
+				"Gb4",
+				"Eb4"
+			],
+			"chordName": "Ebm6",
+			"dur": 320
+		},
+		{
+			"time": 640,
+			"chord": [
+				"Bb2",
+				"Bb3",
+				"Eb3",
+				"C4",
+				"Gb3",
+				"Gb4",
+				"Eb4"
+			],
+			"chordName": "Ebm6",
+			"dur": 320
 		},
 		{
 			"time": 960,
-			"dur": 480,
 			"chord": [
-				66,
-				68,
-				73,
-				75
+				"Bb2",
+				"Bb3",
+				"Eb3",
+				"C4",
+				"Gb3",
+				"Gb4",
+				"Eb4"
 			],
-			"chordName": "Gbm6"
+			"chordName": "Ebm6",
+			"dur": 480
 		},
 		{
 			"time": 1440,
-			"dur": 480,
 			"chord": [
-				71,
-				74,
-				78,
-				80
+				"Ab5",
+				"Bb5"
 			],
-			"chordName": "Bm6"
+			"chordName": "Dbm6",
+			"dur": 320
 		},
 		{
-			"time": 1920,
-			"dur": 960,
+			"time": 1760,
 			"chord": [
-				66,
-				69,
-				73,
-				74
+				"Ab5",
+				"Bb5"
 			],
-			"chordName": "F#m6m"
+			"chordName": "Dbm6",
+			"dur": 480
+		},
+		{
+			"time": 2240,
+			"chord": [
+				"Ab5",
+				"Bb5"
+			],
+			"chordName": "Dbm6",
+			"dur": 320
+		},
+		{
+			"time": 2560,
+			"chord": [
+				"Ab5",
+				"Bb5"
+			],
+			"chordName": "Dbm6",
+			"dur": 320
 		},
 		{
 			"time": 2880,
-			"dur": 480,
 			"chord": [
-				64,
-				68,
-				71,
-				73
+				"E5",
+				"Gb5"
 			],
-			"chordName": "E6"
+			"chordName": "Bbdimadd6",
+			"dur": 480
 		},
 		{
 			"time": 3360,
-			"dur": 0,
 			"chord": [
-				68,
-				71,
-				74,
-				76
+				"E5",
+				"Gb5"
 			],
-			"chordName": "G#dimadd6"
+			"chordName": "Bbdimadd6",
+			"dur": 480
+		},
+		{
+			"time": 3840,
+			"chord": [
+				"Db5",
+				"Bb5",
+				"E5"
+			],
+			"chordName": "Dbm6",
+			"dur": 320
+		},
+		{
+			"time": 4160,
+			"chord": [
+				"Db5",
+				"Bb5",
+				"E5"
+			],
+			"chordName": "Dbm6",
+			"dur": 320
+		},
+		{
+			"time": 4480,
+			"chord": [
+				"Db5",
+				"Bb5",
+				"E5"
+			],
+			"chordName": "Dbm6",
+			"dur": 480
+		},
+		{
+			"time": 4960,
+			"chord": [
+				"Db5",
+				"Bb5",
+				"E5"
+			],
+			"chordName": "Dbm6",
+			"dur": 320
+		},
+		{
+			"time": 5280,
+			"chord": [
+				"E2",
+				"G#2",
+				"C#3",
+				"G#3",
+				"B2",
+				"E3",
+				"B3",
+				"C#4"
+			],
+			"chordName": "E6",
+			"dur": 320
+		},
+		{
+			"time": 5600,
+			"chord": [
+				"E2",
+				"G#2",
+				"C#3",
+				"G#3",
+				"B2",
+				"E3",
+				"B3",
+				"C#4"
+			],
+			"chordName": "E6",
+			"dur": 320
+		},
+		{
+			"time": 5920,
+			"chord": [
+				"E2",
+				"G#2",
+				"C#3",
+				"G#3",
+				"B2",
+				"E3",
+				"B3",
+				"C#4"
+			],
+			"chordName": "E6",
+			"dur": 480
+		},
+		{
+			"time": 6400,
+			"chord": [
+				"E2",
+				"G#2",
+				"C#3",
+				"G#3",
+				"B2",
+				"E3",
+				"B3",
+				"C#4"
+			],
+			"chordName": "E6",
+			"dur": 320
+		},
+		{
+			"time": 6720,
+			"chord": [
+				"A2",
+				"C#4",
+				"E3",
+				"A3",
+				"E4"
+			],
+			"chordName": "A6",
+			"dur": 320
+		},
+		{
+			"time": 7040,
+			"chord": [
+				"A2",
+				"C#4",
+				"E3",
+				"A3",
+				"E4"
+			],
+			"chordName": "A6",
+			"dur": 320
+		},
+		{
+			"time": 7360,
+			"chord": [
+				"A2",
+				"C#4",
+				"E3",
+				"A3",
+				"E4"
+			],
+			"chordName": "A6",
+			"dur": 320
 		}
 	]
 }

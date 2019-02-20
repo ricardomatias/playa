@@ -16,7 +16,7 @@ describe('A Melodies test suite', () => {
 		fixtures = JSON.parse(fs.readFileSync(fixturePath, { encoding: 'utf8' }));
 	});
 
-	it('should generate melodies based on a movement timeline', () => {
+	it('should generate melodies based on a movement timeline - free rhythm', () => {
 		// given
 		seedRandom('test');
 
@@ -36,6 +36,28 @@ describe('A Melodies test suite', () => {
 		expect(melodies).to.eql(fixtures.basic);
 	});
 
+	it('should generate melodies based on a movement timeline - turn rhythm', () => {
+		// given
+		seedRandom('test');
+
+		const aMaj = new Key('A', Key.MAJOR, noteOpts);
+
+		const opts = {
+			timeSignatures: [ [ 4, 4 ] ],
+			turns: 6,
+			modProb: 0.40,
+		};
+
+		// when
+		const movement = createMovement(aMaj, '5.1.0', opts);
+
+		const melodies = createMelodies(movement.timeline, {
+			rhythmType: 'turn',
+		});
+
+		expect(melodies).to.eql(fixtures.turn);
+	});
+
 	it('should generate progression with defined structures', () => {
 		// given
 		seedRandom('test');
@@ -53,9 +75,9 @@ describe('A Melodies test suite', () => {
 
 		const melodies = createMelodies(movement.timeline, {
 			rhythms: Object.values(RHYTHMS_DISTRIBUTIONS),
-			distributions: Object.values(distribute),
+			distributions: [ distribute.equal, distribute.descending ],
 			restProb: 0.3,
-			octaves: [ 3, 2 ],
+			octaves: [ [ 3, 1 ], [ 4, 1 ] ],
 		});
 
 		expect(melodies).to.eql(fixtures.options);
