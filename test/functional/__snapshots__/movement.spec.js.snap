@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A Movement test suite should generate a simple movement - euclidean 1`] = `
+Object {
+  "events": Array [
+    Object {
+      "key": "A",
+      "position": "II",
+      "scaleName": "DORIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "A",
+      "position": "III",
+      "scaleName": "PHRYGIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "A",
+      "position": "V",
+      "scaleName": "MIXOLYDIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "interval": "6m",
+      "key": "G#",
+      "position": "V",
+      "scaleName": "MIXOLYDIAN",
+      "type": "modulate",
+    },
+    Object {
+      "interval": "6M",
+      "key": "B",
+      "position": "V",
+      "scaleName": "MIXOLYDIAN",
+      "type": "modulate",
+    },
+    Object {
+      "key": "B",
+      "position": "I",
+      "scaleName": "IONIAN",
+      "type": "modulateMode",
+    },
+  ],
+  "timeline": Array [
+    Object {
+      "dur": 1440,
+      "key": Object {
+        "root": "B",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "quarter": 1,
+      "time": 0,
+    },
+    Object {
+      "dur": 1440,
+      "key": Object {
+        "root": "C#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
+      },
+      "quarter": 4,
+      "time": 1440,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "E",
+        "scale": "1P 2M 3M 4P 5P 6M 7m",
+      },
+      "quarter": 7,
+      "time": 2880,
+    },
+    Object {
+      "dur": 1440,
+      "key": Object {
+        "root": "G#",
+        "scale": "1P 2M 3M 4P 5P 6M 7m",
+      },
+      "quarter": 9,
+      "time": 3840,
+    },
+    Object {
+      "dur": 1440,
+      "key": Object {
+        "root": "B",
+        "scale": "1P 2M 3M 4P 5P 6M 7m",
+      },
+      "quarter": 12,
+      "time": 5280,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "E",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
+      },
+      "quarter": 15,
+      "time": 6720,
+    },
+  ],
+}
+`;
+
+exports[`A Movement test suite should generate a simple movement - turn rhythm 1`] = `
+Object {
+  "events": Array [
+    Object {
+      "key": "A",
+      "position": "VII",
+      "scaleName": "LOCRIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "A",
+      "position": "III",
+      "scaleName": "PHRYGIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "A",
+      "position": "VI",
+      "scaleName": "AEOLIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "interval": "6M",
+      "key": "A",
+      "position": "VI",
+      "scaleName": "AEOLIAN",
+      "type": "modulate",
+    },
+    Object {
+      "key": "A",
+      "position": "II",
+      "scaleName": "DORIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "interval": "5P",
+      "key": "A",
+      "position": "II",
+      "scaleName": "DORIAN",
+      "type": "modulate",
+    },
+  ],
+  "timeline": Array [
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "G#",
+        "scale": "1P 2m 3m 4P 5d 6m 7m",
+      },
+      "time": 0,
+    },
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "C#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
+      },
+      "time": 480,
+    },
+    Object {
+      "dur": 1920,
+      "key": Object {
+        "root": "F#",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
+      },
+      "time": 960,
+    },
+    Object {
+      "dur": 1920,
+      "key": Object {
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
+      },
+      "time": 2880,
+    },
+    Object {
+      "dur": 1280,
+      "key": Object {
+        "root": "D",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "time": 4800,
+    },
+    Object {
+      "dur": 1600,
+      "key": Object {
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "time": 6080,
+    },
+  ],
+}
+`;

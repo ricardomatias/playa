@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import { Key } from '../../lib/core';
 import { RHYTHMS_DISTRIBUTIONS } from '../../lib/constants';
 import { createMovement, createMelodies } from '../../lib/functional';
@@ -7,15 +5,8 @@ import { seedRandom, distribute } from '../../lib/tools';
 
 const noteOpts = { noteType: 'note' };
 
-let fixtures;
-
-const fixturePath = path.join(__dirname, 'fixtures', 'melodies.json');
 
 describe('A Melodies test suite', () => {
-	before(() => {
-		fixtures = JSON.parse(fs.readFileSync(fixturePath, { encoding: 'utf8' }));
-	});
-
 	it('should generate melodies based on a movement timeline - free rhythm', () => {
 		// given
 		seedRandom('test');
@@ -33,7 +24,7 @@ describe('A Melodies test suite', () => {
 
 		const melodies = createMelodies(movement.timeline);
 
-		expect(melodies).to.eql(fixtures.basic);
+		expect(melodies).toMatchSnapshot();
 	});
 
 	it('should generate melodies based on a movement timeline - turn rhythm', () => {
@@ -55,7 +46,7 @@ describe('A Melodies test suite', () => {
 			rhythmType: 'turn',
 		});
 
-		expect(melodies).to.eql(fixtures.turn);
+		expect(melodies).toMatchSnapshot();
 	});
 
 	it('should generate progression with defined structures', () => {
@@ -80,6 +71,6 @@ describe('A Melodies test suite', () => {
 			octaves: [ [ 3, 1 ], [ 4, 1 ] ],
 		});
 
-		expect(melodies).to.eql(fixtures.options);
+		expect(melodies).toMatchSnapshot();
 	});
 });

@@ -1,0 +1,289 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A Motif test suite should generate createMotif based on chord 1`] = `
+Array [
+  Object {
+    "dur": "8n",
+    "midi": 64,
+    "note": "E4",
+    "time": 0,
+  },
+  Object {
+    "dur": "4n",
+    "midi": 64,
+    "note": "E4",
+    "time": 240,
+  },
+  Object {
+    "dur": "8t",
+    "midi": 61,
+    "note": "Db4",
+    "time": 720,
+  },
+  Object {
+    "dur": "8n",
+    "midi": 64,
+    "note": "E4",
+    "time": 880,
+  },
+  Object {
+    "dur": "16n",
+    "midi": 68,
+    "note": "Ab4",
+    "time": 1120,
+  },
+  Object {
+    "dur": "4t",
+    "midi": 64,
+    "note": "E4",
+    "time": 1240,
+  },
+  Object {
+    "dur": "8n",
+    "midi": 68,
+    "note": "Ab4",
+    "time": 1560,
+  },
+  Object {
+    "dur": "16n",
+    "midi": 64,
+    "note": "E4",
+    "time": 1800,
+  },
+]
+`;
+
+exports[`A Motif test suite should generate createMotif based on chord 2`] = `
+Array [
+  Object {
+    "dur": "8n",
+    "midi": 64,
+    "note": "E4",
+    "time": 0,
+  },
+  Object {
+    "dur": "4nd",
+    "midi": 68,
+    "note": "Ab4",
+    "time": 240,
+  },
+  Object {
+    "dur": "4n",
+    "midi": 64,
+    "note": "E4",
+    "time": 960,
+  },
+  Object {
+    "dur": "4t",
+    "midi": 64,
+    "note": "E4",
+    "time": 1440,
+  },
+  Object {
+    "dur": "4nd",
+    "midi": 64,
+    "note": "E4",
+    "time": 1760,
+  },
+  Object {
+    "dur": "8n",
+    "midi": 64,
+    "note": "E4",
+    "time": 2480,
+  },
+  Object {
+    "dur": "4t",
+    "midi": 68,
+    "note": "Ab4",
+    "time": 2720,
+  },
+  Object {
+    "dur": "4n",
+    "midi": 64,
+    "note": "E4",
+    "time": 3040,
+  },
+  Object {
+    "dur": "8t",
+    "midi": 64,
+    "note": "E4",
+    "time": 3520,
+  },
+  Object {
+    "dur": "8t",
+    "midi": 68,
+    "note": "Ab4",
+    "time": 3680,
+  },
+]
+`;
+
+exports[`A Motif test suite should generate motif based on scale 1`] = `
+Array [
+  Object {
+    "dur": "8n",
+    "midi": 74,
+    "note": "D5",
+    "time": 0,
+  },
+  Object {
+    "dur": "4n",
+    "midi": 73,
+    "note": "C#5",
+    "time": 240,
+  },
+  Object {
+    "dur": "8t",
+    "midi": 69,
+    "note": "A4",
+    "time": 720,
+  },
+  Object {
+    "dur": "8n",
+    "midi": 73,
+    "note": "C#5",
+    "time": 880,
+  },
+  Object {
+    "dur": "16n",
+    "midi": 76,
+    "note": "E5",
+    "time": 1120,
+  },
+  Object {
+    "dur": "4t",
+    "midi": 74,
+    "note": "D5",
+    "time": 1240,
+  },
+  Object {
+    "dur": "8n",
+    "midi": 76,
+    "note": "E5",
+    "time": 1560,
+  },
+  Object {
+    "dur": "16n",
+    "midi": 73,
+    "note": "C#5",
+    "time": 1800,
+  },
+]
+`;
+
+exports[`A Motif test suite should generate motif based on scale 2`] = `
+Array [
+  Object {
+    "dur": "8n",
+    "midi": 73,
+    "note": "C#5",
+    "time": 0,
+  },
+  Object {
+    "dur": "4nd",
+    "midi": 76,
+    "note": "E5",
+    "time": 240,
+  },
+  Object {
+    "dur": "4n",
+    "midi": 74,
+    "note": "D5",
+    "time": 960,
+  },
+  Object {
+    "dur": "4t",
+    "midi": 74,
+    "note": "D5",
+    "time": 1440,
+  },
+  Object {
+    "dur": "4nd",
+    "midi": 73,
+    "note": "C#5",
+    "time": 1760,
+  },
+  Object {
+    "dur": "8n",
+    "midi": 73,
+    "note": "C#5",
+    "time": 2480,
+  },
+  Object {
+    "dur": "4t",
+    "midi": 76,
+    "note": "E5",
+    "time": 2720,
+  },
+  Object {
+    "dur": "4n",
+    "midi": 73,
+    "note": "C#5",
+    "time": 3040,
+  },
+  Object {
+    "dur": "8t",
+    "midi": 73,
+    "note": "C#5",
+    "time": 3520,
+  },
+  Object {
+    "dur": "8t",
+    "midi": 76,
+    "note": "E5",
+    "time": 3680,
+  },
+]
+`;
+
+exports[`A Motif test suite should return pattern with time = start time 1`] = `
+Array [
+  Object {
+    "dur": "8n",
+    "midi": 70,
+    "note": "Bb4",
+    "time": 0,
+  },
+  Object {
+    "dur": "16n",
+    "midi": 64,
+    "note": "E4",
+    "time": 240,
+  },
+  Object {
+    "dur": "16n",
+    "midi": 68,
+    "note": "Ab4",
+    "time": 360,
+  },
+]
+`;
+
+exports[`A Motif test suite should return pattern with time = start time 2`] = `
+Array [
+  Object {
+    "dur": "4nd",
+    "midi": 64,
+    "note": "E4",
+    "time": 480,
+  },
+  Object {
+    "dur": "4t",
+    "midi": 68,
+    "note": "Ab4",
+    "time": 1200,
+  },
+  Object {
+    "dur": "8n",
+    "midi": 64,
+    "note": "E4",
+    "time": 1520,
+  },
+  Object {
+    "dur": "8t",
+    "midi": 64,
+    "note": "E4",
+    "time": 1760,
+  },
+]
+`;

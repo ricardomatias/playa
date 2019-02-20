@@ -20,8 +20,8 @@ describe('#generateFreeRhythm', () => {
 		let rhythm = generateFreeRhythm(ONE_BAR, mixed, distribute.descending);
 
 		// then
-		expect(calcRythmDuration(rhythm)).to.equal(ONE_BAR);
-		expect(rhythm).to.eql([ '8n', '4n', '8t', '8n', '16n', '4t', '8n', '16n' ]);
+		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
+		expect(rhythm).toEqual([ '8n', '4n', '8t', '8n', '16n', '4t', '8n', '16n' ]);
 	});
 	it('should generate rhythm - slow', () => {
 		// given
@@ -31,8 +31,8 @@ describe('#generateFreeRhythm', () => {
 		let rhythm = generateFreeRhythm(ONE_BAR, slow, distribute.equal);
 
 		// then
-		expect(calcRythmDuration(rhythm)).to.equal(ONE_BAR);
-		expect(rhythm).to.eql([ '4nd', '4nd', '4n' ]);
+		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
+		expect(rhythm).toEqual([ '4nd', '4nd', '4n' ]);
 	});
 
 	it('should generate rhythm - robotic', () => {
@@ -43,8 +43,8 @@ describe('#generateFreeRhythm', () => {
 		let rhythm = generateFreeRhythm(ONE_BAR, robotic, distribute.equal);
 
 		// then
-		expect(calcRythmDuration(rhythm)).to.equal(ONE_BAR);
-		expect(rhythm).to.eql([
+		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
+		expect(rhythm).toEqual([
 			'16n',
 			'8n',
 			'32n',
@@ -74,7 +74,7 @@ describe('#generateFreeRhythm', () => {
 		let rhythm = generateFreeRhythm(ONE_BAR, straight, distribute.equal);
 
 		// then
-		expect(calcRythmDuration(rhythm)).to.equal(ONE_BAR);
-		expect(rhythm).to.eql([ '4n', '4n', '16n', '4n', '16n', '8n' ]);
+		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
+		expect(rhythm).toEqual([ '4n', '4n', '16n', '4n', '16n', '8n' ]);
 	});
 });

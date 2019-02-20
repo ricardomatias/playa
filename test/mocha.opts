@@ -1,6 +1,0 @@
-# mocha.opts
-
---recursive
---colors
---require esm
---require ./test/config.js

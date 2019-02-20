@@ -4,13 +4,13 @@ import { seedRandom } from '../../lib/tools/random';
 const AM7 = [ 'A', 'C', 'E', 'G' ];
 
 describe('A Choose test suite', () => {
-	before(() => seedRandom('CHOOSE'));
+	beforeAll(() => seedRandom('CHOOSE'));
 
 	it('should return a random element', () => {
-		expect(choose(AM7)).to.eql('E');
-		expect(choose(AM7)).to.eql('C');
-		expect(choose(AM7)).to.eql('E');
-		expect(choose(AM7)).to.eql('E');
-		expect(choose(AM7)).to.eql('G');
+		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('C');
+		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('G');
 	});
 });

@@ -29,7 +29,7 @@ describe('Key Test Suite', () => {
 		it('should be the same scale', () => {
 			const key = new Key('C', Key.MAJOR, TEST);
 
-			expect(key.scale).to.equal(key.scale);
+			expect(key.scale).toBe(key.scale);
 		});
 	});
 
@@ -37,7 +37,7 @@ describe('Key Test Suite', () => {
 		it('should have chords for C Major', () => {
 			const key = new Key('C', Key.MAJOR, TEST);
 
-			expect(modesToChords(key.modes)).to.eql([
+			expect(modesToChords(key.modes)).toEqual([
 				'CM7',
 				'Dm7',
 				'Em7',
@@ -51,7 +51,7 @@ describe('Key Test Suite', () => {
 		it('should have chords for Ab Minor', () => {
 			const key = new Key('Ab', Key.MINOR, TEST);
 
-			expect(modesToChords(key.modes)).to.eql([
+			expect(modesToChords(key.modes)).toEqual([
 				'Abm7',
 				'Bbm7b5',
 				'BM7',
@@ -65,7 +65,7 @@ describe('Key Test Suite', () => {
 		it('should have chords for E Dorian', () => {
 			const key = new Key('E', Key.DORIAN, TEST);
 
-			expect(modesToChords(key.modes)).to.eql([
+			expect(modesToChords(key.modes)).toEqual([
 				'Em7',
 				'F#m7',
 				'GM7',
@@ -81,8 +81,8 @@ describe('Key Test Suite', () => {
 
 			const eMyxo = key.MIXOLYDIAN;
 
-			expect(eMyxo.chord.name).to.eql('B7');
-			expect(eMyxo.notes).to.eql([ 'B', 'C#', 'D#', 'E', 'F#', 'G#', 'A' ]);
+			expect(eMyxo.chord.name).toBe('B7');
+			expect(eMyxo.notes).toEqual([ 'B', 'C#', 'D#', 'E', 'F#', 'G#', 'A' ]);
 		});
 
 		it('should allow accessing a mode through Proxy - E LYDIAN', () => {
@@ -90,8 +90,8 @@ describe('Key Test Suite', () => {
 
 			const eLyd = key.LYDIAN;
 
-			expect(eLyd.chord.name).to.eql('AM7');
-			expect(eLyd.notes).to.eql([ 'A', 'B', 'C#', 'D#', 'E', 'F#', 'G#' ]);
+			expect(eLyd.chord.name).toBe('AM7');
+			expect(eLyd.notes).toEqual([ 'A', 'B', 'C#', 'D#', 'E', 'F#', 'G#' ]);
 		});
 	});
 
@@ -101,7 +101,7 @@ describe('Key Test Suite', () => {
 
 			key.modulate(Key.MOD_UP);
 
-			expect(key.notes).to.eql([ 'G', 'A', 'B', 'C', 'D', 'E', 'F#' ]);
+			expect(key.notes).toEqual([ 'G', 'A', 'B', 'C', 'D', 'E', 'F#' ]);
 		});
 
 		it('should modulate DOWN', () => {
@@ -109,7 +109,7 @@ describe('Key Test Suite', () => {
 
 			key.modulate(Key.MOD_DOWN);
 
-			expect(key.notes).to.eql([ 'D', 'E', 'F#', 'G', 'A', 'B', 'C#' ]);
+			expect(key.notes).toEqual([ 'D', 'E', 'F#', 'G', 'A', 'B', 'C#' ]);
 		});
 
 		it('should modulate DORIAN', () => {
@@ -117,7 +117,7 @@ describe('Key Test Suite', () => {
 
 			key.modulate(Key.MOD_DOWN, '2M');
 
-			expect(key.notes).to.eql([ 'D', 'E', 'F', 'G', 'A', 'B', 'C' ]);
+			expect(key.notes).toEqual([ 'D', 'E', 'F', 'G', 'A', 'B', 'C' ]);
 		});
 
 		it('should modulate PHRYGIAN', () => {
@@ -125,7 +125,7 @@ describe('Key Test Suite', () => {
 
 			key.modulate(Key.MOD_UP, '6M');
 
-			expect(key.notes).to.eql([ 'E', 'F', 'G', 'A', 'B', 'C', 'D' ]);
+			expect(key.notes).toEqual([ 'E', 'F', 'G', 'A', 'B', 'C', 'D' ]);
 		});
 	});
 
@@ -133,15 +133,15 @@ describe('Key Test Suite', () => {
 		const key = new Key('Eb', Key.MIXOLYDIAN, TEST);
 
 		it('should have key', () => {
-			expect(key.root).to.eql('Eb');
-			expect(Key.NAMES[key.type]).to.eql('MIXOLYDIAN');
-			expect(key.chord.name).to.eql('Eb7');
+			expect(key.root).toBe('Eb');
+			expect(Key.NAMES[key.type]).toBe('MIXOLYDIAN');
+			expect(key.chord.name).toBe('Eb7');
 
-			expect(modesToChords(key.modes)).to.eql([
+			expect(modesToChords(key.modes)).toEqual([
 				'Eb7', 'Fm7', 'Gm7b5', 'AbM7', 'Bbm7', 'Cm7', 'DbM7',
 			]);
 
-			expect(modesToScales(key.modes)).to.eql([
+			expect(modesToScales(key.modes)).toEqual([
 				'MIXOLYDIAN',
 				'AEOLIAN',
 				'LOCRIAN',
@@ -151,7 +151,7 @@ describe('Key Test Suite', () => {
 				'LYDIAN',
 			]);
 
-			expect(key.modePosition).to.eql('V');
+			expect(key.modePosition).toBe('V');
 		});
 
 		it('should modulate to another mode - IONIAN', () => {
@@ -159,12 +159,12 @@ describe('Key Test Suite', () => {
 
 			key.modulateMode();
 
-			expect(key.root).to.eql('Ab');
-			expect(Key.NAMES[key.type]).to.eql('IONIAN');
-			expect(key.chord.name).to.eql('AbM7');
-			expect(key.notes).to.eql([ 'Ab', 'Bb', 'C', 'Db', 'Eb', 'F', 'G' ]);
+			expect(key.root).toBe('Ab');
+			expect(Key.NAMES[key.type]).toBe('IONIAN');
+			expect(key.chord.name).toBe('AbM7');
+			expect(key.notes).toEqual([ 'Ab', 'Bb', 'C', 'Db', 'Eb', 'F', 'G' ]);
 
-			expect(key.modePosition).to.eql('I');
+			expect(key.modePosition).toBe('I');
 		});
 
 		it('should modulate to another mode', () => {
@@ -172,12 +172,12 @@ describe('Key Test Suite', () => {
 
 			key.modulateMode();
 
-			expect(key.root).to.eql('Db');
-			expect(Key.NAMES[key.type]).to.eql('LYDIAN');
-			expect(key.chord.name).to.eql('DbM7');
-			expect(key.notes).to.eql([ 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb', 'C' ]);
+			expect(key.root).toBe('Db');
+			expect(Key.NAMES[key.type]).toBe('LYDIAN');
+			expect(key.chord.name).toBe('DbM7');
+			expect(key.notes).toEqual([ 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb', 'C' ]);
 
-			expect(key.modePosition).to.eql('IV');
+			expect(key.modePosition).toBe('IV');
 		});
 	});
 });

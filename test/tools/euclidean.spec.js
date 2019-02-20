@@ -8,7 +8,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.create(4, 2);
 
 			// then
-			expect(pattern).to.eql([ 'x', '-', 'x', '-' ]);
+			expect(pattern).toEqual([ 'x', '-', 'x', '-' ]);
 		});
 
 		it('should create 8 -> 5, 3', () => {
@@ -16,7 +16,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.create(8, 3);
 
 			// then
-			expect(pattern).to.eql([
+			expect(pattern).toEqual([
 				'x', '-', '-', 'x',
 				'-', '-', 'x', '-',
 			]);
@@ -27,7 +27,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.create(7, 2);
 
 			// then
-			expect(pattern).to.eql([
+			expect(pattern).toEqual([
 				'x', '-', '-', '-', 'x', '-', '-',
 			]);
 		});
@@ -37,7 +37,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.create(9, 4);
 
 			// then
-			expect(pattern).to.eql([
+			expect(pattern).toEqual([
 				'x', '-', '-', 'x', '-', 'x', '-', 'x', '-',
 			]);
 		});
@@ -47,7 +47,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.create(7, 3);
 
 			// then
-			expect(pattern).to.eql([
+			expect(pattern).toEqual([
 				'x', '-', '-', 'x', '-', 'x', '-',
 			]);
 		});
@@ -56,7 +56,7 @@ describe('An Euclidean test suite', () => {
 			// when
 			const pattern = euclidean.create(16, 6);
 
-			expect(pattern).to.eql([
+			expect(pattern).toEqual([
 				'x', '-', '-', 'x', '-', '-', 'x', '-',
 				'x', '-', '-', 'x', '-', '-', 'x', '-',
 			]);
@@ -67,7 +67,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.create(16, 4);
 
 			// then
-			expect(pattern).to.eql([
+			expect(pattern).toEqual([
 				'x', '-', '-', '-', 'x', '-', '-', '-',
 				'x', '-', '-', '-', 'x', '-', '-', '-',
 			]);
@@ -80,7 +80,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.rotate([ 'x', '-', 'x', '-' ]);
 
 			// then
-			expect(pattern).to.eql([ 'x', '-', 'x', '-' ]);
+			expect(pattern).toEqual([ 'x', '-', 'x', '-' ]);
 		});
 
 		it('should rotate 8 -> 5, 3', () => {
@@ -91,7 +91,7 @@ describe('An Euclidean test suite', () => {
 			]);
 
 			// then
-			expect(pattern).to.eql([
+			expect(pattern).toEqual([
 				'x', '-', 'x', '-',
 				'-', 'x', '-', '-',
 			]);
@@ -104,7 +104,7 @@ describe('An Euclidean test suite', () => {
 			]);
 
 			// then
-			expect(pattern).to.eql([
+			expect(pattern).toEqual([
 				'x', '-', 'x', '-', '-', 'x', '-',
 			]);
 		});

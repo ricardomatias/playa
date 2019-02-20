@@ -19,8 +19,8 @@ describe('#generateTurnRhythm', () => {
 		});
 
 		// then
-		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 2);
-		expect(rhythm).to.eql([
+		expect(calcDuration(rhythm)).toEqual(ONE_BAR * 2);
+		expect(rhythm).toEqual([
 			{ time: 0, dur: 240 },
 			{ time: 240, dur: 240 },
 			{ time: 480, dur: 240 },
@@ -41,8 +41,8 @@ describe('#generateTurnRhythm', () => {
 		});
 
 		// then
-		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 2);
-		expect(rhythm).to.eql([
+		expect(calcDuration(rhythm)).toEqual(ONE_BAR * 2);
+		expect(rhythm).toEqual([
 			{ time: 0, dur: 480 },
 			{ time: 480, dur: 480 },
 			{ time: 960, dur: 480 },
@@ -63,8 +63,8 @@ describe('#generateTurnRhythm', () => {
 		});
 
 		// then
-		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 3);
-		expect(rhythm).to.eql([
+		expect(calcDuration(rhythm)).toEqual(ONE_BAR * 3);
+		expect(rhythm).toEqual([
 			{ time: 0, dur: 480 },
 			{ time: 480, dur: 480 },
 			{ time: 960, dur: 480 },
@@ -87,8 +87,8 @@ describe('#generateTurnRhythm', () => {
 		});
 
 		// then
-		expect(calcDuration(rhythm)).to.eql(ONE_BAR * 3);
-		expect(rhythm).to.eql([
+		expect(calcDuration(rhythm)).toEqual(ONE_BAR * 3);
+		expect(rhythm).toEqual([
 			{ time: 0, dur: 960 },
 			{ time: 960, dur: 960 },
 			{ time: 1920, dur: 960 },

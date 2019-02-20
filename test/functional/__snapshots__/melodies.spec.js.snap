@@ -1,0 +1,448 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A Melodies test suite should generate melodies based on a movement timeline - free rhythm 1`] = `
+Array [
+  Object {
+    "dur": 240,
+    "midi": 68,
+    "note": "G#4",
+    "time": 0,
+  },
+  Object {
+    "dur": 720,
+    "midi": 62,
+    "note": "D4",
+    "time": 240,
+  },
+  Object {
+    "dur": 240,
+    "midi": 71,
+    "note": "B4",
+    "time": 960,
+  },
+  Object {
+    "dur": 240,
+    "midi": 68,
+    "note": "G#4",
+    "time": 1200,
+  },
+  Object {
+    "dur": 480,
+    "midi": 61,
+    "note": "C#4",
+    "time": 1440,
+  },
+  Object {
+    "dur": 480,
+    "midi": 54,
+    "note": "F#3",
+    "time": 1920,
+  },
+  Object {
+    "dur": 240,
+    "midi": 49,
+    "note": "C#3",
+    "time": 2400,
+  },
+  Object {
+    "dur": 240,
+    "midi": 57,
+    "note": "A3",
+    "time": 2640,
+  },
+  Object {
+    "dur": 480,
+    "midi": 73,
+    "note": "C#5",
+    "time": 2880,
+  },
+  Object {
+    "dur": 480,
+    "midi": 66,
+    "note": "F#4",
+    "time": 3360,
+  },
+  Object {
+    "dur": 120,
+    "midi": 68,
+    "note": "G#4",
+    "time": 3840,
+  },
+  Object {
+    "dur": 480,
+    "midi": 61,
+    "note": "C#4",
+    "time": 3960,
+  },
+  Object {
+    "dur": 240,
+    "midi": 68,
+    "note": "G#4",
+    "time": 4440,
+  },
+  Object {
+    "dur": 360,
+    "midi": 63,
+    "note": "D#4",
+    "time": 4680,
+  },
+  Object {
+    "dur": 240,
+    "midi": 61,
+    "note": "C#4",
+    "time": 5040,
+  },
+  Object {
+    "dur": 320,
+    "midi": 63,
+    "note": "D#4",
+    "time": 5280,
+  },
+  Object {
+    "dur": 480,
+    "midi": 66,
+    "note": "F#4",
+    "time": 5600,
+  },
+  Object {
+    "dur": 480,
+    "midi": 64,
+    "note": "E4",
+    "time": 6080,
+  },
+  Object {
+    "dur": 160,
+    "midi": 68,
+    "note": "G#4",
+    "time": 6560,
+  },
+  Object {
+    "dur": 480,
+    "midi": 73,
+    "note": "C#5",
+    "time": 6720,
+  },
+  Object {
+    "dur": 480,
+    "midi": 66,
+    "note": "F#4",
+    "time": 7200,
+  },
+]
+`;
+
+exports[`A Melodies test suite should generate melodies based on a movement timeline - turn rhythm 1`] = `
+Array [
+  Object {
+    "dur": 480,
+    "midi": 78,
+    "note": "F#5",
+    "time": 0,
+  },
+  Object {
+    "dur": 960,
+    "midi": 74,
+    "note": "D5",
+    "time": 480,
+  },
+  Object {
+    "dur": 480,
+    "midi": 57,
+    "note": "A3",
+    "time": 1440,
+  },
+  Object {
+    "dur": 480,
+    "midi": 54,
+    "note": "F#3",
+    "time": 1920,
+  },
+  Object {
+    "dur": 480,
+    "midi": 56,
+    "note": "G#3",
+    "time": 2400,
+  },
+  Object {
+    "dur": 240,
+    "midi": 56,
+    "note": "G#3",
+    "time": 2880,
+  },
+  Object {
+    "dur": 240,
+    "midi": 59,
+    "note": "B3",
+    "time": 3120,
+  },
+  Object {
+    "dur": 160,
+    "midi": 61,
+    "note": "C#4",
+    "time": 3360,
+  },
+  Object {
+    "dur": 80,
+    "midi": 57,
+    "note": "A3",
+    "time": 3520,
+  },
+  Object {
+    "dur": 240,
+    "midi": 56,
+    "note": "G#3",
+    "time": 3600,
+  },
+  Object {
+    "dur": 240,
+    "midi": 72,
+    "note": "C5",
+    "time": 3840,
+  },
+  Object {
+    "dur": 240,
+    "midi": 75,
+    "note": "D#5",
+    "time": 4080,
+  },
+  Object {
+    "dur": 240,
+    "midi": 75,
+    "note": "D#5",
+    "time": 4320,
+  },
+  Object {
+    "dur": 480,
+    "midi": 77,
+    "note": "F5",
+    "time": 4560,
+  },
+  Object {
+    "dur": 240,
+    "midi": 80,
+    "note": "G#5",
+    "time": 5040,
+  },
+  Object {
+    "dur": 480,
+    "midi": 78,
+    "note": "F#5",
+    "time": 5280,
+  },
+  Object {
+    "dur": 960,
+    "midi": 74,
+    "note": "D5",
+    "time": 5760,
+  },
+  Object {
+    "dur": 240,
+    "midi": 71,
+    "note": "B4",
+    "time": 6720,
+  },
+  Object {
+    "dur": 240,
+    "midi": 76,
+    "note": "E5",
+    "time": 6960,
+  },
+  Object {
+    "dur": 160,
+    "midi": 73,
+    "note": "C#5",
+    "time": 7200,
+  },
+  Object {
+    "dur": 80,
+    "midi": 71,
+    "note": "B4",
+    "time": 7360,
+  },
+  Object {
+    "dur": 240,
+    "midi": 73,
+    "note": "C#5",
+    "time": 7440,
+  },
+]
+`;
+
+exports[`A Melodies test suite should generate progression with defined structures 1`] = `
+Array [
+  Object {
+    "dur": 240,
+    "midi": 60,
+    "note": "C4",
+    "time": 0,
+  },
+  Object {
+    "dur": 120,
+    "midi": 58,
+    "note": "Bb3",
+    "time": 240,
+  },
+  Object {
+    "dur": 60,
+    "midi": 60,
+    "note": "C4",
+    "time": 360,
+  },
+  Object {
+    "dur": 60,
+    "midi": 56,
+    "note": "Ab3",
+    "time": 420,
+  },
+  Object {
+    "dur": 240,
+    "midi": 60,
+    "note": "C4",
+    "time": 480,
+  },
+  Object {
+    "dur": 120,
+    "midi": 58,
+    "note": "Bb3",
+    "time": 720,
+  },
+  Object {
+    "dur": 60,
+    "midi": 60,
+    "note": "C4",
+    "time": 840,
+  },
+  Object {
+    "dur": 60,
+    "midi": 56,
+    "note": "Ab3",
+    "time": 900,
+  },
+  Object {
+    "dur": 60,
+    "midi": 60,
+    "note": "C4",
+    "time": 960,
+  },
+  Object {
+    "dur": 120,
+    "midi": 63,
+    "note": "Eb4",
+    "time": 1020,
+  },
+  Object {
+    "dur": 120,
+    "midi": 65,
+    "note": "F4",
+    "time": 1140,
+  },
+  Object {
+    "dur": 60,
+    "midi": 0,
+    "note": "-",
+    "time": 1260,
+  },
+  Object {
+    "dur": 120,
+    "midi": 63,
+    "note": "Eb4",
+    "time": 1320,
+  },
+  Object {
+    "dur": 240,
+    "midi": 60,
+    "note": "C4",
+    "time": 1440,
+  },
+  Object {
+    "dur": 120,
+    "midi": 58,
+    "note": "Bb3",
+    "time": 1680,
+  },
+  Object {
+    "dur": 60,
+    "midi": 60,
+    "note": "C4",
+    "time": 1800,
+  },
+  Object {
+    "dur": 60,
+    "midi": 56,
+    "note": "Ab3",
+    "time": 1860,
+  },
+  Object {
+    "dur": 60,
+    "midi": 55,
+    "note": "G3",
+    "time": 1920,
+  },
+  Object {
+    "dur": 240,
+    "midi": 58,
+    "note": "Bb3",
+    "time": 1980,
+  },
+  Object {
+    "dur": 120,
+    "midi": 0,
+    "note": "-",
+    "time": 2220,
+  },
+  Object {
+    "dur": 60,
+    "midi": 60,
+    "note": "C4",
+    "time": 2340,
+  },
+  Object {
+    "dur": 240,
+    "midi": 0,
+    "note": "-",
+    "time": 2400,
+  },
+  Object {
+    "dur": 120,
+    "midi": 72,
+    "note": "C5",
+    "time": 2640,
+  },
+  Object {
+    "dur": 120,
+    "midi": 77,
+    "note": "F5",
+    "time": 2760,
+  },
+  Object {
+    "dur": 480,
+    "midi": 0,
+    "note": "-",
+    "time": 2880,
+  },
+  Object {
+    "dur": 60,
+    "midi": 55,
+    "note": "G3",
+    "time": 3360,
+  },
+  Object {
+    "dur": 240,
+    "midi": 58,
+    "note": "Bb3",
+    "time": 3420,
+  },
+  Object {
+    "dur": 120,
+    "midi": 0,
+    "note": "-",
+    "time": 3660,
+  },
+  Object {
+    "dur": 60,
+    "midi": 60,
+    "note": "C4",
+    "time": 3780,
+  },
+]
+`;

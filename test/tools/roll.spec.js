@@ -9,16 +9,16 @@ describe('A Roll test suite', () => {
 	it('should roll equally', () => {
 		const probabilities = distribute.equal(am.notes.length);
 
-		expect(roll(am.notes, probabilities)).to.eql('D');
-		expect(roll(am.notes, probabilities)).to.eql('B');
-		expect(roll(am.notes, probabilities)).to.eql('G');
+		expect(roll(am.notes, probabilities)).toBe('D');
+		expect(roll(am.notes, probabilities)).toBe('B');
+		expect(roll(am.notes, probabilities)).toBe('G');
 	});
 
 	it('should distribute descending', () => {
 		const probabilities = distribute.descending(am.notes.length);
 
-		expect(roll(am.notes, probabilities)).to.eql('B');
-		expect(roll(am.notes, probabilities)).to.eql('A');
-		expect(roll(am.notes, probabilities)).to.eql('E');
+		expect(roll(am.notes, probabilities)).toBe('B');
+		expect(roll(am.notes, probabilities)).toBe('A');
+		expect(roll(am.notes, probabilities)).toBe('E');
 	});
 });

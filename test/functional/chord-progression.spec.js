@@ -1,20 +1,10 @@
-import fs from 'fs';
-import path from 'path';
 import { Key, Chord } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/functional';
 import { seedRandom } from '../../lib/tools';
 
 const noteType = 'str';
 
-let fixtures;
-
-const fixturePath = path.join(__dirname, 'fixtures', 'chord-progression.json');
-
 describe('A Chord Progression test suite', () => {
-	before(() => {
-		fixtures = JSON.parse(fs.readFileSync(fixturePath, { encoding: 'utf8' }));
-	});
-
 	it('should generate chords based on a movement timeline - free rhythm', () => {
 		// given
 		seedRandom('test');
@@ -32,7 +22,7 @@ describe('A Chord Progression test suite', () => {
 
 		const prog = createChordProgression(movement.timeline, { noteType });
 
-		expect(prog).to.eql(fixtures.basic);
+		expect(prog).toMatchSnapshot();
 	});
 
 	it('should generate chords based on a movement timeline - turn rhythm', () => {
@@ -52,7 +42,7 @@ describe('A Chord Progression test suite', () => {
 
 		const prog = createChordProgression(movement.timeline, { noteType, rhythmType: 'turn' });
 
-		expect(prog).to.eql(fixtures.turn);
+		expect(prog).toMatchSnapshot();
 	});
 
 	it('should generate progression with defined structures', () => {
@@ -79,6 +69,6 @@ describe('A Chord Progression test suite', () => {
 			noteType,
 		});
 
-		expect(prog).to.eql(fixtures.structure);
+		expect(prog).toMatchSnapshot();
 	});
 });

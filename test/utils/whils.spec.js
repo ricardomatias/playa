@@ -8,7 +8,7 @@ describe('A Whilst Test Suite', () => {
 			idx++;
 		}, () => (idx < 100));
 
-		expect(idx).to.eql(100);
+		expect(idx).toBe(100);
 	});
 
 	it('should work as a normal while', () => {
@@ -23,7 +23,7 @@ describe('A Whilst Test Suite', () => {
 			idx++;
 		}, () => (exists));
 
-		expect(exists).to.be.false;
+		expect(exists).toBe(false);
 	});
 });
 

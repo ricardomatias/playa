@@ -10,7 +10,7 @@ describe('A Shuffle test suite', () => {
 		for (let index = 0; index < 25; index++) {
 			const shuffledAM7 = shuffle(AM7);
 
-			expect(shuffledAM7).to.not.eql([ 'A', 'C', 'E', 'G', 'B', 'Eb' ]);
+			expect(shuffledAM7).not.toEqual([ 'A', 'C', 'E', 'G', 'B', 'Eb' ]);
 		}
 	});
 });

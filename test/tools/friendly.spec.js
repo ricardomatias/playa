@@ -21,13 +21,11 @@ describe('A Friendly test suite', () => {
 
 			const neighbours = friendly([ 'A', 'C#', 'G', 'B' ]);
 
-			expect(R.head(neighbours)).to.eql({
+			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3M 4P 5P 6M 7m', match: 1, type: 'MIXOLYDIAN', note: 'A',
 			});
 
-			expect(neighbours[1]).to.eql({
-				scale: '1P 2M 3M 4A 5P 6M 7M', match: 1, type: 'LYDIAN', note: 'G',
-			});
+			expect(neighbours).toMatchSnapshot();
 		});
 
 		it('should return [ `F#`, `C#`, `D`, `D`, `E`, `C` ]', () => {
@@ -36,13 +34,11 @@ describe('A Friendly test suite', () => {
 
 			const neighbours = friendly([ 'F#', 'C#', 'D', 'D', 'E', 'C' ]);
 
-			expect(R.head(neighbours)).to.eql({
+			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3M 4P 5P 6M 7m', match: 0.75, type: 'MIXOLYDIAN', note: 'D',
 			});
 
-			expect(R.last(neighbours)).to.eql({
-				scale: '1P 2M 3m 4P 5P 6m 7M', match: 0.25, type: 'HARMONIC_MINOR', note: 'C',
-			});
+			expect(neighbours).toMatchSnapshot();
 		});
 
 		it('should return [ `B`, `D`, `Eb`, `F`, `Ab` ]', () => {
@@ -51,9 +47,11 @@ describe('A Friendly test suite', () => {
 
 			const neighbours = friendly([ 'B', 'D', 'Eb', 'F', 'Ab' ]);
 
-			expect(R.head(neighbours)).to.eql(
-				{ scale: '1P 2M 3M 4P 5P 6M 7M', match: 0.5, note: 'Ab', type: 'IONIAN' }
-			);
+			expect(R.head(neighbours)).toEqual({
+				scale: '1P 2M 3M 4P 5P 6M 7M', match: 0.5, note: 'Ab', type: 'IONIAN',
+			});
+
+			expect(neighbours).toMatchSnapshot();
 		});
 
 		it('should still return neighbours when given just 2 notes', () => {
@@ -64,9 +62,8 @@ describe('A Friendly test suite', () => {
 			const neighbours = friendly([ 'C#', 'F#' ]);
 
 			// then
-			expect(R.head(neighbours)).to.eql(
-				{ scale: '1P 2M 3M 4A 5P 6M 7M', match: 1, note: 'F#', type: 'LYDIAN' }
-			);
+			expect(R.head(neighbours)).toEqual({ scale: '1P 2M 3M 4A 5P 6M 7M', match: 1, note: 'F#', type: 'LYDIAN' });
+			expect(neighbours).toMatchSnapshot();
 		});
 
 		it('should return an empty array when given 1 note', () => {
@@ -77,7 +74,7 @@ describe('A Friendly test suite', () => {
 			const neighbours = friendly([ 'C#' ]);
 
 			// then
-			expect(neighbours).to.eql([]);
+			expect(neighbours).toEqual([]);
 		});
 	});
 
@@ -85,7 +82,7 @@ describe('A Friendly test suite', () => {
 		it('should return an ordered list of intervals', () => {
 			const ranking = rankIntervals(SCALES_ARRAY);
 
-			expect(ranking).to.eql([
+			expect(ranking).toEqual([
 				'4A', '5d', '2m', '7M', '3M', '6m',
 				'6M', '3m', '7m', '2M', '4P', '5P',
 			]);
@@ -96,14 +93,15 @@ describe('A Friendly test suite', () => {
 
 			const ranking = rankScales(intervalsRanking);
 
-			expect(ranking['4A']).to.eql([ '1P 2M 3M 4A 5P 6M 7M' ]);
-			expect(ranking['7m']).to.have.length(9);
-			expect(ranking['5P']).to.have.length(13);
+			expect(ranking['4A']).toEqual([ '1P 2M 3M 4A 5P 6M 7M' ]);
+			expect(ranking['7m']).toHaveLength(9);
+			expect(ranking['5P']).toHaveLength(13);
+			expect(ranking).toMatchSnapshot();
 		});
 	});
 
 	describe('#orderNotes', () => {
-		before(() => seedRandom('FRIENDLY'));
+		beforeAll(() => seedRandom('FRIENDLY'));
 
 		it('should order notes C MAJ', () => {
 			const rndFn = () => (randomInt(1, -1));
@@ -112,7 +110,7 @@ describe('A Friendly test suite', () => {
 
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).to.eql(Cmaj.notes);
+			expect(neighbours).toEqual(Cmaj.notes);
 		});
 
 		it('should order notes Ab MAJ', () => {
@@ -121,7 +119,7 @@ describe('A Friendly test suite', () => {
 			const scrambledNotes = R.sort(rndFn, Abmaj.notes);
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).to.eql([
+			expect(neighbours).toEqual([
 				'C', 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb',
 			]);
 		});
@@ -131,11 +129,11 @@ describe('A Friendly test suite', () => {
 
 			const scrambledNotes = R.sort(rndFn, DSharpLoc.notes);
 
-			expect(scrambledNotes).to.eql([ 'E', 'G#', 'F#', 'D#', 'B', 'C#', 'A' ]);
+			expect(scrambledNotes).toEqual([ 'E', 'G#', 'F#', 'D#', 'B', 'C#', 'A' ]);
 
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).to.eql([
+			expect(neighbours).toEqual([
 				'C#', 'D#', 'E', 'F#', 'G#', 'A', 'B',
 			]);
 		});
@@ -146,7 +144,7 @@ describe('A Friendly test suite', () => {
 			const scrambledNotes = R.sort(rndFn, BbEgyptian.notes);
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).to.eql([
+			expect(neighbours).toEqual([
 				'C', 'Eb', 'F', 'Ab', 'Bb',
 			]);
 		});
