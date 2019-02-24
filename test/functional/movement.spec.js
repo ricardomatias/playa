@@ -19,7 +19,7 @@ describe('A Movement test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '5.1.0', opts);
+		const movement = createMovement(aMaj, '4.0.0', opts);
 
 		expect(movement).toMatchSnapshot();
 	});
@@ -38,7 +38,7 @@ describe('A Movement test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '5.1.0', opts);
+		const movement = createMovement(aMaj, '4.0.0', opts);
 
 		expect(movement).toMatchSnapshot();
 	});
@@ -57,7 +57,7 @@ describe('A Movement test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '9.1.0', opts);
+		const movement = createMovement(aMaj, '8.0.0', opts);
 
 		expect(movement).toMatchSnapshot();
 	});

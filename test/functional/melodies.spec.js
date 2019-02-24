@@ -20,7 +20,7 @@ describe('A Melodies test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '5.1.0', opts);
+		const movement = createMovement(aMaj, '4.0.0', opts);
 
 		const melodies = createMelodies(movement.timeline);
 
@@ -40,7 +40,7 @@ describe('A Melodies test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '5.1.0', opts);
+		const movement = createMovement(aMaj, '4.0.0', opts);
 
 		const melodies = createMelodies(movement.timeline, {
 			rhythmType: 'turn',
@@ -62,7 +62,7 @@ describe('A Melodies test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '3.1.0', opts);
+		const movement = createMovement(aMaj, '2.0.0', opts);
 
 		const melodies = createMelodies(movement.timeline, {
 			rhythms: Object.values(RHYTHMS_DISTRIBUTIONS),

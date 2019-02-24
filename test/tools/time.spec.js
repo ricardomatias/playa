@@ -2,66 +2,105 @@ import { transportToTicks, ticksToTransport } from '../../lib/tools';
 
 describe('A Time test suite', () => {
 	describe('#transportToTicks', () => {
-		it('should be start point', () => {
-			expect(transportToTicks('1.1.0')).toBe(0);
-		});
+		it('should convert - interval', () => {
+			const scenarios = [
+				'1.1.0',
+				'2.3.0',
+				'2.1.234',
+				'7.2.322',
+				'5.1.0',
+				'9.1.0',
+			].map((transport) => transportToTicks(transport, true));
 
-		it('should convert to 5280', () => {
-			expect(transportToTicks('2.3.0')).toBe(2880);
+			expect(scenarios).toMatchInlineSnapshot(`
+Array [
+  0,
+  2880,
+  2154,
+  12322,
+  7680,
+  15360,
+]
+`);
 		});
+		it('should convert - position', () => {
+			const scenarios = [
+				'0.0.0',
+				'1.2.0',
+				'1.0.234',
+				'6.1.322',
+				'4.0.0',
+				'8.0.0',
+			].map((transport) => transportToTicks(transport));
 
-		it('should convert to 4074', () => {
-			expect(transportToTicks('2.1.234')).toBe(2154);
-		});
-
-		it('should convert to 12322', () => {
-			expect(transportToTicks('7.2.322')).toBe(12322);
-		});
-
-		it('should convert to 7680', () => {
-			expect(transportToTicks('5.1.0')).toBe(7680);
-		});
-
-		it('should convert to 15360', () => {
-			expect(transportToTicks('9.1.0')).toBe(15360);
+			expect(scenarios).toMatchInlineSnapshot(`
+Array [
+  0,
+  2880,
+  2154,
+  12322,
+  7680,
+  15360,
+]
+`);
 		});
 	});
 
 	describe('#ticksToTransport', () => {
-		it('should convert to 1.2.211', () => {
-			expect(ticksToTransport(720)).toBe('1.2.240');
+		it('should convert - position', () => {
+			const scenarios = [
+				720,
+				960,
+				2880,
+				2154,
+				12322,
+				3360,
+				5520,
+				15360,
+				7680,
+			].map((transport) => ticksToTransport(transport, { positionMode: true }));
+
+			expect(scenarios).toMatchInlineSnapshot(`
+Array [
+  "1.2.240",
+  "1.3.0",
+  "2.3.0",
+  "2.1.234",
+  "7.2.322",
+  "2.4.0",
+  "3.4.240",
+  "9.1.0",
+  "5.1.0",
+]
+`);
 		});
 
-		it('should convert to 1.2.441', () => {
-			expect(ticksToTransport(960)).toBe('1.3.0');
-		});
+		it('should convert - interval', () => {
+			const scenarios = [
+				720,
+				960,
+				2880,
+				2154,
+				12322,
+				3360,
+				5520,
+				15360,
+				7680,
+			].map((transport) => ticksToTransport(transport));
 
-		it('should convert to 2.3.0', () => {
-			expect(ticksToTransport(2880)).toBe('2.3.0');
-		});
-
-		it('should convert to 2.1.234', () => {
-			expect(ticksToTransport(2154)).toBe('2.1.234');
-		});
-
-		it('should convert to 7.2.322', () => {
-			expect(ticksToTransport(12322)).toBe('7.2.322');
-		});
-
-		it('should convert to 2.4.0', () => {
-			expect(ticksToTransport(3360)).toBe('2.4.0');
-		});
-
-		it('should convert to 3.4.240', () => {
-			expect(ticksToTransport(5520)).toBe('3.4.240');
-		});
-
-		it('should convert to 9.1.0', () => {
-			expect(ticksToTransport(15360)).toBe('9.1.0');
-		});
-
-		it('should convert to 5.1.0', () => {
-			expect(ticksToTransport(7680)).toBe('5.1.0');
+			expect(scenarios).toMatchInlineSnapshot(`
+Array [
+  "0.1.240",
+  "0.2.0",
+  "1.2.0",
+  "1.0.234",
+  "6.1.322",
+  "1.3.0",
+  "2.3.240",
+  "8.0.0",
+  "4.0.0",
+]
+`);
 		});
 	});
 });

@@ -51,12 +51,14 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
     "alea": "^1.0.0",
     "babel-jest": "^24.1.0",
     "cheerio": "^1.0.0-rc.2",
     "clean-webpack-plugin": "^0.1.19",
     "esm": "^3.0.84",
     "fast-memoize": "^2.5.1",
+    "prettier": "^1.16.4",
     "ramda": "^0.26.1",
     "rollup": "^0.66.6",
     "rollup-plugin-terser": "^3.0.0",

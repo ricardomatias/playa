@@ -77,4 +77,15 @@ describe('#generateFreeRhythm', () => {
 		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
 		expect(rhythm).toEqual([ '4n', '4n', '16n', '4n', '16n', '8n' ]);
 	});
+
+	it('should break', () => {
+		// given
+		seedRandom('test');
+
+		// when
+		const error = () => (generateFreeRhythm(ONE_BAR / 8, slow, distribute.equal));
+
+		// then
+		expect(error).toThrowError();
+	});
 });

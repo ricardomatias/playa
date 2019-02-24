@@ -17,7 +17,7 @@ describe('A Motif test suite', () => {
 
 		const scale = new Scale('A', Scale.MAJOR, noteOpts);
 
-		let rhythm = generateFreeRhythm('2.1.0', mixed, distribute.descending);
+		let rhythm = generateFreeRhythm('1.0.0', mixed, distribute.descending);
 
 		// when
 		let motif = createMotif(scale.notes, rhythm);
@@ -29,7 +29,7 @@ describe('A Motif test suite', () => {
 		// when
 		seedRandom('test2');
 
-		rhythm = generateFreeRhythm('3.1.0', mixed, distribute.descending);
+		rhythm = generateFreeRhythm('2.0.0', mixed, distribute.descending);
 
 		motif = createMotif(scale.notes, rhythm);
 
@@ -44,7 +44,7 @@ describe('A Motif test suite', () => {
 		seedRandom('test');
 
 		const chord = new Chord('Dbm6', noteOpts);
-		let rhythm = generateFreeRhythm('2.1.0', mixed, distribute.descending);
+		let rhythm = generateFreeRhythm('1.0.0', mixed, distribute.descending);
 
 		// when
 		let motif = createMotif(chord.notes, rhythm);
@@ -55,7 +55,7 @@ describe('A Motif test suite', () => {
 		// when
 		seedRandom('test2');
 
-		rhythm = generateFreeRhythm('3.1.0', mixed, distribute.descending);
+		rhythm = generateFreeRhythm('2.0.0', mixed, distribute.descending);
 
 		motif = createMotif(chord.notes, rhythm);
 
@@ -69,14 +69,14 @@ describe('A Motif test suite', () => {
 		seedRandom('test');
 
 		const chord = new Chord('Dbm6', noteOpts);
-		let rhythm = generateFreeRhythm('1.2.0', mixed, distribute.descending);
+		let rhythm = generateFreeRhythm('0.1.0', mixed, distribute.descending);
 
 		// when
 		let motif = createMotif(chord.notes, rhythm, 0);
 
 		expect(motif).toMatchSnapshot();
 
-		rhythm = generateFreeRhythm('1.4.0', mixed, distribute.descending);
+		rhythm = generateFreeRhythm('0.3.0', mixed, distribute.descending);
 
 		motif = createMotif(chord.notes, rhythm, 480);
 

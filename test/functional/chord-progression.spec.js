@@ -18,7 +18,7 @@ describe('A Chord Progression test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '5.1.0', opts);
+		const movement = createMovement(aMaj, '4.0.0', opts);
 
 		const prog = createChordProgression(movement.timeline, { noteType });
 
@@ -38,7 +38,7 @@ describe('A Chord Progression test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '5.1.0', opts);
+		const movement = createMovement(aMaj, '4.0.0', opts);
 
 		const prog = createChordProgression(movement.timeline, { noteType, rhythmType: 'turn' });
 
@@ -58,7 +58,7 @@ describe('A Chord Progression test suite', () => {
 		};
 
 		// when
-		const movement = createMovement(aMaj, '5.1.0', opts);
+		const movement = createMovement(aMaj, '4.0.0', opts);
 
 		const prog = createChordProgression(movement.timeline, {
 			structures: [ Chord.SIXTH ],
