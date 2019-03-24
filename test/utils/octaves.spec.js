@@ -34,12 +34,12 @@ describe('An Octaves Test Suite', () => {
 		const octaves = assignOctaves(scale.notes, [ 4, 4 ]);
 
 		expect(octaves).toMatchSnapshot();
-		expect(octaves).toHaveLength(29);
+		expect(octaves).toHaveLength(28);
 	});
 
 	it('should map - pentatonic', () => {
 		const scale = new Scale('Eb', Scale.MAJOR_PENTATONIC, TYPE);
-		const octaves = assignOctaves(scale.notes, [ -1 ]);
+		const octaves = assignOctaves(scale.notes, [ -2 ]);
 
 		expect(octaves).toMatchSnapshot();
 		expect(octaves).toHaveLength(6);

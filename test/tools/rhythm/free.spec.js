@@ -21,7 +21,7 @@ describe('#generateFreeRhythm', () => {
 
 		// then
 		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
-		expect(rhythm).toEqual([ '8n', '4n', '8t', '8n', '16n', '4t', '8n', '16n' ]);
+		expect(rhythm).toEqual([ '8n', '4n', '8nt', '8n', '16n', '4nt', '8n', '16n' ]);
 	});
 	it('should generate rhythm - slow', () => {
 		// given

@@ -63,8 +63,8 @@ describe('A Chord Progression test suite', () => {
 		const prog = createChordProgression(movement.timeline, {
 			structures: [ Chord.SIXTH ],
 			inversionProb: 0.5,
-			octaves: [ [ 5, 1 ], [ 2, 2 ] ],
-			rhythmDistribution: [ '4t', '4n' ],
+			octaves: [ [ 4, 1 ], [ 2, 2 ] ],
+			rhythmDistribution: [ '4nt', '4n' ],
 			minChordNotes: 2,
 			noteType,
 		});

@@ -26,7 +26,7 @@ describe('Note Test Suite', () => {
 	it('should set with MIDI', () => {
 		const note = new Note('C', 60);
 
-		expect(note.n).toBe('C4');
+		expect(note.n).toBe('C3');
 		expect(note.m).toBe(60);
 		expect(note.note).toBe('C');
 	});
@@ -34,14 +34,14 @@ describe('Note Test Suite', () => {
 	it('should get octave with MIDI', () => {
 		const note = new Note('Gb', 102);
 
-		expect(note.n).toBe('Gb7');
+		expect(note.n).toBe('Gb6');
 		expect(note.note).toBe('Gb');
 	});
 
 	it('should get enharmonic with MIDI', () => {
 		const note = new Note('Gb', 102);
 
-		expect(note.eoct).toBe('F#7');
+		expect(note.eoct).toBe('F#6');
 		expect(note.e).toBe('F#');
 	});
 

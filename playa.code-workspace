@@ -7,5 +7,7 @@
 			"path": "/Users/feral/Creative-Coding/playa-max"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
 }

@@ -483,8 +483,8 @@ Array [
   },
   Object {
     "chord": Array [
-      "Ab5",
-      "Bb5",
+      "Ab4",
+      "Bb4",
     ],
     "chordName": "Dbm6",
     "dur": 320,
@@ -492,8 +492,8 @@ Array [
   },
   Object {
     "chord": Array [
-      "Ab5",
-      "Bb5",
+      "Ab4",
+      "Bb4",
     ],
     "chordName": "Dbm6",
     "dur": 480,
@@ -501,8 +501,8 @@ Array [
   },
   Object {
     "chord": Array [
-      "Ab5",
-      "Bb5",
+      "Ab4",
+      "Bb4",
     ],
     "chordName": "Dbm6",
     "dur": 320,
@@ -510,8 +510,8 @@ Array [
   },
   Object {
     "chord": Array [
-      "Ab5",
-      "Bb5",
+      "Ab4",
+      "Bb4",
     ],
     "chordName": "Dbm6",
     "dur": 320,
@@ -519,8 +519,8 @@ Array [
   },
   Object {
     "chord": Array [
-      "E5",
-      "Gb5",
+      "E4",
+      "Gb4",
     ],
     "chordName": "Bbdimadd6",
     "dur": 480,
@@ -528,8 +528,8 @@ Array [
   },
   Object {
     "chord": Array [
-      "E5",
-      "Gb5",
+      "E4",
+      "Gb4",
     ],
     "chordName": "Bbdimadd6",
     "dur": 480,
@@ -537,9 +537,9 @@ Array [
   },
   Object {
     "chord": Array [
-      "Db5",
-      "Bb5",
-      "E5",
+      "Db4",
+      "Bb4",
+      "E4",
     ],
     "chordName": "Dbm6",
     "dur": 320,
@@ -547,9 +547,9 @@ Array [
   },
   Object {
     "chord": Array [
-      "Db5",
-      "Bb5",
-      "E5",
+      "Db4",
+      "Bb4",
+      "E4",
     ],
     "chordName": "Dbm6",
     "dur": 320,
@@ -557,9 +557,9 @@ Array [
   },
   Object {
     "chord": Array [
-      "Db5",
-      "Bb5",
-      "E5",
+      "Db4",
+      "Bb4",
+      "E4",
     ],
     "chordName": "Dbm6",
     "dur": 480,
@@ -567,9 +567,9 @@ Array [
   },
   Object {
     "chord": Array [
-      "Db5",
-      "Bb5",
-      "E5",
+      "Db4",
+      "Bb4",
+      "E4",
     ],
     "chordName": "Dbm6",
     "dur": 320,

@@ -3,388 +3,388 @@
 exports[`An Octaves Test Suite should map - chromatic 1`] = `
 Array [
   Object {
-    "C-1": 0,
+    "C-2": 0,
   },
   Object {
-    "C#-1": 1,
+    "C#-2": 1,
   },
   Object {
-    "D-1": 2,
+    "D-2": 2,
   },
   Object {
-    "D#-1": 3,
+    "D#-2": 3,
   },
   Object {
-    "E-1": 4,
+    "E-2": 4,
   },
   Object {
-    "F-1": 5,
+    "F-2": 5,
   },
   Object {
-    "F#-1": 6,
+    "F#-2": 6,
   },
   Object {
-    "G-1": 7,
+    "G-2": 7,
   },
   Object {
-    "G#-1": 8,
+    "G#-2": 8,
   },
   Object {
-    "A-1": 9,
+    "A-2": 9,
   },
   Object {
-    "A#-1": 10,
+    "A#-2": 10,
   },
   Object {
-    "B-1": 11,
+    "B-2": 11,
   },
   Object {
-    "C0": 12,
+    "C-1": 12,
   },
   Object {
-    "C#0": 13,
+    "C#-1": 13,
   },
   Object {
-    "D0": 14,
+    "D-1": 14,
   },
   Object {
-    "D#0": 15,
+    "D#-1": 15,
   },
   Object {
-    "E0": 16,
+    "E-1": 16,
   },
   Object {
-    "F0": 17,
+    "F-1": 17,
   },
   Object {
-    "F#0": 18,
+    "F#-1": 18,
   },
   Object {
-    "G0": 19,
+    "G-1": 19,
   },
   Object {
-    "G#0": 20,
+    "G#-1": 20,
   },
   Object {
-    "A0": 21,
+    "A-1": 21,
   },
   Object {
-    "A#0": 22,
+    "A#-1": 22,
   },
   Object {
-    "B0": 23,
+    "B-1": 23,
   },
   Object {
-    "C1": 24,
+    "C0": 24,
   },
   Object {
-    "C#1": 25,
+    "C#0": 25,
   },
   Object {
-    "D1": 26,
+    "D0": 26,
   },
   Object {
-    "D#1": 27,
+    "D#0": 27,
   },
   Object {
-    "E1": 28,
+    "E0": 28,
   },
   Object {
-    "F1": 29,
+    "F0": 29,
   },
   Object {
-    "F#1": 30,
+    "F#0": 30,
   },
   Object {
-    "G1": 31,
+    "G0": 31,
   },
   Object {
-    "G#1": 32,
+    "G#0": 32,
   },
   Object {
-    "A1": 33,
+    "A0": 33,
   },
   Object {
-    "A#1": 34,
+    "A#0": 34,
   },
   Object {
-    "B1": 35,
+    "B0": 35,
   },
   Object {
-    "C2": 36,
+    "C1": 36,
   },
   Object {
-    "C#2": 37,
+    "C#1": 37,
   },
   Object {
-    "D2": 38,
+    "D1": 38,
   },
   Object {
-    "D#2": 39,
+    "D#1": 39,
   },
   Object {
-    "E2": 40,
+    "E1": 40,
   },
   Object {
-    "F2": 41,
+    "F1": 41,
   },
   Object {
-    "F#2": 42,
+    "F#1": 42,
   },
   Object {
-    "G2": 43,
+    "G1": 43,
   },
   Object {
-    "G#2": 44,
+    "G#1": 44,
   },
   Object {
-    "A2": 45,
+    "A1": 45,
   },
   Object {
-    "A#2": 46,
+    "A#1": 46,
   },
   Object {
-    "B2": 47,
+    "B1": 47,
   },
   Object {
-    "C3": 48,
+    "C2": 48,
   },
   Object {
-    "C#3": 49,
+    "C#2": 49,
   },
   Object {
-    "D3": 50,
+    "D2": 50,
   },
   Object {
-    "D#3": 51,
+    "D#2": 51,
   },
   Object {
-    "E3": 52,
+    "E2": 52,
   },
   Object {
-    "F3": 53,
+    "F2": 53,
   },
   Object {
-    "F#3": 54,
+    "F#2": 54,
   },
   Object {
-    "G3": 55,
+    "G2": 55,
   },
   Object {
-    "G#3": 56,
+    "G#2": 56,
   },
   Object {
-    "A3": 57,
+    "A2": 57,
   },
   Object {
-    "A#3": 58,
+    "A#2": 58,
   },
   Object {
-    "B3": 59,
+    "B2": 59,
   },
   Object {
-    "C4": 60,
+    "C3": 60,
   },
   Object {
-    "C#4": 61,
+    "C#3": 61,
   },
   Object {
-    "D4": 62,
+    "D3": 62,
   },
   Object {
-    "D#4": 63,
+    "D#3": 63,
   },
   Object {
-    "E4": 64,
+    "E3": 64,
   },
   Object {
-    "F4": 65,
+    "F3": 65,
   },
   Object {
-    "F#4": 66,
+    "F#3": 66,
   },
   Object {
-    "G4": 67,
+    "G3": 67,
   },
   Object {
-    "G#4": 68,
+    "G#3": 68,
   },
   Object {
-    "A4": 69,
+    "A3": 69,
   },
   Object {
-    "A#4": 70,
+    "A#3": 70,
   },
   Object {
-    "B4": 71,
+    "B3": 71,
   },
   Object {
-    "C5": 72,
+    "C4": 72,
   },
   Object {
-    "C#5": 73,
+    "C#4": 73,
   },
   Object {
-    "D5": 74,
+    "D4": 74,
   },
   Object {
-    "D#5": 75,
+    "D#4": 75,
   },
   Object {
-    "E5": 76,
+    "E4": 76,
   },
   Object {
-    "F5": 77,
+    "F4": 77,
   },
   Object {
-    "F#5": 78,
+    "F#4": 78,
   },
   Object {
-    "G5": 79,
+    "G4": 79,
   },
   Object {
-    "G#5": 80,
+    "G#4": 80,
   },
   Object {
-    "A5": 81,
+    "A4": 81,
   },
   Object {
-    "A#5": 82,
+    "A#4": 82,
   },
   Object {
-    "B5": 83,
+    "B4": 83,
   },
   Object {
-    "C6": 84,
+    "C5": 84,
   },
   Object {
-    "C#6": 85,
+    "C#5": 85,
   },
   Object {
-    "D6": 86,
+    "D5": 86,
   },
   Object {
-    "D#6": 87,
+    "D#5": 87,
   },
   Object {
-    "E6": 88,
+    "E5": 88,
   },
   Object {
-    "F6": 89,
+    "F5": 89,
   },
   Object {
-    "F#6": 90,
+    "F#5": 90,
   },
   Object {
-    "G6": 91,
+    "G5": 91,
   },
   Object {
-    "G#6": 92,
+    "G#5": 92,
   },
   Object {
-    "A6": 93,
+    "A5": 93,
   },
   Object {
-    "A#6": 94,
+    "A#5": 94,
   },
   Object {
-    "B6": 95,
+    "B5": 95,
   },
   Object {
-    "C7": 96,
+    "C6": 96,
   },
   Object {
-    "C#7": 97,
+    "C#6": 97,
   },
   Object {
-    "D7": 98,
+    "D6": 98,
   },
   Object {
-    "D#7": 99,
+    "D#6": 99,
   },
   Object {
-    "E7": 100,
+    "E6": 100,
   },
   Object {
-    "F7": 101,
+    "F6": 101,
   },
   Object {
-    "F#7": 102,
+    "F#6": 102,
   },
   Object {
-    "G7": 103,
+    "G6": 103,
   },
   Object {
-    "G#7": 104,
+    "G#6": 104,
   },
   Object {
-    "A7": 105,
+    "A6": 105,
   },
   Object {
-    "A#7": 106,
+    "A#6": 106,
   },
   Object {
-    "B7": 107,
+    "B6": 107,
   },
   Object {
-    "C8": 108,
+    "C7": 108,
   },
   Object {
-    "C#8": 109,
+    "C#7": 109,
   },
   Object {
-    "D8": 110,
+    "D7": 110,
   },
   Object {
-    "D#8": 111,
+    "D#7": 111,
   },
   Object {
-    "E8": 112,
+    "E7": 112,
   },
   Object {
-    "F8": 113,
+    "F7": 113,
   },
   Object {
-    "F#8": 114,
+    "F#7": 114,
   },
   Object {
-    "G8": 115,
+    "G7": 115,
   },
   Object {
-    "G#8": 116,
+    "G#7": 116,
   },
   Object {
-    "A8": 117,
+    "A7": 117,
   },
   Object {
-    "A#8": 118,
+    "A#7": 118,
   },
   Object {
-    "B8": 119,
+    "B7": 119,
   },
   Object {
-    "C9": 120,
+    "C8": 120,
   },
   Object {
-    "C#9": 121,
+    "C#8": 121,
   },
   Object {
-    "D9": 122,
+    "D8": 122,
   },
   Object {
-    "D#9": 123,
+    "D#8": 123,
   },
   Object {
-    "E9": 124,
+    "E8": 124,
   },
   Object {
-    "F9": 125,
+    "F8": 125,
   },
   Object {
-    "F#9": 126,
+    "F#8": 126,
   },
   Object {
-    "G9": 127,
+    "G8": 127,
   },
 ]
 `;
@@ -394,94 +394,13 @@ Array [
   Note {
     "_accident": "b",
     "_enharmonic": "G#",
-    "_freq": 415.3046975799451,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 68,
-    "_next": "A",
-    "_note": "Ab",
-    "_octave": 4,
-    "_prev": "G",
-  },
-  Note {
-    "_accident": "b",
-    "_enharmonic": "A#",
-    "_freq": 466.1637615180899,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 70,
-    "_next": "B",
-    "_note": "Bb",
-    "_octave": 4,
-    "_prev": "A",
-  },
-  Note {
-    "_enharmonic": null,
-    "_freq": 523.2511306011972,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 72,
-    "_next": "C#",
-    "_note": "C",
-    "_octave": 5,
-    "_prev": "B",
-  },
-  Note {
-    "_accident": "b",
-    "_enharmonic": "C#",
-    "_freq": 554.3652619537442,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 73,
-    "_next": "D",
-    "_note": "Db",
-    "_octave": 5,
-    "_prev": "C",
-  },
-  Note {
-    "_accident": "b",
-    "_enharmonic": "D#",
-    "_freq": 622.2539674441618,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 75,
-    "_next": "E",
-    "_note": "Eb",
-    "_octave": 5,
-    "_prev": "D",
-  },
-  Note {
-    "_enharmonic": null,
-    "_freq": 698.4564628660078,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 77,
-    "_next": "F#",
-    "_note": "F",
-    "_octave": 5,
-    "_prev": "E",
-  },
-  Note {
-    "_enharmonic": null,
-    "_freq": 783.9908719634985,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 79,
-    "_next": "G#",
-    "_note": "G",
-    "_octave": 5,
-    "_prev": "F#",
-  },
-  Note {
-    "_accident": "b",
-    "_enharmonic": "G#",
     "_freq": 830.6093951598903,
     "_isFlat": false,
     "_isSharp": false,
     "_midi": 80,
     "_next": "A",
     "_note": "Ab",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "G",
   },
   Note {
@@ -493,7 +412,7 @@ Array [
     "_midi": 82,
     "_next": "B",
     "_note": "Bb",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "A",
   },
   Note {
@@ -504,7 +423,7 @@ Array [
     "_midi": 84,
     "_next": "C#",
     "_note": "C",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "B",
   },
   Note {
@@ -516,7 +435,7 @@ Array [
     "_midi": 85,
     "_next": "D",
     "_note": "Db",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "C",
   },
   Note {
@@ -528,7 +447,7 @@ Array [
     "_midi": 87,
     "_next": "E",
     "_note": "Eb",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "D",
   },
   Note {
@@ -539,7 +458,7 @@ Array [
     "_midi": 89,
     "_next": "F#",
     "_note": "F",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "E",
   },
   Note {
@@ -550,7 +469,7 @@ Array [
     "_midi": 91,
     "_next": "G#",
     "_note": "G",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "F#",
   },
   Note {
@@ -562,7 +481,7 @@ Array [
     "_midi": 92,
     "_next": "A",
     "_note": "Ab",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "G",
   },
   Note {
@@ -574,7 +493,7 @@ Array [
     "_midi": 94,
     "_next": "B",
     "_note": "Bb",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "A",
   },
   Note {
@@ -585,7 +504,7 @@ Array [
     "_midi": 96,
     "_next": "C#",
     "_note": "C",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "B",
   },
   Note {
@@ -597,7 +516,7 @@ Array [
     "_midi": 97,
     "_next": "D",
     "_note": "Db",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "C",
   },
   Note {
@@ -609,7 +528,7 @@ Array [
     "_midi": 99,
     "_next": "E",
     "_note": "Eb",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "D",
   },
   Note {
@@ -620,7 +539,7 @@ Array [
     "_midi": 101,
     "_next": "F#",
     "_note": "F",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "E",
   },
   Note {
@@ -631,7 +550,7 @@ Array [
     "_midi": 103,
     "_next": "G#",
     "_note": "G",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "F#",
   },
   Note {
@@ -643,7 +562,7 @@ Array [
     "_midi": 104,
     "_next": "A",
     "_note": "Ab",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "G",
   },
   Note {
@@ -655,7 +574,7 @@ Array [
     "_midi": 106,
     "_next": "B",
     "_note": "Bb",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "A",
   },
   Note {
@@ -666,7 +585,7 @@ Array [
     "_midi": 108,
     "_next": "C#",
     "_note": "C",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "B",
   },
   Note {
@@ -678,7 +597,7 @@ Array [
     "_midi": 109,
     "_next": "D",
     "_note": "Db",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "C",
   },
   Note {
@@ -690,7 +609,7 @@ Array [
     "_midi": 111,
     "_next": "E",
     "_note": "Eb",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "D",
   },
   Note {
@@ -701,7 +620,7 @@ Array [
     "_midi": 113,
     "_next": "F#",
     "_note": "F",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "E",
   },
   Note {
@@ -712,7 +631,7 @@ Array [
     "_midi": 115,
     "_next": "G#",
     "_note": "G",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "F#",
   },
   Note {
@@ -724,8 +643,77 @@ Array [
     "_midi": 116,
     "_next": "A",
     "_note": "Ab",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "G",
+  },
+  Note {
+    "_accident": "b",
+    "_enharmonic": "A#",
+    "_freq": 7458.620184289437,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 118,
+    "_next": "B",
+    "_note": "Bb",
+    "_octave": 7,
+    "_prev": "A",
+  },
+  Note {
+    "_enharmonic": null,
+    "_freq": 8372.018089619156,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 120,
+    "_next": "C#",
+    "_note": "C",
+    "_octave": 8,
+    "_prev": "B",
+  },
+  Note {
+    "_accident": "b",
+    "_enharmonic": "C#",
+    "_freq": 8869.844191259906,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 121,
+    "_next": "D",
+    "_note": "Db",
+    "_octave": 8,
+    "_prev": "C",
+  },
+  Note {
+    "_accident": "b",
+    "_enharmonic": "D#",
+    "_freq": 9956.06347910659,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 123,
+    "_next": "E",
+    "_note": "Eb",
+    "_octave": 8,
+    "_prev": "D",
+  },
+  Note {
+    "_enharmonic": null,
+    "_freq": 11175.303405856126,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 125,
+    "_next": "F#",
+    "_note": "F",
+    "_octave": 8,
+    "_prev": "E",
+  },
+  Note {
+    "_enharmonic": null,
+    "_freq": 12543.853951415975,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 127,
+    "_next": "G#",
+    "_note": "G",
+    "_octave": 8,
+    "_prev": "F#",
   },
 ]
 `;
@@ -734,10 +722,10 @@ exports[`An Octaves Test Suite should map - major with flats 1`] = `
 Array [
   Note {
     "_enharmonic": null,
-    "_freq": 10.913382232281373,
+    "_freq": 21.826764464562746,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 5,
+    "_midi": 17,
     "_next": "F#",
     "_note": "F",
     "_octave": -1,
@@ -745,10 +733,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 12.249857374429663,
+    "_freq": 24.499714748859326,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 7,
+    "_midi": 19,
     "_next": "G#",
     "_note": "G",
     "_octave": -1,
@@ -756,10 +744,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 13.75,
+    "_freq": 27.5,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 9,
+    "_midi": 21,
     "_next": "A#",
     "_note": "A",
     "_octave": -1,
@@ -768,10 +756,10 @@ Array [
   Note {
     "_accident": "b",
     "_enharmonic": "A#",
-    "_freq": 14.567617547440307,
+    "_freq": 29.13523509488062,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 10,
+    "_midi": 22,
     "_next": "B",
     "_note": "Bb",
     "_octave": -1,
@@ -779,10 +767,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 16.351597831287414,
+    "_freq": 32.70319566257483,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 12,
+    "_midi": 24,
     "_next": "C#",
     "_note": "C",
     "_octave": 0,
@@ -790,10 +778,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 18.354047994837977,
+    "_freq": 36.70809598967594,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 14,
+    "_midi": 26,
     "_next": "D#",
     "_note": "D",
     "_octave": 0,
@@ -801,10 +789,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 20.601722307054366,
+    "_freq": 41.20344461410875,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 16,
+    "_midi": 28,
     "_next": "F",
     "_note": "E",
     "_octave": 0,
@@ -812,10 +800,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 21.826764464562746,
+    "_freq": 43.653528929125486,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 17,
+    "_midi": 29,
     "_next": "F#",
     "_note": "F",
     "_octave": 0,
@@ -834,7 +822,7 @@ Array [
     "_midi": 0,
     "_next": "C#",
     "_note": "C",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "B",
   },
   Note {
@@ -845,7 +833,7 @@ Array [
     "_midi": 2,
     "_next": "D#",
     "_note": "D",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "C#",
   },
   Note {
@@ -856,7 +844,7 @@ Array [
     "_midi": 4,
     "_next": "F",
     "_note": "E",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "D#",
   },
   Note {
@@ -867,7 +855,7 @@ Array [
     "_midi": 5,
     "_next": "F#",
     "_note": "F",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "E",
   },
   Note {
@@ -878,7 +866,7 @@ Array [
     "_midi": 7,
     "_next": "G#",
     "_note": "G",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "F#",
   },
   Note {
@@ -889,7 +877,7 @@ Array [
     "_midi": 9,
     "_next": "A#",
     "_note": "A",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "G#",
   },
   Note {
@@ -900,7 +888,7 @@ Array [
     "_midi": 11,
     "_next": "C",
     "_note": "B",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "A#",
   },
   Note {
@@ -911,7 +899,7 @@ Array [
     "_midi": 12,
     "_next": "C#",
     "_note": "C",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "B",
   },
   Note {
@@ -922,7 +910,7 @@ Array [
     "_midi": 14,
     "_next": "D#",
     "_note": "D",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "C#",
   },
   Note {
@@ -933,7 +921,7 @@ Array [
     "_midi": 16,
     "_next": "F",
     "_note": "E",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "D#",
   },
   Note {
@@ -944,7 +932,7 @@ Array [
     "_midi": 17,
     "_next": "F#",
     "_note": "F",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "E",
   },
   Note {
@@ -955,7 +943,7 @@ Array [
     "_midi": 19,
     "_next": "G#",
     "_note": "G",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "F#",
   },
   Note {
@@ -966,7 +954,7 @@ Array [
     "_midi": 21,
     "_next": "A#",
     "_note": "A",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "G#",
   },
   Note {
@@ -977,7 +965,7 @@ Array [
     "_midi": 23,
     "_next": "C",
     "_note": "B",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "A#",
   },
   Note {
@@ -988,7 +976,7 @@ Array [
     "_midi": 24,
     "_next": "C#",
     "_note": "C",
-    "_octave": 1,
+    "_octave": 0,
     "_prev": "B",
   },
   Note {
@@ -999,7 +987,7 @@ Array [
     "_midi": 26,
     "_next": "D#",
     "_note": "D",
-    "_octave": 1,
+    "_octave": 0,
     "_prev": "C#",
   },
   Note {
@@ -1010,7 +998,7 @@ Array [
     "_midi": 28,
     "_next": "F",
     "_note": "E",
-    "_octave": 1,
+    "_octave": 0,
     "_prev": "D#",
   },
   Note {
@@ -1021,7 +1009,7 @@ Array [
     "_midi": 29,
     "_next": "F#",
     "_note": "F",
-    "_octave": 1,
+    "_octave": 0,
     "_prev": "E",
   },
   Note {
@@ -1032,7 +1020,7 @@ Array [
     "_midi": 31,
     "_next": "G#",
     "_note": "G",
-    "_octave": 1,
+    "_octave": 0,
     "_prev": "F#",
   },
   Note {
@@ -1043,7 +1031,7 @@ Array [
     "_midi": 33,
     "_next": "A#",
     "_note": "A",
-    "_octave": 1,
+    "_octave": 0,
     "_prev": "G#",
   },
   Note {
@@ -1054,7 +1042,7 @@ Array [
     "_midi": 35,
     "_next": "C",
     "_note": "B",
-    "_octave": 1,
+    "_octave": 0,
     "_prev": "A#",
   },
   Note {
@@ -1065,7 +1053,7 @@ Array [
     "_midi": 36,
     "_next": "C#",
     "_note": "C",
-    "_octave": 2,
+    "_octave": 1,
     "_prev": "B",
   },
   Note {
@@ -1076,7 +1064,7 @@ Array [
     "_midi": 38,
     "_next": "D#",
     "_note": "D",
-    "_octave": 2,
+    "_octave": 1,
     "_prev": "C#",
   },
   Note {
@@ -1087,7 +1075,7 @@ Array [
     "_midi": 40,
     "_next": "F",
     "_note": "E",
-    "_octave": 2,
+    "_octave": 1,
     "_prev": "D#",
   },
   Note {
@@ -1098,7 +1086,7 @@ Array [
     "_midi": 41,
     "_next": "F#",
     "_note": "F",
-    "_octave": 2,
+    "_octave": 1,
     "_prev": "E",
   },
   Note {
@@ -1109,7 +1097,7 @@ Array [
     "_midi": 43,
     "_next": "G#",
     "_note": "G",
-    "_octave": 2,
+    "_octave": 1,
     "_prev": "F#",
   },
   Note {
@@ -1120,7 +1108,7 @@ Array [
     "_midi": 45,
     "_next": "A#",
     "_note": "A",
-    "_octave": 2,
+    "_octave": 1,
     "_prev": "G#",
   },
   Note {
@@ -1131,7 +1119,7 @@ Array [
     "_midi": 47,
     "_next": "C",
     "_note": "B",
-    "_octave": 2,
+    "_octave": 1,
     "_prev": "A#",
   },
   Note {
@@ -1142,7 +1130,7 @@ Array [
     "_midi": 48,
     "_next": "C#",
     "_note": "C",
-    "_octave": 3,
+    "_octave": 2,
     "_prev": "B",
   },
   Note {
@@ -1153,7 +1141,7 @@ Array [
     "_midi": 50,
     "_next": "D#",
     "_note": "D",
-    "_octave": 3,
+    "_octave": 2,
     "_prev": "C#",
   },
   Note {
@@ -1164,7 +1152,7 @@ Array [
     "_midi": 52,
     "_next": "F",
     "_note": "E",
-    "_octave": 3,
+    "_octave": 2,
     "_prev": "D#",
   },
   Note {
@@ -1175,7 +1163,7 @@ Array [
     "_midi": 53,
     "_next": "F#",
     "_note": "F",
-    "_octave": 3,
+    "_octave": 2,
     "_prev": "E",
   },
   Note {
@@ -1186,7 +1174,7 @@ Array [
     "_midi": 55,
     "_next": "G#",
     "_note": "G",
-    "_octave": 3,
+    "_octave": 2,
     "_prev": "F#",
   },
   Note {
@@ -1197,7 +1185,7 @@ Array [
     "_midi": 57,
     "_next": "A#",
     "_note": "A",
-    "_octave": 3,
+    "_octave": 2,
     "_prev": "G#",
   },
   Note {
@@ -1208,7 +1196,7 @@ Array [
     "_midi": 59,
     "_next": "C",
     "_note": "B",
-    "_octave": 3,
+    "_octave": 2,
     "_prev": "A#",
   },
   Note {
@@ -1219,7 +1207,7 @@ Array [
     "_midi": 60,
     "_next": "C#",
     "_note": "C",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "B",
   },
   Note {
@@ -1230,7 +1218,7 @@ Array [
     "_midi": 62,
     "_next": "D#",
     "_note": "D",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "C#",
   },
   Note {
@@ -1241,7 +1229,7 @@ Array [
     "_midi": 64,
     "_next": "F",
     "_note": "E",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "D#",
   },
   Note {
@@ -1252,7 +1240,7 @@ Array [
     "_midi": 65,
     "_next": "F#",
     "_note": "F",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "E",
   },
   Note {
@@ -1263,7 +1251,7 @@ Array [
     "_midi": 67,
     "_next": "G#",
     "_note": "G",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "F#",
   },
   Note {
@@ -1274,7 +1262,7 @@ Array [
     "_midi": 69,
     "_next": "A#",
     "_note": "A",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "G#",
   },
   Note {
@@ -1285,7 +1273,7 @@ Array [
     "_midi": 71,
     "_next": "C",
     "_note": "B",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "A#",
   },
   Note {
@@ -1296,7 +1284,7 @@ Array [
     "_midi": 72,
     "_next": "C#",
     "_note": "C",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "B",
   },
   Note {
@@ -1307,7 +1295,7 @@ Array [
     "_midi": 74,
     "_next": "D#",
     "_note": "D",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "C#",
   },
   Note {
@@ -1318,7 +1306,7 @@ Array [
     "_midi": 76,
     "_next": "F",
     "_note": "E",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "D#",
   },
   Note {
@@ -1329,7 +1317,7 @@ Array [
     "_midi": 77,
     "_next": "F#",
     "_note": "F",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "E",
   },
   Note {
@@ -1340,7 +1328,7 @@ Array [
     "_midi": 79,
     "_next": "G#",
     "_note": "G",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "F#",
   },
   Note {
@@ -1351,7 +1339,7 @@ Array [
     "_midi": 81,
     "_next": "A#",
     "_note": "A",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "G#",
   },
   Note {
@@ -1362,7 +1350,7 @@ Array [
     "_midi": 83,
     "_next": "C",
     "_note": "B",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "A#",
   },
   Note {
@@ -1373,7 +1361,7 @@ Array [
     "_midi": 84,
     "_next": "C#",
     "_note": "C",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "B",
   },
   Note {
@@ -1384,7 +1372,7 @@ Array [
     "_midi": 86,
     "_next": "D#",
     "_note": "D",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "C#",
   },
   Note {
@@ -1395,7 +1383,7 @@ Array [
     "_midi": 88,
     "_next": "F",
     "_note": "E",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "D#",
   },
   Note {
@@ -1406,7 +1394,7 @@ Array [
     "_midi": 89,
     "_next": "F#",
     "_note": "F",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "E",
   },
   Note {
@@ -1417,7 +1405,7 @@ Array [
     "_midi": 91,
     "_next": "G#",
     "_note": "G",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "F#",
   },
   Note {
@@ -1428,7 +1416,7 @@ Array [
     "_midi": 93,
     "_next": "A#",
     "_note": "A",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "G#",
   },
   Note {
@@ -1439,7 +1427,7 @@ Array [
     "_midi": 95,
     "_next": "C",
     "_note": "B",
-    "_octave": 6,
+    "_octave": 5,
     "_prev": "A#",
   },
   Note {
@@ -1450,7 +1438,7 @@ Array [
     "_midi": 96,
     "_next": "C#",
     "_note": "C",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "B",
   },
   Note {
@@ -1461,7 +1449,7 @@ Array [
     "_midi": 98,
     "_next": "D#",
     "_note": "D",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "C#",
   },
   Note {
@@ -1472,7 +1460,7 @@ Array [
     "_midi": 100,
     "_next": "F",
     "_note": "E",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "D#",
   },
   Note {
@@ -1483,7 +1471,7 @@ Array [
     "_midi": 101,
     "_next": "F#",
     "_note": "F",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "E",
   },
   Note {
@@ -1494,7 +1482,7 @@ Array [
     "_midi": 103,
     "_next": "G#",
     "_note": "G",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "F#",
   },
   Note {
@@ -1505,7 +1493,7 @@ Array [
     "_midi": 105,
     "_next": "A#",
     "_note": "A",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "G#",
   },
   Note {
@@ -1516,7 +1504,7 @@ Array [
     "_midi": 107,
     "_next": "C",
     "_note": "B",
-    "_octave": 7,
+    "_octave": 6,
     "_prev": "A#",
   },
   Note {
@@ -1527,7 +1515,7 @@ Array [
     "_midi": 108,
     "_next": "C#",
     "_note": "C",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "B",
   },
   Note {
@@ -1538,7 +1526,7 @@ Array [
     "_midi": 110,
     "_next": "D#",
     "_note": "D",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "C#",
   },
   Note {
@@ -1549,7 +1537,7 @@ Array [
     "_midi": 112,
     "_next": "F",
     "_note": "E",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "D#",
   },
   Note {
@@ -1560,7 +1548,7 @@ Array [
     "_midi": 113,
     "_next": "F#",
     "_note": "F",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "E",
   },
   Note {
@@ -1571,7 +1559,7 @@ Array [
     "_midi": 115,
     "_next": "G#",
     "_note": "G",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "F#",
   },
   Note {
@@ -1582,7 +1570,7 @@ Array [
     "_midi": 117,
     "_next": "A#",
     "_note": "A",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "G#",
   },
   Note {
@@ -1593,7 +1581,7 @@ Array [
     "_midi": 119,
     "_next": "C",
     "_note": "B",
-    "_octave": 8,
+    "_octave": 7,
     "_prev": "A#",
   },
   Note {
@@ -1604,7 +1592,7 @@ Array [
     "_midi": 120,
     "_next": "C#",
     "_note": "C",
-    "_octave": 9,
+    "_octave": 8,
     "_prev": "B",
   },
   Note {
@@ -1615,7 +1603,7 @@ Array [
     "_midi": 122,
     "_next": "D#",
     "_note": "D",
-    "_octave": 9,
+    "_octave": 8,
     "_prev": "C#",
   },
   Note {
@@ -1626,7 +1614,7 @@ Array [
     "_midi": 124,
     "_next": "F",
     "_note": "E",
-    "_octave": 9,
+    "_octave": 8,
     "_prev": "D#",
   },
   Note {
@@ -1637,7 +1625,7 @@ Array [
     "_midi": 125,
     "_next": "F#",
     "_note": "F",
-    "_octave": 9,
+    "_octave": 8,
     "_prev": "E",
   },
   Note {
@@ -1648,7 +1636,7 @@ Array [
     "_midi": 127,
     "_next": "G#",
     "_note": "G",
-    "_octave": 9,
+    "_octave": 8,
     "_prev": "F#",
   },
 ]
@@ -1665,7 +1653,7 @@ Array [
     "_midi": 3,
     "_next": "E",
     "_note": "Eb",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "D",
   },
   Note {
@@ -1676,7 +1664,7 @@ Array [
     "_midi": 5,
     "_next": "F#",
     "_note": "F",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "E",
   },
   Note {
@@ -1687,7 +1675,7 @@ Array [
     "_midi": 7,
     "_next": "G#",
     "_note": "G",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "F#",
   },
   Note {
@@ -1699,7 +1687,7 @@ Array [
     "_midi": 10,
     "_next": "B",
     "_note": "Bb",
-    "_octave": -1,
+    "_octave": -2,
     "_prev": "A",
   },
   Note {
@@ -1710,7 +1698,7 @@ Array [
     "_midi": 12,
     "_next": "C#",
     "_note": "C",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "B",
   },
   Note {
@@ -1722,7 +1710,7 @@ Array [
     "_midi": 15,
     "_next": "E",
     "_note": "Eb",
-    "_octave": 0,
+    "_octave": -1,
     "_prev": "D",
   },
 ]
@@ -1732,94 +1720,13 @@ exports[`An Octaves Test Suite should map - sharp 1`] = `
 Array [
   Note {
     "_enharmonic": null,
-    "_freq": 164.81377845643496,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 52,
-    "_next": "F",
-    "_note": "E",
-    "_octave": 3,
-    "_prev": "D#",
-  },
-  Note {
-    "_accident": "#",
-    "_enharmonic": "Gb",
-    "_freq": 184.9972113558172,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 54,
-    "_next": "G",
-    "_note": "F#",
-    "_octave": 3,
-    "_prev": "F",
-  },
-  Note {
-    "_accident": "#",
-    "_enharmonic": "Ab",
-    "_freq": 207.65234878997256,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 56,
-    "_next": "A",
-    "_note": "G#",
-    "_octave": 3,
-    "_prev": "G",
-  },
-  Note {
-    "_enharmonic": null,
-    "_freq": 220,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 57,
-    "_next": "A#",
-    "_note": "A",
-    "_octave": 3,
-    "_prev": "G#",
-  },
-  Note {
-    "_enharmonic": null,
-    "_freq": 246.94165062806206,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 59,
-    "_next": "C",
-    "_note": "B",
-    "_octave": 3,
-    "_prev": "A#",
-  },
-  Note {
-    "_accident": "#",
-    "_enharmonic": "Db",
-    "_freq": 277.1826309768721,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 61,
-    "_next": "D",
-    "_note": "C#",
-    "_octave": 4,
-    "_prev": "C",
-  },
-  Note {
-    "_accident": "#",
-    "_enharmonic": "Eb",
-    "_freq": 311.1269837220809,
-    "_isFlat": false,
-    "_isSharp": false,
-    "_midi": 63,
-    "_next": "E",
-    "_note": "D#",
-    "_octave": 4,
-    "_prev": "D",
-  },
-  Note {
-    "_enharmonic": null,
     "_freq": 329.6275569128699,
     "_isFlat": false,
     "_isSharp": false,
     "_midi": 64,
     "_next": "F",
     "_note": "E",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "D#",
   },
   Note {
@@ -1831,7 +1738,7 @@ Array [
     "_midi": 66,
     "_next": "G",
     "_note": "F#",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "F",
   },
   Note {
@@ -1843,7 +1750,7 @@ Array [
     "_midi": 68,
     "_next": "A",
     "_note": "G#",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "G",
   },
   Note {
@@ -1854,7 +1761,7 @@ Array [
     "_midi": 69,
     "_next": "A#",
     "_note": "A",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "G#",
   },
   Note {
@@ -1865,7 +1772,7 @@ Array [
     "_midi": 71,
     "_next": "C",
     "_note": "B",
-    "_octave": 4,
+    "_octave": 3,
     "_prev": "A#",
   },
   Note {
@@ -1877,7 +1784,7 @@ Array [
     "_midi": 73,
     "_next": "D",
     "_note": "C#",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "C",
   },
   Note {
@@ -1889,7 +1796,7 @@ Array [
     "_midi": 75,
     "_next": "E",
     "_note": "D#",
-    "_octave": 5,
+    "_octave": 4,
     "_prev": "D",
   },
   Note {
@@ -1898,6 +1805,87 @@ Array [
     "_isFlat": false,
     "_isSharp": false,
     "_midi": 76,
+    "_next": "F",
+    "_note": "E",
+    "_octave": 4,
+    "_prev": "D#",
+  },
+  Note {
+    "_accident": "#",
+    "_enharmonic": "Gb",
+    "_freq": 739.9888454232688,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 78,
+    "_next": "G",
+    "_note": "F#",
+    "_octave": 4,
+    "_prev": "F",
+  },
+  Note {
+    "_accident": "#",
+    "_enharmonic": "Ab",
+    "_freq": 830.6093951598903,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 80,
+    "_next": "A",
+    "_note": "G#",
+    "_octave": 4,
+    "_prev": "G",
+  },
+  Note {
+    "_enharmonic": null,
+    "_freq": 880,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 81,
+    "_next": "A#",
+    "_note": "A",
+    "_octave": 4,
+    "_prev": "G#",
+  },
+  Note {
+    "_enharmonic": null,
+    "_freq": 987.7666025122483,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 83,
+    "_next": "C",
+    "_note": "B",
+    "_octave": 4,
+    "_prev": "A#",
+  },
+  Note {
+    "_accident": "#",
+    "_enharmonic": "Db",
+    "_freq": 1108.7305239074883,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 85,
+    "_next": "D",
+    "_note": "C#",
+    "_octave": 5,
+    "_prev": "C",
+  },
+  Note {
+    "_accident": "#",
+    "_enharmonic": "Eb",
+    "_freq": 1244.5079348883237,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 87,
+    "_next": "E",
+    "_note": "D#",
+    "_octave": 5,
+    "_prev": "D",
+  },
+  Note {
+    "_enharmonic": null,
+    "_freq": 1318.5102276514797,
+    "_isFlat": false,
+    "_isSharp": false,
+    "_midi": 88,
     "_next": "F",
     "_note": "E",
     "_octave": 5,
@@ -1911,10 +1899,10 @@ Array [
   Note {
     "_accident": "b",
     "_enharmonic": "G#",
-    "_freq": 415.3046975799451,
+    "_freq": 830.6093951598903,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 68,
+    "_midi": 80,
     "_next": "A",
     "_note": "Ab",
     "_octave": 4,
@@ -1922,10 +1910,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 493.8833012561241,
+    "_freq": 987.7666025122483,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 71,
+    "_midi": 83,
     "_next": "C",
     "_note": "B",
     "_octave": 4,
@@ -1934,10 +1922,10 @@ Array [
   Note {
     "_accident": "b",
     "_enharmonic": "D#",
-    "_freq": 622.2539674441618,
+    "_freq": 1244.5079348883237,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 75,
+    "_midi": 87,
     "_next": "E",
     "_note": "Eb",
     "_octave": 5,
@@ -1946,10 +1934,10 @@ Array [
   Note {
     "_accident": "b",
     "_enharmonic": "F#",
-    "_freq": 739.9888454232688,
+    "_freq": 1479.9776908465376,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 78,
+    "_midi": 90,
     "_next": "G",
     "_note": "Gb",
     "_octave": 5,
@@ -1958,10 +1946,10 @@ Array [
   Note {
     "_accident": "b",
     "_enharmonic": "A#",
-    "_freq": 932.3275230361799,
+    "_freq": 1864.6550460723597,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 82,
+    "_midi": 94,
     "_next": "B",
     "_note": "Bb",
     "_octave": 5,
@@ -1974,10 +1962,10 @@ exports[`An Octaves Test Suite should map M13 chord 1`] = `
 Array [
   Note {
     "_enharmonic": null,
-    "_freq": 261.6255653005986,
+    "_freq": 523.2511306011972,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 60,
+    "_midi": 72,
     "_next": "C#",
     "_note": "C",
     "_octave": 4,
@@ -1985,10 +1973,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 329.6275569128699,
+    "_freq": 659.2551138257398,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 64,
+    "_midi": 76,
     "_next": "F",
     "_note": "E",
     "_octave": 4,
@@ -1996,10 +1984,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 391.99543598174927,
+    "_freq": 783.9908719634985,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 67,
+    "_midi": 79,
     "_next": "G#",
     "_note": "G",
     "_octave": 4,
@@ -2007,10 +1995,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 493.8833012561241,
+    "_freq": 987.7666025122483,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 71,
+    "_midi": 83,
     "_next": "C",
     "_note": "B",
     "_octave": 4,
@@ -2018,10 +2006,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 587.3295358348151,
+    "_freq": 1174.6590716696303,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 74,
+    "_midi": 86,
     "_next": "D#",
     "_note": "D",
     "_octave": 5,
@@ -2029,10 +2017,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 880,
+    "_freq": 1760,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 81,
+    "_midi": 93,
     "_next": "A#",
     "_note": "A",
     "_octave": 5,
@@ -2040,10 +2028,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 1046.5022612023945,
+    "_freq": 2093.004522404789,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 84,
+    "_midi": 96,
     "_next": "C#",
     "_note": "C",
     "_octave": 6,
@@ -2051,10 +2039,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 1318.5102276514797,
+    "_freq": 2637.02045530296,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 88,
+    "_midi": 100,
     "_next": "F",
     "_note": "E",
     "_octave": 6,
@@ -2062,10 +2050,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 1567.981743926997,
+    "_freq": 3135.9634878539946,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 91,
+    "_midi": 103,
     "_next": "G#",
     "_note": "G",
     "_octave": 6,
@@ -2073,10 +2061,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 1975.533205024496,
+    "_freq": 3951.066410048992,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 95,
+    "_midi": 107,
     "_next": "C",
     "_note": "B",
     "_octave": 6,
@@ -2084,10 +2072,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 2349.31814333926,
+    "_freq": 4698.63628667852,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 98,
+    "_midi": 110,
     "_next": "D#",
     "_note": "D",
     "_octave": 7,
@@ -2095,10 +2083,10 @@ Array [
   },
   Note {
     "_enharmonic": null,
-    "_freq": 3520,
+    "_freq": 7040,
     "_isFlat": false,
     "_isSharp": false,
-    "_midi": 105,
+    "_midi": 117,
     "_next": "A#",
     "_note": "A",
     "_octave": 7,

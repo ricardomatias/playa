@@ -6,7 +6,7 @@ import { TICKS, RHYTHMS_DISTRIBUTIONS } from '../../lib/constants';
 
 const { mixed } = RHYTHMS_DISTRIBUTIONS;
 
-const noteOpts = { octaves: [ 4, 1 ], noteType: 'note' };
+const noteOpts = { octaves: [ 3, 1 ], noteType: 'note' };
 const ONE_BAR = TICKS.get('1n');
 
 

@@ -68,7 +68,7 @@ describe('A Melodies test suite', () => {
 			rhythms: Object.values(RHYTHMS_DISTRIBUTIONS),
 			distributions: [ distribute.equal, distribute.descending ],
 			restProb: 0.3,
-			octaves: [ [ 3, 1 ], [ 4, 1 ] ],
+			octaves: [ [ 2, 1 ], [ 3, 1 ] ],
 		});
 
 		expect(melodies).toMatchSnapshot();

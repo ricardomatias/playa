@@ -10,7 +10,7 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).toBe('A');
 			expect(chord.type).toBe('m7');
-			expect(chord.notes).toEqual([ 57, 60, 64, 67 ]);
+			expect(chord.notes).toEqual([ 69, 72, 76, 79 ]);
 		});
 
 		it('should set natural', () => {
@@ -71,7 +71,7 @@ describe('Chord Test Suite', () => {
 
 				expect(chord.root).toBe('G');
 				expect(chord.type).toBe('m6');
-				expect(chord.notes).toEqual([ 55, 58, 62, 64 ]);
+				expect(chord.notes).toEqual([ 67, 70, 74, 76 ]);
 			});
 
 			it('should set 13 chord', () => {

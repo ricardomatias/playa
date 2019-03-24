@@ -1,0 +1,466 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A Movement test suite SIMULACRA should generate a simple movement 1`] = `
+Object {
+  "events": Array [
+    Object {
+      "key": "C",
+      "position": "IV",
+      "root": "F",
+      "scaleName": "LYDIAN",
+      "turn": Object {
+        "interval": "⟷",
+        "type": "▼",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "C",
+      "position": "I",
+      "root": "C",
+      "scaleName": "IONIAN",
+      "turn": Object {
+        "interval": 5,
+        "type": "↑",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "C",
+      "position": "I",
+      "root": "C",
+      "scaleName": "IONIAN",
+      "turn": Object {
+        "interval": "⟷",
+        "type": "⟷",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "interval": "5P",
+      "key": "F",
+      "position": "I",
+      "root": "F",
+      "scaleName": "IONIAN",
+      "turn": Object {
+        "interval": "5P",
+        "type": "⤥",
+      },
+      "type": "modulate",
+    },
+    Object {
+      "key": "C",
+      "position": "IV",
+      "root": "F",
+      "scaleName": "LYDIAN",
+      "turn": Object {
+        "interval": "⟷",
+        "type": "▼",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "C",
+      "position": "VII",
+      "root": "B",
+      "scaleName": "LOCRIAN",
+      "turn": Object {
+        "interval": 5,
+        "type": "↓",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "interval": "4P",
+      "key": "E",
+      "position": "I",
+      "root": "E",
+      "scaleName": "LOCRIAN",
+      "turn": Object {
+        "interval": "4P",
+        "type": "⤤",
+      },
+      "type": "modulate",
+    },
+    Object {
+      "key": "E",
+      "position": "IV",
+      "root": "A",
+      "scaleName": "PHRYGIAN",
+      "turn": Object {
+        "interval": 5,
+        "type": "↓",
+      },
+      "type": "modulateMode",
+    },
+  ],
+  "timeline": Array [
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "F",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
+      },
+      "quarter": 1,
+      "time": 0,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "C",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
+      },
+      "quarter": 3,
+      "time": 960,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "C",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
+      },
+      "quarter": 5,
+      "time": 1920,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "F",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
+      },
+      "quarter": 7,
+      "time": 2880,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "F",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
+      },
+      "quarter": 9,
+      "time": 3840,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "B",
+        "scale": "1P 2m 3m 4P 5d 6m 7m",
+      },
+      "quarter": 11,
+      "time": 4800,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "E",
+        "scale": "1P 2m 3m 4P 5d 6m 7m",
+      },
+      "quarter": 13,
+      "time": 5760,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "A",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
+      },
+      "quarter": 15,
+      "time": 6720,
+    },
+  ],
+}
+`;
+
+exports[`A Movement test suite SIMULACRA should generate a simple movement non buggy 1`] = `
+Object {
+  "events": Array [
+    Object {
+      "key": "C",
+      "position": "V",
+      "root": "G",
+      "scaleName": "IONIAN",
+      "turn": Object {
+        "interval": 5,
+        "type": "▼",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "C",
+      "position": "I",
+      "root": "C",
+      "scaleName": "LYDIAN",
+      "turn": Object {
+        "interval": 4,
+        "type": "↑",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "C",
+      "position": "VII",
+      "root": "B",
+      "scaleName": "PHRYGIAN",
+      "turn": Object {
+        "interval": 2,
+        "type": "⟷",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "C",
+      "position": "VII",
+      "root": "B",
+      "scaleName": "PHRYGIAN",
+      "turn": Object {
+        "interval": 2,
+        "type": "➜",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "C",
+      "position": "III",
+      "root": "E",
+      "scaleName": "AEOLIAN",
+      "turn": Object {
+        "interval": 4,
+        "type": "↑",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "C",
+      "position": "VI",
+      "root": "A",
+      "scaleName": "DORIAN",
+      "turn": Object {
+        "interval": 5,
+        "type": "↓",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "interval": "2M",
+      "key": "B",
+      "position": "I",
+      "root": "B",
+      "scaleName": "DORIAN",
+      "turn": Object {
+        "interval": "2M",
+        "type": "⤤",
+      },
+      "type": "modulate",
+    },
+    Object {
+      "key": "B",
+      "position": "I",
+      "root": "B",
+      "scaleName": "DORIAN",
+      "turn": Object {
+        "interval": 2,
+        "type": "⟷",
+      },
+      "type": "modulateMode",
+    },
+  ],
+  "timeline": Array [
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "G",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
+      },
+      "quarter": 1,
+      "time": 0,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "C",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
+      },
+      "quarter": 3,
+      "time": 960,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "B",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
+      },
+      "quarter": 5,
+      "time": 1920,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "B",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
+      },
+      "quarter": 7,
+      "time": 2880,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "E",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
+      },
+      "quarter": 9,
+      "time": 3840,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "quarter": 11,
+      "time": 4800,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "B",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "quarter": 13,
+      "time": 5760,
+    },
+    Object {
+      "dur": 960,
+      "key": Object {
+        "root": "B",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "quarter": 15,
+      "time": 6720,
+    },
+  ],
+}
+`;
+
+exports[`A Movement test suite SIMULACRA should generate a turn rhythm movement 1`] = `
+Object {
+  "events": Array [
+    Object {
+      "key": "A",
+      "position": "IV",
+      "root": "D",
+      "scaleName": "DORIAN",
+      "turn": Object {
+        "interval": "⟷",
+        "type": "▼",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "A",
+      "position": "I",
+      "root": "A",
+      "scaleName": "AEOLIAN",
+      "turn": Object {
+        "interval": 5,
+        "type": "↑",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "A",
+      "position": "IV",
+      "root": "D",
+      "scaleName": "DORIAN",
+      "turn": Object {
+        "interval": "⟷",
+        "type": "⟷",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "interval": "5P",
+      "key": "G",
+      "position": "I",
+      "root": "G",
+      "scaleName": "DORIAN",
+      "turn": Object {
+        "interval": "5P",
+        "type": "⤥",
+      },
+      "type": "modulate",
+    },
+    Object {
+      "key": "G",
+      "position": "IV",
+      "root": "C",
+      "scaleName": "MIXOLYDIAN",
+      "turn": Object {
+        "interval": 4,
+        "type": "↑",
+      },
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "G",
+      "position": "VII",
+      "root": "F",
+      "scaleName": "IONIAN",
+      "turn": Object {
+        "interval": 5,
+        "type": "↓",
+      },
+      "type": "modulateMode",
+    },
+  ],
+  "timeline": Array [
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "D",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "time": 0,
+    },
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
+      },
+      "time": 480,
+    },
+    Object {
+      "dur": 1920,
+      "key": Object {
+        "root": "D",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "time": 960,
+    },
+    Object {
+      "dur": 1920,
+      "key": Object {
+        "root": "G",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "time": 2880,
+    },
+    Object {
+      "dur": 1280,
+      "key": Object {
+        "root": "C",
+        "scale": "1P 2M 3M 4P 5P 6M 7m",
+      },
+      "time": 4800,
+    },
+    Object {
+      "dur": 1600,
+      "key": Object {
+        "root": "F",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
+      },
+      "time": 6080,
+    },
+  ],
+}
+`;
