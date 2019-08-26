@@ -135,7 +135,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.notes).toEqual([ 'G3', 'A3', 'C4', 'E4' ]);
 		});
 
-		it('should create random inversion', () => {
+		it('should invert randomly', () => {
 			seedRandom('test-foddds');
 
 			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.THIRTEENTH }, TEST);

@@ -7,7 +7,7 @@ describe('Scale Test Suite', () => {
 		it('should return MIDI', () => {
 			const scale = new Scale('C', Scale.MAJOR);
 
-			expect(scale.notes).toEqual([ 60, 62, 64, 65, 67, 69, 71, 72 ]);
+			expect(scale.notes).toEqual([ 60, 62, 64, 65, 67, 69, 71 ]);
 		});
 	});
 

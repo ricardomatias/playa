@@ -28,7 +28,7 @@ describe('Key Test Suite', () => {
 	it('should be the same scale', () => {
 		const key = new Key('C', Key.MAJOR);
 
-		expect(key.notes).toEqual([ 60, 62, 64, 65, 67, 69, 71, 72 ]);
+		expect(key.notes).toEqual([ 60, 62, 64, 65, 67, 69, 71 ]);
 		expect(key.chord.notes).toEqual([ 60, 64, 67, 71 ]);
 	});
 
@@ -111,7 +111,7 @@ describe('Key Test Suite', () => {
 			expect(key.notes).toEqual([ 'D', 'E', 'F#', 'G', 'A', 'B', 'C#' ]);
 		});
 
-		it('should modulate DORIAN', () => {
+		it('should modulate DORIAN - with interval', () => {
 			const key = new Key('E', Key.DORIAN, TEST);
 
 			key.modulate(Key.MOD_DOWN, '2M');
@@ -119,7 +119,7 @@ describe('Key Test Suite', () => {
 			expect(key.notes).toEqual([ 'D', 'E', 'F', 'G', 'A', 'B', 'C' ]);
 		});
 
-		it('should modulate PHRYGIAN', () => {
+		it('should modulate PHRYGIAN - with interval', () => {
 			const key = new Key('G', Key.PHRYGIAN, TEST);
 
 			key.modulate(Key.MOD_UP, '6M');
@@ -127,7 +127,7 @@ describe('Key Test Suite', () => {
 			expect(key.notes).toEqual([ 'E', 'F', 'G', 'A', 'B', 'C', 'D' ]);
 		});
 
-		it('should modulate B', () => {
+		it('should modulate B - with interval', () => {
 			const key = new Key('B', Key.IONIAN, TEST);
 
 			expect(key.notes).toEqual([ 'B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#' ]);

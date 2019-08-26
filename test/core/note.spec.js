@@ -24,7 +24,7 @@ describe('Note Test Suite', () => {
 	});
 
 	it('should set with MIDI', () => {
-		const note = new Note('C', 60);
+		const note = new Note(60);
 
 		expect(note.n).toBe('C3');
 		expect(note.m).toBe(60);
@@ -32,27 +32,27 @@ describe('Note Test Suite', () => {
 	});
 
 	it('should get octave with MIDI', () => {
-		const note = new Note('Gb', 102);
+		const note = new Note('F#', 102);
 
-		expect(note.n).toBe('Gb6');
-		expect(note.note).toBe('Gb');
+		expect(note.n).toBe('F#6');
+		expect(note.note).toBe('F#');
 	});
 
 	it('should get enharmonic with MIDI', () => {
-		const note = new Note('Gb', 102);
+		const note = new Note(102);
 
-		expect(note.eoct).toBe('F#6');
-		expect(note.e).toBe('F#');
+		expect(note.eoct).toBe('Gb6');
+		expect(note.e).toBe('Gb');
 	});
 
 	it('should get Gb freq based on MIDI', () => {
-		const note = new Note('Gb', 102);
+		const note = new Note(102);
 
 		expect(Math.round(note.f)).toBe(2960);
 	});
 
 	it('should get A freq based on MIDI', () => {
-		const note = new Note('A', 69);
+		const note = new Note(69);
 
 		expect(Math.round(note.f)).toBe(440);
 	});
