@@ -1,0 +1,125 @@
+{
+	"debug": 5,
+	"src": [
+		"./lib/core/*.js",
+		"./lib/functional/**/*.js",
+		"!./lib/functional/*.bk.js",
+		"./lib/tools/*.js",
+		"./lib/utils/*.js",
+		"./lib/constants/*.js",
+		{
+			"Core": "./lib/core/*.js",
+			"Functional": ["./lib/functional/*.js", "!./lib/functional/*.bk.js"],
+			"Tools": "./lib/tools/*.js",
+			"Utils": "./lib/utils/*.js"
+		},
+		{
+			"home": "./README.md"
+		}
+	],
+	"jsdoc": {
+		"encoding": "utf8",
+		"recurse": true,
+		"pedantic": false,
+		"access": null,
+		"package": null,
+		"module": true,
+		"undocumented": false,
+		"undescribed": false,
+		"ignored": false,
+		"hierarchy": true,
+		"sort": "access",
+		"relativePath": null,
+		"filter": null,
+		"allowUnknownTags": true,
+		"plugins": [],
+		"opts": {}
+	},
+	"markdown": {
+		"gfm": true,
+		"tables": true,
+		"breaks": false,
+		"pedantic": false,
+		"sanitize": false,
+		"smartLists": true,
+		"smartypants": false,
+		"xhtml": false,
+		"tasks": true,
+		"emoji": true
+	},
+	"app": {
+		"title": "PLAYA",
+		"routing": "path",
+		"entrance": "content:home",
+		"base": "/docs"
+	},
+	"template": {
+		"path": "zebra",
+		"options": {
+			"title": {
+				"title": "PLAYA",
+				"href": "/api/"
+			},
+			"logo": {
+				"dark": "img/logo.png",
+				"light": "img/logo.png"
+			},
+			"sidebar": {
+				"enabled": true,
+				"outline": "tree",
+				"collapsed": false,
+				"toolbar": true,
+				"itemsFolded": true,
+				"itemsOverflow": "crop",
+				"badges": true,
+				"search": true,
+				"animations": true
+			},
+			"symbols": {
+				"autoLink": true,
+				"params": "table",
+				"enums": "table",
+				"props": "table",
+				"meta": false
+			},
+			"contentView": {
+				"bookmarks": "h1,h2,h3",
+				"faLibs": "solid,regular,brands"
+			},
+			"navbar": {
+				"enabled": true,
+				"dark": true,
+				"animations": true,
+				"menu": [
+					{
+						"label": "PLAYA",
+						"href": "api"
+					},
+					{
+						"label": "Core",
+						"href": "api/Core"
+					},
+					{
+						"label": "Functional",
+						"href": "api/Functional"
+					},
+					{
+						"label": "Tools",
+						"href": "api/Tools"
+					},
+					{
+						"label": "Utils",
+						"href": "api/Utils"
+					}
+				]
+			}
+		}
+	},
+	"dest": "./docs",
+	"assets": {
+		"/img": [
+			"./logo.png"
+		]
+	},
+	"clean": true
+}
