@@ -25,6 +25,26 @@ describe('A Chord Progression test suite', () => {
 		expect(prog).toMatchSnapshot();
 	});
 
+	it('should generate chords based on a movement timeline - prudent style', () => {
+		// given
+		seedRandom('test');
+
+		const aMaj = new Key('A', Key.MAJOR, { noteType: 'note' });
+
+		const opts = {
+			timeSignatures: [ [ 4, 4 ] ],
+			turns: 6,
+			modProb: 0.40,
+		};
+
+		// when
+		const movement = createMovement(aMaj, '4.0.0', opts);
+
+		const prog = createChordProgression(movement.timeline, { style: 'prudent' });
+
+		expect(prog).toMatchSnapshot();
+	});
+
 	it('should generate chords based on a movement timeline - turn rhythm', () => {
 		// given
 		seedRandom('test');
