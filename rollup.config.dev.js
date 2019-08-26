@@ -11,9 +11,6 @@ const baseConfig = {
 		file: 'build/playa.js',
 		format: 'cjs',
 	},
-	external: [
-		'tone',
-	],
 	plugins: [
 		clear({
 			// required, point out which directories should be clear.
