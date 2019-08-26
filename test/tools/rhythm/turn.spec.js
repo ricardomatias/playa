@@ -14,7 +14,7 @@ describe('#generateTurnRhythm', () => {
 		seedRandom('test');
 
 		// when
-		let rhythm = generateTurnRhythm(ONE_BAR * 2, 7, {
+		const rhythm = generateTurnRhythm(ONE_BAR * 2, 7, {
 			combSorting: { diverseFirst: true },
 		});
 
@@ -36,7 +36,7 @@ describe('#generateTurnRhythm', () => {
 		seedRandom('foobar');
 
 		// when
-		let rhythm = generateTurnRhythm(ONE_BAR * 2, 7, {
+		const rhythm = generateTurnRhythm(ONE_BAR * 2, 7, {
 			combSorting: { diverseFirst: true },
 		});
 
@@ -58,7 +58,7 @@ describe('#generateTurnRhythm', () => {
 		seedRandom('test');
 
 		// when
-		let rhythm = generateTurnRhythm(ONE_BAR * 3, 8, {
+		const rhythm = generateTurnRhythm(ONE_BAR * 3, 8, {
 			minNoteValue: 4,
 		});
 
@@ -81,7 +81,7 @@ describe('#generateTurnRhythm', () => {
 		seedRandom('foo-bar');
 
 		// when
-		let rhythm = generateTurnRhythm(ONE_BAR * 3, 5, {
+		const rhythm = generateTurnRhythm(ONE_BAR * 3, 5, {
 			combSorting: { similarFirst: true },
 			minNoteValue: 2,
 		});

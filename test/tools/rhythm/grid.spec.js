@@ -4,13 +4,13 @@ import {
 
 describe('#createGrid', () => {
 	it('should create a 8n grid', () => {
-		let grid = createGrid(1920, 8);
+		const grid = createGrid(1920, 8);
 
 		expect(grid).toHaveLength(16);
 	});
 
 	it('should create a 4n grid', () => {
-		let grid = createGrid(3840, 4);
+		const grid = createGrid(3840, 4);
 
 		expect(grid).toHaveLength(16);
 	});

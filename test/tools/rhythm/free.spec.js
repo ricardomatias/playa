@@ -17,7 +17,7 @@ describe('#generateFreeRhythm', () => {
 		seedRandom('test');
 
 		// when
-		let rhythm = generateFreeRhythm(ONE_BAR, mixed, distribute.descending);
+		const rhythm = generateFreeRhythm(ONE_BAR, mixed, distribute.descending);
 
 		// then
 		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
@@ -28,7 +28,7 @@ describe('#generateFreeRhythm', () => {
 		seedRandom('test');
 
 		// when
-		let rhythm = generateFreeRhythm(ONE_BAR, slow, distribute.equal);
+		const rhythm = generateFreeRhythm(ONE_BAR, slow, distribute.equal);
 
 		// then
 		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
@@ -40,7 +40,7 @@ describe('#generateFreeRhythm', () => {
 		seedRandom('test');
 
 		// when
-		let rhythm = generateFreeRhythm(ONE_BAR, robotic, distribute.equal);
+		const rhythm = generateFreeRhythm(ONE_BAR, robotic, distribute.equal);
 
 		// then
 		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
@@ -71,7 +71,7 @@ describe('#generateFreeRhythm', () => {
 		seedRandom('test');
 
 		// when
-		let rhythm = generateFreeRhythm(ONE_BAR, straight, distribute.equal);
+		const rhythm = generateFreeRhythm(ONE_BAR, straight, distribute.equal);
 
 		// then
 		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);
