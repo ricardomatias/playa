@@ -4,8 +4,8 @@ exports[`A Melodies test suite should generate melodies based on a movement time
 Array [
   Object {
     "dur": 240,
-    "midi": 80,
-    "note": "G#4",
+    "midi": 78,
+    "note": "F#4",
     "time": 0,
   },
   Object {
@@ -16,20 +16,20 @@ Array [
   },
   Object {
     "dur": 240,
-    "midi": 83,
-    "note": "B4",
+    "midi": 81,
+    "note": "A4",
     "time": 960,
   },
   Object {
     "dur": 240,
-    "midi": 80,
-    "note": "G#4",
+    "midi": 78,
+    "note": "F#4",
     "time": 1200,
   },
   Object {
     "dur": 480,
-    "midi": 73,
-    "note": "C#4",
+    "midi": 71,
+    "note": "B3",
     "time": 1440,
   },
   Object {
@@ -46,14 +46,14 @@ Array [
   },
   Object {
     "dur": 240,
-    "midi": 69,
-    "note": "A3",
+    "midi": 68,
+    "note": "G#3",
     "time": 2640,
   },
   Object {
     "dur": 480,
-    "midi": 85,
-    "note": "C#5",
+    "midi": 83,
+    "note": "B4",
     "time": 2880,
   },
   Object {
@@ -64,8 +64,8 @@ Array [
   },
   Object {
     "dur": 120,
-    "midi": 80,
-    "note": "G#4",
+    "midi": 78,
+    "note": "F#4",
     "time": 3840,
   },
   Object {
@@ -76,32 +76,32 @@ Array [
   },
   Object {
     "dur": 240,
-    "midi": 80,
-    "note": "G#4",
+    "midi": 78,
+    "note": "F#4",
     "time": 4440,
   },
   Object {
     "dur": 360,
-    "midi": 75,
-    "note": "D#4",
+    "midi": 73,
+    "note": "C#4",
     "time": 4680,
   },
   Object {
     "dur": 240,
-    "midi": 73,
-    "note": "C#4",
+    "midi": 72,
+    "note": "C4",
     "time": 5040,
   },
   Object {
     "dur": 320,
-    "midi": 75,
-    "note": "D#4",
+    "midi": 73,
+    "note": "C#4",
     "time": 5280,
   },
   Object {
     "dur": 480,
-    "midi": 78,
-    "note": "F#4",
+    "midi": 76,
+    "note": "E4",
     "time": 5600,
   },
   Object {
@@ -118,8 +118,8 @@ Array [
   },
   Object {
     "dur": 480,
-    "midi": 85,
-    "note": "C#5",
+    "midi": 83,
+    "note": "B4",
     "time": 6720,
   },
   Object {
@@ -141,8 +141,8 @@ Array [
   },
   Object {
     "dur": 960,
-    "midi": 86,
-    "note": "D5",
+    "midi": 85,
+    "note": "C#5",
     "time": 480,
   },
   Object {
@@ -177,26 +177,26 @@ Array [
   },
   Object {
     "dur": 160,
-    "midi": 73,
-    "note": "C#4",
+    "midi": 71,
+    "note": "B3",
     "time": 3360,
   },
   Object {
     "dur": 80,
-    "midi": 69,
-    "note": "A3",
+    "midi": 68,
+    "note": "G#3",
     "time": 3520,
   },
   Object {
     "dur": 240,
-    "midi": 68,
-    "note": "G#3",
+    "midi": 66,
+    "note": "F#3",
     "time": 3600,
   },
   Object {
     "dur": 240,
-    "midi": 84,
-    "note": "C5",
+    "midi": 82,
+    "note": "A#4",
     "time": 3840,
   },
   Object {
@@ -207,20 +207,20 @@ Array [
   },
   Object {
     "dur": 240,
-    "midi": 87,
-    "note": "D#5",
+    "midi": 85,
+    "note": "C#5",
     "time": 4320,
   },
   Object {
     "dur": 480,
-    "midi": 89,
-    "note": "F5",
+    "midi": 87,
+    "note": "D#5",
     "time": 4560,
   },
   Object {
     "dur": 240,
-    "midi": 92,
-    "note": "G#5",
+    "midi": 90,
+    "note": "F#5",
     "time": 5040,
   },
   Object {
@@ -231,32 +231,32 @@ Array [
   },
   Object {
     "dur": 960,
-    "midi": 86,
-    "note": "D5",
+    "midi": 85,
+    "note": "C#5",
     "time": 5760,
   },
   Object {
     "dur": 240,
-    "midi": 83,
-    "note": "B4",
+    "midi": 81,
+    "note": "A4",
     "time": 6720,
   },
   Object {
     "dur": 240,
-    "midi": 88,
-    "note": "E5",
+    "midi": 87,
+    "note": "D#5",
     "time": 6960,
   },
   Object {
     "dur": 160,
-    "midi": 85,
-    "note": "C#5",
+    "midi": 83,
+    "note": "B4",
     "time": 7200,
   },
   Object {
     "dur": 80,
-    "midi": 83,
-    "note": "B4",
+    "midi": 81,
+    "note": "A4",
     "time": 7360,
   },
   Object {
@@ -272,14 +272,14 @@ exports[`A Melodies test suite should generate progression with defined structur
 Array [
   Object {
     "dur": 240,
-    "midi": 60,
-    "note": "C3",
+    "midi": 58,
+    "note": "Bb2",
     "time": 0,
   },
   Object {
     "dur": 120,
-    "midi": 58,
-    "note": "Bb2",
+    "midi": 56,
+    "note": "Ab2",
     "time": 240,
   },
   Object {
@@ -296,14 +296,14 @@ Array [
   },
   Object {
     "dur": 240,
-    "midi": 60,
-    "note": "C3",
+    "midi": 58,
+    "note": "Bb2",
     "time": 480,
   },
   Object {
     "dur": 120,
-    "midi": 58,
-    "note": "Bb2",
+    "midi": 56,
+    "note": "Ab2",
     "time": 720,
   },
   Object {
@@ -320,20 +320,20 @@ Array [
   },
   Object {
     "dur": 60,
-    "midi": 60,
-    "note": "C3",
+    "midi": 58,
+    "note": "Bb2",
     "time": 960,
+  },
+  Object {
+    "dur": 120,
+    "midi": 61,
+    "note": "Db3",
+    "time": 1020,
   },
   Object {
     "dur": 120,
     "midi": 63,
     "note": "Eb3",
-    "time": 1020,
-  },
-  Object {
-    "dur": 120,
-    "midi": 65,
-    "note": "F3",
     "time": 1140,
   },
   Object {
@@ -344,20 +344,20 @@ Array [
   },
   Object {
     "dur": 120,
-    "midi": 63,
-    "note": "Eb3",
+    "midi": 61,
+    "note": "Db3",
     "time": 1320,
   },
   Object {
     "dur": 240,
-    "midi": 60,
-    "note": "C3",
+    "midi": 58,
+    "note": "Bb2",
     "time": 1440,
   },
   Object {
     "dur": 120,
-    "midi": 58,
-    "note": "Bb2",
+    "midi": 56,
+    "note": "Ab2",
     "time": 1680,
   },
   Object {
@@ -404,8 +404,8 @@ Array [
   },
   Object {
     "dur": 120,
-    "midi": 72,
-    "note": "C4",
+    "midi": 70,
+    "note": "Bb3",
     "time": 2640,
   },
   Object {

@@ -164,8 +164,8 @@ Array [
   },
   Object {
     "dur": "16n",
-    "midi": 73,
-    "note": "C#4",
+    "midi": 71,
+    "note": "B3",
     "time": 1800,
   },
 ]
@@ -181,8 +181,8 @@ Array [
   },
   Object {
     "dur": "4nd",
-    "midi": 76,
-    "note": "E4",
+    "midi": 74,
+    "note": "D4",
     "time": 240,
   },
   Object {
@@ -193,20 +193,20 @@ Array [
   },
   Object {
     "dur": "4nt",
-    "midi": 74,
-    "note": "D4",
+    "midi": 73,
+    "note": "C#4",
     "time": 1440,
   },
   Object {
     "dur": "4nd",
-    "midi": 73,
-    "note": "C#4",
+    "midi": 71,
+    "note": "B3",
     "time": 1760,
   },
   Object {
     "dur": "8n",
-    "midi": 73,
-    "note": "C#4",
+    "midi": 71,
+    "note": "B3",
     "time": 2480,
   },
   Object {
@@ -217,20 +217,20 @@ Array [
   },
   Object {
     "dur": "4n",
-    "midi": 73,
-    "note": "C#4",
+    "midi": 71,
+    "note": "B3",
     "time": 3040,
   },
   Object {
     "dur": "8nt",
-    "midi": 73,
-    "note": "C#4",
+    "midi": 71,
+    "note": "B3",
     "time": 3520,
   },
   Object {
     "dur": "8nt",
-    "midi": 76,
-    "note": "E4",
+    "midi": 74,
+    "note": "D4",
     "time": 3680,
   },
 ]
