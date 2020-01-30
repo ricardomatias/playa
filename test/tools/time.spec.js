@@ -6,43 +6,47 @@ describe('A Time test suite', () => {
 			const scenarios = [
 				'1.1.0',
 				'2.3.0',
-				'2.1.234',
-				'7.2.322',
-				'5.1.0',
+				'2.1.1',
+				'7.2.2',
+				'5.1.3',
 				'9.1.0',
 			].map((transport) => transportToTicks(transport, true));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-Array [
-  0,
-  2880,
-  2154,
-  12322,
-  7680,
-  15360,
-]
-`);
+			Array [
+			  0,
+			  2880,
+			  2040,
+			  12240,
+			  8040,
+			  15360,
+			]
+		`);
 		});
 		it('should convert - position', () => {
 			const scenarios = [
 				'0.0.0',
+				'1.0.0',
+				'1.1.0',
 				'1.2.0',
-				'1.0.234',
-				'6.1.322',
+				'1.0.1',
+				'6.1.2',
 				'4.0.0',
 				'8.0.0',
 			].map((transport) => transportToTicks(transport));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-Array [
-  0,
-  2880,
-  2154,
-  12322,
-  7680,
-  15360,
-]
-`);
+			Array [
+			  0,
+			  1920,
+			  2400,
+			  2880,
+			  2040,
+			  12240,
+			  7680,
+			  15360,
+			]
+		`);
 		});
 	});
 
@@ -51,6 +55,8 @@ Array [
 			const scenarios = [
 				720,
 				960,
+				1920,
+				2400,
 				2880,
 				2154,
 				12322,
@@ -61,18 +67,20 @@ Array [
 			].map((transport) => ticksToTransport(transport, { positionMode: true }));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-Array [
-  "1.2.240",
-  "1.3.0",
-  "2.3.0",
-  "2.1.234",
-  "7.2.322",
-  "2.4.0",
-  "3.4.240",
-  "9.1.0",
-  "5.1.0",
-]
-`);
+			Array [
+			  "1.2.2",
+			  "1.3.0",
+			  "2.1.0",
+			  "2.2.0",
+			  "2.3.0",
+			  "2.1.1",
+			  "7.2.2",
+			  "2.4.0",
+			  "3.4.2",
+			  "9.1.0",
+			  "5.1.0",
+			]
+		`);
 		});
 
 		it('should convert - interval', () => {
@@ -81,7 +89,7 @@ Array [
 				960,
 				2880,
 				2154,
-				12322,
+				12362,
 				3360,
 				5520,
 				15360,
@@ -89,18 +97,18 @@ Array [
 			].map((transport) => ticksToTransport(transport));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-Array [
-  "0.1.240",
-  "0.2.0",
-  "1.2.0",
-  "1.0.234",
-  "6.1.322",
-  "1.3.0",
-  "2.3.240",
-  "8.0.0",
-  "4.0.0",
-]
-`);
+			Array [
+			  "0.1.2",
+			  "0.2.0",
+			  "1.2.0",
+			  "1.0.1",
+			  "6.1.3",
+			  "1.3.0",
+			  "2.3.2",
+			  "8.0.0",
+			  "4.0.0",
+			]
+		`);
 		});
 	});
 });
