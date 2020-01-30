@@ -1,65 +1,71 @@
 {
-  "name": "@ricardomatias/playa",
-  "version": "0.0.1",
-  "description": "be a playa",
-  "main": "build/playa.cjs.js",
-  "module": "build/playa.esm.js",
-  "browser": "build/playa.umd.js",
-  "scripts": {
-    "test": "npm run lint && jest",
-    "test:watch": "jest --watch",
-    "test:update": "jest --updateSnapshot",
-    "test:coverage": "jest --coverage",
-    "check:comments": "leasot -x lib/**/*.js",
-    "lint": "eslint lib test",
-    "build": "rollup -c rollup.config.dev.js",
-    "build:prod": "rollup -c rollup.config.prod.js",
-    "start": "rollup -c rollup.config.dev.js --watch",
-    "prepare": "npm run build:prod",
-    "docs:build": "docma -c docma.json",
-    "docs:serve": "docma serve"
-  },
-  "author": "Ricardo Matias<ricardo.matias0@gmail.com>",
-  "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-push": "npm test"
-    }
-  },
-  "files": [
-    "build"
-  ],
-  "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-    "babel-loader": "^8.0.6",
-    "babel-jest": "^24.9.0",
-    "docma": "^3.2.2",
-    "eslint": "^6.2.2",
-    "eslint-config-google": "^0.13.0",
-    "eslint-plugin-import": "^2.18.2",
-    "esm": "^3.2.25",
-    "husky": "^1.2.0",
-    "jest": "^24.9.0",
-    "jsdoc-memberof-namespace": "^2.2.0",
-    "leasot": "^8.0.0",
-    "mocha": "^5.2.0",
-    "rollup": "^1.20.2",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-cleanup": "^3.1.1",
-    "rollup-plugin-clear": "^2.0.7",
-    "rollup-plugin-commonjs": "^10.0.2",
-    "rollup-plugin-includepaths": "^0.2.3",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-progress": "^1.1.1",
-    "rollup-plugin-terser": "^5.1.1"
-  },
-  "dependencies": {
-    "alea": "^1.0.0",
-    "fast-memoize": "^2.5.1",
-    "ramda": "^0.26.1",
-    "roman-numeral": "^0.2.6",
-    "simplex-noise": "^2.4.0"
-  }
+	"name": "@ricardomatias/playa",
+	"version": "0.0.1",
+	"description": "be a playa",
+	"main": "build/cjs/playa.js",
+	"module": "build/esm/playa.js",
+	"browser": "build/umd/playa.js",
+	"scripts": {
+		"test": "npm run lint && jest",
+		"test:watch": "jest --watch",
+		"test:update": "jest --updateSnapshot",
+		"test:coverage": "jest --coverage",
+		"check:comments": "leasot -x lib/**/*.js",
+		"lint": "eslint lib test",
+		"build": "rollup -c rollup.config.dev.js",
+		"build:prod": "rollup -c rollup.config.prod.js",
+		"start": "rollup -c rollup.config.dev.js --watch",
+		"prepare": "npm run build:prod",
+		"docs:build": "docma -c docma.json",
+		"docs:serve": "docma serve"
+	},
+	"private": true,
+	"author": "Ricardo Matias<ricardo.matias0@gmail.com>",
+	"license": "MIT",
+	"husky": {
+		"hooks": {
+			"pre-push": "npm test"
+		}
+	},
+	"files": [
+		"build/*"
+	],
+	"devDependencies": {
+		"@babel/core": "^7.5.5",
+		"@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+		"@babel/preset-env": "^7.5.5",
+		"babel-jest": "^24.9.0",
+		"babel-loader": "^8.0.6",
+		"docma": "^3.2.2",
+		"eslint": "^6.2.2",
+		"eslint-config-google": "^0.13.0",
+		"eslint-plugin-import": "^2.18.2",
+		"esm": "^3.2.25",
+		"husky": "^1.2.0",
+		"jest": "^24.9.0",
+		"jsdoc-memberof-namespace": "^2.2.0",
+		"leasot": "^8.0.0",
+		"mocha": "^5.2.0",
+		"prettier": "^1.18.2",
+		"rollup": "^1.20.2",
+		"rollup-plugin-babel": "^4.3.3",
+		"rollup-plugin-cleanup": "^3.1.1",
+		"rollup-plugin-clear": "^2.0.7",
+		"rollup-plugin-commonjs": "^10.0.2",
+		"rollup-plugin-delete": "^1.1.0",
+		"rollup-plugin-includepaths": "^0.2.3",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-progress": "^1.1.1",
+		"rollup-plugin-terser": "^5.1.1",
+		"tsd-jsdoc": "^2.3.1"
+	},
+	"dependencies": {
+		"@otris/jsdoc-tsd": "^1.0.4",
+		"alea": "^1.0.0",
+		"fast-memoize": "^2.5.1",
+		"ramda": "^0.26.1",
+		"rollup-plugin-copy": "^3.1.0",
+		"roman-numeral": "^0.2.6",
+		"simplex-noise": "^2.4.0"
+	}
 }

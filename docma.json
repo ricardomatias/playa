@@ -33,7 +33,9 @@
 		"filter": null,
 		"allowUnknownTags": true,
 		"plugins": [],
-		"opts": {}
+		"opts": {
+			"template": "./node_modules/tsd-jsdoc/dist"
+		}
 	},
 	"markdown": {
 		"gfm": true,
