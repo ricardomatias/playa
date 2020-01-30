@@ -31,6 +31,17 @@ describe('Note Test Suite', () => {
 		expect(note.note).toBe('C');
 	});
 
+	it('should strip octave from note', () => {
+		const note = new Note('F#6');
+		const note2 = new Note('Ab11');
+
+		expect(note.n).toBe('F#6');
+		expect(note.note).toBe('F#');
+
+		expect(note2.n).toBe('Ab11');
+		expect(note2.note).toBe('Ab');
+	});
+
 	it('should get octave with MIDI', () => {
 		const note = new Note('F#', 102);
 
@@ -55,6 +66,15 @@ describe('Note Test Suite', () => {
 		const note = new Note(69);
 
 		expect(Math.round(note.f)).toBe(440);
+	});
+
+	it('should get next with MIDI', () => {
+		const note = new Note('F#3');
+		const next = note.next;
+
+		expect(next.n).toBe('G3');
+		expect(next.note).toBe('G');
+		expect(next.midi - note.midi).toBe(1);
 	});
 
 	it('should get neighbors as sharps by default', () => {
