@@ -1,7 +1,7 @@
 import { Key } from '../../lib/core';
 import { RHYTHMS_DISTRIBUTIONS } from '../../lib/constants';
 import { createMovement, createMelodies } from '../../lib/functional';
-import { seedRandom } from '../../lib/tools';
+import { seedRandom } from '../../lib/tools/random';
 import { distribute } from '@ricardomatias/roll';
 
 const noteOpts = { noteType: 'note' };

@@ -1,4 +1,4 @@
-import { transportToTicks, ticksToTransport } from '../../lib/tools';
+import { transportToTicks, ticksToTransport } from '../../lib/tools/time';
 
 describe('A Time test suite', () => {
 	describe('#transportToTicks', () => {

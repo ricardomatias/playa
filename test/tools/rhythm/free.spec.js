@@ -1,9 +1,12 @@
 import { TICKS, RHYTHMS_DISTRIBUTIONS } from '../../../lib/constants';
 import {
-	seedRandom,
-	generateFreeRhythm,
+	Random,
+	Rhythm,
 	distribute,
 } from '../../../lib/tools';
+
+const { seedRandom } = Random;
+const { generateFreeRhythm } = Rhythm;
 
 import { calcRythmDuration } from '../../helpers';
 
@@ -12,12 +15,12 @@ const ONE_BAR = TICKS.get('1n');
 const { mixed, slow, robotic, straight } = RHYTHMS_DISTRIBUTIONS;
 
 describe('#generateFreeRhythm', () => {
-	it('should generate rhythm - descending', () => {
+	it('should generate rhythm - decreasing', () => {
 		// given
 		seedRandom('test');
 
 		// when
-		const rhythm = generateFreeRhythm(ONE_BAR, mixed, distribute.descending);
+		const rhythm = generateFreeRhythm(ONE_BAR, mixed, distribute.decreasing);
 
 		// then
 		expect(calcRythmDuration(rhythm)).toBe(ONE_BAR);

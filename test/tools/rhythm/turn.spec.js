@@ -1,9 +1,11 @@
 import { TICKS } from '../../../lib/constants';
 import {
-	seedRandom,
-	generateTurnRhythm,
-	calcDuration,
+	Random, Rhythm, Time,
 } from '../../../lib/tools';
+
+const { seedRandom } = Random;
+const { generateTurnRhythm } = Rhythm;
+const { calcDuration } = Time;
 
 const ONE_BAR = TICKS.get('1n');
 

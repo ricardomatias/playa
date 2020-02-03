@@ -1,6 +1,6 @@
 import {
 	createGrid,
-} from '../../../lib/tools';
+} from '../../../lib/tools/rhythm';
 
 describe('#createGrid', () => {
 	it('should create a 8n grid', () => {

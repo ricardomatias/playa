@@ -1,6 +1,6 @@
 import { Key, Chord } from '../../lib/core';
 import NoteType from '../../lib/core/types';
-import { seedRandom } from '../../lib/tools';
+import { seedRandom } from '../../lib/tools/random';
 
 const TEST = { noteType: NoteType.STR };
 

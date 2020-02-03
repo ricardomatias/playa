@@ -1,6 +1,6 @@
 import { Key } from '../../../lib/core';
 import { createMovement } from '../../../lib/functional';
-import { seedRandom } from '../../../lib/tools';
+import { seedRandom } from '../../../lib/tools/random';
 
 const noteOpts = { noteType: 'note' };
 

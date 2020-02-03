@@ -1,5 +1,5 @@
 import friendly, { orderNotes, rankIntervals, rankScales } from '../../lib/tools/friendly';
-import { seedRandom, randomInt } from '../../lib/tools';
+import { seedRandom, randomInt } from '../../lib/tools/random';
 import Scale from '../../lib/core/Scale';
 import NoteType from '../../lib/core/types';
 import * as R from 'ramda';

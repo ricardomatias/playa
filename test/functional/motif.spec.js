@@ -1,7 +1,10 @@
 import Scale from '../../lib/core/Scale';
 import Chord from '../../lib/core/Chord';
 import createMotif from '../../lib/functional/motif';
-import { seedRandom, generateFreeRhythm, distribute, calcDuration } from '../../lib/tools';
+import { distribute } from '@ricardomatias/roll';
+import { calcDuration } from '../../lib/tools/time';
+import { generateFreeRhythm } from '../../lib/tools/rhythm';
+import { seedRandom } from '../../lib/tools/random';
 import { TICKS, RHYTHMS_DISTRIBUTIONS } from '../../lib/constants';
 
 const { mixed } = RHYTHMS_DISTRIBUTIONS;
@@ -17,7 +20,7 @@ describe('A Motif test suite', () => {
 
 		const scale = new Scale('A', Scale.MAJOR, noteOpts);
 
-		let rhythm = generateFreeRhythm('1.0.0', mixed, distribute.descending);
+		let rhythm = generateFreeRhythm('1.0.0', mixed, distribute.decreasing);
 
 		// when
 		let motif = createMotif(scale.notes, rhythm);
@@ -29,7 +32,7 @@ describe('A Motif test suite', () => {
 		// when
 		seedRandom('test2');
 
-		rhythm = generateFreeRhythm('2.0.0', mixed, distribute.descending);
+		rhythm = generateFreeRhythm('2.0.0', mixed, distribute.decreasing);
 
 		motif = createMotif(scale.notes, rhythm);
 
@@ -44,7 +47,7 @@ describe('A Motif test suite', () => {
 		seedRandom('test');
 
 		const chord = new Chord('Dbm6', noteOpts);
-		let rhythm = generateFreeRhythm('1.0.0', mixed, distribute.descending);
+		let rhythm = generateFreeRhythm('1.0.0', mixed, distribute.decreasing);
 
 		// when
 		let motif = createMotif(chord.notes, rhythm);
@@ -55,7 +58,7 @@ describe('A Motif test suite', () => {
 		// when
 		seedRandom('test2');
 
-		rhythm = generateFreeRhythm('2.0.0', mixed, distribute.descending);
+		rhythm = generateFreeRhythm('2.0.0', mixed, distribute.decreasing);
 
 		motif = createMotif(chord.notes, rhythm);
 
@@ -69,14 +72,14 @@ describe('A Motif test suite', () => {
 		seedRandom('test');
 
 		const chord = new Chord('Dbm6', noteOpts);
-		let rhythm = generateFreeRhythm('0.1.0', mixed, distribute.descending);
+		let rhythm = generateFreeRhythm('0.1.0', mixed, distribute.decreasing);
 
 		// when
 		let motif = createMotif(chord.notes, rhythm, 0);
 
 		expect(motif).toMatchSnapshot();
 
-		rhythm = generateFreeRhythm('0.3.0', mixed, distribute.descending);
+		rhythm = generateFreeRhythm('0.3.0', mixed, distribute.decreasing);
 
 		motif = createMotif(chord.notes, rhythm, 480);
 

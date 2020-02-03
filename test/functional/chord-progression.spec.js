@@ -1,6 +1,6 @@
 import { Key, Chord } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/functional';
-import { seedRandom } from '../../lib/tools';
+import { seedRandom } from '../../lib/tools/random';
 
 const noteType = 'str';
 
