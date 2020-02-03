@@ -1,7 +1,8 @@
 import { Key } from '../../lib/core';
 import { RHYTHMS_DISTRIBUTIONS } from '../../lib/constants';
 import { createMovement, createMelodies } from '../../lib/functional';
-import { seedRandom, distribute } from '../../lib/tools';
+import { seedRandom } from '../../lib/tools';
+import { distribute } from '@ricardomatias/roll';
 
 const noteOpts = { noteType: 'note' };
 
@@ -66,7 +67,7 @@ describe('A Melodies test suite', () => {
 
 		const melodies = createMelodies(movement.timeline, {
 			rhythms: Object.values(RHYTHMS_DISTRIBUTIONS),
-			distributions: [ distribute.equal, distribute.descending ],
+			distributions: [ distribute.equal, distribute.decreasing ],
 			restProb: 0.3,
 			octaves: [ [ 2, 1 ], [ 3, 1 ] ],
 		});
