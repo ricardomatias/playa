@@ -15,7 +15,7 @@
 			"windows": {
 				"program": "${workspaceFolder}/node_modules/jest/bin/jest",
 			},
-			"runtimeExecutable": "/Users/feral/.nvm/versions/node/v12.7.0/bin/node",
+			"runtimeExecutable": "/Users/feral/.nvm/versions/node/v13.7.0/bin/node",
 		},
 		{
 			"type": "node",
@@ -33,7 +33,7 @@
 			"windows": {
 				"program": "${workspaceFolder}/node_modules/jest/bin/jest",
 			},
-			"runtimeExecutable": "/Users/feral/.nvm/versions/node/v12.7.0/bin/node",
+			"runtimeExecutable": "/Users/feral/.nvm/versions/node/v13.7.0/bin/node",
 		}
 	]
 }

@@ -1,6 +1,6 @@
 import Note from '../../lib/core/Note';
 
-describe('Note Test Suite', () => {
+describe.only('Note Test Suite', () => {
 	it('should set natural', () => {
 		const note = new Note('A');
 
@@ -40,6 +40,18 @@ describe('Note Test Suite', () => {
 
 		expect(note2.n).toBe('Ab11');
 		expect(note2.note).toBe('Ab');
+	});
+
+	it('should have unstateful refexp', () => {
+		const a = new Note('D3').n;
+		const b = new Note('D3').n;
+		const c = new Note('D').n;
+		const d = new Note('D').n;
+
+		expect(a).toBe('D3');
+		expect(b).toBe('D3');
+		expect(c).toBe('D');
+		expect(d).toBe('D');
 	});
 
 	it('should get octave with MIDI', () => {
