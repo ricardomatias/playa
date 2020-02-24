@@ -1,6 +1,6 @@
 import { findNearest, findNearestChord } from '../../lib/tools/midi';
 
-describe.only('A Midi test suite', () => {
+describe('A Midi test suite', () => {
 	describe('#findNearestChord', () => {
 		it('should return the nearest chord', () => {
 			// A - 69 ; C - 72 ; E - 76

@@ -2,45 +2,21 @@ import { Key, Chord } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/functional';
 import { seedRandom } from '../../lib/tools/random';
 
-const noteType = 'str';
-
 describe('A Chord Progression test suite', () => {
 	it('should generate chords based on a movement timeline - free rhythm', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('A', Key.MAJOR, { noteType: 'note' });
+		const aMaj = new Key('A', Key.MAJOR);
 
 		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
 			modProb: 0.40,
 		};
 
 		// when
-		const movement = createMovement(aMaj, '4.0.0', opts);
+		const movement = createMovement(aMaj, '4:0:0', 6, opts);
 
-		const prog = createChordProgression(movement.timeline, { noteType });
-
-		expect(prog).toMatchSnapshot();
-	});
-
-	it('should generate chords based on a movement timeline - prudent style', () => {
-		// given
-		seedRandom('test');
-
-		const aMaj = new Key('A', Key.MAJOR, { noteType: 'note' });
-
-		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
-			modProb: 0.40,
-		};
-
-		// when
-		const movement = createMovement(aMaj, '4.0.0', opts);
-
-		const prog = createChordProgression(movement.timeline, { style: 'prudent' });
+		const prog = createChordProgression(movement.timeline);
 
 		expect(prog).toMatchSnapshot();
 	});
@@ -49,18 +25,17 @@ describe('A Chord Progression test suite', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('A', Key.MAJOR, { noteType: 'note' });
+		const aMaj = new Key('A', Key.MAJOR);
 
 		const opts = {
 			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
 			modProb: 0.40,
 		};
 
 		// when
-		const movement = createMovement(aMaj, '4.0.0', opts);
+		const movement = createMovement(aMaj, '4:0:0', 6, opts);
 
-		const prog = createChordProgression(movement.timeline, { noteType, rhythmType: 'turn' });
+		const prog = createChordProgression(movement.timeline, { rhythmType: 'turn', restProb: 0.3 });
 
 		expect(prog).toMatchSnapshot();
 	});
@@ -69,24 +44,21 @@ describe('A Chord Progression test suite', () => {
 		// given
 		seedRandom('test-2');
 
-		const aMaj = new Key('Db', Key.MAJOR, { noteType: 'note' });
+		const aMaj = new Key('Db', Key.MAJOR);
 
 		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
 			modProb: 0.40,
 		};
 
 		// when
-		const movement = createMovement(aMaj, '4.0.0', opts);
+		const movement = createMovement(aMaj, '4:0:0', 8, opts);
 
 		const prog = createChordProgression(movement.timeline, {
 			structures: [ Chord.SIXTH ],
 			inversionProb: 0.5,
 			octaves: [ [ 4, 1 ], [ 2, 2 ] ],
-			rhythmDistribution: [ '4nt', '4n' ],
+			rhythms: [ '4nt', '4n' ],
 			minChordNotes: 2,
-			noteType,
 		});
 
 		expect(prog).toMatchSnapshot();

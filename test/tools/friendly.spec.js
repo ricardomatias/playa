@@ -1,15 +1,14 @@
 import friendly, { orderNotes, rankIntervals, rankScales } from '../../lib/tools/friendly';
-import { seedRandom, randomInt } from '../../lib/tools/random';
+import * as Random from '../../lib/tools/random';
 import Scale from '../../lib/core/Scale';
-import NoteType from '../../lib/core/types';
 import * as R from 'ramda';
+import { stripOctave } from '../../lib/utils';
 
-const NOTE_STR = { noteType: NoteType.STR };
 
-const Cmaj = new Scale('C', Scale.MAJOR, NOTE_STR);
-const Abmaj = new Scale('Ab', Scale.MAJOR, NOTE_STR);
-const DSharpLoc = new Scale('D#', Scale.LOCRIAN, NOTE_STR);
-const BbEgyptian = new Scale('Bb', Scale.EGYPTIAN, NOTE_STR);
+const Cmaj = new Scale('C', Scale.MAJOR);
+const Abmaj = new Scale('Ab', Scale.MAJOR);
+const DSharpLoc = new Scale('D#', Scale.LOCRIAN);
+const BbEgyptian = new Scale('Bb', Scale.EGYPTIAN);
 
 const SCALES_ARRAY = Array.from(Scale.SCALES.values());
 
@@ -17,7 +16,7 @@ describe('A Friendly test suite', () => {
 	describe('classified list of neighboring scales', () => {
 		it('should return [ `A`, `C#`, `G`, `B` ] ', () => {
 			// given
-			seedRandom('test');
+			Random.seedRandom('test');
 
 			const neighbours = friendly([ 'A', 'C#', 'G', 'B' ]);
 
@@ -30,7 +29,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return [ `F#`, `C#`, `D`, `D`, `E`, `C` ]', () => {
 			// given
-			seedRandom('test');
+			Random.seedRandom('test');
 
 			const neighbours = friendly([ 'F#', 'C#', 'D', 'D', 'E', 'C' ]);
 
@@ -43,7 +42,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return [ `B`, `D`, `Eb`, `F`, `Ab` ]', () => {
 			// given
-			seedRandom('test');
+			Random.seedRandom('test');
 
 			const neighbours = friendly([ 'B', 'D', 'Eb', 'F', 'Ab' ]);
 
@@ -56,7 +55,7 @@ describe('A Friendly test suite', () => {
 
 		it('should still return neighbours when given just 2 notes', () => {
 			// given
-			seedRandom('test');
+			Random.seedRandom('test');
 
 			// when
 			const neighbours = friendly([ 'C#', 'F#' ]);
@@ -68,7 +67,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return an empty array when given 1 note', () => {
 			// given
-			seedRandom('test');
+			Random.seedRandom('test');
 
 			// when
 			const neighbours = friendly([ 'C#' ]);
@@ -101,22 +100,22 @@ describe('A Friendly test suite', () => {
 	});
 
 	describe('#orderNotes', () => {
-		beforeAll(() => seedRandom('FRIENDLY'));
+		beforeAll(() => Random.seedRandom('FRIENDLY'));
 
 		it('should order notes C MAJ', () => {
-			const rndFn = () => (randomInt(1, -1));
+			const rndFn = () => (Random.int(1, -1));
 
-			const scrambledNotes = R.sort(rndFn, Cmaj.notes);
+			const scrambledNotes = R.sort(rndFn, Cmaj.string);
 
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).toEqual(Cmaj.notes);
+			expect(neighbours).toEqual(Cmaj.string.map(stripOctave));
 		});
 
 		it('should order notes Ab MAJ', () => {
-			const rndFn = () => (randomInt(1, -1));
+			const rndFn = () => (Random.int(1, -1));
 
-			const scrambledNotes = R.sort(rndFn, Abmaj.notes);
+			const scrambledNotes = R.sort(rndFn, Abmaj.string);
 			const neighbours = orderNotes(scrambledNotes);
 
 			expect(neighbours).toEqual([
@@ -125,11 +124,11 @@ describe('A Friendly test suite', () => {
 		});
 
 		it('should order notes D# LOCRIAN', () => {
-			const rndFn = () => (randomInt(1, -1));
+			const rndFn = () => (Random.int(1, -1));
 
-			const scrambledNotes = R.sort(rndFn, DSharpLoc.notes);
+			const scrambledNotes = R.sort(rndFn, DSharpLoc.string);
 
-			expect(scrambledNotes).toEqual([ 'E', 'G#', 'F#', 'D#', 'B', 'C#', 'A' ]);
+			expect(scrambledNotes).toEqual([ 'E3', 'G#3', 'F#3', 'D#3', 'B3', 'C#4', 'A3' ]);
 
 			const neighbours = orderNotes(scrambledNotes);
 
@@ -139,9 +138,9 @@ describe('A Friendly test suite', () => {
 		});
 
 		it('should order notes Bb EGYPTIAN', () => {
-			const rndFn = () => (randomInt(1, -1));
+			const rndFn = () => (Random.int(1, -1));
 
-			const scrambledNotes = R.sort(rndFn, BbEgyptian.notes);
+			const scrambledNotes = R.sort(rndFn, BbEgyptian.string);
 			const neighbours = orderNotes(scrambledNotes);
 
 			expect(neighbours).toEqual([

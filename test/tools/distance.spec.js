@@ -93,77 +93,77 @@ describe('A Distance test suite', () => {
 
 	describe('#transposeUp', () => {
 		it('should return the transposed of: C, 2M', () => {
-			const dist = transposeUp('C', '2M');
+			const newNote = transposeUp('C', '2M');
 
-			expect(dist).toBe('D');
+			expect(newNote).toBe('D');
 		});
 
 		it('should return the transposed of: Db, 4P', () => {
-			const dist = transposeUp('Db', '4P');
+			const newNote = transposeUp('Db', '4P');
 
-			expect(dist).toBe('Gb');
+			expect(newNote).toBe('Gb');
 		});
 
 		it('should return the transposed of: F#, A#', () => {
-			const dist = transposeUp('F#', '3M');
+			const newNote = transposeUp('F#', '3M');
 
-			expect(dist).toBe('A#');
+			expect(newNote).toBe('A#');
 		});
 
 		it('should return the transposed of: Gb, Db', () => {
-			const dist = transposeUp('Gb', '5P');
+			const newNote = transposeUp('Gb', '5P');
 
-			expect(dist).toBe('Db');
+			expect(newNote).toBe('Db');
 		});
 
 		it('should return the transposed of: B, C', () => {
-			const dist = transposeUp('B', '2m');
+			const newNote = transposeUp('B', '2m');
 
-			expect(dist).toBe('C');
+			expect(newNote).toBe('C');
 		});
 
 		it('should return the transposed of: Gb, E', () => {
-			const dist = transposeUp('Gb', '7m');
+			const newNote = transposeUp('Gb', '7m');
 
-			expect(dist).toBe('E');
+			expect(newNote).toBe('E');
 		});
 	});
 
 	describe('#transposeDown', () => {
 		it('should return the transposed of: C, 2M', () => {
-			const dist = transposeDown('C', '2M');
+			const newNote = transposeDown('C', '2M');
 
-			expect(dist).toBe('Bb');
+			expect(newNote).toBe('Bb');
 		});
 
 		it('should return the transposed of: Db, 4P', () => {
-			const dist = transposeDown('Db', '4P');
+			const newNote = transposeDown('Db', '4P');
 
-			expect(dist).toBe('Ab');
+			expect(newNote).toBe('Ab');
 		});
 
 		it('should return the transposed of: F#, 3M', () => {
-			const dist = transposeDown('F#', '3M');
+			const newNote = transposeDown('F#', '3M');
 
-			expect(dist).toBe('D');
+			expect(newNote).toBe('D');
 		});
 
 		it('should return the transposed of: Gb, 5P', () => {
-			const dist = transposeDown('Gb', '5P');
+			const newNote = transposeDown('Gb', '5P');
 
-			expect(dist).toBe('B');
+			expect(newNote).toBe('B');
 		});
 
 		it('should return the transposed of: B, 2m', () => {
-			const dist = transposeDown('B', '2m');
+			const newNote = transposeDown('B', '2m');
 
-			expect(dist).toBe('A#');
+			expect(newNote).toBe('A#');
 		});
 
 		it('should return the transposed of: Gb, 7m', () => {
-			const dist = transposeDown('Gb', '7m');
+			const newNote = transposeDown('Gb', '7m');
 
-			expect(dist).toBe('Ab');
+			expect(newNote).toBe('Ab');
 		});
 	});
 });

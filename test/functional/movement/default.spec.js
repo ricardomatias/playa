@@ -2,24 +2,31 @@ import { Key } from '../../../lib/core';
 import { createMovement } from '../../../lib/functional';
 import { seedRandom } from '../../../lib/tools/random';
 
-const noteOpts = { noteType: 'note' };
-
 
 describe('A Movement test suite', () => {
+	it('should generate a basic movement', () => {
+		// given
+		seedRandom('test');
+
+		const dMin = new Key('D', Key.MINOR);
+		// when
+		const movement = createMovement(dMin, '4:0:0', 4);
+
+		expect(movement).toMatchSnapshot();
+	});
+
 	it('should generate a simple movement - euclidean', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('A', Key.MAJOR, noteOpts);
+		const aMaj = new Key('A', Key.MAJOR);
 
 		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
 			modProb: 0.40,
 		};
 
 		// when
-		const movement = createMovement(aMaj, '4.0.0', opts);
+		const movement = createMovement(aMaj, '4:0:0', 6, opts);
 
 		expect(movement).toMatchSnapshot();
 	});
@@ -28,17 +35,32 @@ describe('A Movement test suite', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('A', Key.MAJOR, noteOpts);
+		const aMaj = new Key('A', Key.MAJOR);
 
 		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
 			modProb: 0.40,
 			rhythm: 'turn',
 		};
 
 		// when
-		const movement = createMovement(aMaj, '4.0.0', opts);
+		const movement = createMovement(aMaj, '4:0:0', 6, opts);
+
+		expect(movement).toMatchSnapshot();
+	});
+
+	it('should generate a long movement - turn rhythm', () => {
+		// given
+		seedRandom('test');
+
+		const aMaj = new Key('A', Key.MAJOR);
+
+		const opts = {
+			modProb: 0.40,
+			rhythm: 'turn',
+		};
+
+		// when
+		const movement = createMovement(aMaj, '8:0:0', 4, opts);
 
 		expect(movement).toMatchSnapshot();
 	});
@@ -47,17 +69,15 @@ describe('A Movement test suite', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('A', Key.MAJOR, noteOpts);
+		const aMaj = new Key('A', Key.MAJOR);
 
 		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
 			modProb: 0.40,
 			repeats: 2,
 		};
 
 		// when
-		const movement = createMovement(aMaj, '8.0.0', opts);
+		const movement = createMovement(aMaj, '8:0:0', 6, opts);
 
 		expect(movement).toMatchSnapshot();
 	});

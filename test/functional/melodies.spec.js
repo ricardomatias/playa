@@ -1,10 +1,9 @@
+import * as R from 'ramda';
 import { Key } from '../../lib/core';
-import { RHYTHMS_DISTRIBUTIONS } from '../../lib/constants';
 import { createMovement, createMelodies } from '../../lib/functional';
+import { Rhythm } from '../../lib/tools';
 import { seedRandom } from '../../lib/tools/random';
 import { distribute } from '@ricardomatias/roll';
-
-const noteOpts = { noteType: 'note' };
 
 
 describe('A Melodies test suite', () => {
@@ -12,16 +11,14 @@ describe('A Melodies test suite', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('A', Key.MAJOR, noteOpts);
+		const aMaj = new Key('A', Key.MAJOR);
 
 		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
 			modProb: 0.40,
 		};
 
 		// when
-		const movement = createMovement(aMaj, '4.0.0', opts);
+		const movement = createMovement(aMaj, '4:0:0', 6, opts);
 
 		const melodies = createMelodies(movement.timeline);
 
@@ -32,16 +29,14 @@ describe('A Melodies test suite', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('A', Key.MAJOR, noteOpts);
+		const aMaj = new Key('A', Key.MAJOR);
 
 		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 6,
 			modProb: 0.40,
 		};
 
 		// when
-		const movement = createMovement(aMaj, '4.0.0', opts);
+		const movement = createMovement(aMaj, '4:0:0', 8, opts);
 
 		const melodies = createMelodies(movement.timeline, {
 			rhythmType: 'turn',
@@ -54,20 +49,18 @@ describe('A Melodies test suite', () => {
 		// given
 		seedRandom('test');
 
-		const aMaj = new Key('Db', Key.MAJOR, noteOpts);
+		const aMaj = new Key('Db', Key.MAJOR);
 
 		const opts = {
-			timeSignatures: [ [ 4, 4 ] ],
-			turns: 10,
 			modProb: 0.40,
 		};
 
 		// when
-		const movement = createMovement(aMaj, '2.0.0', opts);
+		const movement = createMovement(aMaj, '2:0:0', 10, opts);
 
 		const melodies = createMelodies(movement.timeline, {
-			rhythms: Object.values(RHYTHMS_DISTRIBUTIONS),
-			distributions: [ distribute.equal, distribute.decreasing ],
+			rhythms: R.flatten(Object.values(Rhythm.presets)),
+			distribution: distribute.decreasing,
 			restProb: 0.3,
 			octaves: [ [ 2, 1 ], [ 3, 1 ] ],
 		});

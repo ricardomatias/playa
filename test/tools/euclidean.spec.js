@@ -8,7 +8,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.create(4, 2);
 
 			// then
-			expect(pattern).toEqual([ 'x', '-', 'x', '-' ]);
+			expect(pattern).toEqual([ 1, 0, 1, 0 ]);
 		});
 
 		it('should create 8 -> 5, 3', () => {
@@ -17,8 +17,8 @@ describe('An Euclidean test suite', () => {
 
 			// then
 			expect(pattern).toEqual([
-				'x', '-', '-', 'x',
-				'-', '-', 'x', '-',
+				1, 0, 0, 1,
+				0, 0, 1, 0,
 			]);
 		});
 
@@ -28,7 +28,7 @@ describe('An Euclidean test suite', () => {
 
 			// then
 			expect(pattern).toEqual([
-				'x', '-', '-', '-', 'x', '-', '-',
+				1, 0, 0, 0, 1, 0, 0,
 			]);
 		});
 
@@ -38,7 +38,7 @@ describe('An Euclidean test suite', () => {
 
 			// then
 			expect(pattern).toEqual([
-				'x', '-', '-', 'x', '-', 'x', '-', 'x', '-',
+				1, 0, 0, 1, 0, 1, 0, 1, 0,
 			]);
 		});
 
@@ -48,7 +48,7 @@ describe('An Euclidean test suite', () => {
 
 			// then
 			expect(pattern).toEqual([
-				'x', '-', '-', 'x', '-', 'x', '-',
+				1, 0, 0, 1, 0, 1, 0,
 			]);
 		});
 
@@ -57,8 +57,8 @@ describe('An Euclidean test suite', () => {
 			const pattern = euclidean.create(16, 6);
 
 			expect(pattern).toEqual([
-				'x', '-', '-', 'x', '-', '-', 'x', '-',
-				'x', '-', '-', 'x', '-', '-', 'x', '-',
+				1, 0, 0, 1, 0, 0, 1, 0,
+				1, 0, 0, 1, 0, 0, 1, 0,
 			]);
 		});
 
@@ -68,8 +68,8 @@ describe('An Euclidean test suite', () => {
 
 			// then
 			expect(pattern).toEqual([
-				'x', '-', '-', '-', 'x', '-', '-', '-',
-				'x', '-', '-', '-', 'x', '-', '-', '-',
+				1, 0, 0, 0, 1, 0, 0, 0,
+				1, 0, 0, 0, 1, 0, 0, 0,
 			]);
 		});
 	});
@@ -77,35 +77,35 @@ describe('An Euclidean test suite', () => {
 	describe('rotate', () => {
 		it('should rotate a simple 4/4', () => {
 			// when
-			const pattern = euclidean.rotate([ 'x', '-', 'x', '-' ]);
+			const pattern = euclidean.rotate([ 1, 0, 1, 0 ]);
 
 			// then
-			expect(pattern).toEqual([ 'x', '-', 'x', '-' ]);
+			expect(pattern).toEqual([ 1, 0, 1, 0 ]);
 		});
 
 		it('should rotate 8 -> 5, 3', () => {
 			// when
 			const pattern = euclidean.rotate([
-				'x', '-', '-', 'x',
-				'-', '-', 'x', '-',
+				1, 0, 0, 1,
+				0, 0, 1, 0,
 			]);
 
 			// then
 			expect(pattern).toEqual([
-				'x', '-', 'x', '-',
-				'-', 'x', '-', '-',
+				1, 0, 1, 0,
+				0, 1, 0, 0,
 			]);
 		});
 
 		it('should create 7 -> 4, 3', () => {
 			// when
 			const pattern = euclidean.rotate([
-				'x', '-', '-', 'x', '-', 'x', '-',
+				1, 0, 0, 1, 0, 1, 0,
 			]);
 
 			// then
 			expect(pattern).toEqual([
-				'x', '-', 'x', '-', '-', 'x', '-',
+				1, 0, 1, 0, 0, 1, 0,
 			]);
 		});
 	});

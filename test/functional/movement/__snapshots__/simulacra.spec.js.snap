@@ -5,9 +5,9 @@ Object {
   "events": Array [
     Object {
       "key": "C",
-      "position": "IV",
-      "root": "F",
-      "scaleName": "LYDIAN",
+      "position": "II",
+      "root": "D",
+      "scaleName": "DORIAN",
       "turn": Object {
         "interval": "⟷",
         "type": "▼",
@@ -16,9 +16,9 @@ Object {
     },
     Object {
       "key": "C",
-      "position": "I",
-      "root": "C",
-      "scaleName": "IONIAN",
+      "position": "VI",
+      "root": "A",
+      "scaleName": "AEOLIAN",
       "turn": Object {
         "interval": 5,
         "type": "↑",
@@ -27,9 +27,9 @@ Object {
     },
     Object {
       "key": "C",
-      "position": "I",
-      "root": "C",
-      "scaleName": "IONIAN",
+      "position": "III",
+      "root": "E",
+      "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": "⟷",
         "type": "⟷",
@@ -38,10 +38,10 @@ Object {
     },
     Object {
       "interval": "5P",
-      "key": "F",
+      "key": "A",
       "position": "I",
-      "root": "F",
-      "scaleName": "IONIAN",
+      "root": "A",
+      "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": "5P",
         "type": "⤥",
@@ -50,9 +50,9 @@ Object {
     },
     Object {
       "key": "C",
-      "position": "IV",
-      "root": "F",
-      "scaleName": "LYDIAN",
+      "position": "VII",
+      "root": "B",
+      "scaleName": "LOCRIAN",
       "turn": Object {
         "interval": "⟷",
         "type": "▼",
@@ -61,9 +61,9 @@ Object {
     },
     Object {
       "key": "C",
-      "position": "VII",
-      "root": "B",
-      "scaleName": "LOCRIAN",
+      "position": "III",
+      "root": "E",
+      "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": 5,
         "type": "↓",
@@ -72,10 +72,10 @@ Object {
     },
     Object {
       "interval": "4P",
-      "key": "E",
+      "key": "A",
       "position": "I",
-      "root": "E",
-      "scaleName": "LOCRIAN",
+      "root": "A",
+      "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": "4P",
         "type": "⤤",
@@ -83,10 +83,10 @@ Object {
       "type": "modulate",
     },
     Object {
-      "key": "E",
+      "key": "A",
       "position": "IV",
-      "root": "A",
-      "scaleName": "PHRYGIAN",
+      "root": "D",
+      "scaleName": "AEOLIAN",
       "turn": Object {
         "interval": 5,
         "type": "↓",
@@ -98,8 +98,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "F",
-        "scale": "1P 2M 3M 4A 5P 6M 7M",
+        "root": "D",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
       "quarter": 1,
       "time": 0,
@@ -107,8 +107,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "C",
-        "scale": "1P 2M 3M 4P 5P 6M 7M",
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "quarter": 3,
       "time": 960,
@@ -116,8 +116,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "C",
-        "scale": "1P 2M 3M 4P 5P 6M 7M",
+        "root": "E",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 5,
       "time": 1920,
@@ -125,8 +125,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "F",
-        "scale": "1P 2M 3M 4P 5P 6M 7M",
+        "root": "A",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 7,
       "time": 2880,
@@ -134,8 +134,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "F",
-        "scale": "1P 2M 3M 4A 5P 6M 7M",
+        "root": "B",
+        "scale": "1P 2m 3m 4P 5d 6m 7m",
       },
       "quarter": 9,
       "time": 3840,
@@ -143,8 +143,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "B",
-        "scale": "1P 2m 3m 4P 5d 6m 7m",
+        "root": "E",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 11,
       "time": 4800,
@@ -152,8 +152,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "E",
-        "scale": "1P 2m 3m 4P 5d 6m 7m",
+        "root": "A",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 13,
       "time": 5760,
@@ -161,8 +161,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "A",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+        "root": "D",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "quarter": 15,
       "time": 6720,
@@ -198,9 +198,9 @@ Object {
     },
     Object {
       "key": "C",
-      "position": "VII",
-      "root": "B",
-      "scaleName": "PHRYGIAN",
+      "position": "I",
+      "root": "C",
+      "scaleName": "LYDIAN",
       "turn": Object {
         "interval": 2,
         "type": "⟷",
@@ -209,9 +209,9 @@ Object {
     },
     Object {
       "key": "C",
-      "position": "VII",
-      "root": "B",
-      "scaleName": "PHRYGIAN",
+      "position": "I",
+      "root": "C",
+      "scaleName": "LYDIAN",
       "turn": Object {
         "interval": 2,
         "type": "➜",
@@ -220,9 +220,9 @@ Object {
     },
     Object {
       "key": "C",
-      "position": "III",
-      "root": "E",
-      "scaleName": "AEOLIAN",
+      "position": "IV",
+      "root": "F#",
+      "scaleName": "LOCRIAN",
       "turn": Object {
         "interval": 4,
         "type": "↑",
@@ -231,9 +231,9 @@ Object {
     },
     Object {
       "key": "C",
-      "position": "VI",
-      "root": "A",
-      "scaleName": "DORIAN",
+      "position": "VII",
+      "root": "B",
+      "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": 5,
         "type": "↓",
@@ -242,10 +242,10 @@ Object {
     },
     Object {
       "interval": "2M",
-      "key": "B",
+      "key": "C#",
       "position": "I",
-      "root": "B",
-      "scaleName": "DORIAN",
+      "root": "C#",
+      "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": "2M",
         "type": "⤤",
@@ -253,10 +253,10 @@ Object {
       "type": "modulate",
     },
     Object {
-      "key": "B",
-      "position": "I",
-      "root": "B",
-      "scaleName": "DORIAN",
+      "key": "C#",
+      "position": "II",
+      "root": "D",
+      "scaleName": "LYDIAN",
       "turn": Object {
         "interval": 2,
         "type": "⟷",
@@ -286,8 +286,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "B",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+        "root": "C",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 5,
       "time": 1920,
@@ -295,8 +295,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "B",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+        "root": "C",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 7,
       "time": 2880,
@@ -304,8 +304,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "E",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+        "root": "F#",
+        "scale": "1P 2m 3m 4P 5d 6m 7m",
       },
       "quarter": 9,
       "time": 3840,
@@ -313,8 +313,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "A",
-        "scale": "1P 2M 3m 4P 5P 6M 7m",
+        "root": "B",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 11,
       "time": 4800,
@@ -322,8 +322,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "B",
-        "scale": "1P 2M 3m 4P 5P 6M 7m",
+        "root": "C#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 13,
       "time": 5760,
@@ -331,8 +331,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "B",
-        "scale": "1P 2M 3m 4P 5P 6M 7m",
+        "root": "D",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 15,
       "time": 6720,
@@ -414,7 +414,7 @@ Object {
   ],
   "timeline": Array [
     Object {
-      "dur": 480,
+      "dur": 1280,
       "key": Object {
         "root": "D",
         "scale": "1P 2M 3m 4P 5P 6M 7m",
@@ -422,28 +422,28 @@ Object {
       "time": 0,
     },
     Object {
-      "dur": 480,
+      "dur": 1440,
       "key": Object {
         "root": "A",
         "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
-      "time": 480,
+      "time": 1280,
     },
     Object {
-      "dur": 1920,
+      "dur": 1440,
       "key": Object {
         "root": "D",
         "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
-      "time": 960,
+      "time": 2720,
     },
     Object {
-      "dur": 1920,
+      "dur": 1280,
       "key": Object {
         "root": "G",
         "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
-      "time": 2880,
+      "time": 4160,
     },
     Object {
       "dur": 1280,
@@ -451,15 +451,15 @@ Object {
         "root": "C",
         "scale": "1P 2M 3M 4P 5P 6M 7m",
       },
-      "time": 4800,
+      "time": 5440,
     },
     Object {
-      "dur": 1600,
+      "dur": 960,
       "key": Object {
         "root": "F",
         "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
-      "time": 6080,
+      "time": 6720,
     },
   ],
 }
