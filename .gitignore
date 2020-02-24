@@ -1,10 +1,10 @@
-
 # Created by https://www.gitignore.io/api/node,osx
 
 # PLAYA
 dist
 build
 .coverage
+.vscode
 
 ### Node ###
 # Logs

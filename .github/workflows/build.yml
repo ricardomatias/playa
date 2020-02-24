@@ -1,10 +1,9 @@
-name: Node.js CI
+name: CI
 
-on: [push]
+on: [push, pull-request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,3 +21,28 @@ jobs:
     - run: npm test
       env:
         CI: true
+
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: 13.x
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run build --if-present
+    - run: npm run test:coverage
+      env:
+        CI: true
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v1.0.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        # Path to lcov file
+        #path-to-lcov: # default is ./coverage/lcov.info
