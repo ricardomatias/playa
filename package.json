@@ -18,7 +18,7 @@
 		"docs:serve": "docma serve"
 	},
 	"author": "Ricardo Matias<ricardo.matias0@gmail.com>",
-	"license": "MIT",
+	"license": "OSL 3.0",
 	"husky": {
 		"hooks": {
 			"pre-push": "npm test"
