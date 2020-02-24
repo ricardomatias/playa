@@ -6,7 +6,7 @@
     <a href="https://www.npmjs.com/package/playa"><img src="http://img.shields.io/npm/v/playa.svg?style=flat-square" alt="npm" /></a>
     <a href="https://github.com/ricardomatias/playa"><img src="https://img.shields.io/github/release/ricardomatias/playa.svg?style=flat-square" alt="release" /></a>
     <a href="https://github.com/ricardomatias/playa/blob/master/LICENSE"><img src="http://img.shields.io/npm/l/playa.svg?style=flat-square" alt="license" /></a>
-    <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/build/badge.svg" alt="build" /></a>
+    <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/CI/badge.svg" alt="build" /></a>
     <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/coverage/badge.svg" alt="coverage" /></a>
 </p>
 
