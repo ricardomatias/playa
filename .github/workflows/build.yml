@@ -17,7 +17,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run build --if-present
 
   test:
     runs-on: ubuntu-latest
@@ -36,7 +35,7 @@ jobs:
     - run: npm run build --if-present
     - run: |
         npm run test:coverage
-        ls
+        ls .coverage
       env:
         CI: true
     - name: Coveralls GitHub Action
@@ -44,4 +43,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         # Path to lcov file
-        #path-to-lcov: # default is ./coverage/lcov.info
+        path-to-lcov: ./.coverage/lcov.info
