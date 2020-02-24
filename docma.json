@@ -53,18 +53,16 @@
 		"title": "PLAYA",
 		"routing": "path",
 		"entrance": "content:home",
-		"base": "/docs"
+		"base": "/",
+		"favicon": "assets/favicon.ico"
 	},
 	"template": {
 		"path": "zebra",
 		"options": {
-			"title": {
-				"title": "PLAYA",
-				"href": "/api/"
-			},
+			"title": null,
 			"logo": {
-				"dark": "img/logo.png",
-				"light": "img/logo.png"
+				"dark": "assets/logo.png",
+				"light": "assets/logo-transparent.png"
 			},
 			"sidebar": {
 				"enabled": true,
@@ -94,24 +92,12 @@
 				"animations": true,
 				"menu": [
 					{
-						"label": "PLAYA",
-						"href": "api"
+						"label": "Readme",
+						"href": "/"
 					},
 					{
-						"label": "Core",
-						"href": "api/Core"
-					},
-					{
-						"label": "Functional",
-						"href": "api/Functional"
-					},
-					{
-						"label": "Tools",
-						"href": "api/Tools"
-					},
-					{
-						"label": "Utils",
-						"href": "api/Utils"
+						"label": "Documentation",
+						"href": "/api"
 					}
 				]
 			}
@@ -119,8 +105,10 @@
 	},
 	"dest": "./docs",
 	"assets": {
-		"/img": [
-			"./logo.png"
+		"/assets": [
+			"./assets/logo.png",
+			"./assets/logo-transparent.png",
+			"./assets/favicon.ico"
 		]
 	},
 	"clean": true

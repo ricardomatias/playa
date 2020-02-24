@@ -1,9 +1,14 @@
-# PLAYA
+<h1 align="center">
+    <img src="assets/logo.png" alt="Playa" />
+</h1>
 
-[![pipeline status](https://gitlab.com/ricardomatias/playa/badges/master/pipeline.svg)](https://gitlab.com/ricardomatias/playa/commits/master)
-[![coverage report](https://gitlab.com/ricardomatias/playa/badges/master/coverage.svg)](https://gitlab.com/ricardomatias/playa/commits/master)
-
-![alt](logo.png)
+<p align="center">
+    <a href="https://www.npmjs.com/package/playa"><img src="http://img.shields.io/npm/v/playa.svg?style=flat-square" alt="npm" /></a>
+    <a href="https://github.com/ricardomatias/playa"><img src="https://img.shields.io/github/release/ricardomatias/playa.svg?style=flat-square" alt="release" /></a>
+    <a href="https://github.com/ricardomatias/playa/blob/master/LICENSE"><img src="http://img.shields.io/npm/l/playa.svg?style=flat-square" alt="license" /></a>
+    <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/build/badge.svg" alt="build" /></a>
+    <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/coverage/badge.svg" alt="coverage" /></a>
+</p>
 
 PLAYA *(pronounced `ˈpleɪə`)* is a musical theory framework aimed at creating musical phrases. It has concepts such as Keys, Scales, Chords and Notes, with which it provides ways of generating musical phrases.
 
@@ -36,7 +41,7 @@ const Playa = require('playa');
 ## Example
 
 ```js
-import { Core, Tools, Functional } from 'playa;
+import { Core, Tools, Functional } from 'playa';
 const { Scale } = Core;
 const { createMotif } = Functional;
 const { Rhythm } = Tools;

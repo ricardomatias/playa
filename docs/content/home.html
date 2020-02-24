@@ -1,6 +1,59 @@
 
-<html><head></head><body><h1 id="playa">PLAYA</h1>
+<html><head></head><body><h1 align="center">
+    <img src="assets/logo.png" alt="Playa" style="max-width: 100%;">
+</h1>
 <hr />
-<p><a href="https://gitlab.com/ricardomatias/playa/commits/master"><img src="https://gitlab.com/ricardomatias/playa/badges/master/pipeline.svg" alt="pipeline status" style="max-width: 100%;"></a>
-<a href="https://gitlab.com/ricardomatias/playa/commits/master"><img src="https://gitlab.com/ricardomatias/playa/badges/master/coverage.svg" alt="coverage report" style="max-width: 100%;"></a></p>
+
+<p align="center">
+    <a href="https://www.npmjs.com/package/playa"><img src="http://img.shields.io/npm/v/playa.svg?style=flat-square" alt="npm" style="max-width: 100%;"></a>
+    <a href="https://github.com/ricardomatias/playa"><img src="https://img.shields.io/github/release/ricardomatias/playa.svg?style=flat-square" alt="release" style="max-width: 100%;"></a>
+    <a href="https://github.com/ricardomatias/playa/blob/master/LICENSE"><img src="http://img.shields.io/npm/l/playa.svg?style=flat-square" alt="license" style="max-width: 100%;"></a>
+    <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/build/badge.svg" alt="build" style="max-width: 100%;"></a>
+    <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/coverage/badge.svg" alt="coverage" style="max-width: 100%;"></a>
+</p>
+
+<p>PLAYA <em>(pronounced <code>ˈpleɪə</code>)</em> is a musical theory framework aimed at creating musical phrases. It has concepts such as Keys, Scales, Chords and Notes, with which it provides ways of generating musical phrases.</p>
+<h2 id="install">Install</h2>
+<hr />
+<pre><code class="bash">npm install --save playa</code></pre>
+<h2 id="usage">Usage</h2>
+<hr />
+<h3 id="es6-modules">ES6 Modules</h3>
+<pre><code class="js">import { Core, Tools, Functional, Constants } from 'playa';
+
+// or everything
+import * as Playa from 'playa';</code></pre>
+<h3 id="common-js--node-">Common JS (Node)</h3>
+<pre><code class="js">const { Core, Tools, Functional, Constants } = require('playa');
+
+// or everything
+const Playa = require('playa');</code></pre>
+<h2 id="example">Example</h2>
+<hr />
+<pre><code class="js">import { Core, Tools, Functional } from 'playa';
+const { Scale } = Core;
+const { createMotif } = Functional;
+const { Rhythm } = Tools;
+
+const scale = new Scale('A', Scale.MAJOR);
+
+const rhythm = Rhythm.free('1:0:0', ['4n', '8n']);
+// =&gt; [ '4n', '8n', '8n', '4n', '8n', '8n' ]
+
+createMotif(scale.notes, rhythm);
+/* =&gt;
+[
+  { time: 0, note: 'G#4', midi: 80, dur: '4n' },
+  { time: 480, note: 'E4', midi: 76, dur: '8n' },
+  { time: 720, note: 'E4', midi: 76, dur: '8n' },
+  { time: 960, note: 'D4', midi: 74, dur: '4n' },
+  { time: 1440, note: 'F#4', midi: 78, dur: '8n' },
+  { time: 1680, note: 'D4', midi: 74, dur: '8n' }
+]
+*/</code></pre>
+<h2 id="documentation">Documentation</h2>
+<hr />
+<h2 id="license">License</h2>
+<hr />
+<p><a href="LICENSE">Open Software License 3.0</a></p>
 </body></html>
