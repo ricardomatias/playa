@@ -1,6 +1,6 @@
 import Note from '../../lib/core/Note';
 
-describe.only('Note Test Suite', () => {
+describe('Note Test Suite', () => {
 	it('should set natural', () => {
 		const note = new Note('A');
 

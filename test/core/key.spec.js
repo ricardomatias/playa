@@ -1,9 +1,5 @@
 import { Key, Chord } from '../../lib/core';
-import NoteType from '../../lib/core/types';
 import { seedRandom } from '../../lib/tools/random';
-
-const TEST = { noteType: NoteType.STR };
-
 
 function modesToChords(modes) {
 	return modes.map((mode) => {
@@ -11,7 +7,7 @@ function modesToChords(modes) {
 			root: mode.root,
 			type: mode.scale,
 			structure: Chord.SEVENTH,
-		}, TEST);
+		});
 
 		return chord.name;
 	});
@@ -23,18 +19,27 @@ function modesToScales(modes) {
 	});
 }
 
+function testModulation(key) {
+	return {
+		root: key.root,
+		type: Key.NAMES[key.type],
+		chordName: key.chord.name,
+		notes: key.string,
+		modePositionRoman: key.modePositionRoman,
+	};
+}
 
 describe('Key Test Suite', () => {
 	it('should be the same scale', () => {
 		const key = new Key('C', Key.MAJOR);
 
-		expect(key.notes).toEqual([ 60, 62, 64, 65, 67, 69, 71 ]);
-		expect(key.chord.notes).toEqual([ 60, 64, 67, 71 ]);
+		expect(key).toHaveMidiNotes([ 60, 62, 64, 65, 67, 69, 71 ]);
+		expect(key.chord).toHaveMidiNotes([ 60, 64, 67, 71 ]);
 	});
 
 	describe('Modes', () => {
 		it('should have chords for C Major', () => {
-			const key = new Key('C', Key.MAJOR, TEST);
+			const key = new Key('C', Key.MAJOR);
 
 			expect(modesToChords(key.modes)).toEqual([
 				'CM7',
@@ -48,7 +53,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should have chords for Ab Minor', () => {
-			const key = new Key('Ab', Key.MINOR, TEST);
+			const key = new Key('Ab', Key.MINOR);
 
 			expect(modesToChords(key.modes)).toEqual([
 				'Abm7',
@@ -62,7 +67,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should have chords for E Dorian', () => {
-			const key = new Key('E', Key.DORIAN, TEST);
+			const key = new Key('E', Key.DORIAN);
 
 			expect(modesToChords(key.modes)).toEqual([
 				'Em7',
@@ -76,70 +81,164 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should allow accessing a mode through Proxy - E MIXOLYDIAN', () => {
-			const key = new Key('E', Key.MAJOR, TEST);
+			const key = new Key('E', Key.MAJOR);
 
 			const eMyxo = key.MIXOLYDIAN;
 
 			expect(eMyxo.chord.name).toBe('B7');
-			expect(eMyxo.notes).toEqual([ 'B', 'C#', 'D#', 'E', 'F#', 'G#', 'A' ]);
+			expect(eMyxo).toHaveStringNotes([
+				'B3',
+				'C#4',
+				'D#4',
+				'E4',
+				'F#4',
+				'G#4',
+				'A4',
+			]);
 		});
 
 		it('should allow accessing a mode through Proxy - E LYDIAN', () => {
-			const key = new Key('E', Key.MAJOR, TEST);
+			const key = new Key('E', Key.MAJOR);
 
 			const eLyd = key.LYDIAN;
 
 			expect(eLyd.chord.name).toBe('AM7');
-			expect(eLyd.notes).toEqual([ 'A', 'B', 'C#', 'D#', 'E', 'F#', 'G#' ]);
+			expect(eLyd).toHaveStringNotes([
+				'A3',
+				'B3',
+				'C#4',
+				'D#4',
+				'E4',
+				'F#4',
+				'G#4',
+			]);
+		});
+
+
+		it('should allow accessing a mode through roman numeral', () => {
+			const key = new Key('A', Key.MAJOR);
+
+			const cMin = key.III;
+
+			expect(cMin.chord.name).toBe('C#m7');
+			expect(cMin).toHaveStringNotes([ 'C#3', 'D3', 'E3', 'F#3', 'G#3', 'A3', 'B3' ]);
+
+			const eMaj = key['V'];
+			expect(eMaj.chord.name).toBe('E7');
+			expect(eMaj).toHaveStringNotes([ 'E3', 'F#3', 'G#3', 'A3', 'B3', 'C#4', 'D4' ]);
 		});
 	});
 
 	describe('#modulate', () => {
 		it('should modulate UP', () => {
-			const key = new Key('C', Key.MAJOR, TEST);
+			const key = new Key('C', Key.MAJOR);
 
 			key.modulate(Key.MOD_UP);
 
-			expect(key.notes).toEqual([ 'G', 'A', 'B', 'C', 'D', 'E', 'F#' ]);
+			expect(key).toHaveStringNotes([
+				'G3',
+				'A3',
+				'B3',
+				'C4',
+				'D4',
+				'E4',
+				'F#4',
+			]);
 		});
 
 		it('should modulate DOWN', () => {
-			const key = new Key('A', Key.MAJOR, TEST);
+			const key = new Key('A', Key.MAJOR);
 
 			key.modulate(Key.MOD_DOWN);
 
-			expect(key.notes).toEqual([ 'D', 'E', 'F#', 'G', 'A', 'B', 'C#' ]);
+			expect(key).toHaveStringNotes([
+				'D3',
+				'E3',
+				'F#3',
+				'G3',
+				'A3',
+				'B3',
+				'C#4',
+			]);
 		});
 
 		it('should modulate DORIAN - with interval', () => {
-			const key = new Key('E', Key.DORIAN, TEST);
+			const key = new Key('E', Key.DORIAN);
 
 			key.modulate(Key.MOD_DOWN, '2M');
 
-			expect(key.notes).toEqual([ 'D', 'E', 'F', 'G', 'A', 'B', 'C' ]);
+			expect(key).toHaveStringNotes([
+				'D3',
+				'E3',
+				'F3',
+				'G3',
+				'A3',
+				'B3',
+				'C4',
+			]);
 		});
 
 		it('should modulate PHRYGIAN - with interval', () => {
-			const key = new Key('G', Key.PHRYGIAN, TEST);
+			const key = new Key('G', Key.PHRYGIAN);
 
 			key.modulate(Key.MOD_UP, '6M');
 
-			expect(key.notes).toEqual([ 'E', 'F', 'G', 'A', 'B', 'C', 'D' ]);
+			expect(key).toHaveStringNotes([
+				'E3',
+				'F3',
+				'G3',
+				'A3',
+				'B3',
+				'C4',
+				'D4',
+			]);
 		});
 
 		it('should modulate B - with interval', () => {
-			const key = new Key('B', Key.IONIAN, TEST);
+			const key = new Key('B', Key.IONIAN);
 
-			expect(key.notes).toEqual([ 'B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#' ]);
+			expect(key).toHaveStringNotes([
+				'B3',
+				'C#4',
+				'D#4',
+				'E4',
+				'F#4',
+				'G#4',
+				'A#4',
+			]);
 
 			key.modulate(Key.MOD_UP, '5P');
 
-			expect(key.notes).toEqual([ 'F#', 'G#', 'A#', 'B', 'C#', 'D#', 'F' ]);
+			expect(key).toHaveStringNotes([
+				'F#3',
+				'G#3',
+				'A#3',
+				'B3',
+				'C#4',
+				'D#4',
+				'F4',
+			]);
+		});
+
+		it('should modulate UP with interval and direction', () => {
+			const key = new Key('Db', Key.LYDIAN);
+
+			key.modulate(Key.MOD_UP, '7m');
+
+			expect(key).toHaveStringNotes([
+				'B3',
+				'C#4',
+				'D#4',
+				'F4',
+				'F#4',
+				'G#4',
+				'A#4',
+			]);
 		});
 	});
 
 	describe('#modulateMode', () => {
-		const key = new Key('Eb', Key.MIXOLYDIAN, TEST);
+		const key = new Key('Eb', Key.MIXOLYDIAN);
 
 		it('should have key', () => {
 			expect(key.root).toBe('Eb');
@@ -147,7 +246,13 @@ describe('Key Test Suite', () => {
 			expect(key.chord.name).toBe('Eb7');
 
 			expect(modesToChords(key.modes)).toEqual([
-				'Eb7', 'Fm7', 'Gm7b5', 'AbM7', 'Bbm7', 'Cm7', 'DbM7',
+				'Eb7',
+				'Fm7',
+				'Gm7b5',
+				'AbM7',
+				'Bbm7',
+				'Cm7',
+				'DbM7',
 			]);
 
 			expect(modesToScales(key.modes)).toEqual([
@@ -168,12 +273,23 @@ describe('Key Test Suite', () => {
 
 			key.modulateMode();
 
-			expect(key.root).toBe('Ab');
-			expect(Key.NAMES[key.type]).toBe('IONIAN');
-			expect(key.chord.name).toBe('AbM7');
-			expect(key.notes).toEqual([ 'Ab', 'Bb', 'C', 'Db', 'Eb', 'F', 'G' ]);
-
-			expect(key.modePositionRoman).toBe('IV');
+			expect(testModulation(key)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "AbM7",
+			  "modePositionRoman": "IV",
+			  "notes": Array [
+			    "Ab3",
+			    "Bb3",
+			    "C4",
+			    "Db4",
+			    "Eb4",
+			    "F4",
+			    "G4",
+			  ],
+			  "root": "Ab",
+			  "type": "IONIAN",
+			}
+		`);
 		});
 
 		it('should modulate to another mode based on direction - DOWN', () => {
@@ -181,12 +297,23 @@ describe('Key Test Suite', () => {
 
 			key.modulateMode({ direction: Key.MOD_DOWN });
 
-			expect(key.root).toBe('G');
-			expect(Key.NAMES[key.type]).toBe('LOCRIAN');
-			expect(key.chord.name).toBe('Gm7b5');
-			expect(key.notes).toEqual([ 'G', 'Ab', 'Bb', 'C', 'Db', 'Eb', 'F' ]);
-
-			expect(key.modePositionRoman).toBe('III');
+			expect(testModulation(key)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "Fm7",
+			  "modePositionRoman": "II",
+			  "notes": Array [
+			    "F3",
+			    "G3",
+			    "Ab3",
+			    "Bb3",
+			    "C4",
+			    "Db4",
+			    "Eb4",
+			  ],
+			  "root": "F",
+			  "type": "AEOLIAN",
+			}
+		`);
 		});
 
 		it('should modulate to another mode', () => {
@@ -194,25 +321,46 @@ describe('Key Test Suite', () => {
 
 			key.modulateMode();
 
-			expect(key.root).toBe('Db');
-			expect(Key.NAMES[key.type]).toBe('LYDIAN');
-			expect(key.chord.name).toBe('DbM7');
-			expect(key.notes).toEqual([ 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb', 'C' ]);
-
-			expect(key.modePositionRoman).toBe('VII');
+			expect(testModulation(key)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "AbM7",
+			  "modePositionRoman": "IV",
+			  "notes": Array [
+			    "Ab3",
+			    "Bb3",
+			    "C4",
+			    "Db4",
+			    "Eb4",
+			    "F4",
+			    "G4",
+			  ],
+			  "root": "Ab",
+			  "type": "IONIAN",
+			}
+		`);
 		});
 
 		it('should modulate to another mode based on direction - UP from last element', () => {
 			seedRandom('test-2');
 
 			key.modulateMode({ direction: Key.MOD_UP });
-
-			expect(key.root).toBe('C');
-			expect(Key.NAMES[key.type]).toBe('PHRYGIAN');
-			expect(key.chord.name).toBe('Cm7');
-			expect(key.notes).toEqual([ 'C', 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb' ]);
-
-			expect(key.modePositionRoman).toBe('VI');
+			expect(testModulation(key)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "Cm7",
+			  "modePositionRoman": "VI",
+			  "notes": Array [
+			    "C3",
+			    "Db3",
+			    "Eb3",
+			    "F3",
+			    "G3",
+			    "Ab3",
+			    "Bb3",
+			  ],
+			  "root": "C",
+			  "type": "PHRYGIAN",
+			}
+		`);
 		});
 
 		it('should modulate to another mode based on direction - UP', () => {
@@ -220,57 +368,101 @@ describe('Key Test Suite', () => {
 
 			key.modulateMode({ direction: Key.MOD_UP });
 
-			expect(key.root).toBe('Db');
-			expect(Key.NAMES[key.type]).toBe('LYDIAN');
-			expect(key.chord.name).toBe('DbM7');
-			expect(key.notes).toEqual([ 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb', 'C' ]);
-
-			expect(key.modePositionRoman).toBe('VII');
+			expect(testModulation(key)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "DbM7",
+			  "modePositionRoman": "VII",
+			  "notes": Array [
+			    "Db3",
+			    "Eb3",
+			    "F3",
+			    "G3",
+			    "Ab3",
+			    "Bb3",
+			    "C4",
+			  ],
+			  "root": "Db",
+			  "type": "LYDIAN",
+			}
+		`);
 		});
 
 		it('should modulate to another mode based on direction - UP', () => {
 			seedRandom('test-2');
 
-			const newKey = new Key('G', Key.LYDIAN, TEST);
+			const newKey = new Key('G', Key.LYDIAN);
 
 			newKey.modulateMode({ direction: Key.MOD_DOWN });
 
-			expect(newKey.root).toBe('F#');
-			expect(Key.NAMES[newKey.type]).toBe('PHRYGIAN');
-			expect(newKey.chord.name).toBe('F#m7');
-			expect(newKey.notes).toEqual([ 'F#', 'G', 'A', 'B', 'C#', 'D', 'E' ]);
-
-			expect(newKey.modePositionRoman).toBe('VII');
+			expect(testModulation(newKey)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "DM7",
+			  "modePositionRoman": "V",
+			  "notes": Array [
+			    "D3",
+			    "E3",
+			    "F#3",
+			    "G3",
+			    "A3",
+			    "B3",
+			    "C#4",
+			  ],
+			  "root": "D",
+			  "type": "IONIAN",
+			}
+		`);
 		});
 
 		it('should modulate to another mode based on direction & INTERVAL', () => {
 			seedRandom('test-2');
 
-			const newKey = new Key('G', Key.LYDIAN, TEST);
+			const newKey = new Key('G', Key.LYDIAN);
 
 			newKey.modulateMode({ direction: Key.MOD_DOWN, interval: 3 });
 
-			expect(newKey.root).toBe('E');
-			expect(Key.NAMES[newKey.type]).toBe('DORIAN');
-			expect(newKey.chord.name).toBe('Em7');
-			expect(newKey.notes).toEqual([ 'E', 'F#', 'G', 'A', 'B', 'C#', 'D' ]);
-
-			expect(newKey.modePositionRoman).toBe('VI');
+			expect(testModulation(newKey)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "Em7",
+			  "modePositionRoman": "VI",
+			  "notes": Array [
+			    "E3",
+			    "F#3",
+			    "G3",
+			    "A3",
+			    "B3",
+			    "C#4",
+			    "D4",
+			  ],
+			  "root": "E",
+			  "type": "DORIAN",
+			}
+		`);
 		});
 
 		it('should modulate to another mode based on direction & INTERVAL', () => {
 			seedRandom('test-2');
 
-			const newKey = new Key('G', Key.LYDIAN, TEST);
+			const newKey = new Key('G', Key.LYDIAN);
 
 			newKey.modulateMode({ direction: Key.MOD_UP, interval: 5 });
 
-			expect(newKey.root).toBe('D');
-			expect(Key.NAMES[newKey.type]).toBe('IONIAN');
-			expect(newKey.chord.name).toBe('DM7');
-			expect(newKey.notes).toEqual([ 'D', 'E', 'F#', 'G', 'A', 'B', 'C#' ]);
-
-			expect(newKey.modePositionRoman).toBe('V');
+			expect(testModulation(newKey)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "DM7",
+			  "modePositionRoman": "V",
+			  "notes": Array [
+			    "D3",
+			    "E3",
+			    "F#3",
+			    "G3",
+			    "A3",
+			    "B3",
+			    "C#4",
+			  ],
+			  "root": "D",
+			  "type": "IONIAN",
+			}
+		`);
 		});
 	});
 });
