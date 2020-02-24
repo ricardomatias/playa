@@ -1,7 +1,6 @@
 import { TICKS } from '../../../lib/constants';
 import { Random, Rhythm, distribute } from '../../../lib/tools';
 
-const { seedRandom } = Random;
 const { free: generateFreeRhythm } = Rhythm;
 
 import { calcRythmDuration } from '../../helpers';
@@ -13,7 +12,7 @@ const { mixed, slow, robotic, straight } = Rhythm.presets;
 describe('#generateFreeRhythm', () => {
 	it('should generate rhythm - decreasing', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		// when
 		const rhythm = generateFreeRhythm(
@@ -38,7 +37,7 @@ describe('#generateFreeRhythm', () => {
 	});
 	it('should generate rhythm - slow', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		// when
 		const rhythm = generateFreeRhythm(ONE_BAR, slow, distribute.equal);
@@ -56,7 +55,7 @@ describe('#generateFreeRhythm', () => {
 
 	it('should generate rhythm - robotic', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		// when
 		const rhythm = generateFreeRhythm(ONE_BAR, robotic, distribute.equal);
@@ -89,7 +88,7 @@ describe('#generateFreeRhythm', () => {
 
 	it('should generate rhythm - straight', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		// when
 		const rhythm = generateFreeRhythm(ONE_BAR, straight, distribute.equal);
@@ -110,7 +109,7 @@ describe('#generateFreeRhythm', () => {
 
 	it('should break', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		// when
 		const error = () =>

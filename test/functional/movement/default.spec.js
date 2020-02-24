@@ -1,12 +1,12 @@
 import { Key } from '../../../lib/core';
 import { createMovement } from '../../../lib/functional';
-import { seedRandom } from '../../../lib/tools/random';
+import Random from '../../../lib/tools/random';
 
 
 describe('A Movement test suite', () => {
 	it('should generate a basic movement', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const dMin = new Key('D', Key.MINOR);
 		// when
@@ -17,7 +17,7 @@ describe('A Movement test suite', () => {
 
 	it('should generate a simple movement - euclidean', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('A', Key.MAJOR);
 
@@ -33,7 +33,7 @@ describe('A Movement test suite', () => {
 
 	it('should generate a simple movement - turn rhythm', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('A', Key.MAJOR);
 
@@ -50,7 +50,7 @@ describe('A Movement test suite', () => {
 
 	it('should generate a long movement - turn rhythm', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('A', Key.MAJOR);
 
@@ -67,7 +67,7 @@ describe('A Movement test suite', () => {
 
 	it.skip('should generate a movement that repeats', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('A', Key.MAJOR);
 

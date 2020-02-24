@@ -1,13 +1,13 @@
 import { Key } from '../../../lib/core';
 import { createMovementX } from '../../../lib/functional';
-import { seedRandom } from '../../../lib/tools/random';
+import Random from '../../../lib/tools/random';
 
 
 describe('A Movement test suite', () => {
 	describe('SIMULACRA', () => {
 		it('should generate a simple movement', () => {
 			// given
-			seedRandom('test');
+			Random.setSeed('test');
 
 			const aMaj = new Key('C', Key.MAJOR);
 
@@ -31,7 +31,7 @@ describe('A Movement test suite', () => {
 
 		it('should generate a simple movement non buggy', () => {
 			// given
-			seedRandom('massive-dragon-38');
+			Random.setSeed('massive-dragon-38');
 
 			const cMaj = new Key('C', Key.LYDIAN);
 
@@ -55,7 +55,7 @@ describe('A Movement test suite', () => {
 
 		it('should generate a turn rhythm movement', () => {
 			// given
-			seedRandom('test');
+			Random.setSeed('test');
 
 			const aMin = new Key('A', Key.MINOR);
 

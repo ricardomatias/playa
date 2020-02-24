@@ -2,14 +2,14 @@ import * as R from 'ramda';
 import { Key } from '../../lib/core';
 import { createMovement, createMelodies } from '../../lib/functional';
 import { Rhythm } from '../../lib/tools';
-import { seedRandom } from '../../lib/tools/random';
+import Random from '../../lib/tools/random';
 import { distribute } from '@ricardomatias/roll';
 
 
 describe('A Melodies test suite', () => {
 	it('should generate melodies based on a movement timeline - free rhythm', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('A', Key.MAJOR);
 
@@ -27,7 +27,7 @@ describe('A Melodies test suite', () => {
 
 	it('should generate melodies based on a movement timeline - turn rhythm', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('A', Key.MAJOR);
 
@@ -47,7 +47,7 @@ describe('A Melodies test suite', () => {
 
 	it('should generate progression with defined structures', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('Db', Key.MAJOR);
 

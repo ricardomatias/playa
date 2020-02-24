@@ -1,11 +1,11 @@
 import { Key, Chord } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/functional';
-import { seedRandom } from '../../lib/tools/random';
+import Random from '../../lib/tools/random';
 
 describe('A Chord Progression test suite', () => {
 	it('should generate chords based on a movement timeline - free rhythm', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('A', Key.MAJOR);
 
@@ -23,7 +23,7 @@ describe('A Chord Progression test suite', () => {
 
 	it('should generate chords based on a movement timeline - turn rhythm', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const aMaj = new Key('A', Key.MAJOR);
 
@@ -42,7 +42,7 @@ describe('A Chord Progression test suite', () => {
 
 	it('should generate progression with defined structures', () => {
 		// given
-		seedRandom('test-2');
+		Random.setSeed('test-2');
 
 		const aMaj = new Key('Db', Key.MAJOR);
 

@@ -1,5 +1,5 @@
 import { Chord, Scale } from '../../lib/core';
-import { seedRandom } from '../../lib/tools/random';
+import Random from '../../lib/tools/random';
 
 
 describe('Chord Test Suite', () => {
@@ -56,7 +56,7 @@ describe('Chord Test Suite', () => {
 	describe('create with scale', () => {
 		describe('with Structure', () => {
 			it('should set natural', () => {
-				seedRandom('test');
+				Random.setSeed('test');
 
 				const chord = new Chord({ root: 'A', type: Scale.EGYPTIAN, structure: Chord.TRIAD });
 
@@ -84,7 +84,7 @@ describe('Chord Test Suite', () => {
 
 		describe('withOUT Structure', () => {
 			it('should set natural', () => {
-				seedRandom('test');
+				Random.setSeed('test');
 
 				const chord = new Chord({ root: 'A', type: Scale.MINOR });
 
@@ -94,7 +94,7 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should set flat', () => {
-				seedRandom('test-2');
+				Random.setSeed('test-2');
 
 				const chord = new Chord({ root: 'F', type: Scale.MAJOR });
 
@@ -135,7 +135,7 @@ describe('Chord Test Suite', () => {
 		});
 
 		it('should invert randomly', () => {
-			seedRandom('test-foddds');
+			Random.setSeed('test-foddds');
 
 			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.THIRTEENTH });
 

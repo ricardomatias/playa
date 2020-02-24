@@ -1,5 +1,5 @@
 import friendly, { orderNotes, rankIntervals, rankScales } from '../../lib/tools/friendly';
-import * as Random from '../../lib/tools/random';
+import Random from '../../lib/tools/random';
 import Scale from '../../lib/core/Scale';
 import * as R from 'ramda';
 import { stripOctave } from '../../lib/utils';
@@ -16,7 +16,7 @@ describe('A Friendly test suite', () => {
 	describe('classified list of neighboring scales', () => {
 		it('should return [ `A`, `C#`, `G`, `B` ] ', () => {
 			// given
-			Random.seedRandom('test');
+			Random.setSeed('test');
 
 			const neighbours = friendly([ 'A', 'C#', 'G', 'B' ]);
 
@@ -29,7 +29,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return [ `F#`, `C#`, `D`, `D`, `E`, `C` ]', () => {
 			// given
-			Random.seedRandom('test');
+			Random.setSeed('test');
 
 			const neighbours = friendly([ 'F#', 'C#', 'D', 'D', 'E', 'C' ]);
 
@@ -42,7 +42,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return [ `B`, `D`, `Eb`, `F`, `Ab` ]', () => {
 			// given
-			Random.seedRandom('test');
+			Random.setSeed('test');
 
 			const neighbours = friendly([ 'B', 'D', 'Eb', 'F', 'Ab' ]);
 
@@ -55,7 +55,7 @@ describe('A Friendly test suite', () => {
 
 		it('should still return neighbours when given just 2 notes', () => {
 			// given
-			Random.seedRandom('test');
+			Random.setSeed('test');
 
 			// when
 			const neighbours = friendly([ 'C#', 'F#' ]);
@@ -67,7 +67,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return an empty array when given 1 note', () => {
 			// given
-			Random.seedRandom('test');
+			Random.setSeed('test');
 
 			// when
 			const neighbours = friendly([ 'C#' ]);
@@ -100,7 +100,7 @@ describe('A Friendly test suite', () => {
 	});
 
 	describe('#orderNotes', () => {
-		beforeAll(() => Random.seedRandom('FRIENDLY'));
+		beforeAll(() => Random.setSeed('FRIENDLY'));
 
 		it('should order notes C MAJ', () => {
 			const rndFn = () => (Random.int(1, -1));

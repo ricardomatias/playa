@@ -1,11 +1,11 @@
-import { seedRandom } from '../../lib/tools/random';
+import Random from '../../lib/tools/random';
 import { rotate } from '../../lib/tools';
 
 const AM7 = [ 'A', 'C', 'E', 'G', 'B', 'Eb' ];
 
 describe('A Rotate test suite', () => {
 	it('should rotate the array', () => {
-		seedRandom('test');
+		Random.setSeed('test');
 
 		let rotatedAM7 = rotate(AM7);
 

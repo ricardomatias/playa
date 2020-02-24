@@ -1,9 +1,9 @@
-import { seedRandom } from '../../lib/tools/random';
+import Random from '../../lib/tools/random';
 import createPercussion from '../../lib/functional/percussion';
 
 describe('A Percussion test suite', () => {
 	it('should generate 2 parts', () => {
-		seedRandom('test');
+		Random.setSeed('test');
 
 		// when
 		const perc = createPercussion(4, [ 2, 1 ]);
@@ -31,7 +31,7 @@ describe('A Percussion test suite', () => {
 	});
 
 	it('should generate 4 parts', () => {
-		seedRandom('test');
+		Random.setSeed('test');
 
 		// when
 		const perc = createPercussion(8, [ 4, 2, 8, 5 ]);
@@ -88,7 +88,7 @@ describe('A Percussion test suite', () => {
 	});
 
 	it('should generate 4 parts randomly', () => {
-		seedRandom('test2');
+		Random.setSeed('test2');
 
 		// when
 		const perc = createPercussion(8, 4);

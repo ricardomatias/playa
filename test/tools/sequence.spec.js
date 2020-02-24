@@ -1,10 +1,10 @@
-import { seedRandom } from '../../lib/tools/random';
+import Random from '../../lib/tools/random';
 import { Sequence } from '../../lib/tools';
 import { Key, Chord, Scale } from '../../lib/core';
 
 describe('A Sequence test suite', () => {
 	it('should create a sequence of notes', () => {
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const scale = new Scale('A', Scale.MAJOR);
 
@@ -14,7 +14,7 @@ describe('A Sequence test suite', () => {
 	});
 
 	it('should create a sequence of notes with 2 octaves', () => {
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const scale = new Scale('A', Scale.MAJOR, [ 3, 2 ]);
 
@@ -24,7 +24,7 @@ describe('A Sequence test suite', () => {
 	});
 
 	it('should create a sequence of chords', () => {
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const key = new Key('A', Key.MAJOR, [ 3, 1 ], { chordStructure: Chord.TRIAD });
 
@@ -35,7 +35,7 @@ describe('A Sequence test suite', () => {
 	});
 
 	it('should create a way too long sequence', () => {
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const key = new Key('A', Key.MAJOR, [ 3, 2 ], { chordStructure: Chord.SEVENTH });
 

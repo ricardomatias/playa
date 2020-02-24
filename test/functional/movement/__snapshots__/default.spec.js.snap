@@ -5,26 +5,26 @@ Object {
   "events": Array [
     Object {
       "key": "D",
+      "position": "VI",
+      "scaleName": "LYDIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "D",
+      "position": "VI",
+      "scaleName": "LYDIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "D",
       "position": "III",
       "scaleName": "IONIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "D",
-      "position": "V",
-      "scaleName": "PHRYGIAN",
-      "type": "modulateMode",
-    },
-    Object {
-      "key": "D",
-      "position": "IV",
-      "scaleName": "DORIAN",
-      "type": "modulateMode",
-    },
-    Object {
-      "key": "D",
-      "position": "II",
-      "scaleName": "LOCRIAN",
+      "position": "VI",
+      "scaleName": "LYDIAN",
       "type": "modulateMode",
     },
   ],
@@ -32,8 +32,8 @@ Object {
     Object {
       "dur": 1920,
       "key": Object {
-        "root": "F",
-        "scale": "1P 2M 3M 4P 5P 6M 7M",
+        "root": "Bb",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 1,
       "time": 0,
@@ -41,8 +41,8 @@ Object {
     Object {
       "dur": 1920,
       "key": Object {
-        "root": "A",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+        "root": "Bb",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 5,
       "time": 1920,
@@ -50,8 +50,8 @@ Object {
     Object {
       "dur": 1920,
       "key": Object {
-        "root": "G",
-        "scale": "1P 2M 3m 4P 5P 6M 7m",
+        "root": "F",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
       "quarter": 9,
       "time": 3840,
@@ -59,8 +59,8 @@ Object {
     Object {
       "dur": 1920,
       "key": Object {
-        "root": "E",
-        "scale": "1P 2m 3m 4P 5d 6m 7m",
+        "root": "Bb",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 13,
       "time": 5760,
@@ -74,8 +74,8 @@ Object {
   "events": Array [
     Object {
       "key": "A",
-      "position": "V",
-      "scaleName": "MIXOLYDIAN",
+      "position": "III",
+      "scaleName": "PHRYGIAN",
       "type": "modulateMode",
     },
     Object {
@@ -85,18 +85,18 @@ Object {
       "type": "modulateMode",
     },
     Object {
-      "interval": "2M",
-      "key": "E",
+      "interval": "6m",
+      "key": "F#",
       "position": "I",
-      "root": "E",
+      "root": "F#",
       "scaleName": "LYDIAN",
       "type": "modulate",
     },
     Object {
-      "interval": "3m",
-      "key": "C#",
+      "interval": "6M",
+      "key": "A",
       "position": "I",
-      "root": "C#",
+      "root": "A",
       "scaleName": "LYDIAN",
       "type": "modulate",
     },
@@ -105,8 +105,8 @@ Object {
     Object {
       "dur": 3840,
       "key": Object {
-        "root": "E",
-        "scale": "1P 2M 3M 4P 5P 6M 7m",
+        "root": "C#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "time": 0,
     },
@@ -121,7 +121,7 @@ Object {
     Object {
       "dur": 3840,
       "key": Object {
-        "root": "E",
+        "root": "F#",
         "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "time": 7680,
@@ -129,7 +129,7 @@ Object {
     Object {
       "dur": 3840,
       "key": Object {
-        "root": "C#",
+        "root": "A",
         "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "time": 11520,
@@ -143,26 +143,14 @@ Object {
   "events": Array [
     Object {
       "key": "A",
-      "position": "III",
-      "scaleName": "PHRYGIAN",
+      "position": "VI",
+      "scaleName": "AEOLIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "A",
-      "position": "V",
-      "scaleName": "MIXOLYDIAN",
-      "type": "modulateMode",
-    },
-    Object {
-      "key": "A",
-      "position": "IV",
-      "scaleName": "LYDIAN",
-      "type": "modulateMode",
-    },
-    Object {
-      "key": "A",
-      "position": "II",
-      "scaleName": "DORIAN",
+      "position": "VI",
+      "scaleName": "AEOLIAN",
       "type": "modulateMode",
     },
     Object {
@@ -177,13 +165,27 @@ Object {
       "scaleName": "AEOLIAN",
       "type": "modulateMode",
     },
+    Object {
+      "interval": "6M",
+      "key": "A",
+      "position": "I",
+      "root": "A",
+      "scaleName": "AEOLIAN",
+      "type": "modulate",
+    },
+    Object {
+      "key": "A",
+      "position": "IV",
+      "scaleName": "DORIAN",
+      "type": "modulateMode",
+    },
   ],
   "timeline": Array [
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "C#",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+        "root": "F#",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "quarter": 1,
       "time": 0,
@@ -191,8 +193,8 @@ Object {
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "E",
-        "scale": "1P 2M 3M 4P 5P 6M 7m",
+        "root": "F#",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "quarter": 4,
       "time": 1440,
@@ -200,8 +202,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "D",
-        "scale": "1P 2M 3M 4A 5P 6M 7M",
+        "root": "C#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 7,
       "time": 2880,
@@ -209,8 +211,8 @@ Object {
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "B",
-        "scale": "1P 2M 3m 4P 5P 6M 7m",
+        "root": "F#",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "quarter": 9,
       "time": 3840,
@@ -218,8 +220,8 @@ Object {
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "C#",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "quarter": 12,
       "time": 5280,
@@ -227,8 +229,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "F#",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+        "root": "D",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
       "quarter": 15,
       "time": 6720,
@@ -247,15 +249,19 @@ Object {
       "type": "modulateMode",
     },
     Object {
-      "interval": "5P",
-      "key": "B",
-      "position": "I",
-      "root": "B",
-      "scaleName": "AEOLIAN",
-      "type": "modulate",
+      "key": "A",
+      "position": "III",
+      "scaleName": "PHRYGIAN",
+      "type": "modulateMode",
     },
     Object {
-      "interval": "2M",
+      "key": "A",
+      "position": "VI",
+      "scaleName": "AEOLIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "interval": "6M",
       "key": "A",
       "position": "I",
       "root": "A",
@@ -269,18 +275,12 @@ Object {
       "type": "modulateMode",
     },
     Object {
-      "interval": "2M",
-      "key": "C",
+      "interval": "5P",
+      "key": "A",
       "position": "I",
-      "root": "C",
+      "root": "A",
       "scaleName": "DORIAN",
       "type": "modulate",
-    },
-    Object {
-      "key": "C",
-      "position": "III",
-      "scaleName": "LYDIAN",
-      "type": "modulateMode",
     },
   ],
   "timeline": Array [
@@ -295,15 +295,15 @@ Object {
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "B",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+        "root": "C#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "time": 1280,
     },
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "A",
+        "root": "F#",
         "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "time": 2720,
@@ -311,15 +311,15 @@ Object {
     Object {
       "dur": 1280,
       "key": Object {
-        "root": "D",
-        "scale": "1P 2M 3m 4P 5P 6M 7m",
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "time": 4160,
     },
     Object {
       "dur": 1280,
       "key": Object {
-        "root": "C",
+        "root": "D",
         "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
       "time": 5440,
@@ -327,8 +327,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "Eb",
-        "scale": "1P 2M 3M 4A 5P 6M 7M",
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
       "time": 6720,
     },

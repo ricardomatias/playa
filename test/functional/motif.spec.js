@@ -4,7 +4,7 @@ import createMotif from '../../lib/functional/motif';
 import { distribute } from '@ricardomatias/roll';
 import { calcDuration } from '../../lib/tools/time';
 import { Rhythm } from '../../lib/tools';
-import { seedRandom } from '../../lib/tools/random';
+import Random from '../../lib/tools/random';
 import { TICKS } from '../../lib/constants';
 
 const { mixed } = Rhythm.presets;
@@ -15,7 +15,7 @@ const ONE_BAR = TICKS.get('1n');
 describe('A Motif test suite', () => {
 	it('should generate motif based on scale', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const scale = new Scale('A', Scale.MAJOR);
 
@@ -29,7 +29,7 @@ describe('A Motif test suite', () => {
 		expect(calcDuration(motif)).toEqual(ONE_BAR);
 
 		// when
-		seedRandom('test2');
+		Random.setSeed('test2');
 
 		rhythm = Rhythm.free('2:0:0', mixed, distribute.decreasing);
 
@@ -43,7 +43,7 @@ describe('A Motif test suite', () => {
 
 	it('should generate createMotif based on chord', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const chord = new Chord('Dbm6');
 		let rhythm = Rhythm.free('1:0:0', mixed, distribute.decreasing);
@@ -55,7 +55,7 @@ describe('A Motif test suite', () => {
 		expect(calcDuration(motif)).toEqual(ONE_BAR);
 
 		// when
-		seedRandom('test2');
+		Random.setSeed('test2');
 
 		rhythm = Rhythm.free('2:0:0', mixed, distribute.decreasing);
 
@@ -68,7 +68,7 @@ describe('A Motif test suite', () => {
 
 	it('should return pattern with time = start time', () => {
 		// given
-		seedRandom('test');
+		Random.setSeed('test');
 
 		const chord = new Chord('Dbm6');
 		let rhythm = Rhythm.free('0:1:0', mixed, distribute.decreasing);
