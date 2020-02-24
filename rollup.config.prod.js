@@ -30,7 +30,7 @@ export default [
 		plugins: [
 			del({ targets: 'build/*' }),
 			resolve({ extensions }),
-			commonjs({ extensions }),
+			commonjs(),
 			cleanup(),
 			babel({
 				extensions,
