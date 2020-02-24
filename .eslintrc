@@ -1,5 +1,7 @@
 {
 	"extends": [
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
 		"eslint:recommended",
 		"google",
 		"plugin:import/errors",
@@ -11,12 +13,23 @@
 		"node": true,
 		"es6": true
 	},
+	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaVersion": 2018,
 		"sourceType": "module"
 	},
 	"globals": {
 		"expect": true
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [
+					".js",
+					".ts"
+				]
+			}
+		}
 	},
 	"rules": {
 		"no-console": "off",
@@ -29,7 +42,8 @@
 		"max-len": [
 			"error",
 			{
-				"code": 120
+				"code": 120,
+				"ignoreComments": true
 			}
 		],
 		"import/no-unresolved": "warn",

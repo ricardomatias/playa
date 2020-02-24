@@ -8,7 +8,12 @@ import copy from 'rollup-plugin-copy';
 import progress from 'rollup-plugin-progress';
 // import includePaths from 'rollup-plugin-includepaths';
 
+const extensions = [
+	'.js', '.ts',
+];
+
 const OUT_DIR = '../playa-release';
+
 
 export default [
 	{
@@ -38,13 +43,14 @@ export default [
 		},
 		plugins: [
 			del({ targets: 'build/*' }),
-			resolve(),
+			resolve({ extensions }),
 			commonjs(),
 			cleanup({
 				comments: 'jsdoc',
 				compactComments: false,
 			}),
 			babel({
+				extensions,
 				exclude: 'node_modules/**',
 			}),
 			// terser({

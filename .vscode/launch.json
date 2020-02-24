@@ -25,15 +25,20 @@
 			"args": [
 				"${relativeFile}",
 				"--config",
-				"jest.config.js"
+				"jest.config.js",
+				"--no-cache",
+				"--runInBand"
 			],
 			"console": "integratedTerminal",
+			"sourceMaps": true,
 			"internalConsoleOptions": "neverOpen",
 			"disableOptimisticBPs": true,
 			"windows": {
 				"program": "${workspaceFolder}/node_modules/jest/bin/jest",
 			},
-			"runtimeExecutable": "/Users/feral/.nvm/versions/node/v13.7.0/bin/node",
+			"skipFiles": [
+				"<node_internals>/**"
+			]
 		}
 	]
 }
