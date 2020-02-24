@@ -7,14 +7,12 @@
 		"./lib/tools/*.js",
 		"./lib/utils/*.js",
 		"./lib/constants/*.js",
+		"./README.md",
 		{
 			"Core": "./lib/core/*.js",
 			"Functional": ["./lib/functional/*.js", "!./lib/functional/*.bk.js"],
 			"Tools": "./lib/tools/*.js",
 			"Utils": "./lib/utils/*.js"
-		},
-		{
-			"home": "./README.md"
 		}
 	],
 	"jsdoc": {
@@ -51,8 +49,8 @@
 	},
 	"app": {
 		"title": "PLAYA",
-		"routing": "path",
-		"entrance": "content:home",
+		"routing": "query",
+		"entrance": "content:readme",
 		"base": "/",
 		"favicon": "assets/favicon.ico"
 	},
@@ -97,7 +95,7 @@
 					},
 					{
 						"label": "Documentation",
-						"href": "/api"
+						"href": "?api"
 					}
 				]
 			}

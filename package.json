@@ -14,16 +14,26 @@
 		"build": "rollup -c rollup.config.prod.js",
 		"start": "rollup -c rollup.config.dev.js --watch",
 		"prepare": "npm run build",
-		"docs:build": "docma -c docma.json",
+		"docs:build": "docma -c docma.json --clean",
 		"docs:serve": "docma serve"
 	},
 	"author": "Ricardo Matias<ricardo.matias0@gmail.com>",
+	"homepage": "https://ricardomatias.net/playa",
 	"license": "OSL 3.0",
 	"husky": {
 		"hooks": {
 			"pre-push": "npm test"
 		}
 	},
+	"keywords": [
+		"music",
+		"music theory",
+		"audio",
+		"web audio",
+		"sound",
+		"midi",
+		"playa"
+	],
 	"files": [
 		"build/*"
 	],
