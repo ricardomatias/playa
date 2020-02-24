@@ -5,7 +5,7 @@
 
 ![alt](logo.png)
 
-PLAYA (pronounced `ˈpleɪə `) is a musical theory framework aimed at creating music. It has concepts such as Keys, Scales, Chords and Notes, with which provides way of generating musical phrases.
+PLAYA (pronounced `ˈpleɪə `) is a musical theory framework aimed at creating musical phrases. It has concepts such as Keys, Scales, Chords and Notes, with which provides way of generating musical phrases.
 
 ## Install
 
