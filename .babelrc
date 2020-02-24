@@ -1,6 +1,4 @@
 {
-	"sourceMap": "inline",
-	"retainLines": true,
 	"presets": [
 		[
 			"@babel/preset-env",

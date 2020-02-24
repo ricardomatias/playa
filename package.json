@@ -1,10 +1,9 @@
 {
-	"name": "@ricardomatias/playa",
+	"name": "playa",
 	"version": "0.0.1",
-	"description": "be a playa",
-	"main": "build/cjs/playa.js",
-	"module": "build/esm/playa.js",
-	"browser": "build/umd/playa.js",
+	"description": "A musical theory framework aimed at creating musical phrases",
+	"main": "build/cjs/index.js",
+	"module": "build/esm/index.js",
 	"scripts": {
 		"test": "npm run lint && jest",
 		"test:watch": "jest --watch",
@@ -14,11 +13,10 @@
 		"lint": "eslint lib test",
 		"build": "rollup -c rollup.config.prod.js",
 		"start": "rollup -c rollup.config.dev.js --watch",
-		"prepare": "npm run build:prod",
+		"prepare": "npm run build",
 		"docs:build": "docma -c docma.json",
 		"docs:serve": "docma serve"
 	},
-	"private": true,
 	"author": "Ricardo Matias<ricardo.matias0@gmail.com>",
 	"license": "MIT",
 	"husky": {
@@ -60,6 +58,7 @@
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-copy": "^3.3.0",
 		"rollup-plugin-delete": "^1.2.0",
+		"rollup-plugin-gzip": "^2.3.0",
 		"rollup-plugin-includepaths": "^0.2.3",
 		"rollup-plugin-node-resolve": "^5.2.0",
 		"rollup-plugin-progress": "^1.1.1",
