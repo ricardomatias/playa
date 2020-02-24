@@ -6,7 +6,6 @@ import del from 'rollup-plugin-delete';
 import { terser } from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-copy';
 import progress from 'rollup-plugin-progress';
-import gzip from 'rollup-plugin-gzip';
 
 const extensions = [
 	'.js', '.ts',
@@ -31,7 +30,7 @@ export default [
 		plugins: [
 			del({ targets: 'build/*' }),
 			resolve({ extensions }),
-			commonjs(),
+			commonjs({ extensions }),
 			cleanup(),
 			babel({
 				extensions,
@@ -54,13 +53,8 @@ export default [
 				],
 			}),
 			terser({
-				sourcemap: false,
-				// output: {
-				// 	comments: 'all',
-				// },
+				sourcemap: true,
 			}),
-			gzip(),
-			// includePaths(includePathOptions),
 			copy({
 				targets: [
 					{ src: 'types/*.ts', dest: 'build/esm' },
