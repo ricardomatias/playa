@@ -5,7 +5,7 @@
 
 ![alt](logo.png)
 
-PLAYA (pronounced `ˈpleɪə `) is a musical theory framework aimed at creating musical phrases. It has concepts such as Keys, Scales, Chords and Notes, with which provides way of generating musical phrases.
+PLAYA *(pronounced `ˈpleɪə`)* is a musical theory framework aimed at creating musical phrases. It has concepts such as Keys, Scales, Chords and Notes, with which it provides ways of generating musical phrases.
 
 ## Install
 
@@ -29,8 +29,6 @@ import * as Playa from 'playa';
 ```
 
 ## Documentation
-
-The API documentation lives inside README.md file of each module:
 
 ## License
 
