@@ -51,6 +51,14 @@ describe('Chord Test Suite', () => {
 			expect(chord.type).toBe('M11');
 			expect(chord).toHaveStringNotes([ 'Gb3', 'Bb3', 'Db4', 'F4', 'Ab4', 'B4' ]);
 		});
+
+		it('should have chord structure', () => {
+			const chord = new Chord('GbM11');
+
+			expect(chord.root).toBe('Gb');
+			expect(chord.type).toBe('M11');
+			expect(chord.structure).toEqual([ 6, '1 3 5 7 9 11' ]);
+		});
 	});
 
 	describe('create with scale', () => {
