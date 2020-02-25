@@ -1,6 +1,55 @@
-import { transportToTicks, ticksToTransport } from '../../lib/tools/time';
+import {
+	transportToTicks,
+	ticksToTransport,
+	expandDuration,
+} from '../../lib/tools/time';
+
 
 describe('A Time test suite', () => {
+	describe('#expandDuration', () => {
+		it('should map pattern', () => {
+			const patt = [ '8n', '4n', '2nt' ];
+
+			expect(expandDuration(patt)).toMatchInlineSnapshot(`
+			Array [
+			  Object {
+			    "dur": "8n",
+			    "time": 0,
+			  },
+			  Object {
+			    "dur": "4n",
+			    "time": 240,
+			  },
+			  Object {
+			    "dur": "2nt",
+			    "time": 720,
+			  },
+			]
+		`);
+		});
+
+		it('should map pattern - to ticks', () => {
+			const patt = [ '8n', '4n', '2nt' ];
+
+			expect(expandDuration(patt, true)).toMatchInlineSnapshot(`
+			Array [
+			  Object {
+			    "dur": 240,
+			    "time": 0,
+			  },
+			  Object {
+			    "dur": 480,
+			    "time": 240,
+			  },
+			  Object {
+			    "dur": 640,
+			    "time": 720,
+			  },
+			]
+		`);
+		});
+	});
+
 	describe('#transportToTicks', () => {
 		it('should convert - interval', () => {
 			const scenarios = [
@@ -64,7 +113,9 @@ describe('A Time test suite', () => {
 				5520,
 				15360,
 				7680,
-			].map((transport) => ticksToTransport(transport, { positionMode: true }));
+			].map((transport) =>
+				ticksToTransport(transport, { positionMode: true }),
+			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [

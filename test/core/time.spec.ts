@@ -1,5 +1,4 @@
 import Time from '../../lib/core/Time';
-import { TICKS } from '../../lib/constants';
 
 describe('Time Test Suite', () => {
 	it('should work for ticks', () => {
