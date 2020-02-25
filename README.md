@@ -63,6 +63,10 @@ createMotif(scale.notes, rhythm);
 */
 ```
 
+## Documentation
+
+Can be found [here](https://ricardomatias.net/playa/?api).
+
 ## License
 
 [Open Software License 3.0](LICENSE)
