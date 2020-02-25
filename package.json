@@ -14,7 +14,7 @@
 		"build": "rollup -c rollup.config.prod.js",
 		"start": "rollup -c rollup.config.dev.js --watch",
 		"prepare": "npm run build",
-		"docs:build": "docma -c docma.json --clean",
+		"docs:build": "rollup -c rollup.config.dev.js && docma -c docma.json --clean",
 		"docs:serve": "docma serve"
 	},
 	"author": "Ricardo Matias<ricardo.matias0@gmail.com>",

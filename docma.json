@@ -1,19 +1,9 @@
 {
 	"debug": 5,
 	"src": [
-		"./lib/core/*.js",
-		"./lib/functional/**/*.js",
-		"!./lib/functional/*.bk.js",
-		"./lib/tools/*.js",
-		"./lib/utils/*.js",
-		"./lib/constants/*.js",
-		"./README.md",
-		{
-			"Core": "./lib/core/*.js",
-			"Functional": ["./lib/functional/*.js", "!./lib/functional/*.bk.js"],
-			"Tools": "./lib/tools/*.js",
-			"Utils": "./lib/utils/*.js"
-		}
+		"./build/esm/index.js",
+		"./lib/types.js",
+		"./README.md"
 	],
 	"jsdoc": {
 		"encoding": "utf8",
@@ -26,7 +16,7 @@
 		"undescribed": false,
 		"ignored": false,
 		"hierarchy": true,
-		"sort": "access",
+		"sort": "grouped",
 		"relativePath": null,
 		"filter": null,
 		"allowUnknownTags": true,

@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import clear from 'rollup-plugin-clear';
 import progress from 'rollup-plugin-progress';
+import cleanup from 'rollup-plugin-cleanup';
 
 const extensions = [
 	'.js', '.ts',
@@ -15,11 +16,10 @@ const baseConfig = {
 			dir: 'build/esm',
 			format: 'esm',
 		},
-		{
-			dir: 'build/cjs',
-			format: 'cjs',
-		},
 	],
+	manualChunks: {
+		ramda: [ 'ramda' ],
+	},
 	plugins: [
 		clear({
 			// required, point out which directories should be clear.
@@ -29,6 +29,10 @@ const baseConfig = {
 		}),
 		resolve({ extensions }),
 		commonjs(),
+		cleanup({
+			comments: 'jsdoc',
+			compactComments: false,
+		}),
 		babel({
 			extensions,
 			'sourceMap': 'inline',

@@ -6,6 +6,9 @@ const INITIAL_SEED = 'PLAYA';
 
 /**
  * Random Tools
+ * @class
+ * @static
+ * @name Random
  * @namespace Random
  * @memberof Tools
  */
@@ -18,10 +21,6 @@ class Random {
 
 	public increment = 10;
 
-	/**
-     * The Random's constructor should always be private to prevent direct
-     * construction calls with the `new` operator.
-     */
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	private constructor() {	}
 
@@ -35,9 +34,9 @@ class Random {
 
 	/**
 	* Random's seed
-	*
+	* @member seed
+	* @memberof Tools.Random
 	* @type {(string | number)}
-	* @memberof Random
 	*/
 	get seed(): string | number {
 		return this._seed;

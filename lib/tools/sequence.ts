@@ -2,13 +2,13 @@ import * as R from 'ramda';
 import { Scale, Key, Chord } from '../core';
 import distance from './distance';
 import { mapNotes } from '../utils';
-import NoteType from '../core/types';
+import { NoteType } from '../core/note-type';
 
 
 /**
  * Defines a sequence of notes/chords
  * @class
- * @memberof Tools
+ * @memberof Tools#
  *
  * @name Sequence
  */
@@ -21,8 +21,8 @@ class Sequence {
 
 	/**
 	* Creates an instance of Sequence.
-	* @constructor
-	* @memberof Tools
+	* @constructs Sequence
+	* @memberof Tools#
 	*
 	* @param {Scale | Key} scale
 	*/
