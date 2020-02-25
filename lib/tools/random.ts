@@ -1,3 +1,4 @@
+/* eslint-disable no-invalid-this */
 /* eslint-disable no-var, new-cap */
 import Alea from 'alea';
 import SimplexNoise from 'simplex-noise';
@@ -22,7 +23,7 @@ class Random {
 	public increment = 10;
 
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	private constructor() {	}
+	private constructor() {}
 
 	public static getInstance(): Random {
 		if (!Random.instance) {
@@ -33,7 +34,7 @@ class Random {
 	}
 
 	/**
-	* Random's seed
+	* Get the seed used by the RNG (Random Number Generator)
 	* @member seed
 	* @memberof Tools.Random
 	* @type {(string | number)}
@@ -44,13 +45,13 @@ class Random {
 
 	/**
 	 * Seed the Simplex Noise
-	 * @function seedRandom
+	 * @function setSeed
 	 * @memberof Tools.Random
 	 *
 	 * @param {String|Number} seed
 	 * @param {Number} increment
 	 */
-	setSeed(seed: string, increment = this.increment): void {
+	setSeed = (seed: string, increment: number = this.increment): void => {
 		const alea = Alea(seed);
 
 		this._seed = seed;
@@ -64,16 +65,14 @@ class Random {
 	}
 
 	/**
-	 * Create a random number generator based on a seed
-	 * Simplex noise
-	 * @function float
+	 * Generates a random float between a range
 	 * @memberof Tools.Random
 	 *
 	 * @param {Number} max
 	 * @param {Number} min
 	 * @return {Number} [0, 1]
 	 */
-	float = (max = 1, min = 0): number => {
+	float = (max = 1.0, min = 0.0): number => {
 		this.x += this.increment;
 		this.y += this.increment;
 
@@ -84,15 +83,13 @@ class Random {
 
 	/**
 	 * Generates a random integer between a range
-	 *
-	 * @function randomInt
 	 * @memberof Tools.Random
 	 *
 	 * @param {Number} max
 	 * @param {Number} [min=0]
 	 * @return {Number}
 	 */
-	int(max: number, min = 0): number {
+	int = (max: number, min = 0): number => {
 		return min + Math.floor((this.float() * (1 + max - min)));
 	}
 }
