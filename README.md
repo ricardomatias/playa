@@ -63,8 +63,6 @@ createMotif(scale.notes, rhythm);
 */
 ```
 
-## Documentation
-
 ## License
 
 [Open Software License 3.0](LICENSE)
