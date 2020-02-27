@@ -6,6 +6,9 @@
 		"./README.md"
 	],
 	"jsdoc": {
+		"source": {
+			"includePattern": ".+\\.(j|t)s(doc|x)?$"
+		},
 		"encoding": "utf8",
 		"recurse": true,
 		"pedantic": false,
@@ -16,11 +19,10 @@
 		"undescribed": false,
 		"ignored": false,
 		"hierarchy": true,
-		"sort": "grouped",
+		"sort": "access",
 		"relativePath": null,
 		"filter": null,
 		"allowUnknownTags": true,
-		"plugins": [],
 		"opts": {
 			"template": "./node_modules/tsd-jsdoc/dist"
 		}

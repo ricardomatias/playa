@@ -7,9 +7,6 @@ const INITIAL_SEED = 'PLAYA';
 
 /**
  * Random Tools
- * @class
- * @static
- * @name Random
  * @namespace Random
  * @memberof Tools
  */
@@ -23,7 +20,13 @@ class Random {
 	public increment = 10;
 
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	private constructor() {}
+
+	/**
+	 * Creates an instance of Random.
+	 * @private
+	 * @memberof Random
+	 */
+	private constructor() { }
 
 	public static getInstance(): Random {
 		if (!Random.instance) {
@@ -35,6 +38,7 @@ class Random {
 
 	/**
 	* Get the seed used by the RNG (Random Number Generator)
+	*
 	* @member seed
 	* @memberof Tools.Random
 	* @type {(string | number)}
@@ -66,6 +70,8 @@ class Random {
 
 	/**
 	 * Generates a random float between a range
+	 *
+	 * @function float
 	 * @memberof Tools.Random
 	 *
 	 * @param {Number} max
@@ -83,6 +89,8 @@ class Random {
 
 	/**
 	 * Generates a random integer between a range
+	 *
+	 * @function int
 	 * @memberof Tools.Random
 	 *
 	 * @param {Number} max

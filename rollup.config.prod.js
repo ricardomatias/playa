@@ -4,8 +4,9 @@ import commonjs from 'rollup-plugin-commonjs';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
 import { terser } from 'rollup-plugin-terser';
-import copy from 'rollup-plugin-copy';
+// import copy from 'rollup-plugin-copy';
 import progress from 'rollup-plugin-progress';
+import typescript from 'rollup-plugin-typescript2';
 
 const extensions = [
 	'.js', '.ts',
@@ -18,22 +19,27 @@ export default [
 			{
 				dir: 'build/esm',
 				format: 'esm',
+				sourcemap: true,
 			},
 			{
 				dir: 'build/cjs',
 				format: 'cjs',
+				sourcemap: true,
 			},
 		],
 		manualChunks: {
-			ramda: [ 'ramda' ],
+			vendor: [ 'ramda', 'simplex-noise', 'alea' ],
 		},
 		plugins: [
 			del({ targets: 'build/*' }),
 			resolve({ extensions }),
 			commonjs(),
-			cleanup(),
+			cleanup({ comments: 'jsdoc' }),
+			typescript(),
 			babel({
 				extensions,
+				'babelrc': false,
+				'retainLines': false,
 				'exclude': 'node_modules/**',
 				'presets': [
 					[
@@ -45,22 +51,19 @@ export default [
 							},
 						},
 					],
-					'@babel/preset-typescript',
 				],
 				'plugins': [
 					'@babel/plugin-proposal-object-rest-spread',
 					'@babel/plugin-proposal-class-properties',
 				],
 			}),
-			terser({
-				sourcemap: true,
-			}),
-			copy({
-				targets: [
-					{ src: 'types/*.ts', dest: 'build/esm' },
-					{ src: 'types/*.ts', dest: 'build/cjs' },
-				],
-			}),
+			terser(),
+			// copy({
+			// 	targets: [
+			// 		{ src: 'types/*.ts', dest: 'build/esm' },
+			// 		{ src: 'types/*.ts', dest: 'build/cjs' },
+			// 	],
+			// }),
 			progress(),
 		],
 	},
