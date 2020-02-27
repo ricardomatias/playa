@@ -89,6 +89,12 @@
 					{
 						"label": "Documentation",
 						"href": "?api"
+					},
+					{
+						"label": "GitHub",
+						"iconClass": "fab fa-github",
+						"href": "https://github.com/ricardomatias/playa",
+						"target": "_blank"
 					}
 				]
 			}
