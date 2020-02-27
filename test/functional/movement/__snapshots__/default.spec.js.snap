@@ -6,24 +6,28 @@ Object {
     Object {
       "key": "D",
       "position": "VI",
+      "root": "Bb",
       "scaleName": "LYDIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "D",
       "position": "VI",
+      "root": "Bb",
       "scaleName": "LYDIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "D",
       "position": "III",
+      "root": "F",
       "scaleName": "IONIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "D",
       "position": "VI",
+      "root": "Bb",
       "scaleName": "LYDIAN",
       "type": "modulateMode",
     },
@@ -75,12 +79,14 @@ Object {
     Object {
       "key": "A",
       "position": "III",
+      "root": "C#",
       "scaleName": "PHRYGIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "A",
       "position": "IV",
+      "root": "D",
       "scaleName": "LYDIAN",
       "type": "modulateMode",
     },
@@ -143,49 +149,54 @@ Object {
   "events": Array [
     Object {
       "key": "A",
-      "position": "VI",
-      "scaleName": "AEOLIAN",
-      "type": "modulateMode",
-    },
-    Object {
-      "key": "A",
-      "position": "VI",
-      "scaleName": "AEOLIAN",
-      "type": "modulateMode",
-    },
-    Object {
-      "key": "A",
       "position": "III",
+      "root": "C#",
       "scaleName": "PHRYGIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "A",
+      "position": "IV",
+      "root": "D",
+      "scaleName": "LYDIAN",
+      "type": "modulateMode",
+    },
+    Object {
+      "key": "A",
       "position": "VI",
+      "root": "F#",
       "scaleName": "AEOLIAN",
       "type": "modulateMode",
     },
     Object {
-      "interval": "6M",
       "key": "A",
       "position": "I",
       "root": "A",
-      "scaleName": "AEOLIAN",
-      "type": "modulate",
+      "scaleName": "IONIAN",
+      "type": "modulateMode",
     },
     Object {
       "key": "A",
-      "position": "IV",
-      "scaleName": "DORIAN",
+      "position": "III",
+      "root": "C#",
+      "scaleName": "PHRYGIAN",
       "type": "modulateMode",
+    },
+    Object {
+      "interval": "5P",
+      "key": "F#",
+      "position": "I",
+      "root": "F#",
+      "scaleName": "PHRYGIAN",
+      "type": "modulate",
     },
   ],
   "timeline": Array [
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "F#",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+        "root": "C#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 1,
       "time": 0,
@@ -193,8 +204,8 @@ Object {
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "F#",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+        "root": "D",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 4,
       "time": 1440,
@@ -202,8 +213,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "C#",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+        "root": "F#",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "quarter": 7,
       "time": 2880,
@@ -211,8 +222,8 @@ Object {
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "F#",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+        "root": "A",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
       "quarter": 9,
       "time": 3840,
@@ -220,8 +231,8 @@ Object {
     Object {
       "dur": 1440,
       "key": Object {
-        "root": "A",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+        "root": "C#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 12,
       "time": 5280,
@@ -229,8 +240,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "D",
-        "scale": "1P 2M 3m 4P 5P 6M 7m",
+        "root": "F#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 15,
       "time": 6720,
@@ -245,18 +256,21 @@ Object {
     Object {
       "key": "A",
       "position": "VI",
+      "root": "F#",
       "scaleName": "AEOLIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "A",
       "position": "III",
+      "root": "C#",
       "scaleName": "PHRYGIAN",
       "type": "modulateMode",
     },
     Object {
       "key": "A",
       "position": "VI",
+      "root": "F#",
       "scaleName": "AEOLIAN",
       "type": "modulateMode",
     },
@@ -271,6 +285,7 @@ Object {
     Object {
       "key": "A",
       "position": "IV",
+      "root": "D",
       "scaleName": "DORIAN",
       "type": "modulateMode",
     },

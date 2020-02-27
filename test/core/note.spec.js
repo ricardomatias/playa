@@ -33,13 +33,13 @@ describe('Note Test Suite', () => {
 
 	it('should strip octave from note', () => {
 		const note = new Note('F#6');
-		const note2 = new Note('Ab11');
+		const note2 = new Note('Gb8');
 
 		expect(note.n).toBe('F#6');
 		expect(note.note).toBe('F#');
 
-		expect(note2.n).toBe('Ab11');
-		expect(note2.note).toBe('Ab');
+		expect(note2.n).toBe('Gb8');
+		expect(note2.note).toBe('Gb');
 	});
 
 	it('should have unstateful refexp', () => {
@@ -117,18 +117,20 @@ describe('Note Test Suite', () => {
 		expect(note.prev.n).toBe('B');
 	});
 
-	it('should not set UNKNOWN', () => {
-		const note = new Note('foo');
+	it('should fail with midi over the range', () => {
+		expect(() => (new Note(200))).toThrowError('[Note]: <200> isn\'t a valid midi note number');
+	});
 
-		expect(note.n).toBeNull();
-		expect(note.e).toBeNull();
+	it('should fail with midi over the range', () => {
+		expect(() => (new Note('Ab11'))).toThrowError('[Note]: <Ab11> isn\'t within the midi range of [0 - 127]');
+	});
+
+	it('should not set UNKNOWN', () => {
+		expect(() => (new Note('foo'))).toThrowError('[Note]: <foo> isn\'t a recognized musical note');
 	});
 
 	it('should not set UNKNOWN ENHARMONIC', () => {
-		const note = new Note('Cb');
-
-		expect(note.n).toBeNull();
-		expect(note.e).toBeNull();
+		expect(() => (new Note('Cb'))).toThrowError('[Note]: <Cb> isn\'t a recognized musical note');
 	});
 
 	it('should get distC', () => {
