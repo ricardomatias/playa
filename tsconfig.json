@@ -15,15 +15,12 @@
 		"isolatedModules": true,
 		// Import non-ES modules as default imports.
 		"esModuleInterop": true,
-		"inlineSourceMap": true,
-		"declaration": true
+		"inlineSourceMap": false,
 	},
 	"include": [
-		"./lib/**/*",
-		"jest.config.js"
+		"./lib/**/*"
 	],
 	"exclude": [
-		"node_modules",
-		"**/*.spec.js"
+		"./lib/types.js"
 	]
 }

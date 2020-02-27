@@ -1,4 +1,3 @@
-import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import clear from 'rollup-plugin-clear';
@@ -26,8 +25,6 @@ const baseConfig = {
 		clear({
 			// required, point out which directories should be clear.
 			targets: [ 'build' ],
-			// optional, whether clear the directores when rollup recompile on --watch mode.
-			watch: true, // default: false
 		}),
 		resolve({ extensions }),
 		commonjs(),
@@ -35,28 +32,7 @@ const baseConfig = {
 			comments: 'jsdoc',
 			compactComments: false,
 		}),
-		typescript(),
-		babel({
-			extensions,
-			'babelrc': false,
-			'sourceMap': 'inline',
-			'retainLines': true,
-			'presets': [
-				[
-					'@babel/preset-env',
-					{
-						'targets': {
-							'browsers': 'last 2 versions',
-							'node': 'current',
-						},
-					},
-				],
-			],
-			'plugins': [
-				'@babel/plugin-proposal-object-rest-spread',
-				'@babel/plugin-proposal-class-properties',
-			],
-		}),
+		typescript({ target: 'ES6' }),
 		progress(),
 	],
 };
