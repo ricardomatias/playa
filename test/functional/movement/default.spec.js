@@ -17,7 +17,7 @@ describe('A Movement test suite', () => {
 
 	it('should generate a simple movement - euclidean', () => {
 		// given
-		Random.setSeed('test');
+		Random.setSeed('test-2');
 
 		const aMaj = new Key('A', Key.MAJOR);
 

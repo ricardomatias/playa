@@ -1,3 +1,5 @@
+import { Note } from '../core';
+
 const ACCIDENT_REGEXP = new RegExp('#|b');
 const OCTAVE_REGEXP = /-?\d{1,}/;
 
@@ -12,10 +14,10 @@ const OCTAVE_REGEXP = /-?\d{1,}/;
  * @param {String} note
  * @return {String}
  */
-export const whichAccident = (note) => {
+export const whichAccident = (note: string): string => {
 	const exec = ACCIDENT_REGEXP.exec(note);
 
-	return exec ? exec[0] : null;
+	return exec ? exec[0] : '';
 };
 
 /**
@@ -28,7 +30,9 @@ export const whichAccident = (note) => {
  * @param {String|Note} note
  * @return {String} Natural note
  */
-export const natural = (note) => {
+export const natural = (note: string | Note): string => {
+	if (!note) return '';
+
 	if (typeof note !== 'string') {
 		return note.note.replace(ACCIDENT_REGEXP, '');
 	}
@@ -47,16 +51,24 @@ export const natural = (note) => {
  * @param {String} note
  * @return {String} Natural note
  */
-export const stripOctave = (note) => (note.replace(new RegExp(OCTAVE_REGEXP), ''));
+export const stripOctave = (note: string): string => (note.replace(new RegExp(OCTAVE_REGEXP), ''));
 
-export const hasOctave = (note) => (new RegExp(OCTAVE_REGEXP).test(note));
+export const hasOctave = (note: string): boolean => (new RegExp(OCTAVE_REGEXP).test(note));
 
+interface ParsedNote {
+	note: string;
+	octave: number;
+}
 
-export const parseNote = (note) => {
+export const parseNote = (note: string): ParsedNote | null => {
 	const result = note.match(/([^0-9-]*)(-?\d*)/);
+
+	if (!result) {
+		return null;
+	}
 
 	return {
 		note: result[1],
-		octave: result[2],
+		octave: parseInt(result[2], 10),
 	};
 };
