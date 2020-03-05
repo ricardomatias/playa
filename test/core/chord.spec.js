@@ -1,6 +1,5 @@
-import { Chord, Scale } from '../../lib/core';
+import { Chord, Scale, Note } from '../../lib/core';
 import Random from '../../lib/tools/random';
-
 
 describe('Chord Test Suite', () => {
 	describe('create with chord name', () => {
@@ -41,7 +40,14 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).toBe('E');
 			expect(chord.type).toBe('13');
-			expect(chord).toHaveStringNotes([ 'E3', 'G#3', 'B3', 'D4', 'F#4', 'C#5' ]);
+			expect(chord).toHaveStringNotes([
+				'E3',
+				'G#3',
+				'B3',
+				'D4',
+				'F#4',
+				'C#5',
+			]);
 		});
 
 		it('should set M11 chord', () => {
@@ -49,7 +55,14 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root).toBe('Gb');
 			expect(chord.type).toBe('M11');
-			expect(chord).toHaveStringNotes([ 'Gb3', 'Bb3', 'Db4', 'F4', 'Ab4', 'B4' ]);
+			expect(chord).toHaveStringNotes([
+				'Gb3',
+				'Bb3',
+				'Db4',
+				'F4',
+				'Ab4',
+				'B4',
+			]);
 		});
 
 		it('should have chord structure', () => {
@@ -66,7 +79,11 @@ describe('Chord Test Suite', () => {
 			it('should set natural', () => {
 				Random.setSeed('test');
 
-				const chord = new Chord({ root: 'A', type: Scale.EGYPTIAN, structure: Chord.TRIAD });
+				const chord = new Chord({
+					root: 'A',
+					type: Scale.EGYPTIAN,
+					structure: Chord.TRIAD,
+				});
 
 				expect(chord.root).toBe('A');
 				expect(chord.type).toBe('sus2');
@@ -74,7 +91,11 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should set sixth & midi note type', () => {
-				const chord = new Chord({ root: 'G', type: Scale.DORIAN, structure: Chord.SIXTH });
+				const chord = new Chord({
+					root: 'G',
+					type: Scale.DORIAN,
+					structure: Chord.SIXTH,
+				});
 
 				expect(chord.root).toBe('G');
 				expect(chord.type).toBe('m6');
@@ -82,11 +103,22 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should set 13 chord', () => {
-				const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.THIRTEENTH });
+				const chord = new Chord({
+					root: 'A',
+					type: Scale.MINOR,
+					structure: Chord.THIRTEENTH,
+				});
 
 				expect(chord.root).toBe('A');
 				expect(chord.type).toBe('m9add13');
-				expect(chord).toHaveStringNotes([ 'A3', 'C4', 'E4', 'G4', 'B4', 'F5' ]);
+				expect(chord).toHaveStringNotes([
+					'A3',
+					'C4',
+					'E4',
+					'G4',
+					'B4',
+					'F5',
+				]);
 			});
 		});
 
@@ -115,7 +147,11 @@ describe('Chord Test Suite', () => {
 
 	describe('inversions', () => {
 		it('should create 1st inversion', () => {
-			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.TRIAD });
+			const chord = new Chord({
+				root: 'A',
+				type: Scale.MINOR,
+				structure: Chord.TRIAD,
+			});
 
 			chord.invert(1);
 
@@ -127,7 +163,11 @@ describe('Chord Test Suite', () => {
 		});
 
 		it('should create 2nd inversion', () => {
-			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.TRIAD });
+			const chord = new Chord({
+				root: 'A',
+				type: Scale.MINOR,
+				structure: Chord.TRIAD,
+			});
 
 			chord.invert(2);
 
@@ -135,7 +175,11 @@ describe('Chord Test Suite', () => {
 		});
 
 		it('should create 3rd inversion', () => {
-			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.SEVENTH });
+			const chord = new Chord({
+				root: 'A',
+				type: Scale.MINOR,
+				structure: Chord.SEVENTH,
+			});
 
 			chord.invert(3);
 
@@ -145,13 +189,56 @@ describe('Chord Test Suite', () => {
 		it('should invert randomly', () => {
 			Random.setSeed('test-foddds');
 
-			const chord = new Chord({ root: 'A', type: Scale.MINOR, structure: Chord.THIRTEENTH });
+			const chord = new Chord({
+				root: 'A',
+				type: Scale.MINOR,
+				structure: Chord.THIRTEENTH,
+			});
 
 			chord.invert();
 
-			expect(chord).toHaveStringNotes([ 'C3', 'E3', 'G3', 'B3', 'F4', 'A4' ]);
+			expect(chord).toHaveStringNotes([
+				'C3',
+				'E3',
+				'G3',
+				'B3',
+				'F4',
+				'A4',
+			]);
 
 			chord.assignOctaves([ 4, 1 ]);
+		});
+	});
+
+	describe('#noteAt', () => {
+		it('should get root', () => {
+			const chord = new Chord('Am7');
+			const root = chord.noteAt(1);
+
+			expect(root).toBeInstanceOf(Note);
+			expect(root.n).toEqual('A3');
+		});
+
+		it('should get structure notes', () => {
+			const chord = new Chord('Am7');
+			const third = chord.noteAt(3);
+			const fifth = chord.noteAt(5);
+			const seventh = chord.noteAt(7);
+
+			expect(third.n).toEqual('C4');
+			expect(fifth.n).toEqual('E4');
+			expect(seventh.n).toEqual('G4');
+		});
+
+		it('should throw when it doesn\'t have interval', () => {
+			const toThrow = () => {
+				const chord = new Chord('Am7');
+				chord.noteAt(2);
+			};
+
+			expect(toThrow).toThrowErrorMatchingInlineSnapshot(
+				`"[1,3,5,7] structure doesn't contain interval: 2"`,
+			);
 		});
 	});
 

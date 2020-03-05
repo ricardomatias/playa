@@ -6,19 +6,27 @@ import { ticksToTransport, transportToTicks } from '../tools/time';
  */
 type TimeFormat = string | number;
 
+
 /**
- * Time Units:
- * * Notevalues
- * * Transport
- * * Ticks
+ * Time
+ * @class
+ * @memberof Core#
  *
- * * Seconds (audio context) | Relative
+ * @name Time
  */
 class Time {
 	private _ticks: number;
 	private _notevalue: string;
 	private _transport: string;
 
+	// TODO: fix lack of constructor documentation
+	/**
+	 * Creates an instance of Time.
+	 * @constructs Core#Time#
+	 * @memberof Core#
+	 *
+	 * @param {TimeFormat} time
+	 */
 	constructor(time: TimeFormat) {
 		// Ticks
 		if (typeof time === 'number') {
@@ -41,14 +49,44 @@ class Time {
 		}
 	}
 
+	/**
+	 * Ticks time
+	 * @example
+	 * 480
+	 *
+	 * @member ticks
+	 * @readonly
+	 * @type {number}
+	 * @memberof Core#Time#
+	 */
 	get ticks(): number {
 		return this._ticks;
 	}
 
+	/**
+	 * Notevalue time
+	 * @example
+	 * '4n'
+	 *
+	 * @member notevalue
+	 * @readonly
+	 * @type {string}
+	 * @memberof Core#Time#
+	 */
 	get notevalue(): string {
 		return this._notevalue;
 	}
 
+	/**
+	 * Transport time
+	 * @example
+	 * '0:1:0'
+	 *
+	 * @readonly
+	 * @member transport
+	 * @type {string}
+	 * @memberof Core#Time#
+	 */
 	get transport(): string {
 		return this._transport;
 	}
