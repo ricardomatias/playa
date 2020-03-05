@@ -1,4 +1,5 @@
 import Scale from '../../lib/core/Scale';
+import { Note } from '../../lib/core';
 
 describe('Scale Test Suite', () => {
 	describe('types', () => {
@@ -171,6 +172,38 @@ describe('Scale Test Suite', () => {
 			  "A#4",
 			]
 		`);
+		});
+	});
+
+	describe('#noteAt', () => {
+		it('should get root', () => {
+			const scale = new Scale('A', Scale.MINOR);
+			const root = scale.noteAt(1);
+
+			expect(root).toBeInstanceOf(Note);
+			expect(root.n).toEqual('A3');
+		});
+
+		it('should get structure notes', () => {
+			const scale = new Scale('A', Scale.MINOR);
+			const third = scale.noteAt(3);
+			const fifth = scale.noteAt(5);
+			const seventh = scale.noteAt(7);
+
+			expect(third.n).toEqual('C4');
+			expect(fifth.n).toEqual('E4');
+			expect(seventh.n).toEqual('G4');
+		});
+
+		it('should throw when it doesn\'t have interval', () => {
+			const toThrow = () => {
+				const scale = new Scale('A', Scale.MINOR);
+				scale.noteAt(11);
+			};
+
+			expect(toThrow).toThrowErrorMatchingInlineSnapshot(
+				`"[1P 2M 3m 4P 5P 6m 7m] structure doesn't contain interval: 11"`,
+			);
 		});
 	});
 });
