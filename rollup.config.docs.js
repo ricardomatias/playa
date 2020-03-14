@@ -19,7 +19,7 @@ const baseConfig = {
 		},
 	],
 	manualChunks: {
-		ramda: [ 'ramda' ],
+		vendor: [ 'ramda', 'simplex-noise', 'alea' ],
 	},
 	plugins: [
 		clear({

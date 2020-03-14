@@ -19,9 +19,6 @@ const baseConfig = {
 			format: 'esm',
 		},
 	],
-	manualChunks: {
-		ramda: [ 'ramda' ],
-	},
 	plugins: [
 		clear({
 			// required, point out which directories should be clear.
