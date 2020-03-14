@@ -67,6 +67,18 @@ createMotif(scale.notes, rhythm);
 
 Can be found [here](https://ricardomatias.net/playa/?api).
 
+## Guide
+
+### Concepts
+
+#### Time
+There are 3 types of time used throughout _playa_:
+
+* ticks -> `480`
+* notevalues -> `4n`
+* transport -> `0:1:0`
+
+
 ## License
 
 [Open Software License 3.0](LICENSE)
