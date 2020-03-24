@@ -197,20 +197,21 @@ Object {
       "type": "modulateMode",
     },
     Object {
-      "key": "C",
+      "interval": "6M",
+      "key": "A",
       "position": "I",
-      "root": "C",
+      "root": "A",
       "scaleName": "LYDIAN",
       "turn": Object {
-        "interval": 2,
-        "type": "⟷",
+        "interval": "6M",
+        "type": "⤤",
       },
-      "type": "modulateMode",
+      "type": "modulate",
     },
     Object {
-      "key": "C",
+      "key": "A",
       "position": "I",
-      "root": "C",
+      "root": "A",
       "scaleName": "LYDIAN",
       "turn": Object {
         "interval": 2,
@@ -219,9 +220,9 @@ Object {
       "type": "modulateMode",
     },
     Object {
-      "key": "C",
+      "key": "A",
       "position": "IV",
-      "root": "F#",
+      "root": "D#",
       "scaleName": "LOCRIAN",
       "turn": Object {
         "interval": 4,
@@ -230,9 +231,9 @@ Object {
       "type": "modulateMode",
     },
     Object {
-      "key": "C",
+      "key": "A",
       "position": "VII",
-      "root": "B",
+      "root": "G#",
       "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": 5,
@@ -242,9 +243,9 @@ Object {
     },
     Object {
       "interval": "2M",
-      "key": "C#",
+      "key": "A#",
       "position": "I",
-      "root": "C#",
+      "root": "A#",
       "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": "2M",
@@ -253,10 +254,10 @@ Object {
       "type": "modulate",
     },
     Object {
-      "key": "C#",
-      "position": "II",
-      "root": "D",
-      "scaleName": "LYDIAN",
+      "key": "A#",
+      "position": "I",
+      "root": "A#",
+      "scaleName": "PHRYGIAN",
       "turn": Object {
         "interval": 2,
         "type": "⟷",
@@ -286,7 +287,7 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "C",
+        "root": "A",
         "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 5,
@@ -295,7 +296,7 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "C",
+        "root": "A",
         "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "quarter": 7,
@@ -304,7 +305,7 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "F#",
+        "root": "D#",
         "scale": "1P 2m 3m 4P 5d 6m 7m",
       },
       "quarter": 9,
@@ -313,7 +314,7 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "B",
+        "root": "G#",
         "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 11,
@@ -322,7 +323,7 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "C#",
+        "root": "A#",
         "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 13,
@@ -331,8 +332,8 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "D",
-        "scale": "1P 2M 3M 4A 5P 6M 7M",
+        "root": "A#",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "quarter": 15,
       "time": 6720,
