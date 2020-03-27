@@ -1,10 +1,10 @@
 import {
-	transportToTicks,
-	ticksToTransport,
+	ticksToBBS,
 	expandDuration,
 	timeToTicks,
 	timeToTransport,
 	ticksToTime,
+	bbsToTicks,
 } from '../../lib/tools/time';
 
 describe('A Time test suite', () => {
@@ -13,27 +13,6 @@ describe('A Time test suite', () => {
 			const patt = [ '8n', '4n', '2nt' ];
 
 			expect(expandDuration(patt)).toMatchInlineSnapshot(`
-			Array [
-			  Object {
-			    "dur": "8n",
-			    "time": 0,
-			  },
-			  Object {
-			    "dur": "4n",
-			    "time": 240,
-			  },
-			  Object {
-			    "dur": "2nt",
-			    "time": 720,
-			  },
-			]
-		`);
-		});
-
-		it('should map pattern - to ticks', () => {
-			const patt = [ '8n', '4n', '2nt' ];
-
-			expect(expandDuration(patt, true)).toMatchInlineSnapshot(`
 			Array [
 			  Object {
 			    "dur": 240,
@@ -50,9 +29,47 @@ describe('A Time test suite', () => {
 			]
 		`);
 		});
+
+		it('should map pattern', () => {
+			const patt = [
+				{
+					time: 0,
+					dur: 480,
+					next: 240,
+				},
+				{
+					dur: 600,
+					time: 240,
+					next: 480,
+				},
+				{
+					dur: 640,
+					time: 720,
+				},
+			];
+
+			expect(expandDuration(patt)).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "dur": 480,
+    "next": 240,
+    "time": 0,
+  },
+  Object {
+    "dur": 600,
+    "next": 480,
+    "time": 240,
+  },
+  Object {
+    "dur": 640,
+    "time": 720,
+  },
+]
+`);
+		});
 	});
 
-	describe('#transportToTicks', () => {
+	describe('#bbsToTicks', () => {
 		it('should convert - position', () => {
 			const scenarios = [
 				'1:1:0',
@@ -61,9 +78,7 @@ describe('A Time test suite', () => {
 				'7:2:2',
 				'5:1:3',
 				'9:1:0',
-			].map((transport) =>
-				transportToTicks(transport, { positionMode: true }),
-			);
+			].map((transport) => bbsToTicks(transport, { positionMode: true }));
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -76,6 +91,7 @@ describe('A Time test suite', () => {
 			]
 		`);
 		});
+
 		it('should convert - interval', () => {
 			const scenarios = [
 				'0:0:0',
@@ -86,7 +102,7 @@ describe('A Time test suite', () => {
 				'6:1:2',
 				'4:0:0',
 				'8:0:0',
-			].map((transport) => transportToTicks(transport));
+			].map((transport) => bbsToTicks(transport));
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -103,7 +119,7 @@ describe('A Time test suite', () => {
 		});
 	});
 
-	describe('#ticksToTransport', () => {
+	describe('#ticksToBBS', () => {
 		it('should convert - position', () => {
 			const scenarios = [
 				720,
@@ -117,9 +133,7 @@ describe('A Time test suite', () => {
 				5520,
 				15360,
 				7680,
-			].map((transport) =>
-				ticksToTransport(transport, { positionMode: true }),
-			);
+			].map((transport) => ticksToBBS(transport, { positionMode: true }));
 
 			expect(scenarios).toMatchInlineSnapshot(`
 Array [
@@ -149,7 +163,7 @@ Array [
 				5520,
 				15360,
 				7680,
-			].map((transport) => ticksToTransport(transport));
+			].map((transport) => ticksToBBS(transport));
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [

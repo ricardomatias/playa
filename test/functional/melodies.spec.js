@@ -61,7 +61,7 @@ describe('A Melodies test suite', () => {
 		const melodies = createMelodies(movement.timeline, {
 			rhythms: R.flatten(Object.values(Rhythm.presets)),
 			distribution: distribute.decreasing,
-			restProb: 0.3,
+			restProb: 0.5,
 			octaves: [ [ 2, 1 ], [ 3, 1 ] ],
 		});
 

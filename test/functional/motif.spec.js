@@ -1,9 +1,10 @@
+import * as R from 'ramda';
 import Scale from '../../lib/core/Scale';
 import Chord from '../../lib/core/Chord';
 import createMotif from '../../lib/functional/motif';
 import { distribute } from '@ricardomatias/roll';
-import { calcDuration } from '../../lib/tools/time';
-import { Rhythm } from '../../lib/tools';
+import { calcDuration } from '../../lib/utils';
+import { Rhythm, choose } from '../../lib/tools';
 import Random from '../../lib/tools/random';
 import { TICKS } from '../../lib/constants';
 
@@ -19,7 +20,7 @@ describe('A Motif test suite', () => {
 
 		const scale = new Scale('A', Scale.MAJOR);
 
-		let rhythm = Rhythm.free('1:0:0', mixed, distribute.decreasing);
+		let rhythm = Rhythm.free('1:0:0', mixed, [], distribute.decreasing);
 
 		// when
 		let motif = createMotif(scale.notes, rhythm);
@@ -31,7 +32,7 @@ describe('A Motif test suite', () => {
 		// when
 		Random.setSeed('test2');
 
-		rhythm = Rhythm.free('2:0:0', mixed, distribute.decreasing);
+		rhythm = Rhythm.free('2:0:0', mixed, [], distribute.decreasing);
 
 		motif = createMotif(scale.notes, rhythm);
 
@@ -46,7 +47,7 @@ describe('A Motif test suite', () => {
 		Random.setSeed('test');
 
 		const chord = new Chord('Dbm6');
-		let rhythm = Rhythm.free('1:0:0', mixed, distribute.decreasing);
+		let rhythm = Rhythm.free('1:0:0', mixed, [], distribute.decreasing);
 
 		// when
 		let motif = createMotif(chord.notes, rhythm);
@@ -57,7 +58,7 @@ describe('A Motif test suite', () => {
 		// when
 		Random.setSeed('test2');
 
-		rhythm = Rhythm.free('2:0:0', mixed, distribute.decreasing);
+		rhythm = Rhythm.free('2:0:0', mixed, [], distribute.decreasing);
 
 		motif = createMotif(chord.notes, rhythm);
 
@@ -71,17 +72,34 @@ describe('A Motif test suite', () => {
 		Random.setSeed('test');
 
 		const chord = new Chord('Dbm6');
-		let rhythm = Rhythm.free('0:1:0', mixed, distribute.decreasing);
+		let rhythm = Rhythm.free('0:1:0', mixed);
 
 		// when
 		let motif = createMotif(chord.notes, rhythm, 0);
 
 		expect(motif).toMatchSnapshot();
 
-		rhythm = Rhythm.free('0:3:0', mixed, distribute.decreasing);
+		rhythm = Rhythm.free('0:3:0', mixed);
 
 		motif = createMotif(chord.notes, rhythm, 480);
 
 		expect(motif).toMatchSnapshot();
+	});
+
+	it('should generate motif with rests', () => {
+		// given
+		Random.setSeed('test');
+
+		const scale = new Scale('A', Scale.MAJOR);
+		const durations = choose(mixed, Random.int(R.length(mixed)));
+
+		const rhythm = Rhythm.free('1:0:0', mixed, durations, distribute.decreasing);
+
+		// when
+		const motif = createMotif(scale.notes, rhythm);
+
+		// then
+		expect(motif).toMatchSnapshot();
+		expect(calcDuration(motif)).toEqual(ONE_BAR);
 	});
 });

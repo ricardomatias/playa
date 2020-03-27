@@ -1,8 +1,9 @@
-import { Note, Chord, Scale } from '../core';
-import { NoteEvent } from '../core/Types';
+import * as R from 'ramda';
+import { Note, Chord, Scale, Time } from '../core';
+import { NoteEvent } from '../core/NoteEvent';
 import { expandDuration } from '../tools/time';
 import ring from '@ricardomatias/ring';
-import Time from '../core/Time';
+import { next } from '../tools/next';
 
 
 // TODO: v2: snap elements to closest position (create utility)
@@ -24,29 +25,39 @@ import Time from '../core/Time';
  * @return {Motif}
  */
 const createArp = <T extends Scale | Chord>(
-	harmonic: T, patt: number[], rhythm: string[], startTime?: string | number,
+	harmonic: T, patt: number[], rhythm: string[], startTime: string | number = 0,
 ): NoteEvent[] => {
 	// [ 1, 5, 4 ]
 	const melody: Note[] = ring(patt.map(harmonic.noteAt.bind(harmonic)));
-	const time = typeof startTime !== 'undefined' ? new Time(startTime) : new Time(0);
-	const ringRhythm = ring(rhythm);
+	const time = Time(startTime);
 
 	const eventsCount = Math.max(melody.length, rhythm.length);
+
+	if (rhythm.length < melody.length) {
+		const nextRhy = next(rhythm);
+
+		rhythm = R.times(nextRhy, eventsCount);
+	}
+
+	const ringRhythm = typeof rhythm[0] === 'string' ? ring(expandDuration(rhythm)) : ring(rhythm);
+
 	const pattern = [];
 
 	for (let idx = 0; idx < eventsCount; idx++) {
 		const note = melody[idx];
-		const dur = ringRhythm[idx];
+		const rhythmEvent = ringRhythm[idx];
 
 		pattern.push({
-			time: time.ticks,
+			...rhythmEvent,
 			note: note.n,
 			midi: note.m,
-			dur,
 		});
 	}
 
-	return expandDuration(pattern, true);
+	return pattern.map((event) => NoteEvent({
+		...event,
+		time: event.time + time.ticks,
+	}));
 };
 
 export default createArp;
