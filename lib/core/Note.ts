@@ -12,13 +12,13 @@ import { findOctave, findFrequency } from '../tools/midi';
  *
  * @name Note
  */
-class Note {
+export class Note {
 	_note = '';
-	_octave: number | null = null;
-	_midi: number | null = null;
-	_freq: number | null = null;
-	_enharmonic: string | null = null;
-	_accident: string | null = null;
+	_octave: number | undefined;
+	_midi: number | undefined;
+	_freq: number | undefined;
+	_enharmonic: string | undefined;
+	_accident: string | undefined;
 	_isFlat = false;
 	_isSharp = false;
 	_next: string;
@@ -158,7 +158,7 @@ class Note {
 	* @readonly
 	* @type {number}
 	 */
-	get octave(): number | null {
+	get octave(): number | undefined {
 		return this._octave;
 	}
 
@@ -170,7 +170,7 @@ class Note {
 	 * @example 'D#' => 'Eb'
 	 * @type {String}
 	 */
-	get e(): string | null {
+	get e(): string | undefined {
 		return this.enharmonic;
 	}
 
@@ -182,7 +182,7 @@ class Note {
 	* @example 'D#' => 'Eb'
 	* @type {String}
 	*/
-	get enharmonic(): string | null {
+	get enharmonic(): string | undefined {
 		if (!this._enharmonic) {
 			this._enharmonic = this._resolveEnharmonic(this._note);
 		}
@@ -219,7 +219,7 @@ class Note {
 	 * @example 60 // C3
 	 * @type {Number}
 	 */
-	get m(): number | null {
+	get m(): number | undefined {
 		return this._midi;
 	}
 
@@ -230,7 +230,7 @@ class Note {
 	* @example 60 // C3
 	* @type {Number}
 	*/
-	get midi(): number | null {
+	get midi(): number | undefined {
 		return this._midi;
 	}
 
@@ -242,7 +242,7 @@ class Note {
 	 * @example 440 // A3
 	 * @type {Number}
 	 */
-	get f(): number | null {
+	get f(): number | undefined {
 		return this.freq;
 	}
 
@@ -253,7 +253,7 @@ class Note {
 	* @example 440 // A3
 	* @type {Number}
 	*/
-	get freq(): number | null {
+	get freq(): number | undefined {
 		const midi = this._midi;
 
 		if (this._freq) {
@@ -261,7 +261,7 @@ class Note {
 		}
 
 		if (!midi) {
-			return null;
+			return undefined;
 		}
 
 		this._freq = findFrequency(midi);
@@ -361,7 +361,7 @@ class Note {
 	 * @return {String} enharmonic
 	 * @memberof Note
 	 */
-	private _resolveEnharmonic(note: string): string | null {
+	private _resolveEnharmonic(note: string): string | undefined {
 		let enharmonic = '';
 
 		if (!this._accident) {
@@ -385,7 +385,7 @@ class Note {
 		}
 
 		if (!enharmonic) {
-			return null;
+			return;
 		}
 
 		return enharmonic;
@@ -422,5 +422,3 @@ class Note {
 		};
 	}
 }
-
-export default Note;

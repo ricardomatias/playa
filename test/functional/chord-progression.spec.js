@@ -57,7 +57,7 @@ describe('A Chord Progression test suite', () => {
 			structures: [ Chord.SIXTH ],
 			inversionProb: 0.5,
 			octaves: [ [ 4, 1 ], [ 2, 2 ] ],
-			rhythms: [ '4nt', '4n' ],
+			rhythmValues: [ '4nt', '4n' ],
 			minChordNotes: 2,
 		});
 

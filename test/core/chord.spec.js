@@ -207,6 +207,10 @@ describe('Chord Test Suite', () => {
 			]);
 
 			chord.assignOctaves([ 4, 1 ]);
+
+			expect(chord).toHaveStringNotes([
+				'C4', 'E4', 'G4', 'B4', 'F5', 'A5',
+			]);
 		});
 	});
 

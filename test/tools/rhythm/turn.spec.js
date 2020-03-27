@@ -1,7 +1,6 @@
 import { TICKS } from '../../../lib/constants';
-import { Random, Rhythm, Time } from '../../../lib/tools';
-
-const { calcDuration } = Time;
+import { Random, Rhythm } from '../../../lib/tools';
+import { calcDuration } from '../../../lib/utils';
 
 const ONE_BAR = TICKS.get('1n');
 

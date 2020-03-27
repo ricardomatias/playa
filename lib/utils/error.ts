@@ -5,24 +5,24 @@
  * @class
  * @memberof Utils
  *
- * @name PlayaError
  * @extends {Error}
  */
-class PlayaError extends Error {
+export class PlayaError extends Error {
+	context: any = {};
 	/**
 	 * Creates an instance of PlayaError.
 	 * @constructs PlayaError
 	 * @memberof Utils
- 	 * @private
+	 * @private
 	 *
 	 * @param {String} name
 	 * @param {String} [message]
-	 * @param {Object} Object { error, ...context }
+	 * @param {Object} [context] { context }
 	 */
-	constructor(name, message, { error = {}, ...context } = {}) {
-		super(error);
+	constructor(name: string, message: string, context = {}) {
+		super(message);
 
-		this.name = name;
+		this.name = `[PlayaError <${name}>]`;
 
 		if (message) {
 			this.message = message;
@@ -41,5 +41,3 @@ class PlayaError extends Error {
 		return `[${this.name}] ${this.message}\n ${JSON.stringify(this.context, null, '\t')}`;
 	}
 }
-
-export default PlayaError;
