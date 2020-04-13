@@ -340,6 +340,35 @@ Array [
 ]
 `;
 
+exports[`A Motif test suite should generate motif with given durations 1`] = `
+Array [
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "midi": 71,
+    "next": 480,
+    "note": "B3",
+    "time": 0,
+  },
+  Object {
+    "dur": 960,
+    "isRest": false,
+    "midi": 80,
+    "next": 960,
+    "note": "G#4",
+    "time": 480,
+  },
+  Object {
+    "dur": 360,
+    "isRest": false,
+    "midi": 74,
+    "next": 360,
+    "note": "D4",
+    "time": 1440,
+  },
+]
+`;
+
 exports[`A Motif test suite should generate motif with rests 1`] = `
 Array [
   Object {

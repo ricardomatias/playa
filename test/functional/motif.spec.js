@@ -102,4 +102,18 @@ describe('A Motif test suite', () => {
 		expect(motif).toMatchSnapshot();
 		expect(calcDuration(motif)).toEqual(ONE_BAR);
 	});
+
+	it('should generate motif with given durations', () => {
+		// given
+		Random.setSeed('test');
+
+		const scale = new Scale('A', Scale.MAJOR);
+
+		// when
+		const motif = createMotif(scale.notes, [ '4n', '2n', '8nd' ]);
+
+		// then
+		expect(motif).toMatchSnapshot();
+		expect(calcDuration(motif)).toEqual(1800);
+	});
 });
