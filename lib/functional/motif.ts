@@ -1,6 +1,7 @@
 import { choose } from '../tools';
 import { Note } from '../core';
 import { NoteEvent } from '../core/NoteEvent';
+import { expandDuration } from '../tools/time';
 
 /**
  * Generates a motif
@@ -17,7 +18,7 @@ import { NoteEvent } from '../core/NoteEvent';
  * @return {Array<NoteEvent>}
  */
 function createMotif(notes: Note[], rhythm: NoteEvent[], startTime = 0): NoteEvent[] {
-	const pattern = rhythm.map((event) => {
+	const pattern = expandDuration(rhythm).map((event) => {
 		const note = choose(notes);
 
 		if (event.isRest) {
