@@ -1,4 +1,4 @@
-import { choose, Time } from '../tools';
+import { choose } from '../tools';
 import { Note } from '../core';
 import { NoteEvent } from '../core/NoteEvent';
 

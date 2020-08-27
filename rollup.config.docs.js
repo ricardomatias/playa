@@ -1,9 +1,9 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import clear from 'rollup-plugin-clear';
 import progress from 'rollup-plugin-progress';
 import cleanup from 'rollup-plugin-cleanup';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
+import del from 'rollup-plugin-delete';
 
 
 const extensions = [
@@ -22,17 +22,14 @@ const baseConfig = {
 		vendor: [ 'ramda', 'simplex-noise', 'alea' ],
 	},
 	plugins: [
-		clear({
-			// required, point out which directories should be clear.
-			targets: [ 'build' ],
-		}),
+		del({ targets: 'build/*' }),
 		resolve({ extensions }),
 		commonjs(),
 		cleanup({
 			comments: 'jsdoc',
 			compactComments: false,
 		}),
-		typescript({ target: 'ES6' }),
+		typescript({ target: 'ESNext' }),
 		progress(),
 	],
 };
