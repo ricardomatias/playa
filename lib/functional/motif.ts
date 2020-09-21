@@ -14,7 +14,7 @@ import { NoteEvent } from '../core/NoteEvent';
  * @param {Array<Note>} notes
  * @param {Array<String>} rhythm note durations
  * @param {Number} [startTime = 0] when to start the motif
- * @return {Motif}
+ * @return {Array<NoteEvent>}
  */
 function createMotif(notes: Note[], rhythm: NoteEvent[], startTime = 0): NoteEvent[] {
 	const pattern = rhythm.map((event) => {
