@@ -13,16 +13,16 @@ import { findOctave, findFrequency } from '../tools/midi';
  * @name Note
  */
 export class Note {
-	_note = '';
-	_octave: number | undefined;
-	_midi: number | undefined;
-	_freq: number | undefined;
-	_enharmonic: string | undefined;
-	_accident: string | undefined;
-	_isFlat = false;
-	_isSharp = false;
-	_next: string;
-	_prev: string;
+	#note = '';
+	#octave: number | undefined;
+	#midi: number | undefined;
+	#freq: number | undefined;
+	#enharmonic: string | undefined;
+	#accident: string | undefined;
+	#isFlat = false;
+	#isSharp = false;
+	#next: string;
+	#prev: string;
 
 	static SHARP = '#';
 	static FLAT = 'b';
@@ -81,34 +81,34 @@ export class Note {
 
 		if (typeof midi !== 'undefined') {
 			if (midi >= 0 && midi <= 127) {
-				this._note = note;
-				this._midi = midi;
-				this._octave = findOctave(midi);
-				this._freq = findFrequency(midi);
-				this._accident = whichAccident(note);
+				this.#note = note;
+				this.#midi = midi;
+				this.#octave = findOctave(midi);
+				this.#freq = findFrequency(midi);
+				this.#accident = whichAccident(note);
 			} else {
 				throw new Error(`[Note]: <${note + octave}> isn't within the midi range of [0 - 127]`);
 			}
 		}
 
-		if (!this._note) {
+		if (!this.#note) {
 			const diatonicIndex = DIATONIC_NOTES.indexOf(note);
 
 			if (diatonicIndex !== -1) {
-				this._note = DIATONIC_NOTES[diatonicIndex];
+				this.#note = DIATONIC_NOTES[diatonicIndex];
 			} else if (this._resolveEnharmonic(note)) {
-				this._note = note;
+				this.#note = note;
 			}
 
-			if (this._note === '') {
+			if (this.#note === '') {
 				throw new Error(`[Note]: <${note}> isn't a recognized musical note`);
 			}
 		}
 
 		const { next, prev } = this._findNeighbours();
 
-		this._next = next;
-		this._prev = prev;
+		this.#next = next;
+		this.#prev = prev;
 	}
 
 
@@ -121,20 +121,20 @@ export class Note {
 	 * @type {string}
 	 */
 	get n(): string {
-		const octave = this._octave;
-		const midi = this._midi;
+		const octave = this.#octave;
+		const midi = this.#midi;
 
 		if (octave) {
-			return this._note + octave;
+			return this.#note + octave;
 		}
 
 		if (!midi || typeof octave !== 'number') {
-			return this._note;
+			return this.#note;
 		}
 
-		this._octave = findOctave(midi);
+		this.#octave = findOctave(midi);
 
-		return this._note + this._octave;
+		return this.#note + this.#octave;
 	}
 
 	/**
@@ -146,7 +146,7 @@ export class Note {
 	 * @type {string}
 	 */
 	get note(): string {
-		return this._note;
+		return this.#note;
 	}
 
 	/**
@@ -159,7 +159,7 @@ export class Note {
 	* @type {number}
 	 */
 	get octave(): number | undefined {
-		return this._octave;
+		return this.#octave;
 	}
 
 	/**
@@ -183,11 +183,11 @@ export class Note {
 	* @type {String}
 	*/
 	get enharmonic(): string | undefined {
-		if (!this._enharmonic) {
-			this._enharmonic = this._resolveEnharmonic(this._note);
+		if (!this.#enharmonic) {
+			this.#enharmonic = this._resolveEnharmonic(this.#note);
 		}
 
-		return this._enharmonic;
+		return this.#enharmonic;
 	}
 
 	/**
@@ -200,7 +200,7 @@ export class Note {
 	 */
 	get eoct(): string | null {
 		// TODO: This can probably be removed
-		const octave = this._octave;
+		const octave = this.#octave;
 
 		if (!octave) return null;
 
@@ -220,7 +220,7 @@ export class Note {
 	 * @type {Number}
 	 */
 	get m(): number | undefined {
-		return this._midi;
+		return this.#midi;
 	}
 
 	/**
@@ -231,7 +231,7 @@ export class Note {
 	* @type {Number}
 	*/
 	get midi(): number | undefined {
-		return this._midi;
+		return this.#midi;
 	}
 
 	/**
@@ -254,19 +254,19 @@ export class Note {
 	* @type {Number}
 	*/
 	get freq(): number | undefined {
-		const midi = this._midi;
+		const midi = this.#midi;
 
-		if (this._freq) {
-			return this._freq;
+		if (this.#freq) {
+			return this.#freq;
 		}
 
 		if (!midi) {
 			return undefined;
 		}
 
-		this._freq = findFrequency(midi);
+		this.#freq = findFrequency(midi);
 
-		return this._freq;
+		return this.#freq;
 	}
 
 	/**
@@ -278,7 +278,7 @@ export class Note {
 	 * @return {Number}
 	 */
 	get distC(): number {
-		const note = this._note;
+		const note = this.#note;
 		const enh = this.e;
 
 		if (this.isFlat && enh) {
@@ -297,8 +297,8 @@ export class Note {
 	 * @return {Note}
 	 */
 	get next(): Note {
-		const midi = this._midi ? this._midi + 1 : null;
-		return this.getNeighbour(this._next, midi);
+		const midi = this.#midi ? this.#midi + 1 : null;
+		return this.getNeighbour(this.#next, midi);
 	}
 
 	/**
@@ -310,8 +310,8 @@ export class Note {
 	* @return {Note}
 	*/
 	get prev(): Note {
-		const midi = this._midi ? this._midi - 1 : null;
-		return this.getNeighbour(this._prev, midi);
+		const midi = this.#midi ? this.#midi - 1 : null;
+		return this.getNeighbour(this.#prev, midi);
 	}
 
 	private getNeighbour(note: string, midi: number | null): Note {
@@ -330,7 +330,7 @@ export class Note {
 	 * @return {Boolean}
 	 */
 	get isFlat(): boolean {
-		return this._accident === Note.FLAT;
+		return this.#accident === Note.FLAT;
 	}
 
 	/**
@@ -340,7 +340,7 @@ export class Note {
 	 * @return {Boolean}
 	 */
 	get isNatural(): boolean {
-		return !this._accident;
+		return !this.#accident;
 	}
 
 	/**
@@ -351,7 +351,7 @@ export class Note {
 	 * @return {Boolean}
 	 */
 	get isSharp(): boolean {
-		return this._accident === Note.SHARP;
+		return this.#accident === Note.SHARP;
 	}
 
 	/**
@@ -364,11 +364,11 @@ export class Note {
 	private _resolveEnharmonic(note: string): string | undefined {
 		let enharmonic = '';
 
-		if (!this._accident) {
-			this._accident = whichAccident(note);
+		if (!this.#accident) {
+			this.#accident = whichAccident(note);
 		}
 
-		if (!this._accident) {
+		if (!this.#accident) {
 			return '';
 		}
 
@@ -399,13 +399,13 @@ export class Note {
 	 * @memberof Note
 	 */
 	private _findNeighbours(): { prev: string; next: string } {
-		let note = this._note;
+		let note = this.#note;
 
-		if (!this._accident) {
-			this._accident = whichAccident(note);
+		if (!this.#accident) {
+			this.#accident = whichAccident(note);
 		}
 
-		if (this._accident === Note.FLAT) {
+		if (this.#accident === Note.FLAT) {
 			note = this.enharmonic || '';
 		}
 
