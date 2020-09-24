@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#createGrid should create a 4n grid - snapshot 1`] = `
+ [
+  Object {
+    "res": Array [
+      "4nt",
+      "4n",
+    ],
+    "time": 0,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 320,
+  },
+  Object {
+    "res": Array [
+      "4n",
+    ],
+    "time": 480,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 640,
+  },
+]
+`;

@@ -13,12 +13,12 @@ import * as R from 'ramda';
  * @return {Array<Array<Number>>}
  */
 function combinationSumRecursive(
-	candidates,
-	remainingSum,
-	finalCombinations = [],
-	currentCombination = [],
+	candidates: number[],
+	remainingSum: number,
+	finalCombinations: number[][] = [],
+	currentCombination: number[] = [],
 	startFrom = 0,
-) {
+): number[][] {
 	if (remainingSum < 0) {
 		// By adding another candidate we've gone below zero.
 		// This would mean that the last candidate was not acceptable.
@@ -65,7 +65,7 @@ function combinationSumRecursive(
  * @param {Number} times
  * @return {boolean}
  */
-const hasMoreThan = (number, times) => (coll) => {
+const hasMoreThan = (number: number, times: number) => (coll: readonly number[]) => {
 	const count = R.length(R.filter(R.equals(number), coll));
 	return count <= times;
 };
@@ -76,15 +76,18 @@ const hasMoreThan = (number, times) => (coll) => {
  * @function combinationSum
  * @private
  *
- * @param {Number} target
- * @param {Number} maxOnes
+ * @param {Number} sum
+ * @param {Number} maxOnes Number of times the number 1 can appear in the combinations
  *
- * @return {Array<String>}
+ * @example
+ * combinationSum(3, 3) => [ [1,1,1], [1,2] ]
+ *
+ * @return {Array<Array<Number>>}
  */
-export default function combinationSum(target, maxOnes = 2) {
-	const candidates = R.drop(1, R.times(R.identity, target));
+export default function combinationSum(sum: number, maxOnes = 2): number[][] {
+	const candidates = R.drop(1, R.times(R.identity, sum));
 
 	return R.compose(
 		R.filter(hasMoreThan(1, maxOnes)),
-	)(combinationSumRecursive(candidates, target));
+	)(combinationSumRecursive(candidates, sum));
 }

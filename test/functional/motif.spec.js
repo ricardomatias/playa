@@ -3,8 +3,7 @@ import Scale from '../../lib/core/Scale';
 import Chord from '../../lib/core/Chord';
 import createMotif from '../../lib/functional/motif';
 import { distribute } from '@ricardomatias/roll';
-import { calcDuration } from '../../lib/utils';
-import { Rhythm, choose } from '../../lib/tools';
+import { Rhythm, chooseMany } from '../../lib/tools';
 import Random from '../../lib/tools/random';
 import { TICKS } from '../../lib/constants';
 
@@ -27,7 +26,7 @@ describe('A Motif test suite', () => {
 
 		// then
 		expect(motif).toMatchSnapshot();
-		expect(calcDuration(motif)).toEqual(ONE_BAR);
+		expect(motif).toLastAround(ONE_BAR);
 
 		// when
 		Random.setSeed('test2');
@@ -38,7 +37,7 @@ describe('A Motif test suite', () => {
 
 		// then
 		expect(motif).toMatchSnapshot();
-		expect(calcDuration(motif)).toEqual(ONE_BAR * 2);
+		expect(motif).toLastAround(ONE_BAR * 2);
 	});
 
 
@@ -53,7 +52,7 @@ describe('A Motif test suite', () => {
 		let motif = createMotif(chord.notes, rhythm);
 
 		expect(motif).toMatchSnapshot();
-		expect(calcDuration(motif)).toEqual(ONE_BAR);
+		expect(motif).toLastAround(ONE_BAR);
 
 		// when
 		Random.setSeed('test2');
@@ -63,7 +62,7 @@ describe('A Motif test suite', () => {
 		motif = createMotif(chord.notes, rhythm);
 
 		expect(motif).toMatchSnapshot();
-		expect(calcDuration(motif)).toEqual(ONE_BAR * 2);
+		expect(motif).toLastAround(ONE_BAR * 2);
 	});
 
 
@@ -72,16 +71,9 @@ describe('A Motif test suite', () => {
 		Random.setSeed('test');
 
 		const chord = new Chord('Dbm6');
-		let rhythm = Rhythm.free('0:1:0', mixed);
+		const rhythm = Rhythm.free('0:3:0', mixed);
 
-		// when
-		let motif = createMotif(chord.notes, rhythm, 0);
-
-		expect(motif).toMatchSnapshot();
-
-		rhythm = Rhythm.free('0:3:0', mixed);
-
-		motif = createMotif(chord.notes, rhythm, 480);
+		const motif = createMotif(chord.notes, rhythm, 480);
 
 		expect(motif).toMatchSnapshot();
 	});
@@ -91,7 +83,7 @@ describe('A Motif test suite', () => {
 		Random.setSeed('test');
 
 		const scale = new Scale('A', Scale.MAJOR);
-		const durations = choose(mixed, Random.int(R.length(mixed)));
+		const durations = chooseMany(mixed, Random.int(R.length(mixed)));
 
 		const rhythm = Rhythm.free('1:0:0', mixed, durations, distribute.decreasing);
 
@@ -100,7 +92,7 @@ describe('A Motif test suite', () => {
 
 		// then
 		expect(motif).toMatchSnapshot();
-		expect(calcDuration(motif)).toEqual(ONE_BAR);
+		expect(motif).toLastAround(ONE_BAR);
 	});
 
 	it('should generate motif with given durations', () => {
@@ -114,6 +106,6 @@ describe('A Motif test suite', () => {
 
 		// then
 		expect(motif).toMatchSnapshot();
-		expect(calcDuration(motif)).toEqual(1800);
+		expect(motif).toLastAround(1800);
 	});
 });

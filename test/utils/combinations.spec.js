@@ -16,5 +16,24 @@ describe('A CombinationSum test suite', () => {
 
 		expect(combinations).toMatchSnapshot();
 	});
-});
 
+	it('should find combinations with 3 max ones', () => {
+		const total = 3;
+
+		const combinations = findCombinationsSum(total, 3);
+
+		expect(combinations).toMatchInlineSnapshot(`
+		Array [
+		  Array [
+		    1,
+		    1,
+		    1,
+		  ],
+		  Array [
+		    1,
+		    2,
+		  ],
+		]
+	`);
+	});
+});

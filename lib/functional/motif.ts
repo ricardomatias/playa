@@ -1,7 +1,9 @@
 import { choose } from '../tools';
-import { Note } from '../core';
+import { Note, Time } from '../core';
 import { NoteEvent } from '../core/NoteEvent';
-import { expandDuration } from '../tools/time';
+import { expandDuration, isEvent, mapStartToEvent } from '../tools/time';
+import { Event } from '../core/Event';
+import { TimeFormat } from '../core/Time';
 
 /**
  * Generates a motif
@@ -10,24 +12,28 @@ import { expandDuration } from '../tools/time';
  * @memberof Functional
  *
  * @example
- * createMotif(new Scale('A', Scale.MAJOR), Rhythm.free('1:0:0', ['4n', '8n', '16n']))
+ * createMotif(new Scale('A', Scale.MAJOR).notes, Rhythm.free('1:0:0', ['4n', '8n', '16n']))
  *
  * @param {Array<Note>} notes
  * @param {Array<String>} rhythm note durations
- * @param {Number} [startTime = 0] when to start the motif
+ * @param {TimeFormat} [startTime = 0] when to start the motif
  * @return {Array<NoteEvent>}
  */
-function createMotif(notes: Note[], rhythm: NoteEvent[], startTime = 0): NoteEvent[] {
-	const pattern = expandDuration(rhythm).map((event) => {
+function createMotif(notes: Note[], rhythm: string[] | Event[], startTime: TimeFormat = 0): NoteEvent[] {
+	if (!isEvent(rhythm)) {
+		rhythm = expandDuration(rhythm);
+	}
+
+	const start = new Time(startTime);
+	const pattern = rhythm.map((event: Event) => {
 		const note = choose(notes);
 
 		if (event.isRest) {
-			return NoteEvent({ ...event, time: event.time + startTime });
+			return NoteEvent(mapStartToEvent(event, start));
 		}
 
 		return NoteEvent({
-			...event,
-			time: event.time + startTime,
+			...mapStartToEvent(event, start),
 			note: note.n,
 			midi: note.m,
 		});

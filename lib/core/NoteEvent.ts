@@ -1,14 +1,13 @@
-export interface NoteEvent {
-	time: number;
-	dur: number;
-	next: number;
+import { Event } from './Event';
+
+
+export interface NoteEvent extends Event {
 	midi?: number;
 	note?: string;
-	isRest?: boolean;
 }
 
-export function NoteEvent({ dur, next = dur, midi = -1, note = '', time, isRest = false }: NoteEvent): NoteEvent {
+export const NoteEvent = ({ time, dur, next = time + dur, midi = -1, note = '', isRest = false }: NoteEvent): NoteEvent => {
 	return Object.assign({}, {
 		time, dur, next, midi, note, isRest,
 	});
-}
+};

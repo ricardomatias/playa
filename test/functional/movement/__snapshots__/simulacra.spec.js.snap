@@ -416,50 +416,62 @@ Object {
   "timeline": Array [
     Object {
       "dur": 1280,
+      "isRest": false,
       "key": Object {
         "root": "D",
         "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
+      "next": 1280,
       "time": 0,
     },
     Object {
       "dur": 1440,
+      "isRest": false,
       "key": Object {
         "root": "A",
         "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
+      "next": 2720,
       "time": 1280,
     },
     Object {
       "dur": 1440,
+      "isRest": false,
       "key": Object {
         "root": "D",
         "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
+      "next": 4160,
       "time": 2720,
     },
     Object {
       "dur": 1280,
+      "isRest": false,
       "key": Object {
         "root": "G",
         "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
+      "next": 5440,
       "time": 4160,
     },
     Object {
       "dur": 1280,
+      "isRest": false,
       "key": Object {
         "root": "C",
         "scale": "1P 2M 3M 4P 5P 6M 7m",
       },
+      "next": 6720,
       "time": 5440,
     },
     Object {
       "dur": 960,
+      "isRest": false,
       "key": Object {
         "root": "F",
         "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
+      "next": 7680,
       "time": 6720,
     },
   ],

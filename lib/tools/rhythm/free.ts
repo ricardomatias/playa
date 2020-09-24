@@ -4,8 +4,8 @@ import { whilst, isEmpty, PlayaError } from '../../utils';
 import { expandDuration } from '../time';
 import { roll, distribute } from '@ricardomatias/roll';
 import Random from '../random';
-import choose from '../choose';
-import { NoteEvent } from '../../core/NoteEvent';
+import { chooseMany } from '../choose';
+import { Event } from '../../core/Event';
 
 const PRECISION = 5;
 
@@ -24,18 +24,18 @@ const PRECISION = 5;
  * @param {Array} noteValues available notevalues
  * @param {Array} [noteDurations=[]] available notevalues
  * @param {Function} [distributionAlgo = distribute.equal] [ decreasing, increasing, equal ] probability distribution
- * @return {Array<NoteEvent>}
+ * @return {Array<Event>}
  */
 const createFreeRhythm = (
 	length: TimeFormat,
 	noteValues: TimeFormat[],
 	noteDurations: TimeFormat[] = [],
 	distributionAlgo: (rhythm: TimeFormat[], precision?: number) => string[] = distribute.equal,
-): NoteEvent[] => {
-	const totalRhythmDuration = T(length).ticks;
+): Event[] => {
+	const totalRhythmDuration = new T(length).ticks;
 
 	let rhythm: string[] = [];
-	let availableRhythmUnits = R.clone(noteValues);
+	let availableRhythmUnits = [ ...noteValues ];
 	let probabilities = distributionAlgo(availableRhythmUnits, PRECISION);
 	let totalTime = 0;
 
@@ -43,7 +43,7 @@ const createFreeRhythm = (
 		whilst(() => {
 			const duration = roll(availableRhythmUnits, probabilities, Random.float);
 
-			const ticks = typeof duration === 'string' ? T(duration) : duration;
+			const ticks = typeof duration === 'string' ? new T(duration) : duration;
 
 			if (totalTime + ticks <= totalRhythmDuration) {
 				totalTime += ticks;
@@ -69,30 +69,42 @@ const createFreeRhythm = (
 
 	// results in a legato style
 	if (R.isEmpty(noteDurations)) {
-		return R.map(NoteEvent, expandDuration(rhythm));
+		return expandDuration(rhythm);
 	}
 
-	const durations = R.times(() => (choose(noteDurations)), R.length(rhythm));
+	const durations = chooseMany(noteDurations, R.length(rhythm));
 
-	const fillDurations = R.zipWith((rhythmDur: string, duration: string) => {
-		const rhyDur = T(rhythmDur).ticks;
-		const dur = T(duration).ticks;
 
-		if (dur < rhyDur) {
-			const rest = rhyDur - dur;
+	// rhyDur > noteDur -> there is a rest
+	// rhyDur < noteDur -> the next note will overlap with the current
+	const fillDurations = R.zipWith((rhythmDur: string, duration: TimeFormat) => {
+		const rhyDur = new T(rhythmDur).ticks;
+		const noteDur = new T(duration).ticks;
 
-			return [
-				{ time: 0, dur: dur, next: dur },
-				{ time: 0, dur: rest, isRest: true },
-			];
+		if (rhyDur > noteDur) {
+			const rest = rhyDur - noteDur;
+
+			if (Random.boolean()) {
+				// Rhythm is on the beat
+				return [
+					{ time: 0, dur: noteDur, next: noteDur, isRest: false },
+					{ time: 0, dur: rest, next: 0, isRest: true },
+				];
+			} else {
+				// Rhythm is off the beat
+				return [
+					{ time: 0, dur: rest, next: rest, isRest: true },
+					{ time: 0, dur: noteDur, next: 0, isRest: false },
+				];
+			}
 		}
 
 		return [
-			{ time: 0, dur, next: rhyDur },
+			{ time: 0, dur: noteDur, next: rhyDur, isRest: false },
 		];
 	});
 
-	return R.map(NoteEvent, expandDuration(R.flatten(fillDurations(rhythm, durations))));
+	return expandDuration(R.flatten(fillDurations(rhythm, durations)));
 };
 
 export default createFreeRhythm;

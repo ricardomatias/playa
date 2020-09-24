@@ -1,6 +1,8 @@
-import { Key, Chord } from '../../lib/core';
+import { Key, Chord, Time } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/functional';
 import Random from '../../lib/tools/random';
+
+const FOUR_BARS = new Time('4:0:0').ticks;
 
 describe('A Chord Progression test suite', () => {
 	it('should generate chords based on a movement timeline - free rhythm', () => {
@@ -18,6 +20,7 @@ describe('A Chord Progression test suite', () => {
 
 		const prog = createChordProgression(movement.timeline);
 
+		expect(prog).toLastAround(FOUR_BARS);
 		expect(prog).toMatchSnapshot();
 	});
 
@@ -37,6 +40,7 @@ describe('A Chord Progression test suite', () => {
 
 		const prog = createChordProgression(movement.timeline, { rhythmType: 'turn', restProb: 0.3 });
 
+		expect(prog).toLastAround(FOUR_BARS);
 		expect(prog).toMatchSnapshot();
 	});
 
@@ -61,6 +65,7 @@ describe('A Chord Progression test suite', () => {
 			minChordNotes: 2,
 		});
 
+		expect(prog).toLastAround(FOUR_BARS);
 		expect(prog).toMatchSnapshot();
 	});
 });

@@ -1,3 +1,14 @@
+/**
+ * Returns the next element in a collection
+ * It wraps-around at the end or grabs in reverse
+ *
+ * @function next
+ * @memberof Tools
+ *
+ * @param {Array<T>} arr
+ * @param {Boolean} [alternate=true]
+ * @return {Function}
+ */
 export const next = <T>(arr: T[], alternate = false): () => T => {
 	const maxIdx = arr.length - 1;
 	let idx = 0;

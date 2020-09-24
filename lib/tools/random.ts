@@ -101,6 +101,20 @@ class Random {
 	int = (max: number, min = 0): number => {
 		return min + Math.floor((this.float() * (1 + max - min)));
 	}
+
+	/**
+	 * Generates a random integer between a range
+	 *
+	 * @function int
+	 * @memberof Tools.Random
+	 *
+	 * @param {Number} max
+	 * @param {Number} [min=0]
+	 * @return {Number}
+	 */
+	boolean = (): boolean => {
+		return !!this.int(1);
+	}
 }
 
 export default Random.getInstance();

@@ -1,7 +1,6 @@
 import * as R from 'ramda';
 import { TICKS } from '../../../lib/constants';
-import { calcDuration } from '../../../lib/utils';
-import { Random, Rhythm, distribute, choose } from '../../../lib/tools';
+import { Random, Rhythm, distribute, chooseMany } from '../../../lib/tools';
 
 const { free: generateFreeRhythm } = Rhythm;
 
@@ -23,63 +22,49 @@ describe('#generateFreeRhythm', () => {
 		);
 
 		// then
-		expect(calcDuration(rhythm)).toBe(ONE_BAR);
+		expect(rhythm).toLastAround(ONE_BAR);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
 		    "dur": 480,
 		    "isRest": false,
-		    "midi": -1,
 		    "next": 480,
-		    "note": "",
 		    "time": 0,
 		  },
 		  Object {
 		    "dur": 160,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 160,
-		    "note": "",
+		    "next": 640,
 		    "time": 480,
 		  },
 		  Object {
 		    "dur": 240,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "next": 880,
 		    "time": 640,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 1000,
 		    "time": 880,
 		  },
 		  Object {
 		    "dur": 320,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 320,
-		    "note": "",
+		    "next": 1320,
 		    "time": 1000,
 		  },
 		  Object {
 		    "dur": 240,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "next": 1560,
 		    "time": 1320,
 		  },
 		  Object {
 		    "dur": 360,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 360,
-		    "note": "",
+		    "next": 1920,
 		    "time": 1560,
 		  },
 		]
@@ -94,63 +79,49 @@ describe('#generateFreeRhythm', () => {
 		const rhythm = generateFreeRhythm(ONE_BAR * 2, slow, [ '4n', '4nd' ]);
 
 		// then
-		expect(calcDuration(rhythm)).toBe(ONE_BAR * 2);
+		expect(rhythm).toLastAround(ONE_BAR * 2);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
 		    "dur": 480,
 		    "isRest": false,
-		    "midi": -1,
 		    "next": 480,
-		    "note": "",
 		    "time": 0,
 		  },
 		  Object {
 		    "dur": 240,
 		    "isRest": true,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "next": 720,
 		    "time": 480,
 		  },
 		  Object {
 		    "dur": 720,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 480,
-		    "note": "",
+		    "next": 1200,
 		    "time": 720,
 		  },
 		  Object {
 		    "dur": 720,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 720,
-		    "note": "",
+		    "next": 1920,
 		    "time": 1200,
 		  },
 		  Object {
 		    "dur": 480,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 480,
-		    "note": "",
+		    "next": 2400,
 		    "time": 1920,
 		  },
 		  Object {
 		    "dur": 720,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 720,
-		    "note": "",
+		    "next": 3120,
 		    "time": 2400,
 		  },
 		  Object {
 		    "dur": 720,
 		    "isRest": true,
-		    "midi": -1,
-		    "next": 720,
-		    "note": "",
+		    "next": 3840,
 		    "time": 3120,
 		  },
 		]
@@ -165,151 +136,115 @@ describe('#generateFreeRhythm', () => {
 		const rhythm = generateFreeRhythm(ONE_BAR, robotic);
 
 		// then
-		expect(calcDuration(rhythm)).toBe(ONE_BAR);
+		expect(rhythm).toLastAround(ONE_BAR);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
 		    "dur": 240,
 		    "isRest": false,
-		    "midi": -1,
 		    "next": 240,
-		    "note": "",
 		    "time": 0,
 		  },
 		  Object {
 		    "dur": 60,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 60,
-		    "note": "",
+		    "next": 300,
 		    "time": 240,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 420,
 		    "time": 300,
 		  },
 		  Object {
 		    "dur": 60,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 60,
-		    "note": "",
+		    "next": 480,
 		    "time": 420,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 600,
 		    "time": 480,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 720,
 		    "time": 600,
 		  },
 		  Object {
 		    "dur": 60,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 60,
-		    "note": "",
+		    "next": 780,
 		    "time": 720,
 		  },
 		  Object {
 		    "dur": 60,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 60,
-		    "note": "",
+		    "next": 840,
 		    "time": 780,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 960,
 		    "time": 840,
 		  },
 		  Object {
 		    "dur": 60,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 60,
-		    "note": "",
+		    "next": 1020,
 		    "time": 960,
 		  },
 		  Object {
 		    "dur": 60,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 60,
-		    "note": "",
+		    "next": 1080,
 		    "time": 1020,
 		  },
 		  Object {
 		    "dur": 60,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 60,
-		    "note": "",
+		    "next": 1140,
 		    "time": 1080,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 1260,
 		    "time": 1140,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 1380,
 		    "time": 1260,
 		  },
 		  Object {
 		    "dur": 240,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "next": 1620,
 		    "time": 1380,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 1740,
 		    "time": 1620,
 		  },
 		  Object {
 		    "dur": 120,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 1860,
 		    "time": 1740,
 		  },
 		  Object {
 		    "dur": 60,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 60,
-		    "note": "",
+		    "next": 1920,
 		    "time": 1860,
 		  },
 		]
@@ -324,79 +259,61 @@ describe('#generateFreeRhythm', () => {
 		const rhythm = generateFreeRhythm(ONE_BAR, straight, [ '8n' ]);
 
 		// then
-		expect(calcDuration(rhythm)).toBe(ONE_BAR);
+		expect(rhythm).toLastAround(ONE_BAR);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
 		    "dur": 240,
-		    "isRest": false,
-		    "midi": -1,
+		    "isRest": true,
 		    "next": 240,
-		    "note": "",
 		    "time": 0,
 		  },
 		  Object {
 		    "dur": 240,
-		    "isRest": true,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "isRest": false,
+		    "next": 480,
 		    "time": 240,
 		  },
 		  Object {
 		    "dur": 240,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 600,
 		    "time": 480,
 		  },
 		  Object {
 		    "dur": 240,
-		    "isRest": false,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "isRest": true,
+		    "next": 840,
 		    "time": 600,
 		  },
 		  Object {
 		    "dur": 240,
-		    "isRest": true,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "isRest": false,
+		    "next": 1080,
 		    "time": 840,
 		  },
 		  Object {
 		    "dur": 240,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 120,
-		    "note": "",
+		    "next": 1200,
 		    "time": 1080,
 		  },
 		  Object {
 		    "dur": 240,
 		    "isRest": false,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "next": 1440,
 		    "time": 1200,
 		  },
 		  Object {
 		    "dur": 240,
-		    "isRest": false,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "isRest": true,
+		    "next": 1680,
 		    "time": 1440,
 		  },
 		  Object {
 		    "dur": 240,
-		    "isRest": true,
-		    "midi": -1,
-		    "next": 240,
-		    "note": "",
+		    "isRest": false,
+		    "next": 1920,
 		    "time": 1680,
 		  },
 		]
@@ -407,7 +324,7 @@ describe('#generateFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const durations = choose(mixed, Random.int(R.length(mixed)));
+		const durations = chooseMany(mixed, Random.int(R.length(mixed)));
 		const rhythm = Rhythm.free(
 			'1:0:0',
 			mixed,
@@ -416,7 +333,7 @@ describe('#generateFreeRhythm', () => {
 		);
 
 		// then
-		expect(calcDuration(rhythm)).toBe(ONE_BAR);
+		expect(rhythm).toLastAround(ONE_BAR);
 	});
 
 	it('should break', () => {

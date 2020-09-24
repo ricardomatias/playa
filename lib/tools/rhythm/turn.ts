@@ -3,45 +3,46 @@ import { roll, distribute } from '@ricardomatias/roll';
 
 import { TICKS } from '../../constants';
 import { whilst, findCombinationsSum } from '../../utils';
-import { bbsToTicks } from '../time';
 import Random from '../random';
-import createGrid from './grid';
+import createGrid, { GridCell } from './grid';
+import { Time, TimeFormat } from '../../core/Time';
+import { Event } from '../../core/Event';
 
-const COMBINATION_FAVORED_NUM = 2;
 const PRECISION = 5;
 const MAX_DUR = TICKS.get('1nd');
 
-const sortFavorNum = R.curry((favoredNumber = COMBINATION_FAVORED_NUM) =>
-	R.descend(R.compose(R.length, R.filter(R.equals(favoredNumber)))),
-);
 
 const sortDiverseFirst = R.descend(R.compose(R.length, R.groupWith(R.equals)));
 
-const drawGroupingCombination = (turns, combSorting = {}) => {
-	const sortingAlgos = [];
+type CombinationSorting = Partial<{
+	diverseFirst: boolean;
+	similarFirst: boolean;
+}>
+
+
+type SortingFunction = (a: readonly number[], b: readonly number[]) => number
+
+const drawGroupingCombination = (turns: number, combSorting: CombinationSorting = {}): number[] => {
+	const sortingAlgos: SortingFunction[] = [];
 
 	if (combSorting.diverseFirst) {
 		sortingAlgos.push(sortDiverseFirst);
 		sortingAlgos.push(R.descend(R.length));
-	}
+	} else
 
 	if (combSorting.similarFirst) {
 		sortingAlgos.push(R.ascend(R.length));
 	}
 
-	if (combSorting.favorNumber) {
-		sortingAlgos.push(sortFavorNum(combSorting.favorNumber));
-	}
-
-	const combinations = R.sortWith(sortingAlgos, findCombinationsSum(turns));
-	const combProbabilities = distribute.decreasing(combinations, PRECISION);
+	const combinations = R.sortWith(sortingAlgos, findCombinationsSum(turns, 4));
+	const combProbabilities: string[] = distribute.decreasing(combinations, PRECISION);
 
 	const combination = roll(combinations, combProbabilities, Random.float);
 
 	return R.sortWith([ R.descend(R.identity) ], combination);
 };
 
-const calcDur = (grid, gridIndex, hitLength, totalRhythmDuration) => {
+const calcDur = (grid: GridCell[], gridIndex: number, hitLength: number, totalRhythmDuration: number) => {
 	let nextBeatTime = grid[gridIndex + hitLength].time;
 
 	if (gridIndex + hitLength >= grid.length) {
@@ -50,6 +51,12 @@ const calcDur = (grid, gridIndex, hitLength, totalRhythmDuration) => {
 
 	return nextBeatTime - grid[gridIndex].time;
 };
+
+type TurnOptions = Partial<{
+	minNoteValue: number;
+	combSorting: CombinationSorting;
+	debug: false;
+}>
 
 /**
  * Create turn based rhythms
@@ -73,14 +80,18 @@ const calcDur = (grid, gridIndex, hitLength, totalRhythmDuration) => {
  * @param {Number} [opts.minNoteValue = 8] [16, 8, 4]
  * @param {Object} [opts.combSorting = {}] algorithms: [diverseFirst, similarFirst, favorNumber]
  * @param {Boolean} [opts.debug = false] toggle debug mode
- * @return {Array<Object>} { time, dur }
+ * @return {Array<Event>} { time, dur }
  */
-const createTurnRhythm = (length, turns, { minNoteValue = 8, combSorting = {}, debug = false } = {}) => {
+const createTurnRhythm = (
+	length: TimeFormat,
+	turns: number,
+	{ minNoteValue = 8, combSorting = {}, debug = false }: TurnOptions = {},
+): Event[] => {
 	if (turns <= 1) {
 		throw new Error('Cannot make a rhythm out of less than 2 turns');
 	}
 
-	const totalRhythmDuration = typeof length === 'number' ? length : bbsToTicks(length);
+	const totalRhythmDuration = new Time(length).ticks;
 
 	const avoidRandomHitLength = Math.floor(totalRhythmDuration / turns) > MAX_DUR;
 
@@ -110,8 +121,8 @@ const createTurnRhythm = (length, turns, { minNoteValue = 8, combSorting = {}, d
 
 		turnsLeft -= nrOfHits;
 
-		if (turnsLeft && index % 2 == 0 && !avoidRandomHitLength) {
-			hitLength = Random.int(hitLength, 2);
+		if (turnsLeft && index % 2 == 0 && !avoidRandomHitLength && hitLength > 1) {
+			hitLength = Random.int(hitLength, 1);
 		}
 
 		for (let hitsIndex = 0; hitsIndex < nrOfHits; hitsIndex++) {
@@ -155,7 +166,7 @@ const createTurnRhythm = (length, turns, { minNoteValue = 8, combSorting = {}, d
 		}
 	}
 
-	const hits = R.filter(R.propEq('hit', true), grid);
+	const hits = grid.filter((cell) => cell.hit);
 
 	if (debug) {
 		console.table(grid);
@@ -163,7 +174,7 @@ const createTurnRhythm = (length, turns, { minNoteValue = 8, combSorting = {}, d
 		console.table(groupingHits);
 	}
 
-	return R.project([ 'time', 'dur' ], hits);
+	return hits.map((cell) => (Event({ time: cell.time, dur: cell.dur, next: cell.time + (cell.dur as number) })));
 };
 
 export default createTurnRhythm;

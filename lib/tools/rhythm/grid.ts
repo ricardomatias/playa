@@ -2,18 +2,25 @@ import * as R from 'ramda';
 import { TICKS } from '../../constants';
 import ring from '@ricardomatias/ring';
 
-const calcMaxRhythmNotes = (totalRhythmDuration, noteValue) => {
+const calcMaxRhythmNotes = (totalRhythmDuration: number, noteValue: number) => {
 	const remainder = totalRhythmDuration % noteValue;
 
 	return (totalRhythmDuration - remainder) / noteValue;
 };
 
-export default (totalRhythmDuration, subDivision) => {
+export type GridCell = {
+	time: number;
+	res: string[];
+	hit?: boolean;
+	dur?: number;
+}
+
+export default (totalRhythmDuration: number, subDivision: number): GridCell[] => {
 	const grid = [];
 	const normal = `${subDivision}n`;
 	const triplet = `${subDivision}nt`;
-	const normalTicks = TICKS.get(normal);
-	const tripletTicks = TICKS.get(triplet);
+	const normalTicks: number = TICKS.get(normal);
+	const tripletTicks: number = TICKS.get(triplet);
 
 	let maxRhythmNotes = calcMaxRhythmNotes(totalRhythmDuration, tripletTicks);
 
