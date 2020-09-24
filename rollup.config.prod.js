@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
-// import { terser } from 'rollup-plugin-terser';
+import { terser } from 'rollup-plugin-terser';
 // import copy from 'rollup-plugin-copy';
 import progress from 'rollup-plugin-progress';
 import typescript from 'rollup-plugin-typescript2';
@@ -56,7 +56,7 @@ export default [
 					'@babel/plugin-proposal-class-properties',
 				],
 			}),
-			// terser(),
+			terser(),
 			// copy({
 			// 	targets: [
 			// 		{ src: 'types/*.ts', dest: 'build/esm' },

@@ -61,6 +61,8 @@
 		"array-bracket-spacing": [
 			"error",
 			"always"
-		]
+		],
+		"no-redeclare": "off",
+		"@typescript-eslint/no-redeclare": "off"
 	}
 }
