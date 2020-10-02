@@ -1,6 +1,6 @@
 {
 	"name": "playa",
-	"version": "0.0.10",
+	"version": "0.0.11",
 	"description": "A musical theory framework aimed at creating musical phrases",
 	"main": "build/cjs/index.js",
 	"module": "build/esm/index.js",
@@ -15,6 +15,7 @@
 		"build": "rollup -c rollup.config.prod.js",
 		"build:types": "tsc --project tsconfig.types.json",
 		"start": "rollup -c rollup.config.dev.js --watch",
+		"prepare": "npm run build",
 		"docs:build": "rollup -c rollup.config.docs.js && docma -c docma.json --clean",
 		"docs:serve": "docma serve"
 	},
