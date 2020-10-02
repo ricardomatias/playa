@@ -7,7 +7,7 @@ import {
 	ChordStructures,
 	ChordDefinition,
 	ChordName,
-	ChordIntervals, Interval, Semitones,
+	ChordIntervals, Interval, Semitones, NoteSymbol,
 } from '../constants';
 import { deconstructName } from './utils';
 import { natural, PlayaError, whilst } from '../utils';
@@ -333,7 +333,7 @@ export class Chord extends HarmonyBase {
 		const structureIntervals = defaultIntervals.length === 1 ? defaultIntervals[0] : choose(Array.from(defaultIntervals));
 		const structureIntervalsArray = structureIntervals.split(' ');
 
-		const scale = new Scale(root, intervals as string);
+		const scale = new Scale(root as NoteSymbol, intervals as string);
 
 		this._hasFlats = scale.hasFlats;
 		this._hasSharps = scale.hasSharps;
