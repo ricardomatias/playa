@@ -23,11 +23,11 @@ export class Scale extends HarmonyBase {
 	 * @constructs Scale
 	 * @memberof Core#
 	 *
-	 * @param {Note|NoteSymbol|string} note A note
+	 * @param {NoteSymbol} note A note
 	 * @param {string} intervals the scale to create
 	 * @param {Array<Number>} [octaves = [3, 1]] [starting, number of octaves] range of octaves to map notes to
 	 */
-	constructor(note: Note | NoteSymbol | string, intervals: ScaleIntervals | string, octaves: Octaves = [ 3, 1 ]) {
+	constructor(note: NoteSymbol, intervals: ScaleIntervals | string, octaves: Octaves = [ 3, 1 ]) {
 		super(note, octaves);
 
 		this._intervals = intervals;

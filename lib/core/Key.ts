@@ -52,14 +52,14 @@ export class Key extends Scale {
 	 * @constructs Key
 	 * @memberof Core#
 	 *
-	 * @param {Note|NoteSymbol|string} root
+	 * @param {NoteSymbol} root
 	 * @param {ScaleIntervals|string} intervals the type of Scale to create
 	 * @param {Array<Number>} [octaves = [ 3, 1]] [starting, number of octaves] range of octaves to map notes to
 	 * @param {Object} [opts = {}]
 	 * @param {Array<Number>} [opts.chordStructure = Chord.Structures.Seventh ] - f.ex: Chord.Structures.Sixth
 	 */
 	constructor(
-		root: NoteSymbol | Note | string,
+		root: NoteSymbol,
 		intervals: ScaleIntervals | string,
 		octaves: Octaves = [ 3, 1 ],
 		{ chordStructure = Chord.Structures.Seventh }: { chordStructure?: ChordStructure } = {},

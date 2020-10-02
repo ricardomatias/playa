@@ -29,13 +29,8 @@ abstract class HarmonyBase {
 	 * @param {Note} root
 	 * @param {Array<Number>} octaves [starting, number of octaves] range of octaves to map notes to
 	 */
-	constructor(root: Note | string | NoteSymbol, octaves: Octaves) {
-		if (root instanceof Note) {
-			this._root = root.n as NoteSymbol;
-		} else {
-			this._root = root as NoteSymbol;
-		}
-
+	constructor(root: NoteSymbol, octaves: Octaves) {
+		this._root = root;
 		this._octaves = octaves;
 	}
 
