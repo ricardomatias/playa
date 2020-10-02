@@ -1,9 +1,9 @@
 import * as R from 'ramda';
-import { TICKS } from '../constants';
+import { Notevalue, Ticks } from '../constants';
 import { Event } from '../core/Event';
 import { TimeFormat } from '../core/Time';
 
-export const toTicks = (time: TimeFormat): number => (typeof time === 'number' ? time : TICKS.get(time));
+export const toTicks = (time: TimeFormat): number => (typeof time === 'number' ? time : Ticks[time as Notevalue]);
 
 /**
  * Calculates the duration of a motif

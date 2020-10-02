@@ -1,10 +1,10 @@
 import * as R from 'ramda';
-import TICKS from '../constants/ticks';
+import { Ticks } from '../constants';
 import { Event } from '../core/Event';
-import { Time } from '../core/Time';
+import { Time, TimeFormat } from '../core/Time';
 import { toTicks } from '../utils';
 
-const QUARTER = TICKS.get('4n');
+const QUARTER = Ticks['4n'];
 
 /**
  * Time tools
@@ -16,7 +16,7 @@ const QUARTER = TICKS.get('4n');
 
 // https://github.com/Tonejs/Tone.js/blob/dev/Tone/type/Time.js
 
-export const mapDurations = (durations: string[]): Event[] => (durations.map((dur) => (
+export const mapDurations = (durations: TimeFormat[]): Event[] => (durations.map((dur) => (
 	{
 		time: 0,
 		dur: toTicks(dur),
@@ -25,7 +25,7 @@ export const mapDurations = (durations: string[]): Event[] => (durations.map((du
 	}
 )));
 
-export function isEvent(pattern: string[] | Event[]): pattern is Event[] {
+export function isEvent(pattern: TimeFormat[] | Event[]): pattern is Event[] {
 	return typeof (pattern as Event[])[0] === 'object';
 }
 
@@ -49,7 +49,7 @@ export function isEvent(pattern: string[] | Event[]): pattern is Event[] {
  * @param {number} startTime
  * @return {Array<NoteEvent|ChordEvent>} pattern
  */
-export function expandDuration(pattern: Event[] | string[], startTime = 0): Event[] {
+export function expandDuration(pattern: Event[] | TimeFormat[], startTime = 0): Event[] {
 	if (!Array.isArray(pattern)) return [];
 
 	if (!isEvent(pattern)) {
@@ -70,12 +70,12 @@ export function expandDuration(pattern: Event[] | string[], startTime = 0): Even
 			newEvent.next = event.next;
 		} else {
 			const prevEvent = events[index - 1] as Event;
-			const prevTime = prevEvent ? prevEvent.time : null;
+			const prevTime = prevEvent.time;
 
 			const prop = prevEvent.next != 0 ? 'next' : 'dur';
 			const value = prevEvent[prop];
 
-			const duration = typeof value === 'number' ? value : TICKS.get(value);
+			const duration = toTicks(value);
 
 			newEvent.time = prevTime + duration;
 		}
@@ -83,6 +83,10 @@ export function expandDuration(pattern: Event[] | string[], startTime = 0): Even
 		events.push(newEvent);
 	});
 
+	return computeEventsNext(events);
+}
+
+export const computeEventsNext = (events: Event[]): Event[] => {
 	return events.map((event, index) => {
 		const nextEvent = events[index + 1];
 
@@ -90,13 +94,16 @@ export function expandDuration(pattern: Event[] | string[], startTime = 0): Even
 
 		return event;
 	});
-}
+};
 
-export const mapStartToEvent = (event: Event, startTime: Time): Event => ({
-	...event,
-	time: startTime.ticks + event.time,
-	next: startTime.ticks + event.next,
-});
+export const mapStartToEvent = (event: Event, startTime: TimeFormat): Event => {
+	const start = new Time(startTime);
+	return ({
+		...event,
+		time: start.ticks + event.time,
+		next: start.ticks + event.next,
+	});
+};
 
 /**
  * @function convertEventsToNotevalues
@@ -110,8 +117,8 @@ export const convertEventsToNotevalues = (events: Event[]): string[] => {
 	const filteredEvents = R.filter(R.propEq('isRest', false), events);
 
 	return filteredEvents.map((evt, index) => {
-		const nv = new Time(index ? evt.next - evt.time : evt.next).notevalue;
-		return nv;
+		// TODO: Switch to Notevalue and fix undefined issue
+		return new Time(index ? evt.next - evt.time : evt.next).notevalue as string;
 	});
 };
 

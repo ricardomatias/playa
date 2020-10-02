@@ -2,7 +2,6 @@
 	"extends": [
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
-		"eslint:recommended",
 		"google",
 		"plugin:import/errors",
 		"plugin:import/warnings"

@@ -11,7 +11,7 @@ const extensions = [
 ];
 
 const baseConfig = {
-	input: './lib/index.js',
+	input: './lib/index.ts',
 	output: [
 		{
 			dir: 'build/esm',
@@ -29,7 +29,9 @@ const baseConfig = {
 			comments: 'jsdoc',
 			compactComments: false,
 		}),
-		typescript({ target: 'ESNext' }),
+		typescript({
+			target: 'ESNext',
+		}),
 		progress(),
 	],
 };

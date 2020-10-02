@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { TICKS } from '../../constants';
+import { Notevalue, Ticks } from '../../constants';
 import ring from '@ricardomatias/ring';
 
 const calcMaxRhythmNotes = (totalRhythmDuration: number, noteValue: number) => {
@@ -15,12 +15,12 @@ export type GridCell = {
 	dur?: number;
 }
 
-export default (totalRhythmDuration: number, subDivision: number): GridCell[] => {
+export function createGrid(totalRhythmDuration: number, subDivision: number): GridCell[] {
 	const grid = [];
 	const normal = `${subDivision}n`;
 	const triplet = `${subDivision}nt`;
-	const normalTicks: number = TICKS.get(normal);
-	const tripletTicks: number = TICKS.get(triplet);
+	const normalTicks: number = Ticks[normal as Notevalue];
+	const tripletTicks: number = Ticks[triplet as Notevalue];
 
 	let maxRhythmNotes = calcMaxRhythmNotes(totalRhythmDuration, tripletTicks);
 
@@ -48,4 +48,4 @@ export default (totalRhythmDuration: number, subDivision: number): GridCell[] =>
 	}
 
 	return ring(R.uniq(R.sortBy(R.prop('time'), grid)));
-};
+}

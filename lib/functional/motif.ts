@@ -19,7 +19,7 @@ import { TimeFormat } from '../core/Time';
  * @param {TimeFormat} [startTime = 0] when to start the motif
  * @return {Array<NoteEvent>}
  */
-function createMotif(notes: Note[], rhythm: string[] | Event[], startTime: TimeFormat = 0): NoteEvent[] {
+export function createMotif(notes: Note[], rhythm: string[] | Event[], startTime: TimeFormat = 0): NoteEvent[] {
 	if (!isEvent(rhythm)) {
 		rhythm = expandDuration(rhythm);
 	}
@@ -42,5 +42,3 @@ function createMotif(notes: Note[], rhythm: string[] | Event[], startTime: TimeF
 	return pattern;
 }
 
-
-export default createMotif;
