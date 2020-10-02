@@ -120,7 +120,7 @@ function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
 		switch (turnType) {
 		case TurnMoves.Start:
 			// create a new key from the starting key
-			key = new Key(startingKey.root, startingKey.type);
+			key = new Key(startingKey.root as NoteSymbol, startingKey.type);
 			mainKeyRoot = key.root;
 
 			key.modulateMode({ interval: interval as number });

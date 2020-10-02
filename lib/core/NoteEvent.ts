@@ -2,8 +2,8 @@ import { Event } from './Event';
 
 
 export interface NoteEvent extends Event {
-	midi?: number;
-	note?: string;
+	midi: number;
+	note: string;
 }
 
 /**
@@ -25,7 +25,14 @@ export interface NoteEvent extends Event {
 * ]
 */
 
-export const NoteEvent = ({ time, dur, next = time + dur, midi = -1, note = '', isRest = false }: NoteEvent): NoteEvent => {
+export const NoteEvent = ({
+	time = 0,
+	dur = 0,
+	next = 0,
+	midi = -1,
+	note = '',
+	isRest = false,
+}: Partial<NoteEvent>): NoteEvent => {
 	return Object.assign({}, {
 		time, dur, next, midi, note, isRest,
 	});
