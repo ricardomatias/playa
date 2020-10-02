@@ -75,9 +75,9 @@ class Random {
 	 * @function float
 	 * @memberof Tools.Random
 	 *
-	 * @param {Number} max
-	 * @param {Number} min
-	 * @return {Number} [0, 1]
+	 * @param {number} max
+	 * @param {number} min
+	 * @return {number} [0, 1]
 	 */
 	float = (max = 1.0, min = 0.0): number => {
 		this.x += this.increment;
@@ -94,9 +94,9 @@ class Random {
 	 * @function int
 	 * @memberof Tools.Random
 	 *
-	 * @param {Number} max
-	 * @param {Number} [min=0]
-	 * @return {Number}
+	 * @param {number} max
+	 * @param {number} [min=0]
+	 * @return {number}
 	 */
 	int = (max: number, min = 0): number => {
 		return min + Math.floor((this.float() * (1 + max - min)));
@@ -105,12 +105,10 @@ class Random {
 	/**
 	 * Generates a random integer between a range
 	 *
-	 * @function int
+	 * @function boolean
 	 * @memberof Tools.Random
 	 *
-	 * @param {Number} max
-	 * @param {Number} [min=0]
-	 * @return {Number}
+	 * @return {boolean}
 	 */
 	boolean = (): boolean => {
 		return !!this.int(1);

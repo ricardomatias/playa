@@ -14,7 +14,7 @@ const extensions = [
 
 export default [
 	{
-		input: './lib/index.js',
+		input: './lib/index.ts',
 		output: [
 			{
 				dir: 'build/esm',

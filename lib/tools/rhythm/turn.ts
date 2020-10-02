@@ -1,15 +1,15 @@
 import * as R from 'ramda';
 import { roll, distribute } from '@ricardomatias/roll';
 
-import { TICKS } from '../../constants';
+import { Ticks, Notevalue } from '../../constants';
 import { whilst, findCombinationsSum } from '../../utils';
 import Random from '../random';
-import createGrid, { GridCell } from './grid';
+import { createGrid, GridCell } from './grid';
 import { Time, TimeFormat } from '../../core/Time';
 import { Event } from '../../core/Event';
 
 const PRECISION = 5;
-const MAX_DUR = TICKS.get('1nd');
+const MAX_DUR = Ticks['1nd'];
 
 
 const sortDiverseFirst = R.descend(R.compose(R.length, R.groupWith(R.equals)));
@@ -64,17 +64,14 @@ type TurnOptions = Partial<{
  * @memberof Tools.Rhythm
  *
  * @example
- *  generateTurnRhythm(ONE_BAR * 2, 7, { combSorting: { diverseFirst: true }, });
- *  =>
- * { time: 0, dur: 240 },
- * { time: 240, dur: 240 },
- * { time: 480, dur: 240 },
- * { time: 720, dur: 240 },
- * { time: 960, dur: 960 },
- * { time: 1920, dur: 960 },
- * { time: 2880, dur: 960 }
+ * createTurnRhythm('2n', 3) =>
+ * [
+ *	 { time: 0, dur: 240, next: 240, isRest: false },
+ *	 { time: 240, dur: 480, next: 720, isRest: false },
+ *	 { time: 720, dur: 240, next: 960, isRest: false }
+ * ]
  *
- * @param {Number} length in ticks or transport
+ * @param {TimeFormat} length in ticks or transport
  * @param {Number} turns number of turns
  * @param {Object} [opts = {}] available options
  * @param {Number} [opts.minNoteValue = 8] [16, 8, 4]
@@ -82,11 +79,11 @@ type TurnOptions = Partial<{
  * @param {Boolean} [opts.debug = false] toggle debug mode
  * @return {Array<Event>} { time, dur }
  */
-const createTurnRhythm = (
+export function createTurnRhythm(
 	length: TimeFormat,
 	turns: number,
 	{ minNoteValue = 8, combSorting = {}, debug = false }: TurnOptions = {},
-): Event[] => {
+): Event[] {
 	if (turns <= 1) {
 		throw new Error('Cannot make a rhythm out of less than 2 turns');
 	}
@@ -97,7 +94,7 @@ const createTurnRhythm = (
 
 	const grouping = drawGroupingCombination(turns, combSorting);
 
-	const MAX_TURNS = totalRhythmDuration / TICKS.get(`${minNoteValue}nt`);
+	const MAX_TURNS = totalRhythmDuration / Ticks[`${minNoteValue}nt` as Notevalue];
 
 	if (MAX_TURNS < turns) {
 		throw new Error('The minNoteValue is too big for the amount of turns wanted');
@@ -137,7 +134,7 @@ const createTurnRhythm = (
 					}
 
 					dur = calcDur(grid, gridIndex, hitLength, totalRhythmDuration);
-				}, () => (!TICKS.get(dur)));
+				}, () => (!Ticks[dur]));
 			}
 
 			grid[gridIndex].hit = true;
@@ -166,7 +163,7 @@ const createTurnRhythm = (
 		}
 	}
 
-	const hits = grid.filter((cell) => cell.hit);
+	const hits = grid.filter((cell: GridCell) => cell.hit);
 
 	if (debug) {
 		console.table(grid);
@@ -174,7 +171,6 @@ const createTurnRhythm = (
 		console.table(groupingHits);
 	}
 
-	return hits.map((cell) => (Event({ time: cell.time, dur: cell.dur, next: cell.time + (cell.dur as number) })));
-};
+	return hits.map((cell: GridCell) => (Event({ time: cell.time, dur: cell.dur, next: cell.time + (cell.dur as number) })));
+}
 
-export default createTurnRhythm;

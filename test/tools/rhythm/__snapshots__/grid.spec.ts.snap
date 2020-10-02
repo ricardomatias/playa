@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#createGrid should create a 4n grid 1`] = `
+ [
+  Object {
+    "res": Array [
+      "4nt",
+      "4n",
+    ],
+    "time": 0,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 320,
+  },
+  Object {
+    "res": Array [
+      "4n",
+    ],
+    "time": 480,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 640,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+      "4n",
+    ],
+    "time": 960,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 1280,
+  },
+  Object {
+    "res": Array [
+      "4n",
+    ],
+    "time": 1440,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 1600,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+      "4n",
+    ],
+    "time": 1920,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 2240,
+  },
+  Object {
+    "res": Array [
+      "4n",
+    ],
+    "time": 2400,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 2560,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+      "4n",
+    ],
+    "time": 2880,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 3200,
+  },
+  Object {
+    "res": Array [
+      "4n",
+    ],
+    "time": 3360,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 3520,
+  },
+]
+`;

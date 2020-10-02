@@ -37,7 +37,7 @@ export class PlayaError extends Error {
 		}
 	}
 
-	toString() {
+	toString(): string {
 		return `[${this.name}] ${this.message}\n ${JSON.stringify(this.context, null, '\t')}`;
 	}
 }

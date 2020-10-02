@@ -1,23 +1,20 @@
-import TICKS from '../constants/ticks';
+import { Notevalue, Ticks } from '../constants';
 
-const QUARTER = TICKS.get('4n');
+const QUARTER = Ticks['4n'];
 
 const TRANSPORT_SEP = ':';
 
-/**
- * Notevalues | BarsBeatsSixteenths | Ticks
- */
 export type TimeFormat = string | number | Time;
 
-// export interface Time {
-// 	ticks: number;
-// 	t: number;
-// 	notevalue: string;
-// 	n: string;
-// 	transport: string;
-// 	bbs: string;
-// 	valueOf: () => number;
-// }
+/**
+ * Time formats
+ * @memberof Types
+ * @typedef {Time | string | number} TimeFormat
+ * @example
+ * '2n' // string
+ * 480 // number
+ * new Time('1:0:0') // Time
+*/
 
 /**
  * Time
@@ -28,7 +25,7 @@ export type TimeFormat = string | number | Time;
  */
 export class Time {
 	#ticks: number;
-	#notevalue: string;
+	#notevalue?: Notevalue;
 	#bbs: string;
 
 	/**
@@ -47,26 +44,26 @@ export class Time {
 		// Ticks
 		if (typeof time === 'number') {
 			this.#ticks = time;
-			this.#notevalue = TICKS.get(time);
+			this.#notevalue = Ticks[time] as Notevalue;
 			this.#bbs = Time.ticksToBBS(time);
 		} else
 		// Notevalue
 		if (/n/.test(time)) {
-			this.#notevalue = time;
-			this.#ticks = TICKS.get(time);
+			this.#notevalue = time as Notevalue;
+			this.#ticks = Ticks[time as Notevalue];
 			this.#bbs = Time.ticksToBBS(this.#ticks);
 		} else
 		if (/:/.test(time)) {
 			this.#bbs = time;
 			this.#ticks = Time.bbsToTicks(time);
-			this.#notevalue = TICKS.get(this.#ticks);
+			this.#notevalue = Ticks[this.#ticks] as Notevalue;
 		} else {
 			throw new Error(`[Time] Unrecognized time format for -> ${time}`);
 		}
 	}
 
 	valueOf(): number {
-		return this.#ticks;
+		return this.#ticks as number;
 	}
 
 	/**
@@ -108,7 +105,7 @@ export class Time {
 	 * @type {string}
 	 * @memberof Core#Time#
 	 */
-	get notevalue(): string {
+	get notevalue(): Notevalue | undefined {
 		return this.#notevalue;
 	}
 
@@ -123,7 +120,7 @@ export class Time {
 	 * @type {string}
 	 * @memberof Core#Time#
 	 */
-	get n(): string {
+	get n(): Notevalue | undefined {
 		return this.#notevalue;
 	}
 
@@ -162,7 +159,7 @@ export class Time {
 	 * @description  Converts "BARS : QUARTERS : BEATS" to ticks
 	 *
 	 * @param {string} time '2.3.1'
-	 * @param {object} [opts = {}]
+	 * @param {Object} [opts = {}]
 	 * @param {boolean} [opts.positionMode=false]
 	 * @param {number} [opts.ppq = 480] Pulse per quarter note
 	 * @return {Number}
@@ -228,3 +225,12 @@ export class Time {
 		].join(TRANSPORT_SEP);
 	};
 }
+
+export const TOff = new Time('0:0:2');
+export const T1 = new Time('1:0:0');
+export const T2 = new Time('2:0:0');
+export const T4 = new Time('4:0:0');
+export const T8 = new Time('8:0:0');
+export const T16 = new Time('16:0:0');
+export const T32 = new Time('32:0:0');
+export const T64 = new Time('64:0:0');

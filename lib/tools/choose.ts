@@ -36,7 +36,7 @@ export const chooseMany = <T>(list: T[], n: number, compareAgainst = null): T[] 
 
 
 /**
- * Choose a random element from an array
+ * Choose one random element from an array
  * @function choose
  * @memberof Tools
  *

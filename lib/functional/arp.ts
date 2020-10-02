@@ -19,16 +19,16 @@ import { TimeFormat } from '../core/Time';
  * @example
  * createArp(new Key('A', Key.MAJOR), [ 1, 5, 4 ], [ '4n', '8n', '2n' ])
  *
- * @param {Scale|Chord} harmonic harmonic element
+ * @param {Key|Scale|Chord} harmonic harmonic element
  * @param {number[]} patt note positions in terms of intervals [1,5,4] => [tonic, fifth, fourth]
  * @param {string[]} rhythm note durations
- * @param {(string | number)} [startTime=0]
+ * @param {TimeFormat} [startTime=0]
  *
- * @return {Motif}
+ * @return {NoteEvent[]}
  */
-const createArp = <T extends Scale | Chord>(
+export function createArp<T extends Scale | Chord>(
 	harmonic: T, patt: number[], rhythm: string[] | Event[], startTime: TimeFormat = 0,
-): NoteEvent[] => {
+): NoteEvent[] {
 	// [ 1, 5, 4 ]
 	const melody: Note[] = ring(patt.map(harmonic.noteAt.bind(harmonic)));
 	const start = new Time(startTime);
@@ -48,7 +48,6 @@ const createArp = <T extends Scale | Chord>(
 		rhythm = R.times(nextRhy, eventsCount);
 	}
 
-	// const ringRhythm = typeof rhythm[0] === 'string' ? R.pipe(mapDurations, expandDuration, ring)(rhythm) : ring(rhythm);
 	const ringRhythm = ring(rhythm);
 	const pattern = [];
 
@@ -64,6 +63,4 @@ const createArp = <T extends Scale | Chord>(
 	}
 
 	return R.map(NoteEvent, expandDuration(pattern, start.ticks));
-};
-
-export default createArp;
+}

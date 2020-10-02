@@ -1,11 +1,12 @@
 import * as R from 'ramda';
 import { TimeFormat, Time as T } from '../../core/Time';
-import { whilst, isEmpty, PlayaError } from '../../utils';
+import { whilst, PlayaError, toTicks } from '../../utils';
 import { expandDuration } from '../time';
 import { roll, distribute } from '@ricardomatias/roll';
 import Random from '../random';
 import { chooseMany } from '../choose';
 import { Event } from '../../core/Event';
+import { Notevalue } from '../../constants';
 
 const PRECISION = 5;
 
@@ -19,22 +20,29 @@ const PRECISION = 5;
  * Generates a rhythm
  * @function free
  * @memberof Tools.Rhythm
+ * @example
+ * createFreeRhythm('2n', [ '8n', '4nt' ]) =>
+ * [
+	{ time: 0, dur: 320, next: 320, isRest: false },
+	{ time: 320, dur: 320, next: 640, isRest: false },
+	{ time: 640, dur: 320, next: 960, isRest: false }
+]
  *
- * @param {Number} length in Ticks
- * @param {Array} noteValues available notevalues
- * @param {Array} [noteDurations=[]] available notevalues
+ * @param {TimeFormat} length in Ticks
+ * @param {Array<Notevalue>} noteValues available notevalues
+ * @param {Array<Notevalue>} [noteDurations=[]] available notevalues
  * @param {Function} [distributionAlgo = distribute.equal] [ decreasing, increasing, equal ] probability distribution
  * @return {Array<Event>}
  */
-const createFreeRhythm = (
+export function createFreeRhythm(
 	length: TimeFormat,
-	noteValues: TimeFormat[],
+	noteValues: Notevalue[],
 	noteDurations: TimeFormat[] = [],
 	distributionAlgo: (rhythm: TimeFormat[], precision?: number) => string[] = distribute.equal,
-): Event[] => {
+): Event[] {
 	const totalRhythmDuration = new T(length).ticks;
 
-	let rhythm: string[] = [];
+	let rhythm: Notevalue[] = [];
 	let availableRhythmUnits = [ ...noteValues ];
 	let probabilities = distributionAlgo(availableRhythmUnits, PRECISION);
 	let totalTime = 0;
@@ -43,7 +51,7 @@ const createFreeRhythm = (
 		whilst(() => {
 			const duration = roll(availableRhythmUnits, probabilities, Random.float);
 
-			const ticks = typeof duration === 'string' ? new T(duration) : duration;
+			const ticks = toTicks(duration);
 
 			if (totalTime + ticks <= totalRhythmDuration) {
 				totalTime += ticks;
@@ -54,7 +62,7 @@ const createFreeRhythm = (
 
 				probabilities = distributionAlgo(availableRhythmUnits);
 
-				if (isEmpty(availableRhythmUnits)) {
+				if (R.isEmpty(availableRhythmUnits)) {
 					availableRhythmUnits = R.clone(noteValues);
 					probabilities = distributionAlgo(availableRhythmUnits);
 					totalTime = 0;
@@ -105,6 +113,4 @@ const createFreeRhythm = (
 	});
 
 	return expandDuration(R.flatten(fillDurations(rhythm, durations)));
-};
-
-export default createFreeRhythm;
+}

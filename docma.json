@@ -19,7 +19,7 @@
 		"undescribed": false,
 		"ignored": false,
 		"hierarchy": true,
-		"sort": "access",
+		"sort": "grouped",
 		"relativePath": null,
 		"filter": null,
 		"allowUnknownTags": true,

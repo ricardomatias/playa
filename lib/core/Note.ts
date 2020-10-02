@@ -1,7 +1,18 @@
 /* eslint-disable no-dupe-class-members */
 import { whichAccident, stripOctave, hasOctave, parseNote } from '../utils/note';
-import { SHARPS, FLATS, ENHARMONICS, DIATONIC_NOTES, MIDI_NOTES } from '../constants';
+import {
+	Sharp,
+	Sharps,
+	Flats,
+	Enharmonics,
+	DiatonicNote,
+	DiatonicNotes,
+	MidiNotes,
+	NoteSymbol,
+} from '../constants';
 import { findOctave, findFrequency } from '../tools/midi';
+import { isUndefined } from '../utils/types-guards';
+import { PlayaError } from '../utils';
 
 
 /**
@@ -13,31 +24,32 @@ import { findOctave, findFrequency } from '../tools/midi';
  * @name Note
  */
 export class Note {
-	#note = '';
+	#note: NoteSymbol;
 	#octave: number | undefined;
 	#midi: number | undefined;
 	#freq: number | undefined;
-	#enharmonic: string | undefined;
+	#enharmonic: NoteSymbol | undefined;
 	#accident: string | undefined;
-	#isFlat = false;
-	#isSharp = false;
-	#next: string;
-	#prev: string;
+	// #isFlat = false;
+	// #isSharp = false;
+	#next: NoteSymbol;
+	#prev: NoteSymbol;
 
 	static SHARP = '#';
 	static FLAT = 'b';
-	static SHARPS: string[] = SHARPS;
-	static FLATS: string[] = FLATS;
+	static Sharps = Sharps;
+	static Flats = Flats;
 
 	constructor(note: number);
 	constructor(note: string);
-	constructor(note: string, midi: number);
+	constructor(note: NoteSymbol);
+	constructor(note: NoteSymbol | string, midi: number);
 
 	/**
 	* @constructs Note
 	* @memberof Core#
 	*
-	* @param {string|number} note - a musical note
+	* @param {NoteSymbol|number} note - a musical note
 	* @param {number} [midi = undefined] - a midi value
 	* @example
 	* new Note('C3')
@@ -45,12 +57,12 @@ export class Note {
 	* new Note('C')
 	* new Note(60)
 	*/
-	constructor(note: string | number, midi?: number) {
+	constructor(note: NoteSymbol | number | string, midi?: number) {
 		let octave = 0;
 
 		if (typeof note === 'number') {
 			midi = note;
-			const midiNote = MIDI_NOTES[midi];
+			const midiNote = MidiNotes[midi];
 
 			if (!midiNote) {
 				throw new Error(`[Note]: <${midi}> isn't a valid midi note number`);
@@ -66,22 +78,22 @@ export class Note {
 				throw new Error(`[Note]: <${note}> isn't a recognized musical note`);
 			}
 
-			midi = MIDI_NOTES.indexOf(note);
+			midi = MidiNotes.indexOf(note);
 			note = parsed.note;
 			octave = parsed.octave;
 
 			if (midi === -1) {
-				const enh = this._resolveEnharmonic(note);
+				const enh = this.resolveEnharmonic(note as NoteSymbol);
 
 				if (enh) {
-					midi = MIDI_NOTES.indexOf(enh + parsed.octave);
+					midi = MidiNotes.indexOf(enh + parsed.octave);
 				}
 			}
 		}
 
 		if (typeof midi !== 'undefined') {
 			if (midi >= 0 && midi <= 127) {
-				this.#note = note;
+				this.#note = note as NoteSymbol;
 				this.#midi = midi;
 				this.#octave = findOctave(midi);
 				this.#freq = findFrequency(midi);
@@ -89,23 +101,23 @@ export class Note {
 			} else {
 				throw new Error(`[Note]: <${note + octave}> isn't within the midi range of [0 - 127]`);
 			}
-		}
-
-		if (!this.#note) {
-			const diatonicIndex = DIATONIC_NOTES.indexOf(note);
+		} else {
+			const diatonicIndex = DiatonicNotes.indexOf(note as DiatonicNote);
 
 			if (diatonicIndex !== -1) {
-				this.#note = DIATONIC_NOTES[diatonicIndex];
-			} else if (this._resolveEnharmonic(note)) {
-				this.#note = note;
-			}
-
-			if (this.#note === '') {
+				this.#note = DiatonicNotes[diatonicIndex];
+			} else if (this.hasAccident(note as NoteSymbol) && this.resolveEnharmonic(note as NoteSymbol)) {
+				this.#note = note as NoteSymbol;
+			} else {
 				throw new Error(`[Note]: <${note}> isn't a recognized musical note`);
 			}
 		}
 
-		const { next, prev } = this._findNeighbours();
+		if (isUndefined(this.#note)) {
+			throw new PlayaError('[Note]', `<${note}> isn't a recognized musical note`);
+		}
+
+		const { next, prev } = this.findNeighbours();
 
 		this.#next = next;
 		this.#prev = prev;
@@ -142,10 +154,10 @@ export class Note {
 	 *
 	 * @member note
 	 * @memberof Core#Note#
-	 * @example 'C4'
+	 * @example 'C'
 	 * @type {string}
 	 */
-	get note(): string {
+	get note(): NoteSymbol {
 		return this.#note;
 	}
 
@@ -170,21 +182,21 @@ export class Note {
 	 * @example 'D#' => 'Eb'
 	 * @type {String}
 	 */
-	get e(): string | undefined {
+	get e(): NoteSymbol | undefined {
 		return this.enharmonic;
 	}
 
 	/**
-	* Returns the enharmonic
+	* Returns the enharmonic or itself if it doesn't have one
 	*
 	* @member enharmonic
 	* @memberof Core#Note#
 	* @example 'D#' => 'Eb'
 	* @type {String}
 	*/
-	get enharmonic(): string | undefined {
+	get enharmonic(): NoteSymbol | undefined {
 		if (!this.#enharmonic) {
-			this.#enharmonic = this._resolveEnharmonic(this.#note);
+			this.#enharmonic = this.resolveEnharmonic(this.#note);
 		}
 
 		return this.#enharmonic;
@@ -282,10 +294,10 @@ export class Note {
 		const enh = this.e;
 
 		if (this.isFlat && enh) {
-			return SHARPS.indexOf(enh);
+			return Sharps.indexOf(enh as Sharp);
 		}
 
-		return SHARPS.indexOf(note);
+		return Sharps.indexOf(note as Sharp);
 	}
 
 	/**
@@ -314,7 +326,7 @@ export class Note {
 		return this.getNeighbour(this.#prev, midi);
 	}
 
-	private getNeighbour(note: string, midi: number | null): Note {
+	private getNeighbour(note: NoteSymbol, midi: number | null): Note {
 		if (!midi) {
 			return new Note(note);
 		}
@@ -361,19 +373,11 @@ export class Note {
 	 * @return {String} enharmonic
 	 * @memberof Note
 	 */
-	private _resolveEnharmonic(note: string): string | undefined {
+	private resolveEnharmonic(note: NoteSymbol): NoteSymbol | undefined {
 		let enharmonic = '';
 
-		if (!this.#accident) {
-			this.#accident = whichAccident(note);
-		}
-
-		if (!this.#accident) {
-			return '';
-		}
-
-		for (let index = 0; index < ENHARMONICS.length; index++) {
-			const enharmonics = ENHARMONICS[index];
+		for (let index = 0; index < Enharmonics.length; index++) {
+			const enharmonics = Enharmonics[index];
 			const noteIndex = enharmonics.indexOf(note);
 
 			if (noteIndex !== -1) {
@@ -388,9 +392,16 @@ export class Note {
 			return;
 		}
 
-		return enharmonic;
+		return <NoteSymbol>enharmonic;
 	}
 
+	private hasAccident(note: NoteSymbol) {
+		if (!this.#accident) {
+			this.#accident = whichAccident(note);
+		}
+
+		return !!this.#accident;
+	}
 
 	/**
 	 * Finds the neighboring notes
@@ -398,18 +409,18 @@ export class Note {
 	 * @return {Object} [prev, next] Adjacent neighbors
 	 * @memberof Note
 	 */
-	private _findNeighbours(): { prev: string; next: string } {
-		let note = this.#note;
+	private findNeighbours(): { prev: NoteSymbol; next: NoteSymbol } {
+		let note: NoteSymbol | undefined = this.#note;
 
 		if (!this.#accident) {
 			this.#accident = whichAccident(note);
 		}
 
 		if (this.#accident === Note.FLAT) {
-			note = this.enharmonic || '';
+			note = this.enharmonic;
 		}
 
-		const noteIndex = SHARPS.indexOf(note);
+		const noteIndex = Sharps.indexOf(note as Sharp);
 		// [0, 11]
 		// -1 -> 11
 		// 12 -> 0
@@ -417,8 +428,8 @@ export class Note {
 		const nextIndex = noteIndex + 1;
 
 		return {
-			prev: SHARPS[prevIndex === -1 ? 11 : prevIndex],
-			next: SHARPS[nextIndex === 12 ? 0 : nextIndex],
+			prev: Sharps[prevIndex === -1 ? 11 : prevIndex],
+			next: Sharps[nextIndex === 12 ? 0 : nextIndex],
 		};
 	}
 }

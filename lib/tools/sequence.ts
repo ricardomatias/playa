@@ -1,8 +1,12 @@
 import * as R from 'ramda';
-import { Scale, Key, Chord, Note } from '../core';
+import { Scale } from '../core/Scale';
+import { Key } from '../core/Key';
+import { Chord } from '../core/Chord';
+import { Note } from '../core/Note';
 import distance from './distance';
-import { mapNotes } from '../utils';
-import { NoteType } from '../core/note-type';
+import { mapNotesToString, mapNotesToMidi, mapNotesToFreq } from '../utils';
+import { isDefined } from '../utils/types-guards';
+import { Interval, NoteSymbol } from '../constants';
 
 
 interface SequenceChords {
@@ -14,6 +18,7 @@ interface SequenceChords {
 
 /**
  * Defines a sequence of notes/chords
+ *
  * @class
  * @memberof Tools#
  *
@@ -26,17 +31,34 @@ class Sequence {
 	private _intervals: string[];
 
 	/**
-	* Creates an instance of Sequence.
+	* In order to create a chords sequence a {@link Key} class must be used.
+	*
 	* @constructs Sequence
 	* @memberof Tools#
+	* @example
+	*	const Amajor = new Key('A', Scale.Major);
+	*const seq = new Sequence(Amajor).I.II.V;
+	*seq.chords.string => [ 'AM7', 'Bm7', 'E7' ]
+	*seq.chords.midi => [ [ 69, 73, 76, 80 ], [ 71, 74, 78, 81 ], [ 64, 68, 71, 74 ] ]
 	*
 	* @param {Scale | Key} scale
 	*/
 	constructor(scale: Scale) {
 		this._scale = scale;
-		this._intervals = scale.type.split(' ');
+		this._intervals = scale.intervals.split(' ');
 	}
 
+	/**
+	 * Gets the sequence notes as string
+	 * @member string
+	 * @example
+	 * const Amajor = new Scale('A', Scale.Major);
+	 * new Sequence(Amajor).I.II.V.string => [ 'A3', 'B3', 'E4' ];
+	 *
+	 * @readonly
+	 * @type {string[]}
+	 * @memberof Tools#Sequence#
+	 */
 	get string(): string[] {
 		if (!this._notes.length) {
 			return [];
@@ -50,32 +72,71 @@ class Sequence {
 			return 0;
 		}, this._notes);
 
-		return mapNotes(notes, NoteType.STR) as string[];
+		return mapNotesToString(notes);
 	}
 
+	/**
+	* Gets the sequence notes as midi
+	* @member midi
+	* @example
+	* const Amajor = new Scale('A', Scale.Major);
+	* new Sequence(Amajor).I.II.V.midi => [ 69, 71, 76 ];
+	*
+	* @readonly
+	* @type {number[]}
+	* @memberof Tools#Sequence#
+	*/
 	get midi(): number[] {
 		if (!this._notes.length) {
 			return [];
 		}
 
-		return mapNotes(this._notes, NoteType.MIDI) as number[];
+		return mapNotesToMidi(this._notes);
 	}
 
+	/**
+	* Gets the sequence notes as frequencies
+	* @member freq
+	* @example
+	* const Amajor = new Scale('A', Scale.Major);
+	* new Sequence(Amajor).I.II.V.freq => [ 440, 493.8833012561241, 659.2551138257398 ]
+	*
+	* @readonly
+	* @type {number[]}
+	* @memberof Tools#Sequence#
+	*/
 	get freq(): number[] {
 		if (!this._notes.length) {
 			return [];
 		}
 
-		return mapNotes(this._notes, NoteType.FREQ) as number[];
+		return mapNotesToFreq(this._notes);
 	}
 
+	/**
+	* Gets the sequence chords
+	* @member chords
+	* @example
+	*	const Amajor = new Key('A', Scale.Major);
+	*const seq = new Sequence(Amajor).I.II.V;
+	*seq.chords.string => [ 'AM7', 'Bm7', 'E7' ]
+	*seq.chords.midi => [ [ 69, 73, 76, 80 ], [ 71, 74, 78, 81 ], [ 64, 68, 71, 74 ] ]
+	*
+	* @readonly
+	* @type {Object}
+	* @property {Chord[]} array
+	* @property {number[]} midi
+	* @property {string[]} string
+	* @property {number[]} freq
+	* @memberof Tools#Sequence#
+	*/
 	get chords(): SequenceChords {
 		const chords = this._chords;
 
 		return {
 			array: chords,
 			midi: chords.map((chord) => chord.midi),
-			string: chords.map((chord) => chord.name),
+			string: chords.map((chord) => chord.name).filter(isDefined),
 			freq: chords.map((chord) => chord.freq),
 		};
 	}
@@ -87,7 +148,9 @@ class Sequence {
 
 		if (!interval) return this;
 
-		const notes: Note[] = scale.notes.filter((note) => (note.note === distance.transposeUp(root, interval)));
+		const notes: Note[] = scale.notes.filter((note) =>
+			(note.note === distance.transposeUp(root as NoteSymbol, interval as Interval)),
+		);
 
 		this._notes = this._notes.concat(notes);
 
