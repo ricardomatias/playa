@@ -45,20 +45,17 @@ const { Scale } = Core;
 const { createMotif } = Functional;
 const { Rhythm } = Tools;
 
-const scale = new Scale('A', Scale.MAJOR);
+const scale = new Scale('A', Scale.Major);
 
-const rhythm = Rhythm.free('1:0:0', ['4n', '8n']);
-// => [ '4n', '8n', '8n', '4n', '8n', '8n' ]
+const rhythm = Rhythm.free('2n', ['4n', '2n'], ['4n']);
 
 createMotif(scale.notes, rhythm);
 /* =>
 [
-  { time: 0, note: 'G#4', midi: 80, dur: 480},
-  { time: 480, note: 'E4', midi: 76, dur: 240 },
-  { time: 720, note: 'E4', midi: 76, dur: 240 },
-  { time: 960, note: 'D4', midi: 74, dur: 480},
-  { time: 1440, note: 'F#4', midi: 78, dur: 240 },
-  { time: 1680, note: 'D4', midi: 74, dur: 240 }
+	{ "time": 0, "dur": 480, "next": 480, "midi": 76, "note": "E4", "isRest": false },
+	{ "time": 480, "dur": 480, "next": 960, "midi": 74, "note": "D4", "isRest": false },
+	{ "time": 960, "dur": 480, "next": 1440, "midi": -1, "note": "", "isRest": true },
+	{ "time": 1440, "dur": 480, "next": 1920, "midi": 74, "note": "D4", "isRest": false }
 ]
 */
 ```
@@ -66,18 +63,6 @@ createMotif(scale.notes, rhythm);
 ## Documentation
 
 Can be found [here](https://ricardomatias.net/playa/?api).
-
-## Guide
-
-### Concepts
-
-#### Time
-There are 3 types of time used throughout _playa_:
-
-* ticks -> `480`
-* notevalues -> `4n`
-* transport -> `0:1:0`
-
 
 ## License
 
