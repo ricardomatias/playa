@@ -1,3 +1,4 @@
+import * as R from 'ramda';
 import { Note } from '../core/Note';
 import ring from '@ricardomatias/ring';
 import { interval as getInterval } from './interval';
@@ -30,6 +31,27 @@ const position = (note: NoteLike): number => {
 	return (
 		n.isFlat ? Flats.indexOf(n.note as Flat) : Sharps.indexOf(n.note as Sharp)
 	);
+};
+
+
+// TODO: Add tests
+/**
+ * Position in the {@link DiatonicNotes}
+ * @function naturalPosition
+ * @memberof Tools.Distance
+ *
+ * @param {Note | NoteSymbol | string} noteA
+ * @param {Note | NoteSymbol | string} noteB
+ * @return {number}
+ */
+const naturalPosition = (noteA: NoteLike, noteB: NoteLike): number => {
+	const natNoteA = natural(noteA) as DiatonicNote;
+	const natNoteB = natural(noteB) as DiatonicNote;
+
+	const posA = DiatonicNotes.indexOf(natNoteA);
+	const posB = DiatonicNotes.indexOf(natNoteB);
+
+	return posB > posA ? posB - posA : 8 - (posA - posB);
 };
 
 /**
@@ -66,9 +88,20 @@ const interval = (a: NoteLike, b: NoteLike): Interval | null => {
 	const noteA = assureNote(a);
 	const noteB = assureNote(b);
 
-	const semit = getInterval(semitones(noteA, noteB));
+	const semit = semitones(noteA, noteB);
+	const intervals = getInterval(semit);
 
-	return isNotNull(semit) ? semit[0] : null;
+	if (isNotNull(intervals)) {
+		if (intervals.length > 1) {
+			const natSemit = naturalPosition(noteA, noteB);
+
+			return intervals.find(R.includes(`${natSemit}`)) || intervals[0];
+		} else {
+			return intervals[0];
+		}
+	} else {
+		return null;
+	}
 };
 
 
@@ -137,8 +170,11 @@ const transposeDown = (note: NoteLike, int: Interval): NoteSymbol => (transpose(
 
 export default {
 	position,
+	naturalPosition,
 	semitones,
 	interval,
 	transposeUp,
 	transposeDown,
 };
+
+

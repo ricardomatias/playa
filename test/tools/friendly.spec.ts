@@ -24,11 +24,11 @@ describe('A Friendly test suite', () => {
 			const neighbours = friendly([ 'A', 'C#', 'G', 'B' ]);
 
 			expect(R.head(neighbours)).toEqual({
-				scale: '1P 2M 3M 4P 5P 6M 7m',
+				scale: '1P 2M 3m 4P 5P 6m 7m',
 				match: 1,
-				type: 'Mixolydian',
-				root: 'A',
-				intervals: '1P 2M 3M 7m',
+				root: 'B',
+				intervals: '1P 2M 6m 7m',
+				type: 'Minor',
 			});
 
 			expect(neighbours).toMatchSnapshot();
@@ -41,11 +41,11 @@ describe('A Friendly test suite', () => {
 			const neighbours = friendly([ 'F#', 'C#', 'D', 'D', 'E', 'C' ]);
 
 			expect(R.head(neighbours)).toEqual({
-				scale: '1P 2M 3M 4A 5P 6M 7M',
+				scale: '1P 2M 3M 4P 5P 6M 7m',
 				match: 0.75,
-				type: 'Lydian',
-				root: 'D',
-				intervals: '1P 2M 3M 7m 7M',
+				root: 'E',
+				intervals: '1P 2M 6m 6M 7m',
+				type: 'Mixolydian',
 			});
 
 			expect(neighbours).toMatchSnapshot();
@@ -83,6 +83,17 @@ describe('A Friendly test suite', () => {
 				type: 'Lydian',
 				intervals: '1P 5P',
 			});
+			expect(neighbours).toMatchSnapshot();
+		});
+
+		it('should return 2 notes - [D, F#]', () => {
+			// given
+			Random.setSeed('test');
+
+			// when
+			const neighbours = friendly([ 'D', 'F#' ]);
+
+			// then
 			expect(neighbours).toMatchSnapshot();
 		});
 

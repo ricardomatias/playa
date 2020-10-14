@@ -1,4 +1,4 @@
-import { NoteSymbol } from '../constants';
+import { DiatonicNote, NoteSymbol } from '../constants';
 import { Note } from '../core';
 
 const ACCIDENT_REGEXP = new RegExp('#|b');
@@ -31,14 +31,14 @@ export const whichAccident = (note: string): string | undefined => {
  * @param {String|Note} note
  * @return {String} Natural note
  */
-export const natural = (note: string | Note): NoteSymbol | null => {
+export const natural = (note: string | Note): DiatonicNote | null => {
 	if (!note) return null;
 
 	if (typeof note !== 'string') {
-		return <NoteSymbol>note.note.replace(ACCIDENT_REGEXP, '');
+		return <DiatonicNote>note.note.replace(ACCIDENT_REGEXP, '');
 	}
 
-	return <NoteSymbol>note.replace(ACCIDENT_REGEXP, '');
+	return <DiatonicNote>note.replace(ACCIDENT_REGEXP, '');
 };
 
 /**

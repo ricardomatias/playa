@@ -4,7 +4,7 @@ import { Sharps, Flats, DiatonicNotes, ScaleIntervals, Interval, NoteSymbol, Sca
 import distance from './distance';
 import { valuesToArr, convObj, rotate, hasNoNumber, whilst, stripOctave } from '../utils';
 import * as R from 'ramda';
-import { hasKeyValue, isDefined, isNumber, isString } from '../utils/types-guards';
+import { hasKeyValue, isDefined, isNotNull, isNumber, isString } from '../utils/types-guards';
 
 const __ = R.__;
 
@@ -46,12 +46,11 @@ export const rankScales = (rankedIntervals: Interval[]): ScaleRanking => {
 const DEFAULT_RANKED_INTERVALS = rankIntervals(SCALES_ARRAY);
 const DEFAULT_RANKED_SCALES = rankScales(DEFAULT_RANKED_INTERVALS);
 
-const getIntervals = R.compose(
-	// * [ '8P', '4A', '5A', '7m' ]
-	R.tail,
-	R.flatten,
-	R.converge(R.mapAccum((acc, x: string) => ([ acc, distance.interval(acc, x) ])), [ R.head, R.identity ]),
-) as (intervals: string[]) => Interval[];
+// * [ '8P', '4A', '5A', '7m' ]
+const getIntervals = (notes: string[]): Interval[] => {
+	const root = R.head(notes) as NoteSymbol;
+	return notes.map((n) => distance.interval(root, n)).filter(isNotNull);
+};
 
 const getOrderedScoreRankings = R.compose(
 	R.reverse as (score: number[]) => number[],

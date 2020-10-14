@@ -93,6 +93,17 @@ describe('A Distance test suite', () => {
 			const dist = interval('Gb', 'E');
 			expect(dist).toBe('7m');
 		});
+
+
+		it('should return the interval between: F#, D', () => {
+			const dist = interval('F#', 'D');
+			expect(dist).toBe('6m');
+		});
+
+		it('should return the interval between: G, Eb', () => {
+			const dist = interval('G', 'Eb');
+			expect(dist).toBe('6m');
+		});
 	});
 
 	describe('#position', () => {
