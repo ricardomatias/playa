@@ -11,6 +11,10 @@
 
 PLAYA *(pronounced `ˈpleɪə`)* is a musical theory framework aimed at creating musical phrases.
 
+## Disclaimer
+
+> PLAYA is in active development, currently going through an alpha stage. Semver versioning will eventually come, but for the moment declare a specific version or your code might be broken.
+
 ## Install
 
 ```bash
