@@ -66,6 +66,7 @@
 		"@typescript-eslint/eslint-plugin": "^3.10.1",
 		"@typescript-eslint/parser": "^3.10.1",
 		"babel-jest": "^26.3.0",
+		"babel-plugin-ramda": "^2.0.0",
 		"docma": "^3.2.2",
 		"eslint": "^7.7.0",
 		"eslint-config-google": "^0.14.0",

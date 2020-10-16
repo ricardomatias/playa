@@ -4,7 +4,6 @@ import commonjs from 'rollup-plugin-commonjs';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
 import { terser } from 'rollup-plugin-terser';
-// import copy from 'rollup-plugin-copy';
 import progress from 'rollup-plugin-progress';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -60,12 +59,6 @@ export default [
 				],
 			}),
 			terser(),
-			// copy({
-			// 	targets: [
-			// 		{ src: 'types/*.ts', dest: 'build/esm' },
-			// 		{ src: 'types/*.ts', dest: 'build/cjs' },
-			// 	],
-			// }),
 			progress(),
 		],
 	},
