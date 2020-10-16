@@ -1,4 +1,4 @@
-import { Notevalue, Ticks } from '../constants';
+import { Notevalue, Ticks } from '../constants/ticks';
 
 const QUARTER = Ticks['4n'];
 
@@ -15,6 +15,8 @@ export type TimeFormat = string | number | Time;
  * 480 // number
  * new Time('1:0:0') // Time
 */
+
+// Live exports MIDI files with a resolution of 96 ppq, which means a 16th note can be divided into 24 steps.
 
 /**
  * Time
@@ -223,6 +225,64 @@ export class Time {
 			Math.floor(quarters + offset),
 			Math.floor(units / sixteenth + offset),
 		].join(TRANSPORT_SEP);
+	};
+
+
+	/**
+	 * Convert seconds to transport time
+	 * @function timeToTransport
+	 * @memberof Core#Time
+	 *
+	 * @param {number} seconds 0.5 = 4n @ 120bpm
+	 * @param {number} [bpm=120]
+	 * @param {opts} [opts={}]
+	 * @return {string}
+	 */
+	static timeToTransport = (seconds: number, bpm = 120, { timeSignature = 4 } = {}): string => {
+		const quarterTime = 60 / bpm;
+		let quarters = seconds / quarterTime;
+
+		quarters = parseFloat(quarters.toFixed(4));
+
+		const measures = Math.floor(quarters / timeSignature);
+
+		const sixteenths = Math.floor((quarters % 1) * 4);
+
+		quarters = Math.floor(quarters) % timeSignature;
+
+		return [ measures, quarters, sixteenths ].join(':');
+	};
+
+
+	/**
+	 * Converts seconds to ticks
+	 * @function timeToTicks
+	 * @memberof Core#Time
+	 *
+	 * @param {number} seconds
+	 * @param {number} bpm
+	 * @param {number} [ppq=QUARTER]
+	 * @return {number}
+	 */
+	static timeToTicks = (seconds: number, bpm: number, ppq: number = QUARTER): number => {
+		const quarterTime = 60 / bpm;
+		const quarters = seconds / quarterTime;
+
+		return Math.round(quarters * ppq);
+	};
+
+	/**
+	 * Converts ticks to seconds
+	 * @function ticksToTime
+	 * @memberof Core#Time
+	 *
+	 * @param {number} ticks
+	 * @param {number} bpm
+	 * @param {number} [ppq=QUARTER]
+	 * @return {number}
+	 */
+	static ticksToTime = (ticks: number, bpm: number, ppq: number = QUARTER): number => {
+		return (ticks / ppq * (60 / bpm));
 	};
 }
 

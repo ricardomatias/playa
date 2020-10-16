@@ -19,10 +19,12 @@ export default [
 			{
 				dir: 'build/esm',
 				format: 'esm',
+				sourcemap: true,
 			},
 			{
 				dir: 'build/cjs',
 				format: 'cjs',
+				sourcemap: true,
 			},
 		],
 		manualChunks: {
@@ -52,6 +54,7 @@ export default [
 					],
 				],
 				'plugins': [
+					'ramda',
 					'@babel/plugin-proposal-object-rest-spread',
 					'@babel/plugin-proposal-class-properties',
 				],

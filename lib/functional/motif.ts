@@ -1,7 +1,7 @@
 import { choose } from '../tools';
 import { Note, Time } from '../core';
 import { NoteEvent } from '../core/NoteEvent';
-import { expandDuration, isEvent, mapStartToEvent } from '../tools/time';
+import { expandDuration, isEvent, mapStartToEvent } from '../tools/event';
 import { Event } from '../core/Event';
 import { TimeFormat } from '../core/Time';
 

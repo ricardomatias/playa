@@ -1,7 +1,9 @@
 import * as R from 'ramda';
 import HarmonyBase from './HarmonyBase';
 import { Note } from './Note';
-import { Interval, NoteSymbol, Semitones, ScaleIntervals, ScaleName } from '../constants';
+import { ScaleIntervals, ScaleName } from '../constants/scales';
+import { Interval, Semitones } from '../constants/intervals';
+import { NoteSymbol } from '../constants/note';
 import assignOctaves from '../utils/octaves';
 import { natural } from '../utils/note';
 import { PlayaError } from '../utils';

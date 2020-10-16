@@ -16,7 +16,7 @@
 		// Import non-ES modules as default imports.
 		"esModuleInterop": true,
 		"inlineSourceMap": false,
-		"declaration": true
+		"declaration": false,
 	},
 	"include": [
 		"./lib/**/*"

@@ -15,7 +15,7 @@ import { TimelineEvent } from './movement/types';
 import { DistributionFunction, Octaves, RhythmType } from '../common/types';
 import { isDefined } from '../utils/types-guards';
 import { Event } from '../core/Event';
-import { computeEventsNext, mapStartToEvent } from '../tools/time';
+import { computeEventsNext, mapStartToEvent } from '../tools/event';
 
 const JUMP_STYLE = 'jump';
 const PRUDENT_STYLE = 'prudent';

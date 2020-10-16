@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { Note, Chord, Scale, Time } from '../core';
 import { NoteEvent } from '../core/NoteEvent';
-import { expandDuration, mapDurations, isEvent, convertEventsToNotevalues } from '../tools/time';
+import { expandDuration, mapDurations, isEvent, convertEventsToNotevalues } from '../tools/event';
 import ring from '@ricardomatias/ring';
 import { next } from '../tools/next';
 import { Event } from '../core/Event';

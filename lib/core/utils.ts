@@ -1,5 +1,6 @@
-import { ChordSymbol, ChordName, ChordDefinition, NoteSymbol } from '../constants';
-import { PlayaError } from '../utils';
+import { ChordSymbol, ChordName, ChordDefinition } from '../constants/chords';
+import { NoteSymbol } from '../constants/note';
+import { PlayaError } from '../utils/error';
 import { ChordDescriptor } from './Types';
 
 /**

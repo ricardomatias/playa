@@ -7,8 +7,10 @@ import {
 	ChordStructures,
 	ChordDefinition,
 	ChordName,
-	ChordIntervals, Interval, Semitones, NoteSymbol,
-} from '../constants';
+	ChordIntervals,
+} from '../constants/chords';
+import { Interval, Semitones } from '../constants/intervals';
+import { NoteSymbol } from '../constants/note';
 import { deconstructName } from './utils';
 import { natural, PlayaError, whilst } from '../utils';
 import { distance, rotate, Random, choose } from '../tools';

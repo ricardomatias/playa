@@ -1,11 +1,5 @@
-import * as Constants from './constants';
-import * as Core from './core';
-import * as Functional from './functional';
-import * as Tools from './tools';
+export * from './constants';
+export * from './core';
+export * from './functional';
+export * from './tools';
 
-export {
-	Core,
-	Constants,
-	Functional,
-	Tools,
-};

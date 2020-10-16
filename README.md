@@ -22,16 +22,16 @@ npm install --save playa
 ### ES6 Modules
 
 ```js
-import { Core, Tools, Functional, Constants } from 'playa';
+import { Chord, Key, Rhythm } from 'playa';
 
 // or everything
-import * as Playa from 'playa';
+import Playa from 'playa';
 ```
 
 ### Common JS (Node)
 
 ```js
-const { Core, Tools, Functional, Constants } = require('playa');
+const { Chord, Key, Rhythm } = require('playa');
 
 // or everything
 const Playa = require('playa');
@@ -40,22 +40,16 @@ const Playa = require('playa');
 ## Example
 
 ```js
-import { Core, Tools, Functional } from 'playa';
-const { Scale } = Core;
-const { createMotif } = Functional;
-const { Rhythm } = Tools;
+import { Scale, createMotif } from 'playa';
 
 const scale = new Scale('A', Scale.Major);
 
-const rhythm = Rhythm.free('2n', ['4n', '2n'], ['4n']);
-
-createMotif(scale.notes, rhythm);
+createMotif(scale.notes, ['4n', '2n', '8nt']);
 /* =>
 [
-	{ "time": 0, "dur": 480, "next": 480, "midi": 76, "note": "E4", "isRest": false },
-	{ "time": 480, "dur": 480, "next": 960, "midi": 74, "note": "D4", "isRest": false },
-	{ "time": 960, "dur": 480, "next": 1440, "midi": -1, "note": "", "isRest": true },
-	{ "time": 1440, "dur": 480, "next": 1920, "midi": 74, "note": "D4", "isRest": false }
+    { time: 0, dur: 480, next: 480, midi: 73, note: 'C#4', isRest: false },
+    { time: 480, dur: 960, next: 1440, midi: 80, note: 'G#4', isRest: false },
+    { time: 1440, dur: 160, next: 1600, midi: 74, note: 'D4', isRest: false }
 ]
 */
 ```

@@ -1,7 +1,3 @@
-/**
- * Functional
- * @namespace {module} Functional
- */
 export { createMotif } from './motif';
 export { createChordProgression } from './chord-progression';
 export { createMelodies } from './melodies';

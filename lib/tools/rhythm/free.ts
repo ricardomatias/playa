@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { TimeFormat, Time as T } from '../../core/Time';
 import { whilst, PlayaError, toTicks } from '../../utils';
-import { expandDuration } from '../time';
+import { expandDuration } from '../event';
 import { roll, distribute } from '@ricardomatias/roll';
 import Random from '../random';
 import { chooseMany } from '../choose';

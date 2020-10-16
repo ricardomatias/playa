@@ -2,8 +2,9 @@
 	"extends": "./tsconfig",
 	"compilerOptions": {
 		"outDir": "./build",
+		"declarationDir": "./build/types",
 		"declaration": true,
-		"declarationMap": true,
+		"declarationMap": false,
 		"isolatedModules": false,
 		"noEmit": false,
 		"checkJs": false,

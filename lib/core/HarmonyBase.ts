@@ -1,5 +1,5 @@
 import { Octaves } from '../common/types';
-import { NoteSymbol } from '../constants';
+import { NoteSymbol } from '../constants/note';
 import { mapNotesToFreq, mapNotesToMidi, mapNotesToString } from '../utils/map';
 import { Note } from './Note';
 

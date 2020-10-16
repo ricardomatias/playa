@@ -1,14 +1,12 @@
 import * as R from 'ramda';
-import { Ticks } from '../constants';
 import { Event } from '../core/Event';
 import { Time, TimeFormat } from '../core/Time';
 import { toTicks } from '../utils';
 
-const QUARTER = Ticks['4n'];
 
 /**
- * Time tools
- * @namespace Time
+ * Event tools
+ * @namespace Event
  * @memberof Tools
  */
 
@@ -32,7 +30,7 @@ export function isEvent(pattern: TimeFormat[] | Event[]): pattern is Event[] {
 /**
  * Creates a timeline by assigning the duration to each event's time
  * @function expandDuration
- * @memberof Tools.Time
+ * @memberof Tools.Event
  *
  * @example
  *
@@ -107,7 +105,7 @@ export const mapStartToEvent = (event: Event, startTime: TimeFormat): Event => {
 
 /**
  * @function convertEventsToNotevalues
- * @memberof Tools.Time
+ * @memberof Tools.Event
  * @description Converts Event[] to notevalues (ie. 4n), ignores rests
  *
  * @param {Event[]} events
@@ -121,63 +119,3 @@ export const convertEventsToNotevalues = (events: Event[]): string[] => {
 		return new Time(index ? evt.next - evt.time : evt.next).notevalue as string;
 	});
 };
-
-/**
- * Convert seconds to transport time
- * @function timeToTransport
- * @memberof Tools.Time
- *
- * @param {number} seconds 0.5 = 4n @ 120bpm
- * @param {number} [bpm=120]
- * @param {opts} [opts={}]
- * @return {string}
- */
-export const timeToTransport = (seconds: number, bpm = 120, { timeSignature = 4 } = {}): string => {
-	const quarterTime = 60 / bpm;
-	let quarters = seconds / quarterTime;
-
-	quarters = parseFloat(quarters.toFixed(4));
-
-	const measures = Math.floor(quarters / timeSignature);
-
-	const sixteenths = Math.floor((quarters % 1) * 4);
-
-	quarters = Math.floor(quarters) % timeSignature;
-
-	return [ measures, quarters, sixteenths ].join(':');
-};
-
-
-/**
- * Converts seconds to ticks
- * @function timeToTicks
- * @memberof Tools.Time
- *
- * @param {number} seconds
- * @param {number} bpm
- * @param {number} [ppq=QUARTER]
- * @return {number}
- */
-export const timeToTicks = (seconds: number, bpm: number, ppq: number = QUARTER): number => {
-	const quarterTime = 60 / bpm;
-	const quarters = seconds / quarterTime;
-
-	return Math.round(quarters * ppq);
-};
-
-
-/**
- * Converts ticks to seconds
- * @function ticksToTime
- * @memberof Tools.Time
- *
- * @param {number} ticks
- * @param {number} bpm
- * @param {number} [ppq=QUARTER]
- * @return {number}
- */
-export const ticksToTime = (ticks: number, bpm: number, ppq: number = QUARTER): number => {
-	return (ticks / ppq * (60 / bpm));
-};
-
-

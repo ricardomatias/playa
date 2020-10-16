@@ -1,7 +1,3 @@
-/**
- * The Toolshed
- * @namespace {module} Tools
- */
 export { choose, chooseMany } from './choose';
 export { default as shuffle } from './shuffle';
 export { default as rotate } from './rotate';
@@ -12,7 +8,6 @@ export * as Euclidean from './euclidean';
 export { default as Sequence } from './sequence';
 export { default as Random } from './random';
 
-export * as Time from './time';
 export * as Rhythm from './rhythm';
 export * as Midi from './midi';
 
