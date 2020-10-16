@@ -7,13 +7,15 @@
     <a href="https://github.com/ricardomatias/playa/blob/master/LICENSE"><img src="http://img.shields.io/npm/l/playa.svg?style=flat-square" alt="license" /></a>
     <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/CI/CD/badge.svg" alt="build" /></a>
     <a href='https://coveralls.io/github/ricardomatias/playa?branch=master'><img src='https://coveralls.io/repos/github/ricardomatias/playa/badge.svg?branch=master' alt='Coverage Status' /></a>
+    <a href='https://badgen.net/bundlephobia/minzip/playa'><img src='https://badgen.net/bundlephobia/minzip/playa' alt='Bundlephobia min + gzip' /></a>
+    <a href='https://badgen.net/bundlephobia/tree-shaking/playa'><img src='https://badgen.net/bundlephobia/tree-shaking/playa' alt='Bundlephobia tree-shaking' /></a>
 </p>
 
 PLAYA *(pronounced `ˈpleɪə`)* is a musical theory framework aimed at creating musical phrases.
 
 ## Disclaimer
 
-> PLAYA is in active development, currently going through an alpha stage. Semver versioning will eventually come, but for the moment declare a specific version or your code might be broken.
+> PLAYA is in active development, currently going through an alpha stage. **Semver** versioning will eventually come, but for the moment declare a specific version or your code might be broken.
 
 ## Install
 
