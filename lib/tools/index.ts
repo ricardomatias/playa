@@ -12,5 +12,6 @@ export * as Rhythm from './rhythm';
 export * as Midi from './midi';
 
 export * from './ping';
+export * from './event';
 export { distribute, roll } from '@ricardomatias/roll';
 
