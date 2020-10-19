@@ -19,7 +19,9 @@
 		"prepack": "npm run build",
 		"docs:build": "rollup -c rollup.config.docs.js && docma -c docma.json --clean",
 		"docs:serve": "docma serve",
-		"docs": "npm run docs:build && npm run docs:serve"
+		"docs": "npm run docs:build && npm run docs:serve",
+		"prepublishOnly": "npm run changelog",
+		"changelog": "auto-changelog -p && git add CHANGELOG.md"
 	},
 	"author": {
 		"name": "Ricardo Matias",
@@ -63,6 +65,7 @@
 		"@types/ramda": "^0.27.29",
 		"@typescript-eslint/eslint-plugin": "^4.4.1",
 		"@typescript-eslint/parser": "^4.4.1",
+		"auto-changelog": "^2.2.1",
 		"babel-jest": "^26.5.2",
 		"babel-plugin-ramda": "^2.0.0",
 		"docma": "^3.2.2",
