@@ -5,6 +5,7 @@
 	"main": "./build/cjs/index.js",
 	"module": "./build/esm/index.js",
 	"types": "./build/types/index.d.ts",
+	"sideEffect": false,
 	"scripts": {
 		"test": "npm run lint:quiet && jest",
 		"test:watch": "jest --watch",

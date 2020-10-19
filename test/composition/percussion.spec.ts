@@ -8,8 +8,6 @@ describe('A Percussion test suite', () => {
 		// when
 		const perc = createPercussion(4, [ 2, 1 ]);
 
-		console.log(perc);
-
 		// then
 		expect(perc).toMatchInlineSnapshot(`
 		Object {
