@@ -69,6 +69,105 @@ Object {
 }
 `;
 
+exports[`A Movement test suite should generate a basic movement in 3/4 1`] = `
+Object {
+  "events": Array [
+    Object {
+      "key": "D",
+      "position": "VI",
+      "root": "Bb",
+      "scaleName": "Lydian",
+      "type": "mode",
+    },
+    Object {
+      "key": "D",
+      "position": "VI",
+      "root": "Bb",
+      "scaleName": "Lydian",
+      "type": "mode",
+    },
+    Object {
+      "key": "D",
+      "position": "III",
+      "root": "F",
+      "scaleName": "Ionian",
+      "type": "mode",
+    },
+    Object {
+      "key": "D",
+      "position": "VI",
+      "root": "Bb",
+      "scaleName": "Lydian",
+      "type": "mode",
+    },
+    Object {
+      "key": "D",
+      "position": "V",
+      "root": "A",
+      "scaleName": "Phrygian",
+      "type": "mode",
+    },
+    Object {
+      "key": "D",
+      "position": "V",
+      "root": "A",
+      "scaleName": "Phrygian",
+      "type": "mode",
+    },
+  ],
+  "timeline": Array [
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "Bb",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
+      },
+      "time": 0,
+    },
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "Bb",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
+      },
+      "time": 480,
+    },
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "F",
+        "scale": "1P 2M 3M 4P 5P 6M 7M",
+      },
+      "time": 960,
+    },
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "Bb",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
+      },
+      "time": 1440,
+    },
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "A",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
+      },
+      "time": 1920,
+    },
+    Object {
+      "dur": 480,
+      "key": Object {
+        "root": "A",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
+      },
+      "time": 2400,
+    },
+  ],
+}
+`;
+
 exports[`A Movement test suite should generate a long movement - turn rhythm 1`] = `
 Object {
   "events": Array [

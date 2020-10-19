@@ -2,7 +2,7 @@ import { Notevalue, Ticks } from '../constants/ticks';
 
 const QUARTER = Ticks['4n'];
 
-const TRANSPORT_SEP = ':';
+const TRANSPORT_SEPARATOR = ':';
 
 export type TimeFormat = string | number | Time;
 
@@ -18,6 +18,14 @@ export type TimeFormat = string | number | Time;
 
 // Live exports MIDI files with a resolution of 96 ppq, which means a 16th note can be divided into 24 steps.
 
+export type TimeSignature = [number, number] | number[];
+
+type OptionsBBSConversion = {
+	timeSignature: TimeSignature,
+	positionMode: boolean,
+	ppq: number
+}
+
 /**
  * Time
  * @class
@@ -29,36 +37,42 @@ export class Time {
 	#ticks: number;
 	#notevalue?: Notevalue;
 	#bbs: string;
+	#timeSignature: TimeSignature;
 
 	/**
 	 * Creates an instance of Time.
 	 * @constructs Time
 	 * @memberof Core#
 	 *
- 	 * @param {TimeFormat} time
+	   * @param {TimeFormat} time
+	   * @param {TimeSignature} [timeSignature = [4, 4]]
 	 */
-	constructor(time: TimeFormat) {
+	constructor(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]) {
 		if (time instanceof Time) {
 			this.#ticks = time.ticks;
 			this.#notevalue = time.notevalue;
 			this.#bbs = time.bbs;
+			this.#timeSignature = timeSignature;
 		} else
 		// Ticks
 		if (typeof time === 'number') {
 			this.#ticks = time;
 			this.#notevalue = Ticks[time] as Notevalue;
-			this.#bbs = Time.ticksToBBS(time);
+			this.#bbs = Time.ticksToBBS(time, { timeSignature });
+			this.#timeSignature = timeSignature;
 		} else
 		// Notevalue
-		if (/n/.test(time)) {
+		if (/n/.test(time) && typeof Ticks[time as Notevalue] !== 'undefined') {
 			this.#notevalue = time as Notevalue;
 			this.#ticks = Ticks[time as Notevalue];
-			this.#bbs = Time.ticksToBBS(this.#ticks);
+			this.#bbs = Time.ticksToBBS(this.#ticks, { timeSignature });
+			this.#timeSignature = timeSignature;
 		} else
 		if (/:/.test(time)) {
 			this.#bbs = time;
-			this.#ticks = Time.bbsToTicks(time);
+			this.#ticks = Time.bbsToTicks(time, { timeSignature });
 			this.#notevalue = Ticks[this.#ticks] as Notevalue;
+			this.#timeSignature = timeSignature;
 		} else {
 			throw new Error(`[Time] Unrecognized time format for -> ${time}`);
 		}
@@ -69,15 +83,15 @@ export class Time {
 	}
 
 	/**
-		 * Ticks time
-		 * @example
-		 * 480
-		 *
-		 * @member ticks
-		 * @readonly
-		 * @type {number}
-		 * @memberof Core#Time#
-		 */
+	 * Ticks time
+	 * @example
+	 * 480
+	 *
+	 * @member ticks
+	 * @readonly
+	 * @type {number}
+	 * @memberof Core#Time#
+	 */
 	get ticks(): number {
 		return this.#ticks;
 	}
@@ -156,9 +170,23 @@ export class Time {
 	}
 
 	/**
+	 * Time Signature [ beats in a bar, beat value ]
+	 * @example
+	 * [ 4, 4 ]
+	 *
+	 * @readonly
+	 * @member timeSignature
+	 * @type {string}
+	 * @memberof Core#Time#
+	 */
+	get timeSignature(): TimeSignature {
+		return this.#timeSignature;
+	}
+
+	/**
 	 * @function bbsToTicks
 	 * @memberof Core#Time
-	 * @description  Converts "BARS : QUARTERS : BEATS" to ticks
+	 * @description  Converts "Bars : Beats : Sixteenths" to ticks
 	 *
 	 * @param {string} time '2.3.1'
 	 * @param {Object} [opts = {}]
@@ -166,18 +194,30 @@ export class Time {
 	 * @param {number} [opts.ppq = 480] Pulse per quarter note
 	 * @return {Number}
 	 */
-	static bbsToTicks = (time: string, { positionMode = false, ppq = QUARTER } = {}): number => {
+	static bbsToTicks = (
+		time: string,
+		{
+			timeSignature = [ 4, 4 ],
+			positionMode = false,
+			ppq = QUARTER,
+		}: Partial<OptionsBBSConversion> = {},
+	): number => {
 		try {
-			const bar = ppq * 4;
+			const beatsPerBar = timeSignature[0];
+			const beatsNotevalue = `${timeSignature[1]}n` as Notevalue;
+			const ppqMult = QUARTER / ppq;
+
+			const beatsValue = (Ticks[beatsNotevalue] / ppqMult);
+			const bar = beatsValue * beatsPerBar;
 			const sixteenths = ppq / 4;
 
-			const [ bars, quarters, units ] = time.split(TRANSPORT_SEP);
+			const [ bars, beats, units ] = time.split(TRANSPORT_SEPARATOR).map((str) => parseInt(str, 10));
 
 			const offset = positionMode ? -1 : 0;
 
-			return Math.max(parseInt(bars, 10) + offset, 0) * bar +
-				Math.max(parseInt(quarters, 10) + offset, 0) * ppq +
-				parseInt(units, 10) * sixteenths;
+			return (Math.max(bars + offset, 0) * bar +
+				Math.max(beats + offset, 0) * beatsValue +
+				units * sixteenths);
 		} catch (err) {
 			console.error(err); /* eslint no-console:0 */
 			return 0;
@@ -189,82 +229,87 @@ export class Time {
 	 *
 	 * @function ticksToBBS
 	 * @memberof Core#Time
- 	 * @description Converts ticks to Bars:Beats:Sixteenths notation
+	   * @description Converts ticks to Bars:Beats:Sixteenths notation
 	 *
 	 * @param {Number} ticks
 	 * @param {Object} [opts = {}]
+	 * @param {number} [opts.ppq = 480]
 	 * @param {Array<Number>} [opts.timeSignature = [ 4, 4 ]]
 	 * @param {Boolean} [opts.positionMode = false]
 	 * @return {String}
 	 */
-	static ticksToBBS = (ticks: number, { ppq = QUARTER, timeSignature = [ 4, 4 ], positionMode = false } = {}): string => {
+	static ticksToBBS = (
+		ticks: number,
+		{ ppq = QUARTER, timeSignature = [ 4, 4 ], positionMode = false }: Partial<OptionsBBSConversion> = {},
+	): string => {
 		// IN MAX THE TRANSPORT STARTS AT: '1.1.0'
 		// IN ABLETON THE TRANSPORT STARTS AT: '1.1.1'
-		let quarters = ticks / ppq;
 		const beatsPerBar = timeSignature[0];
-		const bar = ppq * beatsPerBar;
-		const sixteenth = Math.floor(ppq / beatsPerBar);
+		const beatsValue = timeSignature[1];
+		const timeSign = (beatsPerBar / beatsValue) * 4;
 
-		const bars = parseFloat((quarters / beatsPerBar).toFixed(3));
-		const barsRemainder = bars < 1 ? bars : bars % Math.floor(bars);
+		let quarters = ticks / ppq;
 
-		quarters = parseFloat(((barsRemainder * bar) / ppq).toFixed(3));
+		quarters = parseFloat(quarters.toFixed(4));
 
-		let units;
+		const measures = Math.floor(quarters / timeSign);
 
-		if (quarters < 1) {
-			units = quarters * ppq;
-		} else {
-			units = (quarters % Math.floor(quarters)) * ppq;
+		let sixteenths = (quarters % 1) * 4;
+
+		quarters = Math.floor(quarters) % timeSign;
+
+		const sixteenthString = sixteenths.toString();
+
+		if (sixteenthString.length > 3) {
+			// the additional parseFloat removes insignificant trailing zeroes
+			sixteenths = parseFloat(parseFloat(sixteenthString).toFixed(3));
 		}
 
 		const offset = positionMode ? 1 : 0;
 
 		return [
-			Math.floor(bars + offset),
+			Math.floor(measures + offset),
 			Math.floor(quarters + offset),
-			Math.floor(units / sixteenth + offset),
-		].join(TRANSPORT_SEP);
+			Math.floor(sixteenths + offset),
+		].join(TRANSPORT_SEPARATOR);
 	};
 
 
 	/**
 	 * Convert seconds to transport time
-	 * @function timeToTransport
+	 * @function secondsToBBS
 	 * @memberof Core#Time
 	 *
 	 * @param {number} seconds 0.5 = 4n @ 120bpm
 	 * @param {number} [bpm=120]
-	 * @param {opts} [opts={}]
+	 * @param {Object} [opts = {}]
+	 * @param {number} [opts.ppq = 480]
+	 * @param {Array<Number>} [opts.timeSignature = [ 4, 4 ]]
+	 * @param {Boolean} [opts.positionMode = false]
 	 * @return {string}
 	 */
-	static timeToTransport = (seconds: number, bpm = 120, { timeSignature = 4 } = {}): string => {
-		const quarterTime = 60 / bpm;
-		let quarters = seconds / quarterTime;
+	static secondsToBBS = (
+		seconds: number,
+		bpm = 120,
+		{ timeSignature = [ 4, 4 ], ppq = QUARTER, positionMode = false }: Partial<OptionsBBSConversion> = {},
+	): string => {
+		const ticks = Time.secondsToTicks(seconds, bpm);
 
-		quarters = parseFloat(quarters.toFixed(4));
-
-		const measures = Math.floor(quarters / timeSignature);
-
-		const sixteenths = Math.floor((quarters % 1) * 4);
-
-		quarters = Math.floor(quarters) % timeSignature;
-
-		return [ measures, quarters, sixteenths ].join(':');
+		return Time.ticksToBBS(ticks, { ppq, timeSignature, positionMode });
 	};
 
 
 	/**
 	 * Converts seconds to ticks
-	 * @function timeToTicks
+	 * @function secondsToTicks
 	 * @memberof Core#Time
 	 *
 	 * @param {number} seconds
 	 * @param {number} bpm
-	 * @param {number} [ppq=QUARTER]
+	 * @param {number} [ppq = 480]
 	 * @return {number}
 	 */
-	static timeToTicks = (seconds: number, bpm: number, ppq: number = QUARTER): number => {
+	static secondsToTicks = (seconds: number, bpm: number, ppq: number = QUARTER): number => {
 		const quarterTime = 60 / bpm;
 		const quarters = seconds / quarterTime;
 
@@ -273,15 +318,15 @@ export class Time {
 
 	/**
 	 * Converts ticks to seconds
-	 * @function ticksToTime
+	 * @function ticksToSeconds
 	 * @memberof Core#Time
 	 *
 	 * @param {number} ticks
 	 * @param {number} bpm
-	 * @param {number} [ppq=QUARTER]
+	 * @param {number} [ppq = 480]
 	 * @return {number}
 	 */
-	static ticksToTime = (ticks: number, bpm: number, ppq: number = QUARTER): number => {
+	static ticksToSeconds = (ticks: number, bpm: number, ppq: number = QUARTER): number => {
 		return (ticks / ppq * (60 / bpm));
 	};
 }

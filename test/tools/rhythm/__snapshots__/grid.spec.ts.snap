@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#createGrid should create a 4n grid - snapshot 1`] = `
+ [
+  Object {
+    "res": Array [
+      "4nt",
+      "4n",
+    ],
+    "time": 0,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 320,
+  },
+  Object {
+    "res": Array [
+      "4n",
+    ],
+    "time": 480,
+  },
+  Object {
+    "res": Array [
+      "4nt",
+    ],
+    "time": 640,
+  },
+]
+`;
+
 exports[`#createGrid should create a 4n grid 1`] = `
  [
   Object {
@@ -101,6 +131,93 @@ exports[`#createGrid should create a 4n grid 1`] = `
       "4nt",
     ],
     "time": 3520,
+  },
+]
+`;
+
+exports[`#createGrid should create a 8n, 7/8 grid - snapshot 1`] = `
+ [
+  Object {
+    "res": Array [
+      "8nt",
+      "8n",
+    ],
+    "time": 0,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+    ],
+    "time": 160,
+  },
+  Object {
+    "res": Array [
+      "8n",
+    ],
+    "time": 240,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+    ],
+    "time": 320,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+      "8n",
+    ],
+    "time": 480,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+    ],
+    "time": 640,
+  },
+  Object {
+    "res": Array [
+      "8n",
+    ],
+    "time": 720,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+    ],
+    "time": 800,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+      "8n",
+    ],
+    "time": 960,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+    ],
+    "time": 1120,
+  },
+  Object {
+    "res": Array [
+      "8n",
+    ],
+    "time": 1200,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+    ],
+    "time": 1280,
+  },
+  Object {
+    "res": Array [
+      "8nt",
+      "8n",
+    ],
+    "time": 1440,
   },
 ]
 `;

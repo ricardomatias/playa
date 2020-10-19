@@ -1,4 +1,4 @@
-import { Key } from '../../../lib/core';
+import { Key, Time } from '../../../lib/core';
 import { createMovement } from '../../../lib/functional';
 import { MovementRhythm } from '../../../lib/functional/movement/types';
 import Random from '../../../lib/tools/random';
@@ -12,6 +12,17 @@ describe('A Movement test suite', () => {
 		const dMin = new Key('D', Key.Minor);
 		// when
 		const movement = createMovement(dMin, '4:0:0', 4);
+
+		expect(movement).toMatchSnapshot();
+	});
+
+	it('should generate a basic movement in 3/4', () => {
+		// given
+		Random.setSeed('test');
+
+		const dMin = new Key('D', Key.Minor);
+		// when
+		const movement = createMovement(dMin, new Time('2:0:0', [ 3, 4 ]), 6);
 
 		expect(movement).toMatchSnapshot();
 	});

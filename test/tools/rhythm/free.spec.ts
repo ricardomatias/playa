@@ -1,11 +1,11 @@
 import * as R from 'ramda';
 import { Ticks } from '../../../lib/constants';
+import { Time } from '../../../lib/core';
 import { Random, Rhythm, distribute, chooseMany } from '../../../lib/tools';
 import { createFreeRhythm } from '../../../lib/tools/rhythm/free';
 import '../../matchers';
 
 const ONE_BAR = Ticks['1n'];
-
 
 describe('#createFreeRhythm', () => {
 	it('should generate rhythm - decreasing', () => {
@@ -75,7 +75,10 @@ describe('#createFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const rhythm = createFreeRhythm(ONE_BAR * 2, Rhythm.Presets.Slow, [ '4n', '4nd' ]);
+		const rhythm = createFreeRhythm(ONE_BAR * 2, Rhythm.Presets.Slow, [
+			'4n',
+			'4nd',
+		]);
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR * 2);
@@ -255,7 +258,9 @@ describe('#createFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const rhythm = createFreeRhythm(ONE_BAR, Rhythm.Presets.Straight, [ '8n' ]);
+		const rhythm = createFreeRhythm(ONE_BAR, Rhythm.Presets.Straight, [
+			'8n',
+		]);
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR);
@@ -323,7 +328,10 @@ describe('#createFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const durations = chooseMany(Rhythm.Presets.Mixed, Random.int(R.length(Rhythm.Presets.Mixed)));
+		const durations = chooseMany(
+			Rhythm.Presets.Mixed,
+			Random.int(R.length(Rhythm.Presets.Mixed)),
+		);
 		const rhythm = Rhythm.free(
 			'1:0:0',
 			Rhythm.Presets.Mixed,
@@ -333,6 +341,54 @@ describe('#createFreeRhythm', () => {
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR);
+	});
+
+	it('should respect different time signature', () => {
+		// given
+		Random.setSeed('test');
+
+		// when
+		const rhythm = createFreeRhythm(
+			new Time('1:0:0', [ 7, 8 ]),
+			[ '4n', '8n' ],
+		);
+
+		// then
+		expect(rhythm).toLastAround(Ticks['8n'] * 7);
+		expect(rhythm).toMatchInlineSnapshot(`
+		Array [
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 480,
+		    "time": 0,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 720,
+		    "time": 480,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 1200,
+		    "time": 720,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1440,
+		    "time": 1200,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1680,
+		    "time": 1440,
+		  },
+		]
+	`);
 	});
 
 	it('should break', () => {

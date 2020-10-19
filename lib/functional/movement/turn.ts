@@ -6,7 +6,7 @@ import {
 	choose,
 } from '../../tools';
 
-import { Interval, NoteSymbol, ScaleName, Ticks, TurnMoves } from '../../constants';
+import { Interval, NoteSymbol, Notevalue, ScaleName, Ticks, TurnMoves } from '../../constants';
 
 import { modulate, createNewEventKey, isTypeMod } from './helpers';
 import { MovementRhythm, TimelineEvent, TurnMovement, TurnEvent, Turn, ModulationEventType } from './types';
@@ -50,11 +50,12 @@ const MOD_MODE_INTERVALS = [ 1, 2, 3, 4, 5, 6, 7 ];
 function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
 	// repeats,
 	rhythmType = MovementRhythm.Euclidean,
-	// timeSignatures = [ [ 4, 4 ] ],
 } = {}): TurnMovement {
 	const events: TurnEvent[] = [];
-	const ticks = new Time(length).ticks;
-	const MAX_TURNS = ticks / QUARTER;
+	const time = new Time(length);
+	const ticks = time.ticks;
+	const beatsNotevalue = time.timeSignature[1];
+	const MAX_TURNS = ticks / Ticks[`${beatsNotevalue}n` as Notevalue];
 
 	const startingKey = { root: key.root, type: key.intervals };
 	let mainKeyRoot = key.root;
@@ -84,7 +85,7 @@ function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
 			}).filter(R.is(Object));
 	} else
 	if (rhythmType === MovementRhythm.Turn) {
-		rhythm = <TimelineEvent[]>Rhythm.turn(length, turnsNumber, {
+		rhythm = <TimelineEvent[]>Rhythm.turn(time, turnsNumber, {
 			minNoteValue: 8,
 			combSorting: {
 				diverseFirst: true,

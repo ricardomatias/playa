@@ -1,15 +1,13 @@
 import * as R from 'ramda';
-import { Key, Time } from '../../core';
+import { Key, Time, TimeFormat } from '../../core';
 import {
 	Rhythm,
 	Random, Euclidean,
 } from '../../tools';
-import { NoteSymbol, ScaleName, Ticks } from '../../constants';
+import { NoteSymbol, Notevalue, ScaleName, Ticks } from '../../constants';
 import { modulate, createNewEventKey } from './helpers';
 import { ModulationEvent, ModulationEventType, Movement, MovementRhythm, TimelineEvent } from './types';
 import { BinaryEvent } from '../../common/types';
-
-const { turn: generateTurnRhythm } = Rhythm;
 
 const QUARTER = Ticks['4n'];
 
@@ -79,15 +77,16 @@ const QUARTER = Ticks['4n'];
  *
  * @return {Movement}
  */
-function movement(key: Key, length: Time | string, turns: number, {
+function movement(key: Key, length: TimeFormat, turns: number, {
 	modProb = 0.0,
 	// repeats = 0,
 	rhythm = MovementRhythm.Euclidean,
-	// timeSignatures = [ [ 4, 4 ] ],
 } = {}): Movement {
 	const events: ModulationEvent[] = [];
-	const ticks = new Time(length).ticks;
-	const MAX_TURNS = ticks / QUARTER;
+	const time = new Time(length);
+	const ticks = time.ticks;
+	const beatsNotevalue = time.timeSignature[1];
+	const MAX_TURNS = ticks / Ticks[`${beatsNotevalue}n` as Notevalue];
 
 	let mainKey = key.root;
 
@@ -112,7 +111,7 @@ function movement(key: Key, length: Time | string, turns: number, {
 				}
 			}).filter(R.has('time'));
 	} else if (rhythm === MovementRhythm.Turn) {
-		rhythmEvents = <TimelineEvent[]>generateTurnRhythm(length, turns, {
+		rhythmEvents = <TimelineEvent[]>Rhythm.turn(time, turns, {
 			minNoteValue: 8,
 			combSorting: {
 				diverseFirst: true,

@@ -1,6 +1,7 @@
 import * as R from 'ramda';
 import { Notevalue, Ticks } from '../../constants';
 import ring from '@ricardomatias/ring';
+import { Time, TimeFormat } from '../../core/Time';
 
 const calcMaxRhythmNotes = (totalRhythmDuration: number, noteValue: number) => {
 	const remainder = totalRhythmDuration % noteValue;
@@ -15,14 +16,32 @@ export type GridCell = {
 	dur?: number;
 }
 
-export function createGrid(totalRhythmDuration: number, subDivision: number): GridCell[] {
+/**
+ * Creates a grid
+ * @function createGrid
+ * @memberof Tools.Rhythm
+ * @example
+ * createGrid(new Time('2n'), 4) =>
+ * [
+      { time: 0, res: [ '4nt', '4n' ] },
+      { time: 320, res: [ '4nt' ] },
+      { time: 480, res: [ '4n' ] },
+      { time: 640, res: [ '4nt' ] }
+    ]
+ *
+ * @param {TimeFormat} totalRhythmDuration in Ticks
+ * @param {number} subDivision in powers of 2 - 2/4/8/16
+ * @return {Array<GridCell>}
+ */
+export function createGrid(totalRhythmDuration: TimeFormat, subDivision: number): GridCell[] {
 	const grid = [];
 	const normal = `${subDivision}n`;
 	const triplet = `${subDivision}nt`;
 	const normalTicks: number = Ticks[normal as Notevalue];
 	const tripletTicks: number = Ticks[triplet as Notevalue];
+	const length = new Time(totalRhythmDuration).ticks;
 
-	let maxRhythmNotes = calcMaxRhythmNotes(totalRhythmDuration, tripletTicks);
+	let maxRhythmNotes = calcMaxRhythmNotes(length, tripletTicks);
 
 	for (let index = 0; index < Math.floor(maxRhythmNotes); index++) {
 		grid.push({
@@ -31,7 +50,7 @@ export function createGrid(totalRhythmDuration: number, subDivision: number): Gr
 		});
 	}
 
-	maxRhythmNotes = calcMaxRhythmNotes(totalRhythmDuration, normalTicks);
+	maxRhythmNotes = calcMaxRhythmNotes(length, normalTicks);
 
 	for (let index = 0; index < Math.floor(maxRhythmNotes); index++) {
 		const beat = index * normalTicks;

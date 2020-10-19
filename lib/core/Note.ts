@@ -12,7 +12,7 @@ import {
 import { MidiNotes } from '../constants/midi';
 import { findOctave, findFrequency } from '../tools/midi';
 import { isUndefined } from '../utils/types-guards';
-import { PlayaError } from '../utils';
+import { PlayaError } from '../utils/error';
 
 
 /**

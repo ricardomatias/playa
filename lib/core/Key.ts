@@ -5,7 +5,8 @@ import { convert as convertToRoman } from 'roman-numeral';
 
 import { Scale } from './Scale';
 import { Chord } from './Chord';
-import { distance, Random } from '../tools';
+import distance from '../tools/distance';
+import Random from '../tools/random';
 import { Interval } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';

@@ -1,4 +1,5 @@
 import { Ticks } from '../../../lib/constants';
+import { Time } from '../../../lib/core';
 import { Random, Rhythm } from '../../../lib/tools';
 import '../../matchers';
 
@@ -10,10 +11,11 @@ describe('#turn', () => {
 		Random.setSeed('test');
 
 		// when
-		const rhythm = Rhythm.turn(ONE_BAR * 2, 7);
+		const rhythm = Rhythm.turn(new Time('2:0:0'), 7);
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR * 2);
+		expect(rhythm).toHaveLength(7);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
@@ -62,6 +64,60 @@ describe('#turn', () => {
 	`);
 	});
 
+	it('should generate turn rhythm with 3/4 time signature', () => {
+		// given
+		Random.setSeed('test');
+
+		const length = new Time('2:0:0', [ 3, 4 ]);
+
+		// when
+		const rhythm = Rhythm.turn(length, 6);
+
+		// then
+		expect(rhythm).toLastAround(length.ticks);
+		expect(rhythm).toHaveLength(6);
+		expect(rhythm).toMatchInlineSnapshot(`
+		Array [
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 480,
+		    "time": 0,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 960,
+		    "time": 480,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 1440,
+		    "time": 960,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1680,
+		    "time": 1440,
+		  },
+		  Object {
+		    "dur": 720,
+		    "isRest": false,
+		    "next": 2400,
+		    "time": 1680,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 2880,
+		    "time": 2400,
+		  },
+		]
+	`);
+	});
+
 	it('should generate with sorting diverseFirst', () => {
 		// given
 		Random.setSeed('test');
@@ -73,6 +129,7 @@ describe('#turn', () => {
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR * 2);
+		expect(rhythm).toHaveLength(7);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
@@ -132,6 +189,7 @@ describe('#turn', () => {
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR * 3);
+		expect(rhythm).toHaveLength(8);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
@@ -198,6 +256,7 @@ describe('#turn', () => {
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR * 3);
+		expect(rhythm).toHaveLength(5);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
@@ -243,6 +302,7 @@ describe('#turn', () => {
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR * 8);
+		expect(rhythm).toHaveLength(4);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
@@ -287,6 +347,7 @@ describe('#turn', () => {
 
 		// then
 		expect(rhythm).toLastAround(960);
+		expect(rhythm).toHaveLength(3);
 		expect(rhythm).toMatchInlineSnapshot(`
 		Array [
 		  Object {
