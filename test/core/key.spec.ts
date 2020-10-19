@@ -1,23 +1,9 @@
-import { Key, Chord } from '../../lib/core';
+import { Key } from '../../lib/core';
 import Random from '../../lib/tools/random';
 import '../matchers';
 
-function modesToChords(modes) {
-	return modes.map((mode) => {
-		const chord = new Chord({
-			root: mode.root,
-			intervals: mode.scale,
-			structure: Chord.Structures.Seventh,
-		});
-
-		return chord.name;
-	});
-}
-
-function modesToScales(modes) {
-	return modes.map((mode) => {
-		return Key.getModeName(mode.scale);
-	});
+function pickName(chords) {
+	return chords.map((c) => c.name);
 }
 
 function testModulation(key) {
@@ -42,7 +28,7 @@ describe('Key Test Suite', () => {
 		it('should have chords for C Major', () => {
 			const key = new Key('C', Key.Major);
 
-			expect(modesToChords(key.modes)).toEqual([
+			expect(pickName(Key.modesToChords(key.modes))).toEqual([
 				'CM7',
 				'Dm7',
 				'Em7',
@@ -56,7 +42,7 @@ describe('Key Test Suite', () => {
 		it('should have chords for Ab Minor', () => {
 			const key = new Key('Ab', Key.Minor);
 
-			expect(modesToChords(key.modes)).toEqual([
+			expect(pickName(Key.modesToChords(key.modes))).toEqual([
 				'Abm7',
 				'Bbm7b5',
 				'BM7',
@@ -70,7 +56,7 @@ describe('Key Test Suite', () => {
 		it('should have chords for E Dorian', () => {
 			const key = new Key('E', Key.Dorian);
 
-			expect(modesToChords(key.modes)).toEqual([
+			expect(pickName(Key.modesToChords(key.modes))).toEqual([
 				'Em7',
 				'F#m7',
 				'GM7',
@@ -227,7 +213,7 @@ describe('Key Test Suite', () => {
 			expect(key.intervals).toBe(Key.Mixolydian);
 			expect(key.chord.name).toBe('Eb7');
 
-			expect(modesToChords(key.modes)).toEqual([
+			expect(pickName(Key.modesToChords(key.modes))).toEqual([
 				'Eb7',
 				'Fm7',
 				'Gm7b5',
@@ -237,7 +223,7 @@ describe('Key Test Suite', () => {
 				'DbM7',
 			]);
 
-			expect(modesToScales(key.modes)).toEqual([
+			expect(pickName(Key.modesToKeys(key.modes))).toEqual([
 				'Mixolydian',
 				'Aeolian',
 				'Locrian',

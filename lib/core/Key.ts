@@ -26,6 +26,14 @@ const MODES_MOD_PROB = distribute.sumDistribution([
 
 type Mode = { scale: ScaleIntervals, root: NoteSymbol }
 
+/**
+ * Mode type
+ * @memberof Types
+ * @typedef Mode
+ * @property {NoteSymbol} root root
+ * @property {ScaleIntervals} scale scale
+ */
+
 function isModeInterval(mode: ScaleIntervals | string): mode is GreekModeInterval {
 	return Key.isMode(mode);
 }
@@ -410,6 +418,37 @@ export class Key extends Scale {
 		return GreekModeInterval.includes(mode as GreekModeInterval);
 	}
 
+	/**
+	* Converts modes to Chord
+	* @function modesToChords
+	* @memberof Core#Key
+	* @static
+	* @param {Mode[]} modes
+	* @return {Chord[]}
+	*/
+	static modesToChords(modes: Mode[]): Chord[] {
+		return modes.map((mode) => {
+			return new Chord({
+				root: mode.root,
+				intervals: mode.scale,
+				structure: Chord.Structures.Seventh,
+			});
+		});
+	}
+
+	/**
+	* Converts modes to Key
+	* @function modesToKeys
+	* @memberof Core#Key
+	* @static
+	* @param {Mode[]} modes
+	* @return {Key[]}
+	*/
+	static modesToKeys(modes: Mode[]): Key[] {
+		return modes.map((mode) => {
+			return new Key(mode.root, mode.scale);
+		});
+	}
 
 	get I(): Key {
 		return this.getModeAtPosition(0);
