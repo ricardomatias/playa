@@ -10,7 +10,7 @@
 		"test:watch": "jest --watch",
 		"test:update": "jest --updateSnapshot",
 		"test:coverage": "jest --coverage",
-		"check:comments": "leasot -x lib/**/*.js",
+		"todos": "leasot -x lib/**/*.ts",
 		"lint": "eslint lib test",
 		"lint:quiet": "eslint lib  --quiet",
 		"build": "rollup -c rollup.config.prod.js && npm run build:types",
