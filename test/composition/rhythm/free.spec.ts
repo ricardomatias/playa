@@ -1,19 +1,19 @@
 import * as R from 'ramda';
 import { Ticks } from '../../../lib/constants';
 import { Time } from '../../../lib/core';
-import { Random, Rhythm, distribute, chooseMany } from '../../../lib/tools';
-import { createFreeRhythm } from '../../../lib/tools/rhythm/free';
+import { Random, distribute, chooseMany } from '../../../lib/tools';
+import * as Rhythm from '../../../lib/composition/rhythm';
 import '../../matchers';
 
 const ONE_BAR = Ticks['1n'];
 
-describe('#createFreeRhythm', () => {
+describe('#Rhythm.free', () => {
 	it('should generate rhythm - decreasing', () => {
 		// given
 		Random.setSeed('test');
 
 		// when
-		const rhythm = createFreeRhythm(
+		const rhythm = Rhythm.free(
 			ONE_BAR,
 			Rhythm.Presets.Mixed,
 			[],
@@ -75,7 +75,7 @@ describe('#createFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const rhythm = createFreeRhythm(ONE_BAR * 2, Rhythm.Presets.Slow, [
+		const rhythm = Rhythm.free(ONE_BAR * 2, Rhythm.Presets.Slow, [
 			'4n',
 			'4nd',
 		]);
@@ -135,7 +135,7 @@ describe('#createFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const rhythm = createFreeRhythm(ONE_BAR, Rhythm.Presets.Robotic);
+		const rhythm = Rhythm.free(ONE_BAR, Rhythm.Presets.Robotic);
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR);
@@ -258,7 +258,7 @@ describe('#createFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const rhythm = createFreeRhythm(ONE_BAR, Rhythm.Presets.Straight, [
+		const rhythm = Rhythm.free(ONE_BAR, Rhythm.Presets.Straight, [
 			'8n',
 		]);
 
@@ -348,7 +348,7 @@ describe('#createFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const rhythm = createFreeRhythm(
+		const rhythm = Rhythm.free(
 			new Time('1:0:0', [ 7, 8 ]),
 			[ '4n', '8n' ],
 		);
@@ -396,7 +396,7 @@ describe('#createFreeRhythm', () => {
 		Random.setSeed('test');
 
 		// when
-		const error = () => createFreeRhythm(ONE_BAR / 8, Rhythm.Presets.Slow);
+		const error = () => Rhythm.free(ONE_BAR / 8, Rhythm.Presets.Slow);
 
 		// then
 		expect(error).toThrowError();

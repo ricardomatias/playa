@@ -9,7 +9,7 @@ import { TimeFormat } from '../core/Time';
  * Generates a motif
  *
  * @function createMotif
- * @memberof Functional
+ * @memberof Composition
  *
  * @example
  * createMotif(new Scale('A', Scale.MAJOR).notes, Rhythm.free('1:0:0', ['4n', '8n', '16n']))

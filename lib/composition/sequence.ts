@@ -3,7 +3,7 @@ import { Scale } from '../core/Scale';
 import { Key } from '../core/Key';
 import { Chord } from '../core/Chord';
 import { Note } from '../core/Note';
-import distance from './distance';
+import distance from '../tools/distance';
 import { mapNotesToString, mapNotesToMidi, mapNotesToFreq } from '../utils';
 import { isDefined } from '../utils/types-guards';
 import { Interval, NoteSymbol } from '../constants';
@@ -20,11 +20,11 @@ interface SequenceChords {
  * Defines a sequence of notes/chords
  *
  * @class
- * @memberof Tools#
+ * @memberof Composition#
  *
  * @name Sequence
  */
-class Sequence {
+export class Sequence {
 	private _scale: Scale;
 	private _chords: Chord[] = []
 	private _notes: Note[] = []
@@ -34,7 +34,7 @@ class Sequence {
 	* In order to create a chords sequence a {@link Key} class must be used.
 	*
 	* @constructs Sequence
-	* @memberof Tools#
+	* @memberof Composition#
 	* @example
 	*	const Amajor = new Key('A', Scale.Major);
 	*const seq = new Sequence(Amajor).I.II.V;
@@ -57,7 +57,7 @@ class Sequence {
 	 *
 	 * @readonly
 	 * @type {string[]}
-	 * @memberof Tools#Sequence#
+	 * @memberof Composition#Sequence#
 	 */
 	get string(): string[] {
 		if (!this._notes.length) {
@@ -84,7 +84,7 @@ class Sequence {
 	*
 	* @readonly
 	* @type {number[]}
-	* @memberof Tools#Sequence#
+	* @memberof Composition#Sequence#
 	*/
 	get midi(): number[] {
 		if (!this._notes.length) {
@@ -103,7 +103,7 @@ class Sequence {
 	*
 	* @readonly
 	* @type {number[]}
-	* @memberof Tools#Sequence#
+	* @memberof Composition#Sequence#
 	*/
 	get freq(): number[] {
 		if (!this._notes.length) {
@@ -128,7 +128,7 @@ class Sequence {
 	* @property {number[]} midi
 	* @property {string[]} string
 	* @property {number[]} freq
-	* @memberof Tools#Sequence#
+	* @memberof Composition#Sequence#
 	*/
 	get chords(): SequenceChords {
 		const chords = this._chords;
@@ -210,4 +210,3 @@ class Sequence {
 	}
 }
 
-export default Sequence;

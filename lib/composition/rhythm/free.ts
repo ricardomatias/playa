@@ -1,10 +1,11 @@
 import * as R from 'ramda';
+import { roll, distribute } from '@ricardomatias/roll';
+
 import { TimeFormat, Time as T } from '../../core/Time';
 import { whilst, PlayaError, toTicks } from '../../utils';
-import { expandDuration } from '../event';
-import { roll, distribute } from '@ricardomatias/roll';
-import Random from '../random';
-import { chooseMany } from '../choose';
+import { expandDuration } from '../../tools/event';
+import Random from '../../tools/random';
+import { chooseMany } from '../../tools/choose';
 import { Event } from '../../core/Event';
 import { Notevalue } from '../../constants';
 

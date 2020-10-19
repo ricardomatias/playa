@@ -1,6 +1,7 @@
 import { Ticks } from '../../../lib/constants';
 import { Time } from '../../../lib/core';
-import { Random, Rhythm } from '../../../lib/tools';
+import { Rhythm } from '../../../lib/composition';
+import { Random } from '../../../lib/tools';
 import '../../matchers';
 
 const ONE_BAR = Ticks['1n'];

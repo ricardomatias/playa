@@ -3,7 +3,7 @@ import { roll, distribute } from '@ricardomatias/roll';
 
 import { Ticks, Notevalue } from '../../constants';
 import { whilst, findCombinationsSum } from '../../utils';
-import Random from '../random';
+import Random from '../../tools/random';
 import { createGrid, GridCell } from './grid';
 import { Time, TimeFormat } from '../../core/Time';
 import { Event } from '../../core/Event';

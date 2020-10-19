@@ -4,4 +4,6 @@ export { createMelodies } from './melodies';
 export { createPercussion } from './percussion';
 export { createArp } from './arp';
 
+export * as Rhythm from './rhythm';
+export * from './sequence';
 export * from './movement';

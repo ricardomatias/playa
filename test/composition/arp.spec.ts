@@ -1,7 +1,7 @@
 import Random from '../../lib/tools/random';
-import { createArp } from '../../lib/functional/arp';
+import { createArp } from '../../lib/composition/arp';
 import { Scale, Chord, TOff } from '../../lib/core';
-import { free } from '../../lib/tools/rhythm';
+import { free } from '../../lib/composition/rhythm';
 
 describe('An Arp test suite', () => {
 	it('should create arp', () => {

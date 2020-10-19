@@ -1,8 +1,9 @@
 import * as R from 'ramda';
 import { Scale, Chord } from '../../lib/core';
-import { createMotif } from '../../lib/functional/motif';
+import { createMotif } from '../../lib/composition/motif';
 import { distribute } from '@ricardomatias/roll';
-import { Rhythm, chooseMany } from '../../lib/tools';
+import { chooseMany } from '../../lib/tools/choose';
+import * as Rhythm from '../../lib/composition/rhythm';
 import Random from '../../lib/tools/random';
 import { Ticks } from '../../lib/constants';
 import '../matchers';

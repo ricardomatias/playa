@@ -36,7 +36,9 @@ const STEPS = [ 32, 16, 8, 4 ];
 /**
  * Creates a mixture of euclidean rhythm patterns
  * @function createPercussion
- * @memberof Functional
+ * @memberof Composition
+ * @example
+ * createPercussion(4, [2, 1]) => { patterns: [ [ 1, 0, 1, 0 ], [ 1, 0, 0, 0 ] ], subdivision: '4n' }
  *
  * @param {Number} steps [ 32, 16, 8, 4 ]
  * @param {Number | Array<Number>} beatsPerPart Max numbers of beats per part or beats

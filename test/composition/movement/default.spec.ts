@@ -1,6 +1,6 @@
 import { Key, Time } from '../../../lib/core';
-import { createMovement } from '../../../lib/functional';
-import { MovementRhythm } from '../../../lib/functional/movement/types';
+import { createMovement } from '../../../lib/composition';
+import { MovementRhythm } from '../../../lib/composition/movement/types';
 import Random from '../../../lib/tools/random';
 
 

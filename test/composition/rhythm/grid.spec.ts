@@ -1,5 +1,5 @@
 import { Time } from '../../../lib/core';
-import { createGrid } from '../../../lib/tools/rhythm';
+import { createGrid } from '../../../lib/composition/rhythm';
 
 describe('#createGrid', () => {
 	it('should create a 8n grid', () => {

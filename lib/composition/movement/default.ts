@@ -1,9 +1,9 @@
 import * as R from 'ramda';
 import { Key, Time, TimeFormat } from '../../core';
 import {
-	Rhythm,
 	Random, Euclidean,
 } from '../../tools';
+import * as Rhythm from '../rhythm';
 import { NoteSymbol, Notevalue, ScaleName, Ticks } from '../../constants';
 import { modulate, createNewEventKey } from './helpers';
 import { ModulationEvent, ModulationEventType, Movement, MovementRhythm, TimelineEvent } from './types';
@@ -64,7 +64,7 @@ const QUARTER = Ticks['4n'];
  * Creates a Movement
  *
  * @function createMovement
- * @memberof Functional
+ * @memberof Composition
  * @example
  * createMovement(new Key('D', Key.MINOR), '4:0:0', 4)
  *

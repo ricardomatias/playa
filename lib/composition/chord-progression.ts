@@ -4,10 +4,10 @@ import { Chord, Time } from '../core';
 import { roll, distribute } from '@ricardomatias/roll';
 import {
 	choose,
-	Rhythm,
 	Random,
 	Midi,
 } from '../tools';
+import * as Rhythm from './rhythm';
 
 import { whilst, PlayaError, stripOctave, valuesToArr } from '../utils';
 import { ChordEvent } from '../core/ChordEvent';
@@ -67,7 +67,7 @@ export type ChordProgression = ChordEvent[]
  * Creates a chord progression
  *
  * @function createChordProgression
- * @memberof Functional
+ * @memberof Composition
  * @example
  * const movement = createMovement(new Key('A', Key.Major), '4:0:0', 4);
  * createChordProgression(movement.timeline);

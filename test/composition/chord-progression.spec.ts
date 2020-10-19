@@ -1,6 +1,6 @@
 import { RhythmType } from '../../lib/common/types';
 import { Key, Chord, Time } from '../../lib/core';
-import { createMovement, createChordProgression } from '../../lib/functional';
+import { createMovement, createChordProgression } from '../../lib/composition';
 import Random from '../../lib/tools/random';
 import '../matchers';
 

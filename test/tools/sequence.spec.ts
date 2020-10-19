@@ -1,5 +1,5 @@
 import Random from '../../lib/tools/random';
-import { Sequence } from '../../lib/tools';
+import { Sequence } from '../../lib/composition';
 import { Key, Chord, Scale } from '../../lib/core';
 
 describe('A Sequence test suite', () => {

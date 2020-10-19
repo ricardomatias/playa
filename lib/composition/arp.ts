@@ -14,7 +14,7 @@ import { TimeFormat } from '../core/Time';
  * Creates an arpeggio sequence of notes
  *
  * @function createArp
- * @memberof Functional
+ * @memberof Composition
  *
  * @example
  * createArp(new Key('A', Key.MAJOR), [ 1, 5, 4 ], [ '4n', '8n', '2n' ])

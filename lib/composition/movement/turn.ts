@@ -2,9 +2,9 @@ import * as R from 'ramda';
 import { Key, Time, TimeFormat } from '../../core';
 import {
 	Euclidean,
-	Rhythm,
 	choose,
 } from '../../tools';
+import * as Rhythm from '../rhythm';
 
 import { Interval, NoteSymbol, Notevalue, ScaleName, Ticks, TurnMoves } from '../../constants';
 
@@ -38,8 +38,20 @@ const MOD_MODE_INTERVALS = [ 1, 2, 3, 4, 5, 6, 7 ];
 /**
  * Creates a Movement out of a Turn structure
  * @function createTurnMovement
- * @memberof Functional
- *
+ * @memberof Composition
+ * @example
+const turns = [
+	{ type: TurnMoves.Start, interval: TurnMoves.Free },
+	{ type: TurnMoves.ModeUp, interval: 5 },
+	{ type: TurnMoves.Free, interval: TurnMoves.Free },
+	{ type: TurnMoves.ModulateDown, interval: '5P' },
+	{ type: TurnMoves.Start, interval: TurnMoves.Free },
+	{ type: TurnMoves.ModeDown, interval: 5 },
+	{ type: TurnMoves.ModulateUp, interval: '4P' },
+	{ type: TurnMoves.ModeDown, interval: 5 },
+];
+
+createTurnMovement(new Key('C', Key.Major), turns, '4:0:0');
  * @param {Key} key starting scale
  * @param {Array<Turn>} turns number of turn events
  * @param {TimeFormat} length in Transport time

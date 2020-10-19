@@ -4,9 +4,8 @@ import { Scale, Time as T } from '../core';
 import {
 	choose,
 	Random,
-	Rhythm,
 } from '../tools';
-
+import * as Rhythm from './rhythm';
 import { Notevalue, Ticks } from '../constants';
 import { createMotif } from './motif';
 import { NoteEvent } from '../core/NoteEvent';
@@ -35,7 +34,7 @@ export type Melody = NoteEvent[]
  * Create interleaved motifs
  *
  * @function createMelodies
- * @memberof Functional
+ * @memberof Composition
  *
  * @param {Array<Object>} timeline a movement's timeline
  * @param {Object} [options = {}]

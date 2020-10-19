@@ -1,7 +1,7 @@
 import { TurnMoves } from '../../../lib/constants';
 import { Key } from '../../../lib/core';
-import { createTurnMovement } from '../../../lib/functional';
-import { MovementRhythm } from '../../../lib/functional/movement/types';
+import { createTurnMovement } from '../../../lib/composition';
+import { MovementRhythm } from '../../../lib/composition/movement/types';
 import Random from '../../../lib/tools/random';
 
 

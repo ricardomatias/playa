@@ -1,5 +1,5 @@
 import Random from '../../lib/tools/random';
-import { createPercussion } from '../../lib/functional/percussion';
+import { createPercussion } from '../../lib/composition/percussion';
 
 describe('A Percussion test suite', () => {
 	it('should generate 2 parts', () => {
@@ -7,6 +7,8 @@ describe('A Percussion test suite', () => {
 
 		// when
 		const perc = createPercussion(4, [ 2, 1 ]);
+
+		console.log(perc);
 
 		// then
 		expect(perc).toMatchInlineSnapshot(`

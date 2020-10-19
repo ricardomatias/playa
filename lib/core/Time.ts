@@ -6,16 +6,6 @@ const TRANSPORT_SEPARATOR = ':';
 
 export type TimeFormat = string | number | Time;
 
-/**
- * Time formats
- * @memberof Types
- * @typedef {Time | string | number} TimeFormat
- * @example
- * '2n' // string
- * 480 // number
- * new Time('1:0:0') // Time
-*/
-
 // Live exports MIDI files with a resolution of 96 ppq, which means a 16th note can be divided into 24 steps.
 
 export type TimeSignature = [number, number] | number[];
@@ -188,7 +178,7 @@ export class Time {
 	 * @memberof Core#Time
 	 * @description  Converts "Bars : Beats : Sixteenths" to ticks
 	 *
-	 * @param {string} time '2.3.1'
+	 * @param {string} time '2:0:1'
 	 * @param {Object} [opts = {}]
 	 * @param {boolean} [opts.positionMode=false]
 	 * @param {number} [opts.ppq = 480] Pulse per quarter note
