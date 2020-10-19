@@ -1,10 +1,10 @@
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import clear from 'rollup-plugin-clear';
 import progress from 'rollup-plugin-progress';
 import cleanup from 'rollup-plugin-cleanup';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 
 
 const extensions = [
@@ -12,7 +12,7 @@ const extensions = [
 ];
 
 const baseConfig = {
-	input: './lib/index.js',
+	input: './lib/index.ts',
 	output: [
 		{
 			dir: 'build/esm',
@@ -35,6 +35,7 @@ const baseConfig = {
 		typescript(),
 		babel({
 			extensions,
+			'babelHelpers': 'bundled',
 			'babelrc': false,
 			'sourceMap': 'inline',
 			'retainLines': true,
@@ -50,7 +51,6 @@ const baseConfig = {
 				],
 			],
 			'plugins': [
-				'@babel/plugin-proposal-object-rest-spread',
 				'@babel/plugin-proposal-class-properties',
 			],
 		}),

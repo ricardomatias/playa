@@ -1,4 +1,4 @@
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import cleanup from 'rollup-plugin-cleanup';
@@ -37,6 +37,7 @@ export default [
 			typescript(),
 			babel({
 				extensions,
+				'babelHelpers': 'bundled',
 				'babelrc': false,
 				'retainLines': false,
 				'sourceMap': false,
@@ -54,7 +55,6 @@ export default [
 				],
 				'plugins': [
 					'ramda',
-					'@babel/plugin-proposal-object-rest-spread',
 					'@babel/plugin-proposal-class-properties',
 				],
 			}),

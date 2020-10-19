@@ -4,11 +4,17 @@ import { Sharps, Flats, DiatonicNotes, ScaleIntervals, Interval, NoteSymbol, Sca
 import distance from './distance';
 import { valuesToArr, convObj, rotate, hasNoNumber, whilst, stripOctave } from '../utils';
 import * as R from 'ramda';
-import { hasKeyValue, isDefined, isNotNull, isNumber, isString } from '../utils/types-guards';
+import { hasKeyValue, isDefined, isNotNull, isNumber, isString, Pull } from '../utils/types-guards';
 
 const __ = R.__;
 
-const isNotChromatic = R.complement(R.equals(ScaleIntervals.Chromatic));
+type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>
+
+type FriendlyScales = Exclude<ScaleIntervals, Chromatic>;
+
+type isNotChromatic = (s: ScaleIntervals) => s is FriendlyScales
+
+const isNotChromatic = R.complement(R.equals(ScaleIntervals.Chromatic)) as isNotChromatic;
 
 const SCALES_ARRAY = R.filter(isNotChromatic, valuesToArr(ScaleIntervals));
 

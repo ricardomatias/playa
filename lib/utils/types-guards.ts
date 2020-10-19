@@ -29,3 +29,5 @@ export function isArray<T>(argument: T | T[]): argument is Array<T> {
 export function hasKeyValue<T>(item: T | Required<T>, key: keyof T): item is Required<T> {
 	return item[key] !== undefined;
 }
+
+export type Pull<T, K extends keyof T> = T[K]
