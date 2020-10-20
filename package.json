@@ -21,7 +21,7 @@
 		"docs:build": "rollup -c rollup.config.docs.js && docma -c docma.json --clean",
 		"docs:serve": "docma serve",
 		"docs": "npm run docs:build && npm run docs:serve",
-		"prepublishOnly": "npm run changelog",
+		"version": "npm run changelog",
 		"changelog": "auto-changelog -p --commit-limit 10 --ignore-commit-pattern 'dependencies|docs|readme|changelog' -t compact && git add CHANGELOG.md"
 	},
 	"author": {
