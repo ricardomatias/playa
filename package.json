@@ -22,7 +22,7 @@
 		"docs:serve": "docma serve",
 		"docs": "npm run docs:build && npm run docs:serve",
 		"prepublishOnly": "npm run changelog",
-		"changelog": "auto-changelog -p && git add CHANGELOG.md"
+		"changelog": "auto-changelog -p --commit-limit 10 --ignore-commit-pattern 'dependencies|docs|readme|changelog' -t compact && git add CHANGELOG.md"
 	},
 	"author": {
 		"name": "Ricardo Matias",
