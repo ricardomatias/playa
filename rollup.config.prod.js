@@ -34,7 +34,7 @@ export default [
 			resolve({ extensions }),
 			commonjs(),
 			cleanup({ comments: 'none' }),
-			typescript(),
+			typescript({ useTsconfigDeclarationDir: true }),
 			babel({
 				extensions,
 				'babelHelpers': 'bundled',

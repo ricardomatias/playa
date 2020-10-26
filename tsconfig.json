@@ -16,7 +16,8 @@
 		// Import non-ES modules as default imports.
 		"esModuleInterop": true,
 		"inlineSourceMap": false,
-		"declaration": false,
+		"declaration": true,
+		"declarationDir": "./build/types",
 	},
 	"include": [
 		"./lib/**/*"
