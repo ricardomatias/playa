@@ -1,8 +1,8 @@
 import * as R from 'ramda';
 import assignOctaves from '../../lib/utils/octaves';
-import { Scale, Chord } from '../../lib/core';
+import { Scale, Chord, Note } from '../../lib/core';
 
-const toNoteObj = (note) => ({ [note.n]: note.m });
+const toNoteObj = (note: Note) => ({ [note.n]: note.m });
 
 describe('An Octaves Test Suite', () => {
 	it('should map - chromatic', () => {

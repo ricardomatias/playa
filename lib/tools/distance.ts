@@ -3,13 +3,9 @@ import { Note } from '../core/Note';
 import ring from '@ricardomatias/ring';
 import { interval as getInterval } from './interval';
 import { Sharps, Flats, Semitones, DiatonicNotes, DiatonicNote, NoteSymbol, Interval, Sharp, Flat } from '../constants';
-import { natural } from '../utils/note';
+import { assureNote, natural, NoteLike } from '../utils/note';
 import { isDefined, isNotNull } from '../utils/types-guards';
 
-
-type NoteLike = Note | NoteSymbol | string;
-
-const assureNote = (note: NoteLike): Note => (note instanceof Note ? note : new Note(note));
 
 /**
  * Note distance functions

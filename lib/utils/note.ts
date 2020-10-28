@@ -1,5 +1,5 @@
 import { DiatonicNote, NoteSymbol } from '../constants';
-import { Note } from '../core';
+import { Note } from '../core/Note';
 
 const ACCIDENT_REGEXP = new RegExp('#|b');
 const OCTAVE_REGEXP = /-?\d{1,}/;
@@ -73,3 +73,7 @@ export const parseNote = (note: string): ParsedNote | null => {
 		octave: parseInt(result[2], 10),
 	};
 };
+
+export type NoteLike = Note | NoteSymbol | string;
+
+export const assureNote = (note: NoteLike): Note => (note instanceof Note ? note : new Note(note));

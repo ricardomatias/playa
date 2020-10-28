@@ -46,7 +46,7 @@ describe('Time Test Suite', () => {
 	it('should allow adding', () => {
 		const time = new Time('0:2:0');
 
-		expect(time + time).toBe(1920);
+		expect((time as any) + (time as any)).toBe(1920);
 	});
 
 	describe('#bbsToTicks', () => {

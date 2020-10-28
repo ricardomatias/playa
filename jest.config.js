@@ -13,16 +13,22 @@ module.exports = {
 
 	// The directory where Jest should store its cached dependency information
 	// cacheDirectory: "/private/var/folders/s4/ffqt6x516015rf37_gl41sqm0000gn/T/jest_dx",
-
+	'preset': 'ts-jest',
+	'globals': {
+		'ts-jest': {
+			'tsconfig': 'tsconfig.test.json',
+		},
+	},
 	// Automatically clear mock calls and instances between every test
 	'clearMocks': true,
 
 	// Indicates whether the coverage information should be collected while executing the test
-	// collectCoverage: false,
+	// 'collectCoverage': true,
 
 	// An array of glob patterns indicating a set of files for which coverage information should be collected
 	'collectCoverageFrom': [
 		'lib/**/*.{js,ts}',
+		'!<rootDir>/node_modules/',
 	],
 
 	// The directory where Jest should output its coverage files
@@ -32,8 +38,6 @@ module.exports = {
 	'coveragePathIgnorePatterns': [
 		'/node_modules/',
 		'/constants/',
-		'<rootDir>/lib/functional/movement.bk.js',
-		'<rootDir>/lib/functional/movement.x.js',
 	],
 
 	// A list of reporter names that Jest uses when writing coverage reports
@@ -143,8 +147,7 @@ module.exports = {
 
 	// The glob patterns Jest uses to detect test files
 	'testMatch': [
-		'/**/*.spec.js',
-		'/**/*.spec.ts',
+		'**/*.(spec).(ts|tsx)',
 	],
 
 	// An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
@@ -156,7 +159,7 @@ module.exports = {
 	// testRegex: [],
 
 	// This option allows the use of a custom results processor
-	// testResultsProcessor: null,
+	// 'testResultsProcessor': '<rootDir>/node_modules/ts-jest/coverageprocessor.js',
 
 	// This option allows use of a custom test runner
 	// testRunner: "jasmine2",
@@ -168,13 +171,15 @@ module.exports = {
 	// timers: "real",
 
 	// A map from regular expressions to paths to transformers
-	// 'transform': {},
+	'transform': {
+		'^.+\\.tsx?$': 'ts-jest',
+	},
 
 	// An array of regexp pattern strings that are matched against
 	// all source file paths, matched files will skip transformation
-	// transformIgnorePatterns: [
-	//   "/node_modules/"
-	// ],
+	'transformIgnorePatterns': [
+		'/node_modules/',
+	],
 
 	// An array of regexp pattern strings that are matched against
 	// all modules before the module loader will automatically return a mock for them

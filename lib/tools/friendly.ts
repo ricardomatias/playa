@@ -1,9 +1,12 @@
+import * as R from 'ramda';
+
 import { Scale } from '../core/Scale';
 import { Note } from '../core/Note';
 import { Sharps, Flats, DiatonicNotes, ScaleIntervals, Interval, NoteSymbol, ScaleName } from '../constants';
 import distance from './distance';
-import { valuesToArr, convObj, rotate, hasNoNumber, whilst, stripOctave } from '../utils';
-import * as R from 'ramda';
+import { stripOctave } from '../utils/note';
+import whilst from '../utils/whilst';
+import { valuesToArr, convObj, rotate, hasNoNumber } from '../utils/functional';
 import { hasKeyValue, isDefined, isNotNull, isNumber, isString, Pull } from '../utils/types-guards';
 
 const __ = R.__;

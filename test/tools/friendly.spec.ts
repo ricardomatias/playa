@@ -4,6 +4,7 @@ import { Scale } from '../../lib/core/Scale';
 import * as R from 'ramda';
 import { stripOctave, valuesToArr } from '../../lib/utils';
 import { ScaleIntervals } from '../../lib/constants';
+import { Pull } from '../../lib/utils/types-guards';
 
 
 const Cmaj = new Scale('C', Scale.Major);
@@ -11,7 +12,13 @@ const Abmaj = new Scale('Ab', Scale.Major);
 const DSharpLoc = new Scale('D#', Scale.Locrian);
 const BbEgyptian = new Scale('Bb', Scale.Egyptian);
 
-const isNotChromatic = R.complement(R.equals(ScaleIntervals.Chromatic));
+type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>
+
+type FriendlyScales = Exclude<ScaleIntervals, Chromatic>;
+
+type isNotChromatic = (s: ScaleIntervals) => s is FriendlyScales
+
+const isNotChromatic = R.complement(R.equals(ScaleIntervals.Chromatic)) as isNotChromatic;
 
 const SCALES_ARRAY = R.filter(isNotChromatic, valuesToArr(ScaleIntervals));
 

@@ -12,7 +12,7 @@ import { whilst } from '../utils';
  * @param {T} compareAgainst
  * @return {T|T[]}
  */
-export const chooseMany = <T>(list: T[], n: number, compareAgainst = null): T[] => {
+export const chooseMany = <T>(list: T[], n: number, compareAgainst: T | null = null): T[] => {
 	let lst = [ ...list ];
 	const elems: T[] = [];
 
@@ -44,7 +44,7 @@ export const chooseMany = <T>(list: T[], n: number, compareAgainst = null): T[] 
  * @param {T} compareAgainst
  * @return {T}
  */
-export const choose = <T>(list: T[], compareAgainst = null): T => {
+export const choose = <T>(list: T[], compareAgainst: T | null = null): T => {
 	const elems: T[] = chooseMany(list, 1, compareAgainst);
 
 	return elems[0];

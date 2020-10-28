@@ -86,11 +86,10 @@ const assignOctaves = (
 
 	// This garantees that the notes are on the right octaves
 	allMidiNotes.forEach((midiNote) => {
-		const chromaticNote = midiNote.note;
 		const midi = midiNote.m;
 		const note = notes[notesIndex].note;
 
-		if (chromaticNote === note) {
+		if (midiNote.equals(notes[notesIndex])) {
 			const mappedNote = new Note(note, midi as number);
 
 			map.push(mappedNote);

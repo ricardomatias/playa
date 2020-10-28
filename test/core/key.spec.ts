@@ -1,12 +1,12 @@
-import { Key } from '../../lib/core';
+import { Chord, Key } from '../../lib/core';
 import Random from '../../lib/tools/random';
 import '../matchers';
 
-function pickName(chords) {
-	return chords.map((c) => c.name);
+function pickName<T extends Chord | Key>(chords: T[]) {
+	return chords.map((c: T) => c.name);
 }
 
-function testModulation(key) {
+function testModulation(key: Key) {
 	return {
 		root: key.root,
 		name: Key.getModeName(key.intervals),

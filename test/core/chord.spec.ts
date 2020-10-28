@@ -32,6 +32,39 @@ describe('Chord Test Suite', () => {
 			expect(chord).toHaveStringNotes([ 'D#3', 'F#3', 'A#3', 'C4' ]);
 		});
 
+		it('should have Cm6', () => {
+			const chord = new Chord('Cm6');
+
+			expect(chord.root).toBe('C');
+			expect(chord.symbol).toBe('m6');
+			expect(chord.intervals).toBe('1P 3m 5P 6M');
+			expect(chord.structure).toBe(Chord.Structures.Sixth);
+			expect(chord.name).toBe('Cm6');
+			expect(chord).toHaveStringNotes([ 'C3', 'Eb3', 'G3', 'A3' ]);
+		});
+
+		it('should have Gm', () => {
+			const chord = new Chord('Gm');
+
+			expect(chord.root).toBe('G');
+			expect(chord.symbol).toBe('m');
+			expect(chord.intervals).toBe('1P 3m 5P');
+			expect(chord.structure).toBe(Chord.Structures.Triad);
+			expect(chord.name).toBe('Gm');
+			expect(chord).toHaveStringNotes([ 'G3', 'Bb3', 'D4' ]);
+		});
+
+		it('should have Fdim', () => {
+			const chord = new Chord('Fdim', [ 4, 1 ]);
+
+			expect(chord.root).toBe('F');
+			expect(chord.symbol).toBe('dim');
+			expect(chord.intervals).toBe('1P 3m 5d');
+			expect(chord.structure).toBe(Chord.Structures.Triad);
+			expect(chord.name).toBe('Fdim');
+			expect(chord).toHaveStringNotes([ 'F4', 'Ab4', 'B4' ]);
+		});
+
 		it('should set flat', () => {
 			const chord = new Chord('Bbm9');
 

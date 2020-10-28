@@ -3,6 +3,7 @@ import * as R from 'ramda';
 import { roll, distribute } from '@ricardomatias/roll';
 import { convert as convertToRoman } from 'roman-numeral';
 
+import { Note } from './Note';
 import { Scale } from './Scale';
 import { Chord } from './Chord';
 import distance from '../tools/distance';
@@ -11,10 +12,9 @@ import { Interval } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { ChordIntervals, ChordStructure } from '../constants/chords';
-import { Note } from './Note';
 import { GreekModeInterval, ModePosition } from '../constants/modes';
 import { isNotNull, isUndefined } from '../utils/types-guards';
-import { PlayaError } from '../utils';
+import { PlayaError } from '../utils/error';
 import { Octaves } from '../common/types';
 
 const TOTAL_MODES = 7;
@@ -446,7 +446,7 @@ export class Key extends Scale {
 	* @return {Key[]}
 	*/
 	static modesToKeys(modes: Mode[]): Key[] {
-		return modes.map((mode) => {
+		return modes.map((mode): Key => {
 			return new Key(mode.root, mode.scale);
 		});
 	}

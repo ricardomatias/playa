@@ -1,9 +1,9 @@
-import { expandDuration } from "../../lib/tools/event";
+import { expandDuration } from '../../lib/tools/event';
 
-describe("An Event tools test suite", () => {
-	describe("#expandDuration", () => {
-		it("should map pattern - string[]", () => {
-			const patt = ["8n", "4n", "2nt"];
+describe('An Event tools test suite', () => {
+	describe('#expandDuration', () => {
+		it('should map pattern - string[]', () => {
+			const patt = [ '8n', '4n', '2nt' ];
 
 			expect(expandDuration(patt)).toMatchInlineSnapshot(`
 			Array [
@@ -29,7 +29,7 @@ describe("An Event tools test suite", () => {
 		`);
 		});
 
-		it("should return the same - Event[]", () => {
+		it('should return the same - Event[]', () => {
 			const patt = [
 				{
 					time: 0,

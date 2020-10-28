@@ -5,13 +5,13 @@ describe('Note Test Suite', () => {
 		const note = new Note('A');
 
 		expect(note.n).toBe('A');
+		expect(note.e).toBeUndefined();
 	});
 
 	it('should set sharp', () => {
 		const note = new Note('D#');
 
 		expect(note.n).toBe('D#');
-
 		expect(note.e).toBe('Eb');
 	});
 
@@ -19,7 +19,6 @@ describe('Note Test Suite', () => {
 		const note = new Note('Gb');
 
 		expect(note.n).toBe('Gb');
-
 		expect(note.e).toBe('F#');
 	});
 
@@ -29,6 +28,7 @@ describe('Note Test Suite', () => {
 		expect(note.n).toBe('C3');
 		expect(note.m).toBe(60);
 		expect(note.note).toBe('C');
+		expect(note.e).toBeUndefined();
 	});
 
 	it('should strip octave from note', () => {
@@ -42,7 +42,7 @@ describe('Note Test Suite', () => {
 		expect(note2.note).toBe('Gb');
 	});
 
-	it('should have unstateful refexp', () => {
+	it('should have unstateful regexp', () => {
 		const a = new Note('D3').n;
 		const b = new Note('D3').n;
 		const c = new Note('D').n;
@@ -59,6 +59,7 @@ describe('Note Test Suite', () => {
 
 		expect(note.n).toBe('F#6');
 		expect(note.note).toBe('F#');
+		expect(note.e).toBe('Gb');
 	});
 
 	it('should get enharmonic with MIDI', () => {
@@ -71,13 +72,13 @@ describe('Note Test Suite', () => {
 	it('should get Gb freq based on MIDI', () => {
 		const note = new Note(102);
 
-		expect(Math.round(note.f)).toBe(2960);
+		expect(Math.round(note.f as number)).toBe(2960);
 	});
 
 	it('should get A freq based on MIDI', () => {
 		const note = new Note(69);
 
-		expect(Math.round(note.f)).toBe(440);
+		expect(Math.round(note.f as number)).toBe(440);
 	});
 
 	it('should get next with MIDI', () => {
@@ -86,7 +87,8 @@ describe('Note Test Suite', () => {
 
 		expect(next.n).toBe('G3');
 		expect(next.note).toBe('G');
-		expect(next.midi - note.midi).toBe(1);
+		expect(next.e).toBeUndefined();
+		expect((next.midi ?? 0) - (note.midi ?? 0)).toBe(1);
 	});
 
 	it('should get neighbors as sharps by default', () => {
@@ -137,5 +139,25 @@ describe('Note Test Suite', () => {
 		const note = new Note('A');
 
 		expect(note.distC).toBe(9);
+	});
+
+	it('should equal itself', () => {
+		const note = new Note('A');
+
+		expect(note.equals(note)).toBeTruthy();
+	});
+
+	it('should equal enharmonic same octave', () => {
+		const a = new Note('C#3');
+		const b = new Note('Db3');
+
+		expect(a.equals(b)).toBeTruthy();
+	});
+
+	it('should equal enharmonic different octave', () => {
+		const a = new Note('C#3');
+		const b = new Note('Db4');
+
+		expect(a.equals(b)).toBeTruthy();
 	});
 });

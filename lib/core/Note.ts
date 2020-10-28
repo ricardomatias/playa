@@ -367,6 +367,18 @@ export class Note {
 	}
 
 	/**
+	* Does this note equal the other?
+	* Equality check done by comparing the Note (without octave), enharmonics and midi
+	* @function equals
+	* @param {Note} other
+	* @return {boolean}
+	* @memberof Core#Note#
+	*/
+	equals(other: Note): boolean {
+		return (this.note === other.note) || (this.midi === other.midi) || (this.note === other.e);
+	}
+
+	/**
 	 * Tries to find the enharmonic of the note
 	 * @private
 	 * @param {string} note
@@ -377,13 +389,13 @@ export class Note {
 		let enharmonic = '';
 
 		for (let index = 0; index < Enharmonics.length; index++) {
-			const enharmonics = Enharmonics[index];
+			const enharmonics = Enharmonics[index].split('|');
 			const noteIndex = enharmonics.indexOf(note);
 
 			if (noteIndex !== -1) {
-				const enharmonicIndex = noteIndex === 0 ? 3 : 0;
+				const enharmonicIndex = noteIndex ? 0 : 1;
 
-				enharmonic = enharmonics.substr(enharmonicIndex, 2);
+				enharmonic = enharmonics[enharmonicIndex];
 				break;
 			}
 		}
