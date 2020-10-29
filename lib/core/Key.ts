@@ -74,10 +74,10 @@ export class Key extends Scale {
 	*/
 	static readonly Modes = GreekModes;
 
-	constructor(root: NoteSymbol, intervals: GreekModeIntervals);
-	constructor(root: Note, intervals: GreekModeIntervals);
-	constructor(root: string, intervals: GreekModeIntervals);
-	constructor(root: number, intervals: GreekModeIntervals);
+	constructor(root: NoteSymbol, intervals: GreekModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
+	constructor(root: Note, intervals: GreekModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
+	constructor(root: string, intervals: GreekModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
+	constructor(root: number, intervals: GreekModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
 
 	/**
 	 * Creates an instance of Key.
