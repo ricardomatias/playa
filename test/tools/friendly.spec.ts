@@ -10,7 +10,7 @@ import { Pull } from '../../lib/utils/types-guards';
 const Cmaj = new Scale('C', Scale.Major);
 const Abmaj = new Scale('Ab', Scale.Major);
 const DSharpLoc = new Scale('D#', Scale.Locrian);
-const BbEgyptian = new Scale('Bb', Scale.Egyptian);
+const BbEgyptian = new Scale('Bb', Scale.Intervals.Egyptian);
 
 type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>
 

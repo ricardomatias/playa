@@ -5,7 +5,7 @@ import { Note } from './Note';
 
 
 /**
- * The base class for harmonic structures
+ * Abstract base class for harmonic structures
  *
  * @memberof Core
  * @class

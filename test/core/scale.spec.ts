@@ -12,7 +12,7 @@ describe('Scale Test Suite', () => {
 
 	describe('#_createScale', () => {
 		it('should create scale - chromatic', () => {
-			const scale = new Scale('C', Scale.Chromatic);
+			const scale = new Scale('C', Scale.Intervals.Chromatic);
 
 			expect(scale.string).toMatchInlineSnapshot(`
 			Array [
@@ -113,7 +113,7 @@ describe('Scale Test Suite', () => {
 		});
 
 		it('should create scale - pentatonic', () => {
-			const scale = new Scale('C', Scale.MinorPentatonic);
+			const scale = new Scale('C', Scale.Intervals.MinorPentatonic);
 
 			expect(scale.string).toMatchInlineSnapshot(`
 			Array [
@@ -127,7 +127,7 @@ describe('Scale Test Suite', () => {
 		});
 
 		it('should create scale - MELODIC_MINOR', () => {
-			const scale = new Scale('C', Scale.MelodicMinor);
+			const scale = new Scale('C', Scale.Intervals.MelodicMinor);
 
 			expect(scale.string).toMatchInlineSnapshot(`
 			Array [
@@ -143,7 +143,7 @@ describe('Scale Test Suite', () => {
 		});
 
 		it('should create scale - ALTERED', () => {
-			const scale = new Scale('F#', Scale.Altered);
+			const scale = new Scale('F#', Scale.Intervals.Altered);
 
 			expect(scale.string).toMatchInlineSnapshot(`
 			Array [

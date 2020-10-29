@@ -6,7 +6,7 @@ const toNoteObj = (note: Note) => ({ [note.n]: note.m });
 
 describe('An Octaves Test Suite', () => {
 	it('should map - chromatic', () => {
-		const scale = new Scale('C', Scale.Chromatic);
+		const scale = new Scale('C', Scale.Intervals.Chromatic);
 		const octaves = R.map(toNoteObj, assignOctaves(scale.notes));
 
 		expect(octaves).toMatchSnapshot();
@@ -37,7 +37,7 @@ describe('An Octaves Test Suite', () => {
 	});
 
 	it('should map - pentatonic', () => {
-		const scale = new Scale('Eb', Scale.MajorPentatonic);
+		const scale = new Scale('Eb', Scale.Intervals.MajorPentatonic);
 		const octaves = R.map(toNoteObj, assignOctaves(scale.notes, [ -2, 1 ]));
 
 		expect(octaves).toHaveLength(5);

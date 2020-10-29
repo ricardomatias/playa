@@ -12,7 +12,7 @@ import { Interval } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { ChordIntervals, ChordStructure } from '../constants/chords';
-import { GreekModeInterval, ModePosition } from '../constants/modes';
+import { GreekModeInterval, GreekModes, ModePosition } from '../constants/modes';
 import { isNotNull, isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
 import { Octaves } from '../common/types';
@@ -60,6 +60,19 @@ export class Key extends Scale {
 	private _chord: Chord | undefined;
 
 	/**
+	* Greek Modes
+	*
+	* @member Modes
+	* @memberof Core#Key
+	* @enum
+	* @static
+	* @type {ScaleName}
+	*
+	* @example Key.Modes => ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian']
+	*/
+	static readonly Modes = GreekModes;
+
+	/**
 	 * Creates an instance of Key.
 	 * @constructs Key
 	 * @memberof Core#
@@ -69,6 +82,10 @@ export class Key extends Scale {
 	 * @param {Array<Number>} [octaves = [ 3, 1]] [starting, number of octaves] range of octaves to map notes to
 	 * @param {Object} [opts = {}]
 	 * @param {Array<Number>} [opts.chordStructure = Chord.Structures.Seventh ] - f.ex: Chord.Structures.Sixth
+	 *
+	 * @example
+	 * new Key('A', Scale.Ionian);
+	 * new Key('A', Key.Dorian, [4, 1], { chordStructure: Chord.Structures.Sixth });
 	 */
 	constructor(
 		root: NoteSymbol,
@@ -115,7 +132,7 @@ export class Key extends Scale {
 	* Returns the keys's name
 	*
 	* @member name
-	* @memberof Core#Scale#
+	* @memberof Core#Key#
 	* @type {ScaleName|String}
 	*/
 	get name(): ScaleName | undefined {
@@ -262,7 +279,7 @@ export class Key extends Scale {
 
 	/**
 	 * Get the mode position in Roman Numerals
-	 * @member modePosition
+	 * @member modePositionRoman
 	 * @memberof Core#Key#
 	 *
 	 * @type {String}
@@ -376,12 +393,32 @@ export class Key extends Scale {
 		return [ Key.ModulateUp, Key.ModulateDown ].includes(direction);
 	}
 
-	private getModeAtPosition(idx: number): Key {
+	/**
+	* Modulate key within it's relative modes based on a direction & interval
+	* @function getModeAtPosition
+	* @memberof Core#Key#
+	*
+	* @param {Number} position [0. 7]
+	* @return {Key} same key in a different mode
+	*/
+	getModeAtPosition(position: number): Key {
 		const modes = this.modes;
 
-		const mode = modes[idx];
+		const mode = modes[position % 8];
 
-		return new Key(mode.root, mode.scale, this._octaves, { chordStructure: this._chordStructure });
+		this._root = mode.root as NoteSymbol;
+		this._intervals = mode.scale;
+
+		const rootPos = R.findIndex(R.propEq('note', mode.root), this._notes);
+		const notesSplit = R.splitAt(rootPos, this._notes);
+
+		this._notes = R.concat(<Note[]>R.last(notesSplit), <Note[]>R.head(notesSplit));
+
+		this.assignOctaves();
+
+		delete this._chord;
+
+		return this;
 	}
 
 	/**
@@ -451,30 +488,80 @@ export class Key extends Scale {
 		});
 	}
 
+	/**
+	* Ionian mode in the current key
+	*
+	* @member I
+	* @memberof Core#Key#
+	* @type {Key}
+	*/
 	get I(): Key {
 		return this.getModeAtPosition(0);
 	}
 
+	/**
+	* Dorian mode in the current key
+	*
+	* @member II
+	* @memberof Core#Key#
+	* @type {Key}
+	*/
 	get II(): Key {
 		return this.getModeAtPosition(1);
 	}
 
+	/**
+	* Phrygian mode in the current key
+	*
+	* @member III
+	* @memberof Core#Key#
+	* @type {Key}
+	*/
 	get III(): Key {
 		return this.getModeAtPosition(2);
 	}
 
+
+	/**
+	* Lydian mode in the current key
+	*
+	* @member IV
+	* @memberof Core#Key#
+	* @type {Key}
+	*/
 	get IV(): Key {
 		return this.getModeAtPosition(3);
 	}
 
+	/**
+	* Mixolydian mode in the current key
+	*
+	* @member V
+	* @memberof Core#Key#
+	* @type {Key}
+	*/
 	get V(): Key {
 		return this.getModeAtPosition(4);
 	}
 
+	/**
+	* Aeolian mode in the current key
+	*
+	* @member VI
+	* @memberof Core#Key#
+	* @type {Key}
+	*/
 	get VI(): Key {
 		return this.getModeAtPosition(5);
 	}
 
+	/**
+	* Locrian mode in the current key
+	*
+	* @member VII
+	* @memberof Core#Key#
+	* @type {Key}
+	*/
 	get VII(): Key {
 		return this.getModeAtPosition(6);
 	}
@@ -485,16 +572,4 @@ export class Key extends Scale {
 	static ModulationIntervals = <const>[ '4P', '5P', '2M', '7m', '3m', '6M', '3M', '6m', '2m', '7M' ];
 }
 
-// Key.MOD_UP = Symbol('MOD_UP');
-// Key.MOD_DOWN = Symbol('MOD_DOWN');
-
-// Key.Modes = new Map([
-// 	[ Key.Ionian, [ 'I', 'tonic' ] ],
-// 	[ Key.Dorian, [ 'II', 'subdominant' ] ],
-// 	[ Key.Phrygian, [ 'III', 'mediant' ] ],
-// 	[ Key.Lydian, [ 'IV', 'subdominant' ] ],
-// 	[ Key.Mixolydian, [ 'V', 'dominant' ] ],
-// 	[ Key.Aeolian, [ 'VI', 'submediant' ] ],
-// 	[ Key.Locrian, [ 'VII', 'leading' ] ],
-// ]);
 

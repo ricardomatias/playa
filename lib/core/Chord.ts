@@ -53,7 +53,7 @@ export class Chord extends HarmonyBase {
 	* @static
 	* @type {ChordSymbol}
 	*
-	* @example Symbols.Major => 'maj'
+	* @example Chord.Symbols.Major => 'maj'
 	*/
 	static Symbols = ChordSymbol
 
@@ -66,7 +66,7 @@ export class Chord extends HarmonyBase {
 	* @static
 	* @type {ChordStructure}
 	*
-	* @example Structures.Sixth => [ 4, [ '1 3 5 6' ] ]
+	* @example Chord.Structures.Sixth => [ '1 3 5 6' ]
 	*/
 	static Structures = ChordStructure
 
@@ -84,7 +84,7 @@ export class Chord extends HarmonyBase {
 	 * new Chord('A', '1P 3M 5P', [4, 1]);
 	 *
 	 * Chord.fromName('Am7')
-	 * Chord.fromIntervals('A', Scale.Minor, Chord.Structures.Triad) => 'Am'
+	 * Chord.fromIntervals('A', Scale.Intervals.Minor, Chord.Structures.Triad) => 'Am'
 	 */
 	constructor(
 		root: NoteSymbol,
@@ -163,7 +163,7 @@ export class Chord extends HarmonyBase {
 	* @function fromIntervals
 	* @memberof Core#Chord
 	* @static
-	* @example Chord.fromIntervals('A', Scale.Dorian, Chord.Sructures.Sixth);
+	* @example Chord.fromIntervals('A', Scale.Intervals.Dorian, Chord.Sructures.Sixth);
 	*
 	* @param {NoteSymbol} root
 	* @param {ScaleIntervals | string} intervals
@@ -498,15 +498,15 @@ export const createFromStructure = (
 };
 
 /**
-	 * Creates a chord based on a chordName f.ex: Am7
-	 *
-	 * @private
-	 *
-	 * @param {NoteSymbol} root
-	 * @param {String} intervals
-	 * @param {ChordStructure} structure
-	 * @return {Array<Note>}
-	 */
+ * Creates a chord based on a chordName f.ex: Am7
+ *
+ * @private
+ *
+ * @param {NoteSymbol} root
+ * @param {String} intervals
+ * @param {ChordStructure} structure
+ * @return {Array<Note>}
+ */
 const createChordWithStructure = (
 	root: NoteSymbol,
 	intervals: ScaleIntervals | string,

@@ -25,8 +25,8 @@ describe('Key Test Suite', () => {
 	});
 
 	describe('Modes', () => {
-		it('should have chords for C Major', () => {
-			const key = new Key('C', Key.Major);
+		it('should have chords for C Ionian', () => {
+			const key = new Key('C', Key.Ionian);
 
 			expect(pickName(Key.modesToChords(key.modes))).toEqual([
 				'CM7',
@@ -68,7 +68,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should allow accessing a mode through roman numeral', () => {
-			const key = new Key('A', Key.Major);
+			const key = new Key('A', Key.Ionian);
 
 			const cMin = key.III;
 
@@ -99,7 +99,7 @@ describe('Key Test Suite', () => {
 
 	describe('#modulate', () => {
 		it('should modulate UP', () => {
-			const key = new Key('C', Key.Major);
+			const key = new Key('C', Key.Ionian);
 
 			key.modulateUp();
 
@@ -115,7 +115,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate DOWN', () => {
-			const key = new Key('A', Key.Major);
+			const key = new Key('A', Key.Ionian);
 
 			key.modulateDown();
 
@@ -202,6 +202,50 @@ describe('Key Test Suite', () => {
 				'G#4',
 				'A#4',
 			]);
+		});
+	});
+
+	describe('switch modes', () => {
+		it('should modulate to another mode - Aeolian', () => {
+			Random.setSeed('test');
+
+			const key = new Key('C', Key.Ionian);
+
+			expect(testModulation(key.IV)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "FM7",
+			  "modePositionRoman": "IV",
+			  "name": "Lydian",
+			  "notes": Array [
+			    "F3",
+			    "G3",
+			    "A3",
+			    "B3",
+			    "C4",
+			    "D4",
+			    "E4",
+			  ],
+			  "root": "F",
+			}
+		`);
+
+			expect(testModulation(key.I)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "CM7",
+			  "modePositionRoman": "I",
+			  "name": "Ionian",
+			  "notes": Array [
+			    "C3",
+			    "D3",
+			    "E3",
+			    "F3",
+			    "G3",
+			    "A3",
+			    "B3",
+			  ],
+			  "root": "C",
+			}
+		`);
 		});
 	});
 

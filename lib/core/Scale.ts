@@ -20,6 +20,33 @@ import { Octaves } from '../common/types';
  */
 export class Scale extends HarmonyBase {
 	protected _intervals: ScaleIntervals | string
+
+	/**
+	* Scale names
+	*
+	* @member Names
+	* @memberof Core#Scale
+	* @enum
+	* @static
+	* @type {ScaleIntervals}
+	*
+	* @example Scale.Names.Major => "Major"
+	*/
+	static readonly Names = ScaleName;
+
+	/**
+	* Scale intervals
+	*
+	* @member Intervals
+	* @memberof Core#Scale
+	* @enum
+	* @static
+	* @type {ScaleIntervals}
+	*
+	* @example Scale.Intervals.Major => "1P 2M 3M 4P 5P 6M 7M"
+	*/
+	static readonly Intervals = ScaleIntervals;
+
 	/**
 	 * Creates an instance of Scale.
 	 * @constructs Scale
@@ -28,6 +55,10 @@ export class Scale extends HarmonyBase {
 	 * @param {NoteSymbol} note A note
 	 * @param {string} intervals the scale to create
 	 * @param {Array<Number>} [octaves = [3, 1]] [starting, number of octaves] range of octaves to map notes to
+	 *
+	 * @example
+	 * new Scale('A', Scale.Major);
+	 * new Scale('A', Scale.Intervals.MajorPentatonic, [4, 1]);
 	 */
 	constructor(note: NoteSymbol, intervals: ScaleIntervals | string, octaves: Octaves = [ 3, 1 ]) {
 		super(note, octaves);
@@ -190,7 +221,7 @@ export class Scale extends HarmonyBase {
 	}
 
 	/**
-	 * Finds the name of the set of intervals if it exists in our
+	 * Finds the name of the set of intervals if it exists in our collection
 	 * @function getName
 	 * @memberof Core#Scale
 	 *
@@ -213,22 +244,103 @@ export class Scale extends HarmonyBase {
 		return R.head(name) as ScaleName;
 	}
 
-	static readonly Names = ScaleName;
-
+	/**
+	* Lydian scale intervals
+	* @member Lydian
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Lydian: ScaleIntervals = ScaleIntervals.Lydian;
+
+	/**
+	* Major scale intervals
+	* @member Major
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Major: ScaleIntervals = ScaleIntervals.Major;
+
+	/**
+	* Ionian scale intervals
+	* @member Ionian
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Ionian: ScaleIntervals = ScaleIntervals.Ionian;
+
+	/**
+	* Mixolydian scale intervals
+	* @member Mixolydian
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Mixolydian: ScaleIntervals = ScaleIntervals.Mixolydian;
+
+
+	/**
+	* Minor scale intervals
+	* @member Minor
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Minor: ScaleIntervals = ScaleIntervals.Minor;
+
+	/**
+	* Aeolian scale intervals
+	* @member Aeolian
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Aeolian: ScaleIntervals = ScaleIntervals.Aeolian;
+
+	/**
+	* Dorian scale intervals
+	* @member Dorian
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Dorian: ScaleIntervals = ScaleIntervals.Dorian;
+
+	/**
+	* Phrygian scale intervals
+	* @member Phrygian
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Phrygian: ScaleIntervals = ScaleIntervals.Phrygian;
+
+	/**
+	* Locrian scale intervals
+	* @member Locrian
+	* @memberof Core#Scale
+	* @type {ScaleIntervals}
+	* @enum
+	* @static
+	* @readonly
+	*/
 	static readonly Locrian: ScaleIntervals = ScaleIntervals.Locrian;
-	static readonly MajorPentatonic: ScaleIntervals = ScaleIntervals.MajorPentatonic;
-	static readonly MinorPentatonic: ScaleIntervals = ScaleIntervals.MinorPentatonic;
-	static readonly Egyptian: ScaleIntervals = ScaleIntervals.Egyptian;
-	static readonly MelodicMinor: ScaleIntervals = ScaleIntervals.MelodicMinor;
-	static readonly Altered: ScaleIntervals = ScaleIntervals.Altered;
-	static readonly HarmonicMinor: ScaleIntervals = ScaleIntervals.HarmonicMinor;
-	static readonly Chromatic: ScaleIntervals = ScaleIntervals.Chromatic;
 }
