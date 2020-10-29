@@ -25,7 +25,7 @@ export const GreekModes = <const>[
 
 export type GreekModes = typeof GreekModes[number];
 
-export const GreekModeInterval = <const>[
+export const GreekModeIntervals = <const>[
 	ScaleIntervals.Ionian,
 	ScaleIntervals.Dorian,
 	ScaleIntervals.Phrygian,
@@ -35,7 +35,7 @@ export const GreekModeInterval = <const>[
 	ScaleIntervals.Locrian,
 ];
 
-export type GreekModeInterval = typeof GreekModeInterval[number];
+export type GreekModeIntervals = typeof GreekModeIntervals[number];
 
 export type ModePosition = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII';
 

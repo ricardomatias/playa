@@ -6,9 +6,10 @@ function pickName<T extends Chord | Key>(chords: T[]) {
 	return chords.map((c: T) => c.name);
 }
 
-function testModulation(key: Key) {
+function testModulation(key?: Key) {
+	if (typeof key === 'undefined') return;
 	return {
-		root: key.root,
+		root: key.root.note,
 		name: Key.getModeName(key.intervals),
 		chordName: key.chord.name,
 		notes: key.string,
@@ -18,10 +19,17 @@ function testModulation(key: Key) {
 
 describe('Key Test Suite', () => {
 	it('should be the same scale', () => {
-		const key = new Key('C', Key.Major);
+		const key = new Key('D3', Key.Major);
 
-		expect(key).toHaveMidiNotes([ 60, 62, 64, 65, 67, 69, 71 ]);
-		expect(key.chord).toHaveMidiNotes([ 60, 64, 67, 71 ]);
+		expect(key).toHaveMidiNotes([ 62, 64, 66, 67, 69, 71, 73 ]);
+		expect(key.chord).toHaveMidiNotes([ 62, 66, 69, 73 ]);
+	});
+
+	it('should be the same scale as befpre', () => {
+		const key = new Key(62, Key.Major);
+
+		expect(key).toHaveMidiNotes([ 62, 64, 66, 67, 69, 71, 73 ]);
+		expect(key.chord).toHaveMidiNotes([ 62, 66, 69, 73 ]);
 	});
 
 	describe('Modes', () => {
@@ -206,7 +214,7 @@ describe('Key Test Suite', () => {
 	});
 
 	describe('switch modes', () => {
-		it('should modulate to another mode - Aeolian', () => {
+		it('get from position', () => {
 			Random.setSeed('test');
 
 			const key = new Key('C', Key.Ionian);
@@ -247,13 +255,57 @@ describe('Key Test Suite', () => {
 			}
 		`);
 		});
+
+		it('get from name', () => {
+			Random.setSeed('test');
+
+			const key = new Key('C', Key.Ionian);
+
+			expect(testModulation(key.getModeFromNote('F')))
+				.toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "FM7",
+			  "modePositionRoman": "IV",
+			  "name": "Lydian",
+			  "notes": Array [
+			    "F3",
+			    "G3",
+			    "A3",
+			    "B3",
+			    "C4",
+			    "D4",
+			    "E4",
+			  ],
+			  "root": "F",
+			}
+		`);
+
+			expect(testModulation(key.getModeFromNote('C')))
+				.toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "CM7",
+			  "modePositionRoman": "I",
+			  "name": "Ionian",
+			  "notes": Array [
+			    "C3",
+			    "D3",
+			    "E3",
+			    "F3",
+			    "G3",
+			    "A3",
+			    "B3",
+			  ],
+			  "root": "C",
+			}
+		`);
+		});
 	});
 
 	describe('#modulateMode', () => {
 		const key = new Key('Eb', Key.Mixolydian);
 
 		it('should have key', () => {
-			expect(key.root).toBe('Eb');
+			expect(key.root.note).toBe('Eb');
 			expect(key.intervals).toBe(Key.Mixolydian);
 			expect(key.chord.name).toBe('Eb7');
 

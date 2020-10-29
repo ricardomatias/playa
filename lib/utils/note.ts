@@ -1,5 +1,5 @@
 import { DiatonicNote, NoteSymbol } from '../constants';
-import { Note } from '../core/Note';
+import { Note, NoteLike } from '../core/Note';
 
 const ACCIDENT_REGEXP = new RegExp('#|b');
 const OCTAVE_REGEXP = /-?\d{1,}/;
@@ -31,14 +31,12 @@ export const whichAccident = (note: string): string | undefined => {
  * @param {String|Note} note
  * @return {String} Natural note
  */
-export const natural = (note: string | Note): DiatonicNote | null => {
+export const natural = (note: NoteLike): DiatonicNote | null => {
 	if (!note) return null;
 
-	if (typeof note !== 'string') {
-		return <DiatonicNote>note.note.replace(ACCIDENT_REGEXP, '');
-	}
+	const n = assureNote(note);
 
-	return <DiatonicNote>note.replace(ACCIDENT_REGEXP, '');
+	return <DiatonicNote>n.note.replace(ACCIDENT_REGEXP, '');
 };
 
 /**
@@ -74,6 +72,4 @@ export const parseNote = (note: string): ParsedNote | null => {
 	};
 };
 
-export type NoteLike = Note | NoteSymbol | string;
-
-export const assureNote = (note: NoteLike): Note => (note instanceof Note ? note : new Note(note));
+export const assureNote = (note: Note | string | number | NoteSymbol): Note => (note instanceof Note ? note : new Note(note));

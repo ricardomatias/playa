@@ -6,7 +6,7 @@ import {
 } from '../../tools';
 import * as Rhythm from '../rhythm';
 
-import { Interval, NoteSymbol, Notevalue, ScaleName, Ticks, TurnMoves } from '../../constants';
+import { Interval, Notevalue, ScaleName, Ticks, TurnMoves } from '../../constants';
 
 import { modulate, createNewEventKey, isTypeMod } from './helpers';
 import { MovementRhythm, TimelineEvent, TurnMovement, TurnEvent, Turn, ModulationEventType } from './types';
@@ -133,7 +133,7 @@ function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
 		switch (turnType) {
 		case TurnMoves.Start:
 			// create a new key from the starting key
-			key = new Key(startingKey.root as NoteSymbol, startingKey.type);
+			key = new Key(startingKey.root, startingKey.type);
 			mainKeyRoot = key.root;
 
 			key.modulateMode({ interval: interval as number });
@@ -168,9 +168,9 @@ function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
 
 		events.push({
 			turn: turn,
-			root: key.root as NoteSymbol,
+			root: key.root.note,
 			position: key.modePositionRoman,
-			key: mainKeyRoot as NoteSymbol,
+			key: mainKeyRoot.note,
 			type: ModulationEventType.Mode,
 			scaleName: Key.getModeName(event.key.scale) as ScaleName,
 		});

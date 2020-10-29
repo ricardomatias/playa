@@ -1,19 +1,19 @@
 import { roll, distribute } from '@ricardomatias/roll';
 
 import { Key, ModulationDirection } from '../../core';
-import { Interval, NoteSymbol, TurnMoves } from '../../constants';
+import { Interval, TurnMoves } from '../../constants';
 import {
 	choose,
 	Random,
 } from '../../tools';
 import { ModulationEvent, ModulationEventType, TimelineEventKey, Turn, TurnEvent } from './types';
-import { GreekModeInterval } from '../../constants/modes';
+import { GreekModeIntervals } from '../../constants/modes';
 
 const PRECISION = 5;
 
 export const createNewEventKey = (key: Key): TimelineEventKey => ({
-	root: key.root as NoteSymbol,
-	scale: key.intervals as GreekModeInterval,
+	root: key.root.note,
+	scale: key.intervals as GreekModeIntervals,
 });
 
 /**
@@ -63,8 +63,8 @@ export const modulate = (
 
 	// * TRACKING
 	const event: any = {
-		key: key.root,
-		root: key.root,
+		key: key.root.note,
+		root: key.root.note,
 		position: key.modePositionRoman,
 		type: ModulationEventType.Key,
 		scaleName: Key.getModeName(key.intervals),

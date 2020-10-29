@@ -794,7 +794,7 @@ export const ChordDefinition = <const>{
 
 export type ChordDefinition = typeof ChordDefinition[keyof typeof ChordDefinition];
 
-export const ChordStructures = new Map<ChordStructure, ChordName[]>([
+export const SimilarChordsByStructure = new Map<ChordStructure, ChordName[]>([
 	[ ChordStructure.Triad, [ ChordName.Major, ChordName.Minor, ChordName.Aug, ChordName.Dim, ChordName.P5 ] ],
 	[ ChordStructure.Sus, [ ChordName.Sus2, ChordName.Sus4 ] ],
 	[ ChordStructure.Sixth, [ ChordName.MajorSixthAddNine, ChordName.MinorSixth, ChordName.MinorMajorSixth, ChordName.MinorSixthAddNine ] ],

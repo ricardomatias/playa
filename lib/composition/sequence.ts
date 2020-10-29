@@ -149,7 +149,7 @@ export class Sequence {
 		if (!interval) return this;
 
 		const notes: Note[] = scale.notes.filter((note) =>
-			(note.note === distance.transposeUp(root as NoteSymbol, interval as Interval)),
+			(note.note === distance.transposeUp(root, interval as Interval)),
 		);
 
 		this._notes = this._notes.concat(notes);

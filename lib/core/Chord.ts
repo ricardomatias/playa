@@ -1,10 +1,10 @@
 import * as R from 'ramda';
 import HarmonyBase from './HarmonyBase';
-import { Note } from './Note';
+import { Note, NoteLike } from './Note';
 import {
 	ChordSymbol,
 	ChordStructure,
-	ChordStructures,
+	SimilarChordsByStructure,
 	ChordDefinition,
 	ChordName,
 	ChordIntervals,
@@ -74,7 +74,7 @@ export class Chord extends HarmonyBase {
 	 * @constructs Chord
 	 * @memberof Core#
 	 *
-	 * @param {NoteSymbol} root note
+	 * @param {NoteLike} root note
 	 * @param {ChordSymbol | ChordIntervals} description f.ex: 'm' (for Minor) or '1P 3m 5P'
 	 * @param {Array<Number>} [octaves = [ 3, 1]] [starting, number of octaves] range of octaves to map notes to
 	 *
@@ -87,9 +87,9 @@ export class Chord extends HarmonyBase {
 	 * Chord.fromIntervals('A', Scale.Intervals.Minor, Chord.Structures.Triad) => 'Am'
 	 */
 	constructor(
-		root: NoteSymbol,
+		root: NoteLike,
 		description: ChordSymbol | ChordIntervals,
-		octaves: Octaves = [ 3, 1 ],
+		octaves?: Octaves,
 		{ intervals, symbol, structure }: ChordOptions = {},
 	) {
 		super(root, octaves);
@@ -119,7 +119,7 @@ export class Chord extends HarmonyBase {
 			if (isUndefined(this._intervals)) this._intervals = chordDefinition.intervals;
 		}
 
-		this._chordName = `${root}${this._symbol}`;
+		this._chordName = `${this._root.note}${this._symbol}`;
 
 		const notes = this.createChord();
 
@@ -319,7 +319,7 @@ export class Chord extends HarmonyBase {
 	 */
 	private discoverAccident() {
 		const notes = this._notes;
-		const rootNote = new Note(this.root);
+		const rootNote = this.root;
 
 		// This is to figure out if flats is a better match than sharps when the root note is natural
 		const sharpNotes = R.length(R.filter(R.prop('isSharp'), notes));
@@ -355,7 +355,7 @@ export class Chord extends HarmonyBase {
 
 		const intervals = <Interval[]> this._intervals.split(' ');
 
-		const notes = [ new Note(root) ];
+		const notes = [ root ];
 
 		for (let idx = 1; idx < intervals.length; idx++) {
 			const interval = intervals[idx];
@@ -463,7 +463,7 @@ export const createFromScale = (
 export const createFromStructure = (
 	structure: ChordStructure, scale: Scale, scaleIntervals: Interval[], nrOfNotes: number,
 ): { chordIntervals: Interval[] } | undefined => {
-	const compatibleChordNames = <ChordName[]>ChordStructures.get(structure);
+	const compatibleChordNames = <ChordName[]>SimilarChordsByStructure.get(structure);
 	let chordIntervals: Interval[] | undefined;
 	let structureIntervalsArray: string[];
 

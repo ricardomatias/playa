@@ -133,7 +133,7 @@ function movement(key: Key, length: TimeFormat, turns: number, {
 			event.key = createNewEventKey(key);
 
 			events.push({
-				key: mainKey as NoteSymbol,
+				key: mainKey.note,
 				root: event.key.root,
 				type: ModulationEventType.Mode,
 				scaleName: Key.getModeName(event.key.scale) as ScaleName,

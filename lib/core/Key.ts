@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import { roll, distribute } from '@ricardomatias/roll';
 import { convert as convertToRoman } from 'roman-numeral';
 
-import { Note } from './Note';
+import { Note, NoteLike } from './Note';
 import { Scale } from './Scale';
 import { Chord } from './Chord';
 import distance from '../tools/distance';
@@ -12,10 +12,12 @@ import { Interval } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { ChordIntervals, ChordStructure } from '../constants/chords';
-import { GreekModeInterval, GreekModes, ModePosition } from '../constants/modes';
+import { GreekModeIntervals, GreekModes, ModePosition } from '../constants/modes';
 import { isNotNull, isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
 import { Octaves } from '../common/types';
+import { assureNote } from '../utils';
+
 
 const TOTAL_MODES = 7;
 const LOCRIAN_PROB = 0.01;
@@ -25,7 +27,7 @@ const MODES_MOD_PROB = distribute.sumDistribution([
 	'0.165', '0.165', '0.165', '0.165', '0.165', '0.165', '0.01',
 ], 3);
 
-type Mode = { scale: ScaleIntervals, root: NoteSymbol }
+type Mode = { scale: GreekModeIntervals, root: NoteSymbol }
 
 /**
  * Mode type
@@ -35,7 +37,7 @@ type Mode = { scale: ScaleIntervals, root: NoteSymbol }
  * @property {ScaleIntervals} scale scale
  */
 
-function isModeInterval(mode: ScaleIntervals | string): mode is GreekModeInterval {
+function isModeInterval(mode: ScaleIntervals | string): mode is GreekModeIntervals {
 	return Key.isMode(mode);
 }
 
@@ -72,28 +74,35 @@ export class Key extends Scale {
 	*/
 	static readonly Modes = GreekModes;
 
+	constructor(root: NoteSymbol, intervals: GreekModeIntervals);
+	constructor(root: Note, intervals: GreekModeIntervals);
+	constructor(root: string, intervals: GreekModeIntervals);
+	constructor(root: number, intervals: GreekModeIntervals);
+
 	/**
 	 * Creates an instance of Key.
 	 * @constructs Key
 	 * @memberof Core#
 	 *
-	 * @param {NoteSymbol} root
+	 * @param {NoteLike} root
 	 * @param {ScaleIntervals|string} intervals the type of Scale to create
 	 * @param {Array<Number>} [octaves = [ 3, 1]] [starting, number of octaves] range of octaves to map notes to
 	 * @param {Object} [opts = {}]
 	 * @param {Array<Number>} [opts.chordStructure = Chord.Structures.Seventh ] - f.ex: Chord.Structures.Sixth
 	 *
 	 * @example
-	 * new Key('A', Scale.Ionian);
+	 * new Key('A', Key.Ionian);
+	 * new Key(60, Key.Aeolian);
+	 * new Key('A4', Key.Phrygian);
 	 * new Key('A', Key.Dorian, [4, 1], { chordStructure: Chord.Structures.Sixth });
 	 */
 	constructor(
-		root: NoteSymbol,
-		intervals: ScaleIntervals | string,
-		octaves: Octaves = [ 3, 1 ],
+		root: NoteLike,
+		intervals: GreekModeIntervals,
+		octaves?: Octaves,
 		{ chordStructure = Chord.Structures.Seventh }: { chordStructure?: ChordStructure } = {},
 	) {
-		super(root, intervals, octaves);
+		super(root as any, intervals, octaves);
 
 		if (!isModeInterval(intervals)) {
 			// eslint-disable-next-line max-len
@@ -126,6 +135,17 @@ export class Key extends Scale {
 		}
 
 		return this._modes;
+	}
+
+	/**
+	* Returns the scale's intervals
+	*
+	* @member intervals
+	* @memberof Core#Scale#
+	* @type {GreekModeIntervals|String}
+	*/
+	get intervals(): GreekModeIntervals {
+		return this._intervals as GreekModeIntervals;
 	}
 
 	/**
@@ -188,7 +208,7 @@ export class Key extends Scale {
 			return;
 		}
 
-		this._root = root;
+		this._root = new Note(root);
 		this._notes = this.createScale();
 
 		this.assignOctaves();
@@ -264,7 +284,7 @@ export class Key extends Scale {
 			mode = ring(modes)[newModePosition];
 		}
 
-		this._root = mode.root as NoteSymbol;
+		this._root = new Note(mode.root);
 		this._intervals = mode.scale;
 
 		const rootPos = R.findIndex(R.propEq('note', mode.root), this._notes);
@@ -296,7 +316,7 @@ export class Key extends Scale {
 	 * @return {Number}
 	 */
 	get modePosition(): number {
-		return R.findIndex(R.propEq('root', this.root), this.modes);
+		return R.findIndex(R.propEq('root', this.root.note), this.modes);
 	}
 
 	/**
@@ -304,12 +324,11 @@ export class Key extends Scale {
 	 * @member chord
 	 * @memberof Core#Key#
 	 *
-	 * @param {Chord.STRUCTURES} structure
 	 * @return {Chord}
 	 */
 	get chord(): Chord {
 		const mode = this._intervals as ChordIntervals;
-		const root = this._root;
+		const root = this._root.note;
 		const structure = this._chordStructure;
 
 		if (!this._chord) {
@@ -330,7 +349,7 @@ export class Key extends Scale {
 	 * @memberof Key
 	 */
 	private prepareModes(): { ionianIndex: number, scaleIndex: number } | null {
-		let scaleIntervals = this._intervals as GreekModeInterval;
+		let scaleIntervals = this._intervals as GreekModeIntervals;
 		const isMajorMinor = this.isMajorMinor(scaleIntervals);
 
 		if (!isMajorMinor && !Key.isMode(scaleIntervals)) {
@@ -338,10 +357,10 @@ export class Key extends Scale {
 		}
 
 		if (isMajorMinor) {
-			scaleIntervals = <GreekModeInterval>(scaleIntervals === Key.Major ? Key.Ionian : Key.Aeolian);
+			scaleIntervals = <GreekModeIntervals>(scaleIntervals === Key.Major ? Key.Ionian : Key.Aeolian);
 		}
 
-		const scaleIndex = Array.from(GreekModeInterval).indexOf(scaleIntervals);
+		const scaleIndex = Array.from(GreekModeIntervals).indexOf(scaleIntervals);
 
 		const ionianIndex = TOTAL_MODES - scaleIndex;
 
@@ -375,7 +394,7 @@ export class Key extends Scale {
 		let modes = [];
 		let index = 0;
 
-		for (const scale of Array.from(GreekModeInterval)) {
+		for (const scale of Array.from(GreekModeIntervals)) {
 			const root = orderedNotes[index++].note;
 
 			modes.push({ scale, root });
@@ -394,7 +413,7 @@ export class Key extends Scale {
 	}
 
 	/**
-	* Modulate key within it's relative modes based on a direction & interval
+	* Get the mode at the position from the modes array
 	* @function getModeAtPosition
 	* @memberof Core#Key#
 	*
@@ -406,7 +425,7 @@ export class Key extends Scale {
 
 		const mode = modes[position % 8];
 
-		this._root = mode.root as NoteSymbol;
+		this._root = new Note(mode.root);
 		this._intervals = mode.scale;
 
 		const rootPos = R.findIndex(R.propEq('note', mode.root), this._notes);
@@ -422,6 +441,24 @@ export class Key extends Scale {
 	}
 
 	/**
+	* Get the mode from a note belonging to this key's modes
+	* @function getModeFromNote
+	* @memberof Core#Key#
+	*
+	* @param {NoteLike} note
+	* @return {Key | undefined} same key in a different mode
+	*/
+	getModeFromNote(note: NoteLike): Key | undefined {
+		const n = assureNote(note);
+		const modes = this.modes;
+		const position = modes.map((m) => m.root).indexOf(n.note);
+
+		if (position === -1) return;
+
+		return this.getModeAtPosition(position);
+	}
+
+	/**
 	 * Checks if the scale is Major or Minor
 	 * @private
 	 * @param {ScaleIntervals} intervals
@@ -429,10 +466,10 @@ export class Key extends Scale {
 	 * @memberof Scale
 	 */
 	private isMajorMinor(intervals: ScaleIntervals): boolean {
-		return [ Scale.Major, Scale.Minor ].indexOf(intervals) !== -1;
+		return (<ScaleIntervals[]>[ Scale.Major, Scale.Minor ]).indexOf(intervals) !== -1;
 	}
 
-	static getModeName(intervals: GreekModeInterval | string): ScaleName | undefined {
+	static getModeName(intervals: GreekModeIntervals | string): ScaleName | undefined {
 		let name = Scale.getName(intervals);
 
 		if (isUndefined(name)) return;
@@ -453,7 +490,7 @@ export class Key extends Scale {
 	 * @return {Boolean}
 	 */
 	static isMode(mode: ScaleIntervals | string): boolean {
-		return GreekModeInterval.includes(mode as GreekModeInterval);
+		return GreekModeIntervals.includes(mode as GreekModeIntervals);
 	}
 
 	/**

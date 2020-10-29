@@ -14,6 +14,7 @@ import { findOctave, findFrequency } from '../tools/midi';
 import { isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
 
+export type NoteLike = Note | NoteSymbol | string | number;
 
 /**
  * Defines a Note
@@ -40,8 +41,7 @@ export class Note {
 	static Sharps = Sharps;
 	static Flats = Flats;
 
-	constructor(note: number);
-	constructor(note: string);
+	constructor(note: string | number);
 	constructor(note: NoteSymbol);
 	constructor(note: NoteSymbol | string, midi: number);
 

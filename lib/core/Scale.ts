@@ -1,14 +1,14 @@
 import * as R from 'ramda';
 import HarmonyBase from './HarmonyBase';
-import { Note } from './Note';
+import { Note, NoteLike } from './Note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { Interval, Semitones } from '../constants/intervals';
-import { NoteSymbol } from '../constants/note';
 import assignOctaves from '../utils/octaves';
 import { natural } from '../utils/note';
 import { PlayaError } from '../utils';
 import { isUndefined } from '../utils/types-guards';
 import { Octaves } from '../common/types';
+import { NoteSymbol } from '../constants';
 
 /**
  * Defines a Scale
@@ -47,20 +47,26 @@ export class Scale extends HarmonyBase {
 	*/
 	static readonly Intervals = ScaleIntervals;
 
+	constructor(root: NoteSymbol, intervals: ScaleIntervals | string, octaves?: Octaves);
+	constructor(root: Note, intervals: ScaleIntervals | string, octaves?: Octaves);
+	constructor(root: string, intervals: ScaleIntervals | string, octaves?: Octaves);
+	constructor(root: number, intervals: ScaleIntervals | string, octaves?: Octaves);
+
 	/**
 	 * Creates an instance of Scale.
 	 * @constructs Scale
 	 * @memberof Core#
 	 *
-	 * @param {NoteSymbol} note A note
+	 * @param {NoteLike} note A note
 	 * @param {string} intervals the scale to create
 	 * @param {Array<Number>} [octaves = [3, 1]] [starting, number of octaves] range of octaves to map notes to
 	 *
 	 * @example
-	 * new Scale('A', Scale.Major);
+	 * new Scale('A', Scale.Major) // default octaves [3, 1];
+	 * new Scale('C3', ScaleIntervals.Minor); // will have "octaves" -> [3,1]
 	 * new Scale('A', Scale.Intervals.MajorPentatonic, [4, 1]);
 	 */
-	constructor(note: NoteSymbol, intervals: ScaleIntervals | string, octaves: Octaves = [ 3, 1 ]) {
+	constructor(note: NoteLike, intervals: ScaleIntervals | string, octaves?: Octaves) {
 		super(note, octaves);
 
 		this._intervals = intervals;
@@ -160,7 +166,7 @@ export class Scale extends HarmonyBase {
 		const baseSharpNotes = [];
 		const baseFlatNotes = [];
 
-		const rootNote = new Note(this.root);
+		const rootNote = this.root;
 		const scaleIntervals = this._intervals.split(' ');
 
 		const chromaticSharpNotes = this.createChromaticScale(rootNote);
@@ -253,7 +259,7 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Lydian: ScaleIntervals = ScaleIntervals.Lydian;
+	static readonly Lydian = ScaleIntervals.Lydian;
 
 	/**
 	* Major scale intervals
@@ -264,7 +270,7 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Major: ScaleIntervals = ScaleIntervals.Major;
+	static readonly Major = ScaleIntervals.Major;
 
 	/**
 	* Ionian scale intervals
@@ -275,7 +281,7 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Ionian: ScaleIntervals = ScaleIntervals.Ionian;
+	static readonly Ionian = ScaleIntervals.Ionian;
 
 	/**
 	* Mixolydian scale intervals
@@ -286,7 +292,7 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Mixolydian: ScaleIntervals = ScaleIntervals.Mixolydian;
+	static readonly Mixolydian = ScaleIntervals.Mixolydian;
 
 
 	/**
@@ -298,7 +304,7 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Minor: ScaleIntervals = ScaleIntervals.Minor;
+	static readonly Minor = ScaleIntervals.Minor;
 
 	/**
 	* Aeolian scale intervals
@@ -309,7 +315,7 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Aeolian: ScaleIntervals = ScaleIntervals.Aeolian;
+	static readonly Aeolian = ScaleIntervals.Aeolian;
 
 	/**
 	* Dorian scale intervals
@@ -320,7 +326,7 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Dorian: ScaleIntervals = ScaleIntervals.Dorian;
+	static readonly Dorian = ScaleIntervals.Dorian;
 
 	/**
 	* Phrygian scale intervals
@@ -331,7 +337,7 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Phrygian: ScaleIntervals = ScaleIntervals.Phrygian;
+	static readonly Phrygian = ScaleIntervals.Phrygian;
 
 	/**
 	* Locrian scale intervals
@@ -342,5 +348,5 @@ export class Scale extends HarmonyBase {
 	* @static
 	* @readonly
 	*/
-	static readonly Locrian: ScaleIntervals = ScaleIntervals.Locrian;
+	static readonly Locrian = ScaleIntervals.Locrian;
 }

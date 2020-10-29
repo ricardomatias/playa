@@ -1,7 +1,7 @@
 import { Octaves } from '../common/types';
-import { NoteSymbol } from '../constants/note';
+import { assureNote } from '../utils';
 import { mapNotesToFreq, mapNotesToMidi, mapNotesToString } from '../utils/map';
-import { Note } from './Note';
+import { Note, NoteLike } from './Note';
 
 
 /**
@@ -13,7 +13,7 @@ import { Note } from './Note';
  * @abstract
  */
 abstract class HarmonyBase {
-	protected _root: NoteSymbol;
+	protected _root: Note;
 	protected _notes: Note[] = [];
 	protected _octaves: Octaves;
 	protected _hasFlats = false;
@@ -29,20 +29,28 @@ abstract class HarmonyBase {
 	 * @param {Note} root
 	 * @param {Array<Number>} octaves [starting, number of octaves] range of octaves to map notes to
 	 */
-	constructor(root: NoteSymbol, octaves: Octaves) {
-		this._root = root;
-		this._octaves = octaves;
+	constructor(root: NoteLike, octaves?: Octaves) {
+		this._root = assureNote(root);
+
+		if (octaves) {
+			this._octaves = octaves;
+		} else
+		if (this._root.octave) {
+			this._octaves = [ this._root.octave, 1 ];
+		} else {
+			this._octaves = [ 3, 1 ];
+		}
 	}
 
 	/**
 	* Gets the root note
 	* @member root
 	* @memberof Core.HarmonyBase#
-	* @example 'A'
+	* @example Note('A')
 	*
-	* @type {String}
+	* @type {Note}
 	*/
-	get root(): string {
+	get root(): Note {
 		return this._root;
 	}
 
