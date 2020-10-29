@@ -1,8 +1,12 @@
 {
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+		"@typescript-eslint"
+	],
 	"extends": [
+		"google",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
-		"google",
 		"plugin:import/errors",
 		"plugin:import/warnings"
 	],
@@ -12,7 +16,6 @@
 		"node": true,
 		"es6": true
 	},
-	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaVersion": 2018,
 		"sourceType": "module"

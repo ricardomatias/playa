@@ -29,8 +29,8 @@ describe('A Sequence test suite', () => {
 
 		const chords = new Sequence(key).II.V.VI.chords;
 
-		expect(chords.string).toEqual([ 'Bm', 'Emaj', 'F#m' ]);
-		expect(chords.midi).toEqual([ [ 71, 74, 78 ], [ 64, 68, 71 ], [ 66, 69, 73 ] ]);
+		expect(chords.string).toEqual([ 'Bm', 'E5', 'F#m' ]);
+		expect(chords.midi).toEqual([ [ 71, 74, 78 ], [ 64, 71, 76 ], [ 66, 69, 73 ] ]);
 	});
 
 	it('should create a way too long sequence', () => {

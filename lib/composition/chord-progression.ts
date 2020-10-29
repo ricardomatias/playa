@@ -149,12 +149,14 @@ export function createChordProgression(
 		let chordNotes: number[] = [];
 
 		if (chosenStyle === JUMP_STYLE) {
-			chord = new Chord({ root, intervals: scale, structure }, choose(octaves));
+			chord = Chord.fromIntervals(root, scale, structure, choose(octaves));
 			notes = chord.midi;
 			let nrOfNotes = notes.length;
 
 			if (isDefined(chord.structure)) {
-				nrOfNotes = Random.int(chord.structure[0], Math.min(minChordNotes, notes.length));
+				const str = Array.from(chord.structure);
+				const lowerBound = (str.length > 1 ? choose(str) : str[0]).split(' ').length;
+				nrOfNotes = Random.int(lowerBound, Math.min(minChordNotes, notes.length));
 			}
 
 			chordNotes = [ R.head(notes) as number ];
@@ -181,13 +183,13 @@ export function createChordProgression(
 
 		if (chosenStyle === PRUDENT_STYLE) {
 			if (isFirstChord) {
-				chord = new Chord({ root, intervals: scale, structure }, startingOctave);
+				chord = Chord.fromIntervals(root, scale, structure, startingOctave);
 
 				chordNotes = chord.midi;
 			} else {
 				const prevChord = chords[index - 1];
 
-				chord = new Chord({ root, intervals: scale, structure });
+				chord = Chord.fromIntervals(root, scale, structure);
 
 				chordNotes = Midi.findNearestChord(prevChord, chord.string.map(stripOctave));
 			}

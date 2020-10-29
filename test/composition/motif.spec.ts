@@ -46,7 +46,7 @@ describe('A Motif test suite', () => {
 		// given
 		Random.setSeed('test');
 
-		const chord = new Chord('Dbm6');
+		const chord = Chord.fromName('Dbm6');
 		let rhythm = Rhythm.free('1:0:0', Mixed, [], distribute.decreasing);
 
 		// when
@@ -71,7 +71,7 @@ describe('A Motif test suite', () => {
 		// given
 		Random.setSeed('test');
 
-		const chord = new Chord('Dbm6');
+		const chord = Chord.fromName('Dbm6');
 		const rhythm = Rhythm.free('0:3:0', Mixed);
 
 		const motif = createMotif(chord.notes, rhythm, 480);

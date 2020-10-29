@@ -55,7 +55,7 @@ describe('An Octaves Test Suite', () => {
 	});
 
 	it('should map 9m chord', () => {
-		const chord = new Chord('Abm9');
+		const chord = Chord.fromName('Abm9');
 		const octaves = R.map(toNoteObj, assignOctaves(chord.notes, [ 4, 1 ], { type: 'chord' }));
 
 		expect(octaves).toHaveLength(5);
@@ -63,7 +63,7 @@ describe('An Octaves Test Suite', () => {
 	});
 
 	it('should map M13 chord', () => {
-		const chord = new Chord('CM13');
+		const chord = Chord.fromName('CM13');
 		const octaves = R.map(toNoteObj, assignOctaves(chord.notes, [ 4, 2 ], { type: 'chord' }));
 
 		expect(octaves).toHaveLength(12);

@@ -296,7 +296,7 @@ export class Key extends Scale {
 		const structure = this._chordStructure;
 
 		if (!this._chord) {
-			this._chord = new Chord({ root, intervals: mode, structure }, this._octaves);
+			this._chord = Chord.fromIntervals(root, mode, structure, this._octaves);
 		}
 
 		return this._chord;
@@ -429,11 +429,11 @@ export class Key extends Scale {
 	*/
 	static modesToChords(modes: Mode[]): Chord[] {
 		return modes.map((mode) => {
-			return new Chord({
-				root: mode.root,
-				intervals: mode.scale,
-				structure: Chord.Structures.Seventh,
-			});
+			return Chord.fromIntervals(
+				mode.root,
+				mode.scale,
+				Chord.Structures.Seventh,
+			);
 		});
 	}
 

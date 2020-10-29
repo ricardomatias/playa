@@ -1,4 +1,4 @@
-import { Intervals, Interval, Semitones } from '../constants';
+import { Interval, Semitones } from '../constants';
 
 const TOTAL_INTERVALS = 21;
 
@@ -20,9 +20,9 @@ const TOTAL_INTERVALS = 21;
 export const interval = (semitones: number): Interval[] | null => {
 	const intervals: Interval[] = [];
 
-	for (const [ interv, semit ] of Intervals.entries()) {
+	for (const [ interv, semit ] of Object.entries(Semitones)) {
 		if (semit === semitones) {
-			intervals.push(interv);
+			intervals.push(interv as Interval);
 		}
 	}
 
@@ -115,6 +115,6 @@ export const subtract = (a: Interval, b: Interval): Interval[] | null => {
 	return null;
 };
 
-export const exists = (interval: Interval): boolean => (Intervals.has(interval));
+export const exists = (interval: Interval): boolean => (Object.keys(Semitones).includes(interval));
 
 

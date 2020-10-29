@@ -44,7 +44,7 @@ describe('An Arp test suite', () => {
 	it('should create with custom start time', () => {
 		Random.setSeed('test');
 
-		const chord = new Chord('Amaj');
+		const chord = Chord.fromName('Amaj');
 
 		const arp = createArp(chord, [ 1, 5, 3 ], [ '4n', '8n', '2n' ], '0:0:2');
 

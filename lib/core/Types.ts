@@ -1,5 +1,4 @@
-import { ChordDefinition, ChordIntervals } from '../constants/chords';
-import { NoteSymbol } from '../constants/note';
+import { ChordDefinition, ChordIntervals, NoteSymbol } from '../constants';
 
 export interface ChordEvent {
 	chord: number[];

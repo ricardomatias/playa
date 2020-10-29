@@ -11,15 +11,21 @@ import {
 } from '../constants/chords';
 import { Interval, Semitones } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
-import { deconstructName } from './utils';
-import { natural, PlayaError, whilst } from '../utils';
+import { deconstructName, findNameFromIntervals, findNameFromSymbol } from './utils';
+import { PlayaError, whilst } from '../utils';
 import { distance, rotate, Random, choose } from '../tools';
-import { ChordDescriptor } from './Types';
-import { isDefined, isString, isUndefined } from '../utils/types-guards';
+import { isDefined, isNull, isUndefined } from '../utils/types-guards';
 import assignOctaves from '../utils/octaves';
 import { Scale } from './Scale';
 import { Octaves } from '../common/types';
+import { ScaleIntervals } from '../constants';
 
+
+type ChordOptions = Partial<{ symbol: ChordSymbol, intervals: ChordIntervals, structure: ChordStructure }>
+
+function isChordIntervals(argument: ChordSymbol | ChordIntervals): argument is ChordIntervals {
+	return Object.keys(Semitones).includes(argument.split(' ')[0]);
+}
 
 /**
  * Defines a Chord
@@ -68,63 +74,118 @@ export class Chord extends HarmonyBase {
 	 * @constructs Chord
 	 * @memberof Core#
 	 *
-	 * @param {String | Object} chord - a chord name f.ex: 'Am7'
-	 * @param {Object} [chord.root] - f.ex: A
-	 * @param {ScaleIntervals|string} [chord.intervals] - f.ex: Scale.Dorian
-	 * @param {ChordStructure} [chord.structure] - f.ex: Chord.Structures.Sixth
+	 * @param {NoteSymbol} root note
+	 * @param {ChordSymbol | ChordIntervals} description f.ex: 'm' (for Minor) or '1P 3m 5P'
 	 * @param {Array<Number>} [octaves = [ 3, 1]] [starting, number of octaves] range of octaves to map notes to
 	 *
+	 *
 	 * @example
-	 * new Chord('Am6');
-	 * new Chord({ root: 'A', intervals: Scale.Dorian, structure: Chord.Sructures.Sixth  });
+	 * new Chord('A', 'maj');
+	 * new Chord('A', '1P 3M 5P', [4, 1]);
+	 *
+	 * Chord.fromName('Am7')
+	 * Chord.fromIntervals('A', Scale.Minor, Chord.Structures.Triad) => 'Am'
 	 */
-	constructor(chord: string | ChordDescriptor, octaves: Octaves = [ 3, 1 ]) {
-		const {
-			root,
-			name,
-			symbol,
-			structure,
-			intervals,
-		} = isString(chord) ? deconstructName(chord) : chord;
-
-		if (isUndefined(root)) {
-			throw new PlayaError('Chord', `Could not recognize <${root}> as a valid root`);
-		}
-
-		// !THIS NEEDS TO BE CALLED HERE
+	constructor(
+		root: NoteSymbol,
+		description: ChordSymbol | ChordIntervals,
+		octaves: Octaves = [ 3, 1 ],
+		{ intervals, symbol, structure }: ChordOptions = {},
+	) {
 		super(root, octaves);
 
-		this._name = name;
 		this._symbol = symbol;
+		this._intervals = intervals;
 		this._structure = structure;
 
-		if (isString(chord)) {
-			this._chordName = chord;
+		if (isChordIntervals(description)) {
+			this._intervals = description;
+			this._name = findNameFromIntervals(this._intervals);
+		} else {
+			this._symbol = description;
+			this._name = findNameFromSymbol(this._symbol);
 		}
 
-		if (this._name && R.is(String, chord)) {
-			const notes = this.createChord();
-
-			if (isUndefined(notes)) {
-				throw new PlayaError('Chord', `Could not recognize <${chord}> as a valid chord`);
+		if (isUndefined(this._name)) {
+			if (isUndefined(this._intervals)) {
+				throw new PlayaError('Chord', `Could not recognize <${description}> as a valid chord description`);
 			}
+		} else {
+			const chordDefinition = ChordDefinition[this._name];
 
-			this._notes = notes;
+			this._structure = chordDefinition.structure;
 
-			this.discoverAccident();
-		} else if (isDefined(intervals)) {
-			this._notes = this.createChordByStructure(intervals as ChordIntervals, structure);
+			if (isUndefined(this._symbol)) this._symbol = chordDefinition.symbol;
+			if (isUndefined(this._intervals)) this._intervals = chordDefinition.intervals;
 		}
 
-		if (!this._notes.length) {
-			if (!isString(chord)) {
-				throw new PlayaError('Chord', `Could not create <${JSON.stringify(chord)}>`);
-			} else {
-				throw new PlayaError('Chord', `Could not create <${chord}>`);
-			}
+		this._chordName = `${root}${this._symbol}`;
+
+		const notes = this.createChord();
+
+		if (isUndefined(notes) || !notes.length) {
+			throw new PlayaError('Chord', `Could create chord with <${description}>`);
 		}
+
+		this._notes = notes;
+
+		this.discoverAccident();
 
 		this.assignOctaves();
+	}
+
+	/**
+	* Create a chord from a Scale's intervals
+	* @function fromName
+	* @memberof Core#Chord
+	* @static
+	* @example Chord.fromName('Am6');
+	*
+	* @param {string} chord
+	* @param {Octaves} [octaves = [ 3, 1]]
+	* @return {Chord} chord
+	*/
+	static fromName(chord: string, octaves?: Octaves): Chord {
+		const {
+			root,
+			symbol,
+		} = deconstructName(chord);
+
+		if (isUndefined(root) || isUndefined(symbol)) {
+			throw new PlayaError('Chord', `Could not recognize <${root}> <${symbol}> as a valid chord`);
+		}
+
+		return new Chord(root, symbol, octaves);
+	}
+
+	/**
+	* Create a chord from a Scale's intervals
+	* @function fromIntervals
+	* @memberof Core#Chord
+	* @static
+	* @example Chord.fromIntervals('A', Scale.Dorian, Chord.Sructures.Sixth);
+	*
+	* @param {NoteSymbol} root
+	* @param {ScaleIntervals | string} intervals
+	* @param {ChordStructure} [structure = ChordStructure.Triad]
+	* @param {Octaves} [octaves = [ 3, 1]]
+	* @return {Chord} chord
+	*/
+	static fromIntervals(
+		root: NoteSymbol,
+		intervals: ScaleIntervals | string,
+		structure: ChordStructure | string[] = ChordStructure.Triad,
+		octaves?: Octaves,
+	): Chord {
+		const chordInfo = createChordWithStructure(root, intervals, structure as ChordStructure);
+
+		if (isNull(chordInfo)) {
+			throw new PlayaError('Chord', `Could not recognize <${root}> <${intervals}> as a valid chord`);
+		}
+
+		const { symbol, chordIntervals, chordStructure } = chordInfo;
+
+		return new Chord(root, symbol, octaves, { intervals: chordIntervals, structure: chordStructure });
 	}
 
 	/**
@@ -159,7 +220,7 @@ export class Chord extends HarmonyBase {
 	* Returns the chord's structure
 	*
 	* @example
-	* 'G7' => [ 4, ['1 3 5 7'] ]
+	* 'G7' => ['1 3 5 7']
 	* @member structure
 	* @memberof Core#Chord#
 	* @type {ChordStructure}
@@ -207,17 +268,17 @@ export class Chord extends HarmonyBase {
 	*
 	* @function noteAt
 	* @memberof Core#Chord#
-	* @param {number} interval
+	* @param {number} position
 	* @return {Note}
 	*/
-	noteAt(interval: number): Note {
+	noteAt(position: number): Note {
 		// !TODO: Migrate away from structure and just use the chord intervals
 
 		if (isUndefined(this._structure)) {
 			throw new PlayaError('Chord', 'Cannot grab the note');
 		}
 
-		const structures = this._structure[1];
+		const structures = this._structure;
 		let defaultIntervals = R.head(structures) as string;
 
 		if (this._symbol === ChordSymbol.Sus4) {
@@ -225,10 +286,10 @@ export class Chord extends HarmonyBase {
 		}
 
 		const intervals = R.map(parseInt, defaultIntervals.split(' '));
-		const noteIndex = intervals.indexOf(interval);
+		const noteIndex = intervals.indexOf(position);
 
 		if (noteIndex === -1) {
-			throw new PlayaError('Chord', `[${intervals}] structure doesn't contain interval: ${interval}`);
+			throw new PlayaError('Chord', `[${intervals}] structure doesn't contain position: ${position}`);
 		}
 
 		return this._notes[noteIndex];
@@ -261,22 +322,15 @@ export class Chord extends HarmonyBase {
 		const rootNote = new Note(this.root);
 
 		// This is to figure out if flats is a better match than sharps when the root note is natural
-		const naturalNotesLenSharp = R.length(R.uniqBy((note) => natural(note), notes));
-		const naturalNotesLenFlat = R.length(R.uniqBy((note) => natural(note), notes));
+		const sharpNotes = R.length(R.filter(R.prop('isSharp'), notes));
+		const flatNotes = R.length(R.filter(R.prop('isFlat'), notes));
 
-		if (rootNote.isFlat) {
+		if (rootNote.isFlat || flatNotes > 0) {
 			this._hasFlats = true;
 		}
 
-		if (rootNote.isSharp) {
+		if (rootNote.isSharp || sharpNotes > 0) {
 			this._hasSharps = true;
-		}
-
-		// TODO: refactor this since this preference for sharps is not justifiable
-		if (naturalNotesLenSharp >= naturalNotesLenFlat) {
-			this._hasSharps = true;
-		} else {
-			this._hasFlats = true;
 		}
 	}
 
@@ -290,11 +344,14 @@ export class Chord extends HarmonyBase {
 	private createChord(): Note[] | undefined {
 		const root = this._root;
 
-		if (isUndefined(this._name)) {
-			return;
+		// this._intervals will exist in `fromScale`
+		if (isDefined(this._name)) {
+			this._intervals = ChordDefinition[this._name].intervals;
 		}
 
-		this._intervals = ChordDefinition[this._name].intervals;
+		if (isUndefined(this._intervals)) {
+			return;
+		}
 
 		const intervals = <Interval[]> this._intervals.split(' ');
 
@@ -313,149 +370,8 @@ export class Chord extends HarmonyBase {
 	}
 
 	/**
-	 * Creates a chord based on a chordName f.ex: Am7
-	 *
-	 * @private
-	 *
-	 * @param {String} intervals
-	 * @param {ChordStructure} structure
-	 * @return {Array<Note>}
-	 */
-	private createChordByStructure(intervals: ChordIntervals, structure: ChordStructure = ChordStructure.Triad) {
-		const root = this.root;
-		const chordIntervalsArray = intervals.split(' ') as Interval[];
-		const intervalsValidation = chordIntervalsArray.map((interval) => typeof Semitones[interval] !== 'undefined');
-
-		if (intervalsValidation.includes(false)) {
-			throw new PlayaError('Chord', `[${intervals}] has unrecognized intervals.`);
-		}
-
-		const [ nrOfNotes, defaultIntervals ] = structure;
-
-		const structureIntervals = defaultIntervals.length === 1 ? defaultIntervals[0] : choose(Array.from(defaultIntervals));
-		const structureIntervalsArray = structureIntervals.split(' ');
-
-		const scale = new Scale(root as NoteSymbol, intervals as string);
-
-		this._hasFlats = scale.hasFlats;
-		this._hasSharps = scale.hasSharps;
-
-		let {
-			chordNotes, chordIntervals,
-		} = this.createFromScale(scale, chordIntervalsArray, nrOfNotes, structureIntervalsArray);
-
-		// if the provided scale doesn't have the default intervals from the given structure
-		// try other chord types from the same type of structure
-		if (chordIntervals.length !== nrOfNotes) {
-			const fromDiffChords = this.createFromDiffChords(structure, scale, chordIntervalsArray, nrOfNotes);
-
-			if (isUndefined(fromDiffChords)) {
-				return [];
-			}
-
-			chordNotes = fromDiffChords.chordNotes;
-			chordIntervals = fromDiffChords.chordIntervals;
-		}
-
-		if (!chordIntervals) {
-			return [];
-		}
-
-		const chord = chordIntervals.join(' ') as ChordIntervals;
-
-		this._intervals = chord;
-		this._symbol = Chord.findChordSymbols(chord) as ChordSymbol;
-
-		this._structure = structure;
-		this._chordName = `${root}${this._symbol}`;
-
-		return chordNotes;
-	}
-
-	private createFromScale(
-		scale: Scale, chordIntervalsArray: Interval[], nrOfNotes: number, structureIntervalsArray: string[],
-	): { chordNotes: Note[], chordIntervals: Interval[] } {
-		const chordNotes: Note[] = [];
-		const chordIntervals: Interval[] = [];
-		const notes = scale.notes;
-
-		for (let index = 0; index < nrOfNotes; index++) {
-			const dist = structureIntervalsArray[index];
-
-			let interval = R.find(R.includes(dist), chordIntervalsArray);
-			let noteIndex: number;
-			let note: Note;
-
-			if (isUndefined(interval) || chordIntervalsArray.indexOf(interval) === -1) {
-				const newDist = `${(parseInt(dist, 10) - 7)}`;
-				const newInterval = R.find(R.includes(newDist), chordIntervalsArray);
-
-				if (isUndefined(newInterval)) {
-					continue;
-				}
-
-				noteIndex = chordIntervalsArray.indexOf(newInterval);
-
-				if (!notes[noteIndex]) {
-					continue;
-				}
-
-				note = notes[noteIndex];
-				interval = dist + newInterval.split('')[1] as Interval;
-			} else {
-				noteIndex = chordIntervalsArray.indexOf(interval as Interval);
-				note = notes[noteIndex];
-			}
-
-			chordNotes.push(note);
-			chordIntervals.push(interval);
-		}
-
-		return { chordNotes, chordIntervals };
-	}
-
-	private createFromDiffChords(
-		structure: ChordStructure, scale: Scale, scaleIntervals: Interval[], nrOfNotes: number,
-	): { chordNotes: Note[], chordIntervals: Interval[] } | undefined {
-		const compatibleChordNames = <ChordName[]>ChordStructures.get(structure);
-		let chordIntervals: Interval[] | undefined;
-		let chordNotes: Note[] | undefined;
-		let structureIntervalsArray: string[];
-
-		for (let index = 0; index < compatibleChordNames.length; index++) {
-			const name = compatibleChordNames[index];
-			const chord = ChordDefinition[name];
-
-			structureIntervalsArray = chord.intervals
-				.split(' ')
-				.map((interval) => interval.replace(/\D/, ''));
-
-			const fromScale = this.createFromScale(
-				scale,
-				scaleIntervals,
-				nrOfNotes,
-				// transform intervals to structure[]
-				structureIntervalsArray,
-			);
-
-			chordIntervals = fromScale.chordIntervals;
-			chordNotes = fromScale.chordNotes;
-
-			if (chordIntervals.length === nrOfNotes) {
-				break;
-			}
-		}
-
-		if (isUndefined(chordNotes) || isUndefined(chordIntervals)) {
-			return;
-		}
-
-		return { chordNotes, chordIntervals };
-	}
-
-	/**
 	 * Finds the most suitable chord symbols for this chord
-	 * @function findChordSymbols
+	 * @function findChordSymbol
 	 * @memberof Core#Chord
 	 * @static
 	 *
@@ -463,7 +379,7 @@ export class Chord extends HarmonyBase {
 	 * @param {String} chord
 	 * @return {ChordSymbol|string} chord
 	 */
-	static findChordSymbols(chord: ChordIntervals | string): ChordSymbol | string | undefined {
+	static findChordSymbol(chord: ChordIntervals | string): ChordSymbol | string | undefined {
 		let chordType: ChordSymbol | string | undefined;
 		const chordIntervals = Object.entries(ChordIntervals);
 
@@ -506,4 +422,139 @@ export class Chord extends HarmonyBase {
 	}
 }
 
+export const createFromScale = (
+	scale: Scale, chordIntervalsArray: Interval[], nrOfNotes: number, structureIntervalsArray: string[],
+): { chordIntervals: Interval[] } => {
+	const chordIntervals: Interval[] = [];
+	const notes = scale.notes;
 
+	for (let index = 0; index < nrOfNotes; index++) {
+		const dist = structureIntervalsArray[index];
+
+		let interval = R.find(R.includes(dist), chordIntervalsArray);
+		let noteIndex: number;
+
+		if (isUndefined(interval) || chordIntervalsArray.indexOf(interval) === -1) {
+			const newDist = `${(parseInt(dist, 10) - 7)}`;
+			const newInterval = R.find(R.includes(newDist), chordIntervalsArray);
+
+			if (isUndefined(newInterval)) {
+				continue;
+			}
+
+			noteIndex = chordIntervalsArray.indexOf(newInterval);
+
+			if (!notes[noteIndex]) {
+				continue;
+			}
+
+			interval = dist + newInterval.split('')[1] as Interval;
+		} else {
+			noteIndex = chordIntervalsArray.indexOf(interval as Interval);
+		}
+
+		chordIntervals.push(interval);
+	}
+
+	return { chordIntervals };
+};
+
+
+export const createFromStructure = (
+	structure: ChordStructure, scale: Scale, scaleIntervals: Interval[], nrOfNotes: number,
+): { chordIntervals: Interval[] } | undefined => {
+	const compatibleChordNames = <ChordName[]>ChordStructures.get(structure);
+	let chordIntervals: Interval[] | undefined;
+	let structureIntervalsArray: string[];
+
+	for (let index = 0; index < compatibleChordNames.length; index++) {
+		const name = compatibleChordNames[index];
+		const chord = ChordDefinition[name];
+
+		structureIntervalsArray = chord.intervals
+			.split(' ')
+			.map((interval) => interval.replace(/\D/, ''));
+
+		const fromScale = createFromScale(
+			scale,
+			scaleIntervals,
+			nrOfNotes,
+			// transform intervals to structure[]
+			structureIntervalsArray,
+		);
+
+		chordIntervals = fromScale.chordIntervals;
+
+		if (chordIntervals.length === nrOfNotes) {
+			break;
+		}
+	}
+
+	if (isUndefined(chordIntervals)) {
+		return;
+	}
+
+	return { chordIntervals };
+};
+
+/**
+	 * Creates a chord based on a chordName f.ex: Am7
+	 *
+	 * @private
+	 *
+	 * @param {NoteSymbol} root
+	 * @param {String} intervals
+	 * @param {ChordStructure} structure
+	 * @return {Array<Note>}
+	 */
+const createChordWithStructure = (
+	root: NoteSymbol,
+	intervals: ScaleIntervals | string,
+	structure: ChordStructure,
+): { symbol: ChordSymbol, chordIntervals: ChordIntervals, chordStructure: ChordStructure } | null => {
+	const chordIntervalsArray = intervals.split(' ') as Interval[];
+	const intervalsValidation = chordIntervalsArray.map((interval) => typeof Semitones[interval] !== 'undefined');
+
+	if (intervalsValidation.includes(false)) {
+		throw new PlayaError('Chord', `[${intervals}] has unrecognized intervals.`);
+	}
+
+	const defaultIntervals = structure;
+
+	const structureIntervals = defaultIntervals.length === 1 ? defaultIntervals[0] : choose(Array.from(defaultIntervals));
+	const structureIntervalsArray = structureIntervals.split(' ');
+	const nrOfNotes = structureIntervalsArray.length;
+
+	const scale = new Scale(root as NoteSymbol, intervals as string);
+
+	let {
+		chordIntervals,
+	} = createFromScale(scale, chordIntervalsArray, nrOfNotes, structureIntervalsArray);
+
+	// if the provided scale doesn't have the default intervals from the given structure
+	// try other chord types from the same type of structure
+	if (chordIntervals.length !== nrOfNotes) {
+		const fromDiffChords = createFromStructure(structure, scale, chordIntervalsArray, nrOfNotes);
+
+		if (isUndefined(fromDiffChords)) {
+			return null;
+		}
+
+		chordIntervals = fromDiffChords.chordIntervals;
+	}
+
+	if (!chordIntervals) {
+		return null;
+	}
+
+	const chord = chordIntervals.join(' ') as ChordIntervals;
+	const symbol = Chord.findChordSymbol(chord) as ChordSymbol;
+
+	return {
+		chordIntervals: chord,
+		chordStructure: structure,
+		// name: `${root}${symbol}`,
+		symbol,
+		// chordNotes,
+	};
+};

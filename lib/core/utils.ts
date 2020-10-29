@@ -1,4 +1,4 @@
-import { ChordSymbol, ChordName, ChordDefinition } from '../constants/chords';
+import { ChordSymbol, ChordName, ChordDefinition, ChordIntervals } from '../constants/chords';
 import { NoteSymbol } from '../constants/note';
 import { PlayaError } from '../utils/error';
 import { ChordDescriptor } from './Types';
@@ -24,10 +24,7 @@ export const deconstructName = (chordName: string): ChordDescriptor => {
 
 	const root = result[0] as NoteSymbol;
 	const symbol = chordName.replace(root, '') as ChordSymbol;
-	const entries = (Object.entries(ChordSymbol) as [ChordName, ChordSymbol][]);
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const name = entries.find(([ _, s ]) => (symbol === s))?.[0];
+	const name = findNameFromSymbol(symbol);
 
 	if (typeof name === 'undefined') {
 		throw new PlayaError('Chord', `[${chordName}] isn't a recognizable chord`);
@@ -35,3 +32,19 @@ export const deconstructName = (chordName: string): ChordDescriptor => {
 
 	return { ...ChordDefinition[name], root };
 };
+
+
+export const findNameFromSymbol = (symbol: ChordSymbol): ChordName | undefined => {
+	const entries = (Object.entries(ChordSymbol) as [ChordName, ChordSymbol][]);
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	return entries.find(([ _, s ]) => (symbol === s))?.[0];
+};
+
+export const findNameFromIntervals = (intervals: ChordIntervals): ChordName | undefined => {
+	const entries = (Object.entries(ChordIntervals) as [ChordName, ChordIntervals][]);
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	return entries.find(([ _, s ]) => (intervals === s))?.[0];
+};
+

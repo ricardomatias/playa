@@ -75,7 +75,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MajorSix: 'MajorSix',
+	MajorSixth: 'MajorSixth',
 	/**
 	 * Minor 6th chord
 	 * @type {string}
@@ -83,7 +83,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MinorSix: 'MinorSix',
+	MinorSixth: 'MinorSixth',
 	/**
 	 * Minor triad, major 6th chord
 	 * @type {string}
@@ -91,7 +91,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MinorMajorSix: 'MinorMajorSix',
+	MinorMajorSixth: 'MinorMajorSixth',
 	/**
 	 * Minor 6th added 9th chord
 	 * @type {string}
@@ -99,7 +99,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MinorSixAddNine: 'MinorSixAddNine',
+	MinorSixthAddNine: 'MinorSixthAddNine',
 	/**
 	 * Major 6th added 9th chord
 	 * @type {string}
@@ -107,7 +107,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MajorSixAddNine: 'MajorSixAddNine',
+	MajorSixthAddNine: 'MajorSixthAddNine',
 	/**
 	 * Dominant 7th chord
 	 * @type {string}
@@ -115,7 +115,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Seven: 'Seven',
+	DominantSeventh: 'DominantSeventh',
 	/**
 	 * Minor 7th chord
 	 * @type {string}
@@ -123,7 +123,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MinorSeven: 'MinorSeven',
+	MinorSeventh: 'MinorSeventh',
 	/**
 	 * Minor 7th flat 5 chord
 	 * @type {string}
@@ -131,7 +131,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MinorSevenFlatFive: 'MinorSevenFlatFive',
+	MinorSeventhFlatFive: 'MinorSeventhFlatFive',
 	/**
 	 * Major 7th chord
 	 * @type {string}
@@ -139,7 +139,15 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MajorSeven: 'MajorSeven',
+	MajorSeventh: 'MajorSeventh',
+	/**
+	 * Major 7th flat 6th chord
+	 * @type {string}
+	 * @memberof Constants.ChordName
+	 * @default
+	 * @readonly
+	 */
+	MajorSeventhFlatSixth: 'MajorSeventhFlatSixth',
 	/**
 	 * 9th chord
 	 * @type {string}
@@ -147,7 +155,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Nine: 'Nine',
+	Ninth: 'Ninth',
 	/**
 	 * Minor 9th chord
 	 * @type {string}
@@ -155,7 +163,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MinorNine: 'MinorNine',
+	MinorNinth: 'MinorNinth',
 	/**
 	 * Major 9th chord
 	 * @type {string}
@@ -163,7 +171,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MajorNine: 'MajorNine',
+	MajorNinth: 'MajorNinth',
 	/**
 	 * 11th chord
 	 * @type {string}
@@ -171,7 +179,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Eleven: 'Eleven',
+	Eleventh: 'Eleventh',
 	/**
 	 * Minor 11th chord
 	 * @type {string}
@@ -179,7 +187,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MinorEleven: 'MinorEleven',
+	MinorEleventh: 'MinorEleventh',
 	/**
 	 * Major 11th chord
 	 * @type {string}
@@ -187,7 +195,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MajorEleven: 'MajorEleven',
+	MajorEleventh: 'MajorEleventh',
 	/**
 	 * 13th chord
 	 * @type {string}
@@ -195,7 +203,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Thirteen: 'Thirteen',
+	Thirteenth: 'Thirteenth',
 	/**
 	 * Minor 13th chord
 	 * @type {string}
@@ -203,7 +211,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MinorThirteen: 'MinorThirteen',
+	MinorThirteenth: 'MinorThirteenth',
 	/**
 	 * Major 13th chord
 	 * @type {string}
@@ -211,7 +219,7 @@ export const ChordName = <const>{
 	 * @default
 	 * @readonly
 	 */
-	MajorThirteen: 'MajorThirteen',
+	MajorThirteenth: 'MajorThirteenth',
 };
 
 /**
@@ -296,7 +304,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MajorSix: '6',
+	MajorSixth: '6',
 	/**
 	 * Minor 6th chord
 	 * @type {ChordSymbol}
@@ -304,7 +312,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MinorSix: 'm6m',
+	MinorSixth: 'm6m',
 	/**
 	 * Minor triad, major 6th chord
 	 * @type {ChordSymbol}
@@ -312,7 +320,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MinorMajorSix: 'm6',
+	MinorMajorSixth: 'm6',
 	/**
 	 * Minor 6th added 9th chord
 	 * @type {ChordSymbol}
@@ -320,7 +328,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MinorSixAddNine: 'm6add9',
+	MinorSixthAddNine: 'm6add9',
 	/**
 	 * Major 6th added 9th chord
 	 * @type {ChordSymbol}
@@ -328,7 +336,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MajorSixAddNine: '6add9',
+	MajorSixthAddNine: '6add9',
 	/**
 	 * Dominant 7th chord
 	 * @type {ChordSymbol}
@@ -336,7 +344,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	Seven: '7',
+	DominantSeventh: '7',
 	/**
 	 * Minor 7th chord
 	 * @type {ChordSymbol}
@@ -344,7 +352,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MinorSeven: 'm7',
+	MinorSeventh: 'm7',
 	/**
 	 * Minor 7th flat 5 chord
 	 * @type {ChordSymbol}
@@ -352,7 +360,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MinorSevenFlatFive: 'm7b5',
+	MinorSeventhFlatFive: 'm7b5',
 	/**
 	 * Major 7th chord
 	 * @type {ChordSymbol}
@@ -360,7 +368,15 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MajorSeven: 'M7',
+	MajorSeventh: 'M7',
+	/**
+	* Major 7th flat 6th chord
+	* @type {ChordSymbol}
+	* @memberof Constants.ChordSymbol
+	* @default
+	* @readonly
+	*/
+	MajorSeventhFlatSixth: 'M7b6',
 	/**
 	 * 9th chord
 	 * @type {ChordSymbol}
@@ -368,7 +384,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	Nine: '9',
+	Ninth: '9',
 	/**
 	 * Minor 9th chord
 	 * @type {ChordSymbol}
@@ -376,7 +392,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MinorNine: 'm9',
+	MinorNinth: 'm9',
 	/**
 	 * Major 9th chord
 	 * @type {ChordSymbol}
@@ -384,7 +400,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MajorNine: 'M9',
+	MajorNinth: 'M9',
 	/**
 	 * 11th chord
 	 * @type {ChordSymbol}
@@ -392,7 +408,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	Eleven: '11',
+	Eleventh: '11',
 	/**
 	 * Minor 11th chord
 	 * @type {ChordSymbol}
@@ -400,7 +416,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MinorEleven: 'm11',
+	MinorEleventh: 'm11',
 	/**
 	 * Major 11th chord
 	 * @type {ChordSymbol}
@@ -408,7 +424,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MajorEleven: 'M11',
+	MajorEleventh: 'M11',
 	/**
 	 * 13th chord
 	 * @type {ChordSymbol}
@@ -416,7 +432,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	Thirteen: '13',
+	Thirteenth: '13',
 	/**
 	 * Minor 13th chord
 	 * @type {ChordSymbol}
@@ -424,7 +440,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MinorThirteen: 'm13',
+	MinorThirteenth: 'm13',
 	/**
 	 * Major 13th chord
 	 * @type {ChordSymbol}
@@ -432,7 +448,7 @@ export const ChordSymbol = {
 	 * @default
 	 * @readonly
 	 */
-	MajorThirteen: 'M13',
+	MajorThirteenth: 'M13',
 } as const;
 
 export type ChordSymbol = typeof ChordSymbol[ChordName];
@@ -509,7 +525,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MajorSix': '1P 3M 5P 6M',
+	'MajorSixth': '1P 3M 5P 6M',
 	/**
 	 * Minor 6th chord
 	 * @type {string}
@@ -517,7 +533,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MinorSix': '1P 3m 5P 6m',
+	'MinorSixth': '1P 3m 5P 6m',
 	/**
 	 * Minor triad, major 6th chord
 	 * @type {string}
@@ -525,7 +541,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MinorMajorSix': '1P 3m 5P 6M',
+	'MinorMajorSixth': '1P 3m 5P 6M',
 	/**
 	 * Minor 6th added 9th chord
 	 * @type {string}
@@ -533,7 +549,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MinorSixAddNine': '1P 3M 5P 6m 9M',
+	'MinorSixthAddNine': '1P 3M 5P 6m 9M',
 	/**
 	 * Major 6th added 9th chord
 	 * @type {string}
@@ -541,7 +557,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MajorSixAddNine': '1P 3M 5P 6M 9M',
+	'MajorSixthAddNine': '1P 3M 5P 6M 9M',
 	/**
 	 * Dominant 7th chord
 	 * @type {string}
@@ -549,7 +565,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'Seven': '1P 3M 5P 7m',
+	'DominantSeventh': '1P 3M 5P 7m',
 	/**
 	 * Minor 7th chord
 	 * @type {string}
@@ -557,7 +573,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MinorSeven': '1P 3m 5P 7m',
+	'MinorSeventh': '1P 3m 5P 7m',
 	/**
 	 * Minor 7th flat 5 chord
 	 * @type {string}
@@ -565,7 +581,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MinorSevenFlatFive': '1P 3m 5d 7m',
+	'MinorSeventhFlatFive': '1P 3m 5d 7m',
 	/**
 	 * Major 7th chord
 	 * @type {string}
@@ -573,7 +589,15 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MajorSeven': '1P 3M 5P 7M',
+	'MajorSeventh': '1P 3M 5P 7M',
+	/**
+	* Major 7th flat 6th chord
+	* @type {string}
+	* @memberof Constants.ChordIntervals
+	* @default
+	* @readonly
+	*/
+	'MajorSeventhFlatSixth': '1P 3M 6m 7M',
 	/**
 	 * 9th chord
 	 * @type {string}
@@ -581,7 +605,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'Nine': '1P 3M 5P 7m 9M',
+	'Ninth': '1P 3M 5P 7m 9M',
 	/**
 	 * Minor 9th chord
 	 * @type {string}
@@ -589,7 +613,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MinorNine': '1P 3m 5P 7m 9M',
+	'MinorNinth': '1P 3m 5P 7m 9M',
 	/**
 	 * Major 9th chord
 	 * @type {string}
@@ -597,7 +621,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MajorNine': '1P 3M 5P 7M 9M',
+	'MajorNinth': '1P 3M 5P 7M 9M',
 	/**
 	 * 11th chord
 	 * @type {string}
@@ -605,7 +629,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'Eleven': '1P 3M 5P 7m 9M 11P',
+	'Eleventh': '1P 3M 5P 7m 9M 11P',
 	/**
 	 * Minor 11th chord
 	 * @type {string}
@@ -613,7 +637,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MinorEleven': '1P 3m 5P 7m 9M 11P',
+	'MinorEleventh': '1P 3m 5P 7m 9M 11P',
 	/**
 	 * Major 11th chord
 	 * @type {string}
@@ -621,7 +645,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MajorEleven': '1P 3M 5P 7M 9M 11P',
+	'MajorEleventh': '1P 3M 5P 7M 9M 11P',
 	/**
 	 * 13th chord
 	 * @type {string}
@@ -629,7 +653,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'Thirteen': '1P 3M 5P 7m 9M 13M',
+	'Thirteenth': '1P 3M 5P 7m 9M 13M',
 	/**
 	 * Minor 13th chord
 	 * @type {string}
@@ -637,7 +661,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MinorThirteen': '1P 3m 5P 7m 9M 13M',
+	'MinorThirteenth': '1P 3m 5P 7m 9M 13M',
 	/**
 	 * Major 13th chord
 	 * @type {string}
@@ -645,7 +669,7 @@ export const ChordIntervals = <const>{
 	 * @default
 	 * @readonly
 	 */
-	'MajorThirteen': '1P 3M 5P 7M 9M 13M',
+	'MajorThirteenth': '1P 3M 5P 7M 9M 13M',
 };
 
 export type ChordIntervals = typeof ChordIntervals[ChordName];
@@ -666,7 +690,7 @@ export type ChordIntervals = typeof ChordIntervals[ChordName];
  * @memberof Constants
  * @enum
  * @example
- * ChordStructure.Triad => [ 3, [ '1 3 5' ] ]
+ * ChordStructure.Triad => [ '1 3 5' ]
  */
 export const ChordStructure = <const>{
 	/**
@@ -677,7 +701,7 @@ export const ChordStructure = <const>{
 	 * @readonly
 	 * @constant
 	 */
-	Triad: [ 3, [ '1 3 5' ] ],
+	Triad: [ '1 3 5', '1 5 8' ],
 	/**
 	* Suspended chords structure
 	* @type {ChordStructure}
@@ -686,7 +710,7 @@ export const ChordStructure = <const>{
 	* @readonly
 	* @constant
 	*/
-	Sus: [ 3, [ '1 2 5', '1 4 5' ] ],
+	Sus: [ '1 2 5', '1 4 5' ],
 	/**
 	* Sixth chords structure
 	* @type {ChordStructure}
@@ -695,7 +719,7 @@ export const ChordStructure = <const>{
 	* @readonly
 	* @constant
 	*/
-	Sixth: [ 4, [ '1 3 5 6' ] ],
+	Sixth: [ '1 3 5 6' ],
 	/**
 	* Seventh chords structure
 	* @type {ChordStructure}
@@ -704,7 +728,7 @@ export const ChordStructure = <const>{
 	* @readonly
 	* @constant
 	*/
-	Seventh: [ 4, [ '1 3 5 7' ] ],
+	Seventh: [ '1 3 5 7' ],
 	/**
 	* Ninth chords structure
 	* @type {ChordStructure}
@@ -713,7 +737,7 @@ export const ChordStructure = <const>{
 	* @readonly
 	* @constant
 	*/
-	Ninth: [ 5, [ '1 3 5 7 9' ] ],
+	Ninth: [ '1 3 5 7 9' ],
 	/**
 	* Eleventh chords structure
 	* @type {ChordStructure}
@@ -722,7 +746,7 @@ export const ChordStructure = <const>{
 	* @readonly
 	* @constant
 	*/
-	Eleventh: [ 6, [ '1 3 5 7 9 11' ] ],
+	Eleventh: [ '1 3 5 7 9 11' ],
 	/**
 	* Thirteenth chords structure
 	* @type {ChordStructure}
@@ -731,7 +755,7 @@ export const ChordStructure = <const>{
 	* @readonly
 	* @constant
 	*/
-	Thirteenth: [ 6, [ '1 3 5 7 9 13' ] ],
+	Thirteenth: [ '1 3 5 7 9 13' ],
 };
 
 export type ChordStructure = typeof ChordStructure[keyof typeof ChordStructure];
@@ -747,35 +771,36 @@ export const ChordDefinition = <const>{
 	[ChordName.Sus2]: toDefObj(ChordName.Sus2, ChordSymbol.Sus2, ChordIntervals.Sus2, ChordStructure.Sus),
 	[ChordName.Sus4]: toDefObj(ChordName.Sus4, ChordSymbol.Sus4, ChordIntervals.Sus4, ChordStructure.Sus),
 	[ChordName.P5]: toDefObj(ChordName.P5, ChordSymbol.P5, ChordIntervals.P5, ChordStructure.Triad),
-	[ChordName.MajorSix]: toDefObj(ChordName.MajorSix, ChordSymbol.MajorSix, ChordIntervals.MajorSix, ChordStructure.Sixth),
-	[ChordName.MinorSix]: toDefObj(ChordName.MinorSix, ChordSymbol.MinorSix, ChordIntervals.MinorSix, ChordStructure.Sixth),
-	[ChordName.MinorMajorSix]: toDefObj(ChordName.MinorMajorSix, ChordSymbol.MinorMajorSix, ChordIntervals.MinorMajorSix, ChordStructure.Sixth),
-	[ChordName.MinorSixAddNine]: toDefObj(ChordName.MinorSixAddNine, ChordSymbol.MinorSixAddNine, ChordIntervals.MinorSixAddNine, ChordStructure.Sixth),
-	[ChordName.MajorSixAddNine]: toDefObj(ChordName.MajorSixAddNine, ChordSymbol.MajorSixAddNine, ChordIntervals.MajorSixAddNine, ChordStructure.Sixth),
-	[ChordName.Seven]: toDefObj(ChordName.Seven, ChordSymbol.Seven, ChordIntervals.Seven, ChordStructure.Seventh),
-	[ChordName.MinorSeven]: toDefObj(ChordName.MinorSeven, ChordSymbol.MinorSeven, ChordIntervals.MinorSeven, ChordStructure.Seventh),
-	[ChordName.MinorSevenFlatFive]: toDefObj(ChordName.MinorSevenFlatFive, ChordSymbol.MinorSevenFlatFive, ChordIntervals.MinorSevenFlatFive, ChordStructure.Seventh),
-	[ChordName.MajorSeven]: toDefObj(ChordName.MajorSeven, ChordSymbol.MajorSeven, ChordIntervals.MajorSeven, ChordStructure.Seventh),
-	[ChordName.Nine]: toDefObj(ChordName.Nine, ChordSymbol.Nine, ChordIntervals.Nine, ChordStructure.Ninth),
-	[ChordName.MinorNine]: toDefObj(ChordName.MinorNine, ChordSymbol.MinorNine, ChordIntervals.MinorNine, ChordStructure.Ninth),
-	[ChordName.MajorNine]: toDefObj(ChordName.MajorNine, ChordSymbol.MajorNine, ChordIntervals.MajorNine, ChordStructure.Ninth),
-	[ChordName.Eleven]: toDefObj(ChordName.Eleven, ChordSymbol.Eleven, ChordIntervals.Eleven, ChordStructure.Eleventh),
-	[ChordName.MinorEleven]: toDefObj(ChordName.MinorEleven, ChordSymbol.MinorEleven, ChordIntervals.MinorEleven, ChordStructure.Eleventh),
-	[ChordName.MajorEleven]: toDefObj(ChordName.MajorEleven, ChordSymbol.MajorEleven, ChordIntervals.MajorEleven, ChordStructure.Eleventh),
-	[ChordName.Thirteen]: toDefObj(ChordName.Thirteen, ChordSymbol.Thirteen, ChordIntervals.Thirteen, ChordStructure.Thirteenth),
-	[ChordName.MinorThirteen]: toDefObj(ChordName.MinorThirteen, ChordSymbol.MinorThirteen, ChordIntervals.MinorThirteen, ChordStructure.Thirteenth),
-	[ChordName.MajorThirteen]: toDefObj(ChordName.MajorThirteen, ChordSymbol.MajorThirteen, ChordIntervals.MajorThirteen, ChordStructure.Thirteenth),
+	[ChordName.MajorSixth]: toDefObj(ChordName.MajorSixth, ChordSymbol.MajorSixth, ChordIntervals.MajorSixth, ChordStructure.Sixth),
+	[ChordName.MinorSixth]: toDefObj(ChordName.MinorSixth, ChordSymbol.MinorSixth, ChordIntervals.MinorSixth, ChordStructure.Sixth),
+	[ChordName.MinorMajorSixth]: toDefObj(ChordName.MinorMajorSixth, ChordSymbol.MinorMajorSixth, ChordIntervals.MinorMajorSixth, ChordStructure.Sixth),
+	[ChordName.MinorSixthAddNine]: toDefObj(ChordName.MinorSixthAddNine, ChordSymbol.MinorSixthAddNine, ChordIntervals.MinorSixthAddNine, ChordStructure.Sixth),
+	[ChordName.MajorSixthAddNine]: toDefObj(ChordName.MajorSixthAddNine, ChordSymbol.MajorSixthAddNine, ChordIntervals.MajorSixthAddNine, ChordStructure.Sixth),
+	[ChordName.DominantSeventh]: toDefObj(ChordName.DominantSeventh, ChordSymbol.DominantSeventh, ChordIntervals.DominantSeventh, ChordStructure.Seventh),
+	[ChordName.MinorSeventh]: toDefObj(ChordName.MinorSeventh, ChordSymbol.MinorSeventh, ChordIntervals.MinorSeventh, ChordStructure.Seventh),
+	[ChordName.MinorSeventhFlatFive]: toDefObj(ChordName.MinorSeventhFlatFive, ChordSymbol.MinorSeventhFlatFive, ChordIntervals.MinorSeventhFlatFive, ChordStructure.Seventh),
+	[ChordName.MajorSeventh]: toDefObj(ChordName.MajorSeventh, ChordSymbol.MajorSeventh, ChordIntervals.MajorSeventh, ChordStructure.Seventh),
+	[ChordName.MajorSeventhFlatSixth]: toDefObj(ChordName.MajorSeventhFlatSixth, ChordSymbol.MajorSeventhFlatSixth, ChordIntervals.MajorSeventhFlatSixth, ChordStructure.Seventh),
+	[ChordName.Ninth]: toDefObj(ChordName.Ninth, ChordSymbol.Ninth, ChordIntervals.Ninth, ChordStructure.Ninth),
+	[ChordName.MinorNinth]: toDefObj(ChordName.MinorNinth, ChordSymbol.MinorNinth, ChordIntervals.MinorNinth, ChordStructure.Ninth),
+	[ChordName.MajorNinth]: toDefObj(ChordName.MajorNinth, ChordSymbol.MajorNinth, ChordIntervals.MajorNinth, ChordStructure.Ninth),
+	[ChordName.Eleventh]: toDefObj(ChordName.Eleventh, ChordSymbol.Eleventh, ChordIntervals.Eleventh, ChordStructure.Eleventh),
+	[ChordName.MinorEleventh]: toDefObj(ChordName.MinorEleventh, ChordSymbol.MinorEleventh, ChordIntervals.MinorEleventh, ChordStructure.Eleventh),
+	[ChordName.MajorEleventh]: toDefObj(ChordName.MajorEleventh, ChordSymbol.MajorEleventh, ChordIntervals.MajorEleventh, ChordStructure.Eleventh),
+	[ChordName.Thirteenth]: toDefObj(ChordName.Thirteenth, ChordSymbol.Thirteenth, ChordIntervals.Thirteenth, ChordStructure.Thirteenth),
+	[ChordName.MinorThirteenth]: toDefObj(ChordName.MinorThirteenth, ChordSymbol.MinorThirteenth, ChordIntervals.MinorThirteenth, ChordStructure.Thirteenth),
+	[ChordName.MajorThirteenth]: toDefObj(ChordName.MajorThirteenth, ChordSymbol.MajorThirteenth, ChordIntervals.MajorThirteenth, ChordStructure.Thirteenth),
 };
 
 export type ChordDefinition = typeof ChordDefinition[keyof typeof ChordDefinition];
 
 export const ChordStructures = new Map<ChordStructure, ChordName[]>([
-	[ ChordStructure.Triad, [ ChordName.Major, ChordName.Minor, ChordName.Aug, ChordName.Dim, ChordName.Sus2, ChordName.Sus4, ChordName.P5 ] ],
+	[ ChordStructure.Triad, [ ChordName.Major, ChordName.Minor, ChordName.Aug, ChordName.Dim, ChordName.P5 ] ],
 	[ ChordStructure.Sus, [ ChordName.Sus2, ChordName.Sus4 ] ],
-	[ ChordStructure.Sixth, [ ChordName.MajorSixAddNine, ChordName.MinorSix, ChordName.MinorMajorSix, ChordName.MinorSixAddNine, ChordName.MajorSixAddNine ] ],
-	[ ChordStructure.Seventh, [ ChordName.Seven, ChordName.MinorSeven, ChordName.MinorSevenFlatFive, ChordName.MajorSeven ] ],
-	[ ChordStructure.Ninth, [ ChordName.Nine, ChordName.MinorNine, ChordName.MajorNine ] ],
-	[ ChordStructure.Eleventh, [ ChordName.Eleven, ChordName.MinorEleven, ChordName.MajorEleven ] ],
-	[ ChordStructure.Thirteenth, [ ChordName.Thirteen, ChordName.MinorThirteen, ChordName.MajorThirteen ] ],
+	[ ChordStructure.Sixth, [ ChordName.MajorSixthAddNine, ChordName.MinorSixth, ChordName.MinorMajorSixth, ChordName.MinorSixthAddNine ] ],
+	[ ChordStructure.Seventh, [ ChordName.DominantSeventh, ChordName.MinorSeventh, ChordName.MinorSeventhFlatFive, ChordName.MajorSeventh, ChordName.MajorSeventhFlatSixth ] ],
+	[ ChordStructure.Ninth, [ ChordName.Ninth, ChordName.MinorNinth, ChordName.MajorNinth ] ],
+	[ ChordStructure.Eleventh, [ ChordName.Eleventh, ChordName.MinorEleventh, ChordName.MajorEleventh ] ],
+	[ ChordStructure.Thirteenth, [ ChordName.Thirteenth, ChordName.MinorThirteenth, ChordName.MajorThirteenth ] ],
 ]);
 
