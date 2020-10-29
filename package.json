@@ -1,6 +1,6 @@
 {
 	"name": "playa",
-	"version": "0.0.19",
+	"version": "0.0.20",
 	"description": "A musical theory framework aimed at creating musical phrases",
 	"main": "./build/cjs/index.js",
 	"module": "./build/esm/index.js",
