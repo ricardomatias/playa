@@ -309,7 +309,7 @@ export class Note {
 	 * @return {Note}
 	 */
 	get next(): Note {
-		const midi = this.#midi ? this.#midi + 1 : null;
+		const midi = typeof this.#midi !== 'undefined' ? this.#midi + 1 : null;
 		return this.getNeighbour(this.#next, midi);
 	}
 

@@ -119,6 +119,24 @@ describe('Note Test Suite', () => {
 		expect(note.prev.n).toBe('B');
 	});
 
+	it('should have next', () => {
+		let note = new Note('C-2');
+
+		expect(note.midi).toBe(0);
+		note = note.next;
+		expect(note.n).toBe('C#-2');
+		expect(note.midi).toBe(1);
+		note = note.next;
+		expect(note.n).toBe('D-2');
+		expect(note.midi).toBe(2);
+		note = note.next;
+		expect(note.n).toBe('D#-2');
+		expect(note.midi).toBe(3);
+		note = note.next;
+		expect(note.n).toBe('E-2');
+		expect(note.midi).toBe(4);
+	});
+
 	it('should fail with midi over the range', () => {
 		expect(() => (new Note(200))).toThrowError('[Note]: <200> isn\'t a valid midi note number');
 	});
