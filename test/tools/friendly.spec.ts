@@ -28,7 +28,7 @@ describe('A Friendly test suite', () => {
 			// given
 			Random.setSeed('test');
 
-			const neighbours = friendly([ 'A', 'C#', 'G', 'B' ]);
+			const neighbours = friendly([ 'A3', 'C#3', 'G3', 'B3' ]);
 
 			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3m 4P 5P 6m 7m',

@@ -6,7 +6,9 @@ import SimplexNoise from 'simplex-noise';
 const INITIAL_SEED = 'PLAYA';
 
 /**
- * Random Tools
+ * Random is a singleton class which gives methods for random number generation.
+ * It uses Simplex Noise in order for the random numbers to follow a "more natural" progression.
+ *
  * @namespace Random
  * @memberof Tools
  */
@@ -16,6 +18,7 @@ class Random {
 	private y = 0;
 	private simplex: SimplexNoise = new SimplexNoise(Alea(INITIAL_SEED));
 	private _seed: string | number = INITIAL_SEED;
+	private _seedCounter = 0;
 
 	public increment = 10;
 
@@ -70,6 +73,22 @@ class Random {
 	}
 
 	/**
+	* Takes the current seed and adds a counter
+	* @function bumpSeed
+	* @memberof Tools.Random
+	* @example
+	* seed = 'PLAYA' // default seed
+	* bumpSeed() => 'PLAYA-0'
+	* bumpSeed() => 'PLAYA-1'
+	*
+	* @param {String|Number} seed
+	* @param {Number} increment
+	*/
+	bumpSeed(): void {
+		this.setSeed(`${this._seed}`.replace(/-\d/, '') + `-${this._seedCounter++}`);
+	}
+
+	/**
 	 * Generates a random float between a range
 	 *
 	 * @function float
@@ -103,7 +122,7 @@ class Random {
 	}
 
 	/**
-	 * Generates a random integer between a range
+	 * Generates a random boolean
 	 *
 	 * @function boolean
 	 * @memberof Tools.Random

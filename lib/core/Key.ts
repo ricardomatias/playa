@@ -423,7 +423,7 @@ export class Key extends Scale {
 	getModeAtPosition(position: number): Key {
 		const modes = this.modes;
 
-		const mode = modes[position % 8];
+		const mode = modes[position % 7];
 
 		this._root = new Note(mode.root);
 		this._intervals = mode.scale;

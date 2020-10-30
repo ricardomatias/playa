@@ -20,6 +20,14 @@
 // 64n - Sixty - fourth note - (30 ticks)
 // 128n - One - hundred - twenty - eighth note - (15 ticks)
 
+/**
+ * Ticks in relation to note values (durations) with a PPQ (pulse per quarter) of 480
+ * @memberof Constants
+ * @typedef {number} Ticks
+ * @enum
+ * @example
+ * Ticks['4n'] => 480
+ */
 export enum Ticks {
 	'1nd' = 2880, '1n' = 1920, '1nt' = 1280,
 	'2nd' = 1440, '2n' = 960, '2nt' = 640,
@@ -34,7 +42,7 @@ export enum Ticks {
 export type Notevalue = keyof typeof Ticks;
 
 /**
- * Note values
+ * Note values (duration)
  * @memberof Types
  * @typedef Notevalue
  * @property {string} 1nd "1nd"
@@ -50,14 +58,14 @@ export type Notevalue = keyof typeof Ticks;
  * @property {string} 8n "8n"
  * @property {string} 8nt "8nt"
  * @property {string} 16nd "16nd"
- * @property {string} 16n "16n"
+ * @property {string} 16nt "16nt"
  * @property {string} 16n "16n"
  * @property {string} 32n "32n"
- * @property {string} 32 "32"
+ * @property {string} 32nt "32t"
  * @property {string} 32n "32n"
+ * @property {string} 64nd "64nd"
  * @property {string} 64n "64n"
- * @property {string} 64 "64"
- * @property {string} 128 "128"
+ * @property {string} 128n "128n"
 */
 
 

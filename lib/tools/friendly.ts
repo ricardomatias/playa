@@ -1,10 +1,10 @@
 import * as R from 'ramda';
 
 import { Scale } from '../core/Scale';
-import { Note } from '../core/Note';
+import { Note, NoteLike } from '../core/Note';
 import { Sharps, Flats, DiatonicNotes, ScaleIntervals, Interval, NoteSymbol, ScaleName } from '../constants';
 import distance from './distance';
-import { stripOctave } from '../utils/note';
+import { assureNote, stripOctave } from '../utils/note';
 import whilst from '../utils/whilst';
 import { valuesToArr, convObj, rotate, hasNoNumber } from '../utils/functional';
 import { hasKeyValue, isDefined, isNotNull, isNumber, isString, Pull } from '../utils/types-guards';
@@ -169,31 +169,63 @@ interface FriendlyRanking {
 	intervals: string;
 }
 
+
 /**
- * Approaches:
- * * Based on a list of notes, find possible compatible keys.
- * * The comparison is done between matching intervals. Categorized by the most notes in common to the least.
+* Key Match (friendly)
+* @typedef {Object} KeyMatch
+* @memberof Types
+*
+* @property {ScaleIntervals} scale the scale's intervals
+* @property {number} match match value in the range [0,1]. 1 is a perfect match
+* @property {string} root the root note
+* @property {string} intervals the matching intervals from the given notes
+* @property {ScaleName} type the type of scale
+* @example
+{
+	scale: '1P 2M 3m 4P 5P 6m 7m',
+	match: 1,
+	root: 'B',
+	intervals: '1P 2M 6m 7m',
+	type: 'Minor',
+}
+*/
+
+// * Approaches:
+// * Based on a list of notes, find possible compatible keys.
+//* The comparison is done between matching intervals.Categorized by the most notes in common to the least.
+
+/**
+ * Friendly is figures out the most suitable keys for the given notes.
+ * Returns a list of possible matches
  *
  * @function friendly
  * @memberof Tools
+ * @example
+ * friendly([ 'A3', 'C#4', 'G4', 'B4' ]) =>
+ * [{
+	scale: '1P 2M 3m 4P 5P 6m 7m',
+	match: 1,
+	root: 'B',
+	intervals: '1P 2M 6m 7m',
+	type: 'Minor',
+}, ...]
  *
- * @param {Array<String>} notes
- * @param {Array<String>} [rankedScales]
- * @return {Array<Object>}
+ * @param {Array<NoteLike>} notes
+ * @return {Array<KeyMatch>}
  */
-export const friendly = (notes: string[], rankedScales = DEFAULT_RANKED_SCALES): FriendlyRanking[] => {
+export const friendly = (notes: NoteLike[]): FriendlyRanking[] => {
 	// ["A", "C#", "G", "B"]
 	const intervalsPermutations = [];
 	let matchingScales: FriendlyRanking[] = [];
 
-	const isRightType = Array.isArray(notes) && notes.every(hasNoNumber);
-
-	if (!isRightType || notes.length < 2) {
+	if (notes.length < 2) {
 		return [];
 	}
 
+	const parsedNotes = notes.map((n) => assureNote(n).note);
+
 	// => ["C#", "G", "A", "B"]
-	let orderedNotes = orderNotes(R.uniq(notes));
+	let orderedNotes = orderNotes(R.uniq(parsedNotes));
 
 	for (let index = 0; index < orderedNotes.length; index++) {
 		// [ "C#", "4A", "5A", "7m" ]
@@ -223,7 +255,7 @@ export const friendly = (notes: string[], rankedScales = DEFAULT_RANKED_SCALES):
 
 		const root = R.head(intervalsArr) as NoteSymbol;
 
-		const possibleScales: ScaleIntervals[] = findPossibleScales(rankedScales, R.tail(intervalsArr) as Interval[]);
+		const possibleScales: ScaleIntervals[] = findPossibleScales(DEFAULT_RANKED_SCALES, R.tail(intervalsArr) as Interval[]);
 
 		if (!Array.isArray(possibleScales)) {
 			return;
