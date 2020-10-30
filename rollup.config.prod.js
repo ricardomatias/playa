@@ -21,14 +21,12 @@ export default [
 				sourcemap: true,
 			},
 			{
-				dir: 'build/cjs',
-				format: 'cjs',
+				dir: 'build/umd',
+				format: 'umd',
+				name: 'Playa',
 				sourcemap: true,
 			},
 		],
-		manualChunks: {
-			vendor: [ 'ramda', 'simplex-noise', 'alea' ],
-		},
 		plugins: [
 			del({ targets: 'build/*' }),
 			resolve({ extensions }),
