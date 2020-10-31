@@ -162,7 +162,7 @@ export function createChordProgression(
 			chordNotes = [ R.head(notes) as number ];
 
 			if (R.gt(inversionProb, Random.float())) {
-				chord.invert();
+				chord.invert(Random.int(R.length(chord.notes)));
 			}
 
 			try {

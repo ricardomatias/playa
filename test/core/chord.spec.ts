@@ -331,6 +331,12 @@ describe('Chord Test Suite', () => {
 	});
 
 	describe('inversions', () => {
+		it('should invert', () => {
+			const invertedChord = Chord.fromName('Am7').invert();
+
+			expect(invertedChord).toHaveStringNotes([ 'C3', 'E3', 'G3', 'A3' ]);
+		});
+
 		it('should create 1st inversion', () => {
 			Random.setSeed('test');
 
@@ -340,7 +346,7 @@ describe('Chord Test Suite', () => {
 				Chord.Structures.Triad,
 			);
 
-			chord.invert(1);
+			chord.invert();
 
 			expect(chord).toHaveStringNotes([ 'C3', 'E3', 'A3' ]);
 
@@ -375,28 +381,6 @@ describe('Chord Test Suite', () => {
 			chord.invert(3);
 
 			expect(chord).toHaveStringNotes([ 'G3', 'A3', 'C4', 'E4' ]);
-		});
-
-		it('should invert randomly', () => {
-			Random.setSeed('test-foddds');
-
-			const chord = Chord.fromIntervals(
-				'A',
-				ScaleIntervals.Minor,
-				Chord.Structures.Thirteenth,
-			);
-
-			chord.invert();
-
-			expect(chord).toHaveStringNotes([
-				'E3', 'G3', 'B3', 'F4', 'A4', 'C5',
-			]);
-
-			chord.assignOctaves([ 4, 1 ]);
-
-			expect(chord).toHaveStringNotes([
-				'E4', 'G4', 'B4', 'F5', 'A5', 'C6',
-			]);
 		});
 	});
 

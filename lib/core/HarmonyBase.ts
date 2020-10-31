@@ -170,8 +170,9 @@ abstract class HarmonyBase {
 	* @memberof Core.Scale#
 	*
 	* @param {Array<Number>} octaves
+	* @return {this}
 	*/
-	abstract assignOctaves(octaves?: Octaves): void
+	abstract assignOctaves(octaves?: Octaves): this
 }
 
 export default HarmonyBase;

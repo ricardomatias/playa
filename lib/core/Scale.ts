@@ -120,12 +120,14 @@ export class Scale extends HarmonyBase {
 		return this.notes[noteIndex];
 	}
 
-	assignOctaves(octaves?: Octaves): void {
+	assignOctaves(octaves?: Octaves): this {
 		if (octaves) {
 			this._octaves = octaves;
 		}
 
 		this._notes = assignOctaves(this._notes, this.octaves, { type: 'scale', hasFlats: this.hasFlats });
+
+		return this;
 	}
 
 	/**

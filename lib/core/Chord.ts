@@ -260,11 +260,14 @@ export class Chord extends HarmonyBase {
 	 * @example
 	 * new Chord('Am').invert(1) => [ 'C3', 'E3', 'A3' ]
 	 * new Chord('Am').invert(2) => [ 'E3', 'A3', 'C4' ]
+	 * @return {this} this
 	 */
-	invert(nrOfTimes?: number): void {
-		this._notes = rotate(this._notes, nrOfTimes || Random.int(R.length(this._notes), 1));
+	invert(nrOfTimes = 1): this {
+		this._notes = rotate(this._notes, nrOfTimes);
 
 		this.assignOctaves();
+
+		return this;
 	}
 
 	/**
@@ -309,13 +312,16 @@ export class Chord extends HarmonyBase {
 	 * @memberof Core.Scale#
 	 *
 	 * @param {Array<Number>} octaves
+	 * @return {this} this
 	 */
-	assignOctaves(octaves?: Octaves): void {
+	assignOctaves(octaves?: Octaves): this {
 		if (octaves) {
 			this._octaves = octaves;
 		}
 
 		this._notes = assignOctaves(this._notes, this.octaves, { type: 'chord', hasFlats: this.hasFlats });
+
+		return this;
 	}
 
 	/**

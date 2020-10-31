@@ -165,9 +165,13 @@ export class Key extends Scale {
 	* @memberof Core#Key#
 	*
 	* @param {Interval} [interval = '5P']
+	*
+	* @return {this}
 	*/
-	modulateUp(interval: Interval = '5P'): void {
+	modulateUp(interval: Interval = '5P'): this {
 		this.modulate(Key.ModulateUp, interval);
+
+		return this;
 	}
 
 
@@ -177,9 +181,12 @@ export class Key extends Scale {
 	* @memberof Core#Key#
 	*
 	* @param {String} [interval = '5P']
+	* @return {this}
 	*/
-	modulateDown(interval: Interval = '5P'): void {
+	modulateDown(interval: Interval = '5P'): this {
 		this.modulate(Key.ModulateDown, interval);
+
+		return this;
 	}
 
 	/**
@@ -189,13 +196,14 @@ export class Key extends Scale {
 	 *
 	 * @param {Symbol} direction
 	 * @param {String} [interval = '5P']
+	 * @return {this}
 	 */
-	modulate(direction: ModulationDirection, interval: Interval = '5P'): void {
+	modulate(direction: ModulationDirection, interval: Interval = '5P'): this {
 		const notes = this._notes;
 		const intervals = this._intervals;
 
 		if (!notes.length || !Key.isMode(intervals) || !this.isModulationDirection(direction)) {
-			return;
+			return this;
 		}
 
 		let root: NoteSymbol | undefined;
@@ -205,7 +213,7 @@ export class Key extends Scale {
 		} else if (direction === Key.ModulateDown) {
 			root = distance.transposeDown(notes[0].note, interval);
 		} else {
-			return;
+			return this;
 		}
 
 		this._root = new Note(root);
@@ -214,6 +222,8 @@ export class Key extends Scale {
 		this.assignOctaves();
 
 		this._modes = [];
+
+		return this;
 	}
 
 	/**
@@ -224,8 +234,9 @@ export class Key extends Scale {
 	 * @param {Object} [opts = {}]
 	 * @param {Symbol} [opts.direction] Key.MOD_UP or Key.MOD_DOWN
 	 * @param {Number} [opts.interval] 1..7
+	 * @return {this}
 	 */
-	modulateMode({ direction, interval }: Partial<{ direction: ModulationDirection, interval: number }> = {}): void {
+	modulateMode({ direction, interval }: Partial<{ direction: ModulationDirection, interval: number }> = {}): this {
 		let mode: Mode;
 		let modes = this.modes; // use this so it forces mode creation in case of their absence
 		let probabilities = MODES_MOD_PROB;
@@ -235,7 +246,7 @@ export class Key extends Scale {
 			const splitModes = R.splitAt(modePos, modes);
 
 			if (R.isEmpty(splitModes)) {
-				return;
+				return this;
 			}
 
 			if (direction === Key.ModulateUp) {
@@ -295,6 +306,8 @@ export class Key extends Scale {
 		this.assignOctaves();
 
 		delete this._chord;
+
+		return this;
 	}
 
 	/**

@@ -131,7 +131,7 @@ export class Time {
 	}
 
 	/**
-	 * Bars beats sixteenths aka transport time
+	 * Transport time aka Bars beats sixteenths
 	 * @alias bbs
 	 * @example
 	 * '0:1:0'
@@ -171,6 +171,21 @@ export class Time {
 	 */
 	get timeSignature(): TimeSignature {
 		return this.#timeSignature;
+	}
+
+	/**
+	* Convert to seconds
+	* @function toSeconds
+	* @memberof Core#Time#
+	* @example
+	* toSeconds(120) =>
+	*
+	* @param {number} bpm beats per minute
+	* @param {PPQ} [ppq] ppq
+	* @return {number} seconds
+	*/
+	toSeconds(bpm: number): number {
+		return Time.ticksToSeconds(this.ticks, bpm);
 	}
 
 	/**

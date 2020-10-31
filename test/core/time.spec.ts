@@ -43,6 +43,12 @@ describe('Time Test Suite', () => {
 		expect(time.notevalue).toBeUndefined();
 	});
 
+	it('should convert to seconds', () => {
+		const time = new Time('2n');
+
+		expect(time.toSeconds(120)).toBe(1);
+	});
+
 	it('should allow adding', () => {
 		const time = new Time('0:2:0');
 
