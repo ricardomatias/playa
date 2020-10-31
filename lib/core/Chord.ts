@@ -98,17 +98,23 @@ export class Chord extends HarmonyBase {
 		this._intervals = intervals;
 		this._structure = structure;
 
-		if (isChordIntervals(description)) {
-			this._intervals = description;
-			this._name = findNameFromIntervals(this._intervals);
-		} else {
-			this._symbol = description;
-			this._name = findNameFromSymbol(this._symbol);
+		if (isDefined(description)) {
+			if (isChordIntervals(description)) {
+				this._intervals = description;
+				this._name = findNameFromIntervals(this._intervals);
+			} else {
+				this._symbol = description;
+				this._name = findNameFromSymbol(this._symbol);
+			}
 		}
 
 		if (isUndefined(this._name)) {
 			if (isUndefined(this._intervals)) {
 				throw new PlayaError('Chord', `Could not recognize <${description}> as a valid chord description`);
+			} else {
+				const sym = Chord.findChordSymbol(this._intervals);
+
+				if (isDefined(sym)) this._chordName = `${this._root.note}${sym}`;
 			}
 		} else {
 			const chordDefinition = ChordDefinition[this._name];
@@ -117,9 +123,9 @@ export class Chord extends HarmonyBase {
 
 			if (isUndefined(this._symbol)) this._symbol = chordDefinition.symbol;
 			if (isUndefined(this._intervals)) this._intervals = chordDefinition.intervals;
-		}
 
-		this._chordName = `${this._root.note}${this._symbol}`;
+			this._chordName = `${this._root.note}${this._symbol}`;
+		}
 
 		const notes = this.createChord();
 
@@ -185,7 +191,7 @@ export class Chord extends HarmonyBase {
 
 		const { symbol, chordIntervals, chordStructure } = chordInfo;
 
-		return new Chord(root, symbol, octaves, { intervals: chordIntervals, structure: chordStructure });
+		return new Chord(root, chordIntervals, octaves, { symbol, structure: chordStructure });
 	}
 
 	/**

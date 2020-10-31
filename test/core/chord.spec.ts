@@ -256,6 +256,21 @@ describe('Chord Test Suite', () => {
 				expect(chord).toHaveStringNotes([ 'C3', 'E3', 'G3', 'Ab3', 'Bb3' ]);
 			});
 
+			it('should create custom - D', () => {
+				Random.setSeed('test');
+
+				const chord = Chord.fromIntervals('D', '1P 2m 3M 4A 5P 6m 7m', [ '1 2 6 7' ]);
+
+				expect(chord.root.note).toBe('D');
+				expect(chord.symbol).toBeUndefined();
+				expect(chord.intervals).toBe('1P 2m 6m 7m');
+				expect(chord.structure).toEqual([ '1 2 6 7' ]);
+				expect(chord.name).toBeUndefined();
+				expect(chord.hasFlats).toBeTruthy();
+				expect(chord.hasSharps).toBeFalsy();
+				expect(chord).toHaveStringNotes([ 'D3', 'Eb3', 'Bb3', 'C4' ]);
+			});
+
 			it('should throw with unrecognized intervals', () => {
 				Random.setSeed('test');
 

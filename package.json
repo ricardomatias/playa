@@ -56,11 +56,14 @@
 		"build/*"
 	],
 	"devDependencies": {
+		"alea": "^1.0.0",
 		"@babel/core": "^7.12.3",
 		"@babel/plugin-proposal-class-properties": "^7.12.1",
 		"@babel/preset-env": "^7.12.1",
 		"@otris/jsdoc-tsd": "^2.0.0",
 		"@rollup/plugin-babel": "^5.2.1",
+		"@ricardomatias/ring": "0.0.7",
+		"@ricardomatias/roll": "^0.2.0",
 		"@types/jest": "^26.0.15",
 		"@types/ramda": "^0.27.30",
 		"@typescript-eslint/eslint-plugin": "^4.5.0",
@@ -78,6 +81,8 @@
 		"leasot": "^11.3.0",
 		"mocha": "^8.2.0",
 		"prettier": "^2.1.2",
+		"ramda": "^0.27.1",
+		"roman-numeral": "^0.2.6",
 		"rollup": "^2.32.1",
 		"rollup-plugin-babel": "^4.4.0",
 		"rollup-plugin-cleanup": "^3.2.1",
@@ -92,16 +97,9 @@
 		"rollup-plugin-progress": "^1.1.2",
 		"rollup-plugin-terser": "^7.0.2",
 		"rollup-plugin-typescript2": "^0.28.0",
+		"simplex-noise": "^2.4.0",
 		"ts-jest": "^26.4.3",
 		"tsd-jsdoc": "^2.5.0",
 		"typescript": "^4.0.5"
-	},
-	"dependencies": {
-		"@ricardomatias/ring": "0.0.7",
-		"@ricardomatias/roll": "^0.2.0",
-		"alea": "^1.0.0",
-		"ramda": "^0.27.1",
-		"roman-numeral": "^0.2.6",
-		"simplex-noise": "^2.4.0"
 	}
 }
