@@ -1,5 +1,5 @@
 import { Interval, NoteSymbol, ScaleName, TurnMoves } from '../../constants';
-import { GreekModeIntervals, ModePosition } from '../../constants/modes';
+import { ModeIntervals, ModePosition } from '../../constants/modes';
 
 export const EUCLIDEAN = 'euclid';
 export const TURN = 'turn';
@@ -9,7 +9,7 @@ export enum MovementRhythm {
 	Turn = 'Turn'
 }
 
-export interface TimelineEventKey { root: NoteSymbol, scale: GreekModeIntervals }
+export interface TimelineEventKey { root: NoteSymbol, scale: ModeIntervals }
 
 export interface TimelineEvent {
 	time: number;

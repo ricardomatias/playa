@@ -334,6 +334,10 @@ export class Time {
 	static ticksToSeconds = (ticks: number, bpm: number, ppq: number = QUARTER): number => {
 		return (ticks / ppq * (60 / bpm));
 	};
+
+	get [Symbol.toStringTag](): string {
+		return `Time: ${this.ticks} ticks`;
+	}
 }
 
 export const TOff = new Time('0:0:2');

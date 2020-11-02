@@ -7,9 +7,10 @@ describe('A Sequence test suite', () => {
 		Random.setSeed('test');
 
 		const scale = new Scale('A', Scale.Major);
-		const seq = new Sequence(scale).I.II.V.string;
+		const seq = new Sequence(scale).I.II.V;
 
-		expect(seq).toEqual([ 'A3', 'B3', 'E4' ]);
+		expect(seq.string).toEqual([ 'A3', 'B3', 'E4' ]);
+		expect(seq.toString()).toEqual('[object Sequence: A3,B3,E4]');
 	});
 
 	it('should create a sequence of notes with 2 octaves', () => {

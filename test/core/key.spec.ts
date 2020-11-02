@@ -22,6 +22,9 @@ describe('Key Test Suite', () => {
 		const key = new Key('D3', Key.Major);
 
 		expect(key).toHaveMidiNotes([ 62, 64, 66, 67, 69, 71, 73 ]);
+		expect(key.toString()).toEqual(
+			'[object Key <I>: D3,E3,F#3,G3,A3,B3,C#4]',
+		);
 		expect(key.chord).toHaveMidiNotes([ 62, 66, 69, 73 ]);
 	});
 
@@ -510,6 +513,32 @@ describe('Key Test Suite', () => {
 			const newKey = new Key('G', Key.Lydian);
 
 			newKey.modulateMode({ direction: Key.ModulateUp, interval: 5 });
+
+			expect(testModulation(newKey)).toMatchInlineSnapshot(`
+			Object {
+			  "chordName": "DM7",
+			  "modePositionRoman": "V",
+			  "name": "Ionian",
+			  "notes": Array [
+			    "D3",
+			    "E3",
+			    "F#3",
+			    "G3",
+			    "A3",
+			    "B3",
+			    "C#4",
+			  ],
+			  "root": "D",
+			}
+		`);
+		});
+
+		it('should modulate to another mode based on INTERVAL', () => {
+			Random.setSeed('test-2');
+
+			const newKey = new Key('G', Key.Lydian);
+
+			newKey.modulateMode({ interval: 5 });
 
 			expect(testModulation(newKey)).toMatchInlineSnapshot(`
 			Object {

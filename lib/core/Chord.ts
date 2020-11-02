@@ -13,7 +13,7 @@ import { Interval, Semitones } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { deconstructName, findNameFromIntervals, findNameFromSymbol } from './utils';
 import { PlayaError, whilst } from '../utils';
-import { distance, rotate, Random, choose } from '../tools';
+import { distance, rotate, choose } from '../tools';
 import { isDefined, isNull, isUndefined } from '../utils/types-guards';
 import assignOctaves from '../utils/octaves';
 import { Scale } from './Scale';
@@ -431,6 +431,10 @@ export class Chord extends HarmonyBase {
 		}
 
 		return chordType;
+	}
+
+	get [Symbol.toStringTag](): string {
+		return `Chord: ${this.string}`;
 	}
 }
 

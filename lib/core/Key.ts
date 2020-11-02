@@ -12,7 +12,7 @@ import { Interval } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { ChordIntervals, ChordStructure } from '../constants/chords';
-import { GreekModeIntervals, GreekModes, ModePosition } from '../constants/modes';
+import { ModeIntervals, Modes, ModePosition } from '../constants/modes';
 import { isNotNull, isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
 import { Octaves } from '../common/types';
@@ -27,7 +27,7 @@ const MODES_MOD_PROB = distribute.sumDistribution([
 	'0.165', '0.165', '0.165', '0.165', '0.165', '0.165', '0.01',
 ], 3);
 
-type Mode = { scale: GreekModeIntervals, root: NoteSymbol }
+type Mode = { scale: ModeIntervals, root: NoteSymbol }
 
 /**
  * Mode type
@@ -37,7 +37,7 @@ type Mode = { scale: GreekModeIntervals, root: NoteSymbol }
  * @property {ScaleIntervals} scale scale
  */
 
-function isModeInterval(mode: ScaleIntervals | string): mode is GreekModeIntervals {
+function isModeInterval(mode: ScaleIntervals | string): mode is ModeIntervals {
 	return Key.isMode(mode);
 }
 
@@ -72,12 +72,12 @@ export class Key extends Scale {
 	*
 	* @example Key.Modes => ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian']
 	*/
-	static readonly Modes = GreekModes;
+	static readonly Modes = Modes;
 
-	constructor(root: NoteSymbol, intervals: GreekModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
-	constructor(root: Note, intervals: GreekModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
-	constructor(root: string, intervals: GreekModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
-	constructor(root: number, intervals: GreekModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
+	constructor(root: NoteSymbol, intervals: ModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
+	constructor(root: Note, intervals: ModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
+	constructor(root: string, intervals: ModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
+	constructor(root: number, intervals: ModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
 
 	/**
 	 * Creates an instance of Key.
@@ -98,7 +98,7 @@ export class Key extends Scale {
 	 */
 	constructor(
 		root: NoteLike,
-		intervals: GreekModeIntervals,
+		intervals: ModeIntervals,
 		octaves?: Octaves,
 		{ chordStructure = Chord.Structures.Seventh }: { chordStructure?: ChordStructure } = {},
 	) {
@@ -141,11 +141,11 @@ export class Key extends Scale {
 	* Returns the scale's intervals
 	*
 	* @member intervals
-	* @memberof Core#Scale#
-	* @type {GreekModeIntervals|String}
+	* @memberof Core#Key#
+	* @type {ModeIntervals|String}
 	*/
-	get intervals(): GreekModeIntervals {
-		return this._intervals as GreekModeIntervals;
+	get intervals(): ModeIntervals {
+		return this._intervals as ModeIntervals;
 	}
 
 	/**
@@ -362,7 +362,7 @@ export class Key extends Scale {
 	 * @memberof Key
 	 */
 	private prepareModes(): { ionianIndex: number, scaleIndex: number } | null {
-		let scaleIntervals = this._intervals as GreekModeIntervals;
+		let scaleIntervals = this._intervals as ModeIntervals;
 		const isMajorMinor = this.isMajorMinor(scaleIntervals);
 
 		if (!isMajorMinor && !Key.isMode(scaleIntervals)) {
@@ -370,10 +370,10 @@ export class Key extends Scale {
 		}
 
 		if (isMajorMinor) {
-			scaleIntervals = <GreekModeIntervals>(scaleIntervals === Key.Major ? Key.Ionian : Key.Aeolian);
+			scaleIntervals = <ModeIntervals>(scaleIntervals === Key.Major ? Key.Ionian : Key.Aeolian);
 		}
 
-		const scaleIndex = Array.from(GreekModeIntervals).indexOf(scaleIntervals);
+		const scaleIndex = Array.from(ModeIntervals).indexOf(scaleIntervals);
 
 		const ionianIndex = TOTAL_MODES - scaleIndex;
 
@@ -407,7 +407,7 @@ export class Key extends Scale {
 		let modes = [];
 		let index = 0;
 
-		for (const scale of Array.from(GreekModeIntervals)) {
+		for (const scale of Array.from(ModeIntervals)) {
 			const root = orderedNotes[index++].note;
 
 			modes.push({ scale, root });
@@ -476,13 +476,13 @@ export class Key extends Scale {
 	 * @private
 	 * @param {ScaleIntervals} intervals
 	 * @return {Boolean} isMajorMinor
-	 * @memberof Scale
+	 * @memberof Core#Key
 	 */
 	private isMajorMinor(intervals: ScaleIntervals): boolean {
 		return (<ScaleIntervals[]>[ Scale.Major, Scale.Minor ]).indexOf(intervals) !== -1;
 	}
 
-	static getModeName(intervals: GreekModeIntervals | string): ScaleName | undefined {
+	static getModeName(intervals: ModeIntervals | string): ScaleName | undefined {
 		let name = Scale.getName(intervals);
 
 		if (isUndefined(name)) return;
@@ -503,7 +503,7 @@ export class Key extends Scale {
 	 * @return {Boolean}
 	 */
 	static isMode(mode: ScaleIntervals | string): boolean {
-		return GreekModeIntervals.includes(mode as GreekModeIntervals);
+		return ModeIntervals.includes(mode as ModeIntervals);
 	}
 
 	/**
@@ -616,10 +616,46 @@ export class Key extends Scale {
 		return this.getModeAtPosition(6);
 	}
 
+	/**
+	* Modulate Up symbol (towards the right in the circle of fifths)
+	*
+	* @member ModulateUp
+	* @memberof Core#Key
+	* @enum
+	* @static
+	* @type {ModulationDirection}
+	*
+	* @example Key.ModulateUp = 'Up'
+	*/
 	static ModulateUp = ModulationDirection.Up;
+
+	/**
+	* Modulate Down symbol (towards the left in the circle of fifths)
+	*
+	* @member ModulateDown
+	* @memberof Core#Key
+	* @enum
+	* @static
+	* @type {ModulationDirection}
+	*
+	* @example Key.ModulateDown = 'Down'
+	*/
 	static ModulateDown = ModulationDirection.Down;
-	// from bland to spicy
+
+	/**
+	* Modulation intervals sorted from consonant to dissonant
+	*
+	* @member ModulationIntervals
+	* @memberof Core#Key
+	* @enum
+	* @static
+	* @type {Interval[]}
+	*/
 	static ModulationIntervals = <const>[ '4P', '5P', '2M', '7m', '3m', '6M', '3M', '6m', '2m', '7M' ];
+
+	get [Symbol.toStringTag](): string {
+		return `Key <${this.modePositionRoman}>: ${this.string}`;
+	}
 }
 
 

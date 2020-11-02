@@ -6,7 +6,7 @@ import { Sharps, Flats, DiatonicNotes, ScaleIntervals, Interval, NoteSymbol, Sca
 import distance from './distance';
 import { assureNote, stripOctave } from '../utils/note';
 import whilst from '../utils/whilst';
-import { valuesToArr, convObj, rotate, hasNoNumber } from '../utils/functional';
+import { valuesToArr, convObj, rotate } from '../utils/functional';
 import { hasKeyValue, isDefined, isNotNull, isNumber, isString, Pull } from '../utils/types-guards';
 
 const __ = R.__;

@@ -26,6 +26,7 @@ describe('Note Test Suite', () => {
 		const note = new Note(60);
 
 		expect(note.n).toBe('C3');
+		expect(note.toString()).toEqual('[object Note: C3]');
 		expect(note.m).toBe(60);
 		expect(note.note).toBe('C');
 		expect(note.e).toBeUndefined();

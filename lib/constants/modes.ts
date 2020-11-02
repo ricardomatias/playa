@@ -1,19 +1,26 @@
 import { ScaleIntervals, ScaleName } from './scales';
 
-export const GreekMode = <const>{
-	[ScaleName.Ionian]: [ 'I', 'tonic' ],
-	[ScaleName.Dorian]: [ 'II', 'subdominant' ],
-	[ScaleName.Phrygian]: [ 'III', 'mediant' ],
-	[ScaleName.Lydian]: [ 'IV', 'subdominant' ],
-	[ScaleName.Mixolydian]: [ 'V', 'dominant' ],
-	[ScaleName.Aeolian]: [ 'VI', 'submediant' ],
-	[ScaleName.Locrian]: [ 'VII', 'leading' ],
-};
+// export const Mode = <const>{
+// 	[ScaleName.Ionian]: [ 'I', 'tonic' ],
+// 	[ScaleName.Dorian]: [ 'II', 'subdominant' ],
+// 	[ScaleName.Phrygian]: [ 'III', 'mediant' ],
+// 	[ScaleName.Lydian]: [ 'IV', 'subdominant' ],
+// 	[ScaleName.Mixolydian]: [ 'V', 'dominant' ],
+// 	[ScaleName.Aeolian]: [ 'VI', 'submediant' ],
+// 	[ScaleName.Locrian]: [ 'VII', 'leading' ],
+// };
 
-export type GreekMode = keyof typeof GreekMode;
-// 	'Ionian' | 'Dorian' | 'Phrygian' | 'Lydian' | 'Mixolydian' | 'Aeolian' | 'Locrian'>
+// export type Mode = keyof typeof Mode;
+// 	'Ionian, 'Dorian' , 'Phrygian' , 'Lydian' , 'Mixolydian' , 'Aeolian' , 'Locrian'>
 
-export const GreekModes = <const>[
+/**
+ * Modes
+ * @memberof Constants
+ * @typedef {Array<'Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian'>} Modes
+ * @enum
+ * @default
+ */
+export const Modes = <const>[
 	ScaleName.Ionian,
 	ScaleName.Dorian,
 	ScaleName.Phrygian,
@@ -23,9 +30,16 @@ export const GreekModes = <const>[
 	ScaleName.Locrian,
 ];
 
-export type GreekModes = typeof GreekModes[number];
+export type Modes = typeof Modes[number];
 
-export const GreekModeIntervals = <const>[
+/**
+ * Mode Intervals
+ * @memberof Constants
+ * @typedef {ScaleIntervals[]} ModeIntervals
+ * @enum
+ * @default
+ */
+export const ModeIntervals = <const>[
 	ScaleIntervals.Ionian,
 	ScaleIntervals.Dorian,
 	ScaleIntervals.Phrygian,
@@ -35,7 +49,7 @@ export const GreekModeIntervals = <const>[
 	ScaleIntervals.Locrian,
 ];
 
-export type GreekModeIntervals = typeof GreekModeIntervals[number];
+export type ModeIntervals = typeof ModeIntervals[number];
 
 export type ModePosition = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII';
 

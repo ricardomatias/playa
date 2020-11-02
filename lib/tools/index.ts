@@ -1,6 +1,7 @@
 export { choose, chooseMany } from './choose';
-export { default as shuffle } from './shuffle';
-export { default as rotate } from './rotate';
+export { shuffle } from './shuffle';
+export { rotate } from './rotate';
+export { shift } from './shift';
 export { default as distance } from './distance';
 export * from './interval';
 export { friendly } from './friendly';

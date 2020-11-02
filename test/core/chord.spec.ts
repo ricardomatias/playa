@@ -10,6 +10,7 @@ describe('Chord Test Suite', () => {
 
 			expect(chord.root.note).toBe('A');
 			expect(chord.symbol).toBe('m7');
+			expect(chord.toString()).toBe('[object Chord: A3,C4,E4,G4]');
 			expect(chord.intervals).toBe('1P 3m 5P 7m');
 			expect(chord.structure).toBe(Chord.Structures.Seventh);
 			expect(chord.name).toBe('Am7');

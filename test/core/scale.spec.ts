@@ -6,6 +6,7 @@ describe('Scale Test Suite', () => {
 		it('should return MIDI', () => {
 			const scale = new Scale('C', Scale.Major);
 
+			expect(scale.toString()).toEqual('[object Scale: C3,D3,E3,F3,G3,A3,B3]');
 			expect(scale).toHaveMidiNotes([ 60, 62, 64, 65, 67, 69, 71 ]);
 		});
 	});

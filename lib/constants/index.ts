@@ -5,3 +5,4 @@ export * from './turns';
 export * from './midi';
 export * from './ticks';
 export * from './intervals';
+export * from './modes';

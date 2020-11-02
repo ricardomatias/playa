@@ -351,4 +351,8 @@ export class Scale extends HarmonyBase {
 	* @readonly
 	*/
 	static readonly Locrian = ScaleIntervals.Locrian;
+
+	get [Symbol.toStringTag](): string {
+		return `Scale: ${this.string}`;
+	}
 }

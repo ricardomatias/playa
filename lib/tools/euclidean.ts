@@ -38,7 +38,6 @@ export const create = (pulses: number, beats: number): BinaryEvent[] => {
 };
 
 
-// TODO: Investigate if "rotate" works accurately
 /**
  * Rotates an euclidean pattern
  * @function rotate

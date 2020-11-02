@@ -10,7 +10,7 @@ import Random from './random';
  * @param {number} [nrOfTimes=3]
  * @return {Array<*>}
  */
-const shuffle = <T>(list: T[], nrOfTimes = 3): T[] => {
+export const shuffle = <T>(list: T[], nrOfTimes = 3): T[] => {
 	const newList = [];
 	const indexes = R.times(R.identity, list.length);
 
@@ -26,5 +26,3 @@ const shuffle = <T>(list: T[], nrOfTimes = 3): T[] => {
 
 	return newList;
 };
-
-export default shuffle;

@@ -4,12 +4,13 @@ import * as R from 'ramda';
  * Rotates an array N number of times
  * @function rotate
  * @memberof Tools
+ * @example rotate([ 'A', 'C', 'E' ]) => ['C', 'E', 'A]
  *
  * @param {Array<*>} list
  * @param {number} [nrOfTimes=1]
  * @return {Array<*>}
  */
-const rotate = <T>(list: T[], nrOfTimes = 1): T[] => {
+export const rotate = <T>(list: T[], nrOfTimes = 1): T[] => {
 	let newList = list;
 
 	for (let index = 0; index < nrOfTimes; index++) {
@@ -18,5 +19,3 @@ const rotate = <T>(list: T[], nrOfTimes = 1): T[] => {
 
 	return newList;
 };
-
-export default rotate;

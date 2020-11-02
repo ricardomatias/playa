@@ -4,7 +4,7 @@ import {
 	Random, Euclidean,
 } from '../../tools';
 import * as Rhythm from '../rhythm';
-import { NoteSymbol, Notevalue, ScaleName, Ticks } from '../../constants';
+import { Notevalue, ScaleName, Ticks } from '../../constants';
 import { modulate, createNewEventKey } from './helpers';
 import { ModulationEvent, ModulationEventType, Movement, MovementRhythm, TimelineEvent } from './types';
 import { BinaryEvent } from '../../common/types';
@@ -66,7 +66,7 @@ const QUARTER = Ticks['4n'];
  * @function createMovement
  * @memberof Composition
  * @example
- * createMovement(new Key('D', Key.MINOR), '4:0:0', 4)
+ * createMovement(new Key('D', Key.Dorian), '4:0:0', 4)
  *
  * @param {Key} key starting scale
  * @param {TimeFormat} length the duration of the movement

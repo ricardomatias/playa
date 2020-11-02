@@ -7,6 +7,7 @@ describe('Time Test Suite', () => {
 		expect(time.ticks).toBe(960);
 		expect(time.notevalue).toBe('2n');
 		expect(time.transport).toBe('0:2:0');
+		expect(time.toString()).toBe('[object Time: 960 ticks]');
 	});
 
 	it('should work for notevalues', () => {

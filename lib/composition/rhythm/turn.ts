@@ -76,7 +76,6 @@ type TurnOptions = Partial<{
  * @param {Object} [opts = {}] available options
  * @param {Number} [opts.minNoteValue = 8] [16, 8, 4]
  * @param {Object} [opts.combSorting = {}] algorithms: [diverseFirst, similarFirst, favorNumber]
- * @param {Boolean} [opts.debug = false] toggle debug mode
  * @return {Array<Event>} { time, dur }
  */
 export function createTurnRhythm(

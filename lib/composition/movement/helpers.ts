@@ -7,13 +7,13 @@ import {
 	Random,
 } from '../../tools';
 import { ModulationEvent, ModulationEventType, TimelineEventKey, Turn, TurnEvent } from './types';
-import { GreekModeIntervals } from '../../constants/modes';
+import { ModeIntervals } from '../../constants/modes';
 
 const PRECISION = 5;
 
 export const createNewEventKey = (key: Key): TimelineEventKey => ({
 	root: key.root.note,
-	scale: key.intervals as GreekModeIntervals,
+	scale: key.intervals as ModeIntervals,
 });
 
 /**

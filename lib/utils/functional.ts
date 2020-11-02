@@ -12,5 +12,4 @@ export const rotate = R.compose(
 	R.splitAt(1) as (list: string[]) => string[][],
 );
 
-export const hasNoNumber = R.complement(R.test(/\d/));
 

@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import Random from '../tools/random';
 import whilst from '../utils/whilst';
 import * as Euclidean from '../tools/euclidean';

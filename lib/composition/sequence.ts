@@ -6,7 +6,7 @@ import { Note } from '../core/Note';
 import distance from '../tools/distance';
 import { mapNotesToString, mapNotesToMidi, mapNotesToFreq } from '../utils';
 import { isDefined } from '../utils/types-guards';
-import { Interval, NoteSymbol } from '../constants';
+import { Interval } from '../constants';
 
 
 interface SequenceChords {
@@ -36,8 +36,9 @@ export class Sequence {
 	* @constructs Sequence
 	* @memberof Composition#
 	* @example
-	*	const Amajor = new Key('A', Scale.Major);
+	*const Amajor = new Key('A', Scale.Major);
 	*const seq = new Sequence(Amajor).I.II.V;
+	*seq.string => [ 'A3', 'B3', 'E4' ];
 	*seq.chords.string => [ 'AM7', 'Bm7', 'E7' ]
 	*seq.chords.midi => [ [ 69, 73, 76, 80 ], [ 71, 74, 78, 81 ], [ 64, 68, 71, 74 ] ]
 	*
@@ -207,6 +208,10 @@ export class Sequence {
 	}
 	get VII(): Sequence {
 		return this.getAtPosition(/7/, 'VII');
+	}
+
+	get [Symbol.toStringTag](): string {
+		return `Sequence: ${this.string}`;
 	}
 }
 

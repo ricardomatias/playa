@@ -378,6 +378,10 @@ export class Note {
 		return (this.note === other.note) || (this.midi === other.midi) || (this.note === other.e);
 	}
 
+	get [Symbol.toStringTag](): string {
+		return `Note: ${this.n}`;
+	}
+
 	/**
 	 * Tries to find the enharmonic of the note
 	 * @private
