@@ -1,9 +1,11 @@
+import * as R from 'ramda';
 import Random from '../tools/random';
 import whilst from '../utils/whilst';
 import * as Euclidean from '../tools/euclidean';
 import { Notevalue } from '../constants';
 import { BinaryEvent } from '../common/types';
-import { isArray } from '../utils/types-guards';
+import { isArray, isDefined, isUndefined } from '../utils/types-guards';
+import { shift } from '../tools';
 
 // TODO: Create playa arp for drums return array
 
@@ -39,13 +41,22 @@ const STEPS = [ 32, 16, 8, 4 ];
  * @memberof Composition
  * @example
  * createPercussion(4, [2, 1]) => { patterns: [ [ 1, 0, 1, 0 ], [ 1, 0, 0, 0 ] ], subdivision: '4n' }
+ * createPercussion(4, [3, 3], [2, 1]) // rotates pattern 1 twice and pattern 2 once
+ * createPercussion(4, [2, 1], [], [0, 2]) => { patterns: [ [ 1, 0, 1, 0 ], [ 0, 0, 1, 0 ] ], subdivision: '4n' }
  *
  * @param {Number} steps [ 32, 16, 8, 4 ]
  * @param {Number | Array<Number>} beatsPerPart Max numbers of beats per part or beats
+ * @param {Array<Number>} [rotationPart = []] rotate part N times
+ * @param {Array<Number> | undefined} [shiftPart] shift events one slot to the right
  *
  * @return {Percussion} [pattern, subdivision]
  */
-export function createPercussion(steps: number, beatsPerPart: number | number[]): Percussion {
+export function createPercussion(
+	steps: number,
+	beatsPerPart: number | number[],
+	rotationPart: number[] = [],
+	shiftPart?: number[],
+): Percussion {
 	const patterns: Array<BinaryEvent[]> = [];
 
 	if (!isArray(beatsPerPart)) {
@@ -79,6 +90,33 @@ export function createPercussion(steps: number, beatsPerPart: number | number[])
 		// TODO: when maxBeats repeats try another value for the repeating one
 		// patterns = uniq(patterns);
 	}, () => (patterns.length < nrOfParts), { maxLoops: 1000 });
+
+	if (isDefined(rotationPart)) {
+		for (let index = 0; index < rotationPart.length; index++) {
+			const rotations = rotationPart[index];
+			let patt = patterns[index];
+
+			if (isUndefined(patt)) break;
+
+			for (let rotIndex = 0; rotIndex < rotations; rotIndex++) {
+				patt = Euclidean.rotate(patt);
+			}
+
+			patterns[index] = patt;
+		}
+	}
+
+	if (isDefined(shiftPart)) {
+		for (let index = 0; index < shiftPart.length; index++) {
+			const n = shiftPart[index];
+
+			if (isUndefined(patterns[index])) break;
+
+			if (!n) continue;
+
+			patterns[index] = shift(patterns[index], n);
+		}
+	}
 
 	return {
 		patterns,
