@@ -31,7 +31,7 @@ npm install --save playa
 import { Chord, Key, Rhythm } from 'playa';
 
 // or everything
-import Playa from 'playa';
+import * as Playa from 'playa';
 ```
 
 ### Common JS (Node)
