@@ -13,10 +13,6 @@
 
 PLAYA *(pronounced `ˈpleɪə`)* is a musical theory framework aimed at creating musical phrases.
 
-## Disclaimer
-
-> PLAYA is in active development, currently going through an alpha stage. **Semver** versioning will eventually come, but for the moment declare a specific version or your code might be broken.
-
 ## Install
 
 ```bash
@@ -59,6 +55,12 @@ createMotif(scale.notes, ['4n', '2n', '8nt']);
 ]
 */
 ```
+
+## Guides
+
+Interactive guide [here](https://observablehq.com/@ricardomatias/playa) which uses [Tone.js](https://tonejs.github.io/) for the sound.
+
+An example of using PLAYA with P5 and Tone.js - [PLAYA meets P5](https://observablehq.com/@ricardomatias/playa-meets-p5)
 
 ## Documentation
 
