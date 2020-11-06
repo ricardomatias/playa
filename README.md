@@ -11,7 +11,7 @@
     <a href='https://bundlephobia.com/result?p=playa'><img src='https://badgen.net/bundlephobia/tree-shaking/playa' alt='Bundlephobia tree-shaking' /></a>
 </p>
 
-PLAYA *(pronounced `ˈpleɪə`)* is a musical theory framework aimed at creating musical phrases.
+PLAYA *(pronounced `ˈpleɪə`)* is a framework for musical composition. It allows creating custom music algorithms, musical phrases, percussion rhythms, harmonic sequences and more.
 
 ## Install
 
