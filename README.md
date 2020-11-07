@@ -66,6 +66,10 @@ An example of using PLAYA with P5 and Tone.js - [PLAYA meets P5](https://observa
 
 Can be found [here](https://ricardomatias.net/playa/?api).
 
+## Templates
+
+* [Starter template for PLAYA with Tone.js ](https://github.com/ricardomatias/playa-starter)
+
 ## License
 
 [Open Software License 3.0](LICENSE)
