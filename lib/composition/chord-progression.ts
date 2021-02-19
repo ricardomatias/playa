@@ -203,12 +203,12 @@ export function createChordProgression(
 		pattern = rhythm.map((event) => {
 			if (event.isRest) {
 				return ChordEvent({
-					...mapStartToEvent(event, time),
+					...mapStartToEvent(time, event),
 				});
 			}
 
 			return ChordEvent({
-				...mapStartToEvent(event, time),
+				...mapStartToEvent(time, event),
 				chord: chordNotes,
 				chordName: chord.name,
 			});

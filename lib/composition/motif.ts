@@ -29,11 +29,11 @@ export function createMotif(notes: Note[], rhythm: string[] | Event[], startTime
 		const note = choose(notes);
 
 		if (event.isRest) {
-			return NoteEvent(mapStartToEvent(event, start));
+			return NoteEvent(mapStartToEvent(start, event));
 		}
 
 		return NoteEvent({
-			...mapStartToEvent(event, start),
+			...mapStartToEvent(start, event),
 			note: note.n,
 			midi: note.m,
 		});

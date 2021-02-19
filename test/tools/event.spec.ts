@@ -1,4 +1,5 @@
-import { expandDuration } from '../../lib/tools/event';
+import * as R from 'ramda';
+import { expandDuration, mapStartToEvent } from '../../lib/tools/event';
 
 describe('An Event tools test suite', () => {
 	describe('#expandDuration', () => {
@@ -70,6 +71,73 @@ describe('An Event tools test suite', () => {
 			    "isRest": false,
 			    "next": 1360,
 			    "time": 720,
+			  },
+			]
+		`);
+		});
+	});
+
+	describe('#mapStartToEvent', () => {
+		const events = [
+			{
+				dur: 480,
+				isRest: false,
+				next: 240,
+				time: 0,
+			},
+			{
+				dur: 600,
+				isRest: false,
+				next: 720,
+				time: 240,
+			},
+			{
+				dur: 640,
+				isRest: false,
+				next: 1360,
+				time: 720,
+			},
+		];
+
+		it('should map single', () => {
+			// when
+			const mapd = mapStartToEvent(480, events[0]);
+
+			// then
+			expect(mapd).toMatchInlineSnapshot(`
+			Object {
+			  "dur": 480,
+			  "isRest": false,
+			  "next": 720,
+			  "time": 480,
+			}
+		`);
+		});
+
+		it('should map multiple', () => {
+			// when
+			const mapd = R.map(mapStartToEvent(480), events);
+
+			// then
+			expect(mapd).toMatchInlineSnapshot(`
+			Array [
+			  Object {
+			    "dur": 480,
+			    "isRest": false,
+			    "next": 720,
+			    "time": 480,
+			  },
+			  Object {
+			    "dur": 600,
+			    "isRest": false,
+			    "next": 1200,
+			    "time": 720,
+			  },
+			  Object {
+			    "dur": 640,
+			    "isRest": false,
+			    "next": 1840,
+			    "time": 1200,
 			  },
 			]
 		`);

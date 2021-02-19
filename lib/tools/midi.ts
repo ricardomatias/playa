@@ -59,7 +59,7 @@ const findNearestVoice = R.curry((voices, baseVoice): { note: string, midiNote: 
 
 /**
  * Find the nearest chord
- * @function findNearest
+ * @function findNearestChord
  * @memberof Tools.Midi
  *
  * @param {Array<Number>} baseChord

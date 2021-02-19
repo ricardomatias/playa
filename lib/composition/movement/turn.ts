@@ -131,33 +131,33 @@ function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
 		}
 
 		switch (turnType) {
-		case TurnMoves.Start:
+			case TurnMoves.Start:
 			// create a new key from the starting key
-			key = new Key(startingKey.root, startingKey.type);
-			mainKeyRoot = key.root;
+				key = new Key(startingKey.root, startingKey.type);
+				mainKeyRoot = key.root;
 
-			key.modulateMode({ interval: interval as number });
-			break;
-		case TurnMoves.Keep:
-			break;
-		case TurnMoves.ModeUp:
-			key.modulateMode({ direction: Key.ModulateUp, interval: interval as number });
+				key.modulateMode({ interval: interval as number });
+				break;
+			case TurnMoves.Keep:
+				break;
+			case TurnMoves.ModeUp:
+				key.modulateMode({ direction: Key.ModulateUp, interval: interval as number });
 
-			break;
-		case TurnMoves.ModeDown:
-			key.modulateMode({ direction: Key.ModulateDown, interval: interval as number });
+				break;
+			case TurnMoves.ModeDown:
+				key.modulateMode({ direction: Key.ModulateDown, interval: interval as number });
 
-			break;
-		case TurnMoves.ModulateUp:
-			event.key = modulate(key, events, Key.ModulateUp, { type: turnType, interval: interval as Interval });
+				break;
+			case TurnMoves.ModulateUp:
+				event.key = modulate(key, events, Key.ModulateUp, { type: turnType, interval: interval as Interval });
 
-			mainKeyRoot = key.root;
-			break;
-		case TurnMoves.ModulateDown:
-			event.key = modulate(key, events, Key.ModulateDown, { type: turnType, interval: interval as Interval });
+				mainKeyRoot = key.root;
+				break;
+			case TurnMoves.ModulateDown:
+				event.key = modulate(key, events, Key.ModulateDown, { type: turnType, interval: interval as Interval });
 
-			mainKeyRoot = key.root;
-			break;
+				mainKeyRoot = key.root;
+				break;
 		}
 
 		if (isTypeMod(turnType)) {

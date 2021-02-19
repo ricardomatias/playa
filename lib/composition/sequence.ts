@@ -159,27 +159,27 @@ export class Sequence {
 			let chord: Chord | undefined;
 
 			switch (romanPos) {
-			case 'I':
-				chord = scale.I?.chord;
-				break;
-			case 'II':
-				chord = scale.II?.chord;
-				break;
-			case 'III':
-				chord = scale.III?.chord;
-				break;
-			case 'IV':
-				chord = scale.IV?.chord;
-				break;
-			case 'V':
-				chord = scale.V?.chord;
-				break;
-			case 'VI':
-				chord = scale.VI?.chord;
-				break;
-			case 'VII':
-				chord = scale.VII?.chord;
-				break;
+				case 'I':
+					chord = scale.I?.chord;
+					break;
+				case 'II':
+					chord = scale.II?.chord;
+					break;
+				case 'III':
+					chord = scale.III?.chord;
+					break;
+				case 'IV':
+					chord = scale.IV?.chord;
+					break;
+				case 'V':
+					chord = scale.V?.chord;
+					break;
+				case 'VI':
+					chord = scale.VI?.chord;
+					break;
+				case 'VII':
+					chord = scale.VII?.chord;
+					break;
 			}
 
 			if (chord) this._chords.push(chord);

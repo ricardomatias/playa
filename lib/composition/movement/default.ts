@@ -109,7 +109,7 @@ function movement(key: Key, length: TimeFormat, turns: number, {
 						dur: 0,
 					};
 				}
-			}).filter(R.has('time'));
+			}).filter((evt) => R.has('time', evt));
 	} else if (rhythm === MovementRhythm.Turn) {
 		rhythmEvents = <TimelineEvent[]>Rhythm.turn(time, turns, {
 			minNoteValue: 8,

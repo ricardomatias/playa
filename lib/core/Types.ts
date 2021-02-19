@@ -11,4 +11,4 @@ export interface ChordEvent {
 export type CoreClassType = 'scale' | 'chord' | 'key'
 
 export type ChordDescriptor = { root: NoteSymbol, intervals: ChordIntervals | string } &
-	Partial<Pick<ChordDefinition, 'name' | 'symbol' | 'structure'>>
+Partial<Pick<ChordDefinition, 'name' | 'symbol' | 'structure'>>

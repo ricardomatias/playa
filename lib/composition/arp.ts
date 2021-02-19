@@ -35,7 +35,6 @@ export function createArp<T extends Scale | Chord>(
 
 	const eventsCount = Math.max(melody.length, rhythm.length);
 
-
 	if (isEvent(rhythm)) {
 		rhythm = R.compose(mapDurations, convertEventsToNotevalues)(rhythm);
 	} else {

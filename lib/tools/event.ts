@@ -94,19 +94,31 @@ export const computeEventsNext = (events: Event[]): Event[] => {
 	});
 };
 
-export const mapStartToEvent = (event: Event, startTime: TimeFormat): Event => {
+
+/**
+ * Maps events to a new starting value
+ *
+ * @function mapStartToEvent
+ * @memberof Tools.Event
+ *
+ * @param {Event} event
+ * @param {TimeFormat} startTime
+ * @return {Event}
+ */
+export const mapStartToEvent = R.curry((startTime: TimeFormat, event: Event): Event => {
 	const start = new Time(startTime);
 	return ({
 		...event,
 		time: start.ticks + event.time,
 		next: start.ticks + event.next,
 	});
-};
+});
 
 /**
+ * Converts Event[] to notevalues (ie. 4n), ignores rests
+ *
  * @function convertEventsToNotevalues
  * @memberof Tools.Event
- * @description Converts Event[] to notevalues (ie. 4n), ignores rests
  *
  * @param {Event[]} events
  * @return {string[]}
