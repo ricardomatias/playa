@@ -36,10 +36,11 @@
 	"rules": {
 		"no-console": "off",
 		"require-jsdoc": 0,
-		"indent": [
-			2,
+		"indent": "off",
+		"@typescript-eslint/indent": [
+            2,
 			"tab"
-		],
+        ],
 		"@typescript-eslint/explicit-function-return-type": 0,
 		"new-cap": 0,
 		"no-tabs": 0,
