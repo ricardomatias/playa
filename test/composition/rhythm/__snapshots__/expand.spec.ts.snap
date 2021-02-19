@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#expand should expand simple 1`] = `
+Array [
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 720,
+    "time": 0,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 1200,
+    "time": 720,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 1920,
+    "time": 1200,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 2400,
+    "time": 1920,
+  },
+  Object {
+    "dur": 1440,
+    "isRest": false,
+    "next": 3840,
+    "time": 2400,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 4560,
+    "time": 3840,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 5040,
+    "time": 4560,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 5760,
+    "time": 5040,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 6240,
+    "time": 5760,
+  },
+  Object {
+    "dur": 1440,
+    "isRest": false,
+    "next": 7680,
+    "time": 6240,
+  },
+]
+`;

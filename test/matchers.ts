@@ -37,6 +37,14 @@ expect.extend({
 			};
 		}
 
+		if (!container.length) {
+			return {
+				message: () =>
+					`expected ${container} not to be empty`,
+				pass: false,
+			};
+		}
+
 		const lastEvent = container[container.length - 1];
 		let pass = false;
 
