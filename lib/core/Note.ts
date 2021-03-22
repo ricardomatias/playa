@@ -116,12 +116,12 @@ export class Note {
 	/**
 	 * note with octave
 	 *
-	 * @member n
+	 * @member pitch
 	 * @memberof Core#Note#
 	 * @example 'C4'
 	 * @type {string}
 	 */
-	get n(): string {
+	get pitch(): string {
 		const octave = this.#octave;
 		const midi = this.#midi;
 
@@ -368,7 +368,7 @@ export class Note {
 	}
 
 	get [Symbol.toStringTag](): string {
-		return `Note: ${this.n}`;
+		return `Note: ${this.pitch}`;
 	}
 
 	/**

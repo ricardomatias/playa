@@ -335,7 +335,7 @@ describe('Chord Test Suite', () => {
 			const root = chord.noteAt(1);
 
 			expect(root).toBeInstanceOf(Note);
-			expect(root.n).toEqual('A3');
+			expect(root.pitch).toEqual('A3');
 		});
 
 		it('should get structure notes', () => {
@@ -344,9 +344,9 @@ describe('Chord Test Suite', () => {
 			const fifth = chord.noteAt(5);
 			const seventh = chord.noteAt(7);
 
-			expect(third.n).toEqual('C4');
-			expect(fifth.n).toEqual('E4');
-			expect(seventh.n).toEqual('G4');
+			expect(third.pitch).toEqual('C4');
+			expect(fifth.pitch).toEqual('E4');
+			expect(seventh.pitch).toEqual('G4');
 		});
 
 		it("should throw when it doesn't have interval", () => {

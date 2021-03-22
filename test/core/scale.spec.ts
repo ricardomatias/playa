@@ -182,7 +182,7 @@ describe('Scale Test Suite', () => {
 			const root = scale.noteAt(1);
 
 			expect(root).toBeInstanceOf(Note);
-			expect(root.n).toEqual('A3');
+			expect(root.pitch).toEqual('A3');
 		});
 
 		it('should get structure notes', () => {
@@ -191,9 +191,9 @@ describe('Scale Test Suite', () => {
 			const fifth = scale.noteAt(5);
 			const seventh = scale.noteAt(7);
 
-			expect(third.n).toEqual('C4');
-			expect(fifth.n).toEqual('E4');
-			expect(seventh.n).toEqual('G4');
+			expect(third.pitch).toEqual('C4');
+			expect(fifth.pitch).toEqual('E4');
+			expect(seventh.pitch).toEqual('G4');
 		});
 
 		it("should throw when it doesn't have interval", () => {

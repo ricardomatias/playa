@@ -4,28 +4,28 @@ describe('Note Test Suite', () => {
 	it('should set natural', () => {
 		const note = new Note('A');
 
-		expect(note.n).toBe('A');
+		expect(note.pitch).toBe('A');
 		expect(note.e).toBeUndefined();
 	});
 
 	it('should set sharp', () => {
 		const note = new Note('D#');
 
-		expect(note.n).toBe('D#');
+		expect(note.pitch).toBe('D#');
 		expect(note.e).toBe('Eb');
 	});
 
 	it('should set flat', () => {
 		const note = new Note('Gb');
 
-		expect(note.n).toBe('Gb');
+		expect(note.pitch).toBe('Gb');
 		expect(note.e).toBe('F#');
 	});
 
 	it('should set with MIDI', () => {
 		const note = new Note(60);
 
-		expect(note.n).toBe('C3');
+		expect(note.pitch).toBe('C3');
 		expect(note.toString()).toEqual('[object Note: C3]');
 		expect(note.m).toBe(60);
 		expect(note.note).toBe('C');
@@ -36,18 +36,18 @@ describe('Note Test Suite', () => {
 		const note = new Note('F#6');
 		const note2 = new Note('Gb8');
 
-		expect(note.n).toBe('F#6');
+		expect(note.pitch).toBe('F#6');
 		expect(note.note).toBe('F#');
 
-		expect(note2.n).toBe('Gb8');
+		expect(note2.pitch).toBe('Gb8');
 		expect(note2.note).toBe('Gb');
 	});
 
 	it('should have unstateful regexp', () => {
-		const a = new Note('D3').n;
-		const b = new Note('D3').n;
-		const c = new Note('D').n;
-		const d = new Note('D').n;
+		const a = new Note('D3').pitch;
+		const b = new Note('D3').pitch;
+		const c = new Note('D').pitch;
+		const d = new Note('D').pitch;
 
 		expect(a).toBe('D3');
 		expect(b).toBe('D3');
@@ -58,7 +58,7 @@ describe('Note Test Suite', () => {
 	it('should get octave with MIDI', () => {
 		const note = new Note('F#', 102);
 
-		expect(note.n).toBe('F#6');
+		expect(note.pitch).toBe('F#6');
 		expect(note.note).toBe('F#');
 		expect(note.e).toBe('Gb');
 	});
@@ -86,7 +86,7 @@ describe('Note Test Suite', () => {
 		const note = new Note('F#3');
 		const next = note.next;
 
-		expect(next.n).toBe('G3');
+		expect(next.pitch).toBe('G3');
 		expect(next.note).toBe('G');
 		expect(next.e).toBeUndefined();
 		expect((next.midi ?? 0) - (note.midi ?? 0)).toBe(1);
@@ -95,29 +95,29 @@ describe('Note Test Suite', () => {
 	it('should get neighbors as sharps by default', () => {
 		const note = new Note('A');
 
-		expect(note.next.n).toBe('A#');
-		expect(note.prev.n).toBe('G#');
+		expect(note.next.pitch).toBe('A#');
+		expect(note.prev.pitch).toBe('G#');
 	});
 
 	it('should get accident neighbors', () => {
 		const note = new Note('Gb');
 
-		expect(note.next.n).toBe('G');
-		expect(note.prev.n).toBe('F');
+		expect(note.next.pitch).toBe('G');
+		expect(note.prev.pitch).toBe('F');
 	});
 
 	it('should get edge "B" neighbors', () => {
 		const note = new Note('B');
 
-		expect(note.next.n).toBe('C');
-		expect(note.prev.n).toBe('A#');
+		expect(note.next.pitch).toBe('C');
+		expect(note.prev.pitch).toBe('A#');
 	});
 
 	it('should get edge "C" neighbors', () => {
 		const note = new Note('C');
 
-		expect(note.next.n).toBe('C#');
-		expect(note.prev.n).toBe('B');
+		expect(note.next.pitch).toBe('C#');
+		expect(note.prev.pitch).toBe('B');
 	});
 
 	it('should have next', () => {
@@ -125,16 +125,16 @@ describe('Note Test Suite', () => {
 
 		expect(note.midi).toBe(0);
 		note = note.next;
-		expect(note.n).toBe('C#-2');
+		expect(note.pitch).toBe('C#-2');
 		expect(note.midi).toBe(1);
 		note = note.next;
-		expect(note.n).toBe('D-2');
+		expect(note.pitch).toBe('D-2');
 		expect(note.midi).toBe(2);
 		note = note.next;
-		expect(note.n).toBe('D#-2');
+		expect(note.pitch).toBe('D#-2');
 		expect(note.midi).toBe(3);
 		note = note.next;
-		expect(note.n).toBe('E-2');
+		expect(note.pitch).toBe('E-2');
 		expect(note.midi).toBe(4);
 	});
 

@@ -58,7 +58,7 @@ export function createArp<T extends Scale | Chord>(
 
 		pattern.push({
 			...rhythmEvent,
-			note: note.n,
+			note: note.pitch,
 			midi: note.m,
 		});
 	}

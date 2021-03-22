@@ -34,7 +34,7 @@ export function createMotif(notes: Note[], rhythm: string[] | Event[], startTime
 
 		return NoteEvent({
 			...mapStartToEvent(start, event),
-			note: note.n,
+			note: note.pitch,
 			midi: note.m,
 		});
 	});

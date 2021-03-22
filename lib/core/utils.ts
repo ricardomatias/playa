@@ -51,5 +51,5 @@ export const findNameFromIntervals = (intervals: ChordIntervals): ChordName | un
 };
 
 export const toNoteEvent = ({ time, dur, next, isRest, chord }: ChordEvent): NoteEvent[] => {
-	return chord.map((midi) => NoteEvent({ time, next, isRest, note: new Note(midi).n, dur, midi }));
+	return chord.map((midi) => NoteEvent({ time, next, isRest, note: new Note(midi).pitch, dur, midi }));
 };
