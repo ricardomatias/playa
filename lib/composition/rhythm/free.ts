@@ -14,13 +14,13 @@ const PRECISION = 5;
 /**
  * Rhythm tools
  * @namespace Rhythm
- * @memberof Tools
+ * @memberof Composition
  */
 
 /**
  * Generates a rhythm
  * @function free
- * @memberof Tools.Rhythm
+ * @memberof Composition.Rhythm
  * @example
  * createFreeRhythm('2n', [ '8n', '4nt' ]) =>
  * [

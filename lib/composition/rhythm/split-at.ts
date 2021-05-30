@@ -8,7 +8,7 @@ import { isUndefined } from '../../utils/types-guards';
 * Splits an {@link Event} at a certain time
 
 * @function splitAt
-* @memberof Tools.Rhythm
+* @memberof Composition.Rhythm
 *
 * @param {Array<Event>} pattern
 * @param {TimeFormat} at

@@ -61,7 +61,7 @@ type TurnOptions = Partial<{
 /**
  * Create turn based rhythms
  * @function turn
- * @memberof Tools.Rhythm
+ * @memberof Composition.Rhythm
  *
  * @example
  * createTurnRhythm('2n', 3) =>

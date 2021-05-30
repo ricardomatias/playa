@@ -19,7 +19,7 @@ export type GridCell = {
 /**
  * Creates a grid
  * @function createGrid
- * @memberof Tools.Rhythm
+ * @memberof Composition.Rhythm
  * @example
  * createGrid(new Time('2n'), 4) =>
  * [

@@ -3,7 +3,7 @@ import { Notevalue } from '../../constants';
 
 /**
  * Rhythm Presets
- * @memberof Tools.Rhythm
+ * @memberof Composition.Rhythm
  * @typedef {Notevalue[]} Presets
  * @enum
  * @example
@@ -13,7 +13,7 @@ export const Presets = <const>{
 	/**
 	* Mixed
 	* @type {Notevalue[]}
-	* @memberof Tools.Rhythm.Presets
+	* @memberof Composition.Rhythm.Presets
 	* @default
 	* @readonly
 	*/
@@ -21,7 +21,7 @@ export const Presets = <const>{
 	/**
 	* Slow
 	* @type {Notevalue[]}
-	* @memberof Tools.Rhythm.Presets
+	* @memberof Composition.Rhythm.Presets
 	* @default
 	* @readonly
 	*/
@@ -29,7 +29,7 @@ export const Presets = <const>{
 	/**
 	* Robotic
 	* @type {Notevalue[]}
-	* @memberof Tools.Rhythm.Presets
+	* @memberof Composition.Rhythm.Presets
 	* @default
 	* @readonly
 	*/
@@ -37,7 +37,7 @@ export const Presets = <const>{
 	/**
 	* Straight
 	* @type {Notevalue[]}
-	* @memberof Tools.Rhythm.Presets
+	* @memberof Composition.Rhythm.Presets
 	* @default
 	* @readonly
 	*/
@@ -45,7 +45,7 @@ export const Presets = <const>{
 	/**
 	* Common
 	* @type {Notevalue[]}
-	* @memberof Tools.Rhythm.Presets
+	* @memberof Composition.Rhythm.Presets
 	* @default
 	* @readonly
 	*/
