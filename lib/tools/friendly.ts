@@ -161,7 +161,7 @@ export const orderNotes = (notes: string[]): string[] => {
 // "type": "Mixolydian",
 // }
 
-interface FriendlyRanking {
+export interface FriendlyRanking {
 	match: number;
 	root: NoteSymbol;
 	scale: ScaleIntervals;

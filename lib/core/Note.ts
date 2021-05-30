@@ -31,8 +31,6 @@ export class Note {
 	#freq: number | undefined;
 	#enharmonic: NoteSymbol | undefined;
 	#accident: string | undefined;
-	// #isFlat = false;
-	// #isSharp = false;
 	#next: NoteSymbol;
 	#prev: NoteSymbol;
 
