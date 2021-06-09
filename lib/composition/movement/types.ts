@@ -1,9 +1,6 @@
 import { Interval, NoteSymbol, ScaleName, TurnMoves } from '../../constants';
 import { ModeIntervals, ModePosition } from '../../constants/modes';
 
-export const EUCLIDEAN = 'euclid';
-export const TURN = 'turn';
-
 export enum MovementRhythm {
 	Euclidean = 'Euclidean',
 	Turn = 'Turn'

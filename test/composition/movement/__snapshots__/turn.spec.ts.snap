@@ -354,9 +354,9 @@ Object {
       "type": "mode",
     },
     Object {
-      "key": "A#",
+      "key": "Bb",
       "position": "I",
-      "root": "A#",
+      "root": "Bb",
       "scaleName": "Phrygian",
       "turn": Object {
         "interval": "2M",
@@ -365,9 +365,9 @@ Object {
       "type": "key",
     },
     Object {
-      "key": "A#",
+      "key": "Bb",
       "position": "I",
-      "root": "A#",
+      "root": "Bb",
       "scaleName": "Phrygian",
       "turn": Object {
         "interval": 2,
@@ -428,7 +428,7 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "A#",
+        "root": "Bb",
         "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "time": 5760,
@@ -436,7 +436,7 @@ Object {
     Object {
       "dur": 960,
       "key": Object {
-        "root": "A#",
+        "root": "Bb",
         "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "time": 6720,

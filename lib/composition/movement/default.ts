@@ -128,7 +128,10 @@ function movement(key: Key, length: TimeFormat, turns: number, {
 
 			mainKey = key.root;
 		} else {
-			key.modulateMode();
+			// do not modulate on the first event aka always start with the provided key
+			if (index != 0) {
+				key.modulateMode();
+			}
 
 			event.key = createNewEventKey(key);
 

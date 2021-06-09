@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import { roll, distribute } from '@ricardomatias/roll';
-import { Scale, Time as T } from '../core';
+import { Key, Note, Scale, Time as T } from '../core';
 import {
 	choose,
 	Random,
@@ -9,7 +9,7 @@ import * as Rhythm from './rhythm';
 import { Notevalue, Ticks } from '../constants';
 import { createMotif } from './motif';
 import { NoteEvent } from '../core/NoteEvent';
-import { TimelineEvent } from './movement/types';
+import { TimelineEvent, TimelineEventKey } from './movement/types';
 import { DistributionFunction, Octaves, RhythmType } from '../common/types';
 import { Event } from '../core/Event';
 
@@ -26,9 +26,7 @@ type MelodyOptions = Partial<{
 	rhythmType: RhythmType;
 }>
 
-
-export type Melody = NoteEvent[]
-
+type MelodyMap = { events: NoteEvent[]; key: TimelineEventKey }
 
 /**
  * Create interleaved motifs
@@ -61,14 +59,16 @@ export function createMelodies(
 		rhythmType = RhythmType.Free,
 		minNoteValues = [ 4, 8 ],
 	}: MelodyOptions = {},
-): Melody {
+): NoteEvent[] {
 	const melodies = [];
-	const melodiesMap: Record<number, Array<NoteEvent[]>> = {};
+	const melodiesMap: Record<number, MelodyMap[]> = {};
 
 	for (let index = 0; index < timeline.length; index++) {
-		const { time, dur, key: { scale: scaleType, root }} = timeline[index];
+		const { time, dur, key } = timeline[index];
 
-		let motif;
+		const scale = new Key(key.root, key.scale, choose(octaves));
+
+		let motif: NoteEvent[];
 		let rhythm: Event[] = [];
 
 		// **************************************************************************
@@ -76,19 +76,27 @@ export function createMelodies(
 		// **************************************************************************
 		if (melodies.length && R.gt(dejaVuChance, Random.float())) {
 			if (melodiesMap[dur]) {
-				motif = choose(melodiesMap[dur]);
-				const first = R.head(motif) as NoteEvent;
+				const maps = melodiesMap[dur].filter(map => Key.inSameKey(scale, new Key(map.key.root, map.key.scale)));
 
-				const pattern = motif.map((event) => {
-					return Object.assign({}, event, {
-						time: time + event.time - first.time,
-						next: time + event.next - first.time,
+				const melodyMap = choose(maps);
+
+				// check if it's in the same key
+				if (melodyMap) {
+					motif = melodyMap.events;
+
+					const first = R.head(motif) as NoteEvent;
+
+					const pattern = motif.map((event) => {
+						return Object.assign({}, event, {
+							time: time + event.time - first.time,
+							next: time + event.next - first.time,
+						});
 					});
-				});
 
-				melodies.push(pattern);
+					melodies.push(pattern);
 
-				continue;
+					continue;
+				}
 			}
 		}
 
@@ -114,7 +122,6 @@ export function createMelodies(
 			});
 		}
 
-		const scale = new Scale(root, scaleType, choose(octaves));
 
 		motif = createMotif(scale.notes, rhythm, time);
 
@@ -134,11 +141,13 @@ export function createMelodies(
 			melodiesMap[dur] = [];
 		}
 
-		melodiesMap[dur].push(motif);
+		melodiesMap[dur].push({
+			events: motif,
+			key
+		});
 
 		melodies.push(motif);
 	}
 
 	return R.flatten(melodies);
 }
-
