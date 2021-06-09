@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-export { };
+
+import * as R from 'ramda';
+import diff from 'jest-diff';
+import { printExpected, printReceived, matcherHint } from "jest-matcher-utils";
 
 declare global {
 	namespace jest {
@@ -7,45 +10,49 @@ declare global {
 			toHaveMidiNotes: (midi: number[]) => CustomMatcherResult;
 			toHaveStringNotes: (notes: string[]) => CustomMatcherResult;
 			toLastAround: (totalDuration: number) => CustomMatcherResult;
+			toHaveMatch: <T>(match: Partial<T>) => CustomMatcherResult;
 		}
 	}
 }
 
+
 expect.extend({
-	toHaveMidiNotes(container, midi) {
-		const pass = this.equals(container.midi, midi);
+	toHaveMidiNotes(received, midi: number) {
+		const pass = this.equals(received.midi, midi);
 		return {
 			message: () =>
-				`expected ${container.midi} to include ${midi}`,
+				`expected ${received.midi} to include ${midi}`,
 			pass,
 		};
 	},
-	toHaveStringNotes(container, str) {
-		const pass = this.equals(container.string, str);
+	toHaveStringNotes(received, str: string) {
+		const pass = this.equals(received.string, str);
 		return {
 			message: () =>
-				`expected ${container.string} to include ${str}`,
+				'\n\n' +
+				`Expected: ${printExpected(received.string)}\n` +
+				`Received: ${printReceived(str)}`,
 			pass,
 		};
 	},
-	toLastAround(container, totalDuration) {
-		if (!Array.isArray(container)) {
+	toLastAround(received, totalDuration: number) {
+		if (!Array.isArray(received)) {
 			return {
 				message: () =>
-					`expected ${container} must be an Array`,
+					`expected ${received} must be an Array`,
 				pass: false,
 			};
 		}
 
-		if (!container.length) {
+		if (!received.length) {
 			return {
 				message: () =>
-					`expected ${container} not to be empty`,
+					`expected ${received} not to be empty`,
 				pass: false,
 			};
 		}
 
-		const lastEvent = container[container.length - 1];
+		const lastEvent = received[received.length - 1];
 		let pass = false;
 
 		if (lastEvent.time === totalDuration) pass = true;
@@ -57,4 +64,27 @@ expect.extend({
 			pass,
 		};
 	},
+	toHaveMatch<T>(received: T[], match: Partial<T>) {
+		if (!Array.isArray(received)) {
+			return {
+				message: () =>
+					`expected ${received} must be an Array`,
+				pass: false,
+			};
+		}
+
+		const pass = R.any(R.whereEq(match), received);
+
+		const diffString = diff(match, received);
+
+		return {
+			message: () => !pass ?
+				'\n\n' +
+				matcherHint('toHaveMatch', undefined, undefined) +
+				`\nDifference:\n\n${diffString}\n\n` +
+				`Expected: ${printExpected(match)}\n` +
+				`Received: ${printReceived(received)}`: '',
+			pass,
+		};
+	}
 });
