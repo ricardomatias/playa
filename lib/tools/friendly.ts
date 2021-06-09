@@ -15,6 +15,8 @@ type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>
 
 type FriendlyScales = Exclude<ScaleIntervals, Chromatic>;
 
+type IntervalRanking = { [key in string]: number };
+
 type isNotChromatic = (s: ScaleIntervals) => s is FriendlyScales
 
 const isNotChromatic = R.complement(R.equals(ScaleIntervals.Chromatic)) as isNotChromatic;
@@ -61,24 +63,32 @@ const getIntervals = (notes: string[]): Interval[] => {
 	return notes.map((n) => distance.interval(root, n)).filter(isNotNull);
 };
 
-const getOrderedScoreRankings = R.compose(
-	R.reverse as (score: number[]) => number[],
-	R.sortBy(R.identity) as (score: number[]) => number[],
-	R.map((score) => (parseInt(score, 10))),
-	R.values as (ranking: { [key: string]: string }) => string[],
-);
+// const getOrderedScoreRankings = R.compose(
+// 	R.reverse as (score: number[]) => number[],
+// 	R.sortBy(R.identity) as (score: number[]) => number[],
+// 	R.map((score) => (parseInt(score, 10))),
+// 	R.values as (ranking: { [key: string]: string }) => string[],
+// );
+
+const getOrderedScoreRankings = (ranking: IntervalRanking): string[] => {
+	const sortedRanking: [string, number][] = R.sortWith([
+		R.descend(R.nth(1)),
+	], Object.entries(ranking));
+
+	return sortedRanking.map(([ interval ]) => interval);
+};
 
 const calcIntervalsScore = R.reduce((acc, val) => (
 	R.add(acc, R.indexOf(val, DEFAULT_RANKED_INTERVALS))
 ), 0) as (list: readonly Interval[]) => number;
 
 
-const calcIntervalRankings = (list: string[][]): { [key in string]: string } => {
+const calcIntervalRankings = (list: string[][]): IntervalRanking => {
 	const rawScoreAndIntervals: Array<string | number> = R.converge(R.concat, [
 		R.map(R.join(' ')), R.map(calcIntervalsScore),
 	])(list);
 
-	const score = rawScoreAndIntervals.filter(isNumber).map(R.toString);
+	const score = rawScoreAndIntervals.filter(isNumber);
 	const intervals = rawScoreAndIntervals.filter(isString);
 
 	return R.zipObj(intervals, score);
@@ -244,11 +254,8 @@ export const friendly = (notes: NoteLike[]): FriendlyRanking[] => {
 	// }
 	const rankings = calcIntervalRankings(intervalsPermutations);
 
-	// [21, 15, 13, 6]
-	const orderedScore = getOrderedScoreRankings(rankings);
-
 	// ["A 2M 3M 7m", "B 2M 5A 7m", "G 2M 3M 4A", "C# 4A 5A 7m"]
-	const orderedIntervals = R.props(R.map(R.toString, orderedScore), R.invertObj(rankings));
+	const orderedIntervals = getOrderedScoreRankings(rankings);
 
 	orderedIntervals.forEach((intervalsStr) => {
 		const intervalsArr = R.split(' ', intervalsStr);
@@ -285,3 +292,58 @@ export const friendly = (notes: NoteLike[]): FriendlyRanking[] => {
 	return R.sort(R.descend(R.prop('match')), matchingScales);
 };
 
+type RequiredKeys<T, K extends keyof T> = Required<Pick<T, K>>;
+
+/**
+ * Find the closest match from a list of candidates
+ *
+ * @function friendly
+ * @memberof Tools
+ *
+ * @param {FriendlyRanking} match
+ * @param {FriendlyRanking[]} candidates
+ * @return {FriendlyRanking[]}
+ */
+export const findClosestMatches = (
+	match: RequiredKeys<FriendlyRanking, 'root' | 'scale'>,
+	candidates: FriendlyRanking[]
+): FriendlyRanking[] => {
+	const intervals = match.scale.split(' ');
+	const scale = new Scale(match.root, match.scale);
+	const notes = scale.notes.map((note) => note.note);
+
+	const common: [number, number, FriendlyRanking, string[]][] = candidates.map((c) => {
+		const i = c.scale.split(' ');
+		const s = new Scale(c.root, c.scale);
+		const n = s.notes.map((note) => note.note);
+
+		return [ R.intersection(notes, n).length, R.intersection(intervals, i).length, c, n ];
+	});
+
+	const maxMatchingNotes = R.reduce(R.max, 0, R.map(R.nth(0), common));
+
+	const matchesNotes = common.filter((m) => {
+		return m[0] === maxMatchingNotes;
+	});
+
+	const maxMatchingIntervals = R.reduce(R.max, 0, R.map(R.nth(1), matchesNotes));
+
+	const closestMatch = matchesNotes.filter((m) => {
+		return m[1] === maxMatchingIntervals;
+	});
+
+	return closestMatch.map((match) => match[2]);
+};
+
+/**
+ * Get only the top matches from friendly rankings
+ * @function filterHighestMatches
+ * @memberof Tools
+ *
+ * @param {FriendlyRanking[]} rankings
+ * @return {FriendlyRanking[]}
+ */
+export const filterHighestMatches = (rankings: FriendlyRanking[]): FriendlyRanking[] => {
+	const maxMatch = R.reduce(R.max, 0, R.map(R.prop('match'), rankings));
+	return R.filter(R.propEq('match', maxMatch), rankings);
+};

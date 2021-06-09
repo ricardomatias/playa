@@ -1,6 +1,9 @@
 import { ChordSymbol, ChordName, ChordDefinition, ChordIntervals } from '../constants/chords';
 import { NoteSymbol } from '../constants/note';
 import { PlayaError } from '../utils/error';
+import { ChordEvent } from './ChordEvent';
+import { Note } from './Note';
+import { NoteEvent } from './NoteEvent';
 import { ChordDescriptor } from './Types';
 
 /**
@@ -48,3 +51,6 @@ export const findNameFromIntervals = (intervals: ChordIntervals): ChordName | un
 	return entries.find(([ _, s ]) => (intervals === s))?.[0];
 };
 
+export const toNoteEvent = ({ time, dur, next, isRest, chord }: ChordEvent): NoteEvent[] => {
+	return chord.map((midi) => NoteEvent({ time, next, isRest, note: new Note(midi).n, dur, midi }));
+};

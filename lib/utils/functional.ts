@@ -11,5 +11,3 @@ export const rotate = R.compose(
 	R.reverse as (list: string[][]) => string[][],
 	R.splitAt(1) as (list: string[]) => string[][],
 );
-
-

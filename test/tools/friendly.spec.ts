@@ -1,11 +1,11 @@
-import { friendly, orderNotes, rankIntervals, rankScales } from '../../lib/tools/friendly';
+import { friendly, orderNotes, rankIntervals, rankScales, findClosestMatches, FriendlyRanking } from '../../lib/tools/friendly';
 import Random from '../../lib/tools/random';
 import { Scale } from '../../lib/core/Scale';
 import * as R from 'ramda';
 import { stripOctave, valuesToArr } from '../../lib/utils';
 import { ScaleIntervals } from '../../lib/constants';
 import { Pull } from '../../lib/utils/types-guards';
-
+import '../matchers';
 
 const Cmaj = new Scale('C', Scale.Major);
 const Abmaj = new Scale('Ab', Scale.Major);
@@ -93,6 +93,27 @@ describe('A Friendly test suite', () => {
 			expect(neighbours).toMatchSnapshot();
 		});
 
+
+		it('should return D Aeolian ', () => {
+			// given
+			Random.setSeed('test');
+
+			const neighbours = friendly([
+				'D3', 'E3',
+				'F3', 'G3',
+				'A3', 'Bb3',
+				'C4'
+			]);
+
+			expect(neighbours).toHaveMatch<FriendlyRanking>({
+				match: 1,
+				root: 'D',
+				type: 'Minor',
+			});
+
+			expect(neighbours).toMatchSnapshot();
+		});
+
 		it('should return 2 notes - [D, F#]', () => {
 			// given
 			Random.setSeed('test');
@@ -113,6 +134,73 @@ describe('A Friendly test suite', () => {
 
 			// then
 			expect(neighbours).toEqual([]);
+		});
+	});
+
+	describe('#findClosestMatches', () => {
+		it('should have a closest match', () => {
+			// given
+			Random.setSeed('test');
+
+			const match = friendly([ 'A3', 'C#3', 'G3', 'B3' ])[0];
+
+			// then
+			expect(match).toEqual({
+				scale: '1P 2M 3m 4P 5P 6m 7m',
+				match: 1,
+				root: 'B',
+				intervals: '1P 2M 6m 7m',
+				type: 'Minor',
+			});
+
+			// given
+			const candidates = friendly([ 'A3', 'C#3', 'G3', 'F3' ]);
+
+			// when
+			const closest = findClosestMatches(match, candidates);
+
+			// then
+			expect(closest).toHaveLength(2);
+			expect(closest[0]).toEqual({
+				scale: '1P 2M 3M 4P 5P 6M 7m',
+				match: 0.6666666666666666,
+				root: 'A',
+				intervals: '1P 3M 6m 7m',
+				type: 'Mixolydian',
+			});
+			expect(new Scale(closest[0].root, closest[0].scale).string).toEqual([
+				'A3', 'B3', 'C#4',
+				'D4', 'E4', 'F#4',
+				'G4',
+			]);
+		});
+
+		it('should have with every note different', () => {
+			// given
+			Random.setSeed('test');
+
+			const match = friendly([ 'B', 'D', 'Eb', 'F', 'Ab' ])[0];
+
+			// then
+			expect(match).toEqual({
+				scale: '1P 2M 3m 4P 5P 6M 7m',
+				match: 0.75,
+				root: 'Ab',
+				intervals: '1P 3m 4A 5P 6M',
+				type: 'Dorian',
+			});
+
+			// given
+			const candidates = friendly([ 'C3', 'F#3', 'G3' ]);
+
+			// when
+			const closest = findClosestMatches(match, candidates);
+
+			// then
+			expect(closest).toHaveLength(1);
+
+			// [ 'C3', 'Db3', 'Eb3', 'F3', 'G3', 'Ab3', 'Bb3' ]
+			expect(new Scale(closest[0].root, closest[0].scale).string).toEqual([ 'C3', 'Db3', 'Eb3', 'F3', 'G3', 'Ab3', 'Bb3' ]);
 		});
 	});
 
