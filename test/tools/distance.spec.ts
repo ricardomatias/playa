@@ -1,6 +1,6 @@
 import { distance } from '../../lib/tools';
 
-const { semitones, interval, transposeUp, transposeDown, position } = distance;
+const { semitones, interval, transposeUp, transposeDown, position, naturalPosition } = distance;
 
 
 describe('A Distance test suite', () => {
@@ -91,17 +91,26 @@ describe('A Distance test suite', () => {
 
 		it('should return the interval between: Gb, E', () => {
 			const dist = interval('Gb', 'E');
+
 			expect(dist).toBe('7m');
 		});
 
 
 		it('should return the interval between: F#, D', () => {
 			const dist = interval('F#', 'D');
+
 			expect(dist).toBe('6m');
 		});
 
 		it('should return the interval between: G, Eb', () => {
 			const dist = interval('G', 'Eb');
+
+			expect(dist).toBe('6m');
+		});
+
+		it('should return the interval between: D, Bb', () => {
+			const dist = interval('D', 'Bb');
+
 			expect(dist).toBe('6m');
 		});
 	});
@@ -201,4 +210,43 @@ describe('A Distance test suite', () => {
 			expect(newNote).toBe('Ab');
 		});
 	});
+
+	describe('#naturalPosition', () => {
+		it('should return natural position C - G', () => {
+			const dist = naturalPosition('C', 'G');
+
+			expect(dist).toBe(5);
+		});
+
+		it('should return natural position D - B', () => {
+			const dist = naturalPosition('D', 'B');
+
+			expect(dist).toBe(6);
+		});
+
+		it('should return natural position B - C', () => {
+			const dist = naturalPosition('B', 'C');
+
+			expect(dist).toBe(2);
+		});
+
+		it('should return natural position F - A', () => {
+			const dist = naturalPosition('F', 'A');
+
+			expect(dist).toBe(3);
+		});
+
+		it('should return natural position C - B', () => {
+			const dist = naturalPosition('C', 'B');
+
+			expect(dist).toBe(7);
+		});
+
+		it('should return natural position E - C', () => {
+			const dist = naturalPosition('E', 'C');
+
+			expect(dist).toBe(6);
+		});
+	});
+
 });

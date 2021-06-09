@@ -30,7 +30,6 @@ const position = (note: NoteLike): number => {
 };
 
 
-// TODO: Add tests
 /**
  * Position in the {@link DiatonicNotes}
  * @function naturalPosition
@@ -47,7 +46,7 @@ const naturalPosition = (noteA: NoteLike, noteB: NoteLike): number => {
 	const posA = DiatonicNotes.indexOf(natNoteA);
 	const posB = DiatonicNotes.indexOf(natNoteB);
 
-	return posB > posA ? posB - posA : 8 - (posA - posB);
+	return posB > posA ? posB - posA + 1 : 8 - (posA - posB);
 };
 
 /**
@@ -172,5 +171,3 @@ export default {
 	transposeUp,
 	transposeDown,
 };
-
-
