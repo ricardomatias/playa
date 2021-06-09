@@ -70,6 +70,4 @@ export const DiatonicNotes = <const>[ 'C', 'D', 'E', 'F', 'G', 'A', 'B' ];
 export type DiatonicNote = typeof DiatonicNotes[number]
 
 
-export type NoteSymbol = Sharp | Flat
-
-
+export type NoteSymbol = Sharp | Flat;

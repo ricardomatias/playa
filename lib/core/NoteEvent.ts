@@ -1,9 +1,10 @@
+import { NoteSymbol } from '../constants';
 import { Event } from './Event';
 
 
 export interface NoteEvent extends Event {
 	midi: number;
-	note: string;
+	note: NoteSymbol | string;
 }
 
 /**

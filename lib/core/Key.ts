@@ -23,9 +23,6 @@ const TOTAL_MODES = 7;
 const LOCRIAN_PROB = 0.01;
 const PRECISION = 4;
 
-const MODES_MOD_PROB = distribute.sumDistribution([
-	'0.165', '0.165', '0.165', '0.165', '0.165', '0.165', '0.01',
-], 3);
 
 type Mode = { scale: ModeIntervals, root: NoteSymbol }
 
@@ -216,7 +213,14 @@ export class Key extends Scale {
 			return this;
 		}
 
-		this._root = new Note(root);
+		if (root && !Key.CircleOfFifths.includes(root)) {
+			const newRoot = new Note(root);
+
+			this._root = newRoot.enharmonic ? new Note(newRoot.enharmonic) : newRoot;
+		} else {
+			this._root = new Note(root);
+		}
+
 		this._notes = this.createScale();
 
 		this.assignOctaves();
@@ -239,7 +243,7 @@ export class Key extends Scale {
 	modulateMode({ direction, interval }: Partial<{ direction: ModulationDirection, interval: number }> = {}): this {
 		let mode: Mode;
 		let modes = this.modes; // use this so it forces mode creation in case of their absence
-		let probabilities = MODES_MOD_PROB;
+		let probabilities: string[] = Array.from(Key.ModesModulationProbabilities);
 		const modePos = this.modePosition;
 
 		if (direction && !interval) {
@@ -269,6 +273,7 @@ export class Key extends Scale {
 				}
 			}
 
+			// TODO: Find a way to remove this hack
 			// Locrian shouldn't be appearing too often
 			if (R.includes(Key.Locrian, R.pluck('scale', modes))) {
 				const modesLen = modes.length;
@@ -539,6 +544,18 @@ export class Key extends Scale {
 	}
 
 	/**
+	* Checks if both keys in the same key
+	* @function modesToKeys
+	* @memberof Core#Key
+	* @static
+	* @param {Mode[]} modes
+	* @return {Key[]}
+	*/
+	static inSameKey(a: Key, b: Key): boolean {
+		return R.any(R.equals({ root: b.root.note, scale: b.intervals }), a.modes);
+	}
+
+	/**
 	* Ionian mode in the current key
 	*
 	* @member I
@@ -651,11 +668,49 @@ export class Key extends Scale {
 	* @static
 	* @type {Interval[]}
 	*/
-	static ModulationIntervals = <const>[ '4P', '5P', '2M', '7m', '3m', '6M', '3M', '6m', '2m', '7M' ];
+	static ModulationIntervals: Readonly<Interval[]> = <const>[ '4P', '5P', '2M', '7m', '3m', '6M', '3M', '6m', '2m', '7M' ];
+
+	/**
+	 * The Circle of Fifths used in `modulate` to know which root notes are allowed
+	 * https://en.wikipedia.org/wiki/Circle_of_fifths
+	 *
+	 * @member ModulationIntervals
+	 * @memberof Core#Key
+	 * @static
+	 * @type {NoteSymbol[]}
+	 */
+	static CircleOfFifths: Readonly<NoteSymbol[]> = <const>[
+		'C', 'G', 'D', 'A', 'E', 'B', 'F#', 'Gb', 'Db', 'C#', 'Ab', 'Eb', 'Bb', 'F'
+	];
+
+	/**
+	 *
+	 * @private
+	 * @static
+	 * @memberof Core#Key
+	 */
+	static ModesModulationProbabilities = <const>[
+		'0.165', '0.330',
+		'0.495', '0.660',
+		'0.825', '0.990',
+		'1.000'
+	];
+
+	/**
+	 *
+	 * @private
+	 * @static
+	 * @memberof Core#Key
+	 */
+	static KeyModulationProbabilities = <const>[
+		'0.200', '0.400',
+		'0.520', '0.640',
+		'0.720', '0.800',
+		'0.857', '0.914',
+		'0.957', '1.000'
+	];
 
 	get [Symbol.toStringTag](): string {
 		return `Key <${this.modePositionRoman}>: ${this.string}`;
 	}
 }
-
-

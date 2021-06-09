@@ -11,6 +11,7 @@ import {
 } from '../constants/chords';
 import { Interval, Semitones } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
+import { ScaleIntervals } from '../constants/scales';
 import { deconstructName, findNameFromIntervals, findNameFromSymbol } from './utils';
 import { PlayaError, whilst } from '../utils';
 import { distance, rotate, choose } from '../tools';
@@ -18,7 +19,6 @@ import { isDefined, isNull, isUndefined } from '../utils/types-guards';
 import assignOctaves from '../utils/octaves';
 import { Scale } from './Scale';
 import { Octaves } from '../common/types';
-import { ScaleIntervals } from '../constants';
 
 
 type ChordOptions = Partial<{ symbol: ChordSymbol, intervals: ChordIntervals, structure: ChordStructure }>

@@ -28,11 +28,29 @@ describe('Key Test Suite', () => {
 		expect(key.chord).toHaveMidiNotes([ 62, 66, 69, 73 ]);
 	});
 
-	it('should be the same scale as befpre', () => {
+	it('should be the same scale as before', () => {
 		const key = new Key(62, Key.Major);
 
 		expect(key).toHaveMidiNotes([ 62, 64, 66, 67, 69, 71, 73 ]);
 		expect(key.chord).toHaveMidiNotes([ 62, 66, 69, 73 ]);
+	});
+
+	it('should compare  A Major - C# Phrygian', () => {
+		const aMajor = new Key('A', Key.Major);
+		const cSharpPhrygian = new Key('C#', Key.Phrygian);
+
+		const result = Key.inSameKey(aMajor, cSharpPhrygian);
+
+		expect(result).toBe(true);
+	});
+
+	it('should compare A Major - Db Phrygian', () => {
+		const aMajor = new Key('A', Key.Major);
+		const cSharpPhrygian = new Key('Db', Key.Phrygian);
+
+		const result = Key.inSameKey(aMajor, cSharpPhrygian);
+
+		expect(result).toBe(false);
 	});
 
 	describe('Modes', () => {
@@ -197,6 +215,16 @@ describe('Key Test Suite', () => {
 				'D#4',
 				'F4',
 			]);
+		});
+
+		it('should modulate A Myxolydian - with interval', () => {
+			const key = new Key('A', Key.Mixolydian);
+
+			expect(key).toHaveStringNotes([ "A3", "B3", "C#4", "D4", "E4", "F#4", "G4" ]);
+
+			key.modulate(Key.ModulateUp, '7M');
+
+			expect(key).toHaveStringNotes([ "Ab3", "Bb3", "C4", "Db4", "Eb4", "F4", "Gb4" ]);
 		});
 
 		it('should modulate UP with interval and direction', () => {
