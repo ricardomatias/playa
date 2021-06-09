@@ -9,9 +9,13 @@
 		"isolatedModules": true,
 		// Import non-ES modules as default imports.
 		"esModuleInterop": true,
+		"types": [
+			"jest",
+			"node"
+		],
 	},
 	"include": [
-		"./lib/**/*"
+		"./lib/**/*", "./test/*"
 	],
 	"exclude": [
 		"./lib/types.js"
