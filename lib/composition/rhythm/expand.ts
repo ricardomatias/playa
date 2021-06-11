@@ -1,6 +1,7 @@
 // * expandRhythm(['4n', '2n', '4n'] or Event[], '4:0:0')
 
-import { Event, Time, TimeFormat } from '../../core';
+import { Event } from '../../core/Event';
+import { Time, TimeFormat } from '../../core/Time';
 import * as R from 'ramda';
 import { concat } from './concat';
 

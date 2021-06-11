@@ -14,7 +14,7 @@ const MAX_LOOPS = 1000;
  * @param {Function} condition
  * @param {Object.Number} [maxLoops = 1000]
  */
-const whilst = (fn: CallableFunction, condition: CallableFunction, { maxLoops = MAX_LOOPS } = {}): void => {
+export const whilst = (fn: CallableFunction, condition: CallableFunction, { maxLoops = MAX_LOOPS } = {}): void => {
 	let loopCount = 0;
 
 	while (condition()) {
@@ -28,4 +28,3 @@ const whilst = (fn: CallableFunction, condition: CallableFunction, { maxLoops = 
 	}
 };
 
-export default whilst;

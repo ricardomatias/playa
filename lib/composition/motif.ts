@@ -1,9 +1,9 @@
 import { choose } from '../tools';
-import { Note, Time } from '../core';
+import { Note } from '../core/Note';
+import { Time, TimeFormat } from '../core/Time';
 import { NoteEvent } from '../core/NoteEvent';
 import { expandDuration, isEvent, mapStartToEvent } from '../tools/event';
 import { Event } from '../core/Event';
-import { TimeFormat } from '../core/Time';
 
 /**
  * Generates a motif

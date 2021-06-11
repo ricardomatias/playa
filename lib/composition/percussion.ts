@@ -1,10 +1,10 @@
 import random from '../tools/random';
-import whilst from '../utils/whilst';
+import {whilst} from '../utils/whilst';
 import * as Euclidean from '../tools/euclidean';
-import { Notevalue } from '../constants';
+import { Notevalue } from '../constants/ticks';
 import { BinaryEvent } from '../common/types';
 import { isArray, isDefined, isUndefined } from '../utils/types-guards';
-import { shift } from '../tools';
+import { shift } from '../tools/shift';
 
 // TODO: Create playa arp for drums return array
 

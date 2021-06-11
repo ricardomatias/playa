@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { Note } from '../core';
+import { Note } from '../core/Note';
 import { isDefined } from './types-guards';
 
 /**

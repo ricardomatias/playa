@@ -1,6 +1,8 @@
 import * as R from 'ramda';
 import HarmonyBase from './HarmonyBase';
 import { Note, NoteLike } from './Note';
+import { Scale } from './Scale';
+
 import {
 	ChordSymbol,
 	ChordStructure,
@@ -9,15 +11,17 @@ import {
 	ChordName,
 	ChordIntervals,
 } from '../constants/chords';
+import { ScaleIntervals } from '../constants/scales';
 import { Interval, Semitones } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
-import { ScaleIntervals } from '../constants/scales';
 import { deconstructName, findNameFromIntervals, findNameFromSymbol } from './utils';
-import { PlayaError, whilst } from '../utils';
-import { distance, rotate, choose } from '../tools';
+import { PlayaError } from '../utils/error';
+import { whilst } from '../utils/whilst';
+import { rotate } from '../tools/rotate';
+import { choose } from '../tools/choose';
+import distance from '../tools/distance';
 import { isDefined, isNull, isUndefined } from '../utils/types-guards';
 import assignOctaves from '../utils/octaves';
-import { Scale } from './Scale';
 import { Octaves } from '../common/types';
 
 

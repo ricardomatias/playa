@@ -73,7 +73,7 @@ const hasMoreThan = (number: number, times: number) => (coll: readonly number[])
 /**
  * Backtracking algorithm for finding all possible combination for a specific sum.
  * @memberof Utils
- * @function combinationSum
+ * @function findCombinationsSum
  * @private
  *
  * @param {Number} sum
@@ -84,7 +84,7 @@ const hasMoreThan = (number: number, times: number) => (coll: readonly number[])
  *
  * @return {Array<Array<Number>>}
  */
-export default function combinationSum(sum: number, maxOnes = 2): number[][] {
+export function findCombinationsSum(sum: number, maxOnes = 2): number[][] {
 	const candidates = R.drop(1, R.times(R.identity, sum));
 
 	return R.compose(

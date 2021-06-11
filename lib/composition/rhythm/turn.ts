@@ -2,8 +2,9 @@ import * as R from 'ramda';
 import { roll, distribute } from '@ricardomatias/roll';
 
 import { Ticks, Notevalue } from '../../constants';
-import { whilst, findCombinationsSum } from '../../utils';
 import random from '../../tools/random';
+import { findCombinationsSum } from '../../utils/combinations';
+import { whilst } from '../../utils/whilst';
 import { createGrid, GridCell } from './grid';
 import { Time, TimeFormat } from '../../core/Time';
 import { Event } from '../../core/Event';

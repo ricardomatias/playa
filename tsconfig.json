@@ -1,14 +1,16 @@
 {
 	"compilerOptions": {
-		"outDir": "./build",
+	    "baseUrl": ".",
+		"outDir": "./build/esm",
 		// Target latest version of ECMAScript.
-		"target": "ESNext",
+		"target": "ES6", // same as ES6
 		// Search under node_modules for non-relative imports.
+		"module": "ES2020", // same as ES6
 		"moduleResolution": "node",
 		// Process & infer types from .js files.
 		"allowJs": true,
 		// Don't emit; allow Babel to transform files.
-		"noEmit": true,
+		"noEmit": false,
 		// Enable strictest settings like strictNullChecks & noImplicitAny.
 		"strict": true,
 		// Disallow features that require cross-file information for emit.
@@ -16,11 +18,14 @@
 		// Import non-ES modules as default imports.
 		"esModuleInterop": true,
 		"inlineSourceMap": false,
+		"importHelpers": false,
+		"noEmitHelpers": false,
 		"declaration": true,
 		"declarationDir": "./build/types",
 	},
 	"include": [
-		"./lib/**/*"
+		"lib/index.ts",
+		"lib/global.d.ts"
 	],
 	"exclude": [
 		"./lib/types.js"

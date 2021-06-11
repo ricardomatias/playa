@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { Event } from '../../core';
+import { Event } from '../../core/Event';
 import { mapStartToEvent } from '../../tools';
 import { isUndefined } from '../../utils/types-guards';
 

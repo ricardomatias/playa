@@ -1,5 +1,4 @@
 import { Octaves } from '../common/types';
-import { assureNote } from '../utils';
 import { mapNotesToFreq, mapNotesToMidi, mapNotesToString } from '../utils/map';
 import { Note, NoteLike } from './Note';
 
@@ -30,7 +29,7 @@ abstract class HarmonyBase {
 	 * @param {Array<Number>} octaves [starting, number of octaves] range of octaves to map notes to
 	 */
 	constructor(root: NoteLike, octaves?: Octaves) {
-		this._root = assureNote(root);
+		this._root = new Note(root);
 
 		if (octaves) {
 			this._octaves = octaves;

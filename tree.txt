@@ -1,0 +1,6936 @@
+********** reading files **********
+Unshaken files: 
+
+/Users/feral/Creative-Coding/playa/build/esm/_virtual/_rollupPluginBabelHelpers.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/tslib/tslib.es6.js
+
+/Users/feral/Creative-Coding/playa/build/esm/utils/note.js
+
+/Users/feral/Creative-Coding/playa/build/esm/constants/note.js
+
+/Users/feral/Creative-Coding/playa/build/esm/constants/midi.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isPlaceholder.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_curry1.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_curry2.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isInteger.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isString.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/nth.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/paths.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/path.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/prop.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/sortBy.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_arity.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_curryN.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/curryN.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/curry.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/sort.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/head.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isArray.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isTransformer.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_dispatchable.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_filter.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isObject.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isArrayLike.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_xwrap.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/bind.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_reduce.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_xfBase.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_xfilter.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_has.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isArguments.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/keys.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/filter.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_checkForMethod.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_curry3.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/slice.js
+
+/Users/feral/Creative-Coding/playa/build/esm/tools/midi.js
+
+/Users/feral/Creative-Coding/playa/build/esm/utils/types-guards.js
+
+/Users/feral/Creative-Coding/playa/build/esm/utils/error.js
+
+/Users/feral/Creative-Coding/playa/build/esm/core/Note.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_reduced.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_xfind.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/find.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/last.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_arrayFromIterator.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_includesWith.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_functionName.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_objectIs.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/type.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_equals.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/equals.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_pipe.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/reduce.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/tail.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/pipe.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/reverse.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/compose.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_indexOf.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_includes.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_Set.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/uniqBy.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isNumber.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/length.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_map.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_xmap.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/map.js
+
+/Users/feral/Creative-Coding/playa/build/esm/utils/map.js
+
+/Users/feral/Creative-Coding/playa/build/esm/core/HarmonyBase.js
+
+/Users/feral/Creative-Coding/playa/build/esm/constants/scales.js
+
+/Users/feral/Creative-Coding/playa/build/esm/constants/intervals.js
+
+/Users/feral/Creative-Coding/playa/build/esm/utils/octaves.js
+
+/Users/feral/Creative-Coding/playa/build/esm/core/Scale.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_xany.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/any.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_isFunction.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_quote.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_toISOString.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_complement.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/reject.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_toString.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/toString.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/concat.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_xfindIndex.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/findIndex.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/propEq.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/ascend.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/pluck.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/includes.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/splitAt.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/empty.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/isEmpty.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/@ricardomatias/ring/dist/ring.esm.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/@ricardomatias/roll/dist/roll.esm.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/roman-numeral/config.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/roman-numeral/index.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/internal/_xtake.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/take.js
+
+/Users/feral/Creative-Coding/playa/build/esm/constants/chords.js
+
+/Users/feral/Creative-Coding/playa/build/esm/core/utils.js
+
+/Users/feral/Creative-Coding/playa/build/esm/utils/whilst.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/ramda/src/move.js
+
+/Users/feral/Creative-Coding/playa/build/esm/tools/rotate.js
+
+/Users/feral/Creative-Coding/playa/build/esm/_virtual/_commonjsHelpers.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/alea/alea.js
+
+/Users/feral/Creative-Coding/playa/build/esm/external/simplex-noise/simplex-noise.js
+
+/Users/feral/Creative-Coding/playa/build/esm/tools/random.js
+
+/Users/feral/Creative-Coding/playa/build/esm/tools/choose.js
+
+/Users/feral/Creative-Coding/playa/build/esm/constants/ticks.js
+
+/Users/feral/Creative-Coding/playa/build/esm/constants/modes.js
+
+/Users/feral/Creative-Coding/playa/build/esm/tools/interval.js
+
+/Users/feral/Creative-Coding/playa/build/esm/tools/distance.js
+
+/Users/feral/Creative-Coding/playa/build/esm/core/Chord.js
+
+/Users/feral/Creative-Coding/playa/build/esm/core/Key.js
+
+/Users/feral/Creative-Coding/playa/build/esm/index.js
+
+********** reading codes **********
+Unshaken codes:
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _construct(Parent, args, Class) {
+  if (_isNativeReflectConstruct()) {
+    _construct = Reflect.construct;
+  } else {
+    _construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) _setPrototypeOf(instance, Class.prototype);
+      return instance;
+    };
+  }
+
+  return _construct.apply(null, arguments);
+}
+
+function _isNativeFunction(fn) {
+  return Function.toString.call(fn).indexOf("[native code]") !== -1;
+}
+
+function _wrapNativeSuper(Class) {
+  var _cache = typeof Map === "function" ? new Map() : undefined;
+
+  _wrapNativeSuper = function _wrapNativeSuper(Class) {
+    if (Class === null || !_isNativeFunction(Class)) return Class;
+
+    if (typeof Class !== "function") {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+
+    if (typeof _cache !== "undefined") {
+      if (_cache.has(Class)) return _cache.get(Class);
+
+      _cache.set(Class, Wrapper);
+    }
+
+    function Wrapper() {
+      return _construct(Class, arguments, _getPrototypeOf(this).constructor);
+    }
+
+    Wrapper.prototype = Object.create(Class.prototype, {
+      constructor: {
+        value: Wrapper,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    return _setPrototypeOf(Wrapper, Class);
+  };
+
+  return _wrapNativeSuper(Class);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+
+function _iterableToArrayLimit(arr, i) {
+  var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]);
+
+  if (_i == null) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+
+  var _s, _e;
+
+  try {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _createForOfIteratorHelper(o, allowArrayLike) {
+  var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+
+  if (!it) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
+      var i = 0;
+
+      var F = function () {};
+
+      return {
+        s: F,
+        n: function () {
+          if (i >= o.length) return {
+            done: true
+          };
+          return {
+            done: false,
+            value: o[i++]
+          };
+        },
+        e: function (e) {
+          throw e;
+        },
+        f: F
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var normalCompletion = true,
+      didErr = false,
+      err;
+  return {
+    s: function () {
+      it = it.call(o);
+    },
+    n: function () {
+      var step = it.next();
+      normalCompletion = step.done;
+      return step;
+    },
+    e: function (e) {
+      didErr = true;
+      err = e;
+    },
+    f: function () {
+      try {
+        if (!normalCompletion && it.return != null) it.return();
+      } finally {
+        if (didErr) throw err;
+      }
+    }
+  };
+}
+
+function __classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
+}
+function __classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+    }
+    privateMap.set(receiver, value);
+    return value;
+}
+
+var ACCIDENT_REGEXP = new RegExp('#|b');
+var OCTAVE_REGEXP = /-?\d{1,}/;
+/**
+ * Returns a note's accidental [# | b]
+ * @private
+ *
+ *
+ * @function whichAccident
+ * @memberof Utils
+ *
+ * @param {String} note
+ * @return {String}
+ */
+
+var whichAccident = function whichAccident(note) {
+  var exec = ACCIDENT_REGEXP.exec(note);
+  return exec ? exec[0] : undefined;
+};
+/**
+ * Returns a note without the accidental
+ * @private
+ *
+ * @function natural
+ * @memberof Utils
+ *
+ * @param {String|Note} note
+ * @return {String} Natural note
+ */
+
+var natural = function natural(note) {
+  if (!note) return null;
+  var n = new Note(note);
+  return n.note.replace(ACCIDENT_REGEXP, '');
+};
+/**
+ * Strips the octave from the note
+ *
+ * @private
+ *
+ * @function stripOctave
+ * @memberof Utils
+ *
+ * @param {String} note
+ * @return {String} Natural note
+ */
+
+var stripOctave = function stripOctave(note) {
+  return note.replace(new RegExp(OCTAVE_REGEXP), '');
+};
+var hasOctave = function hasOctave(note) {
+  return new RegExp(OCTAVE_REGEXP).test(note);
+};
+var parseNote = function parseNote(note) {
+  var result = note.match(/([^0-9-]*)(-?\d*)/);
+
+  if (!result) {
+    return null;
+  }
+
+  return {
+    note: result[1],
+    octave: parseInt(result[2], 10)
+  };
+};
+
+// *****************************************************************************
+// NOTE
+// *****************************************************************************
+
+/**
+ * Note symbols
+ * @typedef NoteSymbol
+ * @memberof Types
+ * @property {string} C "C"
+ * @property {string} Db "Db"
+ * @property {string} C# "C#"
+ * @property {string} D "D"
+ * @property {string} Eb "Eb"
+ * @property {string} D# "D#"
+ * @property {string} E "E"
+ * @property {string} F "F"
+ * @property {string} Gb "Gb"
+ * @property {string} F# "F#"
+ * @property {string} G "G"
+ * @property {string} Ab "Ab"
+ * @property {string} G# "G#"
+ * @property {string} A "A"
+ * @property {string} Bb "Bb"
+ * @property {string} A# "A#"
+ * @property {string} B "B"
+ */
+
+/**
+ * Notes with sharps
+ * @type {Array<String>}
+ * @memberof Constants
+ * @default
+ * @readonly
+ */
+var Sharps = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+/**
+ * Notes with flats
+ * @type {Array<String>}
+ * @memberof Constants
+ * @default
+ * @readonly
+ */
+
+var Flats = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+/**
+ * Enharmonic pairs
+ * @type {Array<String>}
+ * @memberof Constants
+ * @default
+ * @readonly
+ */
+
+var Enharmonics = ['C#|Db', 'D#|Eb', 'F#|Gb', 'G#|Ab', 'A#|Bb'];
+/**
+ * Diatonic notes
+ * @type {Array<String>}
+ * @memberof Constants
+ * @default
+ * @readonly
+ */
+
+var DiatonicNotes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+
+var MidiNotes = ['C-2', 'C#-2', 'D-2', 'D#-2', 'E-2', 'F-2', 'F#-2', 'G-2', 'G#-2', 'A-2', 'A#-2', 'B-2', 'C-1', 'C#-1', 'D-1', 'D#-1', 'E-1', 'F-1', 'F#-1', 'G-1', 'G#-1', 'A-1', 'A#-1', 'B-1', 'C0', 'C#0', 'D0', 'D#0', 'E0', 'F0', 'F#0', 'G0', 'G#0', 'A0', 'A#0', 'B0', 'C1', 'C#1', 'D1', 'D#1', 'E1', 'F1', 'F#1', 'G1', 'G#1', 'A1', 'A#1', 'B1', 'C2', 'C#2', 'D2', 'D#2', 'E2', 'F2', 'F#2', 'G2', 'G#2', 'A2', 'A#2', 'B2', 'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3', 'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4', 'C5', 'C#5', 'D5', 'D#5', 'E5', 'F5', 'F#5', 'G5', 'G#5', 'A5', 'A#5', 'B5', 'C6', 'C#6', 'D6', 'D#6', 'E6', 'F6', 'F#6', 'G6', 'G#6', 'A6', 'A#6', 'B6', 'C7', 'C#7', 'D7', 'D#7', 'E7', 'F7', 'F#7', 'G7', 'G#7', 'A7', 'A#7', 'B7', 'C8', 'C#8', 'D8', 'D#8', 'E8', 'F8', 'F#8', 'G8' // 127
+];
+
+function _isPlaceholder(a) {
+  return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
+}
+var _isPlaceholder_1 = _isPlaceholder;
+
+function _curry1(fn) {
+  return function f1(a) {
+    if (arguments.length === 0 || _isPlaceholder_1(a)) {
+      return f1;
+    } else {
+      return fn.apply(this, arguments);
+    }
+  };
+}
+var _curry1_1 = _curry1;
+
+function _curry2(fn) {
+  return function f2(a, b) {
+    switch (arguments.length) {
+      case 0:
+        return f2;
+      case 1:
+        return _isPlaceholder_1(a) ? f2 : _curry1_1(function (_b) {
+          return fn(a, _b);
+        });
+      default:
+        return _isPlaceholder_1(a) && _isPlaceholder_1(b) ? f2 : _isPlaceholder_1(a) ? _curry1_1(function (_a) {
+          return fn(_a, b);
+        }) : _isPlaceholder_1(b) ? _curry1_1(function (_b) {
+          return fn(a, _b);
+        }) : fn(a, b);
+    }
+  };
+}
+var _curry2_1 = _curry2;
+
+var _isInteger = Number.isInteger || function _isInteger(n) {
+  return n << 0 === n;
+};
+
+function _isString(x) {
+  return Object.prototype.toString.call(x) === '[object String]';
+}
+var _isString_1 = _isString;
+
+var nth =
+_curry2_1(function nth(offset, list) {
+  var idx = offset < 0 ? list.length + offset : offset;
+  return _isString_1(list) ? list.charAt(idx) : list[idx];
+});
+var nth_1 = nth;
+
+var paths =
+_curry2_1(function paths(pathsArray, obj) {
+  return pathsArray.map(function (paths) {
+    var val = obj;
+    var idx = 0;
+    var p;
+    while (idx < paths.length) {
+      if (val == null) {
+        return;
+      }
+      p = paths[idx];
+      val = _isInteger(p) ? nth_1(p, val) : val[p];
+      idx += 1;
+    }
+    return val;
+  });
+});
+var paths_1 = paths;
+
+var path =
+_curry2_1(function path(pathAr, obj) {
+  return paths_1([pathAr], obj)[0];
+});
+var path_1 = path;
+
+var prop =
+_curry2_1(function prop(p, obj) {
+  return path_1([p], obj);
+});
+var prop_1 = prop;
+
+var sortBy =
+_curry2_1(function sortBy(fn, list) {
+  return Array.prototype.slice.call(list, 0).sort(function (a, b) {
+    var aa = fn(a);
+    var bb = fn(b);
+    return aa < bb ? -1 : aa > bb ? 1 : 0;
+  });
+});
+var sortBy_1 = sortBy;
+
+function _arity(n, fn) {
+  switch (n) {
+    case 0:
+      return function () {
+        return fn.apply(this, arguments);
+      };
+    case 1:
+      return function (a0) {
+        return fn.apply(this, arguments);
+      };
+    case 2:
+      return function (a0, a1) {
+        return fn.apply(this, arguments);
+      };
+    case 3:
+      return function (a0, a1, a2) {
+        return fn.apply(this, arguments);
+      };
+    case 4:
+      return function (a0, a1, a2, a3) {
+        return fn.apply(this, arguments);
+      };
+    case 5:
+      return function (a0, a1, a2, a3, a4) {
+        return fn.apply(this, arguments);
+      };
+    case 6:
+      return function (a0, a1, a2, a3, a4, a5) {
+        return fn.apply(this, arguments);
+      };
+    case 7:
+      return function (a0, a1, a2, a3, a4, a5, a6) {
+        return fn.apply(this, arguments);
+      };
+    case 8:
+      return function (a0, a1, a2, a3, a4, a5, a6, a7) {
+        return fn.apply(this, arguments);
+      };
+    case 9:
+      return function (a0, a1, a2, a3, a4, a5, a6, a7, a8) {
+        return fn.apply(this, arguments);
+      };
+    case 10:
+      return function (a0, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
+        return fn.apply(this, arguments);
+      };
+    default:
+      throw new Error('First argument to _arity must be a non-negative integer no greater than ten');
+  }
+}
+var _arity_1 = _arity;
+
+function _curryN(length, received, fn) {
+  return function () {
+    var combined = [];
+    var argsIdx = 0;
+    var left = length;
+    var combinedIdx = 0;
+    while (combinedIdx < received.length || argsIdx < arguments.length) {
+      var result;
+      if (combinedIdx < received.length && (!_isPlaceholder_1(received[combinedIdx]) || argsIdx >= arguments.length)) {
+        result = received[combinedIdx];
+      } else {
+        result = arguments[argsIdx];
+        argsIdx += 1;
+      }
+      combined[combinedIdx] = result;
+      if (!_isPlaceholder_1(result)) {
+        left -= 1;
+      }
+      combinedIdx += 1;
+    }
+    return left <= 0 ? fn.apply(this, combined) : _arity_1(left, _curryN(length, combined, fn));
+  };
+}
+var _curryN_1 = _curryN;
+
+var curryN =
+_curry2_1(function curryN(length, fn) {
+  if (length === 1) {
+    return _curry1_1(fn);
+  }
+  return _arity_1(length, _curryN_1(length, [], fn));
+});
+var curryN_1 = curryN;
+
+var curry =
+_curry1_1(function curry(fn) {
+  return curryN_1(fn.length, fn);
+});
+var curry_1 = curry;
+
+var sort =
+_curry2_1(function sort(comparator, list) {
+  return Array.prototype.slice.call(list, 0).sort(comparator);
+});
+var sort_1 = sort;
+
+var head =
+nth_1(0);
+var head_1 = head;
+
+var _isArray = Array.isArray || function _isArray(val) {
+  return val != null && val.length >= 0 && Object.prototype.toString.call(val) === '[object Array]';
+};
+
+function _isTransformer(obj) {
+  return obj != null && typeof obj['@@transducer/step'] === 'function';
+}
+var _isTransformer_1 = _isTransformer;
+
+function _dispatchable(methodNames, xf, fn) {
+  return function () {
+    if (arguments.length === 0) {
+      return fn();
+    }
+    var args = Array.prototype.slice.call(arguments, 0);
+    var obj = args.pop();
+    if (!_isArray(obj)) {
+      var idx = 0;
+      while (idx < methodNames.length) {
+        if (typeof obj[methodNames[idx]] === 'function') {
+          return obj[methodNames[idx]].apply(obj, args);
+        }
+        idx += 1;
+      }
+      if (_isTransformer_1(obj)) {
+        var transducer = xf.apply(null, args);
+        return transducer(obj);
+      }
+    }
+    return fn.apply(this, arguments);
+  };
+}
+var _dispatchable_1 = _dispatchable;
+
+function _filter(fn, list) {
+  var idx = 0;
+  var len = list.length;
+  var result = [];
+  while (idx < len) {
+    if (fn(list[idx])) {
+      result[result.length] = list[idx];
+    }
+    idx += 1;
+  }
+  return result;
+}
+var _filter_1 = _filter;
+
+function _isObject(x) {
+  return Object.prototype.toString.call(x) === '[object Object]';
+}
+var _isObject_1 = _isObject;
+
+var _isArrayLike =
+_curry1_1(function isArrayLike(x) {
+  if (_isArray(x)) {
+    return true;
+  }
+  if (!x) {
+    return false;
+  }
+  if (typeof x !== 'object') {
+    return false;
+  }
+  if (_isString_1(x)) {
+    return false;
+  }
+  if (x.nodeType === 1) {
+    return !!x.length;
+  }
+  if (x.length === 0) {
+    return true;
+  }
+  if (x.length > 0) {
+    return x.hasOwnProperty(0) && x.hasOwnProperty(x.length - 1);
+  }
+  return false;
+});
+var _isArrayLike_1 = _isArrayLike;
+
+var XWrap =
+function () {
+  function XWrap(fn) {
+    this.f = fn;
+  }
+  XWrap.prototype['@@transducer/init'] = function () {
+    throw new Error('init not implemented on XWrap');
+  };
+  XWrap.prototype['@@transducer/result'] = function (acc) {
+    return acc;
+  };
+  XWrap.prototype['@@transducer/step'] = function (acc, x) {
+    return this.f(acc, x);
+  };
+  return XWrap;
+}();
+function _xwrap(fn) {
+  return new XWrap(fn);
+}
+var _xwrap_1 = _xwrap;
+
+var bind =
+_curry2_1(function bind(fn, thisObj) {
+  return _arity_1(fn.length, function () {
+    return fn.apply(thisObj, arguments);
+  });
+});
+var bind_1 = bind;
+
+function _arrayReduce(xf, acc, list) {
+  var idx = 0;
+  var len = list.length;
+  while (idx < len) {
+    acc = xf['@@transducer/step'](acc, list[idx]);
+    if (acc && acc['@@transducer/reduced']) {
+      acc = acc['@@transducer/value'];
+      break;
+    }
+    idx += 1;
+  }
+  return xf['@@transducer/result'](acc);
+}
+function _iterableReduce(xf, acc, iter) {
+  var step = iter.next();
+  while (!step.done) {
+    acc = xf['@@transducer/step'](acc, step.value);
+    if (acc && acc['@@transducer/reduced']) {
+      acc = acc['@@transducer/value'];
+      break;
+    }
+    step = iter.next();
+  }
+  return xf['@@transducer/result'](acc);
+}
+function _methodReduce(xf, acc, obj, methodName) {
+  return xf['@@transducer/result'](obj[methodName](bind_1(xf['@@transducer/step'], xf), acc));
+}
+var symIterator = typeof Symbol !== 'undefined' ? Symbol.iterator : '@@iterator';
+function _reduce(fn, acc, list) {
+  if (typeof fn === 'function') {
+    fn = _xwrap_1(fn);
+  }
+  if (_isArrayLike_1(list)) {
+    return _arrayReduce(fn, acc, list);
+  }
+  if (typeof list['fantasy-land/reduce'] === 'function') {
+    return _methodReduce(fn, acc, list, 'fantasy-land/reduce');
+  }
+  if (list[symIterator] != null) {
+    return _iterableReduce(fn, acc, list[symIterator]());
+  }
+  if (typeof list.next === 'function') {
+    return _iterableReduce(fn, acc, list);
+  }
+  if (typeof list.reduce === 'function') {
+    return _methodReduce(fn, acc, list, 'reduce');
+  }
+  throw new TypeError('reduce: list must be array or iterable');
+}
+var _reduce_1 = _reduce;
+
+var _xfBase = {
+  init: function () {
+    return this.xf['@@transducer/init']();
+  },
+  result: function (result) {
+    return this.xf['@@transducer/result'](result);
+  }
+};
+
+var XFilter =
+function () {
+  function XFilter(f, xf) {
+    this.xf = xf;
+    this.f = f;
+  }
+  XFilter.prototype['@@transducer/init'] = _xfBase.init;
+  XFilter.prototype['@@transducer/result'] = _xfBase.result;
+  XFilter.prototype['@@transducer/step'] = function (result, input) {
+    return this.f(input) ? this.xf['@@transducer/step'](result, input) : result;
+  };
+  return XFilter;
+}();
+var _xfilter =
+_curry2_1(function _xfilter(f, xf) {
+  return new XFilter(f, xf);
+});
+var _xfilter_1 = _xfilter;
+
+function _has(prop, obj) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+var _has_1 = _has;
+
+var toString = Object.prototype.toString;
+var _isArguments =
+function () {
+  return toString.call(arguments) === '[object Arguments]' ? function _isArguments(x) {
+    return toString.call(x) === '[object Arguments]';
+  } : function _isArguments(x) {
+    return _has_1('callee', x);
+  };
+}();
+var _isArguments_1 = _isArguments;
+
+var hasEnumBug = !
+{
+  toString: null
+}.propertyIsEnumerable('toString');
+var nonEnumerableProps = ['constructor', 'valueOf', 'isPrototypeOf', 'toString', 'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+var hasArgsEnumBug =
+function () {
+  return arguments.propertyIsEnumerable('length');
+}();
+var contains = function contains(list, item) {
+  var idx = 0;
+  while (idx < list.length) {
+    if (list[idx] === item) {
+      return true;
+    }
+    idx += 1;
+  }
+  return false;
+};
+var keys = typeof Object.keys === 'function' && !hasArgsEnumBug ?
+_curry1_1(function keys(obj) {
+  return Object(obj) !== obj ? [] : Object.keys(obj);
+}) :
+_curry1_1(function keys(obj) {
+  if (Object(obj) !== obj) {
+    return [];
+  }
+  var prop, nIdx;
+  var ks = [];
+  var checkArgsLength = hasArgsEnumBug && _isArguments_1(obj);
+  for (prop in obj) {
+    if (_has_1(prop, obj) && (!checkArgsLength || prop !== 'length')) {
+      ks[ks.length] = prop;
+    }
+  }
+  if (hasEnumBug) {
+    nIdx = nonEnumerableProps.length - 1;
+    while (nIdx >= 0) {
+      prop = nonEnumerableProps[nIdx];
+      if (_has_1(prop, obj) && !contains(ks, prop)) {
+        ks[ks.length] = prop;
+      }
+      nIdx -= 1;
+    }
+  }
+  return ks;
+});
+var keys_1 = keys;
+
+var filter =
+_curry2_1(
+_dispatchable_1(['filter'], _xfilter_1, function (pred, filterable) {
+  return _isObject_1(filterable) ? _reduce_1(function (acc, key) {
+    if (pred(filterable[key])) {
+      acc[key] = filterable[key];
+    }
+    return acc;
+  }, {}, keys_1(filterable)) :
+  _filter_1(pred, filterable);
+}));
+var filter_1 = filter;
+
+function _checkForMethod(methodname, fn) {
+  return function () {
+    var length = arguments.length;
+    if (length === 0) {
+      return fn();
+    }
+    var obj = arguments[length - 1];
+    return _isArray(obj) || typeof obj[methodname] !== 'function' ? fn.apply(this, arguments) : obj[methodname].apply(obj, Array.prototype.slice.call(arguments, 0, length - 1));
+  };
+}
+var _checkForMethod_1 = _checkForMethod;
+
+function _curry3(fn) {
+  return function f3(a, b, c) {
+    switch (arguments.length) {
+      case 0:
+        return f3;
+      case 1:
+        return _isPlaceholder_1(a) ? f3 : _curry2_1(function (_b, _c) {
+          return fn(a, _b, _c);
+        });
+      case 2:
+        return _isPlaceholder_1(a) && _isPlaceholder_1(b) ? f3 : _isPlaceholder_1(a) ? _curry2_1(function (_a, _c) {
+          return fn(_a, b, _c);
+        }) : _isPlaceholder_1(b) ? _curry2_1(function (_b, _c) {
+          return fn(a, _b, _c);
+        }) : _curry1_1(function (_c) {
+          return fn(a, b, _c);
+        });
+      default:
+        return _isPlaceholder_1(a) && _isPlaceholder_1(b) && _isPlaceholder_1(c) ? f3 : _isPlaceholder_1(a) && _isPlaceholder_1(b) ? _curry2_1(function (_a, _b) {
+          return fn(_a, _b, c);
+        }) : _isPlaceholder_1(a) && _isPlaceholder_1(c) ? _curry2_1(function (_a, _c) {
+          return fn(_a, b, _c);
+        }) : _isPlaceholder_1(b) && _isPlaceholder_1(c) ? _curry2_1(function (_b, _c) {
+          return fn(a, _b, _c);
+        }) : _isPlaceholder_1(a) ? _curry1_1(function (_a) {
+          return fn(_a, b, c);
+        }) : _isPlaceholder_1(b) ? _curry1_1(function (_b) {
+          return fn(a, _b, c);
+        }) : _isPlaceholder_1(c) ? _curry1_1(function (_c) {
+          return fn(a, b, _c);
+        }) : fn(a, b, c);
+    }
+  };
+}
+var _curry3_1 = _curry3;
+
+var slice =
+_curry3_1(
+_checkForMethod_1('slice', function slice(fromIndex, toIndex, list) {
+  return Array.prototype.slice.call(list, fromIndex, toIndex);
+}));
+var slice_1 = slice;
+
+/**
+ * MIDI tools
+ * @namespace Midi
+ * @memberof Tools
+ */
+
+/**
+ * Find the nearest MIDI note
+ *
+ * @function findNearest
+ * @memberof Tools.Midi
+ *
+ * @param {Number} base
+ * @param {NoteSymbol|string} note
+ * @example
+ * const A = 69 // 'A3'
+ * findNearest(A, 'C') => 72 // 'C4'
+ *
+ * @return {Number} midi note
+ */
+
+var findNearest = function findNearest(base, note) {
+  var n = new Note(note);
+  var from = Math.max(base - 12, 0);
+  var to = Math.min(base + 12, 127);
+
+  var intervalNotes = slice_1(from, to + 1, MidiNotes);
+
+  var realNote = n.isNatural || n.isSharp ? n.note : n.e;
+
+  var filterByOctaves = function filterByOctaves(noteOctave) {
+    return stripOctave(noteOctave) === realNote;
+  };
+
+  var noteByOcts = filter_1(filterByOctaves, intervalNotes).map(function (noteOct) {
+    return MidiNotes.indexOf(noteOct);
+  });
+
+  return head_1(sort_1(function (a, b) {
+    return Math.abs(base - a) - Math.abs(base - b);
+  }, noteByOcts));
+};
+
+curry_1(function (voices, baseVoice) {
+  return sortBy_1(prop_1('distance'), voices.map(function (note) {
+    return {
+      note: note,
+      midiNote: findNearest(baseVoice, note)
+    };
+  }).map(function (_ref) {
+    var note = _ref.note,
+        midiNote = _ref.midiNote;
+    return {
+      note: note,
+      midiNote: midiNote,
+      distance: Math.abs(baseVoice - midiNote)
+    };
+  }));
+});
+//  * For middle C to be C4 -> 1
+
+var MIDI_OCTAVE_OFFSET = 2;
+/**
+ * Finds the octave based on the MIDI
+ * @private
+ * @param {Number} midi
+ * @return {Number} An octave
+ */
+
+var findOctave = function findOctave(midi) {
+  return Math.floor(11 * (midi / 132)) - MIDI_OCTAVE_OFFSET;
+};
+var TUNING = 440;
+/**
+ * Finds the octave based on the MIDI
+ * @private
+ * @param {Number} midi
+ * @return {Number} An octave
+ */
+
+var findFrequency = function findFrequency(midi) {
+  return Math.pow(2, (midi - 69) / 12) * TUNING;
+};
+
+function isDefined(argument) {
+  return argument !== undefined;
+}
+function isNull(argument) {
+  return argument === null;
+}
+function isNotNull(argument) {
+  return argument !== null;
+}
+function isUndefined(argument) {
+  return argument === undefined;
+}
+
+/**
+ * Custom Error
+ * @private
+ *
+ * @class
+ * @memberof Utils
+ *
+ * @extends {Error}
+ */
+var PlayaError = /*#__PURE__*/function (_Error) {
+  _inherits(PlayaError, _Error);
+
+  var _super = _createSuper(PlayaError);
+
+  /**
+   * Creates an instance of PlayaError.
+   * @constructs PlayaError
+   * @memberof Utils
+   * @private
+   *
+   * @param {String} name
+   * @param {String} [message]
+   * @param {Object} [context] { context }
+   */
+  function PlayaError(name, message) {
+    var _this;
+
+    var context = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    _classCallCheck(this, PlayaError);
+
+    _this = _super.call(this, message);
+    _this.context = {};
+    _this.name = "[PlayaError <".concat(name, ">]");
+
+    if (message) {
+      _this.message = message;
+    }
+
+    if (context) {
+      _this.context = context;
+    }
+
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(_assertThisInitialized(_this), PlayaError);
+    }
+
+    return _this;
+  }
+
+  _createClass(PlayaError, [{
+    key: "toString",
+    value: function toString() {
+      return "[".concat(this.name, "] ").concat(this.message, "\n ").concat(JSON.stringify(this.context, null, '\t'));
+    }
+  }]);
+
+  return PlayaError;
+}( /*#__PURE__*/_wrapNativeSuper(Error));
+
+var _note, _octave, _midi, _freq, _enharmonic, _accident, _next, _prev;
+/**
+ * Defines a Note
+ *
+ * @class
+ * @memberof Core#
+ *
+ * @name Note
+ */
+
+var Note = /*#__PURE__*/function () {
+  /**
+  * @constructs Note
+  * @memberof Core#
+  *
+  * @param {NoteSymbol|number} note - a musical note
+  * @param {number} [midi = undefined] - a midi value
+  * @example
+  * new Note('C3')
+  * new Note('C', 60)
+  * new Note('C')
+  * new Note(60)
+  */
+  function Note(note, midi) {
+    _classCallCheck(this, Note);
+
+    _note.set(this, void 0);
+
+    _octave.set(this, void 0);
+
+    _midi.set(this, void 0);
+
+    _freq.set(this, void 0);
+
+    _enharmonic.set(this, void 0);
+
+    _accident.set(this, void 0);
+
+    _next.set(this, void 0);
+
+    _prev.set(this, void 0);
+
+    var octave = 0;
+
+    if (note instanceof Note) {
+      note = note.n;
+    }
+
+    if (typeof note === 'number') {
+      midi = note;
+      var midiNote = MidiNotes[midi];
+
+      if (!midiNote) {
+        throw new Error("[Note]: <".concat(midi, "> isn't a valid midi note number"));
+      }
+
+      note = stripOctave(midiNote);
+    }
+
+    if (hasOctave(note)) {
+      var parsed = parseNote(note);
+
+      if (!parsed) {
+        throw new Error("[Note]: <".concat(note, "> isn't a recognized musical note"));
+      }
+
+      midi = MidiNotes.indexOf(note);
+      note = parsed.note;
+      octave = parsed.octave;
+
+      if (midi === -1) {
+        var enh = this.resolveEnharmonic(note);
+
+        if (enh) {
+          midi = MidiNotes.indexOf(enh + parsed.octave);
+        }
+      }
+    }
+
+    if (typeof midi !== 'undefined') {
+      if (midi >= 0 && midi <= 127) {
+        __classPrivateFieldSet(this, _note, note);
+
+        __classPrivateFieldSet(this, _midi, midi);
+
+        __classPrivateFieldSet(this, _octave, findOctave(midi));
+
+        __classPrivateFieldSet(this, _freq, findFrequency(midi));
+
+        __classPrivateFieldSet(this, _accident, whichAccident(note));
+      } else {
+        throw new Error("[Note]: <".concat(note + octave, "> isn't within the midi range of [0 - 127]"));
+      }
+    } else {
+      var diatonicIndex = DiatonicNotes.indexOf(note);
+
+      if (diatonicIndex !== -1) {
+        __classPrivateFieldSet(this, _note, DiatonicNotes[diatonicIndex]);
+      } else if (this.hasAccident(note) && this.resolveEnharmonic(note)) {
+        __classPrivateFieldSet(this, _note, note);
+      } else {
+        throw new Error("[Note]: <".concat(note, "> isn't a recognized musical note"));
+      }
+    }
+
+    if (isUndefined(__classPrivateFieldGet(this, _note))) {
+      throw new PlayaError('[Note]', "<".concat(note, "> isn't a recognized musical note"));
+    }
+
+    var _this$findNeighbours = this.findNeighbours(),
+        next = _this$findNeighbours.next,
+        prev = _this$findNeighbours.prev;
+
+    __classPrivateFieldSet(this, _next, next);
+
+    __classPrivateFieldSet(this, _prev, prev);
+  }
+  /**
+   * note with octave
+   *
+   * @member n
+   * @memberof Core#Note#
+   * @example 'C4'
+   * @type {string}
+   */
+
+
+  _createClass(Note, [{
+    key: "n",
+    get: function get() {
+      var octave = __classPrivateFieldGet(this, _octave);
+
+      var midi = __classPrivateFieldGet(this, _midi);
+
+      if (octave) {
+        return __classPrivateFieldGet(this, _note) + octave;
+      }
+
+      if (!midi || typeof octave !== 'number') {
+        return __classPrivateFieldGet(this, _note);
+      }
+
+      __classPrivateFieldSet(this, _octave, findOctave(midi));
+
+      return __classPrivateFieldGet(this, _note) + __classPrivateFieldGet(this, _octave);
+    }
+    /**
+     * note
+     *
+     * @member note
+     * @memberof Core#Note#
+     * @example 'C'
+     * @type {string}
+     */
+
+  }, {
+    key: "note",
+    get: function get() {
+      return __classPrivateFieldGet(this, _note);
+    }
+    /**
+     * octave
+     *
+    * @member octave
+    * @memberof Core#Note#
+    * @example C3 => 3
+    * @readonly
+    * @type {number}
+     */
+
+  }, {
+    key: "octave",
+    get: function get() {
+      return __classPrivateFieldGet(this, _octave);
+    }
+    /**
+     * Returns the enharmonic
+     *
+     * @member e
+     * @memberof Core#Note#
+     * @example 'D#' => 'Eb'
+     * @type {String}
+     */
+
+  }, {
+    key: "e",
+    get: function get() {
+      return this.enharmonic;
+    }
+    /**
+    * Returns the enharmonic or itself if it doesn't have one
+    *
+    * @member enharmonic
+    * @memberof Core#Note#
+    * @example 'D#' => 'Eb'
+    * @type {String}
+    */
+
+  }, {
+    key: "enharmonic",
+    get: function get() {
+      if (!__classPrivateFieldGet(this, _enharmonic)) {
+        __classPrivateFieldSet(this, _enharmonic, this.resolveEnharmonic(__classPrivateFieldGet(this, _note)));
+      }
+
+      return __classPrivateFieldGet(this, _enharmonic);
+    }
+    /**
+     * Returns the enharmonic with oct
+     *
+     * @member eoct
+     * @memberof Core#Note#
+     * @example 'D#3' => 'Eb3'
+     * @type {string}
+     */
+
+  }, {
+    key: "eoct",
+    get: function get() {
+      // TODO: This can probably be removed
+      var octave = __classPrivateFieldGet(this, _octave);
+
+      if (!octave) return null;
+      var enh = this.e;
+      if (!enh) return null;
+      return enh + octave;
+    }
+    /**
+     * Returns the midi number
+     *
+     * @member m
+     * @memberof Core#Note#
+     * @example 60 // C3
+     * @type {Number}
+     */
+
+  }, {
+    key: "m",
+    get: function get() {
+      return __classPrivateFieldGet(this, _midi);
+    }
+    /**
+    * Returns the midi number
+    * @member midi
+    * @memberof Core#Note#
+    * @example 60 // C3
+    * @type {Number}
+    */
+
+  }, {
+    key: "midi",
+    get: function get() {
+      return __classPrivateFieldGet(this, _midi);
+    }
+    /**
+     * Returns the note frequency
+     *
+     * @member f
+     * @memberof Core#Note#
+     * @example 440 // A3
+     * @type {Number}
+     */
+
+  }, {
+    key: "f",
+    get: function get() {
+      return this.freq;
+    }
+    /**
+    * Returns the note frequency
+    * @member freq
+    * @memberof Core#Note#
+    * @example 440 // A3
+    * @type {Number}
+    */
+
+  }, {
+    key: "freq",
+    get: function get() {
+      var midi = __classPrivateFieldGet(this, _midi);
+
+      if (__classPrivateFieldGet(this, _freq)) {
+        return __classPrivateFieldGet(this, _freq);
+      }
+
+      if (!midi) {
+        return undefined;
+      }
+
+      __classPrivateFieldSet(this, _freq, findFrequency(midi));
+
+      return __classPrivateFieldGet(this, _freq);
+    }
+    /**
+     * Returns the distance to C as index
+     *
+     * @member distC
+     * @memberof Core#Note#
+     * @example 'D' => 2
+     * @return {Number}
+     */
+
+  }, {
+    key: "distC",
+    get: function get() {
+      var note = __classPrivateFieldGet(this, _note);
+
+      var enh = this.e;
+
+      if (this.isFlat && enh) {
+        return Sharps.indexOf(enh);
+      }
+
+      return Sharps.indexOf(note);
+    }
+    /**
+     * Returns the next note a semitone away
+     *
+     * @member next
+     * @memberof Core#Note#
+     * @example 'C' => Note('C#')
+     * @return {Note}
+     */
+
+  }, {
+    key: "next",
+    get: function get() {
+      var midi = typeof __classPrivateFieldGet(this, _midi) !== 'undefined' ? __classPrivateFieldGet(this, _midi) + 1 : null;
+      return this.getNeighbour(__classPrivateFieldGet(this, _next), midi);
+    }
+    /**
+    * Returns the previous note a semitone away
+    *
+    * @member prev
+    * @memberof Core#Note#
+    * @example 'Eb' => Note('D')
+    * @return {Note}
+    */
+
+  }, {
+    key: "prev",
+    get: function get() {
+      var midi = __classPrivateFieldGet(this, _midi) ? __classPrivateFieldGet(this, _midi) - 1 : null;
+      return this.getNeighbour(__classPrivateFieldGet(this, _prev), midi);
+    }
+  }, {
+    key: "getNeighbour",
+    value: function getNeighbour(note, midi) {
+      if (!midi) {
+        return new Note(note);
+      }
+
+      return new Note(note, midi);
+    }
+    /**
+     * Is the note a flat
+     *
+     * @member isFlat
+     * @memberof Core#Note#
+     * @return {Boolean}
+     */
+
+  }, {
+    key: "isFlat",
+    get: function get() {
+      return __classPrivateFieldGet(this, _accident) === Note.FLAT;
+    }
+    /**
+     * Is it a natural note
+     * @member isNatural
+     * @memberof Core#Note#
+     * @return {Boolean}
+     */
+
+  }, {
+    key: "isNatural",
+    get: function get() {
+      return !__classPrivateFieldGet(this, _accident);
+    }
+    /**
+     * Is the note a sharp
+     * @member isSharp
+     * @memberof Core#Note#
+     * @example 'Eb' => 'D'
+     * @return {Boolean}
+     */
+
+  }, {
+    key: "isSharp",
+    get: function get() {
+      return __classPrivateFieldGet(this, _accident) === Note.SHARP;
+    }
+    /**
+    * Does this note equal the other?
+    * Equality check done by comparing the Note (without octave), enharmonics and midi
+    * @function equals
+    * @param {Note} other
+    * @return {boolean}
+    * @memberof Core#Note#
+    */
+
+  }, {
+    key: "equals",
+    value: function equals(other) {
+      return this.note === other.note || this.midi === other.midi || this.note === other.e;
+    }
+  }, {
+    key: (_note = new WeakMap(), _octave = new WeakMap(), _midi = new WeakMap(), _freq = new WeakMap(), _enharmonic = new WeakMap(), _accident = new WeakMap(), _next = new WeakMap(), _prev = new WeakMap(), Symbol.toStringTag),
+    get: function get() {
+      return "Note: ".concat(this.n);
+    }
+    /**
+     * Tries to find the enharmonic of the note
+     * @private
+     * @param {string} note
+     * @return {String} enharmonic
+     * @memberof Note
+     */
+
+  }, {
+    key: "resolveEnharmonic",
+    value: function resolveEnharmonic(note) {
+      var enharmonic = '';
+
+      for (var index = 0; index < Enharmonics.length; index++) {
+        var enharmonics = Enharmonics[index].split('|');
+        var noteIndex = enharmonics.indexOf(note);
+
+        if (noteIndex !== -1) {
+          var enharmonicIndex = noteIndex ? 0 : 1;
+          enharmonic = enharmonics[enharmonicIndex];
+          break;
+        }
+      }
+
+      if (!enharmonic) {
+        return;
+      }
+
+      return enharmonic;
+    }
+  }, {
+    key: "hasAccident",
+    value: function hasAccident(note) {
+      if (!__classPrivateFieldGet(this, _accident)) {
+        __classPrivateFieldSet(this, _accident, whichAccident(note));
+      }
+
+      return !!__classPrivateFieldGet(this, _accident);
+    }
+    /**
+     * Finds the neighboring notes
+     * @private
+     * @return {Object} [prev, next] Adjacent neighbors
+     * @memberof Note
+     */
+
+  }, {
+    key: "findNeighbours",
+    value: function findNeighbours() {
+      var note = __classPrivateFieldGet(this, _note);
+
+      if (!__classPrivateFieldGet(this, _accident)) {
+        __classPrivateFieldSet(this, _accident, whichAccident(note));
+      }
+
+      if (__classPrivateFieldGet(this, _accident) === Note.FLAT) {
+        note = this.enharmonic;
+      }
+
+      var noteIndex = Sharps.indexOf(note); // [0, 11]
+      // -1 -> 11
+      // 12 -> 0
+
+      var prevIndex = noteIndex - 1;
+      var nextIndex = noteIndex + 1;
+      return {
+        prev: Sharps[prevIndex === -1 ? 11 : prevIndex],
+        next: Sharps[nextIndex === 12 ? 0 : nextIndex]
+      };
+    }
+  }]);
+
+  return Note;
+}();
+Note.SHARP = '#';
+Note.FLAT = 'b';
+Note.Sharps = Sharps;
+Note.Flats = Flats;
+
+function _reduced(x) {
+  return x && x['@@transducer/reduced'] ? x : {
+    '@@transducer/value': x,
+    '@@transducer/reduced': true
+  };
+}
+var _reduced_1 = _reduced;
+
+var XFind =
+function () {
+  function XFind(f, xf) {
+    this.xf = xf;
+    this.f = f;
+    this.found = false;
+  }
+  XFind.prototype['@@transducer/init'] = _xfBase.init;
+  XFind.prototype['@@transducer/result'] = function (result) {
+    if (!this.found) {
+      result = this.xf['@@transducer/step'](result, void 0);
+    }
+    return this.xf['@@transducer/result'](result);
+  };
+  XFind.prototype['@@transducer/step'] = function (result, input) {
+    if (this.f(input)) {
+      this.found = true;
+      result = _reduced_1(this.xf['@@transducer/step'](result, input));
+    }
+    return result;
+  };
+  return XFind;
+}();
+var _xfind =
+_curry2_1(function _xfind(f, xf) {
+  return new XFind(f, xf);
+});
+var _xfind_1 = _xfind;
+
+var find =
+_curry2_1(
+_dispatchable_1(['find'], _xfind_1, function find(fn, list) {
+  var idx = 0;
+  var len = list.length;
+  while (idx < len) {
+    if (fn(list[idx])) {
+      return list[idx];
+    }
+    idx += 1;
+  }
+}));
+var find_1 = find;
+
+var last =
+nth_1(-1);
+var last_1 = last;
+
+function _arrayFromIterator(iter) {
+  var list = [];
+  var next;
+  while (!(next = iter.next()).done) {
+    list.push(next.value);
+  }
+  return list;
+}
+var _arrayFromIterator_1 = _arrayFromIterator;
+
+function _includesWith(pred, x, list) {
+  var idx = 0;
+  var len = list.length;
+  while (idx < len) {
+    if (pred(x, list[idx])) {
+      return true;
+    }
+    idx += 1;
+  }
+  return false;
+}
+var _includesWith_1 = _includesWith;
+
+function _functionName(f) {
+  var match = String(f).match(/^function (\w*)/);
+  return match == null ? '' : match[1];
+}
+var _functionName_1 = _functionName;
+
+function _objectIs(a, b) {
+  if (a === b) {
+    return a !== 0 || 1 / a === 1 / b;
+  } else {
+    return a !== a && b !== b;
+  }
+}
+var _objectIs_1 = typeof Object.is === 'function' ? Object.is : _objectIs;
+
+var type =
+_curry1_1(function type(val) {
+  return val === null ? 'Null' : val === undefined ? 'Undefined' : Object.prototype.toString.call(val).slice(8, -1);
+});
+var type_1 = type;
+
+function _uniqContentEquals(aIterator, bIterator, stackA, stackB) {
+  var a = _arrayFromIterator_1(aIterator);
+  var b = _arrayFromIterator_1(bIterator);
+  function eq(_a, _b) {
+    return _equals(_a, _b, stackA.slice(), stackB.slice());
+  }
+  return !_includesWith_1(function (b, aItem) {
+    return !_includesWith_1(eq, aItem, b);
+  }, b, a);
+}
+function _equals(a, b, stackA, stackB) {
+  if (_objectIs_1(a, b)) {
+    return true;
+  }
+  var typeA = type_1(a);
+  if (typeA !== type_1(b)) {
+    return false;
+  }
+  if (a == null || b == null) {
+    return false;
+  }
+  if (typeof a['fantasy-land/equals'] === 'function' || typeof b['fantasy-land/equals'] === 'function') {
+    return typeof a['fantasy-land/equals'] === 'function' && a['fantasy-land/equals'](b) && typeof b['fantasy-land/equals'] === 'function' && b['fantasy-land/equals'](a);
+  }
+  if (typeof a.equals === 'function' || typeof b.equals === 'function') {
+    return typeof a.equals === 'function' && a.equals(b) && typeof b.equals === 'function' && b.equals(a);
+  }
+  switch (typeA) {
+    case 'Arguments':
+    case 'Array':
+    case 'Object':
+      if (typeof a.constructor === 'function' && _functionName_1(a.constructor) === 'Promise') {
+        return a === b;
+      }
+      break;
+    case 'Boolean':
+    case 'Number':
+    case 'String':
+      if (!(typeof a === typeof b && _objectIs_1(a.valueOf(), b.valueOf()))) {
+        return false;
+      }
+      break;
+    case 'Date':
+      if (!_objectIs_1(a.valueOf(), b.valueOf())) {
+        return false;
+      }
+      break;
+    case 'Error':
+      return a.name === b.name && a.message === b.message;
+    case 'RegExp':
+      if (!(a.source === b.source && a.global === b.global && a.ignoreCase === b.ignoreCase && a.multiline === b.multiline && a.sticky === b.sticky && a.unicode === b.unicode)) {
+        return false;
+      }
+      break;
+  }
+  var idx = stackA.length - 1;
+  while (idx >= 0) {
+    if (stackA[idx] === a) {
+      return stackB[idx] === b;
+    }
+    idx -= 1;
+  }
+  switch (typeA) {
+    case 'Map':
+      if (a.size !== b.size) {
+        return false;
+      }
+      return _uniqContentEquals(a.entries(), b.entries(), stackA.concat([a]), stackB.concat([b]));
+    case 'Set':
+      if (a.size !== b.size) {
+        return false;
+      }
+      return _uniqContentEquals(a.values(), b.values(), stackA.concat([a]), stackB.concat([b]));
+    case 'Arguments':
+    case 'Array':
+    case 'Object':
+    case 'Boolean':
+    case 'Number':
+    case 'String':
+    case 'Date':
+    case 'Error':
+    case 'RegExp':
+    case 'Int8Array':
+    case 'Uint8Array':
+    case 'Uint8ClampedArray':
+    case 'Int16Array':
+    case 'Uint16Array':
+    case 'Int32Array':
+    case 'Uint32Array':
+    case 'Float32Array':
+    case 'Float64Array':
+    case 'ArrayBuffer':
+      break;
+    default:
+      return false;
+  }
+  var keysA = keys_1(a);
+  if (keysA.length !== keys_1(b).length) {
+    return false;
+  }
+  var extendedStackA = stackA.concat([a]);
+  var extendedStackB = stackB.concat([b]);
+  idx = keysA.length - 1;
+  while (idx >= 0) {
+    var key = keysA[idx];
+    if (!(_has_1(key, b) && _equals(b[key], a[key], extendedStackA, extendedStackB))) {
+      return false;
+    }
+    idx -= 1;
+  }
+  return true;
+}
+var _equals_1 = _equals;
+
+var equals =
+_curry2_1(function equals(a, b) {
+  return _equals_1(a, b, [], []);
+});
+var equals_1 = equals;
+
+function _pipe(f, g) {
+  return function () {
+    return g.call(this, f.apply(this, arguments));
+  };
+}
+var _pipe_1 = _pipe;
+
+var reduce =
+_curry3_1(_reduce_1);
+var reduce_1 = reduce;
+
+var tail =
+_curry1_1(
+_checkForMethod_1('tail',
+slice_1(1, Infinity)));
+var tail_1 = tail;
+
+function pipe() {
+  if (arguments.length === 0) {
+    throw new Error('pipe requires at least one argument');
+  }
+  return _arity_1(arguments[0].length, reduce_1(_pipe_1, arguments[0], tail_1(arguments)));
+}
+var pipe_1 = pipe;
+
+var reverse =
+_curry1_1(function reverse(list) {
+  return _isString_1(list) ? list.split('').reverse().join('') : Array.prototype.slice.call(list, 0).reverse();
+});
+var reverse_1 = reverse;
+
+function compose() {
+  if (arguments.length === 0) {
+    throw new Error('compose requires at least one argument');
+  }
+  return pipe_1.apply(this, reverse_1(arguments));
+}
+var compose_1 = compose;
+
+function _indexOf(list, a, idx) {
+  var inf, item;
+  if (typeof list.indexOf === 'function') {
+    switch (typeof a) {
+      case 'number':
+        if (a === 0) {
+          inf = 1 / a;
+          while (idx < list.length) {
+            item = list[idx];
+            if (item === 0 && 1 / item === inf) {
+              return idx;
+            }
+            idx += 1;
+          }
+          return -1;
+        } else if (a !== a) {
+          while (idx < list.length) {
+            item = list[idx];
+            if (typeof item === 'number' && item !== item) {
+              return idx;
+            }
+            idx += 1;
+          }
+          return -1;
+        }
+        return list.indexOf(a, idx);
+      case 'string':
+      case 'boolean':
+      case 'function':
+      case 'undefined':
+        return list.indexOf(a, idx);
+      case 'object':
+        if (a === null) {
+          return list.indexOf(a, idx);
+        }
+    }
+  }
+  while (idx < list.length) {
+    if (equals_1(list[idx], a)) {
+      return idx;
+    }
+    idx += 1;
+  }
+  return -1;
+}
+var _indexOf_1 = _indexOf;
+
+function _includes(a, list) {
+  return _indexOf_1(list, a, 0) >= 0;
+}
+var _includes_1 = _includes;
+
+var _Set =
+function () {
+  function _Set() {
+    this._nativeSet = typeof Set === 'function' ? new Set() : null;
+    this._items = {};
+  }
+  _Set.prototype.add = function (item) {
+    return !hasOrAdd(item, true, this);
+  };
+  _Set.prototype.has = function (item) {
+    return hasOrAdd(item, false, this);
+  };
+  return _Set;
+}();
+function hasOrAdd(item, shouldAdd, set) {
+  var type = typeof item;
+  var prevSize, newSize;
+  switch (type) {
+    case 'string':
+    case 'number':
+      if (item === 0 && 1 / item === -Infinity) {
+        if (set._items['-0']) {
+          return true;
+        } else {
+          if (shouldAdd) {
+            set._items['-0'] = true;
+          }
+          return false;
+        }
+      }
+      if (set._nativeSet !== null) {
+        if (shouldAdd) {
+          prevSize = set._nativeSet.size;
+          set._nativeSet.add(item);
+          newSize = set._nativeSet.size;
+          return newSize === prevSize;
+        } else {
+          return set._nativeSet.has(item);
+        }
+      } else {
+        if (!(type in set._items)) {
+          if (shouldAdd) {
+            set._items[type] = {};
+            set._items[type][item] = true;
+          }
+          return false;
+        } else if (item in set._items[type]) {
+          return true;
+        } else {
+          if (shouldAdd) {
+            set._items[type][item] = true;
+          }
+          return false;
+        }
+      }
+    case 'boolean':
+      if (type in set._items) {
+        var bIdx = item ? 1 : 0;
+        if (set._items[type][bIdx]) {
+          return true;
+        } else {
+          if (shouldAdd) {
+            set._items[type][bIdx] = true;
+          }
+          return false;
+        }
+      } else {
+        if (shouldAdd) {
+          set._items[type] = item ? [false, true] : [true, false];
+        }
+        return false;
+      }
+    case 'function':
+      if (set._nativeSet !== null) {
+        if (shouldAdd) {
+          prevSize = set._nativeSet.size;
+          set._nativeSet.add(item);
+          newSize = set._nativeSet.size;
+          return newSize === prevSize;
+        } else {
+          return set._nativeSet.has(item);
+        }
+      } else {
+        if (!(type in set._items)) {
+          if (shouldAdd) {
+            set._items[type] = [item];
+          }
+          return false;
+        }
+        if (!_includes_1(item, set._items[type])) {
+          if (shouldAdd) {
+            set._items[type].push(item);
+          }
+          return false;
+        }
+        return true;
+      }
+    case 'undefined':
+      if (set._items[type]) {
+        return true;
+      } else {
+        if (shouldAdd) {
+          set._items[type] = true;
+        }
+        return false;
+      }
+    case 'object':
+      if (item === null) {
+        if (!set._items['null']) {
+          if (shouldAdd) {
+            set._items['null'] = true;
+          }
+          return false;
+        }
+        return true;
+      }
+    default:
+      type = Object.prototype.toString.call(item);
+      if (!(type in set._items)) {
+        if (shouldAdd) {
+          set._items[type] = [item];
+        }
+        return false;
+      }
+      if (!_includes_1(item, set._items[type])) {
+        if (shouldAdd) {
+          set._items[type].push(item);
+        }
+        return false;
+      }
+      return true;
+  }
+}
+var _Set_1 = _Set;
+
+var uniqBy =
+_curry2_1(function uniqBy(fn, list) {
+  var set = new _Set_1();
+  var result = [];
+  var idx = 0;
+  var appliedItem, item;
+  while (idx < list.length) {
+    item = list[idx];
+    appliedItem = fn(item);
+    if (set.add(appliedItem)) {
+      result.push(item);
+    }
+    idx += 1;
+  }
+  return result;
+});
+var uniqBy_1 = uniqBy;
+
+function _isNumber(x) {
+  return Object.prototype.toString.call(x) === '[object Number]';
+}
+var _isNumber_1 = _isNumber;
+
+var length =
+_curry1_1(function length(list) {
+  return list != null && _isNumber_1(list.length) ? list.length : NaN;
+});
+var length_1 = length;
+
+function _map(fn, functor) {
+  var idx = 0;
+  var len = functor.length;
+  var result = Array(len);
+  while (idx < len) {
+    result[idx] = fn(functor[idx]);
+    idx += 1;
+  }
+  return result;
+}
+var _map_1 = _map;
+
+var XMap =
+function () {
+  function XMap(f, xf) {
+    this.xf = xf;
+    this.f = f;
+  }
+  XMap.prototype['@@transducer/init'] = _xfBase.init;
+  XMap.prototype['@@transducer/result'] = _xfBase.result;
+  XMap.prototype['@@transducer/step'] = function (result, input) {
+    return this.xf['@@transducer/step'](result, this.f(input));
+  };
+  return XMap;
+}();
+var _xmap =
+_curry2_1(function _xmap(f, xf) {
+  return new XMap(f, xf);
+});
+var _xmap_1 = _xmap;
+
+var map =
+_curry2_1(
+_dispatchable_1(['fantasy-land/map', 'map'], _xmap_1, function map(fn, functor) {
+  switch (Object.prototype.toString.call(functor)) {
+    case '[object Function]':
+      return curryN_1(functor.length, function () {
+        return fn.call(this, functor.apply(this, arguments));
+      });
+    case '[object Object]':
+      return _reduce_1(function (acc, key) {
+        acc[key] = fn(functor[key]);
+        return acc;
+      }, {}, keys_1(functor));
+    default:
+      return _map_1(fn, functor);
+  }
+}));
+var map_1 = map;
+
+/**
+ * Maps an array of notes into a specified type
+ *
+ * @private
+ *
+ * @function mapNotesToMidi
+ * @memberof Utils
+ *
+ * @param {Array<Note>} notes
+ * @return {Array<Number>} Notes mapped to a type
+ */
+
+var mapNotesToMidi = function mapNotesToMidi(notes) {
+  return map_1(prop_1('midi'), notes).filter(isDefined);
+};
+var mapNotesToFreq = function mapNotesToFreq(notes) {
+  return map_1(prop_1('freq'), notes).filter(isDefined);
+};
+var mapNotesToString = function mapNotesToString(notes) {
+  return map_1(prop_1('n'), notes).filter(isDefined);
+};
+
+/**
+ * Abstract base class for harmonic structures
+ *
+ * @memberof Core
+ * @class
+ * @name HarmonyBase
+ * @abstract
+ */
+
+var HarmonyBase = /*#__PURE__*/function () {
+  /**
+   * Creates an instance of HarmonyBase.
+   *
+   * @constructs HarmonyBase
+   * @memberof Core.HarmonyBase#
+   * @private
+   *
+   * @param {Note} root
+   * @param {Array<Number>} octaves [starting, number of octaves] range of octaves to map notes to
+   */
+  function HarmonyBase(root, octaves) {
+    _classCallCheck(this, HarmonyBase);
+
+    this._notes = [];
+    this._hasFlats = false;
+    this._hasSharps = false;
+    this._root = new Note(root);
+
+    if (octaves) {
+      this._octaves = octaves;
+    } else if (this._root.octave) {
+      this._octaves = [this._root.octave, 1];
+    } else {
+      this._octaves = [3, 1];
+    }
+  }
+  /**
+  * Gets the root note
+  * @member root
+  * @memberof Core.HarmonyBase#
+  * @example Note('A')
+  *
+  * @type {Note}
+  */
+
+
+  _createClass(HarmonyBase, [{
+    key: "root",
+    get: function get() {
+      return this._root;
+    }
+    /**
+     * Gets the notes in {@link Note} format
+     * @member notes
+     * @memberof Core.HarmonyBase#
+     *
+     * @type {Array<Note>}
+     */
+
+  }, {
+    key: "notes",
+    get: function get() {
+      return this._notes;
+    }
+    /**
+     * Gets the notes as string
+     * @example
+     * new Scale('C', Scale.Major).string => [ 'C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3' ]
+     * new Chord('Cmaj').string => [ 'C3', 'E3', 'G3' ]
+     *
+     * @member string
+     * @memberof Core.HarmonyBase#
+     *
+     * @type {Array<string>}
+     */
+
+  }, {
+    key: "string",
+    get: function get() {
+      var notes = this._notes;
+
+      if (!notes.length) {
+        return [];
+      }
+
+      return mapNotesToString(notes);
+    }
+    /**
+     * Gets the notes in midi format
+     * @example
+     * new Scale('C', Scale.Major).midi => [ 60, 62, 64, 65, 67, 69, 71 ]
+     * new Chord('Cmaj').midi => [ 60, 64, 67 ]
+     *
+     * @member midi
+     * @memberof Core.HarmonyBase#
+     *
+     * @type {Array<number>}
+     */
+
+  }, {
+    key: "midi",
+    get: function get() {
+      if (!this._notes.length) {
+        return [];
+      }
+
+      return mapNotesToMidi(this._notes);
+    }
+    /**
+     * Gets the notes as frequencies
+     * @example
+     * new Scale('C', Scale.Major).freq => [ 261.62, 293.66, 329.62, 349.22, 391.99, 440, 493.88 ]
+     * new Chord('Cmaj').freq => [261.62, 329.62, 391.99]
+     *
+     * @member freq
+     * @memberof Core.HarmonyBase#
+     *
+     * @type {Array<number>}
+     */
+
+  }, {
+    key: "freq",
+    get: function get() {
+      if (!this.notes.length) {
+        return [];
+      }
+
+      return mapNotesToFreq(this._notes);
+    }
+  }, {
+    key: "octaves",
+    get: function get() {
+      return this._octaves;
+    }
+    /**
+     * Octaves getter/setter
+     * @member {Array<Number>} octaves
+     * @memberof Core.HarmonyBase#
+     * @param {Array} octaves
+     */
+    ,
+    set: function set(octaves) {
+      if (octaves !== this._octaves) {
+        this.assignOctaves(octaves);
+      }
+    }
+    /**
+    * Does it use flats
+    * @member hasFlats
+    * @memberof Core.HarmonyBase#
+    *
+    * @type {boolean}
+    */
+
+  }, {
+    key: "hasFlats",
+    get: function get() {
+      return this._hasFlats;
+    }
+    /**
+    * Does it use sharps
+    * @member hasSharps
+    * @memberof Core.HarmonyBase#
+    *
+    * @type {boolean}
+    */
+
+  }, {
+    key: "hasSharps",
+    get: function get() {
+      return this._hasSharps;
+    }
+  }]);
+
+  return HarmonyBase;
+}();
+
+// *****************************************************************************
+// SCALES
+// *****************************************************************************
+
+/**
+ * Scale Name
+ * @memberof Constants
+ * @typedef {string} ScaleName
+ * @enum
+ * @example
+ * ScaleName.Major => 'Major'
+ */
+var ScaleName = {
+  /**
+  * Lydian
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Lydian: 'Lydian',
+
+  /**
+  * Major
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Major: 'Major',
+
+  /**
+  * Ionian
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Ionian: 'Ionian',
+
+  /**
+  * Mixolydian
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Mixolydian: 'Mixolydian',
+
+  /**
+  * Minor
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Minor: 'Minor',
+
+  /**
+  * Aeolian
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Aeolian: 'Aeolian',
+
+  /**
+  * Dorian
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Dorian: 'Dorian',
+
+  /**
+  * Phrygian
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Phrygian: 'Phrygian',
+
+  /**
+  * Locrian
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Locrian: 'Locrian',
+
+  /**
+  * Major Pentatonic
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  MajorPentatonic: 'MajorPentatonic',
+
+  /**
+  * Minor Pentatonic
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  MinorPentatonic: 'MinorPentatonic',
+
+  /**
+  * Egyptian
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Egyptian: 'Egyptian',
+
+  /**
+  * Melodic Minor
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  MelodicMinor: 'MelodicMinor',
+
+  /**
+  * Altered
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Altered: 'Altered',
+
+  /**
+  * Harmonic Minor
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  HarmonicMinor: 'HarmonicMinor',
+
+  /**
+  * Chromatic
+  * @type {ScaleName}
+  * @memberof Constants.ScaleName
+  * @default
+  * @readonly
+  */
+  Chromatic: 'Chromatic'
+};
+/**
+ * Scale Intervals
+ * @memberof Constants
+ * @typedef {string} ScaleIntervals
+ * @param {ScaleName}
+ * @enum
+ * @example
+ * ScaleInterval.Major => '1P 2M 3M 4P 5P 6M 7M'
+ */
+
+var ScaleIntervals = {
+  /**
+  * Lydian
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Lydian: '1P 2M 3M 4A 5P 6M 7M',
+
+  /**
+  * Major
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Major: '1P 2M 3M 4P 5P 6M 7M',
+
+  /**
+  * Ionian
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Ionian: '1P 2M 3M 4P 5P 6M 7M',
+
+  /**
+  * Mixolydian
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Mixolydian: '1P 2M 3M 4P 5P 6M 7m',
+
+  /**
+  * Minor
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Minor: '1P 2M 3m 4P 5P 6m 7m',
+
+  /**
+  * Aeolian
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Aeolian: '1P 2M 3m 4P 5P 6m 7m',
+
+  /**
+  * Dorian
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Dorian: '1P 2M 3m 4P 5P 6M 7m',
+
+  /**
+  * Phrygian
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Phrygian: '1P 2m 3m 4P 5P 6m 7m',
+
+  /**
+  * Locrian
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Locrian: '1P 2m 3m 4P 5d 6m 7m',
+
+  /**
+  * Major Pentatonic
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  MajorPentatonic: '1P 2M 3M 5P 6M',
+
+  /**
+  * Minor Pentatonic
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  MinorPentatonic: '1P 3m 4P 5P 7m',
+
+  /**
+  * Egyptian
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Egyptian: '1P 2M 4P 5P 7m',
+
+  /**
+  * Melodic Minor
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  MelodicMinor: '1P 2M 3m 4P 5P 6M 7M',
+
+  /**
+  * Altered
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Altered: '1P 2m 3m 3M 5d 6m 7m',
+
+  /**
+  * Harmonic Minor
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  HarmonicMinor: '1P 2M 3m 4P 5P 6m 7M',
+
+  /**
+  * Chromatic
+  * @type {ScaleIntervals}
+  * @memberof Constants.ScaleIntervals
+  * @default
+  * @readonly
+  */
+  Chromatic: '1P 2m 2M 3m 3M 4P 4A 5P 6m 6M 7m 7M'
+};
+
+// *****************************************************************************
+// INTERVALS
+// *****************************************************************************
+
+/**
+ * Semitones
+ * @memberof Constants
+ * @typedef {number} Semitones
+ * @param {Interval} interval
+ * @enum
+ * @example
+ * Semitones['5P'] => 7
+ */
+var Semitones = {
+  '1P': 0,
+  '2m': 1,
+  '2M': 2,
+  '3m': 3,
+  '3M': 4,
+  '4P': 5,
+  '4A': 6,
+  '5d': 6,
+  '5P': 7,
+  '5A': 8,
+  '6m': 8,
+  '6M': 9,
+  '7m': 10,
+  '7M': 11,
+  '8P': 12,
+  '9m': 13,
+  '9M': 14,
+  '11P': 17,
+  '11A': 18,
+  '13m': 20,
+  '13M': 21
+};
+
+//  * For middle C to be C4 - 1
+
+var MIDI_OCTAVE_OFFSET$1 = 2;
+
+var calcScaleInterval = function calcScaleInterval(firstOct, numOctaves, distC) {
+  var midi = firstOct * 12 + distC;
+  var midiLenMax = Math.min((firstOct + numOctaves) * 12 + distC, 127);
+  var midiLen = Math.max(midiLenMax, 12);
+  return {
+    midi: midi,
+    midiLen: midiLen
+  };
+};
+/**
+ * Assign octaves to the notes passed
+ * @private
+ *
+ * @function assignOctaves
+ * @memberof Utils
+ *
+ * @param {Array<Scale|Chord>} notes
+ * @param {Array<Number>} octaves which octaves to map to
+ * @param {Object} opts
+ * @param {'scale'|'chord'} opts.type which type of the notes array is it
+ * @param {boolean} opts.hasFlats if the notes should be flats or sharps
+ * @example
+ * 		assignOctaves(scale.notes, [ 3, 2 ])
+ * 		assignOctaves(chord.notes, [ 4, 2 ], 'chord')
+ *
+ * @return {Array<Note>} Array of the Key notes mapped to octaves
+ */
+
+
+var assignOctaves = function assignOctaves(notes) {
+  var octaves = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [-2, 11];
+
+  var _ref = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'scale' : _ref$type,
+      _ref$hasFlats = _ref.hasFlats,
+      hasFlats = _ref$hasFlats === void 0 ? false : _ref$hasFlats;
+
+  var firstNote = notes[0];
+  var chromaticNotes = firstNote.isFlat || hasFlats ? Flats : Sharps;
+  var map = [];
+  var allMidiNotes = [];
+  var chromaticIndex = 0;
+
+  if (!notes.length) {
+    return [];
+  }
+
+  var _octaves = _slicedToArray(octaves, 2),
+      firstOct = _octaves[0],
+      _octaves$ = _octaves[1],
+      numOctaves = _octaves$ === void 0 ? 1 : _octaves$;
+
+  var _calcScaleInterval = calcScaleInterval(firstOct + MIDI_OCTAVE_OFFSET$1, numOctaves, firstNote.distC),
+      midi = _calcScaleInterval.midi,
+      midiLen = _calcScaleInterval.midiLen;
+
+  if (type === 'chord') {
+    midiLen += 24;
+    midiLen = Math.min(midiLen, 127);
+  }
+
+  if (midi < 1) {
+    allMidiNotes.push(new Note(0));
+    midi = 1;
+  }
+
+  for (midi; midi <= midiLen; midi++) {
+    chromaticIndex = midi % 12;
+    var chromaticNote = chromaticNotes[chromaticIndex];
+    allMidiNotes.push(new Note(chromaticNote, midi));
+  }
+
+  var notesIndex = 0; // This garantees that the notes are on the right octaves
+
+  allMidiNotes.forEach(function (midiNote) {
+    var midi = midiNote.m;
+    var note = notes[notesIndex].note;
+
+    if (midiNote.equals(notes[notesIndex])) {
+      var mappedNote = new Note(note, midi);
+      map.push(mappedNote);
+      notesIndex++;
+
+      if (notesIndex > notes.length - 1) {
+        notesIndex = 0;
+      }
+    }
+  });
+  var mapLen = notes.length * numOctaves;
+  return map.slice(0, mapLen);
+};
+
+/**
+ * Defines a Scale
+ * @class
+ * @memberof Core#
+ *
+ * @name Scale
+ * @extends HarmonyBase
+ */
+
+var Scale = /*#__PURE__*/function (_HarmonyBase) {
+  _inherits(Scale, _HarmonyBase);
+
+  var _super = _createSuper(Scale);
+
+  /**
+   * Creates an instance of Scale.
+   * @constructs Scale
+   * @memberof Core#
+   *
+   * @param {NoteLike} note A note
+   * @param {string} intervals the scale to create
+   * @param {Array<Number>} [octaves = [3, 1]] [starting, number of octaves] range of octaves to map notes to
+   *
+   * @example
+   * new Scale('A', Scale.Major) // default octaves [3, 1];
+   * new Scale('C3', ScaleIntervals.Minor); // will have "octaves" -> [3,1]
+   * new Scale('A', Scale.Intervals.MajorPentatonic, [4, 1]);
+   */
+  function Scale(note, intervals, octaves) {
+    var _this;
+
+    _classCallCheck(this, Scale);
+
+    _this = _super.call(this, note, octaves);
+    _this._intervals = intervals;
+    _this._notes = _this.createScale() || [];
+
+    _this.assignOctaves();
+
+    return _this;
+  }
+  /**
+  * Returns the scale's name
+  *
+  * @member name
+  * @memberof Core#Scale#
+  * @type {ScaleName|String}
+  */
+
+
+  _createClass(Scale, [{
+    key: "name",
+    get: function get() {
+      return Scale.getName(this._intervals);
+    }
+    /**
+    * Returns the scale's intervals
+    *
+    * @member intervals
+    * @memberof Core#Scale#
+    * @type {ScaleIntervals|String}
+    */
+
+  }, {
+    key: "intervals",
+    get: function get() {
+      return this._intervals;
+    }
+    /**
+     * Note at interval
+     * @example
+     * new Scale('A', Scale.MINOR).noteAt(5) => E
+     *
+     * @function noteAt
+     * @memberof Core#Scale#
+     * @param {number} interval
+     * @return {Note}
+     */
+
+  }, {
+    key: "noteAt",
+    value: function noteAt(interval) {
+      var intervals = this._intervals.split(' ').map(function (interv) {
+        return parseInt(interv.replace(/[^\d]/, ''));
+      });
+
+      var noteIndex = intervals.indexOf(interval);
+
+      if (noteIndex === -1) {
+        throw new PlayaError('Scale', "[".concat(this._intervals, "] structure doesn't contain interval: ").concat(interval));
+      }
+
+      return this.notes[noteIndex];
+    }
+  }, {
+    key: "assignOctaves",
+    value: function assignOctaves$1(octaves) {
+      if (octaves) {
+        this._octaves = octaves;
+      }
+
+      this._notes = assignOctaves(this._notes, this.octaves, {
+        type: 'scale',
+        hasFlats: this.hasFlats
+      });
+      return this;
+    }
+    /**
+     * Creates a chromatic scale
+     *
+     * @param {String} rootNote
+     * @param {Boolean} withFlats
+     * @return {Array<Note>} Chromatic notes
+     * @private
+     */
+
+  }, {
+    key: "createChromaticScale",
+    value: function createChromaticScale(rootNote, withFlats) {
+      var chromaticNotes = [];
+      var nextNote = rootNote;
+
+      for (var index = -1; index < 12; index++) {
+        var note = nextNote;
+
+        if (note.isSharp && withFlats && note.e) {
+          note = new Note(note.e);
+        }
+
+        nextNote = note.next;
+        chromaticNotes.push(note);
+      }
+
+      return chromaticNotes;
+    }
+    /**
+     * Creates a scale
+     *
+     * @return {Array<Note>} The defined scale notes
+     * @private
+     */
+
+  }, {
+    key: "createScale",
+    value: function createScale() {
+      var baseSharpNotes = [];
+      var baseFlatNotes = [];
+      var rootNote = this.root;
+
+      var scaleIntervals = this._intervals.split(' ');
+
+      var chromaticSharpNotes = this.createChromaticScale(rootNote);
+      var chromaticFlatNotes = this.createChromaticScale(rootNote, true);
+
+      if (chromaticSharpNotes.length === scaleIntervals.length) {
+        return chromaticSharpNotes;
+      }
+
+      for (var index = 0; index < scaleIntervals.length; index++) {
+        var interval = scaleIntervals[index];
+        var semit = Semitones[interval];
+
+        if (semit != null && semit < chromaticSharpNotes.length) {
+          baseSharpNotes[index] = chromaticSharpNotes[semit];
+        }
+      }
+
+      for (var _index = 0; _index < scaleIntervals.length; _index++) {
+        var _interval = scaleIntervals[_index];
+        var _semit = Semitones[_interval];
+
+        if (_semit != null && _semit < chromaticFlatNotes.length) {
+          baseFlatNotes[_index] = chromaticFlatNotes[_semit];
+        }
+      } // This is to figure out if flats is a better match than sharps when the root note is natural
+
+
+      var naturalNotesLenSharp = length_1(uniqBy_1(function (note) {
+        return natural(note);
+      }, baseSharpNotes));
+
+      var naturalNotesLenFlat = length_1(uniqBy_1(function (note) {
+        return natural(note);
+      }, baseFlatNotes));
+
+      if (rootNote.isFlat) {
+        this._hasFlats = true;
+        this._hasSharps = false;
+        return baseFlatNotes;
+      }
+
+      if (rootNote.isSharp) {
+        this._hasSharps = true;
+        this._hasFlats = false;
+        return baseSharpNotes;
+      } // TODO: refactor this since this preference for sharps is not justifiable
+
+
+      if (naturalNotesLenSharp >= naturalNotesLenFlat) {
+        this._hasSharps = true;
+        this._hasFlats = false;
+        return baseSharpNotes;
+      } else {
+        this._hasFlats = true;
+        this._hasSharps = false;
+        return baseFlatNotes;
+      }
+    }
+    /**
+     * Finds the name of the set of intervals if it exists in our collection
+     * @function getName
+     * @memberof Core#Scale
+     *
+     * @static
+     * @param {(ScaleIntervals | string)} intervals
+     * @return {(ScaleName | undefined)}
+     */
+
+  }, {
+    key: Symbol.toStringTag,
+    get: function get() {
+      return "Scale: ".concat(this.string);
+    }
+  }], [{
+    key: "getName",
+    value: function getName(intervals) {
+      var isInterval = compose_1(equals_1(intervals), last_1);
+
+      var name = find_1(isInterval, Object.entries(ScaleIntervals));
+
+      if (isUndefined(name)) {
+        return;
+      }
+
+      return head_1(name);
+    }
+  }]);
+
+  return Scale;
+}(HarmonyBase);
+/**
+* Scale names
+*
+* @member Names
+* @memberof Core#Scale
+* @enum
+* @static
+* @type {ScaleIntervals}
+*
+* @example Scale.Names.Major => "Major"
+*/
+
+Scale.Names = ScaleName;
+/**
+* Scale intervals
+*
+* @member Intervals
+* @memberof Core#Scale
+* @enum
+* @static
+* @type {ScaleIntervals}
+*
+* @example Scale.Intervals.Major => "1P 2M 3M 4P 5P 6M 7M"
+*/
+
+Scale.Intervals = ScaleIntervals;
+/**
+* Lydian scale intervals
+* @member Lydian
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Lydian = ScaleIntervals.Lydian;
+/**
+* Major scale intervals
+* @member Major
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Major = ScaleIntervals.Major;
+/**
+* Ionian scale intervals
+* @member Ionian
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Ionian = ScaleIntervals.Ionian;
+/**
+* Mixolydian scale intervals
+* @member Mixolydian
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Mixolydian = ScaleIntervals.Mixolydian;
+/**
+* Minor scale intervals
+* @member Minor
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Minor = ScaleIntervals.Minor;
+/**
+* Aeolian scale intervals
+* @member Aeolian
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Aeolian = ScaleIntervals.Aeolian;
+/**
+* Dorian scale intervals
+* @member Dorian
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Dorian = ScaleIntervals.Dorian;
+/**
+* Phrygian scale intervals
+* @member Phrygian
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Phrygian = ScaleIntervals.Phrygian;
+/**
+* Locrian scale intervals
+* @member Locrian
+* @memberof Core#Scale
+* @type {ScaleIntervals}
+* @enum
+* @static
+* @readonly
+*/
+
+Scale.Locrian = ScaleIntervals.Locrian;
+
+var XAny =
+function () {
+  function XAny(f, xf) {
+    this.xf = xf;
+    this.f = f;
+    this.any = false;
+  }
+  XAny.prototype['@@transducer/init'] = _xfBase.init;
+  XAny.prototype['@@transducer/result'] = function (result) {
+    if (!this.any) {
+      result = this.xf['@@transducer/step'](result, false);
+    }
+    return this.xf['@@transducer/result'](result);
+  };
+  XAny.prototype['@@transducer/step'] = function (result, input) {
+    if (this.f(input)) {
+      this.any = true;
+      result = _reduced_1(this.xf['@@transducer/step'](result, true));
+    }
+    return result;
+  };
+  return XAny;
+}();
+var _xany =
+_curry2_1(function _xany(f, xf) {
+  return new XAny(f, xf);
+});
+var _xany_1 = _xany;
+
+var any =
+_curry2_1(
+_dispatchable_1(['any'], _xany_1, function any(fn, list) {
+  var idx = 0;
+  while (idx < list.length) {
+    if (fn(list[idx])) {
+      return true;
+    }
+    idx += 1;
+  }
+  return false;
+}));
+var any_1 = any;
+
+function _isFunction(x) {
+  var type = Object.prototype.toString.call(x);
+  return type === '[object Function]' || type === '[object AsyncFunction]' || type === '[object GeneratorFunction]' || type === '[object AsyncGeneratorFunction]';
+}
+var _isFunction_1 = _isFunction;
+
+function _quote(s) {
+  var escaped = s.replace(/\\/g, '\\\\').replace(/[\b]/g, '\\b')
+  .replace(/\f/g, '\\f').replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/\t/g, '\\t').replace(/\v/g, '\\v').replace(/\0/g, '\\0');
+  return '"' + escaped.replace(/"/g, '\\"') + '"';
+}
+var _quote_1 = _quote;
+
+var pad = function pad(n) {
+  return (n < 10 ? '0' : '') + n;
+};
+var _toISOString = typeof Date.prototype.toISOString === 'function' ? function _toISOString(d) {
+  return d.toISOString();
+} : function _toISOString(d) {
+  return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds()) + '.' + (d.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5) + 'Z';
+};
+var _toISOString_1 = _toISOString;
+
+function _complement(f) {
+  return function () {
+    return !f.apply(this, arguments);
+  };
+}
+var _complement_1 = _complement;
+
+var reject =
+_curry2_1(function reject(pred, filterable) {
+  return filter_1(_complement_1(pred), filterable);
+});
+var reject_1 = reject;
+
+function _toString(x, seen) {
+  var recur = function recur(y) {
+    var xs = seen.concat([x]);
+    return _includes_1(y, xs) ? '<Circular>' : _toString(y, xs);
+  };
+  var mapPairs = function (obj, keys) {
+    return _map_1(function (k) {
+      return _quote_1(k) + ': ' + recur(obj[k]);
+    }, keys.slice().sort());
+  };
+  switch (Object.prototype.toString.call(x)) {
+    case '[object Arguments]':
+      return '(function() { return arguments; }(' + _map_1(recur, x).join(', ') + '))';
+    case '[object Array]':
+      return '[' + _map_1(recur, x).concat(mapPairs(x, reject_1(function (k) {
+        return /^\d+$/.test(k);
+      }, keys_1(x)))).join(', ') + ']';
+    case '[object Boolean]':
+      return typeof x === 'object' ? 'new Boolean(' + recur(x.valueOf()) + ')' : x.toString();
+    case '[object Date]':
+      return 'new Date(' + (isNaN(x.valueOf()) ? recur(NaN) : _quote_1(_toISOString_1(x))) + ')';
+    case '[object Null]':
+      return 'null';
+    case '[object Number]':
+      return typeof x === 'object' ? 'new Number(' + recur(x.valueOf()) + ')' : 1 / x === -Infinity ? '-0' : x.toString(10);
+    case '[object String]':
+      return typeof x === 'object' ? 'new String(' + recur(x.valueOf()) + ')' : _quote_1(x);
+    case '[object Undefined]':
+      return 'undefined';
+    default:
+      if (typeof x.toString === 'function') {
+        var repr = x.toString();
+        if (repr !== '[object Object]') {
+          return repr;
+        }
+      }
+      return '{' + mapPairs(x, keys_1(x)).join(', ') + '}';
+  }
+}
+var _toString_1 = _toString;
+
+var toString$1 =
+_curry1_1(function toString(val) {
+  return _toString_1(val, []);
+});
+var toString_1 = toString$1;
+
+var concat =
+_curry2_1(function concat(a, b) {
+  if (_isArray(a)) {
+    if (_isArray(b)) {
+      return a.concat(b);
+    }
+    throw new TypeError(toString_1(b) + ' is not an array');
+  }
+  if (_isString_1(a)) {
+    if (_isString_1(b)) {
+      return a + b;
+    }
+    throw new TypeError(toString_1(b) + ' is not a string');
+  }
+  if (a != null && _isFunction_1(a['fantasy-land/concat'])) {
+    return a['fantasy-land/concat'](b);
+  }
+  if (a != null && _isFunction_1(a.concat)) {
+    return a.concat(b);
+  }
+  throw new TypeError(toString_1(a) + ' does not have a method named "concat" or "fantasy-land/concat"');
+});
+var concat_1 = concat;
+
+var XFindIndex =
+function () {
+  function XFindIndex(f, xf) {
+    this.xf = xf;
+    this.f = f;
+    this.idx = -1;
+    this.found = false;
+  }
+  XFindIndex.prototype['@@transducer/init'] = _xfBase.init;
+  XFindIndex.prototype['@@transducer/result'] = function (result) {
+    if (!this.found) {
+      result = this.xf['@@transducer/step'](result, -1);
+    }
+    return this.xf['@@transducer/result'](result);
+  };
+  XFindIndex.prototype['@@transducer/step'] = function (result, input) {
+    this.idx += 1;
+    if (this.f(input)) {
+      this.found = true;
+      result = _reduced_1(this.xf['@@transducer/step'](result, this.idx));
+    }
+    return result;
+  };
+  return XFindIndex;
+}();
+var _xfindIndex =
+_curry2_1(function _xfindIndex(f, xf) {
+  return new XFindIndex(f, xf);
+});
+var _xfindIndex_1 = _xfindIndex;
+
+var findIndex =
+_curry2_1(
+_dispatchable_1([], _xfindIndex_1, function findIndex(fn, list) {
+  var idx = 0;
+  var len = list.length;
+  while (idx < len) {
+    if (fn(list[idx])) {
+      return idx;
+    }
+    idx += 1;
+  }
+  return -1;
+}));
+var findIndex_1 = findIndex;
+
+var propEq =
+_curry3_1(function propEq(name, val, obj) {
+  return equals_1(val, obj[name]);
+});
+var propEq_1 = propEq;
+
+var ascend =
+_curry3_1(function ascend(fn, a, b) {
+  var aa = fn(a);
+  var bb = fn(b);
+  return aa < bb ? -1 : aa > bb ? 1 : 0;
+});
+var ascend_1 = ascend;
+
+var pluck =
+_curry2_1(function pluck(p, list) {
+  return map_1(prop_1(p), list);
+});
+var pluck_1 = pluck;
+
+var includes =
+_curry2_1(_includes_1);
+var includes_1 = includes;
+
+var splitAt =
+_curry2_1(function splitAt(index, array) {
+  return [slice_1(0, index, array), slice_1(index, length_1(array), array)];
+});
+var splitAt_1 = splitAt;
+
+var empty =
+_curry1_1(function empty(x) {
+  return x != null && typeof x['fantasy-land/empty'] === 'function' ? x['fantasy-land/empty']() : x != null && x.constructor != null && typeof x.constructor['fantasy-land/empty'] === 'function' ? x.constructor['fantasy-land/empty']() : x != null && typeof x.empty === 'function' ? x.empty() : x != null && x.constructor != null && typeof x.constructor.empty === 'function' ? x.constructor.empty() : _isArray(x) ? [] : _isString_1(x) ? '' : _isObject_1(x) ? {} : _isArguments_1(x) ? function () {
+    return arguments;
+  }() : void 0
+  ;
+});
+var empty_1 = empty;
+
+var isEmpty =
+_curry1_1(function isEmpty(x) {
+  return x != null && equals_1(x, empty_1(x));
+});
+var isEmpty_1 = isEmpty;
+
+function t(r){return (t="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(r)}var r={getPrototypeOf:function(){return Array.prototype},get:function(r,e,o){var n=r.length;if(e in Array.prototype)return "function"!=typeof Array.prototype[e]?Reflect.get(r,e,o):function(){for(var t=arguments.length,o=new Array(t),n=0;n<t;n++)o[n]=arguments[n];return Array.prototype[e].apply(r,o)};if("symbol"===t(e))return Reflect.get(r,e,o);var f=parseInt(e,10);return f<0?f=n+f:f>n-1&&(f%=n),Reflect.get(r,f,o)},set:function(t,r,e,o){return Reflect.set(t,r,e,o)}};function ring(t){if(t.length)return new Proxy([].concat(t),r)}
+
+var r$1=function(r,n,t){for(var e,u=n[0].split(".")[1].length,i=t().toFixed(u),a=0;a<n.length;a++){var o=n[a];if(parseFloat(i,10)<=parseFloat(o,10)){e=r[a];break}}return e},n=function(r){return parseFloat(r,10)},t$1=function(r,t){return r.reduce((function(r,t,e){return r[e-1]?(r.push(r[e-1]+n(t)),r):(r.push(n(t)),r)}),[]).map((function(r){return r.toFixed(t)}))},e=function(r){for(var n=[],t=4,e=1+1/((r=Array.isArray(r)?r.length:r)/3),u=0;u<r;u++){var i=e/t;n.push(i),e-=i,t+=1;}return n},u={decreasing:function(r){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:3,u=e(r);return t$1(u,n)},increasing:function(r){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:3,u=e(r);return u.reverse(),t$1(u,n)},equal:function(r){for(var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:3,e=1/(r=Array.isArray(r)?r.length:r),u=[],i=0,a=r;i<a;i++)u.push(e);return t$1(u,n)},sumDistribution:t$1};
+
+var mappings = {
+  'M': 1000 ,
+  'CM': 900,
+  'D': 500,
+  'CD': 400,
+  'C': 100,
+  'XC': 90,
+  'LX': 60,
+  'L': 50,
+  'XL': 40,
+  'X': 10,
+  'IX': 9,
+  'V': 5,
+  'IV': 4,
+  'I': 1
+};
+var config = {
+	mappings: mappings
+};
+
+var sortByVal = function (obj) {
+  return function (a, b) {
+    return obj[a] > obj[b] ? -1 : 1;
+  };
+};
+var convert = function (n, mappings$$1) {
+  var res = [],
+      mappings$$1 = mappings$$1 || config.mappings,
+      keys = Object.keys(mappings$$1),
+      sorted = keys.sort(sortByVal(mappings$$1));
+  sorted.forEach(function (key) {
+    var val = mappings$$1[key],
+        times = Math.floor(n/val);
+    for (var i = 0; i < times; i++) {
+      res.push(key);
+    }    n = n % val;
+  });
+  return res.join('');
+};
+
+var XTake =
+function () {
+  function XTake(n, xf) {
+    this.xf = xf;
+    this.n = n;
+    this.i = 0;
+  }
+  XTake.prototype['@@transducer/init'] = _xfBase.init;
+  XTake.prototype['@@transducer/result'] = _xfBase.result;
+  XTake.prototype['@@transducer/step'] = function (result, input) {
+    this.i += 1;
+    var ret = this.n === 0 ? result : this.xf['@@transducer/step'](result, input);
+    return this.n >= 0 && this.i >= this.n ? _reduced_1(ret) : ret;
+  };
+  return XTake;
+}();
+var _xtake =
+_curry2_1(function _xtake(n, xf) {
+  return new XTake(n, xf);
+});
+var _xtake_1 = _xtake;
+
+var take =
+_curry2_1(
+_dispatchable_1(['take'], _xtake_1, function take(n, xs) {
+  return slice_1(0, n < 0 ? Infinity : n, xs);
+}));
+var take_1 = take;
+
+var _ChordDefinition;
+
+/* eslint max-len: 0 */
+// *****************************************************************************
+// CHORDS
+// *****************************************************************************
+
+/**
+ * Chord Names
+ * @memberof Constants
+ * @typedef {string} ChordName
+ * @enum
+ * @example
+ * ChordName.Major => 'Major'
+ */
+var ChordName = {
+  /**
+  * Major triad
+  * @type {string}
+  * @memberof Constants.ChordName
+  * @default
+  * @readonly
+  */
+  Major: 'Major',
+
+  /**
+   * Minor triad
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  Minor: 'Minor',
+
+  /**
+   * Augmented 5th triad
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  Aug: 'Aug',
+
+  /**
+   * Diminished 5th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  Dim: 'Dim',
+
+  /**
+   * Suspended 2nd triad
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  Sus2: 'Sus2',
+
+  /**
+   * Suspended 4th triad
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  Sus4: 'Sus4',
+
+  /**
+   * Power triad
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  P5: 'P5',
+
+  /**
+   * Major 6th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MajorSixth: 'MajorSixth',
+
+  /**
+   * Minor 6th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MinorSixth: 'MinorSixth',
+
+  /**
+   * Minor triad, major 6th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MinorMajorSixth: 'MinorMajorSixth',
+
+  /**
+   * Minor 6th added 9th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MinorSixthAddNine: 'MinorSixthAddNine',
+
+  /**
+   * Major 6th added 9th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MajorSixthAddNine: 'MajorSixthAddNine',
+
+  /**
+   * Dominant 7th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  DominantSeventh: 'DominantSeventh',
+
+  /**
+   * Minor 7th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MinorSeventh: 'MinorSeventh',
+
+  /**
+   * Minor 7th flat 5 chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MinorSeventhFlatFive: 'MinorSeventhFlatFive',
+
+  /**
+   * Major 7th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MajorSeventh: 'MajorSeventh',
+
+  /**
+   * Major 7th flat 6th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MajorSeventhFlatSixth: 'MajorSeventhFlatSixth',
+
+  /**
+   * 9th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  Ninth: 'Ninth',
+
+  /**
+   * Minor 9th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MinorNinth: 'MinorNinth',
+
+  /**
+   * Major 9th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MajorNinth: 'MajorNinth',
+
+  /**
+   * 11th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  Eleventh: 'Eleventh',
+
+  /**
+   * Minor 11th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MinorEleventh: 'MinorEleventh',
+
+  /**
+   * Major 11th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MajorEleventh: 'MajorEleventh',
+
+  /**
+   * 13th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  Thirteenth: 'Thirteenth',
+
+  /**
+   * Minor 13th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MinorThirteenth: 'MinorThirteenth',
+
+  /**
+   * Major 13th chord
+   * @type {string}
+   * @memberof Constants.ChordName
+   * @default
+   * @readonly
+   */
+  MajorThirteenth: 'MajorThirteenth'
+};
+/**
+ * Chord Symbols
+ * @memberof Constants
+ * @typedef {string} ChordSymbol
+ * @param {ChordName}
+ * @enum
+ * @example
+ * ChordSymbol.Major => 'maj'
+ */
+
+var ChordSymbol = {
+  /**
+  * Major triad
+  * @type {ChordSymbol}
+  * @memberof Constants.ChordSymbol
+  * @default
+  * @readonly
+  */
+  Major: 'maj',
+
+  /**
+   * Minor triad
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  Minor: 'm',
+
+  /**
+   * Augmented 5th triad
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  Aug: 'aug',
+
+  /**
+   * Diminished 5th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  Dim: 'dim',
+
+  /**
+   * Suspended 2nd triad
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  Sus2: 'sus2',
+
+  /**
+   * Suspended 4th triad
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  Sus4: 'sus4',
+
+  /**
+   * Power triad
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  P5: '5',
+
+  /**
+   * Major 6th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MajorSixth: '6',
+
+  /**
+   * Minor 6th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MinorSixth: 'm6m',
+
+  /**
+   * Minor triad, major 6th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MinorMajorSixth: 'm6',
+
+  /**
+   * Minor 6th added 9th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MinorSixthAddNine: 'm6add9',
+
+  /**
+   * Major 6th added 9th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MajorSixthAddNine: '6add9',
+
+  /**
+   * Dominant 7th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  DominantSeventh: '7',
+
+  /**
+   * Minor 7th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MinorSeventh: 'm7',
+
+  /**
+   * Minor 7th flat 5 chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MinorSeventhFlatFive: 'm7b5',
+
+  /**
+   * Major 7th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MajorSeventh: 'M7',
+
+  /**
+  * Major 7th flat 6th chord
+  * @type {ChordSymbol}
+  * @memberof Constants.ChordSymbol
+  * @default
+  * @readonly
+  */
+  MajorSeventhFlatSixth: 'M7b6',
+
+  /**
+   * 9th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  Ninth: '9',
+
+  /**
+   * Minor 9th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MinorNinth: 'm9',
+
+  /**
+   * Major 9th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MajorNinth: 'M9',
+
+  /**
+   * 11th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  Eleventh: '11',
+
+  /**
+   * Minor 11th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MinorEleventh: 'm11',
+
+  /**
+   * Major 11th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MajorEleventh: 'M11',
+
+  /**
+   * 13th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  Thirteenth: '13',
+
+  /**
+   * Minor 13th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MinorThirteenth: 'm13',
+
+  /**
+   * Major 13th chord
+   * @type {ChordSymbol}
+   * @memberof Constants.ChordSymbol
+   * @default
+   * @readonly
+   */
+  MajorThirteenth: 'M13'
+};
+/**
+* Chord Intervals
+*
+* @typedef {string} ChordIntervals
+* @param {ChordName}
+* @memberof Constants
+* @enum
+*/
+
+var ChordIntervals = {
+  /**
+  * Major triad
+  * @type {string}
+  * @memberof Constants.ChordIntervals
+  * @default
+  * @readonly
+  */
+  'Major': '1P 3M 5P',
+
+  /**
+   * Minor triad
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'Minor': '1P 3m 5P',
+
+  /**
+   * Augmented 5th triad
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'Aug': '1P 3M 5A',
+
+  /**
+   * Diminished 5th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'Dim': '1P 3m 5d',
+
+  /**
+   * Suspended 2nd triad
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'Sus2': '1P 2M 5P',
+
+  /**
+   * Suspended 4th triad
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'Sus4': '1P 4P 5P',
+
+  /**
+   * Power triad
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'P5': '1P 5P 8P',
+
+  /**
+   * Major 6th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MajorSixth': '1P 3M 5P 6M',
+
+  /**
+   * Minor 6th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MinorSixth': '1P 3m 5P 6m',
+
+  /**
+   * Minor triad, major 6th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MinorMajorSixth': '1P 3m 5P 6M',
+
+  /**
+   * Minor 6th added 9th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MinorSixthAddNine': '1P 3M 5P 6m 9M',
+
+  /**
+   * Major 6th added 9th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MajorSixthAddNine': '1P 3M 5P 6M 9M',
+
+  /**
+   * Dominant 7th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'DominantSeventh': '1P 3M 5P 7m',
+
+  /**
+   * Minor 7th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MinorSeventh': '1P 3m 5P 7m',
+
+  /**
+   * Minor 7th flat 5 chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MinorSeventhFlatFive': '1P 3m 5d 7m',
+
+  /**
+   * Major 7th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MajorSeventh': '1P 3M 5P 7M',
+
+  /**
+  * Major 7th flat 6th chord
+  * @type {string}
+  * @memberof Constants.ChordIntervals
+  * @default
+  * @readonly
+  */
+  'MajorSeventhFlatSixth': '1P 3M 6m 7M',
+
+  /**
+   * 9th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'Ninth': '1P 3M 5P 7m 9M',
+
+  /**
+   * Minor 9th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MinorNinth': '1P 3m 5P 7m 9M',
+
+  /**
+   * Major 9th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MajorNinth': '1P 3M 5P 7M 9M',
+
+  /**
+   * 11th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'Eleventh': '1P 3M 5P 7m 9M 11P',
+
+  /**
+   * Minor 11th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MinorEleventh': '1P 3m 5P 7m 9M 11P',
+
+  /**
+   * Major 11th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MajorEleventh': '1P 3M 5P 7M 9M 11P',
+
+  /**
+   * 13th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'Thirteenth': '1P 3M 5P 7m 9M 13M',
+
+  /**
+   * Minor 13th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MinorThirteenth': '1P 3m 5P 7m 9M 13M',
+
+  /**
+   * Major 13th chord
+   * @type {string}
+   * @memberof Constants.ChordIntervals
+   * @default
+   * @readonly
+   */
+  'MajorThirteenth': '1P 3M 5P 7M 9M 13M'
+};
+/**
+ * Chord Structure definition
+ * @typedef ChordStructure
+ * @memberof Types
+ * @type {array}
+ * @property {number} 0 - number of intervals
+ * @property {Array<string>} 1 - intervals position
+ */
+
+/**
+ * Chord Structure
+ *
+ * @type {ChordStructure}
+ * @memberof Constants
+ * @enum
+ * @example
+ * ChordStructure.Triad => [ '1 3 5' ]
+ */
+
+var ChordStructure = {
+  /**
+   * Triads chords structure
+   * @type {ChordStructure}
+   * @memberof Constants.ChordStructure
+   * @default
+   * @readonly
+   * @constant
+   */
+  Triad: ['1 3 5', '1 5 8'],
+
+  /**
+  * Suspended chords structure
+  * @type {ChordStructure}
+  * @memberof Constants.ChordStructure
+  * @default
+  * @readonly
+  * @constant
+  */
+  Sus: ['1 2 5', '1 4 5'],
+
+  /**
+  * Sixth chords structure
+  * @type {ChordStructure}
+  * @memberof Constants.ChordStructure
+  * @default
+  * @readonly
+  * @constant
+  */
+  Sixth: ['1 3 5 6'],
+
+  /**
+  * Seventh chords structure
+  * @type {ChordStructure}
+  * @memberof Constants.ChordStructure
+  * @default
+  * @readonly
+  * @constant
+  */
+  Seventh: ['1 3 5 7'],
+
+  /**
+  * Ninth chords structure
+  * @type {ChordStructure}
+  * @memberof Constants.ChordStructure
+  * @default
+  * @readonly
+  * @constant
+  */
+  Ninth: ['1 3 5 7 9'],
+
+  /**
+  * Eleventh chords structure
+  * @type {ChordStructure}
+  * @memberof Constants.ChordStructure
+  * @default
+  * @readonly
+  * @constant
+  */
+  Eleventh: ['1 3 5 7 9 11'],
+
+  /**
+  * Thirteenth chords structure
+  * @type {ChordStructure}
+  * @memberof Constants.ChordStructure
+  * @default
+  * @readonly
+  * @constant
+  */
+  Thirteenth: ['1 3 5 7 9 13']
+};
+
+var toDefObj = function toDefObj(name, symbol, intervals, structure) {
+  return {
+    name: name,
+    symbol: symbol,
+    intervals: intervals,
+    structure: structure
+  };
+};
+
+var ChordDefinition = (_ChordDefinition = {}, _defineProperty(_ChordDefinition, ChordName.Major, toDefObj(ChordName.Major, ChordSymbol.Major, ChordIntervals.Major, ChordStructure.Triad)), _defineProperty(_ChordDefinition, ChordName.Minor, toDefObj(ChordName.Minor, ChordSymbol.Minor, ChordIntervals.Minor, ChordStructure.Triad)), _defineProperty(_ChordDefinition, ChordName.Aug, toDefObj(ChordName.Aug, ChordSymbol.Aug, ChordIntervals.Aug, ChordStructure.Triad)), _defineProperty(_ChordDefinition, ChordName.Dim, toDefObj(ChordName.Dim, ChordSymbol.Dim, ChordIntervals.Dim, ChordStructure.Triad)), _defineProperty(_ChordDefinition, ChordName.Sus2, toDefObj(ChordName.Sus2, ChordSymbol.Sus2, ChordIntervals.Sus2, ChordStructure.Sus)), _defineProperty(_ChordDefinition, ChordName.Sus4, toDefObj(ChordName.Sus4, ChordSymbol.Sus4, ChordIntervals.Sus4, ChordStructure.Sus)), _defineProperty(_ChordDefinition, ChordName.P5, toDefObj(ChordName.P5, ChordSymbol.P5, ChordIntervals.P5, ChordStructure.Triad)), _defineProperty(_ChordDefinition, ChordName.MajorSixth, toDefObj(ChordName.MajorSixth, ChordSymbol.MajorSixth, ChordIntervals.MajorSixth, ChordStructure.Sixth)), _defineProperty(_ChordDefinition, ChordName.MinorSixth, toDefObj(ChordName.MinorSixth, ChordSymbol.MinorSixth, ChordIntervals.MinorSixth, ChordStructure.Sixth)), _defineProperty(_ChordDefinition, ChordName.MinorMajorSixth, toDefObj(ChordName.MinorMajorSixth, ChordSymbol.MinorMajorSixth, ChordIntervals.MinorMajorSixth, ChordStructure.Sixth)), _defineProperty(_ChordDefinition, ChordName.MinorSixthAddNine, toDefObj(ChordName.MinorSixthAddNine, ChordSymbol.MinorSixthAddNine, ChordIntervals.MinorSixthAddNine, ChordStructure.Sixth)), _defineProperty(_ChordDefinition, ChordName.MajorSixthAddNine, toDefObj(ChordName.MajorSixthAddNine, ChordSymbol.MajorSixthAddNine, ChordIntervals.MajorSixthAddNine, ChordStructure.Sixth)), _defineProperty(_ChordDefinition, ChordName.DominantSeventh, toDefObj(ChordName.DominantSeventh, ChordSymbol.DominantSeventh, ChordIntervals.DominantSeventh, ChordStructure.Seventh)), _defineProperty(_ChordDefinition, ChordName.MinorSeventh, toDefObj(ChordName.MinorSeventh, ChordSymbol.MinorSeventh, ChordIntervals.MinorSeventh, ChordStructure.Seventh)), _defineProperty(_ChordDefinition, ChordName.MinorSeventhFlatFive, toDefObj(ChordName.MinorSeventhFlatFive, ChordSymbol.MinorSeventhFlatFive, ChordIntervals.MinorSeventhFlatFive, ChordStructure.Seventh)), _defineProperty(_ChordDefinition, ChordName.MajorSeventh, toDefObj(ChordName.MajorSeventh, ChordSymbol.MajorSeventh, ChordIntervals.MajorSeventh, ChordStructure.Seventh)), _defineProperty(_ChordDefinition, ChordName.MajorSeventhFlatSixth, toDefObj(ChordName.MajorSeventhFlatSixth, ChordSymbol.MajorSeventhFlatSixth, ChordIntervals.MajorSeventhFlatSixth, ChordStructure.Seventh)), _defineProperty(_ChordDefinition, ChordName.Ninth, toDefObj(ChordName.Ninth, ChordSymbol.Ninth, ChordIntervals.Ninth, ChordStructure.Ninth)), _defineProperty(_ChordDefinition, ChordName.MinorNinth, toDefObj(ChordName.MinorNinth, ChordSymbol.MinorNinth, ChordIntervals.MinorNinth, ChordStructure.Ninth)), _defineProperty(_ChordDefinition, ChordName.MajorNinth, toDefObj(ChordName.MajorNinth, ChordSymbol.MajorNinth, ChordIntervals.MajorNinth, ChordStructure.Ninth)), _defineProperty(_ChordDefinition, ChordName.Eleventh, toDefObj(ChordName.Eleventh, ChordSymbol.Eleventh, ChordIntervals.Eleventh, ChordStructure.Eleventh)), _defineProperty(_ChordDefinition, ChordName.MinorEleventh, toDefObj(ChordName.MinorEleventh, ChordSymbol.MinorEleventh, ChordIntervals.MinorEleventh, ChordStructure.Eleventh)), _defineProperty(_ChordDefinition, ChordName.MajorEleventh, toDefObj(ChordName.MajorEleventh, ChordSymbol.MajorEleventh, ChordIntervals.MajorEleventh, ChordStructure.Eleventh)), _defineProperty(_ChordDefinition, ChordName.Thirteenth, toDefObj(ChordName.Thirteenth, ChordSymbol.Thirteenth, ChordIntervals.Thirteenth, ChordStructure.Thirteenth)), _defineProperty(_ChordDefinition, ChordName.MinorThirteenth, toDefObj(ChordName.MinorThirteenth, ChordSymbol.MinorThirteenth, ChordIntervals.MinorThirteenth, ChordStructure.Thirteenth)), _defineProperty(_ChordDefinition, ChordName.MajorThirteenth, toDefObj(ChordName.MajorThirteenth, ChordSymbol.MajorThirteenth, ChordIntervals.MajorThirteenth, ChordStructure.Thirteenth)), _ChordDefinition);
+var SimilarChordsByStructure = new Map([[ChordStructure.Triad, [ChordName.Major, ChordName.Minor, ChordName.Aug, ChordName.Dim, ChordName.P5]], [ChordStructure.Sus, [ChordName.Sus2, ChordName.Sus4]], [ChordStructure.Sixth, [ChordName.MajorSixthAddNine, ChordName.MinorSixth, ChordName.MinorMajorSixth, ChordName.MinorSixthAddNine]], [ChordStructure.Seventh, [ChordName.DominantSeventh, ChordName.MinorSeventh, ChordName.MinorSeventhFlatFive, ChordName.MajorSeventh, ChordName.MajorSeventhFlatSixth]], [ChordStructure.Ninth, [ChordName.Ninth, ChordName.MinorNinth, ChordName.MajorNinth]], [ChordStructure.Eleventh, [ChordName.Eleventh, ChordName.MinorEleventh, ChordName.MajorEleventh]], [ChordStructure.Thirteenth, [ChordName.Thirteenth, ChordName.MinorThirteenth, ChordName.MajorThirteenth]]]);
+
+/**
+ * Deconstruct Chord from a String into a Object
+ * @private
+ *
+ * @function deconstructName
+ * @memberof Utils
+ *
+ * @param {String} chordName
+ * @return {Object}
+ */
+
+var deconstructName = function deconstructName(chordName) {
+  var reg = new RegExp(/(?:[A-G](#|b)?){0,2}/);
+  var result = chordName.match(reg);
+
+  if (!result) {
+    throw new Error("".concat(chordName, " does not exist"));
+  }
+
+  var root = result[0];
+  var symbol = chordName.replace(root, '');
+  var name = findNameFromSymbol(symbol);
+
+  if (typeof name === 'undefined') {
+    throw new PlayaError('Chord', "[".concat(chordName, "] isn't a recognizable chord"));
+  }
+
+  return Object.assign(Object.assign({}, ChordDefinition[name]), {
+    root: root
+  });
+};
+var findNameFromSymbol = function findNameFromSymbol(symbol) {
+  var _a;
+
+  var entries = Object.entries(ChordSymbol); // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+  return (_a = entries.find(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2);
+        _ref2[0];
+        var s = _ref2[1];
+
+    return symbol === s;
+  })) === null || _a === void 0 ? void 0 : _a[0];
+};
+var findNameFromIntervals = function findNameFromIntervals(intervals) {
+  var _a;
+
+  var entries = Object.entries(ChordIntervals); // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+  return (_a = entries.find(function (_ref3) {
+    var _ref4 = _slicedToArray(_ref3, 2);
+        _ref4[0];
+        var s = _ref4[1];
+
+    return intervals === s;
+  })) === null || _a === void 0 ? void 0 : _a[0];
+};
+
+var MAX_LOOPS = 1000;
+/**
+ * Loops till the condition seizes to be true
+ * @private
+ *
+ * @function whilst
+ * @memberof Utils
+ *
+ * @param {Function} fn
+ * @param {Function} condition
+ * @param {Object.Number} [maxLoops = 1000]
+ */
+
+var whilst = function whilst(fn, condition) {
+  var _ref = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
+      _ref$maxLoops = _ref.maxLoops,
+      maxLoops = _ref$maxLoops === void 0 ? MAX_LOOPS : _ref$maxLoops;
+
+  var loopCount = 0;
+
+  while (condition()) {
+    fn();
+    loopCount++;
+
+    if (loopCount > maxLoops) {
+      throw new PlayaError('whilst', 'will continue forever..');
+    }
+  }
+};
+
+var move =
+_curry3_1(function (from, to, list) {
+  var length = list.length;
+  var result = list.slice();
+  var positiveFrom = from < 0 ? length + from : from;
+  var positiveTo = to < 0 ? length + to : to;
+  var item = result.splice(positiveFrom, 1);
+  return positiveFrom < 0 || positiveFrom >= list.length || positiveTo < 0 || positiveTo >= list.length ? list : [].concat(result.slice(0, positiveTo)).concat(item).concat(result.slice(positiveTo, list.length));
+});
+var move_1 = move;
+
+/**
+ * Rotates an array N number of times
+ * @function rotate
+ * @memberof Tools
+ * @example rotate([ 'A', 'C', 'E' ]) => ['C', 'E', 'A]
+ *
+ * @param {Array<*>} list
+ * @param {number} [nrOfTimes=1]
+ * @return {Array<*>}
+ */
+var rotate = function rotate(list) {
+  var nrOfTimes = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var newList = list;
+
+  for (var index = 0; index < nrOfTimes; index++) {
+    newList = move_1(0, newList.length - 1, newList);
+  }
+
+  return newList;
+};
+
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var alea = createCommonjsModule(function (module, exports) {
+(function (root, factory) {
+  {
+      module.exports = factory();
+  }
+}(commonjsGlobal, function () {
+  Alea.importState = function(i){
+    var random = new Alea();
+    random.importState(i);
+    return random;
+  };
+  return Alea;
+  function Alea() {
+    return (function(args) {
+      var s0 = 0;
+      var s1 = 0;
+      var s2 = 0;
+      var c = 1;
+      if (args.length == 0) {
+        args = [+new Date];
+      }
+      var mash = Mash();
+      s0 = mash(' ');
+      s1 = mash(' ');
+      s2 = mash(' ');
+      for (var i = 0; i < args.length; i++) {
+        s0 -= mash(args[i]);
+        if (s0 < 0) {
+          s0 += 1;
+        }
+        s1 -= mash(args[i]);
+        if (s1 < 0) {
+          s1 += 1;
+        }
+        s2 -= mash(args[i]);
+        if (s2 < 0) {
+          s2 += 1;
+        }
+      }
+      mash = null;
+      var random = function() {
+        var t = 2091639 * s0 + c * 2.3283064365386963e-10;
+        s0 = s1;
+        s1 = s2;
+        return s2 = t - (c = t | 0);
+      };
+      random.uint32 = function() {
+        return random() * 0x100000000;
+      };
+      random.fract53 = function() {
+        return random() +
+          (random() * 0x200000 | 0) * 1.1102230246251565e-16;
+      };
+      random.version = 'Alea 0.9';
+      random.args = args;
+      random.exportState = function(){
+        return [s0, s1, s2, c];
+      };
+      random.importState = function(i){
+        s0 = +i[0] || 0;
+        s1 = +i[1] || 0;
+        s2 = +i[2] || 0;
+        c = +i[3] || 0;
+      };
+      return random;
+    } (Array.prototype.slice.call(arguments)));
+  }
+  function Mash() {
+    var n = 0xefc8249d;
+    var mash = function(data) {
+      data = data.toString();
+      for (var i = 0; i < data.length; i++) {
+        n += data.charCodeAt(i);
+        var h = 0.02519603282416938 * n;
+        n = h >>> 0;
+        h -= n;
+        h *= n;
+        n = h >>> 0;
+        h -= n;
+        n += h * 0x100000000;
+      }
+      return (n >>> 0) * 2.3283064365386963e-10;
+    };
+    mash.version = 'Mash 0.9';
+    return mash;
+  }
+}));
+});
+
+var simplexNoise = createCommonjsModule(function (module, exports) {
+(function() {
+  var F2 = 0.5 * (Math.sqrt(3.0) - 1.0);
+  var G2 = (3.0 - Math.sqrt(3.0)) / 6.0;
+  var F3 = 1.0 / 3.0;
+  var G3 = 1.0 / 6.0;
+  var F4 = (Math.sqrt(5.0) - 1.0) / 4.0;
+  var G4 = (5.0 - Math.sqrt(5.0)) / 20.0;
+  function SimplexNoise(randomOrSeed) {
+    var random;
+    if (typeof randomOrSeed == 'function') {
+      random = randomOrSeed;
+    }
+    else if (randomOrSeed) {
+      random = alea(randomOrSeed);
+    } else {
+      random = Math.random;
+    }
+    this.p = buildPermutationTable(random);
+    this.perm = new Uint8Array(512);
+    this.permMod12 = new Uint8Array(512);
+    for (var i = 0; i < 512; i++) {
+      this.perm[i] = this.p[i & 255];
+      this.permMod12[i] = this.perm[i] % 12;
+    }
+  }
+  SimplexNoise.prototype = {
+    grad3: new Float32Array([1, 1, 0,
+      -1, 1, 0,
+      1, -1, 0,
+      -1, -1, 0,
+      1, 0, 1,
+      -1, 0, 1,
+      1, 0, -1,
+      -1, 0, -1,
+      0, 1, 1,
+      0, -1, 1,
+      0, 1, -1,
+      0, -1, -1]),
+    grad4: new Float32Array([0, 1, 1, 1, 0, 1, 1, -1, 0, 1, -1, 1, 0, 1, -1, -1,
+      0, -1, 1, 1, 0, -1, 1, -1, 0, -1, -1, 1, 0, -1, -1, -1,
+      1, 0, 1, 1, 1, 0, 1, -1, 1, 0, -1, 1, 1, 0, -1, -1,
+      -1, 0, 1, 1, -1, 0, 1, -1, -1, 0, -1, 1, -1, 0, -1, -1,
+      1, 1, 0, 1, 1, 1, 0, -1, 1, -1, 0, 1, 1, -1, 0, -1,
+      -1, 1, 0, 1, -1, 1, 0, -1, -1, -1, 0, 1, -1, -1, 0, -1,
+      1, 1, 1, 0, 1, 1, -1, 0, 1, -1, 1, 0, 1, -1, -1, 0,
+      -1, 1, 1, 0, -1, 1, -1, 0, -1, -1, 1, 0, -1, -1, -1, 0]),
+    noise2D: function(xin, yin) {
+      var permMod12 = this.permMod12;
+      var perm = this.perm;
+      var grad3 = this.grad3;
+      var n0 = 0;
+      var n1 = 0;
+      var n2 = 0;
+      var s = (xin + yin) * F2;
+      var i = Math.floor(xin + s);
+      var j = Math.floor(yin + s);
+      var t = (i + j) * G2;
+      var X0 = i - t;
+      var Y0 = j - t;
+      var x0 = xin - X0;
+      var y0 = yin - Y0;
+      var i1, j1;
+      if (x0 > y0) {
+        i1 = 1;
+        j1 = 0;
+      }
+      else {
+        i1 = 0;
+        j1 = 1;
+      }
+      var x1 = x0 - i1 + G2;
+      var y1 = y0 - j1 + G2;
+      var x2 = x0 - 1.0 + 2.0 * G2;
+      var y2 = y0 - 1.0 + 2.0 * G2;
+      var ii = i & 255;
+      var jj = j & 255;
+      var t0 = 0.5 - x0 * x0 - y0 * y0;
+      if (t0 >= 0) {
+        var gi0 = permMod12[ii + perm[jj]] * 3;
+        t0 *= t0;
+        n0 = t0 * t0 * (grad3[gi0] * x0 + grad3[gi0 + 1] * y0);
+      }
+      var t1 = 0.5 - x1 * x1 - y1 * y1;
+      if (t1 >= 0) {
+        var gi1 = permMod12[ii + i1 + perm[jj + j1]] * 3;
+        t1 *= t1;
+        n1 = t1 * t1 * (grad3[gi1] * x1 + grad3[gi1 + 1] * y1);
+      }
+      var t2 = 0.5 - x2 * x2 - y2 * y2;
+      if (t2 >= 0) {
+        var gi2 = permMod12[ii + 1 + perm[jj + 1]] * 3;
+        t2 *= t2;
+        n2 = t2 * t2 * (grad3[gi2] * x2 + grad3[gi2 + 1] * y2);
+      }
+      return 70.0 * (n0 + n1 + n2);
+    },
+    noise3D: function(xin, yin, zin) {
+      var permMod12 = this.permMod12;
+      var perm = this.perm;
+      var grad3 = this.grad3;
+      var n0, n1, n2, n3;
+      var s = (xin + yin + zin) * F3;
+      var i = Math.floor(xin + s);
+      var j = Math.floor(yin + s);
+      var k = Math.floor(zin + s);
+      var t = (i + j + k) * G3;
+      var X0 = i - t;
+      var Y0 = j - t;
+      var Z0 = k - t;
+      var x0 = xin - X0;
+      var y0 = yin - Y0;
+      var z0 = zin - Z0;
+      var i1, j1, k1;
+      var i2, j2, k2;
+      if (x0 >= y0) {
+        if (y0 >= z0) {
+          i1 = 1;
+          j1 = 0;
+          k1 = 0;
+          i2 = 1;
+          j2 = 1;
+          k2 = 0;
+        }
+        else if (x0 >= z0) {
+          i1 = 1;
+          j1 = 0;
+          k1 = 0;
+          i2 = 1;
+          j2 = 0;
+          k2 = 1;
+        }
+        else {
+          i1 = 0;
+          j1 = 0;
+          k1 = 1;
+          i2 = 1;
+          j2 = 0;
+          k2 = 1;
+        }
+      }
+      else {
+        if (y0 < z0) {
+          i1 = 0;
+          j1 = 0;
+          k1 = 1;
+          i2 = 0;
+          j2 = 1;
+          k2 = 1;
+        }
+        else if (x0 < z0) {
+          i1 = 0;
+          j1 = 1;
+          k1 = 0;
+          i2 = 0;
+          j2 = 1;
+          k2 = 1;
+        }
+        else {
+          i1 = 0;
+          j1 = 1;
+          k1 = 0;
+          i2 = 1;
+          j2 = 1;
+          k2 = 0;
+        }
+      }
+      var x1 = x0 - i1 + G3;
+      var y1 = y0 - j1 + G3;
+      var z1 = z0 - k1 + G3;
+      var x2 = x0 - i2 + 2.0 * G3;
+      var y2 = y0 - j2 + 2.0 * G3;
+      var z2 = z0 - k2 + 2.0 * G3;
+      var x3 = x0 - 1.0 + 3.0 * G3;
+      var y3 = y0 - 1.0 + 3.0 * G3;
+      var z3 = z0 - 1.0 + 3.0 * G3;
+      var ii = i & 255;
+      var jj = j & 255;
+      var kk = k & 255;
+      var t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0;
+      if (t0 < 0) n0 = 0.0;
+      else {
+        var gi0 = permMod12[ii + perm[jj + perm[kk]]] * 3;
+        t0 *= t0;
+        n0 = t0 * t0 * (grad3[gi0] * x0 + grad3[gi0 + 1] * y0 + grad3[gi0 + 2] * z0);
+      }
+      var t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
+      if (t1 < 0) n1 = 0.0;
+      else {
+        var gi1 = permMod12[ii + i1 + perm[jj + j1 + perm[kk + k1]]] * 3;
+        t1 *= t1;
+        n1 = t1 * t1 * (grad3[gi1] * x1 + grad3[gi1 + 1] * y1 + grad3[gi1 + 2] * z1);
+      }
+      var t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
+      if (t2 < 0) n2 = 0.0;
+      else {
+        var gi2 = permMod12[ii + i2 + perm[jj + j2 + perm[kk + k2]]] * 3;
+        t2 *= t2;
+        n2 = t2 * t2 * (grad3[gi2] * x2 + grad3[gi2 + 1] * y2 + grad3[gi2 + 2] * z2);
+      }
+      var t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
+      if (t3 < 0) n3 = 0.0;
+      else {
+        var gi3 = permMod12[ii + 1 + perm[jj + 1 + perm[kk + 1]]] * 3;
+        t3 *= t3;
+        n3 = t3 * t3 * (grad3[gi3] * x3 + grad3[gi3 + 1] * y3 + grad3[gi3 + 2] * z3);
+      }
+      return 32.0 * (n0 + n1 + n2 + n3);
+    },
+    noise4D: function(x, y, z, w) {
+      var perm = this.perm;
+      var grad4 = this.grad4;
+      var n0, n1, n2, n3, n4;
+      var s = (x + y + z + w) * F4;
+      var i = Math.floor(x + s);
+      var j = Math.floor(y + s);
+      var k = Math.floor(z + s);
+      var l = Math.floor(w + s);
+      var t = (i + j + k + l) * G4;
+      var X0 = i - t;
+      var Y0 = j - t;
+      var Z0 = k - t;
+      var W0 = l - t;
+      var x0 = x - X0;
+      var y0 = y - Y0;
+      var z0 = z - Z0;
+      var w0 = w - W0;
+      var rankx = 0;
+      var ranky = 0;
+      var rankz = 0;
+      var rankw = 0;
+      if (x0 > y0) rankx++;
+      else ranky++;
+      if (x0 > z0) rankx++;
+      else rankz++;
+      if (x0 > w0) rankx++;
+      else rankw++;
+      if (y0 > z0) ranky++;
+      else rankz++;
+      if (y0 > w0) ranky++;
+      else rankw++;
+      if (z0 > w0) rankz++;
+      else rankw++;
+      var i1, j1, k1, l1;
+      var i2, j2, k2, l2;
+      var i3, j3, k3, l3;
+      i1 = rankx >= 3 ? 1 : 0;
+      j1 = ranky >= 3 ? 1 : 0;
+      k1 = rankz >= 3 ? 1 : 0;
+      l1 = rankw >= 3 ? 1 : 0;
+      i2 = rankx >= 2 ? 1 : 0;
+      j2 = ranky >= 2 ? 1 : 0;
+      k2 = rankz >= 2 ? 1 : 0;
+      l2 = rankw >= 2 ? 1 : 0;
+      i3 = rankx >= 1 ? 1 : 0;
+      j3 = ranky >= 1 ? 1 : 0;
+      k3 = rankz >= 1 ? 1 : 0;
+      l3 = rankw >= 1 ? 1 : 0;
+      var x1 = x0 - i1 + G4;
+      var y1 = y0 - j1 + G4;
+      var z1 = z0 - k1 + G4;
+      var w1 = w0 - l1 + G4;
+      var x2 = x0 - i2 + 2.0 * G4;
+      var y2 = y0 - j2 + 2.0 * G4;
+      var z2 = z0 - k2 + 2.0 * G4;
+      var w2 = w0 - l2 + 2.0 * G4;
+      var x3 = x0 - i3 + 3.0 * G4;
+      var y3 = y0 - j3 + 3.0 * G4;
+      var z3 = z0 - k3 + 3.0 * G4;
+      var w3 = w0 - l3 + 3.0 * G4;
+      var x4 = x0 - 1.0 + 4.0 * G4;
+      var y4 = y0 - 1.0 + 4.0 * G4;
+      var z4 = z0 - 1.0 + 4.0 * G4;
+      var w4 = w0 - 1.0 + 4.0 * G4;
+      var ii = i & 255;
+      var jj = j & 255;
+      var kk = k & 255;
+      var ll = l & 255;
+      var t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0 - w0 * w0;
+      if (t0 < 0) n0 = 0.0;
+      else {
+        var gi0 = (perm[ii + perm[jj + perm[kk + perm[ll]]]] % 32) * 4;
+        t0 *= t0;
+        n0 = t0 * t0 * (grad4[gi0] * x0 + grad4[gi0 + 1] * y0 + grad4[gi0 + 2] * z0 + grad4[gi0 + 3] * w0);
+      }
+      var t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1 - w1 * w1;
+      if (t1 < 0) n1 = 0.0;
+      else {
+        var gi1 = (perm[ii + i1 + perm[jj + j1 + perm[kk + k1 + perm[ll + l1]]]] % 32) * 4;
+        t1 *= t1;
+        n1 = t1 * t1 * (grad4[gi1] * x1 + grad4[gi1 + 1] * y1 + grad4[gi1 + 2] * z1 + grad4[gi1 + 3] * w1);
+      }
+      var t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2 - w2 * w2;
+      if (t2 < 0) n2 = 0.0;
+      else {
+        var gi2 = (perm[ii + i2 + perm[jj + j2 + perm[kk + k2 + perm[ll + l2]]]] % 32) * 4;
+        t2 *= t2;
+        n2 = t2 * t2 * (grad4[gi2] * x2 + grad4[gi2 + 1] * y2 + grad4[gi2 + 2] * z2 + grad4[gi2 + 3] * w2);
+      }
+      var t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3 - w3 * w3;
+      if (t3 < 0) n3 = 0.0;
+      else {
+        var gi3 = (perm[ii + i3 + perm[jj + j3 + perm[kk + k3 + perm[ll + l3]]]] % 32) * 4;
+        t3 *= t3;
+        n3 = t3 * t3 * (grad4[gi3] * x3 + grad4[gi3 + 1] * y3 + grad4[gi3 + 2] * z3 + grad4[gi3 + 3] * w3);
+      }
+      var t4 = 0.6 - x4 * x4 - y4 * y4 - z4 * z4 - w4 * w4;
+      if (t4 < 0) n4 = 0.0;
+      else {
+        var gi4 = (perm[ii + 1 + perm[jj + 1 + perm[kk + 1 + perm[ll + 1]]]] % 32) * 4;
+        t4 *= t4;
+        n4 = t4 * t4 * (grad4[gi4] * x4 + grad4[gi4 + 1] * y4 + grad4[gi4 + 2] * z4 + grad4[gi4 + 3] * w4);
+      }
+      return 27.0 * (n0 + n1 + n2 + n3 + n4);
+    }
+  };
+  function buildPermutationTable(random) {
+    var i;
+    var p = new Uint8Array(256);
+    for (i = 0; i < 256; i++) {
+      p[i] = i;
+    }
+    for (i = 0; i < 255; i++) {
+      var r = i + ~~(random() * (256 - i));
+      var aux = p[i];
+      p[i] = p[r];
+      p[r] = aux;
+    }
+    return p;
+  }
+  SimplexNoise._buildPermutationTable = buildPermutationTable;
+  function alea() {
+    var s0 = 0;
+    var s1 = 0;
+    var s2 = 0;
+    var c = 1;
+    var mash = masher();
+    s0 = mash(' ');
+    s1 = mash(' ');
+    s2 = mash(' ');
+    for (var i = 0; i < arguments.length; i++) {
+      s0 -= mash(arguments[i]);
+      if (s0 < 0) {
+        s0 += 1;
+      }
+      s1 -= mash(arguments[i]);
+      if (s1 < 0) {
+        s1 += 1;
+      }
+      s2 -= mash(arguments[i]);
+      if (s2 < 0) {
+        s2 += 1;
+      }
+    }
+    mash = null;
+    return function() {
+      var t = 2091639 * s0 + c * 2.3283064365386963e-10;
+      s0 = s1;
+      s1 = s2;
+      return s2 = t - (c = t | 0);
+    };
+  }
+  function masher() {
+    var n = 0xefc8249d;
+    return function(data) {
+      data = data.toString();
+      for (var i = 0; i < data.length; i++) {
+        n += data.charCodeAt(i);
+        var h = 0.02519603282416938 * n;
+        n = h >>> 0;
+        h -= n;
+        h *= n;
+        n = h >>> 0;
+        h -= n;
+        n += h * 0x100000000;
+      }
+      return (n >>> 0) * 2.3283064365386963e-10;
+    };
+  }
+  exports.SimplexNoise = SimplexNoise;
+  {
+    module.exports = SimplexNoise;
+  }
+})();
+});
+simplexNoise.SimplexNoise;
+
+var INITIAL_SEED = 'PLAYA';
+/**
+ * It uses Simplex Noise in order for the Random numbers to follow a "more natural" progression.
+ *
+ * Default Export: Singleton Class
+ *
+ * Named Export: Class
+ *
+ * In the library the singleton is used for any random number generation.
+ *
+ * @class
+ * @name Random
+ * @memberof Tools
+ */
+
+var Random = /*#__PURE__*/function () {
+  /**
+   * Creates an instance of Random.
+   * @constructs Random
+   * @memberof Tools#
+   * @private
+   */
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  function Random() {
+    var _this = this;
+
+    _classCallCheck(this, Random);
+
+    this.x = 0;
+    this.y = 0;
+    this.simplex = new simplexNoise(alea(INITIAL_SEED));
+    this._seed = INITIAL_SEED;
+    this._seedCounter = 0;
+    this.increment = 10;
+    /**
+     * Seed the Simplex Noise
+     * @function setSeed
+     * @memberof Tools.Random
+     *
+     * @param {String|Number} seed
+     * @param {Number} increment
+     */
+
+    this.setSeed = function (seed) {
+      var increment = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _this.increment;
+      var alea$1 = alea(seed);
+      _this._seed = seed;
+      _this.increment = increment;
+      _this.simplex = new simplexNoise(alea$1);
+      _this.x = Math.floor(alea$1() * 100);
+      _this.y = Math.floor(alea$1() * 100);
+    };
+    /**
+     * Generates a Random float between a range
+     *
+     * @function float
+     * @memberof Tools.Random
+     *
+     * @param {number} max
+     * @param {number} min
+     * @return {number} [0, 1]
+     */
+
+
+    this.float = function () {
+      var max = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1.0;
+      var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.0;
+      _this.x += _this.increment;
+      _this.y += _this.increment;
+      var value = (_this.simplex.noise2D(_this.x, _this.y) + 1) / 2;
+      return min + value * max;
+    };
+    /**
+     * Generates a Random integer between a range
+     *
+     * @function int
+     * @memberof Tools.Random
+     *
+     * @param {number} max
+     * @param {number} [min=0]
+     * @return {number}
+     */
+
+
+    this.int = function (max) {
+      var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      return min + Math.floor(_this.float() * (1 + max - min));
+    };
+    /**
+     * Generates a Random boolean
+     *
+     * @function boolean
+     * @memberof Tools.Random
+     *
+     * @return {boolean}
+     */
+
+
+    this.boolean = function () {
+      return !!_this.int(1);
+    };
+  }
+
+  _createClass(Random, [{
+    key: "seed",
+    get:
+    /**
+    * Get the seed used by the RNG (Random Number Generator)
+    *
+    * @member seed
+    * @memberof Tools.Random
+    * @type {(string | number)}
+    */
+    function get() {
+      return this._seed;
+    }
+    /**
+    * Takes the current seed and adds a counter
+    * @function bumpSeed
+    * @memberof Tools.Random
+    * @example
+    * seed = 'PLAYA' // default seed
+    * bumpSeed() => 'PLAYA-0'
+    * bumpSeed() => 'PLAYA-1'
+    *
+    * @param {String|Number} seed
+    * @param {Number} increment
+    */
+
+  }, {
+    key: "bumpSeed",
+    value: function bumpSeed() {
+      this.setSeed("".concat(this._seed).replace(/-\d/, '') + "-".concat(this._seedCounter++));
+    }
+  }], [{
+    key: "getInstance",
+    value: function getInstance() {
+      if (!Random.instance) {
+        Random.instance = new Random();
+      }
+
+      return Random.instance;
+    }
+  }]);
+
+  return Random;
+}();
+var random = Random.getInstance();
+
+/**
+ * Choose multiple random elements from an array
+ * @function chooseMany
+ * @memberof Tools
+ *
+ * @param {Array<T>} list
+ * @param {Number} n
+ * @param {T} compareAgainst
+ * @return {T|T[]}
+ */
+
+var chooseMany = function chooseMany(list, n) {
+  var compareAgainst = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+  var lst = _toConsumableArray(list);
+
+  var elems = [];
+  whilst(function () {
+    if (!lst.length) {
+      lst = _toConsumableArray(list);
+    }
+
+    var idx = random.int(lst.length - 1);
+
+    if (compareAgainst && list[idx] === compareAgainst) {
+      return;
+    }
+
+    elems.push(lst[idx]);
+    lst.splice(idx, 1);
+  }, function () {
+    return elems.length < n;
+  });
+  return elems;
+};
+/**
+ * Choose one random element from an array
+ * @function choose
+ * @memberof Tools
+ *
+ * @param {Array<T>} list
+ * @param {T} compareAgainst
+ * @return {T}
+ */
+
+var choose = function choose(list) {
+  var compareAgainst = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  var elems = chooseMany(list, 1, compareAgainst);
+  return elems[0];
+};
+
+// 1nd - Dotted whole note - (2880 ticks)
+// 1n - Whole note - (1920 ticks)
+// 1nt - Whole note triplet - (1280 ticks)
+// 2nd - Dotted half note - (1440 ticks)
+// 2n - Half note - (960 ticks)
+// 2nt - Half note triplet - (640 ticks)
+// 4nd - Dotted quarter note - (720 ticks)
+// 4n - Quarter note - (480 ticks)
+// 4nt - Quarter note triplet - (320 ticks)
+// 8nd - Dotted eighth note - (360 ticks)
+// 8n - Eighth note - (240 ticks)
+// 8nt - Eighth note triplet - (160 ticks)
+// 16nd - Dotted sixteeth note - (180 ticks)
+// 16n - Sixteeth note - (120 ticks)
+// 16nt - Sixteeth note triplet - (80 ticks)
+// 32nd - Dotted thirty - second note - (90 ticks)
+// 32n - thirty - second note - (60 ticks)
+// 32nt - thirty - second - note triplet - (40 ticks)
+// 64nd - Dotted sixty - fourth note - (45 ticks)
+// 64n - Sixty - fourth note - (30 ticks)
+// 128n - One - hundred - twenty - eighth note - (15 ticks)
+
+/**
+ * Ticks in relation to note values (durations) with a PPQ (pulse per quarter) of 480
+ * @memberof Constants
+ * @typedef {number} Ticks
+ * @enum
+ * @example
+ * Ticks['4n'] => 480
+ */
+var Ticks;
+
+(function (Ticks) {
+  Ticks[Ticks["1nd"] = 2880] = "1nd";
+  Ticks[Ticks["1n"] = 1920] = "1n";
+  Ticks[Ticks["1nt"] = 1280] = "1nt";
+  Ticks[Ticks["2nd"] = 1440] = "2nd";
+  Ticks[Ticks["2n"] = 960] = "2n";
+  Ticks[Ticks["2nt"] = 640] = "2nt";
+  Ticks[Ticks["4nd"] = 720] = "4nd";
+  Ticks[Ticks["4n"] = 480] = "4n";
+  Ticks[Ticks["4nt"] = 320] = "4nt";
+  Ticks[Ticks["8nd"] = 360] = "8nd";
+  Ticks[Ticks["8n"] = 240] = "8n";
+  Ticks[Ticks["8nt"] = 160] = "8nt";
+  Ticks[Ticks["16nd"] = 180] = "16nd";
+  Ticks[Ticks["16n"] = 120] = "16n";
+  Ticks[Ticks["16nt"] = 80] = "16nt";
+  Ticks[Ticks["32nd"] = 90] = "32nd";
+  Ticks[Ticks["32n"] = 60] = "32n";
+  Ticks[Ticks["32nt"] = 40] = "32nt";
+  Ticks[Ticks["64nd"] = 45] = "64nd";
+  Ticks[Ticks["64n"] = 30] = "64n";
+  Ticks[Ticks["128n"] = 15] = "128n";
+})(Ticks || (Ticks = {}));
+
+// 	[ScaleName.Ionian]: [ 'I', 'tonic' ],
+// 	[ScaleName.Dorian]: [ 'II', 'subdominant' ],
+// 	[ScaleName.Phrygian]: [ 'III', 'mediant' ],
+// 	[ScaleName.Lydian]: [ 'IV', 'subdominant' ],
+// 	[ScaleName.Mixolydian]: [ 'V', 'dominant' ],
+// 	[ScaleName.Aeolian]: [ 'VI', 'submediant' ],
+// 	[ScaleName.Locrian]: [ 'VII', 'leading' ],
+// };
+// export type Mode = keyof typeof Mode;
+// 	'Ionian, 'Dorian' , 'Phrygian' , 'Lydian' , 'Mixolydian' , 'Aeolian' , 'Locrian'>
+
+/**
+ * Modes
+ * @memberof Constants
+ * @typedef {Array<'Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian'>} Modes
+ * @enum
+ * @default
+ */
+
+var Modes = [ScaleName.Ionian, ScaleName.Dorian, ScaleName.Phrygian, ScaleName.Lydian, ScaleName.Mixolydian, ScaleName.Aeolian, ScaleName.Locrian];
+/**
+ * Mode Intervals
+ * @memberof Constants
+ * @typedef {ScaleIntervals[]} ModeIntervals
+ * @enum
+ * @default
+ */
+
+var ModeIntervals = [ScaleIntervals.Ionian, ScaleIntervals.Dorian, ScaleIntervals.Phrygian, ScaleIntervals.Lydian, ScaleIntervals.Mixolydian, ScaleIntervals.Aeolian, ScaleIntervals.Locrian];
+
+/**
+ * Intervals
+ * @namespace Interval
+ * @memberof Tools
+ */
+
+/**
+ * Gets one or several intervals from a number of semitones
+ * @function interval
+ * @memberof Tools.Interval
+ * @example interval(4) => ['3M']
+ *
+ * @param {Number} semitones
+ * @return {Array<Interval>|null}
+ */
+
+var interval = function interval(semitones) {
+  var intervals = [];
+
+  for (var _i = 0, _Object$entries = Object.entries(Semitones); _i < _Object$entries.length; _i++) {
+    var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+        interv = _Object$entries$_i[0],
+        semit = _Object$entries$_i[1];
+
+    if (semit === semitones) {
+      intervals.push(interv);
+    }
+  }
+
+  if (!intervals.length) {
+    return null;
+  }
+
+  return intervals;
+};
+
+/**
+ * Note distance functions
+ * @namespace Distance
+ * @memberof Tools
+ */
+
+/**
+ * Position in the {@link Flats} or {@link Sharps} collection
+ * @function position
+ * @memberof Tools.Distance
+ *
+ * @param {Note} note
+ * @return {number}
+ */
+
+var position = function position(note) {
+  var n = new Note(note);
+  return n.isFlat ? Flats.indexOf(n.note) : Sharps.indexOf(n.note);
+};
+/**
+ * Position in the {@link DiatonicNotes}
+ * @function naturalPosition
+ * @memberof Tools.Distance
+ *
+ * @param {Note | NoteSymbol | string} noteA
+ * @param {Note | NoteSymbol | string} noteB
+ * @return {number}
+ */
+
+
+var naturalPosition = function naturalPosition(noteA, noteB) {
+  var natNoteA = natural(noteA);
+  var natNoteB = natural(noteB);
+  var posA = DiatonicNotes.indexOf(natNoteA);
+  var posB = DiatonicNotes.indexOf(natNoteB);
+  return posB > posA ? posB - posA + 1 : 8 - (posA - posB);
+};
+/**
+ * Distance of 2 notes in semitones
+ * @function semitones
+ * @memberof Tools.Distance
+ *
+ * @param {Note | NoteSymbol | string} a
+ * @param {Note | NoteSymbol | string} b
+ * @example semitones(C, D) // => 2
+ * @return {number} How many semitones are they apart
+ */
+
+
+var semitones = function semitones(a, b) {
+  var noteA = new Note(a);
+  var noteB = new Note(b);
+  var posA = position(noteA);
+  var posB = position(noteB);
+  return posB > posA ? posB - posA : 12 - (posA - posB);
+};
+/**
+ * Get the interval between 2 notes
+ * @function interval
+ * @memberof Tools.Distance
+ *
+ * @param {Note | NoteSymbol | string} a
+ * @param {Note | NoteSymbol | string} b
+ * @example interval(C, G) // => "5P"
+ * @return {Interval|null} The interval between 2 notes
+ */
+
+
+var interval$1 = function interval$$1(a, b) {
+  var noteA = new Note(a);
+  var noteB = new Note(b);
+  var semit = semitones(noteA, noteB);
+  var intervals = interval(semit);
+
+  if (isNotNull(intervals)) {
+    if (intervals.length > 1) {
+      var natSemit = naturalPosition(noteA, noteB);
+      return intervals.find(includes_1("".concat(natSemit))) || intervals[0];
+    } else {
+      return intervals[0];
+    }
+  } else {
+    return null;
+  }
+};
+
+var transpose = function transpose(note, int, operation) {
+  var naturalNote = natural(note);
+  var interval$$1 = -1;
+  var diatonicInterval = -1;
+  var semit = Semitones[int];
+  var diatonicSemit = parseInt(int.replace(/\D/, ''), 10) - 1;
+
+  if (!semit) {
+    return new Note(note).note;
+  }
+
+  var n = new Note(note);
+  var ringedIntervals = n.isFlat ? ring(Array.from(Flats)) : ring(Array.from(Sharps));
+  var posNote = position(new Note(note));
+  var posNaturalNote = DiatonicNotes.indexOf(naturalNote);
+
+  if (operation === 'add') {
+    interval$$1 = posNote + semit;
+    diatonicInterval = posNaturalNote + diatonicSemit;
+  }
+
+  if (operation === 'subtract') {
+    interval$$1 = posNote - semit;
+    diatonicInterval = posNaturalNote - diatonicSemit;
+  }
+
+  var transposedNote = new Note(ringedIntervals[interval$$1]);
+  var transposedNatural = ring(Array.from(DiatonicNotes))[diatonicInterval];
+
+  if (!transposedNote.isNatural && natural(transposedNote.note) !== transposedNatural && isDefined(transposedNote.e)) {
+    return transposedNote.e;
+  }
+
+  return transposedNote.note;
+};
+/**
+ * Transpose a note by an interval
+ * @function transposeUp
+ * @memberof Tools.Distance
+ *
+ * @param {Note | NoteSymbol | string} note
+ * @param {String} int interval
+ * @example transpose(C, "5P") // => "G"
+ * @return {String} How many semitones are they apart
+ */
+
+
+var transposeUp = function transposeUp(note, int) {
+  return transpose(note, int, 'add');
+};
+/**
+ * Transpose a note by an interval
+ * @function transposeDown
+ * @memberof Tools.Distance
+ *
+ * @param {Note | NoteSymbol | string} note
+ * @param {String} int interval
+ * @example transposeDown(C, "5P") // => "F"
+ * @return {String} How many semitones are they apart
+ */
+
+
+var transposeDown = function transposeDown(note, int) {
+  return transpose(note, int, 'subtract');
+};
+
+var distance = {
+  position: position,
+  naturalPosition: naturalPosition,
+  semitones: semitones,
+  interval: interval$1,
+  transposeUp: transposeUp,
+  transposeDown: transposeDown
+};
+
+function isChordIntervals(argument) {
+  return Object.keys(Semitones).includes(argument.split(' ')[0]);
+}
+/**
+ * Defines a Chord
+ *
+ * @class
+ * @memberof Core#
+ *
+ * @name Chord
+ * @augments HarmonyBase
+ */
+
+
+var Chord = /*#__PURE__*/function (_HarmonyBase) {
+  _inherits(Chord, _HarmonyBase);
+
+  var _super = _createSuper(Chord);
+
+  /**
+   * @constructs Chord
+   * @memberof Core#
+   *
+   * @param {NoteLike} root note
+   * @param {ChordSymbol | ChordIntervals} description f.ex: 'm' (for Minor) or '1P 3m 5P'
+   * @param {Array<Number>} [octaves = [ 3, 1]] [starting, number of octaves] range of octaves to map notes to
+   *
+   *
+   * @example
+   * new Chord('A', 'maj');
+   * new Chord('A', '1P 3M 5P', [4, 1]);
+   *
+   * Chord.fromName('Am7')
+   * Chord.fromIntervals('A', Scale.Intervals.Minor, Chord.Structures.Triad) => 'Am'
+   */
+  function Chord(root, description, octaves) {
+    var _this;
+
+    var _ref = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {},
+        intervals = _ref.intervals,
+        symbol = _ref.symbol,
+        structure = _ref.structure;
+
+    _classCallCheck(this, Chord);
+
+    _this = _super.call(this, root, octaves);
+    _this._symbol = symbol;
+    _this._intervals = intervals;
+    _this._structure = structure;
+
+    if (isDefined(description)) {
+      if (isChordIntervals(description)) {
+        _this._intervals = description;
+        _this._name = findNameFromIntervals(_this._intervals);
+      } else {
+        _this._symbol = description;
+        _this._name = findNameFromSymbol(_this._symbol);
+      }
+    }
+
+    if (isUndefined(_this._name)) {
+      if (isUndefined(_this._intervals)) {
+        throw new PlayaError('Chord', "Could not recognize <".concat(description, "> as a valid chord description"));
+      } else {
+        var sym = Chord.findChordSymbol(_this._intervals);
+        if (isDefined(sym)) _this._chordName = "".concat(_this._root.note).concat(sym);
+      }
+    } else {
+      var chordDefinition = ChordDefinition[_this._name];
+      _this._structure = chordDefinition.structure;
+      if (isUndefined(_this._symbol)) _this._symbol = chordDefinition.symbol;
+      if (isUndefined(_this._intervals)) _this._intervals = chordDefinition.intervals;
+      _this._chordName = "".concat(_this._root.note).concat(_this._symbol);
+    }
+
+    var notes = _this.createChord();
+
+    if (isUndefined(notes) || !notes.length) {
+      throw new PlayaError('Chord', "Could create chord with <".concat(description, ">"));
+    }
+
+    _this._notes = notes;
+
+    _this.discoverAccident();
+
+    _this.assignOctaves();
+
+    return _this;
+  }
+  /**
+  * Create a chord from a Scale's intervals
+  * @function fromName
+  * @memberof Core#Chord
+  * @static
+  * @example Chord.fromName('Am6');
+  *
+  * @param {string} chord
+  * @param {Octaves} [octaves = [ 3, 1]]
+  * @return {Chord} chord
+  */
+
+
+  _createClass(Chord, [{
+    key: "name",
+    get:
+    /**
+    * Returns the chord's name
+    *
+    * @member name
+    * @memberof Core#Chord#
+    * @type {string}
+    * @example 'Asus2'
+    * @readonly
+    */
+    function get() {
+      return this._chordName;
+    }
+    /**
+    * Returns the chord's symbol
+    *
+    * @example
+    * 'Asus2' => sus2
+    * @member symbol
+    * @memberof Core#Chord#
+    * @type {ChordSymbol}
+    * @readonly
+    */
+
+  }, {
+    key: "symbol",
+    get: function get() {
+      return this._symbol;
+    }
+    /**
+    * Returns the chord's structure
+    *
+    * @example
+    * 'G7' => ['1 3 5 7']
+    * @member structure
+    * @memberof Core#Chord#
+    * @type {ChordStructure}
+    * @readonly
+    */
+
+  }, {
+    key: "structure",
+    get: function get() {
+      return this._structure;
+    }
+    /**
+    * Returns the chord's intervals
+    *
+    * @example
+    * 'G7' => '1P 3M 5P 7m'
+    * @member intervals
+    * @memberof Core#Chord#
+    * @type {ChordStructure}
+    * @readonly
+    */
+
+  }, {
+    key: "intervals",
+    get: function get() {
+      return this._intervals;
+    }
+    /**
+     * Inverts the chord's structure by mutating the current class
+     *
+     * @function invert
+     * @memberof Core#Chord#
+     * @param {number} nrOfTimes number of times
+     *
+     * @example
+     * new Chord('Am').invert(1) => [ 'C3', 'E3', 'A3' ]
+     * new Chord('Am').invert(2) => [ 'E3', 'A3', 'C4' ]
+     * @return {this} this
+     */
+
+  }, {
+    key: "invert",
+    value: function invert() {
+      var nrOfTimes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this._notes = rotate(this._notes, nrOfTimes);
+      this.assignOctaves();
+      return this;
+    }
+    /**
+    * Note at interval
+    * @example
+    * new Chord('Am').noteAt(5) => E
+    *
+    * @function noteAt
+    * @memberof Core#Chord#
+    * @param {number} position
+    * @return {Note}
+    */
+
+  }, {
+    key: "noteAt",
+    value: function noteAt(position) {
+      // !TODO: Migrate away from structure and just use the chord intervals
+      if (isUndefined(this._structure)) {
+        throw new PlayaError('Chord', 'Cannot grab the note');
+      }
+
+      var structures = this._structure;
+
+      var defaultIntervals = head_1(structures);
+
+      if (this._symbol === ChordSymbol.Sus4) {
+        defaultIntervals = nth_1(1, structures);
+      }
+
+      var intervals = map_1(parseInt, defaultIntervals.split(' '));
+
+      var noteIndex = intervals.indexOf(position);
+
+      if (noteIndex === -1) {
+        throw new PlayaError('Chord', "[".concat(intervals, "] structure doesn't contain position: ").concat(position));
+      }
+
+      return this._notes[noteIndex];
+    }
+    /**
+     * Assigns a new octave range - [ 3, 1 ]
+     *
+     * @private
+     * @function assignOctaves
+     * @memberof Core.Scale#
+     *
+     * @param {Array<Number>} octaves
+     * @return {this} this
+     */
+
+  }, {
+    key: "assignOctaves",
+    value: function assignOctaves$1(octaves) {
+      if (octaves) {
+        this._octaves = octaves;
+      }
+
+      this._notes = assignOctaves(this._notes, this.octaves, {
+        type: 'chord',
+        hasFlats: this.hasFlats
+      });
+      return this;
+    }
+    /**
+     *	Used for creating chords by name
+     *
+     * @private
+     */
+
+  }, {
+    key: "discoverAccident",
+    value: function discoverAccident() {
+      var notes = this._notes;
+      var rootNote = this.root; // This is to figure out if flats is a better match than sharps when the root note is natural
+
+      var sharpNotes = length_1(filter_1(prop_1('isSharp'), notes));
+
+      var flatNotes = length_1(filter_1(prop_1('isFlat'), notes));
+
+      if (rootNote.isFlat || flatNotes > 0) {
+        this._hasFlats = true;
+      }
+
+      if (rootNote.isSharp || sharpNotes > 0) {
+        this._hasSharps = true;
+      }
+    }
+    /**
+     * Creates a chord based on a chordName f.ex: Am7
+     *
+     * @private
+     * @param {String} chordName
+     * @return {Array<Note>}
+     */
+
+  }, {
+    key: "createChord",
+    value: function createChord() {
+      var root = this._root; // this._intervals will exist in `fromScale`
+
+      if (isDefined(this._name)) {
+        this._intervals = ChordDefinition[this._name].intervals;
+      }
+
+      if (isUndefined(this._intervals)) {
+        return;
+      }
+
+      var intervals = this._intervals.split(' ');
+
+      var notes = [root];
+
+      for (var idx = 1; idx < intervals.length; idx++) {
+        var interval = intervals[idx];
+        var note = distance.transposeUp(root, interval);
+        notes.push(new Note(note));
+      }
+
+      return notes;
+    }
+    /**
+     * Finds the most suitable chord symbols for this chord
+     * @function findChordSymbol
+     * @memberof Core#Chord
+     * @static
+     *
+     * @example findChordSymbols('1P 3M 5P') => 'maj'
+     * @param {String} chord
+     * @return {ChordSymbol|string} chord
+     */
+
+  }, {
+    key: Symbol.toStringTag,
+    get: function get() {
+      return "Chord: ".concat(this.string);
+    }
+  }], [{
+    key: "fromName",
+    value: function fromName(chord, octaves) {
+      var _deconstructName = deconstructName(chord),
+          root = _deconstructName.root,
+          symbol = _deconstructName.symbol;
+
+      if (isUndefined(root) || isUndefined(symbol)) {
+        throw new PlayaError('Chord', "Could not recognize <".concat(root, "> <").concat(symbol, "> as a valid chord"));
+      }
+
+      return new Chord(root, symbol, octaves);
+    }
+    /**
+    * Create a chord from a Scale's intervals
+    * @function fromIntervals
+    * @memberof Core#Chord
+    * @static
+    * @example Chord.fromIntervals('A', Scale.Intervals.Dorian, Chord.Sructures.Sixth);
+    *
+    * @param {NoteSymbol} root
+    * @param {ScaleIntervals | string} intervals
+    * @param {ChordStructure} [structure = ChordStructure.Triad]
+    * @param {Octaves} [octaves = [ 3, 1]]
+    * @return {Chord} chord
+    */
+
+  }, {
+    key: "fromIntervals",
+    value: function fromIntervals(root, intervals) {
+      var structure = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ChordStructure.Triad;
+      var octaves = arguments.length > 3 ? arguments[3] : undefined;
+      var chordInfo = createChordWithStructure(root, intervals, structure);
+
+      if (isNull(chordInfo)) {
+        throw new PlayaError('Chord', "Could not recognize <".concat(root, "> <").concat(intervals, "> as a valid chord"));
+      }
+
+      var symbol = chordInfo.symbol,
+          chordIntervals = chordInfo.chordIntervals,
+          chordStructure = chordInfo.chordStructure;
+      return new Chord(root, chordIntervals, octaves, {
+        symbol: symbol,
+        structure: chordStructure
+      });
+    }
+  }, {
+    key: "findChordSymbol",
+    value: function findChordSymbol(chord) {
+      var chordType;
+      var chordIntervals = Object.entries(ChordIntervals);
+
+      for (var _i = 0, _chordIntervals = chordIntervals; _i < _chordIntervals.length; _i++) {
+        var _chordIntervals$_i = _slicedToArray(_chordIntervals[_i], 2),
+            name = _chordIntervals$_i[0],
+            symbol = _chordIntervals$_i[1];
+
+        // if (chordType) { // this is so we don't get the empty major
+        // 	break;
+        // }
+        if (symbol === chord) {
+          chordType = ChordSymbol[name];
+          break;
+        }
+      }
+
+      if (isDefined(chordType)) {
+        return chordType;
+      }
+
+      var intervals = chord.split(' ');
+
+      var last = last_1(intervals);
+
+      try {
+        whilst(function () {
+          intervals = take_1(intervals.length - 1, intervals);
+          var tempChord = intervals.join(' ');
+
+          var _iterator = _createForOfIteratorHelper(chordIntervals),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var _step$value = _slicedToArray(_step.value, 2),
+                  _name = _step$value[0],
+                  _symbol = _step$value[1];
+
+              if (_symbol === tempChord) {
+                chordType = ChordSymbol[_name];
+              }
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+        }, function () {
+          return !chordType;
+        });
+        chordType = "".concat(chordType, "add").concat(last.replace(/\D/g, ''));
+      } catch (error) {
+        return;
+      }
+
+      return chordType;
+    }
+  }]);
+
+  return Chord;
+}(HarmonyBase);
+/**
+* Chord symbols used to create chords
+*
+* @member Symbols
+* @memberof Core#Chord
+* @enum
+* @param {ChordName} ChordName
+* @static
+* @type {ChordSymbol}
+*
+* @example Chord.Symbols.Major => 'maj'
+*/
+
+Chord.Symbols = ChordSymbol;
+/**
+* Chord structures used to create chords
+*
+* @member Structures
+* @memberof Core#Chord
+* @enum
+* @static
+* @type {ChordStructure}
+*
+* @example Chord.Structures.Sixth => [ '1 3 5 6' ]
+*/
+
+Chord.Structures = ChordStructure;
+var createFromScale = function createFromScale(scale, chordIntervalsArray, nrOfNotes, structureIntervalsArray) {
+  var chordIntervals = [];
+  var notes = scale.notes;
+
+  for (var index = 0; index < nrOfNotes; index++) {
+    var dist = structureIntervalsArray[index];
+
+    var interval = find_1(includes_1(dist), chordIntervalsArray);
+
+    var noteIndex = void 0;
+
+    if (isUndefined(interval) || chordIntervalsArray.indexOf(interval) === -1) {
+      var newDist = "".concat(parseInt(dist, 10) - 7);
+
+      var newInterval = find_1(includes_1(newDist), chordIntervalsArray);
+
+      if (isUndefined(newInterval)) {
+        continue;
+      }
+
+      noteIndex = chordIntervalsArray.indexOf(newInterval);
+
+      if (!notes[noteIndex]) {
+        continue;
+      }
+
+      interval = dist + newInterval.split('')[1];
+    } else {
+      noteIndex = chordIntervalsArray.indexOf(interval);
+    }
+
+    chordIntervals.push(interval);
+  }
+
+  return {
+    chordIntervals: chordIntervals
+  };
+};
+var createFromStructure = function createFromStructure(structure, scale, scaleIntervals, nrOfNotes) {
+  var compatibleChordNames = SimilarChordsByStructure.get(structure);
+  var chordIntervals;
+  var structureIntervalsArray;
+
+  for (var index = 0; index < compatibleChordNames.length; index++) {
+    var name = compatibleChordNames[index];
+    var chord = ChordDefinition[name];
+    structureIntervalsArray = chord.intervals.split(' ').map(function (interval) {
+      return interval.replace(/\D/, '');
+    });
+    var fromScale = createFromScale(scale, scaleIntervals, nrOfNotes, // transform intervals to structure[]
+    structureIntervalsArray);
+    chordIntervals = fromScale.chordIntervals;
+
+    if (chordIntervals.length === nrOfNotes) {
+      break;
+    }
+  }
+
+  if (isUndefined(chordIntervals)) {
+    return;
+  }
+
+  return {
+    chordIntervals: chordIntervals
+  };
+};
+/**
+ * Creates a chord based on a chordName f.ex: Am7
+ *
+ * @private
+ *
+ * @param {NoteSymbol} root
+ * @param {String} intervals
+ * @param {ChordStructure} structure
+ * @return {Array<Note>}
+ */
+
+var createChordWithStructure = function createChordWithStructure(root, intervals, structure) {
+  var chordIntervalsArray = intervals.split(' ');
+  var intervalsValidation = chordIntervalsArray.map(function (interval) {
+    return typeof Semitones[interval] !== 'undefined';
+  });
+
+  if (intervalsValidation.includes(false)) {
+    throw new PlayaError('Chord', "[".concat(intervals, "] has unrecognized intervals."));
+  }
+
+  var defaultIntervals = structure;
+  var structureIntervals = defaultIntervals.length === 1 ? defaultIntervals[0] : choose(Array.from(defaultIntervals));
+  var structureIntervalsArray = structureIntervals.split(' ');
+  var nrOfNotes = structureIntervalsArray.length;
+  var scale = new Scale(root, intervals);
+
+  var _createFromScale = createFromScale(scale, chordIntervalsArray, nrOfNotes, structureIntervalsArray),
+      chordIntervals = _createFromScale.chordIntervals; // if the provided scale doesn't have the default intervals from the given structure
+  // try other chord types from the same type of structure
+
+
+  if (chordIntervals.length !== nrOfNotes) {
+    var fromDiffChords = createFromStructure(structure, scale, chordIntervalsArray, nrOfNotes);
+
+    if (isUndefined(fromDiffChords)) {
+      return null;
+    }
+
+    chordIntervals = fromDiffChords.chordIntervals;
+  }
+
+  if (!chordIntervals) {
+    return null;
+  }
+
+  var chord = chordIntervals.join(' ');
+  var symbol = Chord.findChordSymbol(chord);
+  return {
+    chordIntervals: chord,
+    chordStructure: structure,
+    // name: `${root}${symbol}`,
+    symbol: symbol // chordNotes,
+
+  };
+};
+
+var TOTAL_MODES = 7;
+var LOCRIAN_PROB = 0.01;
+var PRECISION = 4;
+/**
+ * Mode type
+ * @memberof Types
+ * @typedef Mode
+ * @property {NoteSymbol} root root
+ * @property {ScaleIntervals} scale scale
+ */
+
+function isModeInterval(mode) {
+  return Key.isMode(mode);
+}
+
+var ModulationDirection;
+
+(function (ModulationDirection) {
+  ModulationDirection["Up"] = "Up";
+  ModulationDirection["Down"] = "Down";
+})(ModulationDirection || (ModulationDirection = {}));
+
+var AllowedScales = '"Ionian" | "Dorian" | "Phrygian" | "Lydian" | "Mixolydian" | "Aeolian" | "Locrian" | "Major" | "Minor"';
+/**
+* Defines a Key
+* @name Key
+* @memberof Core#
+* @class
+*
+* @extends Scale
+ */
+
+var Key = /*#__PURE__*/function (_Scale) {
+  _inherits(Key, _Scale);
+
+  var _super = _createSuper(Key);
+
+  /**
+   * Creates an instance of Key.
+   * @constructs Key
+   * @memberof Core#
+   *
+   * @param {NoteLike} root
+   * @param {ScaleIntervals|string} intervals the type of Scale to create
+   * @param {Array<Number>} [octaves = [ 3, 1]] [starting, number of octaves] range of octaves to map notes to
+   * @param {Object} [opts = {}]
+   * @param {Array<Number>} [opts.chordStructure = Chord.Structures.Seventh ] - f.ex: Chord.Structures.Sixth
+   *
+   * @example
+   * new Key('A', Key.Ionian);
+   * new Key(60, Key.Aeolian);
+   * new Key('A4', Key.Phrygian);
+   * new Key('A', Key.Dorian, [4, 1], { chordStructure: Chord.Structures.Sixth });
+   */
+  function Key(root, intervals, octaves) {
+    var _this;
+
+    var _ref = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {},
+        _ref$chordStructure = _ref.chordStructure,
+        chordStructure = _ref$chordStructure === void 0 ? Chord.Structures.Seventh : _ref$chordStructure;
+
+    _classCallCheck(this, Key);
+
+    _this = _super.call(this, root, intervals, octaves);
+    _this._modes = [];
+
+    if (!isModeInterval(intervals)) {
+      // eslint-disable-next-line max-len
+      throw new PlayaError('Key', "Please use the Scale class, if the intervals don't belong to one of the following scales: ".concat(AllowedScales));
+    }
+
+    _this._chordStructure = chordStructure;
+    return _this;
+  }
+  /**
+  * Gets the modes of the current key
+  * @method modes
+  * @memberof Core#Key#
+  * @example
+  * [
+  * 	{ scale: '1P 2M 3M 4P 5P 6M 7M', root: 'C' },
+  * 	{ scale: '1P 2M 3m 4P 5P 6M 7m', root: 'D' },
+  * 	{ scale: '1P 2m 3m 4P 5P 6m 7m', root: 'E' },
+  * 	{ scale: '1P 2M 3M 4A 5P 6M 7M', root: 'F' },
+  * 	{ scale: '1P 2M 3M 4P 5P 6M 7m', root: 'G' },
+  * 	{ scale: '1P 2M 3m 4P 5P 6m 7m', root: 'A' },
+  * 	{ scale: '1P 2m 3m 4P 5d 6m 7m', root: 'B' }
+  * ]
+  *
+  * @type {Array<Mode>}
+  */
+
+
+  _createClass(Key, [{
+    key: "modes",
+    get: function get() {
+      if (isEmpty_1(this._modes)) {
+        this.createModes();
+      }
+
+      return this._modes;
+    }
+    /**
+    * Returns the scale's intervals
+    *
+    * @member intervals
+    * @memberof Core#Key#
+    * @type {ModeIntervals|String}
+    */
+
+  }, {
+    key: "intervals",
+    get: function get() {
+      return this._intervals;
+    }
+    /**
+    * Returns the keys's name
+    *
+    * @member name
+    * @memberof Core#Key#
+    * @type {ScaleName|String}
+    */
+
+  }, {
+    key: "name",
+    get: function get() {
+      return Key.getModeName(this._intervals);
+    }
+    /**
+    * Modulate key upwards based on an interval
+    * @function modulateUp
+    * @memberof Core#Key#
+    *
+    * @param {Interval} [interval = '5P']
+    *
+    * @return {this}
+    */
+
+  }, {
+    key: "modulateUp",
+    value: function modulateUp() {
+      var interval = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '5P';
+      this.modulate(Key.ModulateUp, interval);
+      return this;
+    }
+    /**
+    * Modulate key upwards based on an interval
+    * @function modulateDown
+    * @memberof Core#Key#
+    *
+    * @param {String} [interval = '5P']
+    * @return {this}
+    */
+
+  }, {
+    key: "modulateDown",
+    value: function modulateDown() {
+      var interval = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '5P';
+      this.modulate(Key.ModulateDown, interval);
+      return this;
+    }
+    /**
+     * Modulate key based on a direction & interval
+     * @function modulate
+     * @memberof Core#Key#
+     *
+     * @param {Symbol} direction
+     * @param {String} [interval = '5P']
+     * @return {this}
+     */
+
+  }, {
+    key: "modulate",
+    value: function modulate(direction) {
+      var interval = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '5P';
+      var notes = this._notes;
+      var intervals = this._intervals;
+
+      if (!notes.length || !Key.isMode(intervals) || !this.isModulationDirection(direction)) {
+        return this;
+      }
+
+      var root;
+
+      if (direction === Key.ModulateUp) {
+        root = distance.transposeUp(notes[0].note, interval);
+      } else if (direction === Key.ModulateDown) {
+        root = distance.transposeDown(notes[0].note, interval);
+      } else {
+        return this;
+      }
+
+      if (root && !Key.CircleOfFifths.includes(root)) {
+        var newRoot = new Note(root);
+        this._root = newRoot.enharmonic ? new Note(newRoot.enharmonic) : newRoot;
+      } else {
+        this._root = new Note(root);
+      }
+
+      this._notes = this.createScale();
+      this.assignOctaves();
+      this._modes = [];
+      return this;
+    }
+    /**
+     * Modulate key within it's relative modes based on a direction & interval
+     * @function modulateMode
+     * @memberof Core#Key#
+     *
+     * @param {Object} [opts = {}]
+     * @param {Symbol} [opts.direction] Key.MOD_UP or Key.MOD_DOWN
+     * @param {Number} [opts.interval] 1..7
+     * @return {this}
+     */
+
+  }, {
+    key: "modulateMode",
+    value: function modulateMode() {
+      var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+          direction = _ref2.direction,
+          interval = _ref2.interval;
+
+      var mode;
+      var modes = this.modes; // use this so it forces mode creation in case of their absence
+
+      var probabilities = Array.from(Key.ModesModulationProbabilities);
+      var modePos = this.modePosition;
+
+      if (direction && !interval) {
+        var splitModes = splitAt_1(modePos, modes);
+
+        if (isEmpty_1(splitModes)) {
+          return this;
+        }
+
+        if (direction === Key.ModulateUp) {
+          if (modePos === 6) {
+            // * LAST ELEMENT
+            // Allow choosing any of the other modes
+            modes = head_1(splitModes);
+          } else {
+            modes = tail_1(last_1(splitModes));
+          }
+        }
+
+        if (direction === Key.ModulateDown) {
+          if (modePos === 0) {
+            // * FIRST ELEMENT
+            // Allow choosing any of the other modes
+            modes = tail_1(last_1(splitModes));
+          } else {
+            modes = head_1(splitModes);
+          }
+        } // TODO: Find a way to remove this hack
+        // Locrian shouldn't be appearing too often
+
+
+        if (includes_1(Key.Locrian, pluck_1('scale', modes))) {
+          var modesLen = modes.length;
+          modes = sort_1(ascend_1(propEq_1('scale', Key.Locrian)), modes);
+          var avgProb = ((1.0 - LOCRIAN_PROB) / (modesLen - 1.0)).toFixed(PRECISION);
+          probabilities = u.sumDistribution(modes.map(function (_, idx) {
+            return idx === modesLen - 1 ? LOCRIAN_PROB.toFixed(PRECISION) : avgProb;
+          }), PRECISION);
+        } else {
+          probabilities = u.equal(modes.length, PRECISION);
+        }
+      }
+
+      if (!interval) {
+        mode = r$1(modes, probabilities, random.float);
+      } else {
+        var dirMultiplier = direction === Key.ModulateDown ? -1 : 1;
+        var newModePosition = modePos + (interval - 1) * dirMultiplier; // f.ex: a 3rd is 2 places away not 3
+
+        mode = ring(modes)[newModePosition];
+      }
+
+      this._root = new Note(mode.root);
+      this._intervals = mode.scale;
+
+      var rootPos = findIndex_1(propEq_1('note', mode.root), this._notes);
+
+      var notesSplit = splitAt_1(rootPos, this._notes);
+
+      this._notes = concat_1(last_1(notesSplit), head_1(notesSplit));
+      this.assignOctaves();
+      delete this._chord;
+      return this;
+    }
+    /**
+     * Get the mode position in Roman Numerals
+     * @member modePositionRoman
+     * @memberof Core#Key#
+     *
+     * @type {String}
+     */
+
+  }, {
+    key: "modePositionRoman",
+    get: function get() {
+      return convert(this.modePosition + 1);
+    }
+    /**
+     * Get the mode index
+     * @function modePosition
+     * @memberof Core#Key#
+     * @private
+     * @return {Number}
+     */
+
+  }, {
+    key: "modePosition",
+    get: function get() {
+      return findIndex_1(propEq_1('root', this.root.note), this.modes);
+    }
+    /**
+     * Chord belonging to this mode
+     * @member chord
+     * @memberof Core#Key#
+     *
+     * @return {Chord}
+     */
+
+  }, {
+    key: "chord",
+    get: function get() {
+      var mode = this._intervals;
+      var root = this._root.note;
+      var structure = this._chordStructure;
+
+      if (!this._chord) {
+        this._chord = Chord.fromIntervals(root, mode, structure, this._octaves);
+      }
+
+      return this._chord;
+    }
+  }, {
+    key: "chordStructure",
+    set: function set(structure) {
+      this._chordStructure = structure;
+    }
+    /**
+     * Finds out the index of the scale and of the Ionian mode
+     * @private
+     * @return {Object} [ionianIndex, scaleIndex]
+     * @memberof Key
+     */
+
+  }, {
+    key: "prepareModes",
+    value: function prepareModes() {
+      var scaleIntervals = this._intervals;
+      var isMajorMinor = this.isMajorMinor(scaleIntervals);
+
+      if (!isMajorMinor && !Key.isMode(scaleIntervals)) {
+        return null;
+      }
+
+      if (isMajorMinor) {
+        scaleIntervals = scaleIntervals === Key.Major ? Key.Ionian : Key.Aeolian;
+      }
+
+      var scaleIndex = Array.from(ModeIntervals).indexOf(scaleIntervals);
+      var ionianIndex = TOTAL_MODES - scaleIndex;
+      return {
+        ionianIndex: ionianIndex,
+        scaleIndex: scaleIndex
+      };
+    }
+    /**
+     * Creates the modes of the key
+     * @function createModes
+     * @memberof Core#Key#
+     * @private
+     * @return {Array<Mode>}
+     */
+
+  }, {
+    key: "createModes",
+    value: function createModes() {
+      var notes = this._notes; // Order the notes, starting from the IONIAN mode
+
+      var indices = this.prepareModes();
+
+      if (!isNotNull(indices)) {
+        return null;
+      }
+
+      var ionianIndex = indices.ionianIndex,
+          scaleIndex = indices.scaleIndex;
+      var orderedNotes = notes.slice(ionianIndex, TOTAL_MODES).concat(notes.slice(0, ionianIndex));
+      var modes = [];
+      var index = 0;
+
+      for (var _i = 0, _Array$from = Array.from(ModeIntervals); _i < _Array$from.length; _i++) {
+        var scale = _Array$from[_i];
+        var root = orderedNotes[index++].note;
+        modes.push({
+          scale: scale,
+          root: root
+        });
+      } // Reverse ordering to go back to initial state;
+
+
+      modes = modes.slice(scaleIndex, TOTAL_MODES).concat(modes.slice(0, scaleIndex));
+      this._modes = modes;
+      return modes;
+    }
+  }, {
+    key: "isModulationDirection",
+    value: function isModulationDirection(direction) {
+      return [Key.ModulateUp, Key.ModulateDown].includes(direction);
+    }
+    /**
+    * Get the mode at the position from the modes array
+    * @function getModeAtPosition
+    * @memberof Core#Key#
+    *
+    * @param {Number} position [0. 7]
+    * @return {Key} same key in a different mode
+    */
+
+  }, {
+    key: "getModeAtPosition",
+    value: function getModeAtPosition(position) {
+      var modes = this.modes;
+      var mode = modes[position % 7];
+      this._root = new Note(mode.root);
+      this._intervals = mode.scale;
+
+      var rootPos = findIndex_1(propEq_1('note', mode.root), this._notes);
+
+      var notesSplit = splitAt_1(rootPos, this._notes);
+
+      this._notes = concat_1(last_1(notesSplit), head_1(notesSplit));
+      this.assignOctaves();
+      delete this._chord;
+      return this;
+    }
+    /**
+    * Get the mode from a note belonging to this key's modes
+    * @function getModeFromNote
+    * @memberof Core#Key#
+    *
+    * @param {NoteLike} note
+    * @return {Key | undefined} same key in a different mode
+    */
+
+  }, {
+    key: "getModeFromNote",
+    value: function getModeFromNote(note) {
+      var n = new Note(note);
+      var modes = this.modes;
+      var position = modes.map(function (m) {
+        return m.root;
+      }).indexOf(n.note);
+      if (position === -1) return;
+      return this.getModeAtPosition(position);
+    }
+    /**
+     * Checks if the scale is Major or Minor
+     * @private
+     * @param {ScaleIntervals} intervals
+     * @return {Boolean} isMajorMinor
+     * @memberof Core#Key
+     */
+
+  }, {
+    key: "isMajorMinor",
+    value: function isMajorMinor(intervals) {
+      return [Scale.Major, Scale.Minor].indexOf(intervals) !== -1;
+    }
+  }, {
+    key: "I",
+    get:
+    /**
+    * Ionian mode in the current key
+    *
+    * @member I
+    * @memberof Core#Key#
+    * @type {Key}
+    */
+    function get() {
+      return this.getModeAtPosition(0);
+    }
+    /**
+    * Dorian mode in the current key
+    *
+    * @member II
+    * @memberof Core#Key#
+    * @type {Key}
+    */
+
+  }, {
+    key: "II",
+    get: function get() {
+      return this.getModeAtPosition(1);
+    }
+    /**
+    * Phrygian mode in the current key
+    *
+    * @member III
+    * @memberof Core#Key#
+    * @type {Key}
+    */
+
+  }, {
+    key: "III",
+    get: function get() {
+      return this.getModeAtPosition(2);
+    }
+    /**
+    * Lydian mode in the current key
+    *
+    * @member IV
+    * @memberof Core#Key#
+    * @type {Key}
+    */
+
+  }, {
+    key: "IV",
+    get: function get() {
+      return this.getModeAtPosition(3);
+    }
+    /**
+    * Mixolydian mode in the current key
+    *
+    * @member V
+    * @memberof Core#Key#
+    * @type {Key}
+    */
+
+  }, {
+    key: "V",
+    get: function get() {
+      return this.getModeAtPosition(4);
+    }
+    /**
+    * Aeolian mode in the current key
+    *
+    * @member VI
+    * @memberof Core#Key#
+    * @type {Key}
+    */
+
+  }, {
+    key: "VI",
+    get: function get() {
+      return this.getModeAtPosition(5);
+    }
+    /**
+    * Locrian mode in the current key
+    *
+    * @member VII
+    * @memberof Core#Key#
+    * @type {Key}
+    */
+
+  }, {
+    key: "VII",
+    get: function get() {
+      return this.getModeAtPosition(6);
+    }
+  }, {
+    key: Symbol.toStringTag,
+    get: function get() {
+      return "Key <".concat(this.modePositionRoman, ">: ").concat(this.string);
+    }
+  }], [{
+    key: "getModeName",
+    value: function getModeName(intervals) {
+      var name = Scale.getName(intervals);
+      if (isUndefined(name)) return;
+
+      if (name === ScaleName.Major || name === ScaleName.Minor) {
+        name = name === ScaleName.Major ? ScaleName.Ionian : ScaleName.Aeolian;
+      }
+
+      return name;
+    }
+    /**
+     * Checks if the key is a mode
+     * @function isMode
+     * @memberof Core#Key
+     * @static
+     * @param {String} mode
+     * @return {Boolean}
+     */
+
+  }, {
+    key: "isMode",
+    value: function isMode(mode) {
+      return ModeIntervals.includes(mode);
+    }
+    /**
+    * Converts modes to Chord
+    * @function modesToChords
+    * @memberof Core#Key
+    * @static
+    * @param {Mode[]} modes
+    * @return {Chord[]}
+    */
+
+  }, {
+    key: "modesToChords",
+    value: function modesToChords(modes) {
+      return modes.map(function (mode) {
+        return Chord.fromIntervals(mode.root, mode.scale, Chord.Structures.Seventh);
+      });
+    }
+    /**
+    * Converts modes to Key
+    * @function modesToKeys
+    * @memberof Core#Key
+    * @static
+    * @param {Mode[]} modes
+    * @return {Key[]}
+    */
+
+  }, {
+    key: "modesToKeys",
+    value: function modesToKeys(modes) {
+      return modes.map(function (mode) {
+        return new Key(mode.root, mode.scale);
+      });
+    }
+    /**
+    * Checks if both keys in the same key
+    * @function modesToKeys
+    * @memberof Core#Key
+    * @static
+    * @param {Mode[]} modes
+    * @return {Key[]}
+    */
+
+  }, {
+    key: "inSameKey",
+    value: function inSameKey(a, b) {
+      return any_1(equals_1({
+        root: b.root.note,
+        scale: b.intervals
+      }), a.modes);
+    }
+  }]);
+
+  return Key;
+}(Scale);
+/**
+* Greek Modes
+*
+* @member Modes
+* @memberof Core#Key
+* @enum
+* @static
+* @type {ScaleName}
+*
+* @example Key.Modes => ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian']
+*/
+
+Key.Modes = Modes;
+/**
+* Modulate Up symbol (towards the right in the circle of fifths)
+*
+* @member ModulateUp
+* @memberof Core#Key
+* @enum
+* @static
+* @type {ModulationDirection}
+*
+* @example Key.ModulateUp = 'Up'
+*/
+
+Key.ModulateUp = ModulationDirection.Up;
+/**
+* Modulate Down symbol (towards the left in the circle of fifths)
+*
+* @member ModulateDown
+* @memberof Core#Key
+* @enum
+* @static
+* @type {ModulationDirection}
+*
+* @example Key.ModulateDown = 'Down'
+*/
+
+Key.ModulateDown = ModulationDirection.Down;
+/**
+* Modulation intervals sorted from consonant to dissonant
+*
+* @member ModulationIntervals
+* @memberof Core#Key
+* @enum
+* @static
+* @type {Interval[]}
+*/
+
+Key.ModulationIntervals = ['4P', '5P', '2M', '7m', '3m', '6M', '3M', '6m', '2m', '7M'];
+/**
+ * The Circle of Fifths used in `modulate` to know which root notes are allowed
+ * https://en.wikipedia.org/wiki/Circle_of_fifths
+ *
+ * @member ModulationIntervals
+ * @memberof Core#Key
+ * @static
+ * @type {NoteSymbol[]}
+ */
+
+Key.CircleOfFifths = ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'Gb', 'Db', 'C#', 'Ab', 'Eb', 'Bb', 'F'];
+/**
+ *
+ * @private
+ * @static
+ * @memberof Core#Key
+ */
+
+Key.ModesModulationProbabilities = ['0.165', '0.330', '0.495', '0.660', '0.825', '0.990', '1.000'];
+/**
+ *
+ * @private
+ * @static
+ * @memberof Core#Key
+ */
+
+Key.KeyModulationProbabilities = ['0.200', '0.400', '0.520', '0.640', '0.720', '0.800', '0.857', '0.914', '0.957', '1.000'];
+
+********** Finished Reading **********

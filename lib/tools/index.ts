@@ -13,4 +13,3 @@ export { default as random, Random } from './random';
 export * as Midi from './midi';
 
 export * from './event';
-export { distribute, roll } from '@ricardomatias/roll';

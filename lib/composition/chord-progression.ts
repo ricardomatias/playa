@@ -1,6 +1,7 @@
 import * as R from 'ramda';
 import { ChordStructure, Notevalue, Ticks } from '../constants';
-import { Chord, Time } from '../core';
+import { Chord } from '../core/Chord';
+import { Time } from '../core/Time';
 import { roll, distribute } from '@ricardomatias/roll';
 import {
 	choose,

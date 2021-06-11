@@ -1,8 +1,9 @@
 import * as R from 'ramda';
 import { Note } from '../core/Note';
-import { MidiNotes, NoteSymbol } from '../constants';
+import { MidiNotes } from '../constants/midi';
+import { NoteSymbol } from '../constants/note';
 import { stripOctave } from '../utils/note';
-import whilst from '../utils/whilst';
+import { whilst } from '../utils/whilst';
 import { isUndefined } from '../utils/types-guards';
 
 /**

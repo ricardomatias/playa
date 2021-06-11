@@ -1,5 +1,5 @@
 import { Note } from '../core/Note';
-import { Flats, Sharps } from '../constants';
+import { Flats, Sharps } from '../constants/note';
 import { CoreClassType } from '../core/Types';
 import { Octaves } from '../common/types';
 

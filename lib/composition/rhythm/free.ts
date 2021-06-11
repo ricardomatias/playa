@@ -2,7 +2,9 @@ import * as R from 'ramda';
 import { roll, distribute } from '@ricardomatias/roll';
 
 import { TimeFormat, Time as T } from '../../core/Time';
-import { whilst, PlayaError, toTicks } from '../../utils';
+import { toTicks } from '../../utils/time';
+import { whilst } from '../../utils/whilst';
+import { PlayaError } from '../../utils/error';
 import { expandDuration } from '../../tools/event';
 import random from '../../tools/random';
 import { chooseMany } from '../../tools/choose';

@@ -3,12 +3,12 @@ import HarmonyBase from './HarmonyBase';
 import { Note, NoteLike } from './Note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { Interval, Semitones } from '../constants/intervals';
+import { NoteSymbol } from '../constants/note';
 import assignOctaves from '../utils/octaves';
 import { natural } from '../utils/note';
-import { PlayaError } from '../utils';
+import { PlayaError } from '../utils/error';
 import { isUndefined } from '../utils/types-guards';
-import { Octaves } from '../common/types';
-import { NoteSymbol } from '../constants';
+import type { Octaves } from '../common/types';
 
 /**
  * Defines a Scale

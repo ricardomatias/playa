@@ -1,5 +1,5 @@
 import random from './random';
-import { whilst } from '../utils';
+import { whilst } from '../utils/whilst';
 
 
 /**

@@ -3,7 +3,7 @@ import { Note, NoteLike } from '../core/Note';
 import ring from '@ricardomatias/ring';
 import { interval as getInterval } from './interval';
 import { Sharps, Flats, Semitones, DiatonicNotes, DiatonicNote, NoteSymbol, Interval, Sharp, Flat } from '../constants';
-import { assureNote, natural } from '../utils/note';
+import { natural } from '../utils/note';
 import { isDefined, isNotNull } from '../utils/types-guards';
 
 
@@ -22,7 +22,7 @@ import { isDefined, isNotNull } from '../utils/types-guards';
  * @return {number}
  */
 const position = (note: NoteLike): number => {
-	const n = assureNote(note);
+	const n = new Note(note);
 
 	return (
 		n.isFlat ? Flats.indexOf(n.note as Flat) : Sharps.indexOf(n.note as Sharp)
@@ -60,8 +60,8 @@ const naturalPosition = (noteA: NoteLike, noteB: NoteLike): number => {
  * @return {number} How many semitones are they apart
  */
 const semitones = (a: NoteLike, b: NoteLike): number => {
-	const noteA = assureNote(a);
-	const noteB = assureNote(b);
+	const noteA = new Note(a);
+	const noteB = new Note(b);
 
 	const posA = position(noteA);
 	const posB = position(noteB);
@@ -80,8 +80,8 @@ const semitones = (a: NoteLike, b: NoteLike): number => {
  * @return {Interval|null} The interval between 2 notes
  */
 const interval = (a: NoteLike, b: NoteLike): Interval | null => {
-	const noteA = assureNote(a);
-	const noteB = assureNote(b);
+	const noteA = new Note(a);
+	const noteB = new Note(b);
 
 	const semit = semitones(noteA, noteB);
 	const intervals = getInterval(semit);
@@ -109,13 +109,13 @@ const transpose = (note: NoteLike, int: Interval, operation: 'add' | 'subtract')
 	const diatonicSemit = parseInt(int.replace(/\D/, ''), 10) - 1;
 
 	if (!semit) {
-		return assureNote(note).note;
+		return new Note(note).note;
 	}
 
-	const n = assureNote(note);
+	const n = new Note(note);
 
 	const ringedIntervals = n.isFlat ? ring(Array.from(Flats)) : ring(Array.from(Sharps));
-	const posNote = position(assureNote(note));
+	const posNote = position(new Note(note));
 	const posNaturalNote = DiatonicNotes.indexOf(naturalNote);
 
 	if (operation === 'add') {

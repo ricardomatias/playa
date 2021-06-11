@@ -40,7 +40,7 @@ export class Note {
 	static Flats = Flats;
 
 	constructor(note: string | number);
-	constructor(note: NoteSymbol);
+	constructor(note: NoteLike);
 	constructor(note: NoteSymbol | string, midi: number);
 
 	/**
@@ -55,8 +55,12 @@ export class Note {
 	* new Note('C')
 	* new Note(60)
 	*/
-	constructor(note: NoteSymbol | number | string, midi?: number) {
+	constructor(note: NoteLike, midi?: number) {
 		let octave = 0;
+
+		if (note instanceof Note) {
+			note = note.n;
+		}
 
 		if (typeof note === 'number') {
 			midi = note;

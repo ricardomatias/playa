@@ -4,8 +4,8 @@ import { Scale } from '../core/Scale';
 import { Note, NoteLike } from '../core/Note';
 import { Sharps, Flats, DiatonicNotes, ScaleIntervals, Interval, NoteSymbol, ScaleName } from '../constants';
 import distance from './distance';
-import { assureNote, stripOctave } from '../utils/note';
-import whilst from '../utils/whilst';
+import { stripOctave } from '../utils/note';
+import { whilst } from '../utils/whilst';
 import { valuesToArr, convObj, rotate } from '../utils/functional';
 import { hasKeyValue, isDefined, isNotNull, isNumber, isString, Pull } from '../utils/types-guards';
 
@@ -232,7 +232,7 @@ export const friendly = (notes: NoteLike[]): FriendlyRanking[] => {
 		return [];
 	}
 
-	const parsedNotes = notes.map((n) => assureNote(n).note);
+	const parsedNotes = notes.map((n) => new Note(n).note);
 
 	// => ["C#", "G", "A", "B"]
 	let orderedNotes = orderNotes(R.uniq(parsedNotes));
