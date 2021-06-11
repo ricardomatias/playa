@@ -1,5 +1,5 @@
 import { friendly, orderNotes, rankIntervals, rankScales, findClosestMatches, FriendlyRanking } from '../../lib/tools/friendly';
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 import { Scale } from '../../lib/core/Scale';
 import * as R from 'ramda';
 import { stripOctave, valuesToArr } from '../../lib/utils';
@@ -26,7 +26,7 @@ describe('A Friendly test suite', () => {
 	describe('classified list of neighboring scales', () => {
 		it('should return [ `A`, `C#`, `G`, `B` ] ', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const neighbours = friendly([ 'A3', 'C#3', 'G3', 'B3' ]);
 
@@ -43,7 +43,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return [ `F#`, `C#`, `D`, `D`, `E`, `C` ]', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const neighbours = friendly([ 'F#', 'C#', 'D', 'D', 'E', 'C' ]);
 
@@ -60,7 +60,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return [ `B`, `D`, `Eb`, `F`, `Ab` ]', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const neighbours = friendly([ 'B', 'D', 'Eb', 'F', 'Ab' ]);
 
@@ -77,7 +77,7 @@ describe('A Friendly test suite', () => {
 
 		it('should still return neighbours when given just 2 notes', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			// when
 			const neighbours = friendly([ 'C#', 'F#' ]);
@@ -96,7 +96,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return D Aeolian ', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const neighbours = friendly([
 				'D3', 'E3',
@@ -116,7 +116,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return 2 notes - [D, F#]', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			// when
 			const neighbours = friendly([ 'D', 'F#' ]);
@@ -127,7 +127,7 @@ describe('A Friendly test suite', () => {
 
 		it('should return an empty array when given 1 note', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			// when
 			const neighbours = friendly([ 'C#' ]);
@@ -140,7 +140,7 @@ describe('A Friendly test suite', () => {
 	describe('#findClosestMatches', () => {
 		it('should have a closest match', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const match = friendly([ 'A3', 'C#3', 'G3', 'B3' ])[0];
 
@@ -177,7 +177,7 @@ describe('A Friendly test suite', () => {
 
 		it('should have with every note different', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const match = friendly([ 'B', 'D', 'Eb', 'F', 'Ab' ])[0];
 
@@ -227,10 +227,10 @@ describe('A Friendly test suite', () => {
 	});
 
 	describe('#orderNotes', () => {
-		beforeAll(() => Random.setSeed('FRIENDLY'));
+		beforeAll(() => random.setSeed('FRIENDLY'));
 
 		it('should order notes C MAJ', () => {
-			const rndFn = () => (Random.int(1, -1));
+			const rndFn = () => (random.int(1, -1));
 
 			const scrambledNotes = R.sort(rndFn, Cmaj.string);
 			const neighbours = orderNotes(scrambledNotes);
@@ -239,7 +239,7 @@ describe('A Friendly test suite', () => {
 		});
 
 		it('should order notes Ab MAJ', () => {
-			const rndFn = () => (Random.int(1, -1));
+			const rndFn = () => (random.int(1, -1));
 
 			const scrambledNotes = R.sort(rndFn, Abmaj.string);
 			const neighbours = orderNotes(scrambledNotes);
@@ -250,7 +250,7 @@ describe('A Friendly test suite', () => {
 		});
 
 		it('should order notes D# LOCRIAN', () => {
-			const rndFn = () => (Random.int(1, -1));
+			const rndFn = () => (random.int(1, -1));
 
 			const scrambledNotes = R.sort(rndFn, DSharpLoc.string);
 
@@ -264,7 +264,7 @@ describe('A Friendly test suite', () => {
 		});
 
 		it('should order notes Bb EGYPTIAN', () => {
-			const rndFn = () => (Random.int(1, -1));
+			const rndFn = () => (random.int(1, -1));
 
 			const scrambledNotes = R.sort(rndFn, BbEgyptian.string);
 			const neighbours = orderNotes(scrambledNotes);

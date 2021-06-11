@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import Random from './random';
+import random from './random';
 
 /**
  * Shuffles an array N number of times
@@ -15,7 +15,7 @@ export const shuffle = <T>(list: T[], nrOfTimes = 3): T[] => {
 	const indexes = R.times(R.identity, list.length);
 
 	for (let index = 0; index < nrOfTimes; index++) {
-		indexes.sort(() => Math.floor(Random.float() * 3 - 1));
+		indexes.sort(() => Math.floor(random.float() * 3 - 1));
 	}
 
 	for (let index = 0; index < list.length; index++) {

@@ -182,7 +182,7 @@ export interface FriendlyRanking {
 
 /**
 * Key Match (friendly)
-* @typedef {Object} KeyMatch
+* @typedef {Object} FriendlyRanking
 * @memberof Types
 *
 * @property {ScaleIntervals} scale the scale's intervals
@@ -221,7 +221,7 @@ export interface FriendlyRanking {
 }, ...]
  *
  * @param {Array<NoteLike>} notes
- * @return {Array<KeyMatch>}
+ * @return {Array<FriendlyRanking>}
  */
 export const friendly = (notes: NoteLike[]): FriendlyRanking[] => {
 	// ["A", "C#", "G", "B"]
@@ -297,7 +297,7 @@ type RequiredKeys<T, K extends keyof T> = Required<Pick<T, K>>;
 /**
  * Find the closest match from a list of candidates
  *
- * @function friendly
+ * @function findClosestMatches
  * @memberof Tools
  *
  * @param {FriendlyRanking} match

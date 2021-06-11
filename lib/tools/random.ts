@@ -6,13 +6,19 @@ import SimplexNoise from 'simplex-noise';
 const INITIAL_SEED = 'PLAYA';
 
 /**
- * Random is a singleton class which gives methods for random number generation.
- * It uses Simplex Noise in order for the random numbers to follow a "more natural" progression.
+ * It uses Simplex Noise in order for the Random numbers to follow a "more natural" progression.
  *
- * @namespace Random
+ * Default Export: Singleton Class
+ *
+ * Named Export: Class
+ *
+ * In the library the singleton is used for any random number generation.
+ *
+ * @class
+ * @name Random
  * @memberof Tools
  */
-class Random {
+export class Random {
 	private static instance: Random;
 	private x = 0;
 	private y = 0;
@@ -22,16 +28,6 @@ class Random {
 
 	public increment = 10;
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-
-	/**
-	 * Creates an instance of Random.
-	 * @private
-	 * @memberof Random
-	 */
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	private constructor() { }
-
 	public static getInstance(): Random {
 		if (!Random.instance) {
 			Random.instance = new Random();
@@ -39,6 +35,15 @@ class Random {
 
 		return Random.instance;
 	}
+
+	/**
+	 * Creates an instance of Random.
+	 * @constructs Random
+	 * @memberof Tools#
+	 * @private
+	 */
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	constructor() {}
 
 	/**
 	* Get the seed used by the RNG (Random Number Generator)
@@ -89,7 +94,7 @@ class Random {
 	}
 
 	/**
-	 * Generates a random float between a range
+	 * Generates a Random float between a range
 	 *
 	 * @function float
 	 * @memberof Tools.Random
@@ -108,7 +113,7 @@ class Random {
 	}
 
 	/**
-	 * Generates a random integer between a range
+	 * Generates a Random integer between a range
 	 *
 	 * @function int
 	 * @memberof Tools.Random
@@ -122,7 +127,7 @@ class Random {
 	}
 
 	/**
-	 * Generates a random boolean
+	 * Generates a Random boolean
 	 *
 	 * @function boolean
 	 * @memberof Tools.Random

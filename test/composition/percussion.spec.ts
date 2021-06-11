@@ -1,9 +1,9 @@
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 import { createPercussion } from '../../lib/composition/percussion';
 
 describe('A Percussion test suite', () => {
 	it('should generate 2 parts', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const perc = createPercussion(4, [ 2, 1 ]);
@@ -31,7 +31,7 @@ describe('A Percussion test suite', () => {
 	});
 
 	it('should generate 4 parts', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const perc = createPercussion(8, [ 4, 2, 8, 5 ]);
@@ -88,7 +88,7 @@ describe('A Percussion test suite', () => {
 	});
 
 	it('should generate 4 parts randomly', () => {
-		Random.setSeed('test2');
+		random.setSeed('test2');
 
 		// when
 		const perc = createPercussion(8, 4);
@@ -143,7 +143,7 @@ describe('A Percussion test suite', () => {
 	});
 
 	it('should rotate 2 parts', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		let perc = createPercussion(8, [ 5, 3 ]);
@@ -209,7 +209,7 @@ describe('A Percussion test suite', () => {
 	});
 
 	it('should shift', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const perc = createPercussion(4, [ 2, 1 ], [], [ 0, 2 ]);

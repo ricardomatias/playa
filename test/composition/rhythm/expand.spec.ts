@@ -1,12 +1,12 @@
 import { Rhythm } from '../../../lib/composition';
 import { T4 } from '../../../lib/core';
-import { Random } from '../../../lib/tools';
+import { random } from '../../../lib/tools';
 import '../../matchers';
 
 describe('#expand', () => {
 	it('should expand simple', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const rhythm = Rhythm.free('2:0:0', Rhythm.Presets.Slow);
 
@@ -20,7 +20,7 @@ describe('#expand', () => {
 
 	it('should expand irregular rhythm', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const rhythm = Rhythm.free('1:2:0', Rhythm.Presets.Slow);
 

@@ -1,6 +1,6 @@
 import { ScaleIntervals } from '../../lib/constants';
 import { Chord, Note } from '../../lib/core';
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 import '../matchers';
 
 describe('Chord Test Suite', () => {
@@ -175,7 +175,7 @@ describe('Chord Test Suite', () => {
 	describe('create from intervals', () => {
 		describe('with Structure', () => {
 			it('should set natural', () => {
-				Random.setSeed('test');
+				random.setSeed('test');
 
 				const chord = Chord.fromIntervals(
 					'A',
@@ -194,7 +194,7 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should set sixth', () => {
-				Random.setSeed('test');
+				random.setSeed('test');
 
 				const chord = Chord.fromIntervals(
 					'G',
@@ -213,7 +213,7 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should set 13 chord', () => {
-				Random.setSeed('test');
+				random.setSeed('test');
 
 				const chord = Chord.fromIntervals(
 					'A',
@@ -239,7 +239,7 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should create custom', () => {
-				Random.setSeed('test');
+				random.setSeed('test');
 
 				const chord = Chord.fromIntervals(
 					'C',
@@ -258,7 +258,7 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should create custom - D', () => {
-				Random.setSeed('test');
+				random.setSeed('test');
 
 				const chord = Chord.fromIntervals('D', '1P 2m 3M 4A 5P 6m 7m', [ '1 2 6 7' ]);
 
@@ -273,7 +273,7 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should throw with unrecognized intervals', () => {
-				Random.setSeed('test');
+				random.setSeed('test');
 
 				const toThrow = () => {
 					Chord.fromIntervals(
@@ -291,7 +291,7 @@ describe('Chord Test Suite', () => {
 
 		describe('withOUT Structure', () => {
 			it('should set natural', () => {
-				Random.setSeed('test');
+				random.setSeed('test');
 
 				const chord = Chord.fromIntervals('A', ScaleIntervals.Minor);
 
@@ -304,7 +304,7 @@ describe('Chord Test Suite', () => {
 			});
 
 			it('should set flat', () => {
-				Random.setSeed('test');
+				random.setSeed('test');
 
 				const chord = Chord.fromIntervals('F', ScaleIntervals.Major);
 
@@ -339,7 +339,7 @@ describe('Chord Test Suite', () => {
 		});
 
 		it('should create 1st inversion', () => {
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const chord = Chord.fromIntervals(
 				'A',
@@ -357,7 +357,7 @@ describe('Chord Test Suite', () => {
 		});
 
 		it('should create 2nd inversion', () => {
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const chord = Chord.fromIntervals(
 				'A',
@@ -371,7 +371,7 @@ describe('Chord Test Suite', () => {
 		});
 
 		it('should create 3rd inversion', () => {
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const chord = Chord.fromIntervals(
 				'A',

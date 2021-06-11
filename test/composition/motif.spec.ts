@@ -4,7 +4,7 @@ import { createMotif } from '../../lib/composition/motif';
 import { distribute } from '@ricardomatias/roll';
 import { chooseMany } from '../../lib/tools/choose';
 import * as Rhythm from '../../lib/composition/rhythm';
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 import { Ticks } from '../../lib/constants';
 import '../matchers';
 
@@ -16,7 +16,7 @@ const ONE_BAR = Ticks['1n'];
 describe('A Motif test suite', () => {
 	it('should generate motif based on scale', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const scale = new Scale('A', Scale.Major);
 
@@ -30,7 +30,7 @@ describe('A Motif test suite', () => {
 		expect(motif).toLastAround(ONE_BAR);
 
 		// when
-		Random.setSeed('test2');
+		random.setSeed('test2');
 
 		rhythm = Rhythm.free('2:0:0', Mixed, [], distribute.decreasing);
 
@@ -44,7 +44,7 @@ describe('A Motif test suite', () => {
 
 	it('should generate createMotif based on chord', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const chord = Chord.fromName('Dbm6');
 		let rhythm = Rhythm.free('1:0:0', Mixed, [], distribute.decreasing);
@@ -56,7 +56,7 @@ describe('A Motif test suite', () => {
 		expect(motif).toLastAround(ONE_BAR);
 
 		// when
-		Random.setSeed('test2');
+		random.setSeed('test2');
 
 		rhythm = Rhythm.free('2:0:0', Mixed, [], distribute.decreasing);
 
@@ -69,7 +69,7 @@ describe('A Motif test suite', () => {
 
 	it('should return pattern with time = start time', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const chord = Chord.fromName('Dbm6');
 		const rhythm = Rhythm.free('0:3:0', Mixed);
@@ -81,10 +81,10 @@ describe('A Motif test suite', () => {
 
 	it('should generate motif with rests', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const scale = new Scale('A', Scale.Major);
-		const durations = chooseMany(Mixed, Random.int(R.length(Mixed)));
+		const durations = chooseMany(Mixed, random.int(R.length(Mixed)));
 
 		const rhythm = Rhythm.free('1:0:0', Mixed, durations, distribute.decreasing);
 
@@ -98,7 +98,7 @@ describe('A Motif test suite', () => {
 
 	it('should generate motif with given durations', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const scale = new Scale('A', Scale.Major);
 

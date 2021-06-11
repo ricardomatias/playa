@@ -1,4 +1,4 @@
-import Random from './random';
+import random from './random';
 import { whilst } from '../utils';
 
 
@@ -21,7 +21,7 @@ export const chooseMany = <T>(list: T[], n: number, compareAgainst: T | null = n
 			lst = [ ...list ];
 		}
 
-		const idx = Random.int(lst.length - 1);
+		const idx = random.int(lst.length - 1);
 
 		if (compareAgainst && list[idx] === compareAgainst) {
 			return;

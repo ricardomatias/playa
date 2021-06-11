@@ -4,7 +4,7 @@ import { roll, distribute } from '@ricardomatias/roll';
 import { TimeFormat, Time as T } from '../../core/Time';
 import { whilst, PlayaError, toTicks } from '../../utils';
 import { expandDuration } from '../../tools/event';
-import Random from '../../tools/random';
+import random from '../../tools/random';
 import { chooseMany } from '../../tools/choose';
 import { Event } from '../../core/Event';
 import { Notevalue } from '../../constants';
@@ -50,7 +50,7 @@ export function createFreeRhythm(
 
 	try {
 		whilst(() => {
-			const duration = roll(availableRhythmUnits, probabilities, Random.float);
+			const duration = roll(availableRhythmUnits, probabilities, random.float);
 
 			const ticks = toTicks(duration);
 
@@ -93,7 +93,7 @@ export function createFreeRhythm(
 		if (rhyDur > noteDur) {
 			const rest = rhyDur - noteDur;
 
-			if (Random.boolean()) {
+			if (random.boolean()) {
 				// Rhythm is on the beat
 				return [
 					{ time: 0, dur: noteDur, next: noteDur, isRest: false },

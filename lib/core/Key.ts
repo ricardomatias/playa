@@ -7,7 +7,7 @@ import { Note, NoteLike } from './Note';
 import { Scale } from './Scale';
 import { Chord } from './Chord';
 import distance from '../tools/distance';
-import Random from '../tools/random';
+import random from '../tools/random';
 import { Interval } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
@@ -291,7 +291,7 @@ export class Key extends Scale {
 		}
 
 		if (!interval) {
-			mode = roll(modes, probabilities, Random.float);
+			mode = roll(modes, probabilities, random.float);
 		} else {
 			const dirMultiplier = direction === Key.ModulateDown ? -1 : 1;
 			const newModePosition = modePos + ((interval - 1) * dirMultiplier);

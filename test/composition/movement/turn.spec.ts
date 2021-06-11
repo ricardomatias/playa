@@ -2,14 +2,14 @@ import { TurnMoves } from '../../../lib/constants';
 import { Key } from '../../../lib/core';
 import { createTurnMovement } from '../../../lib/composition';
 import { MovementRhythm } from '../../../lib/composition/movement/types';
-import Random from '../../../lib/tools/random';
+import random from '../../../lib/tools/random';
 
 
 describe('A Movement test suite', () => {
 	describe('Turn', () => {
 		it('should generate a simple movement', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const aMaj = new Key('C', Key.Major);
 
@@ -33,7 +33,7 @@ describe('A Movement test suite', () => {
 
 		it('should generate non buggy', () => {
 			// given
-			Random.setSeed('massive-dragon-38');
+			random.setSeed('massive-dragon-38');
 
 			const cMaj = new Key('C', Key.Lydian);
 
@@ -57,7 +57,7 @@ describe('A Movement test suite', () => {
 
 		it('should generate a turn rhythm movement', () => {
 			// given
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const aMin = new Key('A', Key.Minor);
 

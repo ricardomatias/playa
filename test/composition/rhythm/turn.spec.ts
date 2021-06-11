@@ -1,7 +1,7 @@
 import { Ticks } from '../../../lib/constants';
 import { Time } from '../../../lib/core';
 import { Rhythm } from '../../../lib/composition';
-import { Random } from '../../../lib/tools';
+import { random } from '../../../lib/tools';
 import '../../matchers';
 
 const ONE_BAR = Ticks['1n'];
@@ -9,7 +9,7 @@ const ONE_BAR = Ticks['1n'];
 describe('#turn', () => {
 	it('should generate turn rhythm', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const rhythm = Rhythm.turn(new Time('2:0:0'), 7);
@@ -67,7 +67,7 @@ describe('#turn', () => {
 
 	it('should generate turn rhythm with 3/4 time signature', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const length = new Time('2:0:0', [ 3, 4 ]);
 
@@ -121,7 +121,7 @@ describe('#turn', () => {
 
 	it('should generate with sorting diverseFirst', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const rhythm = Rhythm.turn(ONE_BAR * 2, 7, {
@@ -181,7 +181,7 @@ describe('#turn', () => {
 
 	it('should generate with min note value', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const rhythm = Rhythm.turn(ONE_BAR * 3, 8, {
@@ -247,7 +247,7 @@ describe('#turn', () => {
 
 	it('should generate with sorting similar first', () => {
 		// given
-		Random.setSeed('foo-bar');
+		random.setSeed('foo-bar');
 
 		// when
 		const rhythm = Rhythm.turn(ONE_BAR * 3, 5, {
@@ -296,7 +296,7 @@ describe('#turn', () => {
 
 	it('should generate turn rhythm long bar', () => {
 		// given
-		Random.setSeed('foo-bar');
+		random.setSeed('foo-bar');
 
 		// when
 		const rhythm = Rhythm.turn(ONE_BAR * 8, 4);
@@ -336,7 +336,7 @@ describe('#turn', () => {
 
 	it('should generate a short turn rhythm', () => {
 		// given
-		Random.setSeed('foo-bar');
+		random.setSeed('foo-bar');
 
 		// when
 		const rhythm = Rhythm.turn(960, 3, {

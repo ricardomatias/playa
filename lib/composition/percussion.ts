@@ -1,4 +1,4 @@
-import Random from '../tools/random';
+import random from '../tools/random';
 import whilst from '../utils/whilst';
 import * as Euclidean from '../tools/euclidean';
 import { Notevalue } from '../constants';
@@ -59,7 +59,7 @@ export function createPercussion(
 	const patterns: Array<BinaryEvent[]> = [];
 
 	if (!isArray(beatsPerPart)) {
-		beatsPerPart = Array.from({ length: beatsPerPart }).map(() => Random.int(steps));
+		beatsPerPart = Array.from({ length: beatsPerPart }).map(() => random.int(steps));
 	}
 
 	const nrOfParts = beatsPerPart.length;

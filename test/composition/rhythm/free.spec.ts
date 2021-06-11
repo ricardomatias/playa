@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { Ticks } from '../../../lib/constants';
 import { Time } from '../../../lib/core';
-import { Random, distribute, chooseMany } from '../../../lib/tools';
+import { random, distribute, chooseMany } from '../../../lib/tools';
 import * as Rhythm from '../../../lib/composition/rhythm';
 import '../../matchers';
 
@@ -10,7 +10,7 @@ const ONE_BAR = Ticks['1n'];
 describe('#Rhythm.free', () => {
 	it('should generate rhythm - decreasing', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const rhythm = Rhythm.free(
@@ -72,7 +72,7 @@ describe('#Rhythm.free', () => {
 
 	it('should generate rhythm - slow', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const rhythm = Rhythm.free(ONE_BAR * 2, Rhythm.Presets.Slow, [
@@ -132,7 +132,7 @@ describe('#Rhythm.free', () => {
 
 	it('should generate rhythm - robotic', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const rhythm = Rhythm.free(ONE_BAR, Rhythm.Presets.Robotic);
@@ -255,7 +255,7 @@ describe('#Rhythm.free', () => {
 
 	it('should generate rhythm - straight', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const rhythm = Rhythm.free(ONE_BAR, Rhythm.Presets.Straight, [
@@ -325,12 +325,12 @@ describe('#Rhythm.free', () => {
 	});
 
 	it('should generate mixed', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const durations = chooseMany(
 			Rhythm.Presets.Mixed,
-			Random.int(R.length(Rhythm.Presets.Mixed)),
+			random.int(R.length(Rhythm.Presets.Mixed)),
 		);
 		const rhythm = Rhythm.free(
 			'1:0:0',
@@ -345,7 +345,7 @@ describe('#Rhythm.free', () => {
 
 	it('should respect different time signature', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const rhythm = Rhythm.free(
@@ -393,7 +393,7 @@ describe('#Rhythm.free', () => {
 
 	it('should break', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		// when
 		const error = () => Rhythm.free(ONE_BAR / 8, Rhythm.Presets.Slow);

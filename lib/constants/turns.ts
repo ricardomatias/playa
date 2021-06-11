@@ -64,7 +64,7 @@ export const TurnMoves = <const>{
 	*/
 	ModulateUp: 'ModulateUp',
 	/**
-	* Randomly picks any of the other turn movements
+	* randomly picks any of the other turn movements
 	* @type {String}
 	* @memberof Constants.TurnMoves
 	* @default

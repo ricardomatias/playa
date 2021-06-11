@@ -1,11 +1,11 @@
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 import { createArp } from '../../lib/composition/arp';
 import { Scale, Chord, TOff } from '../../lib/core';
 import { free } from '../../lib/composition/rhythm';
 
 describe('An Arp test suite', () => {
 	it('should create arp', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const scale = new Scale('A', Scale.Major);
 
@@ -42,7 +42,7 @@ describe('An Arp test suite', () => {
 	});
 
 	it('should create with custom start time', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const chord = Chord.fromName('Amaj');
 
@@ -79,7 +79,7 @@ describe('An Arp test suite', () => {
 	});
 
 	it('should wrap around when there are more notes', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const scale = new Scale('A', Scale.Major);
 
@@ -148,7 +148,7 @@ describe('An Arp test suite', () => {
 	});
 
 	it('should create complex arp', () => {
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const scale = new Scale('A', Scale.Major);
 

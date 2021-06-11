@@ -1,12 +1,11 @@
 import * as R from 'ramda';
 import { roll, distribute } from '@ricardomatias/roll';
-import { Key, Note, Scale, Time as T } from '../core';
-import {
-	choose,
-	Random,
-} from '../tools';
+import { Time as T } from '../core/Time';
+import { Key } from '../core/Key';
+import random from '../tools/random';
+import { choose } from '../tools/choose';
 import * as Rhythm from './rhythm';
-import { Notevalue, Ticks } from '../constants';
+import { Notevalue, Ticks } from '../constants/ticks';
 import { createMotif } from './motif';
 import { NoteEvent } from '../core/NoteEvent';
 import { TimelineEvent, TimelineEventKey } from './movement/types';
@@ -74,7 +73,7 @@ export function createMelodies(
 		// **************************************************************************
 		// * PHASE: DEJA VU
 		// **************************************************************************
-		if (melodies.length && R.gt(dejaVuChance, Random.float())) {
+		if (melodies.length && R.gt(dejaVuChance, random.float())) {
 			if (melodiesMap[dur]) {
 				const maps = melodiesMap[dur].filter(map => Key.inSameKey(scale, new Key(map.key.root, map.key.scale)));
 
@@ -110,9 +109,9 @@ export function createMelodies(
 		} else
 		if (rhythmType === RhythmType.Turn) {
 			const probabilities = distribute.decreasing(minNoteValues.length, PRECISION);
-			const minNoteValue = roll(minNoteValues, probabilities, Random.float);
+			const minNoteValue = roll(minNoteValues, probabilities, random.float);
 			const minTripleValue = Ticks[<Notevalue>`${minNoteValue}nt`];
-			const turns = Random.int(Math.floor(dur / minTripleValue), 2);
+			const turns = random.int(Math.floor(dur / minTripleValue), 2);
 
 			rhythm = Rhythm.turn(dur, turns, {
 				minNoteValue,
@@ -126,7 +125,7 @@ export function createMelodies(
 		motif = createMotif(scale.notes, rhythm, time);
 
 		motif = R.map((event) => {
-			if (R.gt(restProb, Random.float())) {
+			if (R.gt(restProb, random.float())) {
 				return NoteEvent({
 					...event,
 					midi: -1,

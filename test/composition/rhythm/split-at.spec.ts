@@ -1,11 +1,11 @@
 import { Rhythm } from '../../../lib/composition';
-import { Random } from '../../../lib/tools';
+import { random } from '../../../lib/tools';
 import '../../matchers';
 
 describe('#splitAt', () => {
 	it('should splitAt simple', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const rhythm = Rhythm.free('2:0:0', Rhythm.Presets.Common);
 
@@ -19,7 +19,7 @@ describe('#splitAt', () => {
 
 	it('should splitAt complex', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const rhythm = Rhythm.free('2:0:0', [ '1nt', '2nd' ]);
 

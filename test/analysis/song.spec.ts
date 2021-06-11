@@ -5,7 +5,7 @@ import {
 	createMovement,
 } from "../../lib/composition";
 import { Key } from "../../lib/core";
-import Random from "../../lib/tools/random";
+import random from "../../lib/tools/random";
 import { SongAnalysis } from "../../lib/analysis/song";
 import { toNoteEvent } from "../../lib/core/utils";
 import { FriendlyRanking } from '../../lib/tools/friendly';
@@ -15,7 +15,7 @@ import '../matchers';
 
 describe("A Song Analysis test suite", () => {
 	it("should find matches with 1 key", () => {
-		Random.setSeed("test");
+		random.setSeed("test");
 
 		// given
 		const fMin = new Key("F", Key.Minor);
@@ -41,7 +41,7 @@ describe("A Song Analysis test suite", () => {
 	});
 
 	it("should find matches with 2 keys", () => {
-		Random.setSeed("test");
+		random.setSeed("test");
 
 		// given
 		const bFlatMaj = new Key("Bb", Key.Major);
@@ -73,7 +73,7 @@ describe("A Song Analysis test suite", () => {
 	});
 
 	it("should find with 3 keys", () => {
-		Random.setSeed("test");
+		random.setSeed("test");
 
 		// given
 		const dAeolian = new Key("D", Key.Aeolian);
@@ -109,7 +109,7 @@ describe("A Song Analysis test suite", () => {
 	});
 
 	it("should find with 3 keys short", () => {
-		Random.setSeed("test");
+		random.setSeed("test");
 
 		// given
 		const dAeolian = new Key("D", Key.Aeolian);
@@ -145,7 +145,7 @@ describe("A Song Analysis test suite", () => {
 	});
 
 	it("should find with 4 keys medium", () => {
-		Random.setSeed("test");
+		random.setSeed("test");
 
 		// given
 		const eFlatMajor = new Key("Eb", Key.Major);
@@ -185,7 +185,7 @@ describe("A Song Analysis test suite", () => {
 	});
 
 	it("should find with 4 keys long", () => {
-		Random.setSeed("test-2");
+		random.setSeed("test-2");
 
 		// given
 		const aMixo = new Key("A", Key.Mixolydian);

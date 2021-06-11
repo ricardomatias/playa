@@ -1,7 +1,7 @@
 import { RhythmType } from '../../lib/common/types';
 import { Key, Chord, Time } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/composition';
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 import '../matchers';
 
 const FOUR_BARS = new Time('4:0:0').ticks;
@@ -9,7 +9,7 @@ const FOUR_BARS = new Time('4:0:0').ticks;
 describe('A Chord Progression test suite', () => {
 	it('should generate chords based on a movement timeline - free rhythm', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const aMaj = new Key('A', Key.Major);
 
@@ -28,7 +28,7 @@ describe('A Chord Progression test suite', () => {
 
 	it('should generate chords based on a movement timeline - turn rhythm', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const aMaj = new Key('A', Key.Major);
 
@@ -48,7 +48,7 @@ describe('A Chord Progression test suite', () => {
 
 	it('should generate progression with defined structures', () => {
 		// given
-		Random.setSeed('test-2');
+		random.setSeed('test-2');
 
 		const aMaj = new Key('Db', Key.Major);
 

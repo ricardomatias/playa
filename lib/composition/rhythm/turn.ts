@@ -3,7 +3,7 @@ import { roll, distribute } from '@ricardomatias/roll';
 
 import { Ticks, Notevalue } from '../../constants';
 import { whilst, findCombinationsSum } from '../../utils';
-import Random from '../../tools/random';
+import random from '../../tools/random';
 import { createGrid, GridCell } from './grid';
 import { Time, TimeFormat } from '../../core/Time';
 import { Event } from '../../core/Event';
@@ -37,7 +37,7 @@ const drawGroupingCombination = (turns: number, combSorting: CombinationSorting 
 	const combinations = R.sortWith(sortingAlgos, findCombinationsSum(turns, 4));
 	const combProbabilities: string[] = distribute.decreasing(combinations, PRECISION);
 
-	const combination = roll(combinations, combProbabilities, Random.float);
+	const combination = roll(combinations, combProbabilities, random.float);
 
 	return R.sortWith([ R.descend(R.identity) ], combination);
 };
@@ -89,7 +89,7 @@ export function createTurnRhythm(
 
 	const totalRhythmDuration = new Time(length).ticks;
 
-	const avoidRandomHitLength = Math.floor(totalRhythmDuration / turns) > MAX_DUR;
+	const avoidrandomHitLength = Math.floor(totalRhythmDuration / turns) > MAX_DUR;
 
 	const grouping = drawGroupingCombination(turns, combSorting);
 
@@ -117,14 +117,14 @@ export function createTurnRhythm(
 
 		turnsLeft -= nrOfHits;
 
-		if (turnsLeft && index % 2 == 0 && !avoidRandomHitLength && hitLength > 1) {
-			hitLength = Random.int(hitLength, 1);
+		if (turnsLeft && index % 2 == 0 && !avoidrandomHitLength && hitLength > 1) {
+			hitLength = random.int(hitLength, 1);
 		}
 
 		for (let hitsIndex = 0; hitsIndex < nrOfHits; hitsIndex++) {
 			let dur = calcDur(grid, gridIndex, hitLength, totalRhythmDuration);
 
-			if (turnsLeft && !avoidRandomHitLength) {
+			if (turnsLeft && !avoidrandomHitLength) {
 				whilst(() => {
 					if (!turnsLeft) {
 						hitLength -= 1;

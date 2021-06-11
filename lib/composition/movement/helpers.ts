@@ -1,11 +1,10 @@
 import { roll } from '@ricardomatias/roll';
 
-import { Key, ModulationDirection } from '../../core';
-import { Interval, TurnMoves } from '../../constants';
-import {
-	choose,
-	Random,
-} from '../../tools';
+import { Key, ModulationDirection } from '../../core/Key';
+import { TurnMoves } from '../../constants/turns';
+import { Interval } from '../../constants/intervals';
+import random from '../../tools/random';
+import { choose } from '../../tools/choose';
 import { ModulationEvent, ModulationEventType, TimelineEventKey, Turn, TurnEvent } from './types';
 import { ModeIntervals } from '../../constants/modes';
 
@@ -36,7 +35,7 @@ export const modulate = (
 		interval = roll(
 			Array.from(Key.ModulationIntervals),
 			Array.from(Key.KeyModulationProbabilities),
-			Random.float
+			random.float
 		);
 	}
 

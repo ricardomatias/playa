@@ -4,7 +4,7 @@ import { Chord, Time } from '../core';
 import { roll, distribute } from '@ricardomatias/roll';
 import {
 	choose,
-	Random,
+	random,
 	Midi,
 } from '../tools';
 import * as Rhythm from './rhythm';
@@ -108,7 +108,7 @@ export function createChordProgression(
 
 	for (let index = 0; index < timeline.length; index++) {
 		const { time, dur, key: { scale, root }} = timeline[index];
-		const structure = roll(structures, structuresProb, Random.float);
+		const structure = roll(structures, structuresProb, random.float);
 		const isFirstChord = index === 0;
 
 		chosenStyle = choose([ JUMP_STYLE, PRUDENT_STYLE ]);
@@ -156,13 +156,13 @@ export function createChordProgression(
 			if (isDefined(chord.structure)) {
 				const str = Array.from(chord.structure);
 				const lowerBound = (str.length > 1 ? choose(str) : str[0]).split(' ').length;
-				nrOfNotes = Random.int(lowerBound, Math.min(minChordNotes, notes.length));
+				nrOfNotes = random.int(lowerBound, Math.min(minChordNotes, notes.length));
 			}
 
 			chordNotes = [ R.head(notes) as number ];
 
-			if (R.gt(inversionProb, Random.float())) {
-				chord.invert(Random.int(R.length(chord.notes)));
+			if (R.gt(inversionProb, random.float())) {
+				chord.invert(random.int(R.length(chord.notes)));
 			}
 
 			try {
@@ -215,7 +215,7 @@ export function createChordProgression(
 		});
 
 		pattern = R.map((event) => {
-			if (!event.isRest && R.gt(restProb, Random.float())) {
+			if (!event.isRest && R.gt(restProb, random.float())) {
 				return ChordEvent({
 					...event,
 					isRest: true,

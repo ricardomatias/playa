@@ -1,10 +1,10 @@
 import { choose, chooseMany } from '../../lib/tools';
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 
 const AM7 = [ 'A', 'C', 'E', 'G' ];
 
 describe('A Choose test suite', () => {
-	beforeAll(() => Random.setSeed('CHOOSE'));
+	beforeAll(() => random.setSeed('CHOOSE'));
 
 	it('should return a random element', () => {
 		expect(choose(AM7)).toBe('C');

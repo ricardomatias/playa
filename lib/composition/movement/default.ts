@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { Key, Time, TimeFormat } from '../../core';
 import {
-	Random, Euclidean,
+	random, Euclidean,
 } from '../../tools';
 import * as Rhythm from '../rhythm';
 import { Notevalue, ScaleName, Ticks } from '../../constants';
@@ -123,7 +123,7 @@ function movement(key: Key, length: TimeFormat, turns: number, {
 	// * PHASE: CREATE KEY EVENTS
 	// **************************************************************************
 	let timeline = rhythmEvents.map((event, index) => {
-		if (modProb > Random.float() && index != 0) {
+		if (modProb > random.float() && index != 0) {
 			event.key = modulate(key, events);
 
 			mainKey = key.root;

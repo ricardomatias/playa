@@ -1,5 +1,5 @@
 import { Chord, Key } from '../../lib/core';
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 import '../matchers';
 
 function pickName<T extends Chord | Key>(chords: T[]) {
@@ -246,7 +246,7 @@ describe('Key Test Suite', () => {
 
 	describe('switch modes', () => {
 		it('get from position', () => {
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const key = new Key('C', Key.Ionian);
 
@@ -288,7 +288,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('get from name', () => {
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			const key = new Key('C', Key.Ionian);
 
@@ -364,7 +364,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode - Aeolian', () => {
-			Random.setSeed('test');
+			random.setSeed('test');
 
 			key.modulateMode();
 
@@ -388,7 +388,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode based on direction - DOWN', () => {
-			Random.setSeed('test-2');
+			random.setSeed('test-2');
 
 			key.modulateMode({ direction: Key.ModulateDown });
 
@@ -412,7 +412,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode - F', () => {
-			Random.setSeed('test-2');
+			random.setSeed('test-2');
 
 			key.modulateMode();
 
@@ -436,7 +436,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode based on direction - UP from last element', () => {
-			Random.setSeed('test-2');
+			random.setSeed('test-2');
 
 			key.modulateMode({ direction: Key.ModulateUp });
 
@@ -460,7 +460,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode based on direction - UP', () => {
-			Random.setSeed('test-2');
+			random.setSeed('test-2');
 
 			key.modulateMode({ direction: Key.ModulateUp });
 
@@ -484,7 +484,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode based on direction - UP', () => {
-			Random.setSeed('test-2');
+			random.setSeed('test-2');
 
 			const newKey = new Key('G', Key.Lydian);
 
@@ -510,7 +510,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode based on direction & INTERVAL', () => {
-			Random.setSeed('test-2');
+			random.setSeed('test-2');
 
 			const newKey = new Key('G', Key.Lydian);
 
@@ -536,7 +536,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode based on direction & INTERVAL', () => {
-			Random.setSeed('test-2');
+			random.setSeed('test-2');
 
 			const newKey = new Key('G', Key.Lydian);
 
@@ -562,7 +562,7 @@ describe('Key Test Suite', () => {
 		});
 
 		it('should modulate to another mode based on INTERVAL', () => {
-			Random.setSeed('test-2');
+			random.setSeed('test-2');
 
 			const newKey = new Key('G', Key.Lydian);
 

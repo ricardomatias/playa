@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import { Key } from '../../lib/core';
 import { createMovement, createMelodies } from '../../lib/composition';
 import * as Rhythm from '../../lib/composition/rhythm';
-import Random from '../../lib/tools/random';
+import random from '../../lib/tools/random';
 import { distribute } from '@ricardomatias/roll';
 import { RhythmType } from '../../lib/common/types';
 import { valuesToArr } from '../../lib/utils';
@@ -11,7 +11,7 @@ import { valuesToArr } from '../../lib/utils';
 describe('A Melodies test suite', () => {
 	it('should generate melodies based on a movement timeline - free rhythm', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const aMaj = new Key('A', Key.Major);
 
@@ -29,7 +29,7 @@ describe('A Melodies test suite', () => {
 
 	it('should generate melodies based on a movement timeline - turn rhythm', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const aMaj = new Key('A', Key.Major);
 
@@ -49,7 +49,7 @@ describe('A Melodies test suite', () => {
 
 	it('should generate progression with defined structures', () => {
 		// given
-		Random.setSeed('test');
+		random.setSeed('test');
 
 		const aMaj = new Key('Db', Key.Major);
 

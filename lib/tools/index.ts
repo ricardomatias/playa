@@ -8,7 +8,7 @@ export { default as distance } from './distance';
 export * from './interval';
 export { friendly, filterHighestMatches, findClosestMatches } from './friendly';
 export * as Euclidean from './euclidean';
-export { default as Random } from './random';
+export { default as random, Random } from './random';
 
 export * as Midi from './midi';
 
