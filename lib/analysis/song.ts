@@ -8,17 +8,6 @@ import { PlayaError } from '../utils/error';
 import { natural } from '../utils/note';
 import { NoteSymbol } from '../constants/note';
 
-/**
- * Analysis Type
- * @typedef {Object} Analysis
- * @memberof Types
- *
- * @property {number} start interval start time
- * @property {number} end interval end time
- * @property {Array<NoteSymbol>} notes notes
- * @property {Array<NoteEvent>} events note events
- * @property {Array<FriendlyRanking>} matches key matches
- */
 
 export interface Analysis {
 	start: number;
@@ -75,7 +64,7 @@ export class SongAnalysis {
 	 * Get the analysis results
 	 *
 	 * @member analysis
-	 * @type {Analysis[]}
+	 * @type {IAnalysis[]}
 	 * @memberof Analysis#SongAnalysis#
 	 */
 	get analysis(): Analysis[] {
