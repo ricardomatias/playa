@@ -1,7 +1,6 @@
 export { choose, chooseMany } from './choose';
 export { shuffle } from './shuffle';
 export { rotate } from './rotate';
-export { shift } from './shift';
 export { next } from './next';
 export { ping } from './ping';
 export { default as distance } from './distance';

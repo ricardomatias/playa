@@ -4,7 +4,7 @@ import * as Euclidean from '../tools/euclidean';
 import { Notevalue } from '../constants';
 import { BinaryEvent } from '../common/types';
 import { isArray, isDefined, isUndefined } from '../utils/types-guards';
-import { shift } from '../tools';
+import { rotate } from '../tools/rotate';
 
 // TODO: Create playa arp for drums return array
 
@@ -116,7 +116,7 @@ export function createPercussion(
 
 			if (!n) continue;
 
-			patterns[index] = shift(patterns[index], n);
+			patterns[index] = rotate(patterns[index], -n);
 		}
 	}
 
