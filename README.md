@@ -8,7 +8,6 @@
     <a href="https://github.com/ricardomatias/playa/actions"><img src="https://github.com/ricardomatias/playa/workflows/CI/CD/badge.svg" alt="build" /></a>
     <a href='https://coveralls.io/github/ricardomatias/playa?branch=master'><img src='https://coveralls.io/repos/github/ricardomatias/playa/badge.svg?branch=master' alt='Coverage Status' /></a>
     <a href='https://bundlephobia.com/result?p=playa'><img src='https://badgen.net/bundlephobia/minzip/playa' alt='Bundlephobia min + gzip' /></a>
-    <a href='https://bundlephobia.com/result?p=playa'><img src='https://badgen.net/bundlephobia/tree-shaking/playa' alt='Bundlephobia tree-shaking' /></a>
 </p>
 
 PLAYA *(pronounced `ˈpleɪə`)* is a framework for musical composition. It allows creating custom music algorithms, musical phrases, percussion rhythms, harmonic sequences and more.

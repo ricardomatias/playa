@@ -5,7 +5,14 @@
 	"main": "./build/umd/index.js",
 	"module": "./build/esm/index.js",
 	"types": "./build/types/index.d.ts",
-	"sideEffect": false,
+	"exports": {
+		".": {
+			"require": "./build/umd/index.js",
+			"import": "./build/esm/index.js",
+			"default": "./build/esm/index.js"
+		}
+	},
+	"unpkg": "./build/umd/index.js",
 	"scripts": {
 		"test": "npm run lint:quiet && jest",
 		"test:watch": "jest --watch",
