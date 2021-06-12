@@ -3,7 +3,6 @@ import { Event } from '../core/Event';
 import { Time, TimeFormat } from '../core/Time';
 import { toTicks } from '../utils';
 
-
 /**
  * Event tools
  * @namespace Event
@@ -14,14 +13,13 @@ import { toTicks } from '../utils';
 
 // https://github.com/Tonejs/Tone.js/blob/dev/Tone/type/Time.js
 
-export const mapDurations = (durations: TimeFormat[]): Event[] => (durations.map((dur) => (
-	{
+export const mapDurations = (durations: TimeFormat[]): Event[] =>
+	durations.map((dur) => ({
 		time: 0,
 		dur: toTicks(dur),
 		next: 0,
 		isRest: false,
-	}
-)));
+	}));
 
 export function isEvent(pattern: TimeFormat[] | Event[]): pattern is Event[] {
 	return typeof (pattern as Event[])[0] === 'object';
@@ -94,7 +92,6 @@ export const computeEventsNext = (events: Event[]): Event[] => {
 	});
 };
 
-
 /**
  * Maps events to a new starting value
  *
@@ -107,11 +104,11 @@ export const computeEventsNext = (events: Event[]): Event[] => {
  */
 export const mapStartToEvent = R.curry((startTime: TimeFormat, event: Event): Event => {
 	const start = new Time(startTime);
-	return ({
+	return {
 		...event,
 		time: start.ticks + event.time,
 		next: start.ticks + event.next,
-	});
+	};
 });
 
 /**

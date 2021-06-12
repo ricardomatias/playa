@@ -50,9 +50,9 @@ export const natural = (note: NoteLike): DiatonicNote | null => {
  * @param {String} note
  * @return {String} Natural note
  */
-export const stripOctave = (note: string): NoteSymbol => <NoteSymbol>(note.replace(new RegExp(OCTAVE_REGEXP), ''));
+export const stripOctave = (note: string): NoteSymbol => <NoteSymbol>note.replace(new RegExp(OCTAVE_REGEXP), '');
 
-export const hasOctave = (note: string): boolean => (new RegExp(OCTAVE_REGEXP).test(note));
+export const hasOctave = (note: string): boolean => new RegExp(OCTAVE_REGEXP).test(note);
 
 interface ParsedNote {
 	note: NoteSymbol;

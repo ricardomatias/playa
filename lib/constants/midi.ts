@@ -128,4 +128,3 @@ export const MidiNotes = [
 	'F#8', // 126
 	'G8', // 127
 ];
-

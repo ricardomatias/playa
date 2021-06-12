@@ -34,7 +34,7 @@
  */
 export const Sharps = <const>[ 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B' ];
 
-export type Sharp = typeof Sharps[number]
+export type Sharp = typeof Sharps[number];
 
 /**
  * Notes with flats
@@ -45,7 +45,7 @@ export type Sharp = typeof Sharps[number]
  */
 export const Flats = <const>[ 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B' ];
 
-export type Flat = typeof Flats[number]
+export type Flat = typeof Flats[number];
 
 /**
  * Enharmonic pairs
@@ -56,7 +56,7 @@ export type Flat = typeof Flats[number]
  */
 export const Enharmonics = <const>[ 'C#|Db', 'D#|Eb', 'F#|Gb', 'G#|Ab', 'A#|Bb' ];
 
-export type Enharmonic = typeof Enharmonics[number]
+export type Enharmonic = typeof Enharmonics[number];
 
 /**
  * Diatonic notes
@@ -67,7 +67,6 @@ export type Enharmonic = typeof Enharmonics[number]
  */
 export const DiatonicNotes = <const>[ 'C', 'D', 'E', 'F', 'G', 'A', 'B' ];
 
-export type DiatonicNote = typeof DiatonicNotes[number]
-
+export type DiatonicNote = typeof DiatonicNotes[number];
 
 export type NoteSymbol = Sharp | Flat;

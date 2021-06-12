@@ -4,13 +4,13 @@ import { mapStartToEvent } from '../../tools';
 import { isUndefined } from '../../utils/types-guards';
 
 /**
-* Concats multiple rhythms ({@link Event}[]) together with the correct *time* and *next*
-* @function concat
-* @memberof Composition.Rhythm
-*
-* @param {Array<Array<Event>>} events
-* @return {Array<Event>}
-*/
+ * Concats multiple rhythms ({@link Event}[]) together with the correct *time* and *next*
+ * @function concat
+ * @memberof Composition.Rhythm
+ *
+ * @param {Array<Array<Event>>} events
+ * @return {Array<Event>}
+ */
 export function concat(...events: Event[][]): Event[] {
 	const start = events[0];
 

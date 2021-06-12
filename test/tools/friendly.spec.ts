@@ -12,11 +12,11 @@ const Abmaj = new Scale('Ab', Scale.Major);
 const DSharpLoc = new Scale('D#', Scale.Locrian);
 const BbEgyptian = new Scale('Bb', Scale.Intervals.Egyptian);
 
-type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>
+type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>;
 
 type FriendlyScales = Exclude<ScaleIntervals, Chromatic>;
 
-type isNotChromatic = (s: ScaleIntervals) => s is FriendlyScales
+type isNotChromatic = (s: ScaleIntervals) => s is FriendlyScales;
 
 const isNotChromatic = R.complement(R.equals(ScaleIntervals.Chromatic)) as isNotChromatic;
 
@@ -93,17 +93,11 @@ describe('A Friendly test suite', () => {
 			expect(neighbours).toMatchSnapshot();
 		});
 
-
 		it('should return D Aeolian ', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = friendly([
-				'D3', 'E3',
-				'F3', 'G3',
-				'A3', 'Bb3',
-				'C4'
-			]);
+			const neighbours = friendly([ 'D3', 'E3', 'F3', 'G3', 'A3', 'Bb3', 'C4' ]);
 
 			expect(neighbours).toHaveMatch<FriendlyRanking>({
 				match: 1,
@@ -168,11 +162,7 @@ describe('A Friendly test suite', () => {
 				intervals: '1P 3M 6m 7m',
 				type: 'Mixolydian',
 			});
-			expect(new Scale(closest[0].root, closest[0].scale).string).toEqual([
-				'A3', 'B3', 'C#4',
-				'D4', 'E4', 'F#4',
-				'G4',
-			]);
+			expect(new Scale(closest[0].root, closest[0].scale).string).toEqual([ 'A3', 'B3', 'C#4', 'D4', 'E4', 'F#4', 'G4' ]);
 		});
 
 		it('should have with every note different', () => {
@@ -208,10 +198,7 @@ describe('A Friendly test suite', () => {
 		it('should return an ordered list of intervals', () => {
 			const ranking = rankIntervals(SCALES_ARRAY);
 
-			expect(ranking).toEqual([
-				'4A', '5d', '2m', '7M', '3M', '6m',
-				'6M', '3m', '7m', '2M', '4P', '5P',
-			]);
+			expect(ranking).toEqual([ '4A', '5d', '2m', '7M', '3M', '6m', '6M', '3m', '7m', '2M', '4P', '5P' ]);
 		});
 
 		it('should return an ordered list of scales based on intervals ranking', () => {
@@ -230,7 +217,7 @@ describe('A Friendly test suite', () => {
 		beforeAll(() => random.setSeed('FRIENDLY'));
 
 		it('should order notes C MAJ', () => {
-			const rndFn = () => (random.int(1, -1));
+			const rndFn = () => random.int(1, -1);
 
 			const scrambledNotes = R.sort(rndFn, Cmaj.string);
 			const neighbours = orderNotes(scrambledNotes);
@@ -239,18 +226,16 @@ describe('A Friendly test suite', () => {
 		});
 
 		it('should order notes Ab MAJ', () => {
-			const rndFn = () => (random.int(1, -1));
+			const rndFn = () => random.int(1, -1);
 
 			const scrambledNotes = R.sort(rndFn, Abmaj.string);
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).toEqual([
-				'C', 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb',
-			]);
+			expect(neighbours).toEqual([ 'C', 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb' ]);
 		});
 
 		it('should order notes D# LOCRIAN', () => {
-			const rndFn = () => (random.int(1, -1));
+			const rndFn = () => random.int(1, -1);
 
 			const scrambledNotes = R.sort(rndFn, DSharpLoc.string);
 
@@ -258,20 +243,16 @@ describe('A Friendly test suite', () => {
 
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).toEqual([
-				'C#', 'D#', 'E', 'F#', 'G#', 'A', 'B',
-			]);
+			expect(neighbours).toEqual([ 'C#', 'D#', 'E', 'F#', 'G#', 'A', 'B' ]);
 		});
 
 		it('should order notes Bb EGYPTIAN', () => {
-			const rndFn = () => (random.int(1, -1));
+			const rndFn = () => random.int(1, -1);
 
 			const scrambledNotes = R.sort(rndFn, BbEgyptian.string);
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).toEqual([
-				'C', 'Eb', 'F', 'Ab', 'Bb',
-			]);
+			expect(neighbours).toEqual([ 'C', 'Eb', 'F', 'Ab', 'Bb' ]);
 		});
 	});
 });

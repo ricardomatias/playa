@@ -46,9 +46,13 @@ describe('An Octaves Test Suite', () => {
 
 	it('should map - major with flats', () => {
 		const scale = new Scale('F', Scale.Major);
-		const octaves = R.map(toNoteObj, assignOctaves(scale.notes, [ -1, 1 ], {
-			type: 'scale', hasFlats: true,
-		}));
+		const octaves = R.map(
+			toNoteObj,
+			assignOctaves(scale.notes, [ -1, 1 ], {
+				type: 'scale',
+				hasFlats: true,
+			})
+		);
 
 		expect(octaves).toHaveLength(7);
 		expect(octaves).toMatchSnapshot();
@@ -70,4 +74,3 @@ describe('An Octaves Test Suite', () => {
 		expect(octaves).toMatchSnapshot();
 	});
 });
-

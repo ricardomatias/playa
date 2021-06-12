@@ -29,14 +29,27 @@
  * Ticks['4n'] => 480
  */
 export enum Ticks {
-	'1nd' = 2880, '1n' = 1920, '1nt' = 1280,
-	'2nd' = 1440, '2n' = 960, '2nt' = 640,
-	'4nd' = 720, '4n' = 480, '4nt' = 320,
-	'8nd' = 360, '8n' = 240, '8nt' = 160,
-	'16nd' = 180, '16n' = 120, '16nt' = 80,
-	'32nd' = 90, '32n' = 60, '32nt' = 40,
-	'64nd' = 45, '64n' = 30,
-	'128n' = 15
+	'1nd' = 2880,
+	'1n' = 1920,
+	'1nt' = 1280,
+	'2nd' = 1440,
+	'2n' = 960,
+	'2nt' = 640,
+	'4nd' = 720,
+	'4n' = 480,
+	'4nt' = 320,
+	'8nd' = 360,
+	'8n' = 240,
+	'8nt' = 160,
+	'16nd' = 180,
+	'16n' = 120,
+	'16nt' = 80,
+	'32nd' = 90,
+	'32n' = 60,
+	'32nt' = 40,
+	'64nd' = 45,
+	'64n' = 30,
+	'128n' = 15,
 }
 
 export type Notevalue = keyof typeof Ticks;
@@ -66,6 +79,4 @@ export type Notevalue = keyof typeof Ticks;
  * @property {string} 64nd "64nd"
  * @property {string} 64n "64n"
  * @property {string} 128n "128n"
-*/
-
-
+ */

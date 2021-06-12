@@ -120,7 +120,6 @@ describe('Chord Test Suite', () => {
 			expect(chord).toHaveStringNotes([ 'F4', 'Ab4', 'B4' ]);
 		});
 
-
 		it('should set 13 chord', () => {
 			const chord = new Chord('E', Chord.Symbols.Thirteenth);
 
@@ -131,14 +130,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('E13');
 			expect(chord.hasFlats).toBeFalsy();
 			expect(chord.hasSharps).toBeTruthy();
-			expect(chord).toHaveStringNotes([
-				'E3',
-				'G#3',
-				'B3',
-				'D4',
-				'F#4',
-				'C#5',
-			]);
+			expect(chord).toHaveStringNotes([ 'E3', 'G#3', 'B3', 'D4', 'F#4', 'C#5' ]);
 		});
 
 		it('should set M11 chord', () => {
@@ -151,14 +143,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('GbM11');
 			expect(chord.hasFlats).toBeTruthy();
 			expect(chord.hasSharps).toBeFalsy();
-			expect(chord).toHaveStringNotes([
-				'Gb3',
-				'Bb3',
-				'Db4',
-				'F4',
-				'Ab4',
-				'B4',
-			]);
+			expect(chord).toHaveStringNotes([ 'Gb3', 'Bb3', 'Db4', 'F4', 'Ab4', 'B4' ]);
 		});
 
 		// it('should throw', () => {
@@ -177,11 +162,7 @@ describe('Chord Test Suite', () => {
 			it('should set natural', () => {
 				random.setSeed('test');
 
-				const chord = Chord.fromIntervals(
-					'A',
-					ScaleIntervals.Egyptian,
-					Chord.Structures.Triad,
-				);
+				const chord = Chord.fromIntervals('A', ScaleIntervals.Egyptian, Chord.Structures.Triad);
 
 				expect(chord.root.note).toBe('A');
 				expect(chord.symbol).toBe('5');
@@ -196,11 +177,7 @@ describe('Chord Test Suite', () => {
 			it('should set sixth', () => {
 				random.setSeed('test');
 
-				const chord = Chord.fromIntervals(
-					'G',
-					ScaleIntervals.Dorian,
-					Chord.Structures.Sixth,
-				);
+				const chord = Chord.fromIntervals('G', ScaleIntervals.Dorian, Chord.Structures.Sixth);
 
 				expect(chord.root.note).toBe('G');
 				expect(chord.symbol).toBe('m6');
@@ -215,11 +192,7 @@ describe('Chord Test Suite', () => {
 			it('should set 13 chord', () => {
 				random.setSeed('test');
 
-				const chord = Chord.fromIntervals(
-					'A',
-					ScaleIntervals.Minor,
-					Chord.Structures.Thirteenth,
-				);
+				const chord = Chord.fromIntervals('A', ScaleIntervals.Minor, Chord.Structures.Thirteenth);
 
 				expect(chord.root.note).toBe('A');
 				expect(chord.symbol).toBe('m9add13');
@@ -228,24 +201,13 @@ describe('Chord Test Suite', () => {
 				expect(chord.name).toBe('Am9add13');
 				expect(chord.hasFlats).toBeFalsy();
 				expect(chord.hasSharps).toBeFalsy();
-				expect(chord).toHaveStringNotes([
-					'A3',
-					'C4',
-					'E4',
-					'G4',
-					'B4',
-					'F5',
-				]);
+				expect(chord).toHaveStringNotes([ 'A3', 'C4', 'E4', 'G4', 'B4', 'F5' ]);
 			});
 
 			it('should create custom', () => {
 				random.setSeed('test');
 
-				const chord = Chord.fromIntervals(
-					'C',
-					'1P 2M 3M 4A 5P 6m 7m',
-					[ '1 3 5 6 7' ],
-				);
+				const chord = Chord.fromIntervals('C', '1P 2M 3M 4A 5P 6m 7m', [ '1 3 5 6 7' ]);
 
 				expect(chord.root.note).toBe('C');
 				expect(chord.symbol).toBe('majadd7');
@@ -276,16 +238,10 @@ describe('Chord Test Suite', () => {
 				random.setSeed('test');
 
 				const toThrow = () => {
-					Chord.fromIntervals(
-						'A',
-						'1P 100P',
-						Chord.Structures.Ninth,
-					);
+					Chord.fromIntervals('A', '1P 100P', Chord.Structures.Ninth);
 				};
 
-				expect(toThrow).toThrowErrorMatchingInlineSnapshot(
-					`"[1P 100P] has unrecognized intervals."`,
-				);
+				expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[1P 100P] has unrecognized intervals."`);
 			});
 		});
 
@@ -341,11 +297,7 @@ describe('Chord Test Suite', () => {
 		it('should create 1st inversion', () => {
 			random.setSeed('test');
 
-			const chord = Chord.fromIntervals(
-				'A',
-				ScaleIntervals.Minor,
-				Chord.Structures.Triad,
-			);
+			const chord = Chord.fromIntervals('A', ScaleIntervals.Minor, Chord.Structures.Triad);
 
 			chord.invert();
 
@@ -359,11 +311,7 @@ describe('Chord Test Suite', () => {
 		it('should create 2nd inversion', () => {
 			random.setSeed('test');
 
-			const chord = Chord.fromIntervals(
-				'A',
-				ScaleIntervals.Minor,
-				Chord.Structures.Triad,
-			);
+			const chord = Chord.fromIntervals('A', ScaleIntervals.Minor, Chord.Structures.Triad);
 
 			chord.invert(2);
 
@@ -373,11 +321,7 @@ describe('Chord Test Suite', () => {
 		it('should create 3rd inversion', () => {
 			random.setSeed('test');
 
-			const chord = Chord.fromIntervals(
-				'A',
-				ScaleIntervals.Minor,
-				Chord.Structures.Seventh,
-			);
+			const chord = Chord.fromIntervals('A', ScaleIntervals.Minor, Chord.Structures.Seventh);
 
 			chord.invert(3);
 
@@ -405,15 +349,13 @@ describe('Chord Test Suite', () => {
 			expect(seventh.n).toEqual('G4');
 		});
 
-		it('should throw when it doesn\'t have interval', () => {
+		it("should throw when it doesn't have interval", () => {
 			const toThrow = () => {
 				const chord = new Chord('A', 'm7');
 				chord.noteAt(2);
 			};
 
-			expect(toThrow).toThrowErrorMatchingInlineSnapshot(
-				`"[1,3,5,7] structure doesn't contain position: 2"`,
-			);
+			expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[1,3,5,7] structure doesn't contain position: 2"`);
 		});
 	});
 

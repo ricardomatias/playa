@@ -2,11 +2,7 @@ import * as R from 'ramda';
 import { ChordStructure, Notevalue, Ticks } from '../constants';
 import { Chord, Time } from '../core';
 import { roll, distribute } from '@ricardomatias/roll';
-import {
-	choose,
-	random,
-	Midi,
-} from '../tools';
+import { choose, random, Midi } from '../tools';
 import * as Rhythm from './rhythm';
 
 import { whilst, PlayaError, stripOctave, valuesToArr } from '../utils';
@@ -24,7 +20,6 @@ const PRECISION = 5;
 
 const QUARTER_TRIPLET = Ticks['4nt'];
 
-
 type ChordProgressionOptions = Partial<{
 	structures: ChordStructure[];
 	distribution: DistributionFunction;
@@ -36,9 +31,9 @@ type ChordProgressionOptions = Partial<{
 	restProb: number;
 	inversionProb: number;
 	rhythmType: RhythmType;
-}>
+}>;
 
-export type ChordProgression = ChordEvent[]
+export type ChordProgression = ChordEvent[];
 
 /**
  * ChordProgression Type
@@ -100,14 +95,19 @@ export function createChordProgression(
 		startingOctave = choose(octaves),
 		minChordNotes = 3,
 		rhythmType = RhythmType.Free,
-	}: ChordProgressionOptions = {}): ChordProgression {
+	}: ChordProgressionOptions = {}
+): ChordProgression {
 	const progression = [];
 	const chords = [];
 	const structuresProb = distribution(structures, PRECISION);
 	let chosenStyle;
 
 	for (let index = 0; index < timeline.length; index++) {
-		const { time, dur, key: { scale, root }} = timeline[index];
+		const {
+			time,
+			dur,
+			key: { scale, root },
+		} = timeline[index];
 		const structure = roll(structures, structuresProb, random.float);
 		const isFirstChord = index === 0;
 
@@ -123,14 +123,15 @@ export function createChordProgression(
 		// **************************************************************************
 		if (rhythmType === RhythmType.Free) {
 			rhythm = Rhythm.free(length, rhythmValues, rhythmDurations, distribution);
-		} else
-		if (rhythmType === RhythmType.Turn) {
+		} else if (rhythmType === RhythmType.Turn) {
 			const turns = Math.floor(dur / QUARTER_TRIPLET);
 
 			if (turns <= 1) {
-				rhythm.push(Event({
-					dur,
-				}));
+				rhythm.push(
+					Event({
+						dur,
+					})
+				);
 			} else {
 				rhythm = Rhythm.turn(dur, turns, {
 					minNoteValue: 8,
@@ -166,11 +167,14 @@ export function createChordProgression(
 			}
 
 			try {
-				whilst(() => {
-					chordNotes.push(choose(notes));
+				whilst(
+					() => {
+						chordNotes.push(choose(notes));
 
-					chordNotes = R.uniq(chordNotes);
-				}, () => (chordNotes.length !== nrOfNotes));
+						chordNotes = R.uniq(chordNotes);
+					},
+					() => chordNotes.length !== nrOfNotes
+				);
 			} catch (error) {
 				throw new PlayaError('Chord Progression', 'Error at Chord selection', {
 					error,

@@ -35,27 +35,28 @@ export const findNearest = (base: number, note: NoteSymbol | string): number | u
 
 	const realNote = n.isNatural || n.isSharp ? n.note : n.e;
 
-	const filterByOctaves = (noteOctave: string) => (stripOctave(noteOctave) === realNote);
+	const filterByOctaves = (noteOctave: string) => stripOctave(noteOctave) === realNote;
 
 	const noteByOcts = R.filter(filterByOctaves, intervalNotes).map((noteOct) => {
 		return MidiNotes.indexOf(noteOct);
 	});
 
-	return R.head(R.sort((a, b) => (Math.abs(base - a) - Math.abs(base - b)), noteByOcts));
+	return R.head(R.sort((a, b) => Math.abs(base - a) - Math.abs(base - b), noteByOcts));
 };
 
 type Voice = {
-	note: NoteSymbol | string,
-	midiNote: number,
-}
+	note: NoteSymbol | string;
+	midiNote: number;
+};
 
-const findNearestVoice = R.curry((voices, baseVoice): { note: string, midiNote: number, distance: number }[] => (
-	R.sortBy(R.prop('distance'),
-		voices.map((note: string) => ({ note, midiNote: findNearest(baseVoice, note) }))
-			.map(({ note, midiNote }: Voice) => ({ note, midiNote, distance: Math.abs(baseVoice - midiNote) })),
+const findNearestVoice = R.curry((voices, baseVoice): { note: string; midiNote: number; distance: number }[] =>
+	R.sortBy(
+		R.prop('distance'),
+		voices
+			.map((note: string) => ({ note, midiNote: findNearest(baseVoice, note) }))
+			.map(({ note, midiNote }: Voice) => ({ note, midiNote, distance: Math.abs(baseVoice - midiNote) }))
 	)
-));
-
+);
 
 /**
  * Find the nearest chord
@@ -98,25 +99,30 @@ export const findNearestChord = (baseChord: number[], chord: string[]): number[]
 		incVoices = R.reject(R.equals(voice.note), incVoices);
 	}
 
-	whilst(() => {
-		const note = R.head(incVoices) as string;
-		const edgeVoices = [ R.head(midiChord) as number, R.last(midiChord) as number ];
+	whilst(
+		() => {
+			const note = R.head(incVoices) as string;
+			const edgeVoices = [ R.head(midiChord) as number, R.last(midiChord) as number ];
 
-		const nearestVoices = R.sortBy(R.prop('distance'),
-			edgeVoices.map((edgeNote) => ({ edgeNote, midiNote: findNearest(edgeNote, note) }))
-				.map(({ edgeNote, midiNote }) => ({ midiNote, distance: Math.abs(edgeNote - <number>midiNote) })),
-		);
+			const nearestVoices = R.sortBy(
+				R.prop('distance'),
+				edgeVoices
+					.map((edgeNote) => ({ edgeNote, midiNote: findNearest(edgeNote, note) }))
+					.map(({ edgeNote, midiNote }) => ({ midiNote, distance: Math.abs(edgeNote - <number>midiNote) }))
+			);
 
-		const voice = R.head(nearestVoices);
+			const voice = R.head(nearestVoices);
 
-		if (isUndefined(voice)) {
-			return;
-		}
+			if (isUndefined(voice)) {
+				return;
+			}
 
-		midiChord.push(voice.midiNote as number);
+			midiChord.push(voice.midiNote as number);
 
-		incVoices = R.reject(R.equals(note), incVoices);
-	}, () => (incVoices.length));
+			incVoices = R.reject(R.equals(note), incVoices);
+		},
+		() => incVoices.length
+	);
 
 	midiChord.sort((a, b) => a - b);
 
@@ -146,5 +152,5 @@ const TUNING = 440;
  * @return {Number} An octave
  */
 export const findFrequency = (midi: number): number => {
-	return Math.pow(2, ((midi - 69) / 12)) * TUNING;
+	return Math.pow(2, (midi - 69) / 12) * TUNING;
 };

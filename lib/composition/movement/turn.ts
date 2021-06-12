@@ -1,9 +1,6 @@
 import * as R from 'ramda';
 import { Key, Time, TimeFormat } from '../../core';
-import {
-	Euclidean,
-	choose,
-} from '../../tools';
+import { Euclidean, choose } from '../../tools';
 import * as Rhythm from '../rhythm';
 
 import { Interval, Notevalue, ScaleName, Ticks, TurnMoves } from '../../constants';
@@ -15,25 +12,19 @@ import { BinaryEvent } from '../../common/types';
 
 const QUARTER = Ticks['4n'];
 
-const DEFAULT_TURNS = [
-	TurnMoves.Keep,
-	TurnMoves.ModulateUp,
-	TurnMoves.ModulateDown,
-	TurnMoves.ModeUp,
-	TurnMoves.ModeDown,
-].map((type) => ({ type, interval: TurnMoves.Free }));
+const DEFAULT_TURNS = [ TurnMoves.Keep, TurnMoves.ModulateUp, TurnMoves.ModulateDown, TurnMoves.ModeUp, TurnMoves.ModeDown ].map(
+	(type) => ({ type, interval: TurnMoves.Free })
+);
 
 const MOD_MODE_INTERVALS = [ 1, 2, 3, 4, 5, 6, 7 ];
 
-
 /**
-* Turn
-* @typedef {Object} Turn
-* @memberof Types
-* @param {TurnMoves} type type of turn
-* @param {Interval | number | string | "Free"} interval interval
-*/
-
+ * Turn
+ * @typedef {Object} Turn
+ * @memberof Types
+ * @param {TurnMoves} type type of turn
+ * @param {Interval | number | string | "Free"} interval interval
+ */
 
 /**
  * Creates a Movement out of a Turn structure
@@ -59,10 +50,15 @@ createTurnMovement(new Key('C', Key.Major), turns, '4:0:0');
  * @param {MovementRhythm} [opts.rhythm = 'Euclidean'] 'euclidean' or 'turn'
  * @return {TurnMovement}
  */
-function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
-	// repeats,
-	rhythmType = MovementRhythm.Euclidean,
-} = {}): TurnMovement {
+function movement(
+	key: Key,
+	turns: Turn[] = DEFAULT_TURNS,
+	length: TimeFormat,
+	{
+		// repeats,
+		rhythmType = MovementRhythm.Euclidean,
+	} = {}
+): TurnMovement {
 	const events: TurnEvent[] = [];
 	const time = new Time(length);
 	const ticks = time.ticks;
@@ -94,9 +90,9 @@ function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
 						dur: 0,
 					};
 				}
-			}).filter(R.is(Object));
-	} else
-	if (rhythmType === MovementRhythm.Turn) {
+			})
+			.filter(R.is(Object));
+	} else if (rhythmType === MovementRhythm.Turn) {
 		rhythm = <TimelineEvent[]>Rhythm.turn(time, turnsNumber, {
 			minNoteValue: 8,
 			combSorting: {
@@ -132,7 +128,7 @@ function movement(key: Key, turns: Turn[] = DEFAULT_TURNS, length: TimeFormat, {
 
 		switch (turnType) {
 			case TurnMoves.Start:
-			// create a new key from the starting key
+				// create a new key from the starting key
 				key = new Key(startingKey.root, startingKey.type);
 				mainKeyRoot = key.root;
 

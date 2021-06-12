@@ -52,5 +52,3 @@ export const ModeIntervals = <const>[
 export type ModeIntervals = typeof ModeIntervals[number];
 
 export type ModePosition = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII';
-
-

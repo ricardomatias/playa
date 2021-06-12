@@ -6,7 +6,6 @@ import { Sharps, Flats, Semitones, DiatonicNotes, DiatonicNote, NoteSymbol, Inte
 import { assureNote, natural } from '../utils/note';
 import { isDefined, isNotNull } from '../utils/types-guards';
 
-
 /**
  * Note distance functions
  * @namespace Distance
@@ -24,11 +23,8 @@ import { isDefined, isNotNull } from '../utils/types-guards';
 const position = (note: NoteLike): number => {
 	const n = assureNote(note);
 
-	return (
-		n.isFlat ? Flats.indexOf(n.note as Flat) : Sharps.indexOf(n.note as Sharp)
-	);
+	return n.isFlat ? Flats.indexOf(n.note as Flat) : Sharps.indexOf(n.note as Sharp);
 };
-
 
 /**
  * Position in the {@link DiatonicNotes}
@@ -99,7 +95,6 @@ const interval = (a: NoteLike, b: NoteLike): Interval | null => {
 	}
 };
 
-
 const transpose = (note: NoteLike, int: Interval, operation: 'add' | 'subtract'): NoteSymbol => {
 	const naturalNote = <DiatonicNote>natural(note);
 	let interval = -1;
@@ -148,8 +143,7 @@ const transpose = (note: NoteLike, int: Interval, operation: 'add' | 'subtract')
  * @example transpose(C, "5P") // => "G"
  * @return {String} How many semitones are they apart
  */
-const transposeUp = (note: NoteLike, int: Interval): NoteSymbol => (transpose(note, int, 'add'));
-
+const transposeUp = (note: NoteLike, int: Interval): NoteSymbol => transpose(note, int, 'add');
 
 /**
  * Transpose a note by an interval
@@ -161,7 +155,7 @@ const transposeUp = (note: NoteLike, int: Interval): NoteSymbol => (transpose(no
  * @example transposeDown(C, "5P") // => "F"
  * @return {String} How many semitones are they apart
  */
-const transposeDown = (note: NoteLike, int: Interval): NoteSymbol => (transpose(note, int, 'subtract'));
+const transposeDown = (note: NoteLike, int: Interval): NoteSymbol => transpose(note, int, 'subtract');
 
 export default {
 	position,

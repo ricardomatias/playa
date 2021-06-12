@@ -5,14 +5,14 @@ import * as R from 'ramda';
 import { concat } from './concat';
 
 /**
-* Expands a rhythm to a new length by repeating the events
-* @function expand
-* @memberof Composition.Rhythm
-*
-* @param {Array<Event>} pattern
-* @param {TimeFormat} length
-* @return {Array<Event>}
-*/
+ * Expands a rhythm to a new length by repeating the events
+ * @function expand
+ * @memberof Composition.Rhythm
+ *
+ * @param {Array<Event>} pattern
+ * @param {TimeFormat} length
+ * @return {Array<Event>}
+ */
 export const expand = (pattern: Event[], length: TimeFormat): Event[] => {
 	const len = new Time(length).ticks;
 	const copy = R.clone(pattern);

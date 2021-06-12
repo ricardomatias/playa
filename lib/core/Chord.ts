@@ -20,8 +20,7 @@ import assignOctaves from '../utils/octaves';
 import { Scale } from './Scale';
 import { Octaves } from '../common/types';
 
-
-type ChordOptions = Partial<{ symbol: ChordSymbol, intervals: ChordIntervals, structure: ChordStructure }>
+type ChordOptions = Partial<{ symbol: ChordSymbol; intervals: ChordIntervals; structure: ChordStructure }>;
 
 function isChordIntervals(argument: ChordSymbol | ChordIntervals): argument is ChordIntervals {
 	return Object.keys(Semitones).includes(argument.split(' ')[0]);
@@ -44,31 +43,31 @@ export class Chord extends HarmonyBase {
 	private _structure: ChordStructure | undefined;
 
 	/**
-	* Chord symbols used to create chords
-	*
-	* @member Symbols
-	* @memberof Core#Chord
-	* @enum
-	* @param {ChordName} ChordName
-	* @static
-	* @type {ChordSymbol}
-	*
-	* @example Chord.Symbols.Major => 'maj'
-	*/
-	static Symbols = ChordSymbol
+	 * Chord symbols used to create chords
+	 *
+	 * @member Symbols
+	 * @memberof Core#Chord
+	 * @enum
+	 * @param {ChordName} ChordName
+	 * @static
+	 * @type {ChordSymbol}
+	 *
+	 * @example Chord.Symbols.Major => 'maj'
+	 */
+	static Symbols = ChordSymbol;
 
 	/**
-	* Chord structures used to create chords
-	*
-	* @member Structures
-	* @memberof Core#Chord
-	* @enum
-	* @static
-	* @type {ChordStructure}
-	*
-	* @example Chord.Structures.Sixth => [ '1 3 5 6' ]
-	*/
-	static Structures = ChordStructure
+	 * Chord structures used to create chords
+	 *
+	 * @member Structures
+	 * @memberof Core#Chord
+	 * @enum
+	 * @static
+	 * @type {ChordStructure}
+	 *
+	 * @example Chord.Structures.Sixth => [ '1 3 5 6' ]
+	 */
+	static Structures = ChordStructure;
 
 	/**
 	 * @constructs Chord
@@ -90,7 +89,7 @@ export class Chord extends HarmonyBase {
 		root: NoteLike,
 		description: ChordSymbol | ChordIntervals,
 		octaves?: Octaves,
-		{ intervals, symbol, structure }: ChordOptions = {},
+		{ intervals, symbol, structure }: ChordOptions = {}
 	) {
 		super(root, octaves);
 
@@ -141,21 +140,18 @@ export class Chord extends HarmonyBase {
 	}
 
 	/**
-	* Create a chord from a Scale's intervals
-	* @function fromName
-	* @memberof Core#Chord
-	* @static
-	* @example Chord.fromName('Am6');
-	*
-	* @param {string} chord
-	* @param {Octaves} [octaves = [ 3, 1]]
-	* @return {Chord} chord
-	*/
+	 * Create a chord from a Scale's intervals
+	 * @function fromName
+	 * @memberof Core#Chord
+	 * @static
+	 * @example Chord.fromName('Am6');
+	 *
+	 * @param {string} chord
+	 * @param {Octaves} [octaves = [ 3, 1]]
+	 * @return {Chord} chord
+	 */
 	static fromName(chord: string, octaves?: Octaves): Chord {
-		const {
-			root,
-			symbol,
-		} = deconstructName(chord);
+		const { root, symbol } = deconstructName(chord);
 
 		if (isUndefined(root) || isUndefined(symbol)) {
 			throw new PlayaError('Chord', `Could not recognize <${root}> <${symbol}> as a valid chord`);
@@ -165,23 +161,23 @@ export class Chord extends HarmonyBase {
 	}
 
 	/**
-	* Create a chord from a Scale's intervals
-	* @function fromIntervals
-	* @memberof Core#Chord
-	* @static
-	* @example Chord.fromIntervals('A', Scale.Intervals.Dorian, Chord.Sructures.Sixth);
-	*
-	* @param {NoteSymbol} root
-	* @param {ScaleIntervals | string} intervals
-	* @param {ChordStructure} [structure = ChordStructure.Triad]
-	* @param {Octaves} [octaves = [ 3, 1]]
-	* @return {Chord} chord
-	*/
+	 * Create a chord from a Scale's intervals
+	 * @function fromIntervals
+	 * @memberof Core#Chord
+	 * @static
+	 * @example Chord.fromIntervals('A', Scale.Intervals.Dorian, Chord.Sructures.Sixth);
+	 *
+	 * @param {NoteSymbol} root
+	 * @param {ScaleIntervals | string} intervals
+	 * @param {ChordStructure} [structure = ChordStructure.Triad]
+	 * @param {Octaves} [octaves = [ 3, 1]]
+	 * @return {Chord} chord
+	 */
 	static fromIntervals(
 		root: NoteSymbol,
 		intervals: ScaleIntervals | string,
 		structure: ChordStructure | string[] = ChordStructure.Triad,
-		octaves?: Octaves,
+		octaves?: Octaves
 	): Chord {
 		const chordInfo = createChordWithStructure(root, intervals, structure as ChordStructure);
 
@@ -195,57 +191,56 @@ export class Chord extends HarmonyBase {
 	}
 
 	/**
-	* Returns the chord's name
-	*
-	* @member name
-	* @memberof Core#Chord#
-	* @type {string}
-	* @example 'Asus2'
-	* @readonly
-	*/
+	 * Returns the chord's name
+	 *
+	 * @member name
+	 * @memberof Core#Chord#
+	 * @type {string}
+	 * @example 'Asus2'
+	 * @readonly
+	 */
 	get name(): string | undefined {
 		return this._chordName;
 	}
 
-
 	/**
-	* Returns the chord's symbol
-	*
-	* @example
-	* 'Asus2' => sus2
-	* @member symbol
-	* @memberof Core#Chord#
-	* @type {ChordSymbol}
-	* @readonly
-	*/
+	 * Returns the chord's symbol
+	 *
+	 * @example
+	 * 'Asus2' => sus2
+	 * @member symbol
+	 * @memberof Core#Chord#
+	 * @type {ChordSymbol}
+	 * @readonly
+	 */
 	get symbol(): ChordSymbol | undefined {
 		return this._symbol;
 	}
 
 	/**
-	* Returns the chord's structure
-	*
-	* @example
-	* 'G7' => ['1 3 5 7']
-	* @member structure
-	* @memberof Core#Chord#
-	* @type {ChordStructure}
-	* @readonly
-	*/
+	 * Returns the chord's structure
+	 *
+	 * @example
+	 * 'G7' => ['1 3 5 7']
+	 * @member structure
+	 * @memberof Core#Chord#
+	 * @type {ChordStructure}
+	 * @readonly
+	 */
 	get structure(): ChordStructure | undefined {
 		return this._structure;
 	}
 
 	/**
-	* Returns the chord's intervals
-	*
-	* @example
-	* 'G7' => '1P 3M 5P 7m'
-	* @member intervals
-	* @memberof Core#Chord#
-	* @type {ChordStructure}
-	* @readonly
-	*/
+	 * Returns the chord's intervals
+	 *
+	 * @example
+	 * 'G7' => '1P 3M 5P 7m'
+	 * @member intervals
+	 * @memberof Core#Chord#
+	 * @type {ChordStructure}
+	 * @readonly
+	 */
 	get intervals(): ChordIntervals | undefined {
 		return this._intervals;
 	}
@@ -271,15 +266,15 @@ export class Chord extends HarmonyBase {
 	}
 
 	/**
-	* Note at interval
-	* @example
-	* new Chord('Am').noteAt(5) => E
-	*
-	* @function noteAt
-	* @memberof Core#Chord#
-	* @param {number} position
-	* @return {Note}
-	*/
+	 * Note at interval
+	 * @example
+	 * new Chord('Am').noteAt(5) => E
+	 *
+	 * @function noteAt
+	 * @memberof Core#Chord#
+	 * @param {number} position
+	 * @return {Note}
+	 */
 	noteAt(position: number): Note {
 		// !TODO: Migrate away from structure and just use the chord intervals
 
@@ -365,7 +360,7 @@ export class Chord extends HarmonyBase {
 			return;
 		}
 
-		const intervals = <Interval[]> this._intervals.split(' ');
+		const intervals = <Interval[]>this._intervals.split(' ');
 
 		const notes = [ root ];
 
@@ -376,7 +371,6 @@ export class Chord extends HarmonyBase {
 
 			notes.push(new Note(note));
 		}
-
 
 		return notes;
 	}
@@ -414,16 +408,19 @@ export class Chord extends HarmonyBase {
 		const last = R.last(intervals) as string;
 
 		try {
-			whilst(() => {
-				intervals = R.take(intervals.length - 1, intervals);
-				const tempChord = intervals.join(' ');
+			whilst(
+				() => {
+					intervals = R.take(intervals.length - 1, intervals);
+					const tempChord = intervals.join(' ');
 
-				for (const [ name, symbol ] of chordIntervals) {
-					if (symbol === tempChord) {
-						chordType = ChordSymbol[name as ChordName];
+					for (const [ name, symbol ] of chordIntervals) {
+						if (symbol === tempChord) {
+							chordType = ChordSymbol[name as ChordName];
+						}
 					}
-				}
-			}, () => (!chordType));
+				},
+				() => !chordType
+			);
 
 			chordType = `${chordType}add${last.replace(/\D/g, '')}`;
 		} catch (error) {
@@ -439,7 +436,10 @@ export class Chord extends HarmonyBase {
 }
 
 export const createFromScale = (
-	scale: Scale, chordIntervalsArray: Interval[], nrOfNotes: number, structureIntervalsArray: string[],
+	scale: Scale,
+	chordIntervalsArray: Interval[],
+	nrOfNotes: number,
+	structureIntervalsArray: string[]
 ): { chordIntervals: Interval[] } => {
 	const chordIntervals: Interval[] = [];
 	const notes = scale.notes;
@@ -451,7 +451,7 @@ export const createFromScale = (
 		let noteIndex: number;
 
 		if (isUndefined(interval) || chordIntervalsArray.indexOf(interval) === -1) {
-			const newDist = `${(parseInt(dist, 10) - 7)}`;
+			const newDist = `${parseInt(dist, 10) - 7}`;
 			const newInterval = R.find(R.includes(newDist), chordIntervalsArray);
 
 			if (isUndefined(newInterval)) {
@@ -464,7 +464,7 @@ export const createFromScale = (
 				continue;
 			}
 
-			interval = dist + newInterval.split('')[1] as Interval;
+			interval = (dist + newInterval.split('')[1]) as Interval;
 		} else {
 			noteIndex = chordIntervalsArray.indexOf(interval as Interval);
 		}
@@ -475,9 +475,11 @@ export const createFromScale = (
 	return { chordIntervals };
 };
 
-
 export const createFromStructure = (
-	structure: ChordStructure, scale: Scale, scaleIntervals: Interval[], nrOfNotes: number,
+	structure: ChordStructure,
+	scale: Scale,
+	scaleIntervals: Interval[],
+	nrOfNotes: number
 ): { chordIntervals: Interval[] } | undefined => {
 	const compatibleChordNames = <ChordName[]>SimilarChordsByStructure.get(structure);
 	let chordIntervals: Interval[] | undefined;
@@ -487,16 +489,14 @@ export const createFromStructure = (
 		const name = compatibleChordNames[index];
 		const chord = ChordDefinition[name];
 
-		structureIntervalsArray = chord.intervals
-			.split(' ')
-			.map((interval) => interval.replace(/\D/, ''));
+		structureIntervalsArray = chord.intervals.split(' ').map((interval) => interval.replace(/\D/, ''));
 
 		const fromScale = createFromScale(
 			scale,
 			scaleIntervals,
 			nrOfNotes,
 			// transform intervals to structure[]
-			structureIntervalsArray,
+			structureIntervalsArray
 		);
 
 		chordIntervals = fromScale.chordIntervals;
@@ -526,8 +526,8 @@ export const createFromStructure = (
 const createChordWithStructure = (
 	root: NoteSymbol,
 	intervals: ScaleIntervals | string,
-	structure: ChordStructure,
-): { symbol: ChordSymbol, chordIntervals: ChordIntervals, chordStructure: ChordStructure } | null => {
+	structure: ChordStructure
+): { symbol: ChordSymbol; chordIntervals: ChordIntervals; chordStructure: ChordStructure } | null => {
 	const chordIntervalsArray = intervals.split(' ') as Interval[];
 	const intervalsValidation = chordIntervalsArray.map((interval) => typeof Semitones[interval] !== 'undefined');
 
@@ -543,9 +543,7 @@ const createChordWithStructure = (
 
 	const scale = new Scale(root as NoteSymbol, intervals as string);
 
-	let {
-		chordIntervals,
-	} = createFromScale(scale, chordIntervalsArray, nrOfNotes, structureIntervalsArray);
+	let { chordIntervals } = createFromScale(scale, chordIntervalsArray, nrOfNotes, structureIntervalsArray);
 
 	// if the provided scale doesn't have the default intervals from the given structure
 	// try other chord types from the same type of structure

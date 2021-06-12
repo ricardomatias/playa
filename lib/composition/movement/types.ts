@@ -3,10 +3,13 @@ import { ModeIntervals, ModePosition } from '../../constants/modes';
 
 export enum MovementRhythm {
 	Euclidean = 'Euclidean',
-	Turn = 'Turn'
+	Turn = 'Turn',
 }
 
-export interface TimelineEventKey { root: NoteSymbol, scale: ModeIntervals }
+export interface TimelineEventKey {
+	root: NoteSymbol;
+	scale: ModeIntervals;
+}
 
 export interface TimelineEvent {
 	time: number;
@@ -16,7 +19,7 @@ export interface TimelineEvent {
 
 export enum ModulationEventType {
 	Mode = 'mode',
-	Key = 'key'
+	Key = 'key',
 }
 
 export interface ModulationEvent {
@@ -30,11 +33,11 @@ export interface ModulationEvent {
 export type Movement = {
 	timeline: TimelineEvent[];
 	events: ModulationEvent[];
-}
+};
 
 export interface Turn {
-	type: TurnMoves,
-	interval: typeof TurnMoves.Free | Interval | number | string
+	type: TurnMoves;
+	interval: typeof TurnMoves.Free | Interval | number | string;
 }
 
 /**
@@ -43,12 +46,12 @@ export interface Turn {
  * @property {String | Number} interval '⟷'
  * @example
  * { type: '▼', interval: '⟷' }
-*/
+ */
 export interface TurnEvent extends ModulationEvent {
-	turn: Turn
+	turn: Turn;
 }
 
 export type TurnMovement = {
 	timeline: TimelineEvent[];
 	events: TurnEvent[];
-}
+};

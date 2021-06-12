@@ -1,1 +1,1 @@
-export { SongAnalysis } from './song'
+export { SongAnalysis } from './song';

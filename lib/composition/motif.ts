@@ -41,4 +41,3 @@ export function createMotif(notes: Note[], rhythm: string[] | Event[], startTime
 
 	return pattern;
 }
-

@@ -46,12 +46,12 @@ export class Random {
 	constructor() {}
 
 	/**
-	* Get the seed used by the RNG (Random Number Generator)
-	*
-	* @member seed
-	* @memberof Tools.Random
-	* @type {(string | number)}
-	*/
+	 * Get the seed used by the RNG (Random Number Generator)
+	 *
+	 * @member seed
+	 * @memberof Tools.Random
+	 * @type {(string | number)}
+	 */
 	get seed(): string | number {
 		return this._seed;
 	}
@@ -75,20 +75,20 @@ export class Random {
 
 		this.x = Math.floor(alea() * 100);
 		this.y = Math.floor(alea() * 100);
-	}
+	};
 
 	/**
-	* Takes the current seed and adds a counter
-	* @function bumpSeed
-	* @memberof Tools.Random
-	* @example
-	* seed = 'PLAYA' // default seed
-	* bumpSeed() => 'PLAYA-0'
-	* bumpSeed() => 'PLAYA-1'
-	*
-	* @param {String|Number} seed
-	* @param {Number} increment
-	*/
+	 * Takes the current seed and adds a counter
+	 * @function bumpSeed
+	 * @memberof Tools.Random
+	 * @example
+	 * seed = 'PLAYA' // default seed
+	 * bumpSeed() => 'PLAYA-0'
+	 * bumpSeed() => 'PLAYA-1'
+	 *
+	 * @param {String|Number} seed
+	 * @param {Number} increment
+	 */
 	bumpSeed(): void {
 		this.setSeed(`${this._seed}`.replace(/-\d/, '') + `-${this._seedCounter++}`);
 	}
@@ -110,7 +110,7 @@ export class Random {
 		const value = (this.simplex.noise2D(this.x, this.y) + 1) / 2;
 
 		return min + value * max;
-	}
+	};
 
 	/**
 	 * Generates a Random integer between a range
@@ -123,8 +123,8 @@ export class Random {
 	 * @return {number}
 	 */
 	int = (max: number, min = 0): number => {
-		return min + Math.floor((this.float() * (1 + max - min)));
-	}
+		return min + Math.floor(this.float() * (1 + max - min));
+	};
 
 	/**
 	 * Generates a Random boolean
@@ -136,7 +136,7 @@ export class Random {
 	 */
 	boolean = (): boolean => {
 		return !!this.int(1);
-	}
+	};
 }
 
 export default Random.getInstance();

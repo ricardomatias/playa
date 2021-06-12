@@ -11,10 +11,10 @@ export type TimeFormat = string | number | Time;
 export type TimeSignature = [number, number] | number[];
 
 type OptionsBBSConversion = {
-	timeSignature: TimeSignature,
-	positionMode: boolean,
-	ppq: number
-}
+	timeSignature: TimeSignature;
+	positionMode: boolean;
+	ppq: number;
+};
 
 /**
  * Time
@@ -34,8 +34,8 @@ export class Time {
 	 * @constructs Time
 	 * @memberof Core#
 	 *
-	   * @param {TimeFormat} time
-	   * @param {TimeSignature} [timeSignature = [4, 4]]
+	 * @param {TimeFormat} time
+	 * @param {TimeSignature} [timeSignature = [4, 4]]
 	 */
 	constructor(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]) {
 		if (time instanceof Time) {
@@ -43,22 +43,21 @@ export class Time {
 			this.#notevalue = time.notevalue;
 			this.#bbs = time.bbs;
 			this.#timeSignature = timeSignature;
-		} else
+		}
 		// Ticks
-		if (typeof time === 'number') {
+		else if (typeof time === 'number') {
 			this.#ticks = time;
 			this.#notevalue = Ticks[time] as Notevalue;
 			this.#bbs = Time.ticksToBBS(time, { timeSignature });
 			this.#timeSignature = timeSignature;
-		} else
+		}
 		// Notevalue
-		if (/n/.test(time) && typeof Ticks[time as Notevalue] !== 'undefined') {
+		else if (/n/.test(time) && typeof Ticks[time as Notevalue] !== 'undefined') {
 			this.#notevalue = time as Notevalue;
 			this.#ticks = Ticks[time as Notevalue];
 			this.#bbs = Time.ticksToBBS(this.#ticks, { timeSignature });
 			this.#timeSignature = timeSignature;
-		} else
-		if (/:/.test(time)) {
+		} else if (/:/.test(time)) {
 			this.#bbs = time;
 			this.#ticks = Time.bbsToTicks(time, { timeSignature });
 			this.#notevalue = Ticks[this.#ticks] as Notevalue;
@@ -174,16 +173,16 @@ export class Time {
 	}
 
 	/**
-	* Convert to seconds
-	* @function toSeconds
-	* @memberof Core#Time#
-	* @example
-	* toSeconds(120) =>
-	*
-	* @param {number} bpm beats per minute
-	* @param {PPQ} [ppq] ppq
-	* @return {number} seconds
-	*/
+	 * Convert to seconds
+	 * @function toSeconds
+	 * @memberof Core#Time#
+	 * @example
+	 * toSeconds(120) =>
+	 *
+	 * @param {number} bpm beats per minute
+	 * @param {PPQ} [ppq] ppq
+	 * @return {number} seconds
+	 */
 	toSeconds(bpm: number): number {
 		return Time.ticksToSeconds(this.ticks, bpm);
 	}
@@ -201,18 +200,14 @@ export class Time {
 	 */
 	static bbsToTicks = (
 		time: string,
-		{
-			timeSignature = [ 4, 4 ],
-			positionMode = false,
-			ppq = QUARTER,
-		}: Partial<OptionsBBSConversion> = {},
+		{ timeSignature = [ 4, 4 ], positionMode = false, ppq = QUARTER }: Partial<OptionsBBSConversion> = {}
 	): number => {
 		try {
 			const beatsPerBar = timeSignature[0];
 			const beatsNotevalue = `${timeSignature[1]}n` as Notevalue;
 			const ppqMult = QUARTER / ppq;
 
-			const beatsValue = (Ticks[beatsNotevalue] / ppqMult);
+			const beatsValue = Ticks[beatsNotevalue] / ppqMult;
 			const bar = beatsValue * beatsPerBar;
 			const sixteenths = ppq / 4;
 
@@ -220,9 +215,7 @@ export class Time {
 
 			const offset = positionMode ? -1 : 0;
 
-			return (Math.max(bars + offset, 0) * bar +
-				Math.max(beats + offset, 0) * beatsValue +
-				units * sixteenths);
+			return Math.max(bars + offset, 0) * bar + Math.max(beats + offset, 0) * beatsValue + units * sixteenths;
 		} catch (err) {
 			console.error(err); /* eslint no-console:0 */
 			return 0;
@@ -234,7 +227,7 @@ export class Time {
 	 *
 	 * @function ticksToBBS
 	 * @memberof Core#Time
-	   * @description Converts ticks to Bars:Beats:Sixteenths notation
+	 * @description Converts ticks to Bars:Beats:Sixteenths notation
 	 *
 	 * @param {Number} ticks
 	 * @param {Object} [opts = {}]
@@ -245,7 +238,7 @@ export class Time {
 	 */
 	static ticksToBBS = (
 		ticks: number,
-		{ ppq = QUARTER, timeSignature = [ 4, 4 ], positionMode = false }: Partial<OptionsBBSConversion> = {},
+		{ ppq = QUARTER, timeSignature = [ 4, 4 ], positionMode = false }: Partial<OptionsBBSConversion> = {}
 	): string => {
 		// IN MAX THE TRANSPORT STARTS AT: '1.1.0'
 		// IN ABLETON THE TRANSPORT STARTS AT: '1.1.1'
@@ -272,13 +265,10 @@ export class Time {
 
 		const offset = positionMode ? 1 : 0;
 
-		return [
-			Math.floor(measures + offset),
-			Math.floor(quarters + offset),
-			Math.floor(sixteenths + offset),
-		].join(TRANSPORT_SEPARATOR);
+		return [ Math.floor(measures + offset), Math.floor(quarters + offset), Math.floor(sixteenths + offset) ].join(
+			TRANSPORT_SEPARATOR
+		);
 	};
-
 
 	/**
 	 * Convert seconds to transport time
@@ -296,13 +286,12 @@ export class Time {
 	static secondsToBBS = (
 		seconds: number,
 		bpm = 120,
-		{ timeSignature = [ 4, 4 ], ppq = QUARTER, positionMode = false }: Partial<OptionsBBSConversion> = {},
+		{ timeSignature = [ 4, 4 ], ppq = QUARTER, positionMode = false }: Partial<OptionsBBSConversion> = {}
 	): string => {
 		const ticks = Time.secondsToTicks(seconds, bpm);
 
 		return Time.ticksToBBS(ticks, { ppq, timeSignature, positionMode });
 	};
-
 
 	/**
 	 * Converts seconds to ticks
@@ -332,7 +321,7 @@ export class Time {
 	 * @return {number}
 	 */
 	static ticksToSeconds = (ticks: number, bpm: number, ppq: number = QUARTER): number => {
-		return (ticks / ppq * (60 / bpm));
+		return (ticks / ppq) * (60 / bpm);
 	};
 
 	get [Symbol.toStringTag](): string {

@@ -1,8 +1,6 @@
 import * as R from 'ramda';
 import { Key, Time, TimeFormat } from '../../core';
-import {
-	random, Euclidean,
-} from '../../tools';
+import { random, Euclidean } from '../../tools';
 import * as Rhythm from '../rhythm';
 import { Notevalue, ScaleName, Ticks } from '../../constants';
 import { modulate, createNewEventKey } from './helpers';
@@ -32,33 +30,33 @@ const QUARTER = Ticks['4n'];
  */
 
 /**
-* ModulationEvent Type
-* @typedef {Object} ModulationEvent
-* @memberof Types
-*
-* @property {NoteSymbol} key key
-* @property {NoteSymbol} root mode's root note
-* @property {ModulationEventType} type the type of modulation
-* @property {ModePosition} position mode's position in roman numbers
-* @property {ScaleName} scaleName the name of the scale
-* @example
-* {
-* 	key: "F#",
-* 	position: "I",
-* 	root: "F#",
-* 	scaleName: "Phrygian",
-* 	type: "key",
-* }
-*/
+ * ModulationEvent Type
+ * @typedef {Object} ModulationEvent
+ * @memberof Types
+ *
+ * @property {NoteSymbol} key key
+ * @property {NoteSymbol} root mode's root note
+ * @property {ModulationEventType} type the type of modulation
+ * @property {ModePosition} position mode's position in roman numbers
+ * @property {ScaleName} scaleName the name of the scale
+ * @example
+ * {
+ * 	key: "F#",
+ * 	position: "I",
+ * 	root: "F#",
+ * 	scaleName: "Phrygian",
+ * 	type: "key",
+ * }
+ */
 
 /**
-* ModulationEventType
-* @typedef {Object} ModulationEventType
-* @memberof Types
-* @enum
-* @param {string} mode "mode"
-* @param {string} key "key"
-*/
+ * ModulationEventType
+ * @typedef {Object} ModulationEventType
+ * @memberof Types
+ * @enum
+ * @param {string} mode "mode"
+ * @param {string} key "key"
+ */
 
 /**
  * Creates a Movement
@@ -77,11 +75,16 @@ const QUARTER = Ticks['4n'];
  *
  * @return {Movement}
  */
-function movement(key: Key, length: TimeFormat, turns: number, {
-	modProb = 0.0,
-	// repeats = 0,
-	rhythm = MovementRhythm.Euclidean,
-} = {}): Movement {
+function movement(
+	key: Key,
+	length: TimeFormat,
+	turns: number,
+	{
+		modProb = 0.0,
+		// repeats = 0,
+		rhythm = MovementRhythm.Euclidean,
+	} = {}
+): Movement {
 	const events: ModulationEvent[] = [];
 	const time = new Time(length);
 	const ticks = time.ticks;
@@ -109,7 +112,8 @@ function movement(key: Key, length: TimeFormat, turns: number, {
 						dur: 0,
 					};
 				}
-			}).filter((evt) => R.has('time', evt));
+			})
+			.filter((evt) => R.has('time', evt));
 	} else if (rhythm === MovementRhythm.Turn) {
 		rhythmEvents = <TimelineEvent[]>Rhythm.turn(time, turns, {
 			minNoteValue: 8,
@@ -159,7 +163,6 @@ function movement(key: Key, length: TimeFormat, turns: number, {
 			} else {
 				event.dur = ticks - event.time;
 			}
-
 
 			return event;
 		});

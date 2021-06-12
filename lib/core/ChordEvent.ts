@@ -24,7 +24,6 @@ export interface ChordEvent extends Event {
  *	}
  */
 
-
 export function ChordEvent({
 	time = 0,
 	dur = 0,
@@ -33,7 +32,15 @@ export function ChordEvent({
 	chordName = '',
 	isRest = false,
 }: Partial<ChordEvent>): ChordEvent {
-	return Object.assign({}, {
-		time, dur, next, chord, chordName, isRest,
-	});
+	return Object.assign(
+		{},
+		{
+			time,
+			dur,
+			next,
+			chord,
+			chordName,
+			isRest,
+		}
+	);
 }

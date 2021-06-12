@@ -18,13 +18,11 @@ import { PlayaError } from '../utils/error';
 import { Octaves } from '../common/types';
 import { assureNote } from '../utils';
 
-
 const TOTAL_MODES = 7;
 const LOCRIAN_PROB = 0.01;
 const PRECISION = 4;
 
-
-type Mode = { scale: ModeIntervals, root: NoteSymbol }
+type Mode = { scale: ModeIntervals; root: NoteSymbol };
 
 /**
  * Mode type
@@ -40,18 +38,18 @@ function isModeInterval(mode: ScaleIntervals | string): mode is ModeIntervals {
 
 export enum ModulationDirection {
 	Up = 'Up',
-	Down = 'Down'
+	Down = 'Down',
 }
 
 const AllowedScales = '"Ionian" | "Dorian" | "Phrygian" | "Lydian" | "Mixolydian" | "Aeolian" | "Locrian" | "Major" | "Minor"';
 
 /**
-* Defines a Key
-* @name Key
-* @memberof Core#
-* @class
-*
-* @extends Scale
+ * Defines a Key
+ * @name Key
+ * @memberof Core#
+ * @class
+ *
+ * @extends Scale
  */
 export class Key extends Scale {
 	private _chordStructure: ChordStructure | undefined;
@@ -59,16 +57,16 @@ export class Key extends Scale {
 	private _chord: Chord | undefined;
 
 	/**
-	* Greek Modes
-	*
-	* @member Modes
-	* @memberof Core#Key
-	* @enum
-	* @static
-	* @type {ScaleName}
-	*
-	* @example Key.Modes => ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian']
-	*/
+	 * Greek Modes
+	 *
+	 * @member Modes
+	 * @memberof Core#Key
+	 * @enum
+	 * @static
+	 * @type {ScaleName}
+	 *
+	 * @example Key.Modes => ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian']
+	 */
 	static readonly Modes = Modes;
 
 	constructor(root: NoteSymbol, intervals: ModeIntervals, octaves?: Octaves, opts?: { chordStructure?: ChordStructure });
@@ -97,35 +95,38 @@ export class Key extends Scale {
 		root: NoteLike,
 		intervals: ModeIntervals,
 		octaves?: Octaves,
-		{ chordStructure = Chord.Structures.Seventh }: { chordStructure?: ChordStructure } = {},
+		{ chordStructure = Chord.Structures.Seventh }: { chordStructure?: ChordStructure } = {}
 	) {
 		super(root as any, intervals, octaves);
 
 		if (!isModeInterval(intervals)) {
 			// eslint-disable-next-line max-len
-			throw new PlayaError('Key', `Please use the Scale class, if the intervals don't belong to one of the following scales: ${AllowedScales}`);
+			throw new PlayaError(
+				'Key',
+				`Please use the Scale class, if the intervals don't belong to one of the following scales: ${AllowedScales}`
+			);
 		}
 
 		this._chordStructure = chordStructure;
 	}
 
 	/**
-	* Gets the modes of the current key
-	* @method modes
-	* @memberof Core#Key#
-	* @example
-	* [
-	* 	{ scale: '1P 2M 3M 4P 5P 6M 7M', root: 'C' },
-	* 	{ scale: '1P 2M 3m 4P 5P 6M 7m', root: 'D' },
-	* 	{ scale: '1P 2m 3m 4P 5P 6m 7m', root: 'E' },
-	* 	{ scale: '1P 2M 3M 4A 5P 6M 7M', root: 'F' },
-	* 	{ scale: '1P 2M 3M 4P 5P 6M 7m', root: 'G' },
-	* 	{ scale: '1P 2M 3m 4P 5P 6m 7m', root: 'A' },
-	* 	{ scale: '1P 2m 3m 4P 5d 6m 7m', root: 'B' }
-	* ]
-	*
-	* @type {Array<Mode>}
-	*/
+	 * Gets the modes of the current key
+	 * @method modes
+	 * @memberof Core#Key#
+	 * @example
+	 * [
+	 * 	{ scale: '1P 2M 3M 4P 5P 6M 7M', root: 'C' },
+	 * 	{ scale: '1P 2M 3m 4P 5P 6M 7m', root: 'D' },
+	 * 	{ scale: '1P 2m 3m 4P 5P 6m 7m', root: 'E' },
+	 * 	{ scale: '1P 2M 3M 4A 5P 6M 7M', root: 'F' },
+	 * 	{ scale: '1P 2M 3M 4P 5P 6M 7m', root: 'G' },
+	 * 	{ scale: '1P 2M 3m 4P 5P 6m 7m', root: 'A' },
+	 * 	{ scale: '1P 2m 3m 4P 5d 6m 7m', root: 'B' }
+	 * ]
+	 *
+	 * @type {Array<Mode>}
+	 */
 	get modes(): Mode[] {
 		if (R.isEmpty(this._modes)) {
 			this.createModes();
@@ -135,51 +136,50 @@ export class Key extends Scale {
 	}
 
 	/**
-	* Returns the scale's intervals
-	*
-	* @member intervals
-	* @memberof Core#Key#
-	* @type {ModeIntervals|String}
-	*/
+	 * Returns the scale's intervals
+	 *
+	 * @member intervals
+	 * @memberof Core#Key#
+	 * @type {ModeIntervals|String}
+	 */
 	get intervals(): ModeIntervals {
 		return this._intervals as ModeIntervals;
 	}
 
 	/**
-	* Returns the keys's name
-	*
-	* @member name
-	* @memberof Core#Key#
-	* @type {ScaleName|String}
-	*/
+	 * Returns the keys's name
+	 *
+	 * @member name
+	 * @memberof Core#Key#
+	 * @type {ScaleName|String}
+	 */
 	get name(): ScaleName | undefined {
 		return Key.getModeName(this._intervals);
 	}
 
 	/**
-	* Modulate key upwards based on an interval
-	* @function modulateUp
-	* @memberof Core#Key#
-	*
-	* @param {Interval} [interval = '5P']
-	*
-	* @return {this}
-	*/
+	 * Modulate key upwards based on an interval
+	 * @function modulateUp
+	 * @memberof Core#Key#
+	 *
+	 * @param {Interval} [interval = '5P']
+	 *
+	 * @return {this}
+	 */
 	modulateUp(interval: Interval = '5P'): this {
 		this.modulate(Key.ModulateUp, interval);
 
 		return this;
 	}
 
-
 	/**
-	* Modulate key upwards based on an interval
-	* @function modulateDown
-	* @memberof Core#Key#
-	*
-	* @param {String} [interval = '5P']
-	* @return {this}
-	*/
+	 * Modulate key upwards based on an interval
+	 * @function modulateDown
+	 * @memberof Core#Key#
+	 *
+	 * @param {String} [interval = '5P']
+	 * @return {this}
+	 */
 	modulateDown(interval: Interval = '5P'): this {
 		this.modulate(Key.ModulateDown, interval);
 
@@ -240,7 +240,7 @@ export class Key extends Scale {
 	 * @param {Number} [opts.interval] 1..7
 	 * @return {this}
 	 */
-	modulateMode({ direction, interval }: Partial<{ direction: ModulationDirection, interval: number }> = {}): this {
+	modulateMode({ direction, interval }: Partial<{ direction: ModulationDirection; interval: number }> = {}): this {
 		let mode: Mode;
 		let modes = this.modes; // use this so it forces mode creation in case of their absence
 		let probabilities: string[] = Array.from(Key.ModesModulationProbabilities);
@@ -282,9 +282,12 @@ export class Key extends Scale {
 
 				const avgProb = ((1.0 - LOCRIAN_PROB) / (modesLen - 1.0)).toFixed(PRECISION);
 
-				probabilities = distribute.sumDistribution(modes.map((_, idx) => {
-					return idx === modesLen - 1 ? LOCRIAN_PROB.toFixed(PRECISION) : avgProb;
-				}), PRECISION);
+				probabilities = distribute.sumDistribution(
+					modes.map((_, idx) => {
+						return idx === modesLen - 1 ? LOCRIAN_PROB.toFixed(PRECISION) : avgProb;
+					}),
+					PRECISION
+				);
 			} else {
 				probabilities = distribute.equal(modes.length, PRECISION);
 			}
@@ -294,7 +297,7 @@ export class Key extends Scale {
 			mode = roll(modes, probabilities, random.float);
 		} else {
 			const dirMultiplier = direction === Key.ModulateDown ? -1 : 1;
-			const newModePosition = modePos + ((interval - 1) * dirMultiplier);
+			const newModePosition = modePos + (interval - 1) * dirMultiplier;
 
 			// f.ex: a 3rd is 2 places away not 3
 			mode = ring(modes)[newModePosition];
@@ -366,7 +369,7 @@ export class Key extends Scale {
 	 * @return {Object} [ionianIndex, scaleIndex]
 	 * @memberof Key
 	 */
-	private prepareModes(): { ionianIndex: number, scaleIndex: number } | null {
+	private prepareModes(): { ionianIndex: number; scaleIndex: number } | null {
 		let scaleIntervals = this._intervals as ModeIntervals;
 		const isMajorMinor = this.isMajorMinor(scaleIntervals);
 
@@ -431,13 +434,13 @@ export class Key extends Scale {
 	}
 
 	/**
-	* Get the mode at the position from the modes array
-	* @function getModeAtPosition
-	* @memberof Core#Key#
-	*
-	* @param {Number} position [0. 7]
-	* @return {Key} same key in a different mode
-	*/
+	 * Get the mode at the position from the modes array
+	 * @function getModeAtPosition
+	 * @memberof Core#Key#
+	 *
+	 * @param {Number} position [0. 7]
+	 * @return {Key} same key in a different mode
+	 */
 	getModeAtPosition(position: number): Key {
 		const modes = this.modes;
 
@@ -459,13 +462,13 @@ export class Key extends Scale {
 	}
 
 	/**
-	* Get the mode from a note belonging to this key's modes
-	* @function getModeFromNote
-	* @memberof Core#Key#
-	*
-	* @param {NoteLike} note
-	* @return {Key | undefined} same key in a different mode
-	*/
+	 * Get the mode from a note belonging to this key's modes
+	 * @function getModeFromNote
+	 * @memberof Core#Key#
+	 *
+	 * @param {NoteLike} note
+	 * @return {Key | undefined} same key in a different mode
+	 */
 	getModeFromNote(note: NoteLike): Key | undefined {
 		const n = assureNote(note);
 		const modes = this.modes;
@@ -512,31 +515,27 @@ export class Key extends Scale {
 	}
 
 	/**
-	* Converts modes to Chord
-	* @function modesToChords
-	* @memberof Core#Key
-	* @static
-	* @param {Mode[]} modes
-	* @return {Chord[]}
-	*/
+	 * Converts modes to Chord
+	 * @function modesToChords
+	 * @memberof Core#Key
+	 * @static
+	 * @param {Mode[]} modes
+	 * @return {Chord[]}
+	 */
 	static modesToChords(modes: Mode[]): Chord[] {
 		return modes.map((mode) => {
-			return Chord.fromIntervals(
-				mode.root,
-				mode.scale,
-				Chord.Structures.Seventh,
-			);
+			return Chord.fromIntervals(mode.root, mode.scale, Chord.Structures.Seventh);
 		});
 	}
 
 	/**
-	* Converts modes to Key
-	* @function modesToKeys
-	* @memberof Core#Key
-	* @static
-	* @param {Mode[]} modes
-	* @return {Key[]}
-	*/
+	 * Converts modes to Key
+	 * @function modesToKeys
+	 * @memberof Core#Key
+	 * @static
+	 * @param {Mode[]} modes
+	 * @return {Key[]}
+	 */
 	static modesToKeys(modes: Mode[]): Key[] {
 		return modes.map((mode): Key => {
 			return new Key(mode.root, mode.scale);
@@ -544,130 +543,129 @@ export class Key extends Scale {
 	}
 
 	/**
-	* Checks if both keys in the same key
-	* @function modesToKeys
-	* @memberof Core#Key
-	* @static
-	* @param {Mode[]} modes
-	* @return {Key[]}
-	*/
+	 * Checks if both keys in the same key
+	 * @function modesToKeys
+	 * @memberof Core#Key
+	 * @static
+	 * @param {Mode[]} modes
+	 * @return {Key[]}
+	 */
 	static inSameKey(a: Key, b: Key): boolean {
 		return R.any(R.equals({ root: b.root.note, scale: b.intervals }), a.modes);
 	}
 
 	/**
-	* Ionian mode in the current key
-	*
-	* @member I
-	* @memberof Core#Key#
-	* @type {Key}
-	*/
+	 * Ionian mode in the current key
+	 *
+	 * @member I
+	 * @memberof Core#Key#
+	 * @type {Key}
+	 */
 	get I(): Key {
 		return this.getModeAtPosition(0);
 	}
 
 	/**
-	* Dorian mode in the current key
-	*
-	* @member II
-	* @memberof Core#Key#
-	* @type {Key}
-	*/
+	 * Dorian mode in the current key
+	 *
+	 * @member II
+	 * @memberof Core#Key#
+	 * @type {Key}
+	 */
 	get II(): Key {
 		return this.getModeAtPosition(1);
 	}
 
 	/**
-	* Phrygian mode in the current key
-	*
-	* @member III
-	* @memberof Core#Key#
-	* @type {Key}
-	*/
+	 * Phrygian mode in the current key
+	 *
+	 * @member III
+	 * @memberof Core#Key#
+	 * @type {Key}
+	 */
 	get III(): Key {
 		return this.getModeAtPosition(2);
 	}
 
-
 	/**
-	* Lydian mode in the current key
-	*
-	* @member IV
-	* @memberof Core#Key#
-	* @type {Key}
-	*/
+	 * Lydian mode in the current key
+	 *
+	 * @member IV
+	 * @memberof Core#Key#
+	 * @type {Key}
+	 */
 	get IV(): Key {
 		return this.getModeAtPosition(3);
 	}
 
 	/**
-	* Mixolydian mode in the current key
-	*
-	* @member V
-	* @memberof Core#Key#
-	* @type {Key}
-	*/
+	 * Mixolydian mode in the current key
+	 *
+	 * @member V
+	 * @memberof Core#Key#
+	 * @type {Key}
+	 */
 	get V(): Key {
 		return this.getModeAtPosition(4);
 	}
 
 	/**
-	* Aeolian mode in the current key
-	*
-	* @member VI
-	* @memberof Core#Key#
-	* @type {Key}
-	*/
+	 * Aeolian mode in the current key
+	 *
+	 * @member VI
+	 * @memberof Core#Key#
+	 * @type {Key}
+	 */
 	get VI(): Key {
 		return this.getModeAtPosition(5);
 	}
 
 	/**
-	* Locrian mode in the current key
-	*
-	* @member VII
-	* @memberof Core#Key#
-	* @type {Key}
-	*/
+	 * Locrian mode in the current key
+	 *
+	 * @member VII
+	 * @memberof Core#Key#
+	 * @type {Key}
+	 */
 	get VII(): Key {
 		return this.getModeAtPosition(6);
 	}
 
 	/**
-	* Modulate Up symbol (towards the right in the circle of fifths)
-	*
-	* @member ModulateUp
-	* @memberof Core#Key
-	* @enum
-	* @static
-	* @type {ModulationDirection}
-	*
-	* @example Key.ModulateUp = 'Up'
-	*/
+	 * Modulate Up symbol (towards the right in the circle of fifths)
+	 *
+	 * @member ModulateUp
+	 * @memberof Core#Key
+	 * @enum
+	 * @static
+	 * @type {ModulationDirection}
+	 *
+	 * @example Key.ModulateUp = 'Up'
+	 */
 	static ModulateUp = ModulationDirection.Up;
 
 	/**
-	* Modulate Down symbol (towards the left in the circle of fifths)
-	*
-	* @member ModulateDown
-	* @memberof Core#Key
-	* @enum
-	* @static
-	* @type {ModulationDirection}
-	*
-	* @example Key.ModulateDown = 'Down'
-	*/
+	 * Modulate Down symbol (towards the left in the circle of fifths)
+	 *
+	 * @member ModulateDown
+	 * @memberof Core#Key
+	 * @enum
+	 * @static
+	 * @type {ModulationDirection}
+	 *
+	 * @example Key.ModulateDown = 'Down'
+	 */
 	static ModulateDown = ModulationDirection.Down;
 
 	/**
-	* Modulation intervals sorted from consonant to dissonant
-	*
-	* @member ModulationIntervals
-	* @memberof Core#Key
-	* @enum
-	* @static
-	* @type {Interval[]}
-	*/
+	 * Modulation intervals sorted from consonant to dissonant
+	 *
+	 * @member ModulationIntervals
+	 * @memberof Core#Key
+	 * @enum
+	 * @static
+	 * @type {Interval[]}
+	 */
 	static ModulationIntervals: Readonly<Interval[]> = <const>[ '4P', '5P', '2M', '7m', '3m', '6M', '3M', '6m', '2m', '7M' ];
 
 	/**
@@ -680,7 +678,20 @@ export class Key extends Scale {
 	 * @type {NoteSymbol[]}
 	 */
 	static CircleOfFifths: Readonly<NoteSymbol[]> = <const>[
-		'C', 'G', 'D', 'A', 'E', 'B', 'F#', 'Gb', 'Db', 'C#', 'Ab', 'Eb', 'Bb', 'F'
+		'C',
+		'G',
+		'D',
+		'A',
+		'E',
+		'B',
+		'F#',
+		'Gb',
+		'Db',
+		'C#',
+		'Ab',
+		'Eb',
+		'Bb',
+		'F',
 	];
 
 	/**
@@ -689,12 +700,7 @@ export class Key extends Scale {
 	 * @static
 	 * @memberof Core#Key
 	 */
-	static ModesModulationProbabilities = <const>[
-		'0.165', '0.330',
-		'0.495', '0.660',
-		'0.825', '0.990',
-		'1.000'
-	];
+	static ModesModulationProbabilities = <const>[ '0.165', '0.330', '0.495', '0.660', '0.825', '0.990', '1.000' ];
 
 	/**
 	 *
@@ -703,11 +709,16 @@ export class Key extends Scale {
 	 * @memberof Core#Key
 	 */
 	static KeyModulationProbabilities = <const>[
-		'0.200', '0.400',
-		'0.520', '0.640',
-		'0.720', '0.800',
-		'0.857', '0.914',
-		'0.957', '1.000'
+		'0.200',
+		'0.400',
+		'0.520',
+		'0.640',
+		'0.720',
+		'0.800',
+		'0.857',
+		'0.914',
+		'0.957',
+		'1.000',
 	];
 
 	get [Symbol.toStringTag](): string {

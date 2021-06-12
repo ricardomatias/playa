@@ -1,14 +1,6 @@
 /* eslint-disable no-dupe-class-members */
 import { whichAccident, stripOctave, hasOctave, parseNote } from '../utils/note';
-import {
-	Sharp,
-	Sharps,
-	Flats,
-	Enharmonics,
-	DiatonicNote,
-	DiatonicNotes,
-	NoteSymbol,
-} from '../constants/note';
+import { Sharp, Sharps, Flats, Enharmonics, DiatonicNote, DiatonicNotes, NoteSymbol } from '../constants/note';
 import { MidiNotes } from '../constants/midi';
 import { findOctave, findFrequency } from '../tools/midi';
 import { isUndefined } from '../utils/types-guards';
@@ -44,17 +36,17 @@ export class Note {
 	constructor(note: NoteSymbol | string, midi: number);
 
 	/**
-	* @constructs Note
-	* @memberof Core#
-	*
-	* @param {NoteSymbol|number} note - a musical note
-	* @param {number} [midi = undefined] - a midi value
-	* @example
-	* new Note('C3')
-	* new Note('C', 60)
-	* new Note('C')
-	* new Note(60)
-	*/
+	 * @constructs Note
+	 * @memberof Core#
+	 *
+	 * @param {NoteSymbol|number} note - a musical note
+	 * @param {number} [midi = undefined] - a midi value
+	 * @example
+	 * new Note('C3')
+	 * new Note('C', 60)
+	 * new Note('C')
+	 * new Note(60)
+	 */
 	constructor(note: NoteSymbol | number | string, midi?: number) {
 		let octave = 0;
 
@@ -121,7 +113,6 @@ export class Note {
 		this.#prev = prev;
 	}
 
-
 	/**
 	 * note with octave
 	 *
@@ -162,11 +153,11 @@ export class Note {
 	/**
 	 * octave
 	 *
-	* @member octave
-	* @memberof Core#Note#
-	* @example C3 => 3
-	* @readonly
-	* @type {number}
+	 * @member octave
+	 * @memberof Core#Note#
+	 * @example C3 => 3
+	 * @readonly
+	 * @type {number}
 	 */
 	get octave(): number | undefined {
 		return this.#octave;
@@ -185,13 +176,13 @@ export class Note {
 	}
 
 	/**
-	* Returns the enharmonic or itself if it doesn't have one
-	*
-	* @member enharmonic
-	* @memberof Core#Note#
-	* @example 'D#' => 'Eb'
-	* @type {String}
-	*/
+	 * Returns the enharmonic or itself if it doesn't have one
+	 *
+	 * @member enharmonic
+	 * @memberof Core#Note#
+	 * @example 'D#' => 'Eb'
+	 * @type {String}
+	 */
 	get enharmonic(): NoteSymbol | undefined {
 		if (!this.#enharmonic) {
 			this.#enharmonic = this.resolveEnharmonic(this.#note);
@@ -234,12 +225,12 @@ export class Note {
 	}
 
 	/**
-	* Returns the midi number
-	* @member midi
-	* @memberof Core#Note#
-	* @example 60 // C3
-	* @type {Number}
-	*/
+	 * Returns the midi number
+	 * @member midi
+	 * @memberof Core#Note#
+	 * @example 60 // C3
+	 * @type {Number}
+	 */
 	get midi(): number | undefined {
 		return this.#midi;
 	}
@@ -257,12 +248,12 @@ export class Note {
 	}
 
 	/**
-	* Returns the note frequency
-	* @member freq
-	* @memberof Core#Note#
-	* @example 440 // A3
-	* @type {Number}
-	*/
+	 * Returns the note frequency
+	 * @member freq
+	 * @memberof Core#Note#
+	 * @example 440 // A3
+	 * @type {Number}
+	 */
 	get freq(): number | undefined {
 		const midi = this.#midi;
 
@@ -312,13 +303,13 @@ export class Note {
 	}
 
 	/**
-	* Returns the previous note a semitone away
-	*
-	* @member prev
-	* @memberof Core#Note#
-	* @example 'Eb' => Note('D')
-	* @return {Note}
-	*/
+	 * Returns the previous note a semitone away
+	 *
+	 * @member prev
+	 * @memberof Core#Note#
+	 * @example 'Eb' => Note('D')
+	 * @return {Note}
+	 */
 	get prev(): Note {
 		const midi = this.#midi ? this.#midi - 1 : null;
 		return this.getNeighbour(this.#prev, midi);
@@ -365,15 +356,15 @@ export class Note {
 	}
 
 	/**
-	* Does this note equal the other?
-	* Equality check done by comparing the Note (without octave), enharmonics and midi
-	* @function equals
-	* @param {Note} other
-	* @return {boolean}
-	* @memberof Core#Note#
-	*/
+	 * Does this note equal the other?
+	 * Equality check done by comparing the Note (without octave), enharmonics and midi
+	 * @function equals
+	 * @param {Note} other
+	 * @return {boolean}
+	 * @memberof Core#Note#
+	 */
 	equals(other: Note): boolean {
-		return (this.note === other.note) || (this.midi === other.midi) || (this.note === other.e);
+		return this.note === other.note || this.midi === other.midi || this.note === other.e;
 	}
 
 	get [Symbol.toStringTag](): string {

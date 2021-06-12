@@ -8,7 +8,6 @@ import { choose } from '../../tools/choose';
 import { ModulationEvent, ModulationEventType, TimelineEventKey, Turn, TurnEvent } from './types';
 import { ModeIntervals } from '../../constants/modes';
 
-
 export const createNewEventKey = (key: Key): TimelineEventKey => ({
 	root: key.root.note,
 	scale: key.intervals as ModeIntervals,
@@ -26,17 +25,17 @@ export const createNewEventKey = (key: Key): TimelineEventKey => ({
  * @return {Object}
  */
 export const modulate = (
-	key: Key, events: ModulationEvent[] | TurnEvent[], dir?: ModulationDirection, turn?: Turn): TimelineEventKey => {
+	key: Key,
+	events: ModulationEvent[] | TurnEvent[],
+	dir?: ModulationDirection,
+	turn?: Turn
+): TimelineEventKey => {
 	const direction = dir || choose([ Key.ModulateUp, Key.ModulateDown ]);
 
 	let interval = turn?.interval;
 
 	if (!interval) {
-		interval = roll(
-			Array.from(Key.ModulationIntervals),
-			Array.from(Key.KeyModulationProbabilities),
-			random.float
-		);
+		interval = roll(Array.from(Key.ModulationIntervals), Array.from(Key.KeyModulationProbabilities), random.float);
 	}
 
 	key.modulate(direction, interval as Interval);
@@ -59,4 +58,4 @@ export const modulate = (
 	return createNewEventKey(key);
 };
 
-export const isTypeMod = (type: TurnMoves): boolean => (type === TurnMoves.ModulateUp || type === TurnMoves.ModulateDown);
+export const isTypeMod = (type: TurnMoves): boolean => type === TurnMoves.ModulateUp || type === TurnMoves.ModulateDown;

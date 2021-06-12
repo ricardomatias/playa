@@ -23,9 +23,9 @@ type MelodyOptions = Partial<{
 	restProb: number;
 	dejaVuChance: number;
 	rhythmType: RhythmType;
-}>
+}>;
 
-type MelodyMap = { events: NoteEvent[]; key: TimelineEventKey }
+type MelodyMap = { events: NoteEvent[]; key: TimelineEventKey };
 
 /**
  * Create interleaved motifs
@@ -54,10 +54,13 @@ export function createMelodies(
 		distribution = distribute.decreasing,
 		restProb = 0.0,
 		dejaVuChance = 0.5,
-		octaves = [ [ 4, 1 ], [ 3, 1 ] ],
+		octaves = [
+			[ 4, 1 ],
+			[ 3, 1 ],
+		],
 		rhythmType = RhythmType.Free,
 		minNoteValues = [ 4, 8 ],
-	}: MelodyOptions = {},
+	}: MelodyOptions = {}
 ): NoteEvent[] {
 	const melodies = [];
 	const melodiesMap: Record<number, MelodyMap[]> = {};
@@ -75,7 +78,7 @@ export function createMelodies(
 		// **************************************************************************
 		if (melodies.length && R.gt(dejaVuChance, random.float())) {
 			if (melodiesMap[dur]) {
-				const maps = melodiesMap[dur].filter(map => Key.inSameKey(scale, new Key(map.key.root, map.key.scale)));
+				const maps = melodiesMap[dur].filter((map) => Key.inSameKey(scale, new Key(map.key.root, map.key.scale)));
 
 				const melodyMap = choose(maps);
 
@@ -106,8 +109,7 @@ export function createMelodies(
 
 		if (rhythmType === RhythmType.Free) {
 			rhythm = Rhythm.free(length, rhythmValues, rhythmDurations, distribution);
-		} else
-		if (rhythmType === RhythmType.Turn) {
+		} else if (rhythmType === RhythmType.Turn) {
 			const probabilities = distribute.decreasing(minNoteValues.length, PRECISION);
 			const minNoteValue = roll(minNoteValues, probabilities, random.float);
 			const minTripleValue = Ticks[<Notevalue>`${minNoteValue}nt`];
@@ -120,7 +122,6 @@ export function createMelodies(
 				},
 			});
 		}
-
 
 		motif = createMotif(scale.notes, rhythm, time);
 
@@ -142,7 +143,7 @@ export function createMelodies(
 
 		melodiesMap[dur].push({
 			events: motif,
-			key
+			key,
 		});
 
 		melodies.push(motif);

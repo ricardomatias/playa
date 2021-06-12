@@ -17,7 +17,7 @@ function combinationSumRecursive(
 	remainingSum: number,
 	finalCombinations: number[][] = [],
 	currentCombination: number[] = [],
-	startFrom = 0,
+	startFrom = 0
 ): number[][] {
 	if (remainingSum < 0) {
 		// By adding another candidate we've gone below zero.
@@ -48,7 +48,7 @@ function combinationSumRecursive(
 			remainingSum - currentCandidate,
 			finalCombinations,
 			currentCombination,
-			candidateIndex,
+			candidateIndex
 		);
 
 		// BACKTRACKING.
@@ -87,7 +87,5 @@ const hasMoreThan = (number: number, times: number) => (coll: readonly number[])
 export default function combinationSum(sum: number, maxOnes = 2): number[][] {
 	const candidates = R.drop(1, R.times(R.identity, sum));
 
-	return R.compose(
-		R.filter(hasMoreThan(1, maxOnes)),
-	)(combinationSumRecursive(candidates, sum));
+	return R.compose(R.filter(hasMoreThan(1, maxOnes)))(combinationSumRecursive(candidates, sum));
 }

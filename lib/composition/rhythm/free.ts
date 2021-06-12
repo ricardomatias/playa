@@ -39,7 +39,7 @@ export function createFreeRhythm(
 	length: TimeFormat,
 	noteValues: Notevalue[],
 	noteDurations: TimeFormat[] = [],
-	distributionAlgo: (rhythm: TimeFormat[], precision?: number) => string[] = distribute.equal,
+	distributionAlgo: (rhythm: TimeFormat[], precision?: number) => string[] = distribute.equal
 ): Event[] {
 	const totalRhythmDuration = new T(length).ticks;
 
@@ -49,28 +49,32 @@ export function createFreeRhythm(
 	let totalTime = 0;
 
 	try {
-		whilst(() => {
-			const duration = roll(availableRhythmUnits, probabilities, random.float);
+		whilst(
+			() => {
+				const duration = roll(availableRhythmUnits, probabilities, random.float);
 
-			const ticks = toTicks(duration);
+				const ticks = toTicks(duration);
 
-			if (totalTime + ticks <= totalRhythmDuration) {
-				totalTime += ticks;
+				if (totalTime + ticks <= totalRhythmDuration) {
+					totalTime += ticks;
 
-				rhythm.push(duration);
-			} else {
-				availableRhythmUnits = R.without([ duration ], availableRhythmUnits);
+					rhythm.push(duration);
+				} else {
+					availableRhythmUnits = R.without([ duration ], availableRhythmUnits);
 
-				probabilities = distributionAlgo(availableRhythmUnits);
-
-				if (R.isEmpty(availableRhythmUnits)) {
-					availableRhythmUnits = R.clone(noteValues);
 					probabilities = distributionAlgo(availableRhythmUnits);
-					totalTime = 0;
-					rhythm = [];
+
+					if (R.isEmpty(availableRhythmUnits)) {
+						availableRhythmUnits = R.clone(noteValues);
+						probabilities = distributionAlgo(availableRhythmUnits);
+						totalTime = 0;
+						rhythm = [];
+					}
 				}
-			}
-		}, () => (totalTime < totalRhythmDuration), { maxLoops: 10000 });
+			},
+			() => totalTime < totalRhythmDuration,
+			{ maxLoops: 10000 }
+		);
 	} catch (error) {
 		throw new PlayaError('generateFreeRhythm', error.message, { availableRhythmUnits, rhythm, totalTime });
 		// DO NOTHING
@@ -82,7 +86,6 @@ export function createFreeRhythm(
 	}
 
 	const durations = chooseMany(noteDurations, R.length(rhythm));
-
 
 	// rhyDur > noteDur -> there is a rest
 	// rhyDur < noteDur -> the next note will overlap with the current
@@ -108,9 +111,7 @@ export function createFreeRhythm(
 			}
 		}
 
-		return [
-			{ time: 0, dur: noteDur, next: rhyDur, isRest: false },
-		];
+		return [ { time: 0, dur: noteDur, next: rhyDur, isRest: false } ];
 	});
 
 	return expandDuration(R.flatten(fillDurations(rhythm, durations)));

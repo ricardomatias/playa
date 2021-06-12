@@ -152,12 +152,7 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(
-			scale,
-			[ 2, 5, 3 ],
-			free('0:3:2', [ '8n', '16n' ], [ '16n', '4n' ]),
-			TOff.ticks,
-		);
+		const arp = createArp(scale, [ 2, 5, 3 ], free('0:3:2', [ '8n', '16n' ], [ '16n', '4n' ]), TOff.ticks);
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [

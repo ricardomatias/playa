@@ -33,7 +33,6 @@ export const interval = (semitones: number): Interval[] | null => {
 	return intervals;
 };
 
-
 /**
  * Inverts the given interval
  * @function invert
@@ -115,6 +114,4 @@ export const subtract = (a: Interval, b: Interval): Interval[] | null => {
 	return null;
 };
 
-export const exists = (interval: Interval): boolean => (Object.keys(Semitones).includes(interval));
-
-
+export const exists = (interval: Interval): boolean => Object.keys(Semitones).includes(interval);

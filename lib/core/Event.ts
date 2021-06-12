@@ -12,7 +12,13 @@ export interface Event {
 }
 
 export const Event = ({ time = 0, dur = 0, next = 0, isRest = false }: Partial<Event>): Event => {
-	return Object.assign({}, {
-		time, dur, next, isRest,
-	});
+	return Object.assign(
+		{},
+		{
+			time,
+			dur,
+			next,
+			isRest,
+		}
+	);
 };

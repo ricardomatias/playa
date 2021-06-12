@@ -30,4 +30,4 @@ export function hasKeyValue<T>(item: T | Required<T>, key: keyof T): item is Req
 	return item[key] !== undefined;
 }
 
-export type Pull<T, K extends keyof T> = T[K]
+export type Pull<T, K extends keyof T> = T[K];

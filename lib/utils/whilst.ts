@@ -2,7 +2,6 @@ import { PlayaError } from './error';
 
 const MAX_LOOPS = 1000;
 
-
 /**
  * Loops till the condition seizes to be true
  * @private

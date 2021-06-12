@@ -4,7 +4,6 @@ import { createTurnMovement } from '../../../lib/composition';
 import { MovementRhythm } from '../../../lib/composition/movement/types';
 import random from '../../../lib/tools/random';
 
-
 describe('A Movement test suite', () => {
 	describe('Turn', () => {
 		it('should generate a simple movement', () => {

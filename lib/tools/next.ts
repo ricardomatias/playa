@@ -9,7 +9,7 @@
  * @param {Boolean} [alternate=true]
  * @return {Function}
  */
-export const next = <T>(arr: T[], alternate = false): () => T => {
+export const next = <T>(arr: T[], alternate = false): (() => T) => {
 	const maxIdx = arr.length - 1;
 	let idx = 0;
 	let dir = 1;

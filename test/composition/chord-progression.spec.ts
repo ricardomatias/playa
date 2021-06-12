@@ -14,7 +14,7 @@ describe('A Chord Progression test suite', () => {
 		const aMaj = new Key('A', Key.Major);
 
 		const movementOptions = {
-			modProb: 0.40,
+			modProb: 0.4,
 		};
 
 		// when
@@ -34,7 +34,7 @@ describe('A Chord Progression test suite', () => {
 
 		const movementOptions = {
 			// timeSignatures: [ [ 4, 4 ] ],
-			modProb: 0.40,
+			modProb: 0.4,
 		};
 
 		// when
@@ -53,7 +53,7 @@ describe('A Chord Progression test suite', () => {
 		const aMaj = new Key('Db', Key.Major);
 
 		const movementOptions = {
-			modProb: 0.40,
+			modProb: 0.4,
 		};
 
 		// when
@@ -62,7 +62,10 @@ describe('A Chord Progression test suite', () => {
 		const prog = createChordProgression(movement.timeline, {
 			structures: [ Chord.Structures.Sixth ],
 			inversionProb: 0.5,
-			octaves: [ [ 4, 1 ], [ 2, 2 ] ],
+			octaves: [
+				[ 4, 1 ],
+				[ 2, 2 ],
+			],
 			rhythmValues: [ '4nt', '4n' ],
 			rhythmDurations: [ '4n' ],
 			minChordNotes: 2,

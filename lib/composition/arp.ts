@@ -7,7 +7,6 @@ import { next } from '../tools/next';
 import { Event } from '../core/Event';
 import { TimeFormat } from '../core/Time';
 
-
 // TODO: v2: snap elements to closest position (create utility)
 
 /**
@@ -27,7 +26,10 @@ import { TimeFormat } from '../core/Time';
  * @return {NoteEvent[]}
  */
 export function createArp<T extends Scale | Chord>(
-	harmonic: T, patt: number[], rhythm: string[] | Event[], startTime: TimeFormat = 0,
+	harmonic: T,
+	patt: number[],
+	rhythm: string[] | Event[],
+	startTime: TimeFormat = 0
 ): NoteEvent[] {
 	// [ 1, 5, 4 ]
 	const melody: Note[] = ring(patt.map(harmonic.noteAt.bind(harmonic)));

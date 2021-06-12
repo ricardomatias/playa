@@ -10,67 +10,67 @@
  */
 export const TurnMoves = <const>{
 	/**
- 	* The start of a turn
-	* @type {String}
-	* @memberof Constants.TurnMoves
-	* @default
-	* @readonly
-	* @constant
-	*/
+	 * The start of a turn
+	 * @type {String}
+	 * @memberof Constants.TurnMoves
+	 * @default
+	 * @readonly
+	 * @constant
+	 */
 	Start: 'Start',
 	/**
-	* Modulate up in key
-	* @type {String}
-	* @memberof Constants.TurnMoves
-	* @default
-	* @readonly
-	* @constant
-	*/
+	 * Modulate up in key
+	 * @type {String}
+	 * @memberof Constants.TurnMoves
+	 * @default
+	 * @readonly
+	 * @constant
+	 */
 	ModeUp: 'ModeUp',
 	/**
-	* Modulate down in key
-	* @type {String}
-	* @memberof Constants.TurnMoves
-	* @default
-	* @readonly
-	* @constant
-	*/
+	 * Modulate down in key
+	 * @type {String}
+	 * @memberof Constants.TurnMoves
+	 * @default
+	 * @readonly
+	 * @constant
+	 */
 	ModeDown: 'ModeDown',
 	/**
-	* Stay in key during this turn
-	* @type {String}
-	* @memberof Constants.TurnMoves
-	* @default
-	* @readonly
-	* @constant
-	*/
+	 * Stay in key during this turn
+	 * @type {String}
+	 * @memberof Constants.TurnMoves
+	 * @default
+	 * @readonly
+	 * @constant
+	 */
 	Keep: 'Keep',
 	/**
-	* Modulate down to another key
-	* @type {String}
-	* @memberof Constants.TurnMoves
-	* @default
-	* @readonly
-	* @constant
-	*/
+	 * Modulate down to another key
+	 * @type {String}
+	 * @memberof Constants.TurnMoves
+	 * @default
+	 * @readonly
+	 * @constant
+	 */
 	ModulateDown: 'ModulateDown',
 	/**
-	* Modulate up to another key
-	* @type {String}
-	* @memberof Constants.TurnMoves
-	* @default
-	* @readonly
-	* @constant
-	*/
+	 * Modulate up to another key
+	 * @type {String}
+	 * @memberof Constants.TurnMoves
+	 * @default
+	 * @readonly
+	 * @constant
+	 */
 	ModulateUp: 'ModulateUp',
 	/**
-	* randomly picks any of the other turn movements
-	* @type {String}
-	* @memberof Constants.TurnMoves
-	* @default
-	* @readonly
-	* @constant
-	*/
+	 * randomly picks any of the other turn movements
+	 * @type {String}
+	 * @memberof Constants.TurnMoves
+	 * @default
+	 * @readonly
+	 * @constant
+	 */
 	Free: 'Free',
 };
 

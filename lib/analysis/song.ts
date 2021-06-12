@@ -8,19 +8,17 @@ import { PlayaError } from '../utils/error';
 import { natural } from '../utils/note';
 import { NoteSymbol } from '../constants/note';
 
-
-
 /**
-* Analysis Type
-* @typedef {Object} Analysis
-* @memberof Types
-*
-* @property {number} start interval start time
-* @property {number} end interval end time
-* @property {Array<NoteSymbol>} notes notes
-* @property {Array<NoteEvent>} events note events
-* @property {Array<FriendlyRanking>} matches key matches
-*/
+ * Analysis Type
+ * @typedef {Object} Analysis
+ * @memberof Types
+ *
+ * @property {number} start interval start time
+ * @property {number} end interval end time
+ * @property {Array<NoteSymbol>} notes notes
+ * @property {Array<NoteEvent>} events note events
+ * @property {Array<FriendlyRanking>} matches key matches
+ */
 
 export interface Analysis {
 	start: number;
@@ -58,7 +56,7 @@ export class SongAnalysis {
 	constructor(noteEvents: NoteEvent[]) {
 		if (R.isEmpty(noteEvents)) throw new PlayaError('SongAnalysis', 'Cannot analyse without any events');
 
-		this.noteEvents = [ ...(R.sortBy(R.prop('time'), noteEvents)) ];
+		this.noteEvents = [ ...R.sortBy(R.prop('time'), noteEvents) ];
 
 		this.analyse(this.noteEvents);
 	}
@@ -70,7 +68,7 @@ export class SongAnalysis {
 	 * @type {FriendlyRanking[][]}
 	 */
 	get matches(): FriendlyRanking[][] {
-		return this.stack.map(entry => entry.matches);
+		return this.stack.map((entry) => entry.matches);
 	}
 
 	/**
@@ -90,8 +88,8 @@ export class SongAnalysis {
 			start: 0,
 			end: 0,
 			matches: [],
-			events: []
-		}
+			events: [],
+		};
 	}
 
 	private analyse(noteEvents: NoteEvent[]) {
@@ -104,8 +102,8 @@ export class SongAnalysis {
 
 			next = noteEvent.next;
 
-			if ((this.memory.notes.includes(note.note) ||
-				(note.enharmonic && this.memory.notes.includes(note.enharmonic)))) continue;
+			if (this.memory.notes.includes(note.note) || (note.enharmonic && this.memory.notes.includes(note.enharmonic)))
+				continue;
 
 			this.memorise(noteEvent, note);
 
@@ -179,18 +177,22 @@ export class SongAnalysis {
 		const notes = [ ...this.memory.notes ];
 
 		// check memory with sharps
-		const sharps = notes.map(n => {
-			const note = new Note(n);
+		const sharps = notes
+			.map((n) => {
+				const note = new Note(n);
 
-			return note.isNatural || note.isSharp ? note.note : note.enharmonic;
-		}).filter(isDefined);
+				return note.isNatural || note.isSharp ? note.note : note.enharmonic;
+			})
+			.filter(isDefined);
 
 		// check memory with flats
-		const flats = notes.map(n => {
-			const note = new Note(n);
+		const flats = notes
+			.map((n) => {
+				const note = new Note(n);
 
-			return note.isNatural || note.isFlat ? note.note : note.enharmonic;
-		}).filter(isDefined);
+				return note.isNatural || note.isFlat ? note.note : note.enharmonic;
+			})
+			.filter(isDefined);
 
 		const sharpsCount = R.uniq(sharps.map(natural)).length;
 		const flatsCount = R.uniq(flats.map(natural)).length;

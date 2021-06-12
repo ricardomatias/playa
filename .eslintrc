@@ -6,6 +6,7 @@
 	"extends": [
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
+		"prettier",
 		"plugin:import/recommended",
 		"plugin:import/typescript"
 	],
@@ -36,31 +37,11 @@
 		"no-console": "off",
 		"require-jsdoc": 0,
 		"indent": "off",
-		"@typescript-eslint/indent": [
-            2,
-			"tab"
-        ],
 		"@typescript-eslint/explicit-function-return-type": 0,
-		"new-cap": 0,
-		"no-tabs": 0,
-		"max-len": [
-			"error",
-			{
-				"code": 130,
-				"ignoreComments": true
-			}
-		],
 		"import/no-unresolved": "warn",
 		"import/no-named-as-default": "warn",
 		"no-multi-assign": 0,
 		"no-warning-comments": 0,
-		"object-curly-spacing": [
-			"error",
-			"always",
-			{
-				"objectsInObjects": false
-			}
-		],
 		"array-bracket-spacing": [
 			"error",
 			"always"

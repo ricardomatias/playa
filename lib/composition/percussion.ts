@@ -25,10 +25,9 @@ import { shift } from '../tools';
  * }
  */
 export interface Percussion {
-	patterns: Array<BinaryEvent[]>,
-	subdivision: Notevalue
+	patterns: Array<BinaryEvent[]>;
+	subdivision: Notevalue;
 }
-
 
 // STEPS:
 // 32, 16, 8, 4
@@ -54,7 +53,7 @@ export function createPercussion(
 	steps: number,
 	beatsPerPart: number | number[],
 	rotationPart: number[] = [],
-	shiftPart?: number[],
+	shiftPart?: number[]
 ): Percussion {
 	const patterns: Array<BinaryEvent[]> = [];
 
@@ -72,23 +71,27 @@ export function createPercussion(
 
 	let maxBeatsIndex = 0;
 
-	whilst(() => {
-		const iterationLen = nrOfParts - patterns.length;
+	whilst(
+		() => {
+			const iterationLen = nrOfParts - patterns.length;
 
-		maxBeatsIndex = Math.max(patterns.length, 0);
+			maxBeatsIndex = Math.max(patterns.length, 0);
 
-		for (let index = 0; index < iterationLen; index++) {
-			const maxBeats = (<number[]>beatsPerPart)[maxBeatsIndex];
-			const beats = maxBeats;
+			for (let index = 0; index < iterationLen; index++) {
+				const maxBeats = (<number[]>beatsPerPart)[maxBeatsIndex];
+				const beats = maxBeats;
 
-			patterns.push(Euclidean.create(steps, beats));
+				patterns.push(Euclidean.create(steps, beats));
 
-			maxBeatsIndex = patterns.length;
-		}
+				maxBeatsIndex = patterns.length;
+			}
 
-		// TODO: when maxBeats repeats try another value for the repeating one
-		// patterns = uniq(patterns);
-	}, () => (patterns.length < nrOfParts), { maxLoops: 1000 });
+			// TODO: when maxBeats repeats try another value for the repeating one
+			// patterns = uniq(patterns);
+		},
+		() => patterns.length < nrOfParts,
+		{ maxLoops: 1000 }
+	);
 
 	if (isDefined(rotationPart)) {
 		for (let index = 0; index < rotationPart.length; index++) {

@@ -7,8 +7,8 @@ export interface ChordEvent {
 	time: number;
 }
 
+export type CoreClassType = 'scale' | 'chord' | 'key';
 
-export type CoreClassType = 'scale' | 'chord' | 'key'
-
-export type ChordDescriptor = { root: NoteSymbol, intervals: ChordIntervals | string } &
-Partial<Pick<ChordDefinition, 'name' | 'symbol' | 'structure'>>
+export type ChordDescriptor = { root: NoteSymbol; intervals: ChordIntervals | string } & Partial<
+	Pick<ChordDefinition, 'name' | 'symbol' | 'structure'>
+>;

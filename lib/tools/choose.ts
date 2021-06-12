@@ -1,7 +1,6 @@
 import random from './random';
 import { whilst } from '../utils';
 
-
 /**
  * Choose multiple random elements from an array
  * @function chooseMany
@@ -16,24 +15,26 @@ export const chooseMany = <T>(list: T[], n: number, compareAgainst: T | null = n
 	let lst = [ ...list ];
 	const elems: T[] = [];
 
-	whilst(() => {
-		if (!lst.length) {
-			lst = [ ...list ];
-		}
+	whilst(
+		() => {
+			if (!lst.length) {
+				lst = [ ...list ];
+			}
 
-		const idx = random.int(lst.length - 1);
+			const idx = random.int(lst.length - 1);
 
-		if (compareAgainst && list[idx] === compareAgainst) {
-			return;
-		}
+			if (compareAgainst && list[idx] === compareAgainst) {
+				return;
+			}
 
-		elems.push(lst[idx]);
-		lst.splice(idx, 1);
-	}, () => (elems.length < n));
+			elems.push(lst[idx]);
+			lst.splice(idx, 1);
+		},
+		() => elems.length < n
+	);
 
 	return elems;
 };
-
 
 /**
  * Choose one random element from an array
@@ -49,4 +50,3 @@ export const choose = <T>(list: T[], compareAgainst: T | null = null): T => {
 
 	return elems[0];
 };
-

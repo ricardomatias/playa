@@ -11,16 +11,14 @@ import { Event } from '../../core/Event';
 const PRECISION = 5;
 const MAX_DUR = Ticks['1nd'];
 
-
 const sortDiverseFirst = R.descend(R.compose(R.length, R.groupWith(R.equals)));
 
 type CombinationSorting = Partial<{
 	diverseFirst: boolean;
 	similarFirst: boolean;
-}>
+}>;
 
-
-type SortingFunction = (a: readonly number[], b: readonly number[]) => number
+type SortingFunction = (a: readonly number[], b: readonly number[]) => number;
 
 const drawGroupingCombination = (turns: number, combSorting: CombinationSorting = {}): number[] => {
 	const sortingAlgos: SortingFunction[] = [];
@@ -28,9 +26,7 @@ const drawGroupingCombination = (turns: number, combSorting: CombinationSorting 
 	if (combSorting.diverseFirst) {
 		sortingAlgos.push(sortDiverseFirst);
 		sortingAlgos.push(R.descend(R.length));
-	} else
-
-	if (combSorting.similarFirst) {
+	} else if (combSorting.similarFirst) {
 		sortingAlgos.push(R.ascend(R.length));
 	}
 
@@ -56,7 +52,7 @@ type TurnOptions = Partial<{
 	minNoteValue: number;
 	combSorting: CombinationSorting;
 	debug: false;
-}>
+}>;
 
 /**
  * Create turn based rhythms
@@ -81,7 +77,7 @@ type TurnOptions = Partial<{
 export function createTurnRhythm(
 	length: TimeFormat,
 	turns: number,
-	{ minNoteValue = 8, combSorting = {}, debug = false }: TurnOptions = {},
+	{ minNoteValue = 8, combSorting = {}, debug = false }: TurnOptions = {}
 ): Event[] {
 	if (turns <= 1) {
 		throw new Error('Cannot make a rhythm out of less than 2 turns');
@@ -125,15 +121,18 @@ export function createTurnRhythm(
 			let dur = calcDur(grid, gridIndex, hitLength, totalRhythmDuration);
 
 			if (turnsLeft && !avoidrandomHitLength) {
-				whilst(() => {
-					if (!turnsLeft) {
-						hitLength -= 1;
-					} else {
-						hitLength += 1;
-					}
+				whilst(
+					() => {
+						if (!turnsLeft) {
+							hitLength -= 1;
+						} else {
+							hitLength += 1;
+						}
 
-					dur = calcDur(grid, gridIndex, hitLength, totalRhythmDuration);
-				}, () => (!Ticks[dur]));
+						dur = calcDur(grid, gridIndex, hitLength, totalRhythmDuration);
+					},
+					() => !Ticks[dur]
+				);
 			}
 
 			grid[gridIndex].hit = true;
@@ -147,12 +146,12 @@ export function createTurnRhythm(
 					turnsLeft,
 					time: grid[gridIndex].time,
 					dur,
-					availableBeats: (grid.length - gridIndex),
+					availableBeats: grid.length - gridIndex,
 				});
 			}
 
 			gridIndex += hitLength;
-			availableBeats = (grid.length - gridIndex);
+			availableBeats = grid.length - gridIndex;
 		}
 
 		if (debug) {
@@ -170,6 +169,5 @@ export function createTurnRhythm(
 		console.table(groupingHits);
 	}
 
-	return hits.map((cell: GridCell) => (Event({ time: cell.time, dur: cell.dur, next: cell.time + (cell.dur as number) })));
+	return hits.map((cell: GridCell) => Event({ time: cell.time, dur: cell.dur, next: cell.time + (cell.dur as number) }));
 }
-

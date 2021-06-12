@@ -14,7 +14,7 @@ export type GridCell = {
 	res: string[];
 	hit?: boolean;
 	dur?: number;
-}
+};
 
 /**
  * Creates a grid

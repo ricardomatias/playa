@@ -58,15 +58,8 @@ describe('Time Test Suite', () => {
 
 	describe('#bbsToTicks', () => {
 		it('should convert - position', () => {
-			const scenarios = [
-				'1:1:0',
-				'2:3:0',
-				'2:1:1',
-				'7:2:2',
-				'5:1:3',
-				'9:1:0',
-			].map((transport) =>
-				Time.bbsToTicks(transport, { positionMode: true }),
+			const scenarios = [ '1:1:0', '2:3:0', '2:1:1', '7:2:2', '5:1:3', '9:1:0' ].map((transport) =>
+				Time.bbsToTicks(transport, { positionMode: true })
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
@@ -82,16 +75,9 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert - interval', () => {
-			const scenarios = [
-				'0:0:0',
-				'1:0:0',
-				'1:1:0',
-				'1:2:0',
-				'1:0:1',
-				'6:1:2',
-				'4:0:0',
-				'8:0:0',
-			].map((transport) => Time.bbsToTicks(transport));
+			const scenarios = [ '0:0:0', '1:0:0', '1:1:0', '1:2:0', '1:0:1', '6:1:2', '4:0:0', '8:0:0' ].map((transport) =>
+				Time.bbsToTicks(transport)
+			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -108,16 +94,9 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert different ppq - interval', () => {
-			const scenarios = [
-				'0:0:0',
-				'1:0:0',
-				'1:1:0',
-				'1:2:0',
-				'1:0:1',
-				'6:1:2',
-				'4:0:0',
-				'8:0:0',
-			].map((transport) => Time.bbsToTicks(transport, { ppq: 96 }));
+			const scenarios = [ '0:0:0', '1:0:0', '1:1:0', '1:2:0', '1:0:1', '6:1:2', '4:0:0', '8:0:0' ].map((transport) =>
+				Time.bbsToTicks(transport, { ppq: 96 })
+			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -134,17 +113,8 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert 3/4 time signature - interval', () => {
-			const scenarios = [
-				'0:0:0',
-				'1:0:0',
-				'1:1:0',
-				'1:2:0',
-				'1:0:1',
-				'6:1:2',
-				'4:0:0',
-				'8:0:0',
-			].map((transport) =>
-				Time.bbsToTicks(transport, { timeSignature: [ 3, 4 ] }),
+			const scenarios = [ '0:0:0', '1:0:0', '1:1:0', '1:2:0', '1:0:1', '6:1:2', '4:0:0', '8:0:0' ].map((transport) =>
+				Time.bbsToTicks(transport, { timeSignature: [ 3, 4 ] })
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
@@ -162,17 +132,8 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert 7/8 time signature and ppq - interval', () => {
-			const scenarios = [
-				'0:0:0',
-				'1:0:0',
-				'1:1:0',
-				'1:2:0',
-				'1:0:1',
-				'6:1:2',
-				'4:0:0',
-				'8:0:0',
-			].map((transport) =>
-				Time.bbsToTicks(transport, { ppq: 96, timeSignature: [ 7, 8 ] }),
+			const scenarios = [ '0:0:0', '1:0:0', '1:1:0', '1:2:0', '1:0:1', '6:1:2', '4:0:0', '8:0:0' ].map((transport) =>
+				Time.bbsToTicks(transport, { ppq: 96, timeSignature: [ 7, 8 ] })
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
@@ -192,20 +153,8 @@ describe('Time Test Suite', () => {
 
 	describe('#ticksToBBS', () => {
 		it('should convert - position', () => {
-			const scenarios = [
-				720,
-				960,
-				1920,
-				2400,
-				2880,
-				2154,
-				12322,
-				3360,
-				5520,
-				15360,
-				7680,
-			].map((transport) =>
-				Time.ticksToBBS(transport, { positionMode: true }),
+			const scenarios = [ 720, 960, 1920, 2400, 2880, 2154, 12322, 3360, 5520, 15360, 7680 ].map((transport) =>
+				Time.ticksToBBS(transport, { positionMode: true })
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
@@ -226,17 +175,9 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert - interval', () => {
-			const scenarios = [
-				720,
-				960,
-				2880,
-				2154,
-				12362,
-				3360,
-				5520,
-				15360,
-				7680,
-			].map((transport) => Time.ticksToBBS(transport));
+			const scenarios = [ 720, 960, 2880, 2154, 12362, 3360, 5520, 15360, 7680 ].map((transport) =>
+				Time.ticksToBBS(transport)
+			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -254,16 +195,9 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert 3/4 time signature - interval', () => {
-			const scenarios = [
-				0,
-				1440,
-				1920,
-				2400,
-				1560,
-				9360,
-				5760,
-				11520,
-			].map((ticks) => Time.ticksToBBS(ticks, { timeSignature: [ 3, 4 ] }));
+			const scenarios = [ 0, 1440, 1920, 2400, 1560, 9360, 5760, 11520 ].map((ticks) =>
+				Time.ticksToBBS(ticks, { timeSignature: [ 3, 4 ] })
+			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -280,16 +214,7 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert different ppq - interval', () => {
-			const scenarios = [
-				0,
-				384,
-				480,
-				576,
-				408,
-				2448,
-				1536,
-				3072,
-			].map((ticks) => Time.ticksToBBS(ticks, { ppq: 96 }));
+			const scenarios = [ 0, 384, 480, 576, 408, 2448, 1536, 3072 ].map((ticks) => Time.ticksToBBS(ticks, { ppq: 96 }));
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -322,17 +247,8 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert different ppq and timesignature - interval', () => {
-			const scenarios = [
-				0,
-				288,
-				384,
-				480,
-				312,
-				1872,
-				1152,
-				2304,
-			].map((ticks) =>
-				Time.ticksToBBS(ticks, { ppq: 96, timeSignature: [ 3, 4 ] }),
+			const scenarios = [ 0, 288, 384, 480, 312, 1872, 1152, 2304 ].map((ticks) =>
+				Time.ticksToBBS(ticks, { ppq: 96, timeSignature: [ 3, 4 ] })
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
@@ -352,15 +268,7 @@ describe('Time Test Suite', () => {
 
 	describe('#secondsToTicks', () => {
 		it('should convert from seconds to ticks - 60 bpm', () => {
-			const scenarios = [
-				0,
-				0.5,
-				1,
-				1.5,
-				2.1875,
-				4,
-				4.125,
-			].map((seconds) => Time.secondsToTicks(seconds, 60));
+			const scenarios = [ 0, 0.5, 1, 1.5, 2.1875, 4, 4.125 ].map((seconds) => Time.secondsToTicks(seconds, 60));
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -377,12 +285,7 @@ describe('Time Test Suite', () => {
 
 		it('should convert from seconds to ticks - 104 bpm', () => {
 			const scenarios = [
-				0,
-				0.28846153846153844,
-				0.5769230769230769,
-				0.8653846153846153,
-				1.2620192307692306,
-				2.3076923076923075,
+				0, 0.28846153846153844, 0.5769230769230769, 0.8653846153846153, 1.2620192307692306, 2.3076923076923075,
 				2.379807692307692,
 			].map((seconds) => Time.secondsToTicks(seconds, 104));
 
@@ -400,15 +303,9 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert from seconds to ticks - 160 bpm', () => {
-			const scenarios = [
-				0,
-				0.1875,
-				0.375,
-				0.5625,
-				0.8203125,
-				1.5,
-				1.546875,
-			].map((seconds) => Time.secondsToTicks(seconds, 160));
+			const scenarios = [ 0, 0.1875, 0.375, 0.5625, 0.8203125, 1.5, 1.546875 ].map((seconds) =>
+				Time.secondsToTicks(seconds, 160)
+			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -506,16 +403,7 @@ describe('Time Test Suite', () => {
 
 	describe('#secondsToBBS', () => {
 		it('should convert from seconds to transport - 60 bpm', () => {
-			const scenarios = [
-				0,
-				0.5,
-				1,
-				1.5,
-				2.1875,
-				4,
-				4.125,
-				4.25,
-			].map((seconds) => Time.secondsToBBS(seconds, 60));
+			const scenarios = [ 0, 0.5, 1, 1.5, 2.1875, 4, 4.125, 4.25 ].map((seconds) => Time.secondsToBBS(seconds, 60));
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [
@@ -533,14 +421,8 @@ describe('Time Test Suite', () => {
 
 		it('should convert from seconds to transport - 104 bpm', () => {
 			const scenarios = [
-				0,
-				0.28846153846153844,
-				0.5769230769230769,
-				0.8653846153846153,
-				1.2620192307692306,
-				2.3076923076923075,
-				2.379807692307692,
-				2.4519230769230766,
+				0, 0.28846153846153844, 0.5769230769230769, 0.8653846153846153, 1.2620192307692306, 2.3076923076923075,
+				2.379807692307692, 2.4519230769230766,
 			].map((seconds) => Time.secondsToBBS(seconds, 104));
 
 			expect(scenarios).toMatchInlineSnapshot(`
@@ -558,16 +440,9 @@ describe('Time Test Suite', () => {
 		});
 
 		it('should convert from seconds to transport - 160 bpm', () => {
-			const scenarios = [
-				0,
-				0.1875,
-				0.375,
-				0.5625,
-				0.8203125,
-				1.5,
-				1.546875,
-				1.59375,
-			].map((seconds) => Time.secondsToBBS(seconds, 160));
+			const scenarios = [ 0, 0.1875, 0.375, 0.5625, 0.8203125, 1.5, 1.546875, 1.59375 ].map((seconds) =>
+				Time.secondsToBBS(seconds, 160)
+			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
 			Array [

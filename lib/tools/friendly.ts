@@ -11,13 +11,13 @@ import { hasKeyValue, isDefined, isNotNull, isNumber, isString, Pull } from '../
 
 const __ = R.__;
 
-type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>
+type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>;
 
 type FriendlyScales = Exclude<ScaleIntervals, Chromatic>;
 
 type IntervalRanking = { [key in string]: number };
 
-type isNotChromatic = (s: ScaleIntervals) => s is FriendlyScales
+type isNotChromatic = (s: ScaleIntervals) => s is FriendlyScales;
 
 const isNotChromatic = R.complement(R.equals(ScaleIntervals.Chromatic)) as isNotChromatic;
 
@@ -35,7 +35,7 @@ export const rankIntervals = (scale: ScaleIntervals[]): Interval[] => {
 	return R.reject(R.equals('1P' as Interval), R.map(R.head, sortedIntervalsByCount) as Interval[]);
 };
 
-type ScaleRanking = Partial<{ [key in Interval]: ScaleIntervals[] }>
+type ScaleRanking = Partial<{ [key in Interval]: ScaleIntervals[] }>;
 
 // ! KEEP IT HERE
 export const rankScales = (rankedIntervals: Interval[]): ScaleRanking => {
@@ -71,22 +71,19 @@ const getIntervals = (notes: string[]): Interval[] => {
 // );
 
 const getOrderedScoreRankings = (ranking: IntervalRanking): string[] => {
-	const sortedRanking: [string, number][] = R.sortWith([
-		R.descend(R.nth(1)),
-	], Object.entries(ranking));
+	const sortedRanking: [string, number][] = R.sortWith([ R.descend(R.nth(1)) ], Object.entries(ranking));
 
 	return sortedRanking.map(([ interval ]) => interval);
 };
 
-const calcIntervalsScore = R.reduce((acc, val) => (
-	R.add(acc, R.indexOf(val, DEFAULT_RANKED_INTERVALS))
-), 0) as (list: readonly Interval[]) => number;
-
+const calcIntervalsScore = R.reduce((acc, val) => R.add(acc, R.indexOf(val, DEFAULT_RANKED_INTERVALS)), 0) as (
+	list: readonly Interval[]
+) => number;
 
 const calcIntervalRankings = (list: string[][]): IntervalRanking => {
-	const rawScoreAndIntervals: Array<string | number> = R.converge(R.concat, [
-		R.map(R.join(' ')), R.map(calcIntervalsScore),
-	])(list);
+	const rawScoreAndIntervals: Array<string | number> = R.converge(R.concat, [ R.map(R.join(' ')), R.map(calcIntervalsScore) ])(
+		list
+	);
 
 	const score = rawScoreAndIntervals.filter(isNumber);
 	const intervals = rawScoreAndIntervals.filter(isString);
@@ -98,7 +95,6 @@ const findPossibleScales = (rankedScales: ScaleRanking, intervals: Interval[]): 
 	const c = R.flatten(R.map(R.prop(__, rankedScales), intervals)) as ScaleIntervals[];
 	return R.uniq(R.flatten(c).filter(isDefined));
 };
-
 
 /**
  * Orders a list of notes based on their diatonic position
@@ -127,8 +123,7 @@ export const orderNotes = (notes: string[]): string[] => {
 		if (note.isSharp) {
 			chromaticNotes = Array.from(Sharps);
 			break;
-		} else
-		if (note.isFlat) {
+		} else if (note.isFlat) {
 			chromaticNotes = Array.from(Flats);
 			break;
 		}
@@ -141,13 +136,16 @@ export const orderNotes = (notes: string[]): string[] => {
 	// in descending order
 	const sortedNotes = R.sortBy(R.identity, notes);
 
-	whilst(() => {
-		if (sortedNotes.includes(chromaticNotes[chromaticIdx])) {
-			leadingNote = chromaticNotes[chromaticIdx];
-		} else {
-			chromaticIdx++;
-		}
-	}, () => (!leadingNote));
+	whilst(
+		() => {
+			if (sortedNotes.includes(chromaticNotes[chromaticIdx])) {
+				leadingNote = chromaticNotes[chromaticIdx];
+			} else {
+				chromaticIdx++;
+			}
+		},
+		() => !leadingNote
+	);
 
 	for (let index = 0; index < sortedNotes.length; index++) {
 		const note = sortedNotes[index];
@@ -178,7 +176,6 @@ export interface FriendlyRanking {
 	type: ScaleName;
 	intervals: string;
 }
-
 
 /**
 * Key Match (friendly)

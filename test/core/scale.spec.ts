@@ -196,15 +196,13 @@ describe('Scale Test Suite', () => {
 			expect(seventh.n).toEqual('G4');
 		});
 
-		it('should throw when it doesn\'t have interval', () => {
+		it("should throw when it doesn't have interval", () => {
 			const toThrow = () => {
 				const scale = new Scale('A', Scale.Minor);
 				scale.noteAt(11);
 			};
 
-			expect(toThrow).toThrowErrorMatchingInlineSnapshot(
-				`"[1P 2M 3m 4P 5P 6m 7m] structure doesn't contain interval: 11"`,
-			);
+			expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[1P 2M 3m 4P 5P 6m 7m] structure doesn't contain interval: 11"`);
 		});
 	});
 });

@@ -1,6 +1,5 @@
 import { interval, add, subtract, invert } from '../../lib/tools';
 
-
 describe('An Interval test suite', () => {
 	describe('#get', () => {
 		it('should return interval when given semitones', () => {

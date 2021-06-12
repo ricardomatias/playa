@@ -2,7 +2,6 @@ import { distance } from '../../lib/tools';
 
 const { semitones, interval, transposeUp, transposeDown, position, naturalPosition } = distance;
 
-
 describe('A Distance test suite', () => {
 	describe('#semitones', () => {
 		it('should return the distance between: C, D', () => {
@@ -53,7 +52,7 @@ describe('A Distance test suite', () => {
 		});
 
 		it('should fail', () => {
-			expect(() => (semitones('E', 'Z'))).toThrowError('[Note]: <Z> isn\'t a recognized musical note');
+			expect(() => semitones('E', 'Z')).toThrowError("[Note]: <Z> isn't a recognized musical note");
 		});
 	});
 
@@ -82,7 +81,6 @@ describe('A Distance test suite', () => {
 			expect(dist).toBe('5P');
 		});
 
-
 		it('should return the interval between: B, C', () => {
 			const dist = interval('B', 'C');
 
@@ -94,7 +92,6 @@ describe('A Distance test suite', () => {
 
 			expect(dist).toBe('7m');
 		});
-
 
 		it('should return the interval between: F#, D', () => {
 			const dist = interval('F#', 'D');
@@ -248,5 +245,4 @@ describe('A Distance test suite', () => {
 			expect(dist).toBe(6);
 		});
 	});
-
 });

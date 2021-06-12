@@ -3,7 +3,6 @@ import { assureNote } from '../utils';
 import { mapNotesToFreq, mapNotesToMidi, mapNotesToString } from '../utils/map';
 import { Note, NoteLike } from './Note';
 
-
 /**
  * Abstract base class for harmonic structures
  *
@@ -34,8 +33,7 @@ abstract class HarmonyBase {
 
 		if (octaves) {
 			this._octaves = octaves;
-		} else
-		if (this._root.octave) {
+		} else if (this._root.octave) {
 			this._octaves = [ this._root.octave, 1 ];
 		} else {
 			this._octaves = [ 3, 1 ];
@@ -43,13 +41,13 @@ abstract class HarmonyBase {
 	}
 
 	/**
-	* Gets the root note
-	* @member root
-	* @memberof Core.HarmonyBase#
-	* @example Note('A')
-	*
-	* @type {Note}
-	*/
+	 * Gets the root note
+	 * @member root
+	 * @memberof Core.HarmonyBase#
+	 * @example Note('A')
+	 *
+	 * @type {Note}
+	 */
 	get root(): Note {
 		return this._root;
 	}
@@ -141,38 +139,38 @@ abstract class HarmonyBase {
 	}
 
 	/**
-	* Does it use flats
-	* @member hasFlats
-	* @memberof Core.HarmonyBase#
-	*
-	* @type {boolean}
-	*/
+	 * Does it use flats
+	 * @member hasFlats
+	 * @memberof Core.HarmonyBase#
+	 *
+	 * @type {boolean}
+	 */
 	get hasFlats(): boolean {
 		return this._hasFlats;
 	}
 
 	/**
-	* Does it use sharps
-	* @member hasSharps
-	* @memberof Core.HarmonyBase#
-	*
-	* @type {boolean}
-	*/
+	 * Does it use sharps
+	 * @member hasSharps
+	 * @memberof Core.HarmonyBase#
+	 *
+	 * @type {boolean}
+	 */
 	get hasSharps(): boolean {
 		return this._hasSharps;
 	}
 
 	/**
-	* Assigns a new octave range - [ 3, 1 ]
-	*
-	* @private
-	* @function assignOctaves
-	* @memberof Core.Scale#
-	*
-	* @param {Array<Number>} octaves
-	* @return {this}
-	*/
-	abstract assignOctaves(octaves?: Octaves): this
+	 * Assigns a new octave range - [ 3, 1 ]
+	 *
+	 * @private
+	 * @function assignOctaves
+	 * @memberof Core.Scale#
+	 *
+	 * @param {Array<Number>} octaves
+	 * @return {this}
+	 */
+	abstract assignOctaves(octaves?: Octaves): this;
 }
 
 export default HarmonyBase;

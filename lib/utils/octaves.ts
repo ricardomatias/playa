@@ -8,9 +8,9 @@ import { Octaves } from '../common/types';
 const MIDI_OCTAVE_OFFSET = 2;
 
 const calcScaleInterval = (firstOct: number, numOctaves: number, distC: number) => {
-	const midi = ((firstOct) * 12) + distC;
+	const midi = firstOct * 12 + distC;
 
-	const midiLenMax = Math.min(((firstOct + numOctaves) * 12) + distC, 127);
+	const midiLenMax = Math.min((firstOct + numOctaves) * 12 + distC, 127);
 
 	const midiLen = Math.max(midiLenMax, 12);
 
@@ -21,8 +21,8 @@ const calcScaleInterval = (firstOct: number, numOctaves: number, distC: number) 
 };
 
 interface AssignOctavesOpts {
-	type: CoreClassType,
-	hasFlats: boolean
+	type: CoreClassType;
+	hasFlats: boolean;
 }
 
 /**
@@ -46,7 +46,7 @@ interface AssignOctavesOpts {
 const assignOctaves = (
 	notes: Note[],
 	octaves: Octaves = [ -2, 11 ],
-	{ type = 'scale', hasFlats = false }: Partial<AssignOctavesOpts> = {},
+	{ type = 'scale', hasFlats = false }: Partial<AssignOctavesOpts> = {}
 ): Note[] => {
 	const firstNote = notes[0];
 	const chromaticNotes = firstNote.isFlat || hasFlats ? Flats : Sharps;

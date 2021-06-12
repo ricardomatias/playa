@@ -8,7 +8,6 @@ import { mapNotesToString, mapNotesToMidi, mapNotesToFreq } from '../utils';
 import { isDefined } from '../utils/types-guards';
 import { Interval } from '../constants';
 
-
 interface SequenceChords {
 	array: Chord[];
 	midi: number[][];
@@ -26,24 +25,24 @@ interface SequenceChords {
  */
 export class Sequence {
 	private _scale: Scale;
-	private _chords: Chord[] = []
-	private _notes: Note[] = []
+	private _chords: Chord[] = [];
+	private _notes: Note[] = [];
 	private _intervals: string[];
 
 	/**
-	* In order to create a chords sequence a {@link Key} class must be used.
-	*
-	* @constructs Sequence
-	* @memberof Composition#
-	* @example
-	*const Amajor = new Key('A', Scale.Major);
-	*const seq = new Sequence(Amajor).I.II.V;
-	*seq.string => [ 'A3', 'B3', 'E4' ];
-	*seq.chords.string => [ 'AM7', 'Bm7', 'E7' ]
-	*seq.chords.midi => [ [ 69, 73, 76, 80 ], [ 71, 74, 78, 81 ], [ 64, 68, 71, 74 ] ]
-	*
-	* @param {Scale | Key} scale
-	*/
+	 * In order to create a chords sequence a {@link Key} class must be used.
+	 *
+	 * @constructs Sequence
+	 * @memberof Composition#
+	 * @example
+	 *const Amajor = new Key('A', Scale.Major);
+	 *const seq = new Sequence(Amajor).I.II.V;
+	 *seq.string => [ 'A3', 'B3', 'E4' ];
+	 *seq.chords.string => [ 'AM7', 'Bm7', 'E7' ]
+	 *seq.chords.midi => [ [ 69, 73, 76, 80 ], [ 71, 74, 78, 81 ], [ 64, 68, 71, 74 ] ]
+	 *
+	 * @param {Scale | Key} scale
+	 */
 	constructor(scale: Scale) {
 		this._scale = scale;
 		this._intervals = scale.intervals.split(' ');
@@ -77,16 +76,16 @@ export class Sequence {
 	}
 
 	/**
-	* Gets the sequence notes as midi
-	* @member midi
-	* @example
-	* const Amajor = new Scale('A', Scale.Major);
-	* new Sequence(Amajor).I.II.V.midi => [ 69, 71, 76 ];
-	*
-	* @readonly
-	* @type {number[]}
-	* @memberof Composition#Sequence#
-	*/
+	 * Gets the sequence notes as midi
+	 * @member midi
+	 * @example
+	 * const Amajor = new Scale('A', Scale.Major);
+	 * new Sequence(Amajor).I.II.V.midi => [ 69, 71, 76 ];
+	 *
+	 * @readonly
+	 * @type {number[]}
+	 * @memberof Composition#Sequence#
+	 */
 	get midi(): number[] {
 		if (!this._notes.length) {
 			return [];
@@ -96,16 +95,16 @@ export class Sequence {
 	}
 
 	/**
-	* Gets the sequence notes as frequencies
-	* @member freq
-	* @example
-	* const Amajor = new Scale('A', Scale.Major);
-	* new Sequence(Amajor).I.II.V.freq => [ 440, 493.8833012561241, 659.2551138257398 ]
-	*
-	* @readonly
-	* @type {number[]}
-	* @memberof Composition#Sequence#
-	*/
+	 * Gets the sequence notes as frequencies
+	 * @member freq
+	 * @example
+	 * const Amajor = new Scale('A', Scale.Major);
+	 * new Sequence(Amajor).I.II.V.freq => [ 440, 493.8833012561241, 659.2551138257398 ]
+	 *
+	 * @readonly
+	 * @type {number[]}
+	 * @memberof Composition#Sequence#
+	 */
 	get freq(): number[] {
 		if (!this._notes.length) {
 			return [];
@@ -115,22 +114,22 @@ export class Sequence {
 	}
 
 	/**
-	* Gets the sequence chords
-	* @member chords
-	* @example
-	*	const Amajor = new Key('A', Scale.Major);
-	*const seq = new Sequence(Amajor).I.II.V;
-	*seq.chords.string => [ 'AM7', 'Bm7', 'E7' ]
-	*seq.chords.midi => [ [ 69, 73, 76, 80 ], [ 71, 74, 78, 81 ], [ 64, 68, 71, 74 ] ]
-	*
-	* @readonly
-	* @type {Object}
-	* @property {Chord[]} array
-	* @property {number[]} midi
-	* @property {string[]} string
-	* @property {number[]} freq
-	* @memberof Composition#Sequence#
-	*/
+	 * Gets the sequence chords
+	 * @member chords
+	 * @example
+	 *	const Amajor = new Key('A', Scale.Major);
+	 *const seq = new Sequence(Amajor).I.II.V;
+	 *seq.chords.string => [ 'AM7', 'Bm7', 'E7' ]
+	 *seq.chords.midi => [ [ 69, 73, 76, 80 ], [ 71, 74, 78, 81 ], [ 64, 68, 71, 74 ] ]
+	 *
+	 * @readonly
+	 * @type {Object}
+	 * @property {Chord[]} array
+	 * @property {number[]} midi
+	 * @property {string[]} string
+	 * @property {number[]} freq
+	 * @memberof Composition#Sequence#
+	 */
 	get chords(): SequenceChords {
 		const chords = this._chords;
 
@@ -145,13 +144,11 @@ export class Sequence {
 	private getAtPosition(reg: RegExp, romanPos: string): Sequence {
 		const scale = this._scale;
 		const root = scale.root;
-		const interval = this._intervals.find((interval) => (reg.test(interval)));
+		const interval = this._intervals.find((interval) => reg.test(interval));
 
 		if (!interval) return this;
 
-		const notes: Note[] = scale.notes.filter((note) =>
-			(note.note === distance.transposeUp(root, interval as Interval)),
-		);
+		const notes: Note[] = scale.notes.filter((note) => note.note === distance.transposeUp(root, interval as Interval));
 
 		this._notes = this._notes.concat(notes);
 
@@ -214,4 +211,3 @@ export class Sequence {
 		return `Sequence: ${this.string}`;
 	}
 }
-

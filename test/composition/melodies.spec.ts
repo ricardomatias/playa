@@ -7,7 +7,6 @@ import { distribute } from '@ricardomatias/roll';
 import { RhythmType } from '../../lib/common/types';
 import { valuesToArr } from '../../lib/utils';
 
-
 describe('A Melodies test suite', () => {
 	it('should generate melodies based on a movement timeline - free rhythm', () => {
 		// given
@@ -16,7 +15,7 @@ describe('A Melodies test suite', () => {
 		const aMaj = new Key('A', Key.Major);
 
 		const opts = {
-			modProb: 0.40,
+			modProb: 0.4,
 		};
 
 		// when
@@ -34,7 +33,7 @@ describe('A Melodies test suite', () => {
 		const aMaj = new Key('A', Key.Major);
 
 		const opts = {
-			modProb: 0.40,
+			modProb: 0.4,
 		};
 
 		// when
@@ -54,7 +53,7 @@ describe('A Melodies test suite', () => {
 		const aMaj = new Key('Db', Key.Major);
 
 		const opts = {
-			modProb: 0.40,
+			modProb: 0.4,
 		};
 
 		// when
@@ -64,7 +63,10 @@ describe('A Melodies test suite', () => {
 			rhythmValues: R.flatten(valuesToArr(Rhythm.Presets)),
 			distribution: distribute.decreasing,
 			restProb: 0.5,
-			octaves: [ [ 2, 1 ], [ 3, 1 ] ],
+			octaves: [
+				[ 2, 1 ],
+				[ 3, 1 ],
+			],
 		});
 
 		expect(melodies).toMatchSnapshot();

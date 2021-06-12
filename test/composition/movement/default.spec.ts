@@ -3,7 +3,6 @@ import { createMovement } from '../../../lib/composition';
 import { MovementRhythm } from '../../../lib/composition/movement/types';
 import random from '../../../lib/tools/random';
 
-
 describe('A Movement test suite', () => {
 	it('should generate a basic movement', () => {
 		// given
@@ -34,7 +33,7 @@ describe('A Movement test suite', () => {
 		const aMaj = new Key('A', Key.Major);
 
 		const opts = {
-			modProb: 0.40,
+			modProb: 0.4,
 		};
 
 		// when
@@ -50,7 +49,7 @@ describe('A Movement test suite', () => {
 		const aMaj = new Key('A', Key.Major);
 
 		const opts = {
-			modProb: 0.40,
+			modProb: 0.4,
 			rhythm: MovementRhythm.Turn,
 		};
 
@@ -67,7 +66,7 @@ describe('A Movement test suite', () => {
 		const aMaj = new Key('A', Key.Major);
 
 		const opts = {
-			modProb: 0.40,
+			modProb: 0.4,
 			rhythm: MovementRhythm.Turn,
 		};
 

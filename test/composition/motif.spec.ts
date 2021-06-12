@@ -12,7 +12,6 @@ const { Mixed } = Rhythm.Presets;
 
 const ONE_BAR = Ticks['1n'];
 
-
 describe('A Motif test suite', () => {
 	it('should generate motif based on scale', () => {
 		// given
@@ -41,7 +40,6 @@ describe('A Motif test suite', () => {
 		expect(motif).toLastAround(ONE_BAR * 2);
 	});
 
-
 	it('should generate createMotif based on chord', () => {
 		// given
 		random.setSeed('test');
@@ -65,7 +63,6 @@ describe('A Motif test suite', () => {
 		expect(motif).toMatchSnapshot();
 		expect(motif).toLastAround(ONE_BAR * 2);
 	});
-
 
 	it('should return pattern with time = start time', () => {
 		// given

@@ -2,7 +2,6 @@ import * as R from 'ramda';
 import ring from '@ricardomatias/ring';
 import { BinaryEvent } from '../common/types';
 
-
 /**
  * Euclidean Rhythm tool
  * @namespace Euclidean
@@ -36,7 +35,6 @@ export const create = (pulses: number, beats: number): BinaryEvent[] => {
 
 	return result;
 };
-
 
 /**
  * Rotates an euclidean pattern
