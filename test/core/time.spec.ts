@@ -7,6 +7,7 @@ describe('Time Test Suite', () => {
 		expect(time.ticks).toBe(960);
 		expect(time.notevalue).toBe('2n');
 		expect(time.transport).toBe('0:2:0');
+		expect(time.beats).toBe(2);
 		expect(time.toString()).toBe('[object Time: 960 ticks]');
 	});
 
@@ -15,7 +16,17 @@ describe('Time Test Suite', () => {
 
 		expect(time.ticks).toBe(960);
 		expect(time.notevalue).toBe('2n');
+		expect(time.beats).toBe(2);
 		expect(time.transport).toBe('0:2:0');
+	});
+
+	it('should be too large for notevalues', () => {
+		const time = new Time('2:0:0');
+
+		expect(time.ticks).toBe(3840);
+		expect(time.notevalue).toBe(undefined);
+		expect(time.transport).toBe('2:0:0');
+		expect(time.beats).toBe(8);
 	});
 
 	it('should work for transport', () => {
@@ -23,25 +34,59 @@ describe('Time Test Suite', () => {
 
 		expect(time.ticks).toBe(960);
 		expect(time.notevalue).toBe('2n');
+		expect(time.beats).toBe(2);
 		expect(time.transport).toBe('0:2:0');
 
 		time = new Time('0:1:0', [ 7, 8 ]);
 
 		expect(time.ticks).toBe(240);
 		expect(time.transport).toBe('0:1:0');
+		expect(time.beats).toBe(0.5);
 		expect(time.notevalue).toBe('8n');
 
 		time = new Time('0:6:0', [ 7, 8 ]);
 
 		expect(time.ticks).toBe(1440);
 		expect(time.transport).toBe('0:6:0');
+		expect(time.beats).toBe(3);
 		expect(time.notevalue).toBe('2nd');
 
 		time = new Time('1:0:0', [ 7, 8 ]);
 
 		expect(time.ticks).toBe(1680);
+		expect(time.beats).toBe(3.5);
 		expect(time.transport).toBe('1:0:0');
 		expect(time.notevalue).toBeUndefined();
+	});
+
+	it('should work for beats', () => {
+		expect(new Time('1n').beats).toBe(4);
+		expect(new Time('8n').beats).toBe(0.5);
+		expect(new Time('4n').beats).toBe(1);
+		expect(new Time('2n').beats).toBe(2);
+	});
+
+	it('should work for measures', () => {
+		let time = new Time('1m');
+
+		expect(time.ticks).toBe(1920);
+		expect(time.beats).toBe(4);
+		expect(time.notevalue).toBe('1n');
+		expect(time.transport).toBe('1:0:0');
+
+		time = new Time('1m', [ 3, 4 ]);
+
+		expect(time.ticks).toBe(1440);
+		expect(time.beats).toBe(3);
+		expect(time.notevalue).toBe('2nd');
+		expect(time.transport).toBe('1:0:0');
+
+		time = new Time('32m');
+
+		expect(time.ticks).toBe(61440);
+		expect(time.beats).toBe(128);
+		expect(time.notevalue).toBeUndefined();
+		expect(time.transport).toBe('32:0:0');
 	});
 
 	it('should convert to seconds', () => {

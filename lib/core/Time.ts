@@ -33,35 +33,47 @@ export class Time {
 	 * Creates an instance of Time.
 	 * @constructs Time
 	 * @memberof Core#
+	 * @example
+	 * new Time('4:0:0'); // transport time
+	 * new Time('4m'); // measures = '4:0:0'
+	 * new Time(480); // ticks
+	 * new Time('4n'); // notevalues
 	 *
 	 * @param {TimeFormat} time
 	 * @param {TimeSignature} [timeSignature = [4, 4]]
 	 */
 	constructor(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]) {
+		let regResult: RegExpExecArray | null = null;
+		this.#timeSignature = timeSignature;
+
 		if (time instanceof Time) {
 			this.#ticks = time.ticks;
 			this.#notevalue = time.notevalue;
 			this.#bbs = time.bbs;
-			this.#timeSignature = timeSignature;
 		}
 		// Ticks
 		else if (typeof time === 'number') {
 			this.#ticks = time;
 			this.#notevalue = Ticks[time] as Notevalue;
 			this.#bbs = Time.ticksToBBS(time, { timeSignature });
-			this.#timeSignature = timeSignature;
 		}
 		// Notevalue
 		else if (/n/.test(time) && typeof Ticks[time as Notevalue] !== 'undefined') {
 			this.#notevalue = time as Notevalue;
 			this.#ticks = Ticks[time as Notevalue];
 			this.#bbs = Time.ticksToBBS(this.#ticks, { timeSignature });
-			this.#timeSignature = timeSignature;
+			// Transport
 		} else if (/:/.test(time)) {
 			this.#bbs = time;
 			this.#ticks = Time.bbsToTicks(time, { timeSignature });
 			this.#notevalue = Ticks[this.#ticks] as Notevalue;
-			this.#timeSignature = timeSignature;
+			// Measures
+		} else if ((regResult = /(\d+)m/.exec(time))) {
+			const measures = parseInt(regResult[1], 10);
+
+			this.#bbs = `${measures}:0:0`;
+			this.#ticks = Time.bbsToTicks(this.#bbs, { timeSignature });
+			this.#notevalue = Ticks[this.#ticks] as Notevalue;
 		} else {
 			throw new Error(`[Time] Unrecognized time format for -> ${time}`);
 		}
@@ -156,6 +168,24 @@ export class Time {
 	 */
 	get bbs(): string {
 		return this.#bbs;
+	}
+
+	/**
+	 * Beats time is based on tranpost time. It can be a decimal value if the time is not whole beats count.
+	 *
+	 * Pairs well with Ableton Live
+	 * @example
+	 * '4n' -> 1
+	 * '8n' -> 0.5
+	 * '2n' -> 2
+	 *
+	 * @readonly
+	 * @member beats
+	 * @type {number}
+	 * @memberof Core#Time#
+	 */
+	get beats(): number {
+		return this.#ticks / Ticks['4n'];
 	}
 
 	/**
@@ -324,16 +354,67 @@ export class Time {
 		return (ticks / ppq) * (60 / bpm);
 	};
 
+	/**
+	 * Less verbose way to get a time value in ticks
+	 *
+	 * @function T
+	 * @memberof Core#Time
+	 *
+	 * @example
+	 * Time.T('2n') => 960
+	 *
+	 * @param {TimeFormat} time
+	 * @param {TimeSignature} [timeSignature = [4, 4]]
+	 * @return {number}
+	 */
+	static T(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]): number {
+		return new Time(time, timeSignature).ticks;
+	}
+
+	/**
+	 * Less verbose way to get a time value in transport time
+	 *
+	 * @function BBS
+	 * @memberof Core#Time
+	 *
+	 * @example
+	 * Time.BBS('4m') => '4:0:0'
+	 *
+	 * @param {TimeFormat} time
+	 * @param {TimeSignature} [timeSignature = [4, 4]]
+	 * @return {number}
+	 */
+	static BBS(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]): string {
+		return new Time(time, timeSignature).transport;
+	}
+
+	/**
+	 * Less verbose way to get a time value in notevalue
+	 *
+	 * @function N
+	 * @memberof Core#Time
+	 *
+	 * @example
+	 * Time.N(480) => '2n'
+	 *
+	 * @param {TimeFormat} time
+	 * @param {TimeSignature} [timeSignature = [4, 4]]
+	 * @return {number}
+	 */
+	static N(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]): number {
+		return new Time(time, timeSignature).beats;
+	}
+
+	/**
+	 * Off beat value => '0:0:2'
+	 * @static
+	 * @member TOff
+	 * @memberof Core#Time
+	 * @type {Time}
+	 */
+	static TOff = new Time('0:0:2');
+
 	get [Symbol.toStringTag](): string {
 		return `Time: ${this.ticks} ticks`;
 	}
 }
-
-export const TOff = new Time('0:0:2');
-export const T1 = new Time('1:0:0');
-export const T2 = new Time('2:0:0');
-export const T4 = new Time('4:0:0');
-export const T8 = new Time('8:0:0');
-export const T16 = new Time('16:0:0');
-export const T32 = new Time('32:0:0');
-export const T64 = new Time('64:0:0');
