@@ -2,7 +2,7 @@ import * as R from 'ramda';
 
 import { NoteEvent } from '../core/NoteEvent';
 import { isDefined } from '../utils/types-guards';
-import { filterHighestMatches, friendly, FriendlyRanking } from '../tools/friendly';
+import { filterHighestMatches, findMatchingKeys, MatchRanking } from './matches';
 import { Note } from '../core/Note';
 import { PlayaError } from '../utils/error';
 import { natural } from '../utils/note';
@@ -14,7 +14,7 @@ export interface Analysis {
 	end: number;
 	notes: NoteSymbol[];
 	events: NoteEvent[];
-	matches: FriendlyRanking[];
+	matches: MatchRanking[];
 }
 
 /**
@@ -54,9 +54,9 @@ export class SongAnalysis {
 	 *
 	 * @member matches
 	 * @memberof Analysis#SongAnalysis#
-	 * @type {FriendlyRanking[][]}
+	 * @type {MatchRanking[][]}
 	 */
-	get matches(): FriendlyRanking[][] {
+	get matches(): MatchRanking[][] {
 		return this.stack.map((entry) => entry.matches);
 	}
 
@@ -98,7 +98,7 @@ export class SongAnalysis {
 
 			if (this.memory.notes.length < 3) continue;
 
-			const matches = filterHighestMatches(friendly(this.memory.notes));
+			const matches = filterHighestMatches(findMatchingKeys(this.memory.notes));
 
 			if (!matches.length) continue;
 
@@ -144,7 +144,7 @@ export class SongAnalysis {
 				memory.start = R.sortBy(R.prop('time'), memory.events)[0].time;
 			}
 
-			const matches = filterHighestMatches(friendly(memory.notes));
+			const matches = filterHighestMatches(findMatchingKeys(memory.notes));
 
 			memory.matches = matches;
 		});

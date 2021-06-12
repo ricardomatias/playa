@@ -3,8 +3,8 @@ import { createChordProgression, createMelodies, createMovement } from '../../li
 import { Key } from '../../lib/core';
 import random from '../../lib/tools/random';
 import { SongAnalysis } from '../../lib/analysis/song';
+import { MatchRanking } from '../../lib/analysis/matches';
 import { toNoteEvent } from '../../lib/core/utils';
-import { FriendlyRanking } from '../../lib/tools/friendly';
 import { ScaleIntervals } from '../../lib/constants';
 import '../matchers';
 
@@ -29,7 +29,7 @@ describe('A Song Analysis test suite', () => {
 
 		// then
 		expect(analysis.matches).toHaveLength(1);
-		expect(analysis.matches[0]).toHaveMatch<FriendlyRanking>({
+		expect(analysis.matches[0]).toHaveMatch<MatchRanking>({
 			root: 'F',
 			type: 'Minor',
 		});
@@ -56,11 +56,11 @@ describe('A Song Analysis test suite', () => {
 
 		// then
 		expect(matches).toHaveLength(2);
-		expect(matches[0]).toHaveMatch<FriendlyRanking>({
+		expect(matches[0]).toHaveMatch<MatchRanking>({
 			root: 'Bb',
 			type: 'Major',
 		});
-		expect(matches[1]).toHaveMatch<FriendlyRanking>({
+		expect(matches[1]).toHaveMatch<MatchRanking>({
 			root: 'A',
 			type: 'Major',
 		});
@@ -88,15 +88,15 @@ describe('A Song Analysis test suite', () => {
 		// then
 		expect(matches).toHaveLength(3);
 
-		expect(matches[0]).toHaveMatch<FriendlyRanking>({
+		expect(matches[0]).toHaveMatch<MatchRanking>({
 			root: 'D',
 			scale: ScaleIntervals.Aeolian,
 		});
-		expect(matches[1]).toHaveMatch<FriendlyRanking>({
+		expect(matches[1]).toHaveMatch<MatchRanking>({
 			root: 'C#',
 			scale: ScaleIntervals.Aeolian,
 		});
-		expect(matches[2]).toHaveMatch<FriendlyRanking>({
+		expect(matches[2]).toHaveMatch<MatchRanking>({
 			root: 'E',
 			scale: ScaleIntervals.Minor,
 		});
@@ -124,15 +124,15 @@ describe('A Song Analysis test suite', () => {
 		// then
 		expect(matches).toHaveLength(3);
 
-		expect(matches[0]).toHaveMatch<FriendlyRanking>({
+		expect(matches[0]).toHaveMatch<MatchRanking>({
 			root: 'D',
 			scale: ScaleIntervals.Aeolian,
 		});
-		expect(matches[1]).toHaveMatch<FriendlyRanking>({
+		expect(matches[1]).toHaveMatch<MatchRanking>({
 			root: 'C#',
 			scale: ScaleIntervals.Aeolian,
 		});
-		expect(matches[2]).toHaveMatch<FriendlyRanking>({
+		expect(matches[2]).toHaveMatch<MatchRanking>({
 			root: 'E',
 			scale: ScaleIntervals.Minor,
 		});
@@ -160,19 +160,19 @@ describe('A Song Analysis test suite', () => {
 		// then
 		expect(matches).toHaveLength(4);
 
-		expect(matches[0]).toHaveMatch<FriendlyRanking>({
+		expect(matches[0]).toHaveMatch<MatchRanking>({
 			root: 'Eb',
 			scale: ScaleIntervals.Major,
 		});
-		expect(matches[1]).toHaveMatch<FriendlyRanking>({
+		expect(matches[1]).toHaveMatch<MatchRanking>({
 			root: 'D',
 			scale: ScaleIntervals.Major,
 		});
-		expect(matches[2]).toHaveMatch<FriendlyRanking>({
+		expect(matches[2]).toHaveMatch<MatchRanking>({
 			root: 'F',
 			scale: ScaleIntervals.Major,
 		});
-		expect(matches[3]).toHaveMatch<FriendlyRanking>({
+		expect(matches[3]).toHaveMatch<MatchRanking>({
 			root: 'Ab',
 			scale: ScaleIntervals.Major,
 		});
@@ -199,11 +199,11 @@ describe('A Song Analysis test suite', () => {
 
 		expect(matches).toHaveLength(2);
 
-		expect(matches[0]).toHaveMatch<FriendlyRanking>({
+		expect(matches[0]).toHaveMatch<MatchRanking>({
 			root: 'A',
 			scale: ScaleIntervals.Mixolydian,
 		});
-		expect(matches[1]).toHaveMatch<FriendlyRanking>({
+		expect(matches[1]).toHaveMatch<MatchRanking>({
 			root: 'G',
 			scale: ScaleIntervals.Mixolydian,
 		});

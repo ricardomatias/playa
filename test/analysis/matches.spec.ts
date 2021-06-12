@@ -1,7 +1,14 @@
-import { friendly, orderNotes, rankIntervals, rankScales, findClosestMatches, FriendlyRanking } from '../../lib/tools/friendly';
+import * as R from 'ramda';
+import {
+	findMatchingKeys,
+	orderNotes,
+	rankIntervals,
+	rankScales,
+	findClosestMatches,
+	MatchRanking,
+} from '../../lib/analysis/matches';
 import random from '../../lib/tools/random';
 import { Scale } from '../../lib/core/Scale';
-import * as R from 'ramda';
 import { stripOctave, valuesToArr } from '../../lib/utils';
 import { ScaleIntervals } from '../../lib/constants';
 import { Pull } from '../../lib/utils/types-guards';
@@ -14,9 +21,9 @@ const BbEgyptian = new Scale('Bb', Scale.Intervals.Egyptian);
 
 type Chromatic = Pull<typeof ScaleIntervals, 'Chromatic'>;
 
-type FriendlyScales = Exclude<ScaleIntervals, Chromatic>;
+type MatchingScales = Exclude<ScaleIntervals, Chromatic>;
 
-type isNotChromatic = (s: ScaleIntervals) => s is FriendlyScales;
+type isNotChromatic = (s: ScaleIntervals) => s is MatchingScales;
 
 const isNotChromatic = R.complement(R.equals(ScaleIntervals.Chromatic)) as isNotChromatic;
 
@@ -28,7 +35,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = friendly([ 'A3', 'C#3', 'G3', 'B3' ]);
+			const neighbours = findMatchingKeys([ 'A3', 'C#3', 'G3', 'B3' ]);
 
 			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3m 4P 5P 6m 7m',
@@ -45,7 +52,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = friendly([ 'F#', 'C#', 'D', 'D', 'E', 'C' ]);
+			const neighbours = findMatchingKeys([ 'F#', 'C#', 'D', 'D', 'E', 'C' ]);
 
 			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3M 4P 5P 6M 7m',
@@ -62,7 +69,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = friendly([ 'B', 'D', 'Eb', 'F', 'Ab' ]);
+			const neighbours = findMatchingKeys([ 'B', 'D', 'Eb', 'F', 'Ab' ]);
 
 			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3m 4P 5P 6M 7m',
@@ -80,7 +87,7 @@ describe('A Friendly test suite', () => {
 			random.setSeed('test');
 
 			// when
-			const neighbours = friendly([ 'C#', 'F#' ]);
+			const neighbours = findMatchingKeys([ 'C#', 'F#' ]);
 
 			// then
 			expect(R.head(neighbours)).toEqual({
@@ -97,9 +104,9 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = friendly([ 'D3', 'E3', 'F3', 'G3', 'A3', 'Bb3', 'C4' ]);
+			const neighbours = findMatchingKeys([ 'D3', 'E3', 'F3', 'G3', 'A3', 'Bb3', 'C4' ]);
 
-			expect(neighbours).toHaveMatch<FriendlyRanking>({
+			expect(neighbours).toHaveMatch<MatchRanking>({
 				match: 1,
 				root: 'D',
 				type: 'Minor',
@@ -113,7 +120,7 @@ describe('A Friendly test suite', () => {
 			random.setSeed('test');
 
 			// when
-			const neighbours = friendly([ 'D', 'F#' ]);
+			const neighbours = findMatchingKeys([ 'D', 'F#' ]);
 
 			// then
 			expect(neighbours).toMatchSnapshot();
@@ -124,7 +131,7 @@ describe('A Friendly test suite', () => {
 			random.setSeed('test');
 
 			// when
-			const neighbours = friendly([ 'C#' ]);
+			const neighbours = findMatchingKeys([ 'C#' ]);
 
 			// then
 			expect(neighbours).toEqual([]);
@@ -136,7 +143,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const match = friendly([ 'A3', 'C#3', 'G3', 'B3' ])[0];
+			const match = findMatchingKeys([ 'A3', 'C#3', 'G3', 'B3' ])[0];
 
 			// then
 			expect(match).toEqual({
@@ -148,7 +155,7 @@ describe('A Friendly test suite', () => {
 			});
 
 			// given
-			const candidates = friendly([ 'A3', 'C#3', 'G3', 'F3' ]);
+			const candidates = findMatchingKeys([ 'A3', 'C#3', 'G3', 'F3' ]);
 
 			// when
 			const closest = findClosestMatches(match, candidates);
@@ -169,7 +176,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const match = friendly([ 'B', 'D', 'Eb', 'F', 'Ab' ])[0];
+			const match = findMatchingKeys([ 'B', 'D', 'Eb', 'F', 'Ab' ])[0];
 
 			// then
 			expect(match).toEqual({
@@ -181,7 +188,7 @@ describe('A Friendly test suite', () => {
 			});
 
 			// given
-			const candidates = friendly([ 'C3', 'F#3', 'G3' ]);
+			const candidates = findMatchingKeys([ 'C3', 'F#3', 'G3' ]);
 
 			// when
 			const closest = findClosestMatches(match, candidates);

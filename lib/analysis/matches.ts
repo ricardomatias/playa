@@ -2,8 +2,10 @@ import * as R from 'ramda';
 
 import { Scale } from '../core/Scale';
 import { Note, NoteLike } from '../core/Note';
-import { Sharps, Flats, DiatonicNotes, ScaleIntervals, Interval, NoteSymbol, ScaleName } from '../constants';
-import distance from './distance';
+import { Sharps, Flats, DiatonicNotes, NoteSymbol } from '../constants/note';
+import { ScaleIntervals, ScaleName } from '../constants/scales';
+import { Interval } from '../constants/intervals';
+import distance from '../tools/distance';
 import { assureNote, stripOctave } from '../utils/note';
 import whilst from '../utils/whilst';
 import { valuesToArr, convObj, rotate } from '../utils/functional';
@@ -169,7 +171,7 @@ export const orderNotes = (notes: string[]): string[] => {
 // "type": "Mixolydian",
 // }
 
-export interface FriendlyRanking {
+export interface MatchRanking {
 	match: number;
 	root: NoteSymbol;
 	scale: ScaleIntervals;
@@ -179,7 +181,7 @@ export interface FriendlyRanking {
 
 /**
 * Key Match (friendly)
-* @typedef {Object} FriendlyRanking
+* @typedef {Object} MatchRanking
 * @memberof Types
 *
 * @property {ScaleIntervals} scale the scale's intervals
@@ -205,10 +207,10 @@ export interface FriendlyRanking {
  * Friendly is figures out the most suitable keys for the given notes.
  * Returns a list of possible matches
  *
- * @function friendly
+ * @function findMatchingKeys
  * @memberof Tools
  * @example
- * friendly([ 'A3', 'C#4', 'G4', 'B4' ]) =>
+ * findMatchingKeys([ 'A3', 'C#4', 'G4', 'B4' ]) =>
  * [{
 	scale: '1P 2M 3m 4P 5P 6m 7m',
 	match: 1,
@@ -218,12 +220,12 @@ export interface FriendlyRanking {
 }, ...]
  *
  * @param {Array<NoteLike>} notes
- * @return {Array<FriendlyRanking>}
+ * @return {Array<MatchRanking>}
  */
-export const friendly = (notes: NoteLike[]): FriendlyRanking[] => {
+export const findMatchingKeys = (notes: NoteLike[]): MatchRanking[] => {
 	// ["A", "C#", "G", "B"]
 	const intervalsPermutations = [];
-	let matchingScales: FriendlyRanking[] = [];
+	let matchingScales: MatchRanking[] = [];
 
 	if (notes.length < 2) {
 		return [];
@@ -266,7 +268,7 @@ export const friendly = (notes: NoteLike[]): FriendlyRanking[] => {
 		}
 
 		// ["1P 2M 3m 4P 5P 6M 7M", "1P 2M 3m 4P 5P 6m 7M", ..]
-		const scales: FriendlyRanking[] = possibleScales.map((scale) => {
+		const scales: MatchRanking[] = possibleScales.map((scale) => {
 			const scaleArr = R.split(' ', scale);
 
 			const intervals = R.tail(intervalsArr);
@@ -297,19 +299,19 @@ type RequiredKeys<T, K extends keyof T> = Required<Pick<T, K>>;
  * @function findClosestMatches
  * @memberof Tools
  *
- * @param {FriendlyRanking} match
- * @param {FriendlyRanking[]} candidates
- * @return {FriendlyRanking[]}
+ * @param {MatchRanking} match
+ * @param {MatchRanking[]} candidates
+ * @return {MatchRanking[]}
  */
 export const findClosestMatches = (
-	match: RequiredKeys<FriendlyRanking, 'root' | 'scale'>,
-	candidates: FriendlyRanking[]
-): FriendlyRanking[] => {
+	match: RequiredKeys<MatchRanking, 'root' | 'scale'>,
+	candidates: MatchRanking[]
+): MatchRanking[] => {
 	const intervals = match.scale.split(' ');
 	const scale = new Scale(match.root, match.scale);
 	const notes = scale.notes.map((note) => note.note);
 
-	const common: [number, number, FriendlyRanking, string[]][] = candidates.map((c) => {
+	const common: [number, number, MatchRanking, string[]][] = candidates.map((c) => {
 		const i = c.scale.split(' ');
 		const s = new Scale(c.root, c.scale);
 		const n = s.notes.map((note) => note.note);
@@ -337,10 +339,10 @@ export const findClosestMatches = (
  * @function filterHighestMatches
  * @memberof Tools
  *
- * @param {FriendlyRanking[]} rankings
- * @return {FriendlyRanking[]}
+ * @param {MatchRanking[]} rankings
+ * @return {MatchRanking[]}
  */
-export const filterHighestMatches = (rankings: FriendlyRanking[]): FriendlyRanking[] => {
+export const filterHighestMatches = (rankings: MatchRanking[]): MatchRanking[] => {
 	const maxMatch = R.reduce(R.max, 0, R.map(R.prop('match'), rankings));
 	return R.filter(R.propEq('match', maxMatch), rankings);
 };
