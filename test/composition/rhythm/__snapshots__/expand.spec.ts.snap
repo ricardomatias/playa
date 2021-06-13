@@ -1,5 +1,141 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#expand should expand irregular rhythm 1`] = `
+Array [
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 720,
+    "time": 0,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 1200,
+    "time": 720,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 1920,
+    "time": 1200,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 2400,
+    "time": 1920,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 2880,
+    "time": 2400,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 3600,
+    "time": 2880,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 4080,
+    "time": 3600,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 4800,
+    "time": 4080,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 5280,
+    "time": 4800,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 5760,
+    "time": 5280,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 6480,
+    "time": 5760,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "next": 6960,
+    "time": 6480,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "next": 7680,
+    "time": 6960,
+  },
+]
+`;
+
+exports[`#expand should expand late starter simple 1`] = `
+Array [
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "midi": 69,
+    "next": 4560,
+    "note": "A3",
+    "time": 3840,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "midi": 71,
+    "next": 5040,
+    "note": "B3",
+    "time": 4560,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "midi": 69,
+    "next": 5760,
+    "note": "A3",
+    "time": 5040,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "midi": 69,
+    "next": 6480,
+    "note": "A3",
+    "time": 5760,
+  },
+  Object {
+    "dur": 480,
+    "isRest": false,
+    "midi": 71,
+    "next": 6960,
+    "note": "B3",
+    "time": 6480,
+  },
+  Object {
+    "dur": 720,
+    "isRest": false,
+    "midi": 69,
+    "next": 7680,
+    "note": "A3",
+    "time": 6960,
+  },
+]
+`;
+
 exports[`#expand should expand simple 1`] = `
 Array [
   Object {

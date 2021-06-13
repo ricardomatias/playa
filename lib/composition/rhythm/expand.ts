@@ -18,6 +18,7 @@ export const expand = (pattern: Event[], length: TimeFormat): Event[] => {
 	const copy = R.clone(pattern);
 
 	const startTime = R.head(copy)?.time || 0;
+	const endTime = startTime + len;
 	let playhead = startTime;
 
 	const result: Event[][] = [];
@@ -25,7 +26,7 @@ export const expand = (pattern: Event[], length: TimeFormat): Event[] => {
 	let patternSlice = [];
 	let index = 0;
 
-	while (playhead < len) {
+	while (playhead < endTime) {
 		const event = copy[index];
 
 		patternSlice.push(event);

@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import { Event } from '../../core';
-import { mapStartToEvent } from '../../tools';
+import { expandDuration } from '../../tools/event';
 import { isUndefined } from '../../utils/types-guards';
 
 /**
@@ -20,9 +20,14 @@ export function concat(...events: Event[][]): Event[] {
 
 	for (let index = 1; index < events.length; index++) {
 		const curr = events[index];
-		const start = R.last(pattern)?.next || 0;
+		const rhythm = curr.map(({ dur }) => Event({ dur }));
+		const next = R.last(pattern)?.next || 0;
 
-		pattern = pattern.concat(R.map(mapStartToEvent(start), curr));
+		pattern = pattern.concat(
+			expandDuration(rhythm, next).map(({ time, next }, idx) => {
+				return Object.assign({}, curr[idx], { time, next });
+			})
+		);
 	}
 
 	return pattern;

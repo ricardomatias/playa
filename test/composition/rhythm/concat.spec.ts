@@ -1,5 +1,7 @@
+import * as R from 'ramda';
 import { Rhythm } from '../../../lib/composition';
-import { random } from '../../../lib/tools';
+import { NoteEvent, Time } from '../../../lib/core';
+import { mapStartToEvent, random } from '../../../lib/tools';
 import '../../matchers';
 
 describe('#concat', () => {
@@ -47,5 +49,19 @@ describe('#concat', () => {
 		// then
 		expect(result).toLastAround(1920 * 3);
 		expect(result).toMatchSnapshot();
+	});
+
+	it('should concat late start', () => {
+		// given
+		random.setSeed('test');
+
+		const rhy1: NoteEvent[] = R.map(mapStartToEvent('2:0:0'), Rhythm.free('1:0:0', [ '4n' ]));
+
+		// when
+		const result = Rhythm.concat(rhy1, R.clone(rhy1));
+
+		// then
+		expect(result).toLastAround(Time.T('4m'));
+		// expect(result).toMatchSnapshot();
 	});
 });
