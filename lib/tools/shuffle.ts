@@ -6,16 +6,17 @@ import random from './random';
  * @function shuffle
  * @memberof Tools
  *
- * @param {Array<*>} list
- * @param {number} [nrOfTimes=3]
- * @return {Array<*>}
+ * @template T
+ * @param {Array<T>} list
+ * @param {number} [nrOfTimes=5]
+ * @return {Array<T>}
  */
-export const shuffle = <T>(list: T[], nrOfTimes = 3): T[] => {
+export const shuffle = <T>(list: T[], nrOfTimes = 5): T[] => {
 	const newList = [];
 	const indexes = R.times(R.identity, list.length);
 
 	for (let index = 0; index < nrOfTimes; index++) {
-		indexes.sort(() => Math.floor(random.float() * 3 - 1));
+		indexes.sort(() => random.int(1, -1));
 	}
 
 	for (let index = 0; index < list.length; index++) {

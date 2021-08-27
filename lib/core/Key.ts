@@ -18,7 +18,6 @@ import { PlayaError } from '../utils/error';
 import { Octaves } from '../common/types';
 import { assureNote } from '../utils';
 
-const TOTAL_MODES = 7;
 const LOCRIAN_PROB = 0.01;
 const PRECISION = 4;
 
@@ -293,7 +292,9 @@ export class Key extends Scale {
 			}
 		}
 
-		if (!interval) {
+		if (modes.length === 1) {
+			mode = modes[0];
+		} else if (!interval) {
 			mode = roll(modes, probabilities, random.float);
 		} else {
 			const dirMultiplier = direction === Key.ModulateDown ? -1 : 1;
@@ -366,10 +367,10 @@ export class Key extends Scale {
 	/**
 	 * Finds out the index of the scale and of the Ionian mode
 	 * @private
-	 * @return {Object} [ionianIndex, scaleIndex]
+	 * @return {number} ionianIndex
 	 * @memberof Key
 	 */
-	private prepareModes(): { ionianIndex: number; scaleIndex: number } | null {
+	private prepareModes(): number | null {
 		let scaleIntervals = this._intervals as ModeIntervals;
 		const isMajorMinor = this.isMajorMinor(scaleIntervals);
 
@@ -383,12 +384,9 @@ export class Key extends Scale {
 
 		const scaleIndex = Array.from(ModeIntervals).indexOf(scaleIntervals);
 
-		const ionianIndex = TOTAL_MODES - scaleIndex;
+		const ionianIndex = ModeIntervals.length - scaleIndex;
 
-		return {
-			ionianIndex,
-			scaleIndex,
-		};
+		return ionianIndex;
 	}
 
 	/**
@@ -402,17 +400,15 @@ export class Key extends Scale {
 		const notes = this._notes;
 
 		// Order the notes, starting from the IONIAN mode
-		const indices = this.prepareModes();
+		const ionianIndex = this.prepareModes();
 
-		if (!isNotNull(indices)) {
+		if (!isNotNull(ionianIndex)) {
 			return null;
 		}
 
-		const { ionianIndex, scaleIndex } = indices;
+		const orderedNotes = notes.slice(ionianIndex, ModeIntervals.length).concat(notes.slice(0, ionianIndex));
 
-		const orderedNotes = notes.slice(ionianIndex, TOTAL_MODES).concat(notes.slice(0, ionianIndex));
-
-		let modes = [];
+		const modes = [];
 		let index = 0;
 
 		for (const scale of Array.from(ModeIntervals)) {
@@ -420,9 +416,6 @@ export class Key extends Scale {
 
 			modes.push({ scale, root });
 		}
-
-		// Reverse ordering to go back to initial state;
-		modes = modes.slice(scaleIndex, TOTAL_MODES).concat(modes.slice(0, scaleIndex));
 
 		this._modes = modes;
 
@@ -722,6 +715,6 @@ export class Key extends Scale {
 	];
 
 	get [Symbol.toStringTag](): string {
-		return `Key <${this.modePositionRoman}>: ${this.string}`;
+		return `Key <${this.modePositionRoman}>: ${this.pitches}`;
 	}
 }

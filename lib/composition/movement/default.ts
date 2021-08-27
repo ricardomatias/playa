@@ -1,6 +1,7 @@
 import * as R from 'ramda';
 import { Key, Time, TimeFormat } from '../../core';
-import { random, Euclidean } from '../../tools';
+import * as Euclidean from '../../tools/euclidean';
+import random from '../../tools/random';
 import * as Rhythm from '../rhythm';
 import { Notevalue, ScaleName, Ticks } from '../../constants';
 import { modulate, createNewEventKey } from './helpers';
@@ -99,6 +100,8 @@ function movement(
 	let rhythmEvents: TimelineEvent[] = [];
 	const quarters: number[] = [];
 
+	random.push();
+
 	if (rhythm === MovementRhythm.Euclidean) {
 		rhythmEvents = <TimelineEvent[]>Euclidean.create(MAX_TURNS, turns)
 			.map((event: BinaryEvent, index) => {
@@ -150,6 +153,8 @@ function movement(
 
 		return event;
 	});
+
+	random.pop();
 
 	if (rhythm === MovementRhythm.Euclidean) {
 		// **************************************************************************

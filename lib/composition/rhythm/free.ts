@@ -75,7 +75,7 @@ export function createFreeRhythm(
 			() => totalTime < totalRhythmDuration,
 			{ maxLoops: 10000 }
 		);
-	} catch (error) {
+	} catch (error: any) {
 		throw new PlayaError('generateFreeRhythm', error.message, { availableRhythmUnits, rhythm, totalTime });
 		// DO NOTHING
 	}

@@ -37,3 +37,12 @@ export const Semitones = <const>{
 
 export type Semitones = typeof Semitones[keyof typeof Semitones];
 export type Interval = keyof typeof Semitones;
+
+export type HarmonicPosition = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
+export type HarmonicShift =
+	| HarmonicPosition
+	| `+${HarmonicPosition}`
+	| `++${HarmonicPosition}`
+	| `-${HarmonicPosition}`
+	| `--${HarmonicPosition}`;

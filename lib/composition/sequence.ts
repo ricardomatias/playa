@@ -50,16 +50,16 @@ export class Sequence {
 
 	/**
 	 * Gets the sequence notes as string
-	 * @member string
+	 * @member pitches
 	 * @example
 	 * const Amajor = new Scale('A', Scale.Major);
-	 * new Sequence(Amajor).I.II.V.string => [ 'A3', 'B3', 'E4' ];
+	 * new Sequence(Amajor).I.II.V.pitches => [ 'A3', 'B3', 'E4' ];
 	 *
 	 * @readonly
 	 * @type {string[]}
 	 * @memberof Composition#Sequence#
 	 */
-	get string(): string[] {
+	get pitches(): string[] {
 		if (!this._notes.length) {
 			return [];
 		}
@@ -208,6 +208,6 @@ export class Sequence {
 	}
 
 	get [Symbol.toStringTag](): string {
-		return `Sequence: ${this.string}`;
+		return `Sequence: ${this.pitches}`;
 	}
 }

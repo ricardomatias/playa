@@ -14,7 +14,7 @@ import { isUndefined } from '../../utils/types-guards';
 * @param {TimeFormat} at
 * @return {Array<Array<Event>>}
 */
-export const splitAt = (pattern: Event[], at: TimeFormat): Event[][] => {
+export const splitAt = <T extends Event>(pattern: T[], at: TimeFormat): T[][] => {
 	const time = new Time(at);
 
 	const index = R.findIndex(R.lte(time.ticks), R.map(R.prop('time'), pattern));

@@ -2,7 +2,7 @@ import random from './random';
 import { whilst } from '../utils';
 
 /**
- * Choose multiple random elements from an array
+ * Choose multiple random elements from an array - no repetitions unless n > list length
  * @function chooseMany
  * @memberof Tools
  *
@@ -49,4 +49,22 @@ export const choose = <T>(list: T[], compareAgainst: T | null = null): T => {
 	const elems: T[] = chooseMany(list, 1, compareAgainst);
 
 	return elems[0];
+};
+
+/**
+ * Choose multiple random elements from an array with repeated elements, although not sequentially.
+ *
+ * @function chooseRepeatable
+ * @memberof Tools
+ *
+ * @param {Array<T>} list
+ * @param {Number} n
+ * @return {Array<T>}
+ */
+export const chooseRepeatable = <T>(list: T[], n: number): T[] => {
+	const elems: T[] = [];
+
+	Array.from({ length: n }).forEach((_, i) => (i ? elems.push(choose<T>(list, elems[i - 1])) : elems.push(choose<T>(list))));
+
+	return elems;
 };

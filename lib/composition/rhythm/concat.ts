@@ -11,7 +11,7 @@ import { isUndefined } from '../../utils/types-guards';
  * @param {Array<Array<Event>>} events
  * @return {Array<Event>}
  */
-export function concat(...events: Event[][]): Event[] {
+export function concat<T extends Event>(...events: T[][]): T[] {
 	const start = events[0];
 
 	if (isUndefined(start)) return [];

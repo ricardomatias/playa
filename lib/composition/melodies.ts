@@ -73,6 +73,8 @@ export function createMelodies(
 		let motif: NoteEvent[];
 		let rhythm: Event[] = [];
 
+		random.push();
+
 		// **************************************************************************
 		// * PHASE: DEJA VU
 		// **************************************************************************
@@ -148,6 +150,8 @@ export function createMelodies(
 
 		melodies.push(motif);
 	}
+
+	random.pop();
 
 	return R.flatten(melodies);
 }

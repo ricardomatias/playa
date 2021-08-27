@@ -13,7 +13,7 @@ import { concat } from './concat';
  * @param {TimeFormat} length
  * @return {Array<Event>}
  */
-export const expand = (pattern: Event[], length: TimeFormat): Event[] => {
+export const expand = <T extends Event>(pattern: T[], length: TimeFormat): T[] => {
 	const len = new Time(length).ticks;
 	const copy = R.clone(pattern);
 
@@ -21,7 +21,7 @@ export const expand = (pattern: Event[], length: TimeFormat): Event[] => {
 	const endTime = startTime + len;
 	let playhead = startTime;
 
-	const result: Event[][] = [];
+	const result: T[][] = [];
 	const count = pattern.length;
 	let patternSlice = [];
 	let index = 0;

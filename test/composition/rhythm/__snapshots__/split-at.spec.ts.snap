@@ -31,38 +31,6 @@ exports[`#splitAt should splitAt simple 1`] = `
 Array [
   Array [
     Object {
-      "dur": 240,
-      "isRest": false,
-      "next": 240,
-      "time": 0,
-    },
-    Object {
-      "dur": 720,
-      "isRest": false,
-      "next": 960,
-      "time": 240,
-    },
-    Object {
-      "dur": 120,
-      "isRest": false,
-      "next": 1080,
-      "time": 960,
-    },
-    Object {
-      "dur": 720,
-      "isRest": false,
-      "next": 1800,
-      "time": 1080,
-    },
-    Object {
-      "dur": 320,
-      "isRest": false,
-      "next": 2120,
-      "time": 1800,
-    },
-  ],
-  Array [
-    Object {
       "dur": 120,
       "isRest": false,
       "next": 120,
@@ -75,40 +43,84 @@ Array [
       "time": 120,
     },
     Object {
-      "dur": 720,
+      "dur": 240,
       "isRest": false,
-      "next": 1000,
+      "next": 520,
       "time": 280,
     },
     Object {
+      "dur": 240,
+      "isRest": false,
+      "next": 760,
+      "time": 520,
+    },
+    Object {
       "dur": 120,
       "isRest": false,
-      "next": 1120,
+      "next": 880,
+      "time": 760,
+    },
+    Object {
+      "dur": 120,
+      "isRest": false,
+      "next": 1000,
+      "time": 880,
+    },
+    Object {
+      "dur": 240,
+      "isRest": false,
+      "next": 1240,
       "time": 1000,
     },
     Object {
-      "dur": 160,
-      "isRest": false,
-      "next": 1280,
-      "time": 1120,
-    },
-    Object {
-      "dur": 160,
-      "isRest": false,
-      "next": 1440,
-      "time": 1280,
-    },
-    Object {
-      "dur": 160,
-      "isRest": false,
-      "next": 1600,
-      "time": 1440,
-    },
-    Object {
       "dur": 120,
       "isRest": false,
-      "next": 1720,
-      "time": 1600,
+      "next": 1360,
+      "time": 1240,
+    },
+    Object {
+      "dur": 480,
+      "isRest": false,
+      "next": 1840,
+      "time": 1360,
+    },
+    Object {
+      "dur": 160,
+      "isRest": false,
+      "next": 2000,
+      "time": 1840,
+    },
+  ],
+  Array [
+    Object {
+      "dur": 320,
+      "isRest": false,
+      "next": 320,
+      "time": 0,
+    },
+    Object {
+      "dur": 320,
+      "isRest": false,
+      "next": 640,
+      "time": 320,
+    },
+    Object {
+      "dur": 160,
+      "isRest": false,
+      "next": 800,
+      "time": 640,
+    },
+    Object {
+      "dur": 320,
+      "isRest": false,
+      "next": 1120,
+      "time": 800,
+    },
+    Object {
+      "dur": 720,
+      "isRest": false,
+      "next": 1840,
+      "time": 1120,
     },
   ],
 ]

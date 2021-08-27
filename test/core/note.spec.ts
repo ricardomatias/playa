@@ -143,15 +143,15 @@ describe('Note Test Suite', () => {
 	});
 
 	it('should fail with midi over the range', () => {
-		expect(() => new Note('Ab11')).toThrowError("[Note]: <Ab11> isn't within the midi range of [0 - 127]");
+		expect(() => new Note('Ab11' as any)).toThrowError("[Note]: <Ab11> isn't within the midi range of [0 - 127]");
 	});
 
 	it('should not set UNKNOWN', () => {
-		expect(() => new Note('foo')).toThrowError("[Note]: <foo> isn't a recognized musical note");
+		expect(() => new Note('foo' as any)).toThrowError("[Note]: <foo> isn't a recognized musical note");
 	});
 
 	it('should not set UNKNOWN ENHARMONIC', () => {
-		expect(() => new Note('Cb')).toThrowError("[Note]: <Cb> isn't a recognized musical note");
+		expect(() => new Note('Cb' as any)).toThrowError("[Note]: <Cb> isn't a recognized musical note");
 	});
 
 	it('should get distC', () => {

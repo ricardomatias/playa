@@ -13,6 +13,7 @@ import { stripOctave, valuesToArr } from '../../lib/utils';
 import { ScaleIntervals } from '../../lib/constants';
 import { Pull } from '../../lib/utils/types-guards';
 import '../matchers';
+import { shuffle } from '../../lib/tools';
 
 const Cmaj = new Scale('C', Scale.Major);
 const Abmaj = new Scale('Ab', Scale.Major);
@@ -46,6 +47,24 @@ describe('A Friendly test suite', () => {
 			});
 
 			expect(neighbours).toMatchSnapshot();
+		});
+
+		// v2
+		it.skip('should match with key even if root is missing', () => {
+			// given
+			random.setSeed('test');
+
+			// when
+			const neighbours = findMatchingKeys([ 'D', 'E', 'F', 'G', 'A', 'B' ]);
+
+			// then
+			expect(R.head(neighbours)).toEqual({
+				scale: '1P 2M 3M 4P 5P 6M 7M',
+				match: 1,
+				root: 'C',
+				intervals: '2M 3M 4P 5P 6M 7M',
+				type: 'Major',
+			});
 		});
 
 		it('should return [ `F#`, `C#`, `D`, `D`, `E`, `C` ]', () => {
@@ -169,7 +188,7 @@ describe('A Friendly test suite', () => {
 				intervals: '1P 3M 6m 7m',
 				type: 'Mixolydian',
 			});
-			expect(new Scale(closest[0].root, closest[0].scale).string).toEqual([ 'A3', 'B3', 'C#4', 'D4', 'E4', 'F#4', 'G4' ]);
+			expect(new Scale(closest[0].root, closest[0].scale).pitches).toEqual([ 'A3', 'B3', 'C#4', 'D4', 'E4', 'F#4', 'G4' ]);
 		});
 
 		it('should have with every note different', () => {
@@ -197,7 +216,7 @@ describe('A Friendly test suite', () => {
 			expect(closest).toHaveLength(1);
 
 			// [ 'C3', 'Db3', 'Eb3', 'F3', 'G3', 'Ab3', 'Bb3' ]
-			expect(new Scale(closest[0].root, closest[0].scale).string).toEqual([ 'C3', 'Db3', 'Eb3', 'F3', 'G3', 'Ab3', 'Bb3' ]);
+			expect(new Scale(closest[0].root, closest[0].scale).pitches).toEqual([ 'C3', 'Db3', 'Eb3', 'F3', 'G3', 'Ab3', 'Bb3' ]);
 		});
 	});
 
@@ -224,39 +243,28 @@ describe('A Friendly test suite', () => {
 		beforeAll(() => random.setSeed('FRIENDLY'));
 
 		it('should order notes C MAJ', () => {
-			const rndFn = () => random.int(1, -1);
-
-			const scrambledNotes = R.sort(rndFn, Cmaj.string);
+			const scrambledNotes = shuffle(Cmaj.pitches);
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).toEqual(Cmaj.string.map(stripOctave));
+			expect(neighbours).toEqual(Cmaj.pitches.map(stripOctave));
 		});
 
 		it('should order notes Ab MAJ', () => {
-			const rndFn = () => random.int(1, -1);
-
-			const scrambledNotes = R.sort(rndFn, Abmaj.string);
+			const scrambledNotes = shuffle(Abmaj.pitches);
 			const neighbours = orderNotes(scrambledNotes);
 
 			expect(neighbours).toEqual([ 'C', 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb' ]);
 		});
 
 		it('should order notes D# LOCRIAN', () => {
-			const rndFn = () => random.int(1, -1);
-
-			const scrambledNotes = R.sort(rndFn, DSharpLoc.string);
-
-			expect(scrambledNotes).toEqual([ 'E3', 'G#3', 'F#3', 'D#3', 'B3', 'C#4', 'A3' ]);
-
+			const scrambledNotes = shuffle(DSharpLoc.pitches);
 			const neighbours = orderNotes(scrambledNotes);
 
 			expect(neighbours).toEqual([ 'C#', 'D#', 'E', 'F#', 'G#', 'A', 'B' ]);
 		});
 
 		it('should order notes Bb EGYPTIAN', () => {
-			const rndFn = () => random.int(1, -1);
-
-			const scrambledNotes = R.sort(rndFn, BbEgyptian.string);
+			const scrambledNotes = shuffle(BbEgyptian.pitches);
 			const neighbours = orderNotes(scrambledNotes);
 
 			expect(neighbours).toEqual([ 'C', 'Eb', 'F', 'Ab', 'Bb' ]);

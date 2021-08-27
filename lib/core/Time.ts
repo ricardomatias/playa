@@ -405,6 +405,10 @@ export class Time {
 		return new Time(time, timeSignature).beats;
 	}
 
+	static fromBeats(time: number, timeSignature: TimeSignature = [ 4, 4 ]): Time {
+		return new Time(Math.floor(time * Ticks['4n']), timeSignature);
+	}
+
 	/**
 	 * Off beat value => '0:0:2'
 	 * @static

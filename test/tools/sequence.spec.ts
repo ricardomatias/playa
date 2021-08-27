@@ -9,7 +9,7 @@ describe('A Sequence test suite', () => {
 		const scale = new Scale('A', Scale.Major);
 		const seq = new Sequence(scale).I.II.V;
 
-		expect(seq.string).toEqual([ 'A3', 'B3', 'E4' ]);
+		expect(seq.pitches).toEqual([ 'A3', 'B3', 'E4' ]);
 		expect(seq.toString()).toEqual('[object Sequence: A3,B3,E4]');
 	});
 
@@ -18,7 +18,7 @@ describe('A Sequence test suite', () => {
 
 		const scale = new Scale('A', Scale.Major, [ 3, 2 ]);
 
-		const seq = new Sequence(scale).II.V.VI.string;
+		const seq = new Sequence(scale).II.V.VI.pitches;
 
 		expect(seq).toEqual([ 'B3', 'E4', 'F#4', 'B4', 'E5', 'F#5' ]);
 	});
@@ -31,11 +31,25 @@ describe('A Sequence test suite', () => {
 		const chords = new Sequence(key).II.V.VI.chords;
 
 		expect(chords.string).toEqual([ 'Bm', 'E5', 'F#m' ]);
-		expect(chords.midi).toEqual([
-			[ 71, 74, 78 ],
-			[ 64, 71, 76 ],
-			[ 66, 69, 73 ],
-		]);
+		expect(chords.midi).toMatchInlineSnapshot(`
+		Array [
+		  Array [
+		    71,
+		    74,
+		    78,
+		  ],
+		  Array [
+		    64,
+		    71,
+		    76,
+		  ],
+		  Array [
+		    66,
+		    69,
+		    73,
+		  ],
+		]
+	`);
 	});
 
 	it('should create a way too long sequence', () => {

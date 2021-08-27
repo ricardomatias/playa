@@ -1,27 +1,54 @@
-import { choose, chooseMany } from '../../lib/tools';
+import { chooseRepeatable, choose, chooseMany } from '../../lib/tools/choose';
 import random from '../../lib/tools/random';
 
 const AM7 = [ 'A', 'C', 'E', 'G' ];
 
 describe('A Choose test suite', () => {
-	beforeAll(() => random.setSeed('CHOOSE'));
-
 	it('should return a random element', () => {
-		expect(choose(AM7)).toBe('C');
+		random.setSeed('CHOOSE');
+
 		expect(choose(AM7)).toBe('E');
 	});
 
-	it('should return 2 random elements', () => {
-		const [ first, second ] = chooseMany(AM7, 2);
+	it('should return 2 random elements basic', () => {
+		random.setSeed('CHOOSE');
 
-		expect(first).toBe('E');
-		expect(second).toBe('G');
+		expect(chooseMany(AM7, 2)).toMatchInlineSnapshot(`
+		Array [
+		  "E",
+		  "G",
+		]
+	`);
 	});
 
 	it('should return 2 random elements but never a C', () => {
-		const [ first, second ] = chooseMany(AM7, 2, 'C');
+		random.setSeed('CHOOSE');
 
-		expect(first).toBe('E');
-		expect(second).toBe('A');
+		expect(chooseMany(AM7, 2, 'C')).toMatchInlineSnapshot(`
+		Array [
+		  "E",
+		  "G",
+		]
+	`);
+	});
+
+	it('should return 10 repeatable elements', () => {
+		random.setSeed('CHOOSE');
+
+		const elements = chooseRepeatable([ 'A', 'C', 'E' ], 10);
+		expect(elements).toMatchInlineSnapshot(`
+		Array [
+		  "C",
+		  "E",
+		  "C",
+		  "A",
+		  "C",
+		  "A",
+		  "C",
+		  "A",
+		  "C",
+		  "A",
+		]
+	`);
 	});
 });

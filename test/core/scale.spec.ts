@@ -15,7 +15,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - chromatic', () => {
 			const scale = new Scale('C', Scale.Intervals.Chromatic);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "C3",
 			  "C#3",
@@ -36,7 +36,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - natural', () => {
 			const scale = new Scale('C', Scale.Major);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "C3",
 			  "D3",
@@ -52,7 +52,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - sharp', () => {
 			const scale = new Scale('G#', Scale.Minor);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "G#3",
 			  "A#3",
@@ -68,7 +68,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - flat', () => {
 			const scale = new Scale('Db', Scale.Lydian);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "Db3",
 			  "Eb3",
@@ -84,7 +84,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - locrian', () => {
 			const scale = new Scale('A', Scale.Locrian);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "A3",
 			  "Bb3",
@@ -100,7 +100,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - phrygian', () => {
 			const scale = new Scale('G', Scale.Phrygian);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "G3",
 			  "Ab3",
@@ -116,7 +116,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - pentatonic', () => {
 			const scale = new Scale('C', Scale.Intervals.MinorPentatonic);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "C3",
 			  "D#3",
@@ -130,7 +130,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - MELODIC_MINOR', () => {
 			const scale = new Scale('C', Scale.Intervals.MelodicMinor);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "C3",
 			  "D3",
@@ -146,7 +146,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - ALTERED', () => {
 			const scale = new Scale('F#', Scale.Intervals.Altered);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "F#3",
 			  "G3",
@@ -162,7 +162,7 @@ describe('Scale Test Suite', () => {
 		it('should create scale - LYDIAN', () => {
 			const scale = new Scale('B', Scale.Lydian);
 
-			expect(scale.string).toMatchInlineSnapshot(`
+			expect(scale.pitches).toMatchInlineSnapshot(`
 			Array [
 			  "B3",
 			  "C#4",
@@ -199,7 +199,7 @@ describe('Scale Test Suite', () => {
 		it("should throw when it doesn't have interval", () => {
 			const toThrow = () => {
 				const scale = new Scale('A', Scale.Minor);
-				scale.noteAt(11);
+				scale.noteAt(11 as any);
 			};
 
 			expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[1P 2M 3m 4P 5P 6m 7m] structure doesn't contain interval: 11"`);

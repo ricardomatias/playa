@@ -82,7 +82,16 @@ export function expandDuration(pattern: Event[] | TimeFormat[], startTime = 0): 
 	return computeEventsNext(events);
 }
 
-export const computeEventsNext = (events: Event[]): Event[] => {
+ /**
+ * Compute `next` time for a list of events
+ *
+ * @function computeEventsNext
+ * @memberof Tools.Event
+ * @template T
+ * @param {T[]} events
+ * @return {T[]}
+ */
+export const computeEventsNext = <T extends Event>(events: T[]): T[] => {
 	return events.map((event, index) => {
 		const nextEvent = events[index + 1];
 

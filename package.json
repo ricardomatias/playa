@@ -2,13 +2,16 @@
 	"name": "playa",
 	"version": "2.0.0-next.0",
 	"description": "A musical theory framework aimed at creating musical phrases",
+	"type": "module",
 	"main": "./build/umd/index.js",
 	"module": "./build/esm/index.js",
+	"browser": "./build/esm/index.js",
 	"types": "./build/types/index.d.ts",
 	"exports": {
 		".": {
 			"require": "./build/umd/index.js",
 			"import": "./build/esm/index.js",
+			"node": "./build/umd/index.js",
 			"default": "./build/esm/index.js"
 		}
 	},
@@ -63,34 +66,38 @@
 	"files": [
 		"build/*"
 	],
+	"dependencies": {
+		"@ricardomatias/ring": "0.0.7",
+		"@ricardomatias/roll": "^0.2.0",
+		"alea": "^1.0.0",
+		"ramda": "^0.27.1",
+		"roman-numeral": "^0.2.6",
+		"simplex-noise": "^2.4.0"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.13.10",
 		"@babel/plugin-proposal-class-properties": "^7.13.0",
 		"@babel/preset-env": "^7.13.10",
 		"@otris/jsdoc-tsd": "^2.0.2",
-		"@ricardomatias/ring": "0.0.7",
-		"@ricardomatias/roll": "^0.2.0",
 		"@rollup/plugin-babel": "^5.3.0",
-		"@types/jest": "^26.0.21",
-		"@types/ramda": "^0.27.39",
-		"@typescript-eslint/eslint-plugin": "^4.18.0",
-		"@typescript-eslint/parser": "^4.18.0",
-		"alea": "^1.0.0",
+		"@types/jest": "^27.0.1",
+		"@types/ramda": "^0.27.44",
+		"@typescript-eslint/eslint-plugin": "^4.29.3",
+		"@typescript-eslint/parser": "^4.29.3",
 		"auto-changelog": "^2.2.1",
 		"babel-plugin-ramda": "^2.0.0",
 		"docma": "^3.2.2",
-		"eslint": "^7.22.0",
-		"eslint-config-prettier": "^8.3.0",
+		"eslint": "^7.32.0",
 		"eslint-config-google": "^0.14.0",
+		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-import": "^2.22.1",
 		"esm": "^3.2.25",
 		"husky": "^4.3.8",
-		"jest": "^27.0.4",
+		"jest": "^27.1.0",
 		"jsdoc-memberof-namespace": "^2.2.0",
 		"leasot": "^11.5.0",
-		"prettier": "^2.3.0",
-		"ramda": "^0.27.1",
-		"rollup": "^2.42.3",
+		"prettier": "^2.3.2",
+		"rollup": "^2.56.3",
 		"rollup-plugin-babel": "^4.4.0",
 		"rollup-plugin-cleanup": "^3.2.1",
 		"rollup-plugin-clear": "^2.0.7",
@@ -104,10 +111,8 @@
 		"rollup-plugin-progress": "^1.1.2",
 		"rollup-plugin-terser": "^7.0.2",
 		"rollup-plugin-typescript2": "^0.30.0",
-		"roman-numeral": "^0.2.6",
-		"simplex-noise": "^2.4.0",
-		"ts-jest": "^27.0.2",
+		"ts-jest": "^27.0.5",
 		"tsd-jsdoc": "^2.5.0",
-		"typescript": "~4.2.4"
+		"typescript": "^4.4.2"
 	}
 }

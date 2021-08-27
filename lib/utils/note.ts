@@ -1,4 +1,4 @@
-import { DiatonicNote, NoteSymbol } from '../constants';
+import { DiatonicNote, NoteSymbol } from '../constants/note';
 import { Note, NoteLike } from '../core/Note';
 
 const ACCIDENT_REGEXP = new RegExp('#|b');
@@ -52,7 +52,7 @@ export const natural = (note: NoteLike): DiatonicNote | null => {
  */
 export const stripOctave = (note: string): NoteSymbol => <NoteSymbol>note.replace(new RegExp(OCTAVE_REGEXP), '');
 
-export const hasOctave = (note: string): boolean => new RegExp(OCTAVE_REGEXP).test(note);
+export const isPitch = (note: Exclude<NoteLike, Note | number>): boolean => new RegExp(OCTAVE_REGEXP).test(note);
 
 interface ParsedNote {
 	note: NoteSymbol;
@@ -72,4 +72,4 @@ export const parseNote = (note: string): ParsedNote | null => {
 	};
 };
 
-export const assureNote = (note: Note | string | number | NoteSymbol): Note => (note instanceof Note ? note : new Note(note));
+export const assureNote = (note: NoteLike): Note => (note instanceof Note ? note : new Note(note));

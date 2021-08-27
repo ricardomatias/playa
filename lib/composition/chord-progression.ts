@@ -102,6 +102,8 @@ export function createChordProgression(
 	const structuresProb = distribution(structures, PRECISION);
 	let chosenStyle;
 
+	random.push();
+
 	for (let index = 0; index < timeline.length; index++) {
 		const {
 			time,
@@ -195,7 +197,7 @@ export function createChordProgression(
 
 				chord = Chord.fromIntervals(root, scale, structure);
 
-				chordNotes = Midi.findNearestChord(prevChord, chord.string.map(stripOctave));
+				chordNotes = Midi.findNearestChord(prevChord, chord.pitches.map(stripOctave), { sort: true });
 			}
 		}
 
@@ -232,6 +234,7 @@ export function createChordProgression(
 
 		progression.push(pattern);
 	}
+	random.pop();
 
 	return computeEventsNext(R.flatten(progression)) as ChordEvent[];
 }

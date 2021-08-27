@@ -2,6 +2,7 @@
 /* eslint-disable no-var, new-cap */
 import Alea from 'alea';
 import SimplexNoise from 'simplex-noise';
+import { PlayaError } from '../utils';
 
 const INITIAL_SEED = 'PLAYA';
 
@@ -20,11 +21,15 @@ const INITIAL_SEED = 'PLAYA';
  */
 export class Random {
 	private static instance: Random;
-	private x = 0;
-	private y = 0;
-	private simplex: SimplexNoise = new SimplexNoise(Alea(INITIAL_SEED));
-	private _seed: string | number = INITIAL_SEED;
-	private _seedCounter = 0;
+	#x = 0;
+	#y = 0;
+	#prevX = 0;
+	#prevY = 0;
+	#rng = Alea(INITIAL_SEED);
+	#simplex: SimplexNoise = new SimplexNoise(this.#rng);
+	#seed: string | number = INITIAL_SEED;
+	#state?: [number, number, number, number];
+	#seedCounter = 0;
 
 	public increment = 10;
 
@@ -53,7 +58,48 @@ export class Random {
 	 * @type {(string | number)}
 	 */
 	get seed(): string | number {
-		return this._seed;
+		return this.#seed;
+	}
+
+	/**
+	 * Use in conjunction with `pop()` to preserve the RNG state
+	 * The point of this is to isolate the calls within push/pop so that they aren't affected
+	 * by the occurrence of previous `random` calls.
+	 *
+	 * @example
+	 * random.push();
+	 * const a = random.float();
+	 * random.pop();
+	 * const b = random.float();
+	 *
+	 * a === b
+	 * @function push
+	 * @memberof Tools.Random
+	 */
+	push(): void {
+		this.#state = this.#rng.exportState();
+		this.#prevX = this.#x;
+		this.#prevY = this.#y;
+
+		this.setSeed(this.seed, this.increment);
+	}
+
+	/**
+	 * Use in conjunction with `push()` to preserve the RNG state.
+	 * @function pop
+	 * @memberof Tools.Random
+	 */
+	pop(): void {
+		this.#x = this.#prevX;
+		this.#y = this.#prevY;
+		this.#prevX = 0;
+		this.#prevY = 0;
+
+		if (this.#state) {
+			this.#rng.importState(this.#state);
+		} else {
+			throw new PlayaError('Random', 'Must use .push() before .pop()');
+		}
 	}
 
 	/**
@@ -64,17 +110,13 @@ export class Random {
 	 * @param {String|Number} seed
 	 * @param {Number} increment
 	 */
-	setSeed = (seed: string, increment: number = this.increment): void => {
-		const alea = Alea(seed);
-
-		this._seed = seed;
-
+	setSeed = (seed: string | number, increment: number = this.increment): void => {
+		this.#x = 0;
+		this.#y = 999;
+		this.#seed = seed;
 		this.increment = increment;
 
-		this.simplex = new SimplexNoise(alea);
-
-		this.x = Math.floor(alea() * 100);
-		this.y = Math.floor(alea() * 100);
+		this.#rng = Alea(seed);
 	};
 
 	/**
@@ -90,7 +132,7 @@ export class Random {
 	 * @param {Number} increment
 	 */
 	bumpSeed(): void {
-		this.setSeed(`${this._seed}`.replace(/-\d/, '') + `-${this._seedCounter++}`);
+		this.setSeed(`${this.#seed}`.replace(/-\d/, '') + `-${this.#seedCounter++}`);
 	}
 
 	/**
@@ -101,19 +143,20 @@ export class Random {
 	 *
 	 * @param {number} max
 	 * @param {number} min
-	 * @return {number} [0, 1]
+	 * @return {number} [0, 1[
 	 */
 	float = (max = 1.0, min = 0.0): number => {
-		this.x += this.increment;
-		this.y += this.increment;
+		this.#x += this.increment;
+		this.#y += this.increment;
 
-		const value = (this.simplex.noise2D(this.x, this.y) + 1) / 2;
+		const value = (this.#simplex.noise2D(this.#x, this.#y) + 1) / 2;
+		const result = min + value * (max - min);
 
-		return min + value * max;
+		return result;
 	};
 
 	/**
-	 * Generates a Random integer between a range
+	 * Generates a Random integer between a range [inclusive, inclusive]
 	 *
 	 * @function int
 	 * @memberof Tools.Random
@@ -135,7 +178,7 @@ export class Random {
 	 * @return {boolean}
 	 */
 	boolean = (): boolean => {
-		return !!this.int(1);
+		return Boolean(this.int(1));
 	};
 }
 

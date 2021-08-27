@@ -1,8 +1,9 @@
-export { choose, chooseMany } from './choose';
+export { choose, chooseMany, chooseRepeatable } from './choose';
 export { shuffle } from './shuffle';
 export { rotate } from './rotate';
 export { next } from './next';
 export { ping } from './ping';
+export { mapRepeat } from './map-repeat';
 export { default as distance } from './distance';
 export * from './interval';
 export * as Euclidean from './euclidean';

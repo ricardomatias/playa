@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 
 import * as R from 'ramda';
-import diff from 'jest-diff';
+import {diff} from 'jest-diff'
 import { printExpected, printReceived, matcherHint } from 'jest-matcher-utils';
 
 declare global {
@@ -24,9 +24,9 @@ expect.extend({
 		};
 	},
 	toHaveStringNotes(received, str: string) {
-		const pass = this.equals(received.string, str);
+		const pass = this.equals(received.pitches, str);
 		return {
-			message: () => '\n\n' + `Expected: ${printExpected(received.string)}\n` + `Received: ${printReceived(str)}`,
+			message: () => '\n\n' + `Expected: ${printExpected(received.pitches)}\n` + `Received: ${printReceived(str)}`,
 			pass,
 		};
 	},

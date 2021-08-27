@@ -1,12 +1,12 @@
 /* eslint-disable no-dupe-class-members */
-import { whichAccident, stripOctave, hasOctave, parseNote } from '../utils/note';
+import { whichAccident, stripOctave, isPitch, parseNote } from '../utils/note';
 import { Sharp, Sharps, Flats, Enharmonics, DiatonicNote, DiatonicNotes, NoteSymbol } from '../constants/note';
 import { MidiNotes } from '../constants/midi';
 import { findOctave, findFrequency } from '../tools/midi';
-import { isUndefined } from '../utils/types-guards';
+import { isNumber, isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
 
-export type NoteLike = Note | NoteSymbol | string | number;
+export type NoteLike = string | number | Note | NoteSymbol;
 
 /**
  * Defines a Note
@@ -31,9 +31,7 @@ export class Note {
 	static Sharps = Sharps;
 	static Flats = Flats;
 
-	constructor(note: string | number);
-	constructor(note: NoteSymbol);
-	constructor(note: NoteSymbol | string, midi: number);
+	// constructor(note: NoteSymbol | string, midi: number);
 
 	/**
 	 * @constructs Note
@@ -47,28 +45,23 @@ export class Note {
 	 * new Note('C')
 	 * new Note(60)
 	 */
-	constructor(note: NoteSymbol | number | string, midi?: number) {
+	constructor(note: NoteLike, midi?: number) {
 		let octave = 0;
 
-		if (typeof note === 'number') {
+		if (Note.isNote(note)) {
+			midi = note.midi;
+			note = note.pitch;
+		} else if (isNumber(note)) {
 			midi = note;
-			const midiNote = MidiNotes[midi];
-
-			if (!midiNote) {
-				throw new Error(`[Note]: <${midi}> isn't a valid midi note number`);
-			}
-
-			note = stripOctave(midiNote);
-		}
-
-		if (hasOctave(note)) {
+			note = stripOctave(this.extractPitch(midi));
+		} else if (isPitch(note)) {
 			const parsed = parseNote(note);
 
 			if (!parsed) {
 				throw new Error(`[Note]: <${note}> isn't a recognized musical note`);
 			}
 
-			midi = MidiNotes.indexOf(note);
+			midi = MidiNotes.indexOf(note as any);
 			note = parsed.note;
 			octave = parsed.octave;
 
@@ -76,7 +69,7 @@ export class Note {
 				const enh = this.resolveEnharmonic(note as NoteSymbol);
 
 				if (enh) {
-					midi = MidiNotes.indexOf(enh + parsed.octave);
+					midi = MidiNotes.indexOf((enh + parsed.octave) as any);
 				}
 			}
 		}
@@ -367,8 +360,26 @@ export class Note {
 		return this.note === other.note || this.midi === other.midi || this.note === other.e;
 	}
 
+	clone(): Note {
+		return new Note(this.#note, this.#midi);
+	}
+
+	static isNote(note: NoteLike): note is Note {
+		return note instanceof Note;
+	}
+
 	get [Symbol.toStringTag](): string {
 		return `Note: ${this.pitch}`;
+	}
+
+	private extractPitch(midi: number): string {
+		const midiNote = MidiNotes[midi];
+
+		if (!midiNote) {
+			throw new Error(`[Note]: <${midi}> isn't a valid midi note number`);
+		}
+
+		return midiNote;
 	}
 
 	/**

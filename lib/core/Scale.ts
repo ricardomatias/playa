@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import HarmonyBase from './HarmonyBase';
 import { Note, NoteLike } from './Note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
-import { Interval, Semitones } from '../constants/intervals';
+import { Interval, HarmonicPosition, Semitones } from '../constants/intervals';
 import assignOctaves from '../utils/octaves';
 import { natural } from '../utils/note';
 import { PlayaError } from '../utils';
@@ -99,22 +99,22 @@ export class Scale extends HarmonyBase {
 	}
 
 	/**
-	 * Note at interval
+	 * Note at position
 	 * @example
 	 * new Scale('A', Scale.MINOR).noteAt(5) => E
 	 *
 	 * @function noteAt
 	 * @memberof Core#Scale#
-	 * @param {number} interval
+	 * @param {HarmonicPosition} position
 	 * @return {Note}
 	 */
-	noteAt(interval: number): Note {
+	noteAt(position: HarmonicPosition): Note {
 		const intervals = this._intervals.split(' ').map((interv) => parseInt(interv.replace(/[^\d]/, '')));
 
-		const noteIndex = intervals.indexOf(interval);
+		const noteIndex = intervals.indexOf(position);
 
 		if (noteIndex === -1) {
-			throw new PlayaError('Scale', `[${this._intervals}] structure doesn't contain interval: ${interval}`);
+			throw new PlayaError('Scale', `[${this._intervals}] structure doesn't contain interval: ${position}`);
 		}
 
 		return this.notes[noteIndex];
@@ -349,6 +349,6 @@ export class Scale extends HarmonyBase {
 	static readonly Locrian = ScaleIntervals.Locrian;
 
 	get [Symbol.toStringTag](): string {
-		return `Scale: ${this.string}`;
+		return `Scale: ${this.pitches}`;
 	}
 }

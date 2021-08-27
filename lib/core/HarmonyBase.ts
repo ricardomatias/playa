@@ -1,6 +1,7 @@
 import { Octaves } from '../common/types';
+import { NoteSymbol } from '../constants';
 import { assureNote } from '../utils';
-import { mapNotesToFreq, mapNotesToMidi, mapNotesToString } from '../utils/map';
+import { mapNotesToFreq, mapNotesToMidi, mapNotesToString, mapNotesToSymbol } from '../utils/map';
 import { Note, NoteLike } from './Note';
 
 /**
@@ -64,24 +65,41 @@ abstract class HarmonyBase {
 	}
 
 	/**
+	 * Gets the notes as pitches
+	 * @example
+	 * new Scale('C', Scale.Major).pitches => [ 'C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3' ]
+	 * new Chord('Cmaj').pitches => [ 'C3', 'E3', 'G3' ]
+	 *
+	 * @member pitches
+	 * @memberof Core.HarmonyBase#
+	 *
+	 * @type {Array<string>}
+	 */
+	get pitches(): string[] {
+		if (!this._notes.length) {
+			return [];
+		}
+
+		return mapNotesToString(this._notes);
+	}
+
+	/**
 	 * Gets the notes as string
 	 * @example
-	 * new Scale('C', Scale.Major).string => [ 'C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3' ]
-	 * new Chord('Cmaj').string => [ 'C3', 'E3', 'G3' ]
+	 * new Scale('C', Scale.Major).noteSymbols => [ 'C', 'D', 'E', 'F', 'G', 'A', 'B' ]
+	 * new Chord('Cmaj').noteSymbols => [ 'C', 'E', 'G' ]
 	 *
 	 * @member string
 	 * @memberof Core.HarmonyBase#
 	 *
 	 * @type {Array<string>}
 	 */
-	get string(): string[] {
-		const notes = this._notes;
-
-		if (!notes.length) {
+	get noteSymbols(): NoteSymbol[] {
+		if (!this._notes.length) {
 			return [];
 		}
 
-		return mapNotesToString(notes);
+		return mapNotesToSymbol(this._notes);
 	}
 
 	/**

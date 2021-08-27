@@ -1,4 +1,4 @@
-export const MidiNotes = [
+export const MidiNotes = <const>[
 	'C-2', // 0
 	'C#-2', // 1
 	'D-2', // 2
