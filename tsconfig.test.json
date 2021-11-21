@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		// Target latest version of ECMAScript.
-		"target": "ES2019",
+		"target": "ESNext",
 		"module": "commonjs",
 		// Enable strictest settings like strictNullChecks & noImplicitAny.
 		"strict": true,
@@ -9,6 +9,7 @@
 		"isolatedModules": true,
 		// Import non-ES modules as default imports.
 		"esModuleInterop": true,
+		"allowJs": true,
 		"types": [
 			"jest",
 			"node"

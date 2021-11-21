@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 
 import * as R from 'ramda';
-import {diff} from 'jest-diff'
+import { diff } from 'jest-diff';
 import { printExpected, printReceived, matcherHint } from 'jest-matcher-utils';
 
 declare global {
