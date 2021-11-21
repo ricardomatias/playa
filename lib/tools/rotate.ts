@@ -7,9 +7,9 @@ import * as R from 'ramda';
  * @memberof Tools
  * @example rotate([ 'A', 'C', 'E' ]) => ['C', 'E', 'A]
  *
- * @param {Array<*>} list
+ * @param {Array<T>} list
  * @param {number} [nrOfTimes=1] when < 0 it rotates from back to front
- * @return {Array<*>}
+ * @return {Array<T>}
  */
 export const rotate = <T>(list: T[], nrOfTimes = 1): T[] => {
 	let newList = list;

@@ -3,6 +3,7 @@ export { shuffle } from './shuffle';
 export { rotate } from './rotate';
 export { next } from './next';
 export { ping } from './ping';
+export { zigzag } from './zigzag';
 export { mapRepeat } from './map-repeat';
 export { default as distance } from './distance';
 export * from './interval';

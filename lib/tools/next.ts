@@ -4,10 +4,17 @@
  *
  * @function next
  * @memberof Tools
+ * @example
+ * const nextNumber = next([1,2,3,4]);
+ * nextNumber() => 1
+ * nextNumber() => 2
+ * nextNumber() => 3
+ * nextNumber() => 4
+ * nextNumber() => 1
  *
  * @param {Array<T>} arr
  * @param {Boolean} [alternate=true]
- * @return {Function}
+ * @return {function} () => T
  */
 export const next = <T>(arr: T[], alternate = false): (() => T) => {
 	const maxIdx = arr.length - 1;

@@ -1,15 +1,13 @@
+import ring from '@ricardomatias/ring';
 import * as R from 'ramda';
 import { Note, Chord, Scale, Time } from '../core';
 import { NoteEvent } from '../core/NoteEvent';
 import { expandDuration, mapDurations, isEvent, convertEventsToNotevalues } from '../tools/event';
-import ring from '@ricardomatias/ring';
 import { next } from '../tools/next';
 import { Event } from '../core/Event';
 import { TimeFormat } from '../core/Time';
 import { HarmonicShift } from '../constants';
-import { isString, isUndefined } from '../utils/types-guards';
 import { parseHarmonicShift } from '../utils/harmonic';
-import { PlayaError } from '../utils/error';
 
 // TODO: v2: snap elements to closest position (create utility)
 
