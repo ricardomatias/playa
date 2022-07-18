@@ -1,6 +1,6 @@
 import { next } from '../../lib/tools';
 
-const AM = ['A', 'C', 'E'];
+const AM = [ 'A', 'C', 'E' ];
 
 describe('next test suite', () => {
 	it('should pick the next note', () => {

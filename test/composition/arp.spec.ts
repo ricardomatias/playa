@@ -9,7 +9,7 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [ 1, 5, 4 ], [ '4n', '8n', '2n' ]);
+		const arp = createArp(scale, [1, 5, 4], ['4n', '8n', '2n']);
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [
@@ -46,7 +46,7 @@ describe('An Arp test suite', () => {
 
 		const chord = Chord.fromName('Amaj');
 
-		const arp = createArp(chord, [ 1, 5, 3 ], [ '4n', '8n', '2n' ], '0:0:2');
+		const arp = createArp(chord, [1, 5, 3], ['4n', '8n', '2n'], '0:0:2');
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [
@@ -83,7 +83,7 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [ 1, 5, 4, 5, 2, 1, 2 ], [ '4n', '8n', '2n' ]);
+		const arp = createArp(scale, [1, 5, 4, 5, 2, 1, 2], ['4n', '8n', '2n']);
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [
@@ -152,100 +152,100 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [ 2, 5, 3 ], free('0:3:2', [ '8n', '16n' ], [ '16n', '4n' ]), Time.TOff.ticks);
+		const arp = createArp(scale, [2, 5, 3], free('0:3:2', ['8n', '16n'], ['16n', '4n']), Time.TOff.ticks);
 
 		expect(arp).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 71,
-    "next": 360,
-    "note": "B3",
-    "time": 240,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 76,
-    "next": 480,
-    "note": "E4",
-    "time": 360,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 73,
-    "next": 600,
-    "note": "C#4",
-    "time": 480,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "midi": 71,
-    "next": 840,
-    "note": "B3",
-    "time": 600,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 76,
-    "next": 960,
-    "note": "E4",
-    "time": 840,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "midi": 73,
-    "next": 1200,
-    "note": "C#4",
-    "time": 960,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "midi": 71,
-    "next": 1440,
-    "note": "B3",
-    "time": 1200,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 76,
-    "next": 1560,
-    "note": "E4",
-    "time": 1440,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 73,
-    "next": 1680,
-    "note": "C#4",
-    "time": 1560,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 71,
-    "next": 1800,
-    "note": "B3",
-    "time": 1680,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 76,
-    "next": 1920,
-    "note": "E4",
-    "time": 1800,
-  },
-]
-`);
+		Array [
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "midi": 71,
+		    "next": 480,
+		    "note": "B3",
+		    "time": 240,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "midi": 76,
+		    "next": 600,
+		    "note": "E4",
+		    "time": 480,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "midi": 73,
+		    "next": 840,
+		    "note": "C#4",
+		    "time": 600,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "midi": 71,
+		    "next": 960,
+		    "note": "B3",
+		    "time": 840,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "midi": 76,
+		    "next": 1200,
+		    "note": "E4",
+		    "time": 960,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "midi": 73,
+		    "next": 1320,
+		    "note": "C#4",
+		    "time": 1200,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "midi": 71,
+		    "next": 1440,
+		    "note": "B3",
+		    "time": 1320,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "midi": 76,
+		    "next": 1680,
+		    "note": "E4",
+		    "time": 1440,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "midi": 73,
+		    "next": 1800,
+		    "note": "C#4",
+		    "time": 1680,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "midi": 71,
+		    "next": 2040,
+		    "note": "B3",
+		    "time": 1800,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "midi": 76,
+		    "next": 2160,
+		    "note": "E4",
+		    "time": 2040,
+		  },
+		]
+	`);
 	});
 
 	it('should create with harmonic shifts', () => {
@@ -253,7 +253,7 @@ Array [
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [ 2, '+2', 3, '+3', 7, '--7' ], [ '4n', '8n', '2n' ]);
+		const arp = createArp(scale, [2, '+2', 3, '+3', 7, '--7'], ['4n', '8n', '2n']);
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [

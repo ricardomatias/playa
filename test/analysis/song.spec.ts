@@ -33,6 +33,10 @@ describe('A Song Analysis test suite', () => {
 			root: 'F',
 			type: 'Minor',
 		});
+		expect(movement.timeline[0].key).toEqual({
+			root: 'F',
+			scale: ScaleIntervals.Minor,
+		});
 	});
 
 	it('should find matches with 2 keys', () => {
@@ -60,9 +64,17 @@ describe('A Song Analysis test suite', () => {
 			root: 'Bb',
 			type: 'Major',
 		});
+		expect(movement.timeline[0].key).toEqual({
+			root: 'Bb',
+			scale: ScaleIntervals.Major,
+		});
 		expect(matches[1]).toHaveMatch<MatchRanking>({
-			root: 'F',
+			root: 'C',
 			type: 'Major',
+		});
+		expect(movement.timeline[1].key).toEqual({
+			root: 'C',
+			scale: ScaleIntervals.Major,
 		});
 	});
 
@@ -90,14 +102,26 @@ describe('A Song Analysis test suite', () => {
 
 		expect(matches[0]).toHaveMatch<MatchRanking>({
 			root: 'D',
-			scale: ScaleIntervals.Aeolian,
+			scale: ScaleIntervals.Minor,
+		});
+		expect(movement.timeline[0].key).toEqual({
+			root: 'D',
+			scale: ScaleIntervals.Minor,
 		});
 		expect(matches[1]).toHaveMatch<MatchRanking>({
-			root: 'A',
+			root: 'C',
+			scale: ScaleIntervals.Aeolian,
+		});
+		expect(movement.timeline[1].key).toEqual({
+			root: 'C',
 			scale: ScaleIntervals.Aeolian,
 		});
 		expect(matches[2]).toHaveMatch<MatchRanking>({
-			root: 'E',
+			root: 'D',
+			scale: ScaleIntervals.Minor,
+		});
+		expect(movement.timeline[2].key).toEqual({
+			root: 'D',
 			scale: ScaleIntervals.Minor,
 		});
 	});
@@ -123,12 +147,17 @@ describe('A Song Analysis test suite', () => {
 
 		// then
 		// should be 3
-		expect(matches).toHaveLength(1);
+		expect(matches).toHaveLength(3);
 
 		// should be D - Aeolian
 		expect(matches[0]).toHaveMatch<MatchRanking>({
 			root: 'D',
-			scale: ScaleIntervals.Dorian,
+			scale: ScaleIntervals.Minor,
+		});
+
+		expect(movement.timeline[0].key).toEqual({
+			root: 'D',
+			scale: ScaleIntervals.Minor,
 		});
 	});
 
@@ -158,18 +187,36 @@ describe('A Song Analysis test suite', () => {
 			root: 'Eb',
 			scale: ScaleIntervals.Major,
 		});
+		expect(movement.timeline[0].key).toEqual({
+			root: 'Eb',
+			scale: ScaleIntervals.Major,
+		});
+
 		expect(matches[1]).toHaveMatch<MatchRanking>({
-			root: 'Bb',
+			root: 'F',
+			scale: ScaleIntervals.Major,
+		});
+		expect(movement.timeline[1].key).toEqual({
+			root: 'F',
 			scale: ScaleIntervals.Major,
 		});
 
 		// should be C - Major
 		expect(matches[2]).toHaveMatch<MatchRanking>({
-			root: 'F',
+			root: 'C',
 			scale: ScaleIntervals.Major,
 		});
+		expect(movement.timeline[2].key).toEqual({
+			root: 'C',
+			scale: ScaleIntervals.Major,
+		});
+
 		expect(matches[3]).toHaveMatch<MatchRanking>({
-			root: 'Ab',
+			root: 'A',
+			scale: ScaleIntervals.Major,
+		});
+		expect(movement.timeline[3].key).toEqual({
+			root: 'A',
 			scale: ScaleIntervals.Major,
 		});
 	});
@@ -199,11 +246,25 @@ describe('A Song Analysis test suite', () => {
 			root: 'A',
 			scale: ScaleIntervals.Mixolydian,
 		});
-		expect(matches[1]).toHaveMatch<MatchRanking>({
-			root: 'F#',
-			scale: ScaleIntervals.Minor,
+		expect(movement.timeline[0].key).toEqual({
+			root: 'A',
+			scale: ScaleIntervals.Mixolydian,
 		});
+
 		expect(matches[1]).toHaveMatch<MatchRanking>({
+			root: 'D',
+			scale: ScaleIntervals.Mixolydian,
+		});
+		expect(movement.timeline[1].key).toEqual({
+			root: 'D',
+			scale: ScaleIntervals.Mixolydian,
+		});
+
+		expect(matches[2]).toHaveMatch<MatchRanking>({
+			root: 'C#',
+			scale: ScaleIntervals.Phrygian,
+		});
+		expect(movement.timeline[3].key).toEqual({
 			root: 'C#',
 			scale: ScaleIntervals.Phrygian,
 		});

@@ -94,52 +94,52 @@ describe('A Percussion test suite', () => {
 		const perc = createPercussion(8, 4);
 		// then
 		expect(perc).toMatchInlineSnapshot(`
-Object {
-  "patterns": Array [
-    Array [
-      1,
-      0,
-      1,
-      0,
-      1,
-      0,
-      1,
-      0,
-    ],
-    Array [
-      1,
-      0,
-      1,
-      1,
-      1,
-      0,
-      1,
-      1,
-    ],
-    Array [
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-      1,
-      0,
-    ],
-    Array [
-      1,
-      0,
-      0,
-      1,
-      0,
-      0,
-      1,
-      0,
-    ],
-  ],
-  "subdivision": "8n",
-}
-`);
+		Object {
+		  "patterns": Array [
+		    Array [
+		      1,
+		      0,
+		      1,
+		      0,
+		      1,
+		      0,
+		      1,
+		      0,
+		    ],
+		    Array [
+		      1,
+		      0,
+		      1,
+		      1,
+		      1,
+		      0,
+		      1,
+		      1,
+		    ],
+		    Array [
+		      1,
+		      0,
+		      0,
+		      1,
+		      0,
+		      0,
+		      1,
+		      0,
+		    ],
+		    Array [
+		      1,
+		      0,
+		      1,
+		      0,
+		      1,
+		      0,
+		      1,
+		      0,
+		    ],
+		  ],
+		  "subdivision": "8n",
+		}
+	`);
 	});
 
 	it('should rotate 2 parts', () => {

@@ -1,10 +1,13 @@
 /* eslint-disable no-invalid-this */
 /* eslint-disable no-var, new-cap */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import Alea from 'alea';
 import SimplexNoise from 'simplex-noise';
 import { PlayaError } from '../utils';
 
 const INITIAL_SEED = 'PLAYA';
+const INITIAL_X = 0;
+const INITIAL_Y = 999;
 
 /**
  * It uses Simplex Noise in order for the Random numbers to follow a "more natural" progression.
@@ -21,11 +24,12 @@ const INITIAL_SEED = 'PLAYA';
  */
 export class Random {
 	private static instance: Random;
-	#x = 0;
-	#y = 0;
+	#x = INITIAL_X;
+	#y = INITIAL_Y;
 	#prevX = 0;
 	#prevY = 0;
-	#rng = Alea(INITIAL_SEED);
+	/*@ts-expect-error */
+	#rng = new Alea(INITIAL_SEED);
 	#simplex: SimplexNoise = new SimplexNoise(this.#rng);
 	#seed: string | number = INITIAL_SEED;
 	#state?: [number, number, number, number];
@@ -97,6 +101,7 @@ export class Random {
 
 		if (this.#state) {
 			this.#rng.importState(this.#state);
+			this.#simplex = new SimplexNoise(this.#rng);
 		} else {
 			throw new PlayaError('Random', 'Must use .push() before .pop()');
 		}
@@ -115,8 +120,9 @@ export class Random {
 		this.#y = 999;
 		this.#seed = seed;
 		this.increment = increment;
-
-		this.#rng = Alea(seed);
+		/*@ts-ignore */
+		this.#rng = new Alea(seed);
+		this.#simplex = new SimplexNoise(this.#rng);
 	};
 
 	/**

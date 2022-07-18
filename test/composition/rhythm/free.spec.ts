@@ -18,33 +18,39 @@ describe('#Rhythm.free', () => {
 		// then
 		expect(rhythm).toLastAround(ONE_BAR);
 		expect(rhythm).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 240,
-    "time": 0,
-  },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 960,
-    "time": 240,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "next": 1440,
-    "time": 960,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "next": 1920,
-    "time": 1440,
-  },
-]
-`);
+		Array [
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 240,
+		    "time": 0,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 720,
+		    "time": 240,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 1200,
+		    "time": 720,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1440,
+		    "time": 1200,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 1920,
+		    "time": 1440,
+		  },
+		]
+	`);
 	});
 
 	it('should generate rhythm - slow', () => {
@@ -57,57 +63,57 @@ Array [
 		// then
 		expect(rhythm).toLastAround(ONE_BAR * 2);
 		expect(rhythm).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 720,
-    "time": 0,
-  },
-  Object {
-    "dur": 240,
-    "isRest": true,
-    "next": 960,
-    "time": 720,
-  },
-  Object {
-    "dur": 240,
-    "isRest": true,
-    "next": 1200,
-    "time": 960,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "next": 1680,
-    "time": 1200,
-  },
-  Object {
-    "dur": 720,
-    "isRest": true,
-    "next": 2400,
-    "time": 1680,
-  },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 3120,
-    "time": 2400,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "next": 3600,
-    "time": 3120,
-  },
-  Object {
-    "dur": 240,
-    "isRest": true,
-    "next": 3840,
-    "time": 3600,
-  },
-]
-`);
+		Array [
+		  Object {
+		    "dur": 240,
+		    "isRest": true,
+		    "next": 240,
+		    "time": 0,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 720,
+		    "time": 240,
+		  },
+		  Object {
+		    "dur": 720,
+		    "isRest": false,
+		    "next": 1440,
+		    "time": 720,
+		  },
+		  Object {
+		    "dur": 720,
+		    "isRest": false,
+		    "next": 2160,
+		    "time": 1440,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 2640,
+		    "time": 2160,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": true,
+		    "next": 2880,
+		    "time": 2640,
+		  },
+		  Object {
+		    "dur": 720,
+		    "isRest": false,
+		    "next": 3600,
+		    "time": 2880,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": true,
+		    "next": 3840,
+		    "time": 3600,
+		  },
+		]
+	`);
 	});
 
 	it('should generate rhythm - robotic', () => {
@@ -120,87 +126,75 @@ Array [
 		// then
 		expect(rhythm).toLastAround(ONE_BAR);
 		expect(rhythm).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 120,
-    "time": 0,
-  },
-  Object {
-    "dur": 60,
-    "isRest": false,
-    "next": 180,
-    "time": 120,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 300,
-    "time": 180,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 420,
-    "time": 300,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 660,
-    "time": 420,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 780,
-    "time": 660,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 900,
-    "time": 780,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 1140,
-    "time": 900,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 1380,
-    "time": 1140,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 1500,
-    "time": 1380,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 1740,
-    "time": 1500,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 1860,
-    "time": 1740,
-  },
-  Object {
-    "dur": 60,
-    "isRest": false,
-    "next": 1920,
-    "time": 1860,
-  },
-]
-`);
+		Array [
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "next": 120,
+		    "time": 0,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 360,
+		    "time": 120,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 600,
+		    "time": 360,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "next": 720,
+		    "time": 600,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 960,
+		    "time": 720,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1200,
+		    "time": 960,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1440,
+		    "time": 1200,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "next": 1560,
+		    "time": 1440,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "next": 1680,
+		    "time": 1560,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "next": 1800,
+		    "time": 1680,
+		  },
+		  Object {
+		    "dur": 120,
+		    "isRest": false,
+		    "next": 1920,
+		    "time": 1800,
+		  },
+		]
+	`);
 	});
 
 	it('should generate rhythm - straight', () => {
@@ -213,57 +207,57 @@ Array [
 		// then
 		expect(rhythm).toLastAround(ONE_BAR);
 		expect(rhythm).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 240,
-    "time": 0,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 480,
-    "time": 240,
-  },
-  Object {
-    "dur": 240,
-    "isRest": true,
-    "next": 720,
-    "time": 480,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 960,
-    "time": 720,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 1200,
-    "time": 960,
-  },
-  Object {
-    "dur": 240,
-    "isRest": true,
-    "next": 1440,
-    "time": 1200,
-  },
-  Object {
-    "dur": 240,
-    "isRest": true,
-    "next": 1680,
-    "time": 1440,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 1920,
-    "time": 1680,
-  },
-]
-`);
+		Array [
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 240,
+		    "time": 0,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": true,
+		    "next": 480,
+		    "time": 240,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 720,
+		    "time": 480,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": true,
+		    "next": 960,
+		    "time": 720,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": true,
+		    "next": 1200,
+		    "time": 960,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1440,
+		    "time": 1200,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1680,
+		    "time": 1440,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": true,
+		    "next": 1920,
+		    "time": 1680,
+		  },
+		]
+	`);
 	});
 
 	it('should generate mixed', () => {
@@ -287,39 +281,33 @@ Array [
 		// then
 		expect(rhythm).toLastAround(Ticks['8n'] * 7);
 		expect(rhythm).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 240,
-    "time": 0,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 480,
-    "time": 240,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "next": 960,
-    "time": 480,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "next": 1440,
-    "time": 960,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 1680,
-    "time": 1440,
-  },
-]
-`);
+		Array [
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 480,
+		    "time": 0,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 960,
+		    "time": 480,
+		  },
+		  Object {
+		    "dur": 480,
+		    "isRest": false,
+		    "next": 1440,
+		    "time": 960,
+		  },
+		  Object {
+		    "dur": 240,
+		    "isRest": false,
+		    "next": 1680,
+		    "time": 1440,
+		  },
+		]
+	`);
 	});
 
 	it('should break', () => {

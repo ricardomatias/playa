@@ -30,7 +30,7 @@ describe('A Sequence test suite', () => {
 
 		const chords = new Sequence(key).II.V.VI.chords;
 
-		expect(chords.string).toEqual([ 'Bm', 'E5', 'F#m' ]);
+		expect(chords.string).toEqual([ 'Bm', 'Emaj', 'F#m' ]);
 		expect(chords.midi).toMatchInlineSnapshot(`
 		Array [
 		  Array [
@@ -40,8 +40,8 @@ describe('A Sequence test suite', () => {
 		  ],
 		  Array [
 		    64,
+		    68,
 		    71,
-		    76,
 		  ],
 		  Array [
 		    66,

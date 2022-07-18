@@ -7,7 +7,7 @@ import { Note } from '../core/Note';
 import { PlayaError } from '../utils/error';
 import { natural } from '../utils/note';
 import { NoteSymbol } from '../constants/note';
-
+import { Key } from '../core';
 
 export interface Analysis {
 	start: number;
@@ -57,7 +57,12 @@ export class SongAnalysis {
 	 * @type {MatchRanking[][]}
 	 */
 	get matches(): MatchRanking[][] {
-		return this.stack.map((entry) => entry.matches);
+		return R.map(
+			R.sortBy((a: MatchRanking) => {
+				return Key.isMode(a.scale) ? new Key(a.root as any, a.scale as any).modePosition : 0;
+			}),
+			this.stack.map((entry) => entry.matches)
+		);
 	}
 
 	/**

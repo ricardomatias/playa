@@ -8,6 +8,13 @@ describe('A Choose test suite', () => {
 		random.setSeed('CHOOSE');
 
 		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('G');
+		expect(choose(AM7)).toBe('E');
+		expect(choose(AM7)).toBe('C');
 	});
 
 	it('should return 2 random elements basic', () => {
@@ -41,7 +48,7 @@ describe('A Choose test suite', () => {
 		  "C",
 		  "E",
 		  "C",
-		  "A",
+		  "E",
 		  "C",
 		  "A",
 		  "C",
