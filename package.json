@@ -48,12 +48,6 @@
 		"url": "https://github.com/ricardomatias/playa/issues"
 	},
 	"license": "OSL 3.0",
-	"husky": {
-		"hooks": {
-			"pre-push": "npm test",
-			"pre-commit": "npm run docs:build"
-		}
-	},
 	"keywords": [
 		"music",
 		"music theory",
