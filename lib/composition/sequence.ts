@@ -49,6 +49,17 @@ export class Sequence {
 	}
 
 	/**
+	 * Resets the sequence to an empty state
+	 *
+	 * @function reset
+	 * @memberof Composition#Sequence#
+	 */
+	reset() {
+		this._notes = [];
+		this._chords = [];
+	}
+
+	/**
 	 * Gets the sequence notes as string
 	 * @member pitches
 	 * @example

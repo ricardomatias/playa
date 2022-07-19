@@ -13,14 +13,17 @@ describe('A Sequence test suite', () => {
 		expect(seq.toString()).toEqual('[object Sequence: A3,B3,E4]');
 	});
 
-	it('should create a sequence of notes', () => {
+	it('should reset a sequence of notes', () => {
 		random.setSeed('test');
 
 		const scale = new Scale('A', Scale.Major);
 		const seq = new Sequence(scale).I.II.V;
 
 		expect(seq.pitches).toEqual(['A3', 'B3', 'E4']);
-		expect(seq.toString()).toEqual('[object Sequence: A3,B3,E4]');
+
+		seq.reset();
+
+		expect(seq.toString()).toEqual('[object Sequence: ]');
 	});
 
 	it('should create a sequence of notes with 2 octaves', () => {
