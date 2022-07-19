@@ -40,14 +40,14 @@ export const findNameFromSymbol = (symbol: ChordSymbol): ChordName | undefined =
 	const entries = Object.entries(ChordSymbol) as [ChordName, ChordSymbol][];
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	return entries.find(([ _, s ]) => symbol === s)?.[0];
+	return entries.find(([_, s]) => symbol === s)?.[0];
 };
 
 export const findNameFromIntervals = (intervals: ChordIntervals): ChordName | undefined => {
 	const entries = Object.entries(ChordIntervals) as [ChordName, ChordIntervals][];
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	return entries.find(([ _, s ]) => intervals === s)?.[0];
+	return entries.find(([_, s]) => intervals === s)?.[0];
 };
 
 export const toNoteEvent = ({ time, dur, next, isRest, chord }: ChordEvent): NoteEvent[] => {

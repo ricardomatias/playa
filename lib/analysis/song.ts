@@ -28,7 +28,7 @@ export interface Analysis {
 export class SongAnalysis {
 	private memory: Analysis = this.createMemory();
 
-	private stack: Analysis[] = [ this.memory ];
+	private stack: Analysis[] = [this.memory];
 
 	private score = 0;
 	private hasSharps: boolean | undefined = undefined;
@@ -45,7 +45,7 @@ export class SongAnalysis {
 	constructor(noteEvents: NoteEvent[]) {
 		if (R.isEmpty(noteEvents)) throw new PlayaError('SongAnalysis', 'Cannot analyse without any events');
 
-		this.noteEvents = [ ...R.sortBy(R.prop('time'), noteEvents) ];
+		this.noteEvents = [...R.sortBy(R.prop('time'), noteEvents)];
 
 		this.analyse(this.noteEvents);
 	}
@@ -168,7 +168,7 @@ export class SongAnalysis {
 	}
 
 	private validateAccidental() {
-		const notes = [ ...this.memory.notes ];
+		const notes = [...this.memory.notes];
 
 		// check memory with sharps
 		const sharps = notes

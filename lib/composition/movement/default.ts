@@ -123,7 +123,7 @@ function movement(
 			combSorting: {
 				diverseFirst: true,
 			},
-		}).map(R.pick([ 'time', 'dur' ]));
+		}).map(R.pick(['time', 'dur']));
 	}
 
 	// **************************************************************************

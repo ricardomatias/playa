@@ -46,7 +46,7 @@ export function createGrid(totalRhythmDuration: TimeFormat, subDivision: number)
 	for (let index = 0; index < Math.floor(maxRhythmNotes); index++) {
 		grid.push({
 			time: index * tripletTicks,
-			res: [ triplet ],
+			res: [triplet],
 		});
 	}
 
@@ -61,7 +61,7 @@ export function createGrid(totalRhythmDuration: TimeFormat, subDivision: number)
 		} else {
 			grid.push({
 				time: index * normalTicks,
-				res: [ normal ],
+				res: [normal],
 			});
 		}
 	}

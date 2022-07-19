@@ -9,41 +9,41 @@ const toNotes = (midiNotes: number[]) => {
 describe('A Midi test suite', () => {
 	describe('#findNearestChord', () => {
 		// A - 69 ; C - 72 ; E - 76
-		const Am = [ 69, 72, 76 ];
+		const Am = [69, 72, 76];
 
 		it('should return the nearest chord - basic', () => {
-			const nearestChord = findNearestChord(Am, [ 'C', 'E', 'G' ], { sort: true });
+			const nearestChord = findNearestChord(Am, ['C', 'E', 'G'], { sort: true });
 
-			expect(nearestChord).toEqual([ 67, 72, 76 ]);
-			expect(toNotes(nearestChord)).toEqual([ 'G3', 'C4', 'E4' ]);
+			expect(nearestChord).toEqual([67, 72, 76]);
+			expect(toNotes(nearestChord)).toEqual(['G3', 'C4', 'E4']);
 		});
 
 		it('should return the nearest chord - sharp', () => {
-			const nearestChord = findNearestChord(Am, [ 'C#', 'F', 'G#' ], { sort: true });
+			const nearestChord = findNearestChord(Am, ['C#', 'F', 'G#'], { sort: true });
 
-			expect(nearestChord).toEqual([ 68, 73, 77 ]);
-			expect(toNotes(nearestChord)).toEqual([ 'G#3', 'C#4', 'F4' ]);
+			expect(nearestChord).toEqual([68, 73, 77]);
+			expect(toNotes(nearestChord)).toEqual(['G#3', 'C#4', 'F4']);
 		});
 
 		it('should return the nearest chord - flat', () => {
-			const nearestChord = findNearestChord(Am, [ 'Db', 'Gb', 'Eb', 'Bb' ], { sort: true });
+			const nearestChord = findNearestChord(Am, ['Db', 'Gb', 'Eb', 'Bb'], { sort: true });
 
-			expect(nearestChord).toEqual([ 70, 73, 75, 78 ]);
-			expect(toNotes(nearestChord)).toEqual([ 'A#3', 'C#4', 'D#4', 'F#4' ]);
+			expect(nearestChord).toEqual([70, 73, 75, 78]);
+			expect(toNotes(nearestChord)).toEqual(['A#3', 'C#4', 'D#4', 'F#4']);
 		});
 
 		it('should return the nearest chord - less notes', () => {
-			const nearestChord = findNearestChord([ 70, 73, 75, 78 ], [ 'C', 'B' ], { sort: true });
+			const nearestChord = findNearestChord([70, 73, 75, 78], ['C', 'B'], { sort: true });
 
-			expect(nearestChord).toEqual([ 71, 72 ]);
-			expect(toNotes(nearestChord)).toEqual([ 'B3', 'C4' ]);
+			expect(nearestChord).toEqual([71, 72]);
+			expect(toNotes(nearestChord)).toEqual(['B3', 'C4']);
 		});
 
 		it('should return the nearest chord - octaves', () => {
-			const nearestChord = findNearestChord([ 70, 73, 75, 78 ], [ 'A', 'E', 'A' ], { sort: true });
+			const nearestChord = findNearestChord([70, 73, 75, 78], ['A', 'E', 'A'], { sort: true });
 
-			expect(nearestChord).toEqual([ 69, 76, 81 ]);
-			expect(toNotes(nearestChord)).toEqual([ 'A3', 'E4', 'A4' ]);
+			expect(nearestChord).toEqual([69, 76, 81]);
+			expect(toNotes(nearestChord)).toEqual(['A3', 'E4', 'A4']);
 		});
 	});
 
@@ -51,8 +51,8 @@ describe('A Midi test suite', () => {
 		it('should return the nearest voicing', () => {
 			const c = [
 				{ time: 0, dur: 480, next: 480, midi: 60, note: 'C3', isRest: false },
-				{ time: 480, dur: 480, next: 960, midi: 67, note: 'G3', isRest: false, },
-				{ time: 960, dur: 480, next: 1440, midi: 65, note: 'F3', isRest: false, },
+				{ time: 480, dur: 480, next: 960, midi: 67, note: 'G3', isRest: false },
+				{ time: 960, dur: 480, next: 1440, midi: 65, note: 'F3', isRest: false },
 			];
 			const f = [
 				{ time: 0, dur: 480, next: 480, midi: 65, note: 'F3', isRest: false },

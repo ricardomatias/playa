@@ -69,7 +69,7 @@ describe('#turn', () => {
 		// given
 		random.setSeed('test');
 
-		const length = new Time('2:0:0', [ 3, 4 ]);
+		const length = new Time('2:0:0', [3, 4]);
 
 		// when
 		const rhythm = Rhythm.turn(length, 6);

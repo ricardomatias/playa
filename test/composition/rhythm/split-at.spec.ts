@@ -21,7 +21,7 @@ describe('#splitAt', () => {
 		// given
 		random.setSeed('test');
 
-		const rhythm = Rhythm.free('2:0:0', [ '1nt', '2nd' ]);
+		const rhythm = Rhythm.free('2:0:0', ['1nt', '2nd']);
 
 		// when
 		const result = Rhythm.splitAt(rhythm, '1:0:0');

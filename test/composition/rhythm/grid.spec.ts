@@ -23,7 +23,7 @@ describe('#createGrid', () => {
 	});
 
 	it('should create a 8n, 7/8 grid - snapshot', () => {
-		const grid = createGrid(new Time('1:0:0', [ 7, 8 ]), 8);
+		const grid = createGrid(new Time('1:0:0', [7, 8]), 8);
 
 		expect(grid).toHaveLength(13);
 		expect(grid).toMatchSnapshot();

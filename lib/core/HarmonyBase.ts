@@ -35,9 +35,9 @@ abstract class HarmonyBase {
 		if (octaves) {
 			this._octaves = octaves;
 		} else if (this._root.octave) {
-			this._octaves = [ this._root.octave, 1 ];
+			this._octaves = [this._root.octave, 1];
 		} else {
-			this._octaves = [ 3, 1 ];
+			this._octaves = [3, 1];
 		}
 	}
 

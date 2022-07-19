@@ -69,7 +69,11 @@ const findNearestVoice = (voices: number[], target: NoteSymbol): NearestVoice[] 
  *
  * @return {Array<Number>} midi note
  */
-export const findNearestChord = (base: number[], chord: NoteSymbol[], { repeats = false, sort = false }: { repeats?: boolean; sort?: boolean } = {}): number[] => {
+export const findNearestChord = (
+	base: number[],
+	chord: NoteSymbol[],
+	{ repeats = false, sort = false }: { repeats?: boolean; sort?: boolean } = {}
+): number[] => {
 	const voices = R.clone(base);
 	const midiChord: number[] = [];
 

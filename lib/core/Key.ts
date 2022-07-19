@@ -423,7 +423,7 @@ export class Key extends Scale {
 	}
 
 	private isModulationDirection<T>(direction: T | any): direction is ModulationDirection {
-		return [ Key.ModulateUp, Key.ModulateDown ].includes(direction);
+		return [Key.ModulateUp, Key.ModulateDown].includes(direction);
 	}
 
 	/**
@@ -480,7 +480,7 @@ export class Key extends Scale {
 	 * @memberof Core#Key
 	 */
 	private isMajorMinor(intervals: ScaleIntervals): boolean {
-		return (<ScaleIntervals[]>[ Scale.Major, Scale.Minor ]).indexOf(intervals) !== -1;
+		return (<ScaleIntervals[]>[Scale.Major, Scale.Minor]).indexOf(intervals) !== -1;
 	}
 
 	static getModeName(intervals: ModeIntervals | string): ScaleName | undefined {
@@ -659,7 +659,7 @@ export class Key extends Scale {
 	 * @static
 	 * @type {Interval[]}
 	 */
-	static ModulationIntervals: Readonly<Interval[]> = <const>[ '4P', '5P', '2M', '7m', '3m', '6M', '3M', '6m', '2m', '7M' ];
+	static ModulationIntervals: Readonly<Interval[]> = <const>['4P', '5P', '2M', '7m', '3m', '6M', '3M', '6m', '2m', '7M'];
 
 	/**
 	 * The Circle of Fifths used in `modulate` to know which root notes are allowed
@@ -693,7 +693,7 @@ export class Key extends Scale {
 	 * @static
 	 * @memberof Core#Key
 	 */
-	static ModesModulationProbabilities = <const>[ '0.165', '0.330', '0.495', '0.660', '0.825', '0.990', '1.000' ];
+	static ModesModulationProbabilities = <const>['0.165', '0.330', '0.495', '0.660', '0.825', '0.990', '1.000'];
 
 	/**
 	 *

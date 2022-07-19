@@ -64,8 +64,8 @@ describe('A Melodies test suite', () => {
 			distribution: distribute.decreasing,
 			restProb: 0.5,
 			octaves: [
-				[ 2, 1 ],
-				[ 3, 1 ],
+				[2, 1],
+				[3, 1],
 			],
 		});
 

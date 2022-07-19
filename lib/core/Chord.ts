@@ -367,7 +367,7 @@ export class Chord extends HarmonyBase {
 		let chordType: ChordSymbol | string | undefined;
 		const chordIntervals = Object.entries(ChordIntervals);
 
-		for (const [ name, symbol ] of chordIntervals) {
+		for (const [name, symbol] of chordIntervals) {
 			// if (chordType) { // this is so we don't get the empty major
 			// 	break;
 			// }
@@ -391,7 +391,7 @@ export class Chord extends HarmonyBase {
 					intervals = R.take(intervals.length - 1, intervals);
 					const tempChord = intervals.join(' ');
 
-					for (const [ name, symbol ] of chordIntervals) {
+					for (const [name, symbol] of chordIntervals) {
 						if (symbol === tempChord) {
 							chordType = ChordSymbol[name as ChordName];
 						}
@@ -455,7 +455,7 @@ export class Chord extends HarmonyBase {
 
 		const intervals = <Interval[]>this._intervals.split(' ');
 
-		const notes = [ root ];
+		const notes = [root];
 
 		for (let idx = 1; idx < intervals.length; idx++) {
 			const interval = intervals[idx];
@@ -573,7 +573,7 @@ const createChordWithStructure = (
 	let structureIntervals;
 
 	if (structure === ChordStructure.Triad) {
-		structureIntervals = roll(defaultIntervals, [ '0.700', '1.000' ], random.float);
+		structureIntervals = roll(defaultIntervals, ['0.700', '1.000'], random.float);
 	} else {
 		structureIntervals = defaultIntervals.length === 1 ? defaultIntervals[0] : choose(Array.from(defaultIntervals));
 	}

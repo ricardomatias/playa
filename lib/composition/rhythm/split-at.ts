@@ -24,13 +24,13 @@ export const splitAt = <T extends Event>(pattern: T[], at: TimeFormat): T[][] =>
 	const latter = R.last(patterns);
 
 	if (isUndefined(latter)) {
-		return [ pattern ];
+		return [pattern];
 	}
 
 	const firstEventLatter = R.head(latter);
 
 	if (isUndefined(firstEventLatter)) {
-		return [ pattern ];
+		return [pattern];
 	}
 
 	return R.adjust(1, R.map(mapStartToEvent(-firstEventLatter.time)), patterns);

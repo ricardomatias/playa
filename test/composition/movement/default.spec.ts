@@ -21,7 +21,7 @@ describe('A Movement test suite', () => {
 
 		const dMin = new Key('D', Key.Minor);
 		// when
-		const movement = createMovement(dMin, new Time('2:0:0', [ 3, 4 ]), 6);
+		const movement = createMovement(dMin, new Time('2:0:0', [3, 4]), 6);
 
 		expect(movement).toMatchSnapshot();
 	});

@@ -35,7 +35,7 @@ const drawGroupingCombination = (turns: number, combSorting: CombinationSorting 
 
 	const combination = roll(combinations, combProbabilities, random.float);
 
-	return R.sortWith([ R.descend(R.identity) ], combination);
+	return R.sortWith([R.descend(R.identity)], combination);
 };
 
 const calcDur = (grid: GridCell[], gridIndex: number, hitLength: number, totalRhythmDuration: number) => {

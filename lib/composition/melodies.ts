@@ -55,11 +55,11 @@ export function createMelodies(
 		restProb = 0.0,
 		dejaVuChance = 0.5,
 		octaves = [
-			[ 4, 1 ],
-			[ 3, 1 ],
+			[4, 1],
+			[3, 1],
 		],
 		rhythmType = RhythmType.Free,
-		minNoteValues = [ 4, 8 ],
+		minNoteValues = [4, 8],
 	}: MelodyOptions = {}
 ): NoteEvent[] {
 	const melodies = [];

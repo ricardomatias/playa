@@ -20,7 +20,7 @@ const TOTAL_INTERVALS = 21;
 export const interval = (semitones: number): Interval[] | null => {
 	const intervals: Interval[] = [];
 
-	for (const [ interv, semit ] of Object.entries(Semitones)) {
+	for (const [interv, semit] of Object.entries(Semitones)) {
 		if (semit === semitones) {
 			intervals.push(interv as Interval);
 		}

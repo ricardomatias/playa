@@ -45,7 +45,7 @@ interface AssignOctavesOpts {
  */
 const assignOctaves = (
 	notes: Note[],
-	octaves: Octaves = [ -2, 11 ],
+	octaves: Octaves = [-2, 11],
 	{ type = 'scale', hasFlats = false }: Partial<AssignOctavesOpts> = {}
 ): Note[] => {
 	const firstNote = notes[0];
@@ -59,7 +59,7 @@ const assignOctaves = (
 		return [];
 	}
 
-	const [ firstOct, numOctaves = 1 ] = octaves;
+	const [firstOct, numOctaves = 1] = octaves;
 
 	let { midi, midiLen } = calcScaleInterval(firstOct + MIDI_OCTAVE_OFFSET, numOctaves, firstNote.distC);
 

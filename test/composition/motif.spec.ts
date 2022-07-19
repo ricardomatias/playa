@@ -100,7 +100,7 @@ describe('A Motif test suite', () => {
 		const scale = new Scale('A', Scale.Major);
 
 		// when
-		const motif = createMotif(scale.notes, [ '4n', '2n', '8nd' ]);
+		const motif = createMotif(scale.notes, ['4n', '2n', '8nd']);
 
 		// then
 		expect(motif).toMatchSnapshot();

@@ -701,7 +701,7 @@ export const ChordStructure = <const>{
 	 * @readonly
 	 * @constant
 	 */
-	Triad: [ '1 3 5', '1 5 8' ],
+	Triad: ['1 3 5', '1 5 8'],
 	/**
 	 * Suspended chords structure
 	 * @type {ChordStructure}
@@ -710,7 +710,7 @@ export const ChordStructure = <const>{
 	 * @readonly
 	 * @constant
 	 */
-	Sus: [ '1 2 5', '1 4 5' ],
+	Sus: ['1 2 5', '1 4 5'],
 	/**
 	 * Sixth chords structure
 	 * @type {ChordStructure}
@@ -719,7 +719,7 @@ export const ChordStructure = <const>{
 	 * @readonly
 	 * @constant
 	 */
-	Sixth: [ '1 3 5 6' ],
+	Sixth: ['1 3 5 6'],
 	/**
 	 * Seventh chords structure
 	 * @type {ChordStructure}
@@ -728,7 +728,7 @@ export const ChordStructure = <const>{
 	 * @readonly
 	 * @constant
 	 */
-	Seventh: [ '1 3 5 7' ],
+	Seventh: ['1 3 5 7'],
 	/**
 	 * Ninth chords structure
 	 * @type {ChordStructure}
@@ -737,7 +737,7 @@ export const ChordStructure = <const>{
 	 * @readonly
 	 * @constant
 	 */
-	Ninth: [ '1 3 5 7 9' ],
+	Ninth: ['1 3 5 7 9'],
 	/**
 	 * Eleventh chords structure
 	 * @type {ChordStructure}
@@ -746,7 +746,7 @@ export const ChordStructure = <const>{
 	 * @readonly
 	 * @constant
 	 */
-	Eleventh: [ '1 3 5 7 9 11' ],
+	Eleventh: ['1 3 5 7 9 11'],
 	/**
 	 * Thirteenth chords structure
 	 * @type {ChordStructure}
@@ -755,7 +755,7 @@ export const ChordStructure = <const>{
 	 * @readonly
 	 * @constant
 	 */
-	Thirteenth: [ '1 3 5 7 9 13' ],
+	Thirteenth: ['1 3 5 7 9 13'],
 };
 
 export type ChordStructure = typeof ChordStructure[keyof typeof ChordStructure];
@@ -884,11 +884,11 @@ export const ChordDefinition = <const>{
 export type ChordDefinition = typeof ChordDefinition[keyof typeof ChordDefinition];
 
 export const SimilarChordsByStructure = new Map<ChordStructure, ChordName[]>([
-	[ ChordStructure.Triad, [ ChordName.Major, ChordName.Minor, ChordName.Aug, ChordName.Dim, ChordName.P5 ] ],
-	[ ChordStructure.Sus, [ ChordName.Sus2, ChordName.Sus4 ] ],
+	[ChordStructure.Triad, [ChordName.Major, ChordName.Minor, ChordName.Aug, ChordName.Dim, ChordName.P5]],
+	[ChordStructure.Sus, [ChordName.Sus2, ChordName.Sus4]],
 	[
 		ChordStructure.Sixth,
-		[ ChordName.MajorSixthAddNine, ChordName.MinorSixth, ChordName.MinorMajorSixth, ChordName.MinorSixthAddNine ],
+		[ChordName.MajorSixthAddNine, ChordName.MinorSixth, ChordName.MinorMajorSixth, ChordName.MinorSixthAddNine],
 	],
 	[
 		ChordStructure.Seventh,
@@ -900,7 +900,7 @@ export const SimilarChordsByStructure = new Map<ChordStructure, ChordName[]>([
 			ChordName.MajorSeventhFlatSixth,
 		],
 	],
-	[ ChordStructure.Ninth, [ ChordName.Ninth, ChordName.MinorNinth, ChordName.MajorNinth ] ],
-	[ ChordStructure.Eleventh, [ ChordName.Eleventh, ChordName.MinorEleventh, ChordName.MajorEleventh ] ],
-	[ ChordStructure.Thirteenth, [ ChordName.Thirteenth, ChordName.MinorThirteenth, ChordName.MajorThirteenth ] ],
+	[ChordStructure.Ninth, [ChordName.Ninth, ChordName.MinorNinth, ChordName.MajorNinth]],
+	[ChordStructure.Eleventh, [ChordName.Eleventh, ChordName.MinorEleventh, ChordName.MajorEleventh]],
+	[ChordStructure.Thirteenth, [ChordName.Thirteenth, ChordName.MinorThirteenth, ChordName.MajorThirteenth]],
 ]);

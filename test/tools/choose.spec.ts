@@ -1,7 +1,7 @@
 import { chooseRepeatable, choose, chooseMany } from '../../lib/tools/choose';
 import random from '../../lib/tools/random';
 
-const AM7 = [ 'A', 'C', 'E', 'G' ];
+const AM7 = ['A', 'C', 'E', 'G'];
 
 describe('A Choose test suite', () => {
 	it('should return a random element', () => {
@@ -42,7 +42,7 @@ describe('A Choose test suite', () => {
 	it('should return 10 repeatable elements', () => {
 		random.setSeed('CHOOSE');
 
-		const elements = chooseRepeatable([ 'A', 'C', 'E' ], 10);
+		const elements = chooseRepeatable(['A', 'C', 'E'], 10);
 		expect(elements).toMatchInlineSnapshot(`
 		Array [
 		  "C",

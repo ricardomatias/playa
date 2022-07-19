@@ -14,7 +14,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.intervals).toBe('1P 3m 5P 7m');
 			expect(chord.structure).toBe(Chord.Structures.Seventh);
 			expect(chord.name).toBe('Am7');
-			expect(chord).toHaveMidiNotes([ 69, 72, 76, 79 ]);
+			expect(chord).toHaveMidiNotes([69, 72, 76, 79]);
 		});
 
 		// TODO: v2.0
@@ -26,7 +26,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.intervals).toBe('1P 3m 5P 7m');
 			expect(chord.structure).toBe(Chord.Structures.Seventh);
 			expect(chord.name).toBe('Fm7');
-			expect(chord).toHaveMidiNotes([ 69, 72, 76, 79 ]);
+			expect(chord).toHaveMidiNotes([69, 72, 76, 79]);
 		});
 	});
 
@@ -39,8 +39,8 @@ describe('Chord Test Suite', () => {
 			expect(chord.intervals).toBe('1P 3m 5P 7m');
 			expect(chord.structure).toBe(Chord.Structures.Seventh);
 			expect(chord.name).toBe('Am7');
-			expect(chord).toHaveMidiNotes([ 69, 72, 76, 79 ]);
-			expect(chord).toHaveStringNotes([ 'A3', 'C4', 'E4', 'G4' ]);
+			expect(chord).toHaveMidiNotes([69, 72, 76, 79]);
+			expect(chord).toHaveStringNotes(['A3', 'C4', 'E4', 'G4']);
 		});
 
 		it('should create Am7 via note octave', () => {
@@ -51,8 +51,8 @@ describe('Chord Test Suite', () => {
 			expect(chord.intervals).toBe('1P 3m 5P 7m');
 			expect(chord.structure).toBe(Chord.Structures.Seventh);
 			expect(chord.name).toBe('Am7');
-			expect(chord).toHaveStringNotes([ 'A4', 'C5', 'E5', 'G5' ]);
-			expect(chord).toHaveMidiNotes([ 81, 84, 88, 91 ]);
+			expect(chord).toHaveStringNotes(['A4', 'C5', 'E5', 'G5']);
+			expect(chord).toHaveMidiNotes([81, 84, 88, 91]);
 		});
 
 		it('should set sharp', () => {
@@ -65,7 +65,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('D#m6');
 			expect(chord.hasFlats).toBeFalsy();
 			expect(chord.hasSharps).toBeTruthy();
-			expect(chord).toHaveStringNotes([ 'D#3', 'F#3', 'A#3', 'C4' ]);
+			expect(chord).toHaveStringNotes(['D#3', 'F#3', 'A#3', 'C4']);
 		});
 
 		it('should set flat', () => {
@@ -78,7 +78,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('Bbm9');
 			expect(chord.hasFlats).toBeTruthy();
 			expect(chord.hasSharps).toBeFalsy();
-			expect(chord).toHaveStringNotes([ 'Bb3', 'Db4', 'F4', 'Ab4', 'C5' ]);
+			expect(chord).toHaveStringNotes(['Bb3', 'Db4', 'F4', 'Ab4', 'C5']);
 		});
 
 		it('should have Cm6', () => {
@@ -91,7 +91,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('Cm6');
 			expect(chord.hasFlats).toBeTruthy();
 			expect(chord.hasSharps).toBeFalsy();
-			expect(chord).toHaveStringNotes([ 'C3', 'Eb3', 'G3', 'A3' ]);
+			expect(chord).toHaveStringNotes(['C3', 'Eb3', 'G3', 'A3']);
 		});
 
 		it('should have Gm', () => {
@@ -104,11 +104,11 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('Gm');
 			expect(chord.hasFlats).toBeTruthy();
 			expect(chord.hasSharps).toBeFalsy();
-			expect(chord).toHaveStringNotes([ 'G3', 'Bb3', 'D4' ]);
+			expect(chord).toHaveStringNotes(['G3', 'Bb3', 'D4']);
 		});
 
 		it('should have Fdim', () => {
-			const chord = new Chord('F', Chord.Symbols.Dim, [ 4, 1 ]);
+			const chord = new Chord('F', Chord.Symbols.Dim, [4, 1]);
 
 			expect(chord.root.note).toBe('F');
 			expect(chord.symbol).toBe('dim');
@@ -117,7 +117,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('Fdim');
 			expect(chord.hasFlats).toBeTruthy();
 			expect(chord.hasSharps).toBeFalsy();
-			expect(chord).toHaveStringNotes([ 'F4', 'Ab4', 'B4' ]);
+			expect(chord).toHaveStringNotes(['F4', 'Ab4', 'B4']);
 		});
 
 		it('should set 13 chord', () => {
@@ -130,7 +130,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('E13');
 			expect(chord.hasFlats).toBeFalsy();
 			expect(chord.hasSharps).toBeTruthy();
-			expect(chord).toHaveStringNotes([ 'E3', 'G#3', 'B3', 'D4', 'F#4', 'C#5' ]);
+			expect(chord).toHaveStringNotes(['E3', 'G#3', 'B3', 'D4', 'F#4', 'C#5']);
 		});
 
 		it('should set M11 chord', () => {
@@ -143,7 +143,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.name).toBe('GbM11');
 			expect(chord.hasFlats).toBeTruthy();
 			expect(chord.hasSharps).toBeFalsy();
-			expect(chord).toHaveStringNotes([ 'Gb3', 'Bb3', 'Db4', 'F4', 'Ab4', 'B4' ]);
+			expect(chord).toHaveStringNotes(['Gb3', 'Bb3', 'Db4', 'F4', 'Ab4', 'B4']);
 		});
 
 		// it('should throw', () => {
@@ -171,7 +171,7 @@ describe('Chord Test Suite', () => {
 				expect(chord.name).toBe('A5');
 				expect(chord.hasFlats).toBeFalsy();
 				expect(chord.hasSharps).toBeFalsy();
-				expect(chord).toHaveStringNotes([ 'A3', 'E4', 'A4' ]);
+				expect(chord).toHaveStringNotes(['A3', 'E4', 'A4']);
 			});
 
 			it('should set sixth', () => {
@@ -186,7 +186,7 @@ describe('Chord Test Suite', () => {
 				expect(chord.name).toBe('Gm6');
 				expect(chord.hasFlats).toBeTruthy();
 				expect(chord.hasSharps).toBeFalsy();
-				expect(chord).toHaveMidiNotes([ 67, 70, 74, 76 ]);
+				expect(chord).toHaveMidiNotes([67, 70, 74, 76]);
 			});
 
 			it('should set 13 chord', () => {
@@ -201,37 +201,37 @@ describe('Chord Test Suite', () => {
 				expect(chord.name).toBe('Am9add13');
 				expect(chord.hasFlats).toBeFalsy();
 				expect(chord.hasSharps).toBeFalsy();
-				expect(chord).toHaveStringNotes([ 'A3', 'C4', 'E4', 'G4', 'B4', 'F5' ]);
+				expect(chord).toHaveStringNotes(['A3', 'C4', 'E4', 'G4', 'B4', 'F5']);
 			});
 
 			it('should create custom', () => {
 				random.setSeed('test');
 
-				const chord = Chord.fromIntervals('C', '1P 2M 3M 4A 5P 6m 7m', [ '1 3 5 6 7' ]);
+				const chord = Chord.fromIntervals('C', '1P 2M 3M 4A 5P 6m 7m', ['1 3 5 6 7']);
 
 				expect(chord.root.note).toBe('C');
 				expect(chord.symbol).toBe('majadd7');
 				expect(chord.intervals).toBe('1P 3M 5P 6m 7m');
-				expect(chord.structure).toEqual([ '1 3 5 6 7' ]);
+				expect(chord.structure).toEqual(['1 3 5 6 7']);
 				expect(chord.name).toBe('Cmajadd7');
 				expect(chord.hasFlats).toBeTruthy();
 				expect(chord.hasSharps).toBeFalsy();
-				expect(chord).toHaveStringNotes([ 'C3', 'E3', 'G3', 'Ab3', 'Bb3' ]);
+				expect(chord).toHaveStringNotes(['C3', 'E3', 'G3', 'Ab3', 'Bb3']);
 			});
 
 			it('should create custom - D', () => {
 				random.setSeed('test');
 
-				const chord = Chord.fromIntervals('D', '1P 2m 3M 4A 5P 6m 7m', [ '1 2 6 7' ]);
+				const chord = Chord.fromIntervals('D', '1P 2m 3M 4A 5P 6m 7m', ['1 2 6 7']);
 
 				expect(chord.root.note).toBe('D');
 				expect(chord.symbol).toBeUndefined();
 				expect(chord.intervals).toBe('1P 2m 6m 7m');
-				expect(chord.structure).toEqual([ '1 2 6 7' ]);
+				expect(chord.structure).toEqual(['1 2 6 7']);
 				expect(chord.name).toBeUndefined();
 				expect(chord.hasFlats).toBeTruthy();
 				expect(chord.hasSharps).toBeFalsy();
-				expect(chord).toHaveStringNotes([ 'D3', 'Eb3', 'Bb3', 'C4' ]);
+				expect(chord).toHaveStringNotes(['D3', 'Eb3', 'Bb3', 'C4']);
 			});
 
 			it('should throw with unrecognized intervals', () => {
@@ -256,7 +256,7 @@ describe('Chord Test Suite', () => {
 				expect(chord.name).toBe('Am');
 				expect(chord.intervals).toBe('1P 3m 5P');
 				expect(chord.structure).toBe(Chord.Structures.Triad);
-				expect(chord).toHaveStringNotes([ 'A3', 'C4', 'E4' ]);
+				expect(chord).toHaveStringNotes(['A3', 'C4', 'E4']);
 			});
 
 			it('should set flat', () => {
@@ -269,7 +269,7 @@ describe('Chord Test Suite', () => {
 				expect(chord.name).toBe('Fmaj');
 				expect(chord.intervals).toBe('1P 3M 5P');
 				expect(chord.structure).toBe(Chord.Structures.Triad);
-				expect(chord).toHaveStringNotes([ 'F3', 'A3', 'C4' ]);
+				expect(chord).toHaveStringNotes(['F3', 'A3', 'C4']);
 			});
 
 			// TODO: verify typescript does something to prevent this
@@ -289,7 +289,7 @@ describe('Chord Test Suite', () => {
 
 	describe('create from notes', () => {
 		it('should create Am7', () => {
-			const chord = Chord.fromNotes([ 'A', 'C', 'E', 'G' ]);
+			const chord = Chord.fromNotes(['A', 'C', 'E', 'G']);
 
 			expect(chord.root.note).toBe('A');
 			expect(chord.symbol).toBe('m7');
@@ -297,11 +297,11 @@ describe('Chord Test Suite', () => {
 			expect(chord.intervals).toBe('1P 3m 5P 7m');
 			expect(chord.structure).toBe(Chord.Structures.Seventh);
 			expect(chord.name).toBe('Am7');
-			expect(chord).toHaveMidiNotes([ 69, 72, 76, 79 ]);
+			expect(chord).toHaveMidiNotes([69, 72, 76, 79]);
 		});
 
 		it('should create unknown chord', () => {
-			const chord = Chord.fromNotes([ 'A', 'C', 'F#', 'G' ]);
+			const chord = Chord.fromNotes(['A', 'C', 'F#', 'G']);
 
 			expect(chord.root.note).toBe('A');
 			expect(chord.symbol).toBeUndefined();
@@ -309,7 +309,7 @@ describe('Chord Test Suite', () => {
 			expect(chord.intervals).toBe('1P 3m 6M 7m');
 			expect(chord.structure).toBeUndefined();
 			expect(chord.name).toBeUndefined();
-			expect(chord).toHaveMidiNotes([ 69, 72, 78, 79 ]);
+			expect(chord).toHaveMidiNotes([69, 72, 78, 79]);
 		});
 	});
 
@@ -317,7 +317,7 @@ describe('Chord Test Suite', () => {
 		it('should invert', () => {
 			const invertedChord = Chord.fromName('Am7').invert();
 
-			expect(invertedChord).toHaveStringNotes([ 'C3', 'E3', 'G3', 'A3' ]);
+			expect(invertedChord).toHaveStringNotes(['C3', 'E3', 'G3', 'A3']);
 		});
 
 		it('should create 1st inversion', () => {
@@ -327,11 +327,11 @@ describe('Chord Test Suite', () => {
 
 			chord.invert();
 
-			expect(chord).toHaveStringNotes([ 'C3', 'E3', 'A3' ]);
+			expect(chord).toHaveStringNotes(['C3', 'E3', 'A3']);
 
-			chord.assignOctaves([ 4, 1 ]);
+			chord.assignOctaves([4, 1]);
 
-			expect(chord).toHaveStringNotes([ 'C4', 'E4', 'A4' ]);
+			expect(chord).toHaveStringNotes(['C4', 'E4', 'A4']);
 		});
 
 		it('should create 2nd inversion', () => {
@@ -341,7 +341,7 @@ describe('Chord Test Suite', () => {
 
 			chord.invert(2);
 
-			expect(chord).toHaveStringNotes([ 'E3', 'A3', 'C4' ]);
+			expect(chord).toHaveStringNotes(['E3', 'A3', 'C4']);
 		});
 
 		it('should create 3rd inversion', () => {
@@ -351,7 +351,7 @@ describe('Chord Test Suite', () => {
 
 			chord.invert(3);
 
-			expect(chord).toHaveStringNotes([ 'G3', 'A3', 'C4', 'E4' ]);
+			expect(chord).toHaveStringNotes(['G3', 'A3', 'C4', 'E4']);
 		});
 	});
 

@@ -60,14 +60,14 @@ describe('A Chord Progression test suite', () => {
 		const movement = createMovement(aMaj, '4:0:0', 8, movementOptions);
 
 		const prog = createChordProgression(movement.timeline, {
-			structures: [ Chord.Structures.Sixth ],
+			structures: [Chord.Structures.Sixth],
 			inversionProb: 0.5,
 			octaves: [
-				[ 4, 1 ],
-				[ 2, 2 ],
+				[4, 1],
+				[2, 2],
 			],
-			rhythmValues: [ '4nt', '4n' ],
-			rhythmDurations: [ '4n' ],
+			rhythmValues: ['4nt', '4n'],
+			rhythmDurations: ['4n'],
 			minChordNotes: 2,
 		});
 

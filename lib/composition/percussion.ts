@@ -31,7 +31,7 @@ export interface Percussion {
 
 // STEPS:
 // 32, 16, 8, 4
-const STEPS = [ 32, 16, 8, 4 ];
+const STEPS = [32, 16, 8, 4];
 
 /**
  * Creates a mixture of euclidean rhythm patterns

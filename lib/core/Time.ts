@@ -42,7 +42,7 @@ export class Time {
 	 * @param {TimeFormat} time
 	 * @param {TimeSignature} [timeSignature = [4, 4]]
 	 */
-	constructor(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]) {
+	constructor(time: TimeFormat, timeSignature: TimeSignature = [4, 4]) {
 		let regResult: RegExpExecArray | null = null;
 		this.#timeSignature = timeSignature;
 
@@ -230,7 +230,7 @@ export class Time {
 	 */
 	static bbsToTicks = (
 		time: string,
-		{ timeSignature = [ 4, 4 ], positionMode = false, ppq = QUARTER }: Partial<OptionsBBSConversion> = {}
+		{ timeSignature = [4, 4], positionMode = false, ppq = QUARTER }: Partial<OptionsBBSConversion> = {}
 	): number => {
 		try {
 			const beatsPerBar = timeSignature[0];
@@ -241,7 +241,7 @@ export class Time {
 			const bar = beatsValue * beatsPerBar;
 			const sixteenths = ppq / 4;
 
-			const [ bars, beats, units ] = time.split(TRANSPORT_SEPARATOR).map((str) => parseInt(str, 10));
+			const [bars, beats, units] = time.split(TRANSPORT_SEPARATOR).map((str) => parseInt(str, 10));
 
 			const offset = positionMode ? -1 : 0;
 
@@ -268,7 +268,7 @@ export class Time {
 	 */
 	static ticksToBBS = (
 		ticks: number,
-		{ ppq = QUARTER, timeSignature = [ 4, 4 ], positionMode = false }: Partial<OptionsBBSConversion> = {}
+		{ ppq = QUARTER, timeSignature = [4, 4], positionMode = false }: Partial<OptionsBBSConversion> = {}
 	): string => {
 		// IN MAX THE TRANSPORT STARTS AT: '1.1.0'
 		// IN ABLETON THE TRANSPORT STARTS AT: '1.1.1'
@@ -295,7 +295,7 @@ export class Time {
 
 		const offset = positionMode ? 1 : 0;
 
-		return [ Math.floor(measures + offset), Math.floor(quarters + offset), Math.floor(sixteenths + offset) ].join(
+		return [Math.floor(measures + offset), Math.floor(quarters + offset), Math.floor(sixteenths + offset)].join(
 			TRANSPORT_SEPARATOR
 		);
 	};
@@ -316,7 +316,7 @@ export class Time {
 	static secondsToBBS = (
 		seconds: number,
 		bpm = 120,
-		{ timeSignature = [ 4, 4 ], ppq = QUARTER, positionMode = false }: Partial<OptionsBBSConversion> = {}
+		{ timeSignature = [4, 4], ppq = QUARTER, positionMode = false }: Partial<OptionsBBSConversion> = {}
 	): string => {
 		const ticks = Time.secondsToTicks(seconds, bpm);
 
@@ -367,7 +367,7 @@ export class Time {
 	 * @param {TimeSignature} [timeSignature = [4, 4]]
 	 * @return {number}
 	 */
-	static T(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]): number {
+	static T(time: TimeFormat, timeSignature: TimeSignature = [4, 4]): number {
 		return new Time(time, timeSignature).ticks;
 	}
 
@@ -384,7 +384,7 @@ export class Time {
 	 * @param {TimeSignature} [timeSignature = [4, 4]]
 	 * @return {number}
 	 */
-	static BBS(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]): string {
+	static BBS(time: TimeFormat, timeSignature: TimeSignature = [4, 4]): string {
 		return new Time(time, timeSignature).transport;
 	}
 
@@ -401,11 +401,11 @@ export class Time {
 	 * @param {TimeSignature} [timeSignature = [4, 4]]
 	 * @return {number}
 	 */
-	static N(time: TimeFormat, timeSignature: TimeSignature = [ 4, 4 ]): number {
+	static N(time: TimeFormat, timeSignature: TimeSignature = [4, 4]): number {
 		return new Time(time, timeSignature).beats;
 	}
 
-	static fromBeats(time: number, timeSignature: TimeSignature = [ 4, 4 ]): Time {
+	static fromBeats(time: number, timeSignature: TimeSignature = [4, 4]): Time {
 		return new Time(Math.floor(time * Ticks['4n']), timeSignature);
 	}
 

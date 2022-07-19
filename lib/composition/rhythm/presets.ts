@@ -16,7 +16,7 @@ export const Presets = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Mixed: <Notevalue[]>[ '4n', '8n', '4nt', '4nd', '8nt', '8nd', '16n' ],
+	Mixed: <Notevalue[]>['4n', '8n', '4nt', '4nd', '8nt', '8nd', '16n'],
 	/**
 	 * Slow
 	 * @type {Notevalue[]}
@@ -24,7 +24,7 @@ export const Presets = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Slow: <Notevalue[]>[ '2n', '4nd', '2nd', '4n' ],
+	Slow: <Notevalue[]>['2n', '4nd', '2nd', '4n'],
 	/**
 	 * Robotic
 	 * @type {Notevalue[]}
@@ -32,7 +32,7 @@ export const Presets = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Robotic: <Notevalue[]>[ '8n', '16n', '32n' ],
+	Robotic: <Notevalue[]>['8n', '16n', '32n'],
 	/**
 	 * Straight
 	 * @type {Notevalue[]}
@@ -40,7 +40,7 @@ export const Presets = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Straight: <Notevalue[]>[ '2n', '4n', '8n', '16n' ],
+	Straight: <Notevalue[]>['2n', '4n', '8n', '16n'],
 	/**
 	 * Common
 	 * @type {Notevalue[]}
@@ -48,7 +48,7 @@ export const Presets = <const>{
 	 * @default
 	 * @readonly
 	 */
-	Common: <Notevalue[]>[ '4n', '8n', '16n', '4nt', '8nt', '4nd' ],
+	Common: <Notevalue[]>['4n', '8n', '16n', '4nt', '8nt', '4nd'],
 };
 
 export type Presets = typeof Presets[keyof typeof Presets];

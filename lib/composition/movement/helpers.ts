@@ -30,7 +30,7 @@ export const modulate = (
 	dir?: ModulationDirection,
 	turn?: Turn
 ): TimelineEventKey => {
-	const direction = dir || choose([ Key.ModulateUp, Key.ModulateDown ]);
+	const direction = dir || choose([Key.ModulateUp, Key.ModulateDown]);
 
 	let interval = turn?.interval;
 

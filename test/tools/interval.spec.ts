@@ -5,7 +5,7 @@ describe('An Interval test suite', () => {
 		it('should return interval when given semitones', () => {
 			const result = interval(4);
 
-			expect(result).toEqual([ '3M' ]);
+			expect(result).toEqual(['3M']);
 		});
 
 		it('should return null', () => {
@@ -19,13 +19,13 @@ describe('An Interval test suite', () => {
 		it('should invert 3m -> 6M', () => {
 			const result = invert('3m');
 
-			expect(result).toEqual([ '6M' ]);
+			expect(result).toEqual(['6M']);
 		});
 
 		it('should invert 7m -> 6M', () => {
 			const result = invert('7m');
 
-			expect(result).toEqual([ '2M' ]);
+			expect(result).toEqual(['2M']);
 		});
 
 		it('should invert 3m -> 6M', () => {
@@ -39,13 +39,13 @@ describe('An Interval test suite', () => {
 		it('should add 3M + 3M', () => {
 			const result = add('3M', '3M');
 
-			expect(result).toEqual([ '5A', '6m' ]);
+			expect(result).toEqual(['5A', '6m']);
 		});
 
 		it('should add 7m + 3M', () => {
 			const result = add('7m', '3M');
 
-			expect(result).toEqual([ '9M' ]);
+			expect(result).toEqual(['9M']);
 		});
 
 		it('should be null', () => {
@@ -59,7 +59,7 @@ describe('An Interval test suite', () => {
 		it('should add 9m - 3m', () => {
 			const result = subtract('9m', '3m');
 
-			expect(result).toEqual([ '7m' ]);
+			expect(result).toEqual(['7m']);
 		});
 
 		it('should be null', () => {

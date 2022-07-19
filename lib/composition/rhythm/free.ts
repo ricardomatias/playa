@@ -44,7 +44,7 @@ export function createFreeRhythm(
 	const totalRhythmDuration = new T(length).ticks;
 
 	let rhythm: Notevalue[] = [];
-	let availableRhythmUnits = [ ...noteValues ];
+	let availableRhythmUnits = [...noteValues];
 	let probabilities = distributionAlgo(availableRhythmUnits, PRECISION);
 	let totalTime = 0;
 
@@ -60,7 +60,7 @@ export function createFreeRhythm(
 
 					rhythm.push(duration);
 				} else {
-					availableRhythmUnits = R.without([ duration ], availableRhythmUnits);
+					availableRhythmUnits = R.without([duration], availableRhythmUnits);
 
 					probabilities = distributionAlgo(availableRhythmUnits);
 
@@ -111,7 +111,7 @@ export function createFreeRhythm(
 			}
 		}
 
-		return [ { time: 0, dur: noteDur, next: rhyDur, isRest: false } ];
+		return [{ time: 0, dur: noteDur, next: rhyDur, isRest: false }];
 	});
 
 	return expandDuration(R.flatten(fillDurations(rhythm, durations)));

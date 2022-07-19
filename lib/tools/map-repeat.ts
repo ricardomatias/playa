@@ -1,4 +1,3 @@
-
 /**
  * Calls the callback N times to an array
  *

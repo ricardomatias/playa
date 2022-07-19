@@ -73,9 +73,9 @@ const getIntervals = (notes: string[]): Interval[] => {
 // );
 
 const getOrderedScoreRankings = (ranking: IntervalRanking): string[] => {
-	const sortedRanking: [string, number][] = R.sortWith([ R.descend(R.nth(1) as any) ], Object.entries(ranking));
+	const sortedRanking: [string, number][] = R.sortWith([R.descend(R.nth(1) as any)], Object.entries(ranking));
 
-	return sortedRanking.map(([ interval ]) => interval);
+	return sortedRanking.map(([interval]) => interval);
 };
 
 const calcIntervalsScore = R.reduce((acc, val) => R.add(acc, R.indexOf(val, DEFAULT_RANKED_INTERVALS)), 0) as (
@@ -276,7 +276,7 @@ export const findMatchingKeys = (notes: NoteLike[]): MatchRanking[] => {
 				scale,
 				match,
 				root,
-				intervals: [ '1P' ].concat(intervals).join(' '),
+				intervals: ['1P'].concat(intervals).join(' '),
 				type: Scale.getName(scale) as ScaleName,
 			};
 		});
@@ -312,7 +312,7 @@ export const findClosestMatches = (
 		const s = new Scale(c.root, c.scale);
 		const n = s.notes.map((note) => note.note);
 
-		return [ R.intersection(notes, n).length, R.intersection(intervals, i).length, c, n ];
+		return [R.intersection(notes, n).length, R.intersection(intervals, i).length, c, n];
 	});
 
 	const maxMatchingNotes = R.reduce(R.max, 0, R.map(R.nth(0), common));

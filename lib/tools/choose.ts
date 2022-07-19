@@ -12,13 +12,13 @@ import { whilst } from '../utils';
  * @return {T|T[]}
  */
 export const chooseMany = <T>(list: T[], n: number, compareAgainst: T | null = null): T[] => {
-	let lst = [ ...list ];
+	let lst = [...list];
 	const elems: T[] = [];
 
 	whilst(
 		() => {
 			if (!lst.length) {
-				lst = [ ...list ];
+				lst = [...list];
 			}
 
 			const idx = random.int(lst.length - 1);

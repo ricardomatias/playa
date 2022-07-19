@@ -22,7 +22,7 @@ describe('#expand', () => {
 		// given
 		random.setSeed('test');
 
-		const rhythm = createArp(new Scale('A', Scale.Minor), [ 1, 2 ], Rhythm.free('1:0:0', Rhythm.Presets.Slow), '2:0:0');
+		const rhythm = createArp(new Scale('A', Scale.Minor), [1, 2], Rhythm.free('1:0:0', Rhythm.Presets.Slow), '2:0:0');
 
 		// when
 		const result = Rhythm.expand(rhythm, Time.T('2m'));

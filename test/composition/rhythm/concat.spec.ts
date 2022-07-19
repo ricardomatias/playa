@@ -24,7 +24,7 @@ describe('#concat', () => {
 		// given
 		random.setSeed('test');
 
-		const rhythm = Rhythm.free('2:0:0', [ '1nt', '2nd' ]);
+		const rhythm = Rhythm.free('2:0:0', ['1nt', '2nd']);
 		const splitRhythm = Rhythm.splitAt(rhythm, '1:0:0');
 
 		// when
@@ -39,9 +39,9 @@ describe('#concat', () => {
 		// given
 		random.setSeed('test');
 
-		const rhy1 = Rhythm.free('1:0:0', [ '4n', '2n' ]);
-		const rhy2 = Rhythm.free('1:0:0', [ '4n', '2n' ]);
-		const rhy3 = Rhythm.free('1:0:0', [ '4n', '2n' ]);
+		const rhy1 = Rhythm.free('1:0:0', ['4n', '2n']);
+		const rhy2 = Rhythm.free('1:0:0', ['4n', '2n']);
+		const rhy3 = Rhythm.free('1:0:0', ['4n', '2n']);
 
 		// when
 		const result = Rhythm.concat(rhy1, rhy2, rhy3);
@@ -55,7 +55,7 @@ describe('#concat', () => {
 		// given
 		random.setSeed('test');
 
-		const rhy1: NoteEvent[] = R.map(mapStartToEvent('2:0:0'), Rhythm.free('1:0:0', [ '4n' ]));
+		const rhy1: NoteEvent[] = R.map(mapStartToEvent('2:0:0'), Rhythm.free('1:0:0', ['4n']));
 
 		// when
 		const result = Rhythm.concat(rhy1, R.clone(rhy1));

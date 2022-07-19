@@ -82,7 +82,7 @@ export function expandDuration(pattern: Event[] | TimeFormat[], startTime = 0): 
 	return computeEventsNext(events);
 }
 
- /**
+/**
  * Compute `next` time for a list of events
  *
  * @function computeEventsNext

@@ -36,7 +36,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = findMatchingKeys([ 'A3', 'C#3', 'G3', 'B3' ]);
+			const neighbours = findMatchingKeys(['A3', 'C#3', 'G3', 'B3']);
 
 			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3m 4P 5P 6m 7m',
@@ -55,7 +55,7 @@ describe('A Friendly test suite', () => {
 			random.setSeed('test');
 
 			// when
-			const neighbours = findMatchingKeys([ 'D', 'E', 'F', 'G', 'A', 'B' ]);
+			const neighbours = findMatchingKeys(['D', 'E', 'F', 'G', 'A', 'B']);
 
 			// then
 			expect(R.head(neighbours)).toEqual({
@@ -71,7 +71,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = findMatchingKeys([ 'F#', 'C#', 'D', 'D', 'E', 'C' ]);
+			const neighbours = findMatchingKeys(['F#', 'C#', 'D', 'D', 'E', 'C']);
 
 			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3M 4P 5P 6M 7m',
@@ -88,7 +88,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = findMatchingKeys([ 'B', 'D', 'Eb', 'F', 'Ab' ]);
+			const neighbours = findMatchingKeys(['B', 'D', 'Eb', 'F', 'Ab']);
 
 			expect(R.head(neighbours)).toEqual({
 				scale: '1P 2M 3m 4P 5P 6M 7m',
@@ -106,7 +106,7 @@ describe('A Friendly test suite', () => {
 			random.setSeed('test');
 
 			// when
-			const neighbours = findMatchingKeys([ 'C#', 'F#' ]);
+			const neighbours = findMatchingKeys(['C#', 'F#']);
 
 			// then
 			expect(R.head(neighbours)).toEqual({
@@ -123,7 +123,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const neighbours = findMatchingKeys([ 'D3', 'E3', 'F3', 'G3', 'A3', 'Bb3', 'C4' ]);
+			const neighbours = findMatchingKeys(['D3', 'E3', 'F3', 'G3', 'A3', 'Bb3', 'C4']);
 
 			expect(neighbours).toHaveMatch<MatchRanking>({
 				match: 1,
@@ -139,7 +139,7 @@ describe('A Friendly test suite', () => {
 			random.setSeed('test');
 
 			// when
-			const neighbours = findMatchingKeys([ 'D', 'F#' ]);
+			const neighbours = findMatchingKeys(['D', 'F#']);
 
 			// then
 			expect(neighbours).toMatchSnapshot();
@@ -150,7 +150,7 @@ describe('A Friendly test suite', () => {
 			random.setSeed('test');
 
 			// when
-			const neighbours = findMatchingKeys([ 'C#' ]);
+			const neighbours = findMatchingKeys(['C#']);
 
 			// then
 			expect(neighbours).toEqual([]);
@@ -162,7 +162,7 @@ describe('A Friendly test suite', () => {
 			// given
 			random.setSeed('test');
 
-			const match = findMatchingKeys([ 'A3', 'C#3', 'G3', 'B3' ])[0];
+			const match = findMatchingKeys(['A3', 'C#3', 'G3', 'B3'])[0];
 
 			// then
 			expect(match).toEqual({
@@ -174,7 +174,7 @@ describe('A Friendly test suite', () => {
 			});
 
 			// given
-			const candidates = findMatchingKeys([ 'A3', 'C#3', 'G3', 'F3' ]);
+			const candidates = findMatchingKeys(['A3', 'C#3', 'G3', 'F3']);
 
 			// when
 			const closest = findClosestMatches(match, candidates);
@@ -188,14 +188,14 @@ describe('A Friendly test suite', () => {
 				intervals: '1P 3M 6m 7m',
 				type: 'Mixolydian',
 			});
-			expect(new Scale(closest[0].root, closest[0].scale).pitches).toEqual([ 'A3', 'B3', 'C#4', 'D4', 'E4', 'F#4', 'G4' ]);
+			expect(new Scale(closest[0].root, closest[0].scale).pitches).toEqual(['A3', 'B3', 'C#4', 'D4', 'E4', 'F#4', 'G4']);
 		});
 
 		it('should have with every note different', () => {
 			// given
 			random.setSeed('test');
 
-			const match = findMatchingKeys([ 'B', 'D', 'Eb', 'F', 'Ab' ])[0];
+			const match = findMatchingKeys(['B', 'D', 'Eb', 'F', 'Ab'])[0];
 
 			// then
 			expect(match).toEqual({
@@ -207,7 +207,7 @@ describe('A Friendly test suite', () => {
 			});
 
 			// given
-			const candidates = findMatchingKeys([ 'C3', 'F#3', 'G3' ]);
+			const candidates = findMatchingKeys(['C3', 'F#3', 'G3']);
 
 			// when
 			const closest = findClosestMatches(match, candidates);
@@ -216,7 +216,7 @@ describe('A Friendly test suite', () => {
 			expect(closest).toHaveLength(1);
 
 			// [ 'C3', 'Db3', 'Eb3', 'F3', 'G3', 'Ab3', 'Bb3' ]
-			expect(new Scale(closest[0].root, closest[0].scale).pitches).toEqual([ 'C3', 'Db3', 'Eb3', 'F3', 'G3', 'Ab3', 'Bb3' ]);
+			expect(new Scale(closest[0].root, closest[0].scale).pitches).toEqual(['C3', 'Db3', 'Eb3', 'F3', 'G3', 'Ab3', 'Bb3']);
 		});
 	});
 
@@ -224,7 +224,7 @@ describe('A Friendly test suite', () => {
 		it('should return an ordered list of intervals', () => {
 			const ranking = rankIntervals(SCALES_ARRAY);
 
-			expect(ranking).toEqual([ '4A', '5d', '2m', '7M', '3M', '6m', '6M', '3m', '7m', '2M', '4P', '5P' ]);
+			expect(ranking).toEqual(['4A', '5d', '2m', '7M', '3M', '6m', '6M', '3m', '7m', '2M', '4P', '5P']);
 		});
 
 		it('should return an ordered list of scales based on intervals ranking', () => {
@@ -232,7 +232,7 @@ describe('A Friendly test suite', () => {
 
 			const ranking = rankScales(intervalsRanking);
 
-			expect(ranking['4A']).toEqual([ '1P 2M 3M 4A 5P 6M 7M' ]);
+			expect(ranking['4A']).toEqual(['1P 2M 3M 4A 5P 6M 7M']);
 			expect(ranking['7m']).toHaveLength(9);
 			expect(ranking['5P']).toHaveLength(13);
 			expect(ranking).toMatchSnapshot();
@@ -253,21 +253,21 @@ describe('A Friendly test suite', () => {
 			const scrambledNotes = shuffle(Abmaj.pitches);
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).toEqual([ 'C', 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb' ]);
+			expect(neighbours).toEqual(['C', 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb']);
 		});
 
 		it('should order notes D# LOCRIAN', () => {
 			const scrambledNotes = shuffle(DSharpLoc.pitches);
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).toEqual([ 'C#', 'D#', 'E', 'F#', 'G#', 'A', 'B' ]);
+			expect(neighbours).toEqual(['C#', 'D#', 'E', 'F#', 'G#', 'A', 'B']);
 		});
 
 		it('should order notes Bb EGYPTIAN', () => {
 			const scrambledNotes = shuffle(BbEgyptian.pitches);
 			const neighbours = orderNotes(scrambledNotes);
 
-			expect(neighbours).toEqual([ 'C', 'Eb', 'F', 'Ab', 'Bb' ]);
+			expect(neighbours).toEqual(['C', 'Eb', 'F', 'Ab', 'Bb']);
 		});
 	});
 });

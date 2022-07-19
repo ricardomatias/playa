@@ -7,7 +7,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = Euclidean.create(4, 2);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 1, 0 ]);
+			expect(pattern).toEqual([1, 0, 1, 0]);
 		});
 
 		it('should create 8 -> 5, 3', () => {
@@ -15,7 +15,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = Euclidean.create(8, 3);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 0, 1, 0, 0, 1, 0 ]);
+			expect(pattern).toEqual([1, 0, 0, 1, 0, 0, 1, 0]);
 		});
 
 		it('should create 7', () => {
@@ -23,7 +23,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = Euclidean.create(7, 2);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 0, 0, 1, 0, 0 ]);
+			expect(pattern).toEqual([1, 0, 0, 0, 1, 0, 0]);
 		});
 
 		it('should create 9 -> 5, 4', () => {
@@ -31,7 +31,7 @@ describe('An Euclidean test suite', () => {
 			const pattern = Euclidean.create(9, 4);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 0, 1, 0, 1, 0, 1, 0 ]);
+			expect(pattern).toEqual([1, 0, 0, 1, 0, 1, 0, 1, 0]);
 		});
 
 		it('should create 7 -> 4, 3', () => {
@@ -39,14 +39,14 @@ describe('An Euclidean test suite', () => {
 			const pattern = Euclidean.create(7, 3);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 0, 1, 0, 1, 0 ]);
+			expect(pattern).toEqual([1, 0, 0, 1, 0, 1, 0]);
 		});
 
 		it('should create 16 : 6', () => {
 			// when
 			const pattern = Euclidean.create(16, 6);
 
-			expect(pattern).toEqual([ 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0 ]);
+			expect(pattern).toEqual([1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0]);
 		});
 
 		it('should create 16 : 4', () => {
@@ -54,33 +54,33 @@ describe('An Euclidean test suite', () => {
 			const pattern = Euclidean.create(16, 4);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ]);
+			expect(pattern).toEqual([1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]);
 		});
 	});
 
 	describe('rotate', () => {
 		it('should rotate a simple 4/4', () => {
 			// when
-			const pattern = Euclidean.rotate([ 1, 0, 1, 0 ]);
+			const pattern = Euclidean.rotate([1, 0, 1, 0]);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 1, 0 ]);
+			expect(pattern).toEqual([1, 0, 1, 0]);
 		});
 
 		it('should rotate 8 -> 5, 3', () => {
 			// when
-			const pattern = Euclidean.rotate([ 1, 0, 0, 1, 0, 0, 1, 0 ]);
+			const pattern = Euclidean.rotate([1, 0, 0, 1, 0, 0, 1, 0]);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 1, 0, 0, 1, 0, 0 ]);
+			expect(pattern).toEqual([1, 0, 1, 0, 0, 1, 0, 0]);
 		});
 
 		it('should create 7 -> 4, 3', () => {
 			// when
-			const pattern = Euclidean.rotate([ 1, 0, 0, 1, 0, 1, 0 ]);
+			const pattern = Euclidean.rotate([1, 0, 0, 1, 0, 1, 0]);
 
 			// then
-			expect(pattern).toEqual([ 1, 0, 1, 0, 0, 1, 0 ]);
+			expect(pattern).toEqual([1, 0, 1, 0, 0, 1, 0]);
 		});
 	});
 });

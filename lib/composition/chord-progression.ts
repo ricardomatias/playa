@@ -85,13 +85,13 @@ export type ChordProgression = ChordEvent[];
 export function createChordProgression(
 	timeline: TimelineEvent[],
 	{
-		rhythmValues = [ '4n', '2n', '4nt', '2nt' ],
+		rhythmValues = ['4n', '2n', '4nt', '2nt'],
 		rhythmDurations,
 		structures = valuesToArr(Chord.Structures),
 		distribution = distribute.decreasing,
 		restProb = 0.0,
 		inversionProb = 0.0,
-		octaves = [ [ 3, 1 ] ],
+		octaves = [[3, 1]],
 		startingOctave = choose(octaves),
 		minChordNotes = 3,
 		rhythmType = RhythmType.Free,
@@ -113,7 +113,7 @@ export function createChordProgression(
 		const structure = roll(structures, structuresProb, random.float);
 		const isFirstChord = index === 0;
 
-		chosenStyle = choose([ JUMP_STYLE, PRUDENT_STYLE ]);
+		chosenStyle = choose([JUMP_STYLE, PRUDENT_STYLE]);
 
 		const length = new Time(dur).bbs;
 
@@ -162,7 +162,7 @@ export function createChordProgression(
 				nrOfNotes = random.int(lowerBound, Math.min(minChordNotes, notes.length));
 			}
 
-			chordNotes = [ R.head(notes) as number ];
+			chordNotes = [R.head(notes) as number];
 
 			if (R.gt(inversionProb, random.float())) {
 				chord.invert(random.int(R.length(chord.notes)));

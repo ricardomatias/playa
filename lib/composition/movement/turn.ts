@@ -12,11 +12,11 @@ import { BinaryEvent } from '../../common/types';
 
 const QUARTER = Ticks['4n'];
 
-const DEFAULT_TURNS = [ TurnMoves.Keep, TurnMoves.ModulateUp, TurnMoves.ModulateDown, TurnMoves.ModeUp, TurnMoves.ModeDown ].map(
+const DEFAULT_TURNS = [TurnMoves.Keep, TurnMoves.ModulateUp, TurnMoves.ModulateDown, TurnMoves.ModeUp, TurnMoves.ModeDown].map(
 	(type) => ({ type, interval: TurnMoves.Free })
 );
 
-const MOD_MODE_INTERVALS = [ 1, 2, 3, 4, 5, 6, 7 ];
+const MOD_MODE_INTERVALS = [1, 2, 3, 4, 5, 6, 7];
 
 /**
  * Turn
@@ -100,7 +100,7 @@ function movement(
 			combSorting: {
 				diverseFirst: true,
 			},
-		}).map(R.pick([ 'time', 'dur' ]));
+		}).map(R.pick(['time', 'dur']));
 	}
 
 	// **************************************************************************
