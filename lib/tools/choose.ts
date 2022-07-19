@@ -52,7 +52,7 @@ export const choose = <T>(list: T[], compareAgainst: T | null = null): T => {
 };
 
 /**
- * Choose multiple random elements from an array with repeated elements, although not sequentially.
+ * Choose multiple random elements from an array with repeated elements, albeit not sequentially.
  *
  * @function chooseRepeatable
  * @memberof Tools

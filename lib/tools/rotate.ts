@@ -12,7 +12,7 @@ import * as R from 'ramda';
  * @return {Array<T>}
  */
 export const rotate = <T>(list: T[], nrOfTimes = 1): T[] => {
-	let newList = list;
+	let newList = list.slice();
 
 	for (let index = 0; index < Math.abs(nrOfTimes); index++) {
 		if (nrOfTimes < 0) {

@@ -89,7 +89,7 @@ abstract class HarmonyBase {
 	 * new Scale('C', Scale.Major).noteSymbols => [ 'C', 'D', 'E', 'F', 'G', 'A', 'B' ]
 	 * new Chord('Cmaj').noteSymbols => [ 'C', 'E', 'G' ]
 	 *
-	 * @member string
+	 * @member noteSymbols
 	 * @memberof Core.HarmonyBase#
 	 *
 	 * @type {Array<string>}

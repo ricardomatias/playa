@@ -58,7 +58,7 @@ describe('#Rhythm.free', () => {
 		random.setSeed('test');
 
 		// when
-		const rhythm = Rhythm.free(ONE_BAR * 2, Rhythm.Presets.Slow, ['4n', '4nd']);
+		const rhythm = Rhythm.free(ONE_BAR * 2, Rhythm.Presets.Slow, [ '4n', '4nd' ]);
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR * 2);
@@ -202,7 +202,7 @@ describe('#Rhythm.free', () => {
 		random.setSeed('test');
 
 		// when
-		const rhythm = Rhythm.free(ONE_BAR, Rhythm.Presets.Straight, ['8n']);
+		const rhythm = Rhythm.free(ONE_BAR, Rhythm.Presets.Straight, [ '8n' ]);
 
 		// then
 		expect(rhythm).toLastAround(ONE_BAR);
@@ -276,7 +276,7 @@ describe('#Rhythm.free', () => {
 		random.setSeed('test');
 
 		// when
-		const rhythm = Rhythm.free(new Time('1:0:0', [7, 8]), ['4n', '8n']);
+		const rhythm = Rhythm.free(new Time('1:0:0', [ 7, 8 ]), [ '4n', '8n' ]);
 
 		// then
 		expect(rhythm).toLastAround(Ticks['8n'] * 7);

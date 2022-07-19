@@ -9,7 +9,7 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [1, 5, 4], ['4n', '8n', '2n']);
+		const arp = createArp(scale, [ 1, 5, 4 ], [ '4n', '8n', '2n' ]);
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [
@@ -46,7 +46,7 @@ describe('An Arp test suite', () => {
 
 		const chord = Chord.fromName('Amaj');
 
-		const arp = createArp(chord, [1, 5, 3], ['4n', '8n', '2n'], '0:0:2');
+		const arp = createArp(chord, [ 1, 5, 3 ], [ '4n', '8n', '2n' ], '0:0:2');
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [
@@ -83,7 +83,7 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [1, 5, 4, 5, 2, 1, 2], ['4n', '8n', '2n']);
+		const arp = createArp(scale, [ 1, 5, 4, 5, 2, 1, 2 ], [ '4n', '8n', '2n' ]);
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [
@@ -152,7 +152,7 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [2, 5, 3], free('0:3:2', ['8n', '16n'], ['16n', '4n']), Time.TOff.ticks);
+		const arp = createArp(scale, [ 2, 5, 3 ], free('0:3:2', [ '8n', '16n' ], [ '16n', '4n' ]), Time.TOff.ticks);
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [
@@ -253,7 +253,7 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [2, '+2', 3, '+3', 7, '--7'], ['4n', '8n', '2n']);
+		const arp = createArp(scale, [ 2, '+2', 3, '+3', 7, '--7' ], [ '4n', '8n', '2n' ]);
 
 		expect(arp).toMatchInlineSnapshot(`
 		Array [

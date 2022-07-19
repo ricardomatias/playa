@@ -114,4 +114,16 @@ export const subtract = (a: Interval, b: Interval): Interval[] | null => {
 	return null;
 };
 
+/**
+ * Checks if the interval exists
+ * @function exists
+ * @memberof Tools.Interval
+ *
+ * @param {Interval} a
+ *
+ * @example
+ * exists("55m") => false
+ *
+ * @return {Array<Interval>|null} How many semitones are they apart or null if not possible
+ */
 export const exists = (interval: Interval): boolean => Object.keys(Semitones).includes(interval);
