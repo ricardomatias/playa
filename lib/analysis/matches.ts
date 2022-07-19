@@ -73,24 +73,20 @@ const getIntervals = (notes: string[]): Interval[] => {
 // );
 
 const getOrderedScoreRankings = (ranking: IntervalRanking): string[] => {
-	const sortedRanking: [string, number][] = R.sortWith([ R.descend(R.nth(1)) ], Object.entries(ranking));
+	const sortedRanking: [string, number][] = R.sortWith([ R.descend(R.nth(1) as any) ], Object.entries(ranking));
 
 	return sortedRanking.map(([ interval ]) => interval);
 };
 
 const calcIntervalsScore = R.reduce((acc, val) => R.add(acc, R.indexOf(val, DEFAULT_RANKED_INTERVALS)), 0) as (
-	list: readonly Interval[]
+	list: Interval[]
 ) => number;
 
-const calcIntervalRankings = (list: string[][]): IntervalRanking => {
-	const rawScoreAndIntervals: Array<string | number> = R.converge(R.concat, [ R.map(R.join(' ')), R.map(calcIntervalsScore) ])(
-		list
-	);
+const calcIntervalRankings = (list: Interval[][]): IntervalRanking => {
+	const intervals = R.map(R.join(' '), list);
+	const scores = R.map(calcIntervalsScore as any, list);
 
-	const score = rawScoreAndIntervals.filter(isNumber);
-	const intervals = rawScoreAndIntervals.filter(isString);
-
-	return R.zipObj(intervals, score);
+	return R.zipObj(intervals, scores) as IntervalRanking;
 };
 
 const findPossibleScales = (rankedScales: ScaleRanking, intervals: Interval[]): ScaleIntervals[] => {
@@ -224,7 +220,7 @@ export interface MatchRanking {
  */
 export const findMatchingKeys = (notes: NoteLike[]): MatchRanking[] => {
 	// ["A", "C#", "G", "B"]
-	const intervalsPermutations = [];
+	const intervalsPermutations: Interval[][] = [];
 	let matchingScales: MatchRanking[] = [];
 
 	if (notes.length < 2) {
@@ -238,7 +234,7 @@ export const findMatchingKeys = (notes: NoteLike[]): MatchRanking[] => {
 
 	for (let index = 0; index < orderedNotes.length; index++) {
 		// [ "C#", "4A", "5A", "7m" ]
-		const intervals = R.adjust(0, R.replace('8P', orderedNotes[0]), getIntervals(orderedNotes));
+		const intervals: Interval[] = R.adjust(0, R.replace('8P', orderedNotes[0]), getIntervals(orderedNotes)) as Interval[];
 
 		intervalsPermutations.push(intervals);
 
@@ -272,7 +268,7 @@ export const findMatchingKeys = (notes: NoteLike[]): MatchRanking[] => {
 			const scaleArr = R.split(' ', scale);
 
 			const intervals = R.tail(intervalsArr);
-			const intervalsInScaleCount = R.length(R.filter(R.contains(__, scaleArr), intervals));
+			const intervalsInScaleCount = R.length(R.filter(R.includes(__, scaleArr), intervals));
 
 			const match = intervalsInScaleCount / intervals.length;
 
