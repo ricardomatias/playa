@@ -1,4 +1,6 @@
 import * as R from 'ramda';
+import { distribute, roll } from '@ricardomatias/roll';
+
 import HarmonyBase from './HarmonyBase';
 import { Note, NoteLike } from './Note';
 import {
@@ -14,12 +16,11 @@ import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals } from '../constants/scales';
 import { deconstructName, findNameFromIntervals, findNameFromSymbol } from './utils';
 import { PlayaError, whilst } from '../utils';
-import { distance, rotate, choose, random } from '../tools';
+import { distance, rotate, choose, random, interval } from '../tools';
 import { isDefined, isNull, isUndefined } from '../utils/types-guards';
 import assignOctaves from '../utils/octaves';
 import { Scale } from './Scale';
 import { Octaves } from '../common/types';
-import { distribute, roll } from '@ricardomatias/roll';
 
 type ChordOptions = Partial<{ symbol: ChordSymbol; intervals: ChordIntervals; structure: ChordStructure }>;
 
@@ -211,6 +212,31 @@ export class Chord extends HarmonyBase {
 	}
 
 	/**
+	 * Create a chord from a Scale's intervals
+	 * @function fromIntervals
+	 * @memberof Core#Chord
+	 * @static
+	 * @example Chord.fromIntervals('A', Scale.Intervals.Dorian, Chord.Sructures.Sixth);
+	 *
+	 * @param {Array<NoteSymbol>} notes
+	 * @param {Octaves} [octaves = [ 3, 1]]
+	 * @return {Chord} chord
+	 */
+	static fromNotes(notes: NoteSymbol[], octaves?: Octaves): Chord {
+		const root = notes[0];
+		const intervalsArray = R.tail(notes.map((note) => distance.interval(root, note)));
+
+		if (intervalsArray.includes(null)) {
+			throw new PlayaError('Chord', `Could not recognize a valid chord from these notes: <${notes}>`);
+		}
+
+		const intervals = `1P ${intervalsArray.join(' ')}`;
+		const symbol = this.findChordSymbol(intervals) as ChordSymbol | undefined;
+
+		return new Chord('A', intervals as ChordIntervals, octaves, { symbol });
+	}
+
+	/**
 	 * Returns the chord's name
 	 *
 	 * @member name
@@ -396,8 +422,8 @@ export class Chord extends HarmonyBase {
 		const rootNote = this.root;
 
 		// This is to figure out if flats is a better match than sharps when the root note is natural
-		const sharpNotes = R.length(R.filter(R.prop('isSharp'), notes));
-		const flatNotes = R.length(R.filter(R.prop('isFlat'), notes));
+		const sharpNotes = R.length(R.filter(R.prop<'isSharp', boolean>('isSharp'), notes));
+		const flatNotes = R.length(R.filter(R.prop<'isFlat', boolean>('isFlat'), notes));
 
 		if (rootNote.isFlat || flatNotes > 0) {
 			this._hasFlats = true;

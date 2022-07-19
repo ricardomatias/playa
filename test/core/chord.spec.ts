@@ -287,6 +287,32 @@ describe('Chord Test Suite', () => {
 		});
 	});
 
+	describe('create from notes', () => {
+		it('should create Am7', () => {
+			const chord = Chord.fromNotes([ 'A', 'C', 'E', 'G' ]);
+
+			expect(chord.root.note).toBe('A');
+			expect(chord.symbol).toBe('m7');
+			expect(chord.toString()).toBe('[object Chord: A3,C4,E4,G4]');
+			expect(chord.intervals).toBe('1P 3m 5P 7m');
+			expect(chord.structure).toBe(Chord.Structures.Seventh);
+			expect(chord.name).toBe('Am7');
+			expect(chord).toHaveMidiNotes([ 69, 72, 76, 79 ]);
+		});
+
+		it('should create unknown chord', () => {
+			const chord = Chord.fromNotes([ 'A', 'C', 'F#', 'G' ]);
+
+			expect(chord.root.note).toBe('A');
+			expect(chord.symbol).toBeUndefined();
+			expect(chord.toString()).toBe('[object Chord: A3,C4,F#4,G4]');
+			expect(chord.intervals).toBe('1P 3m 6M 7m');
+			expect(chord.structure).toBeUndefined();
+			expect(chord.name).toBeUndefined();
+			expect(chord).toHaveMidiNotes([ 69, 72, 78, 79 ]);
+		});
+	});
+
 	describe('inversions', () => {
 		it('should invert', () => {
 			const invertedChord = Chord.fromName('Am7').invert();
