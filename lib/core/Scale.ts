@@ -213,7 +213,6 @@ export class Scale extends HarmonyBase {
 			return baseSharpNotes;
 		}
 
-		// TODO: refactor this since this preference for sharps is not justifiable
 		if (naturalNotesLenSharp >= naturalNotesLenFlat) {
 			this._hasSharps = true;
 			this._hasFlats = false;

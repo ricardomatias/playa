@@ -149,8 +149,7 @@ export default {
 
 	// A map from regular expressions to paths to transformers
 	transform: {
-		'node_modules/@ricardomatias/ring/.+\\.(j|t)sx?$': 'ts-jest',
-		'^.+\\.tsx?$': [
+		'^.+\\.[tj]s$': [
 			'ts-jest',
 			{
 				tsconfig: 'tsconfig.test.json',
@@ -160,7 +159,7 @@ export default {
 
 	// An array of regexp pattern strings that are matched against
 	// all source file paths, matched files will skip transformation
-	transformIgnorePatterns: ['node_modules/(?!(@ricardomatias/ring)/.*)'],
+	transformIgnorePatterns: ['<rootDir>/node_modules/(?!(@ricardomatias/ring))'],
 	// An array of regexp pattern strings that are matched against
 	// all modules before the module loader will automatically return a mock for them
 	// unmockedModulePathPatterns: undefined,
