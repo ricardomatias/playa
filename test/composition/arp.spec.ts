@@ -1,5 +1,5 @@
 import random from '../../lib/tools/random';
-import { createArp } from '../../lib/composition/arp';
+import { createArp, genHarmonicShift } from '../../lib/composition/arp';
 import { Scale, Chord, Time } from '../../lib/core';
 import { free } from '../../lib/composition/rhythm';
 
@@ -12,8 +12,8 @@ describe('An Arp test suite', () => {
 		const arp = createArp(scale, [1, 5, 4], ['4n', '8n', '2n']);
 
 		expect(arp).toMatchInlineSnapshot(`
-		Array [
-		  Object {
+		[
+		  {
 		    "dur": 480,
 		    "isRest": false,
 		    "midi": 69,
@@ -21,7 +21,7 @@ describe('An Arp test suite', () => {
 		    "note": "A3",
 		    "time": 0,
 		  },
-		  Object {
+		  {
 		    "dur": 240,
 		    "isRest": false,
 		    "midi": 76,
@@ -29,7 +29,7 @@ describe('An Arp test suite', () => {
 		    "note": "E4",
 		    "time": 480,
 		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
 		    "midi": 74,
@@ -49,8 +49,8 @@ describe('An Arp test suite', () => {
 		const arp = createArp(chord, [1, 5, 3], ['4n', '8n', '2n'], '0:0:2');
 
 		expect(arp).toMatchInlineSnapshot(`
-		Array [
-		  Object {
+		[
+		  {
 		    "dur": 480,
 		    "isRest": false,
 		    "midi": 69,
@@ -58,7 +58,7 @@ describe('An Arp test suite', () => {
 		    "note": "A3",
 		    "time": 240,
 		  },
-		  Object {
+		  {
 		    "dur": 240,
 		    "isRest": false,
 		    "midi": 76,
@@ -66,7 +66,7 @@ describe('An Arp test suite', () => {
 		    "note": "E4",
 		    "time": 720,
 		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
 		    "midi": 73,
@@ -86,8 +86,8 @@ describe('An Arp test suite', () => {
 		const arp = createArp(scale, [1, 5, 4, 5, 2, 1, 2], ['4n', '8n', '2n']);
 
 		expect(arp).toMatchInlineSnapshot(`
-		Array [
-		  Object {
+		[
+		  {
 		    "dur": 480,
 		    "isRest": false,
 		    "midi": 69,
@@ -95,7 +95,7 @@ describe('An Arp test suite', () => {
 		    "note": "A3",
 		    "time": 0,
 		  },
-		  Object {
+		  {
 		    "dur": 240,
 		    "isRest": false,
 		    "midi": 76,
@@ -103,7 +103,7 @@ describe('An Arp test suite', () => {
 		    "note": "E4",
 		    "time": 480,
 		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
 		    "midi": 74,
@@ -111,7 +111,7 @@ describe('An Arp test suite', () => {
 		    "note": "D4",
 		    "time": 720,
 		  },
-		  Object {
+		  {
 		    "dur": 480,
 		    "isRest": false,
 		    "midi": 76,
@@ -119,7 +119,7 @@ describe('An Arp test suite', () => {
 		    "note": "E4",
 		    "time": 1680,
 		  },
-		  Object {
+		  {
 		    "dur": 240,
 		    "isRest": false,
 		    "midi": 71,
@@ -127,7 +127,7 @@ describe('An Arp test suite', () => {
 		    "note": "B3",
 		    "time": 2160,
 		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
 		    "midi": 69,
@@ -135,7 +135,7 @@ describe('An Arp test suite', () => {
 		    "note": "A3",
 		    "time": 2400,
 		  },
-		  Object {
+		  {
 		    "dur": 480,
 		    "isRest": false,
 		    "midi": 71,
@@ -155,8 +155,8 @@ describe('An Arp test suite', () => {
 		const arp = createArp(scale, [2, 5, 3], free('0:3:2', ['8n', '16n'], ['16n', '4n']), Time.TOff.ticks);
 
 		expect(arp).toMatchInlineSnapshot(`
-		Array [
-		  Object {
+		[
+		  {
 		    "dur": 240,
 		    "isRest": false,
 		    "midi": 71,
@@ -164,7 +164,7 @@ describe('An Arp test suite', () => {
 		    "note": "B3",
 		    "time": 240,
 		  },
-		  Object {
+		  {
 		    "dur": 120,
 		    "isRest": false,
 		    "midi": 76,
@@ -172,7 +172,7 @@ describe('An Arp test suite', () => {
 		    "note": "E4",
 		    "time": 480,
 		  },
-		  Object {
+		  {
 		    "dur": 240,
 		    "isRest": false,
 		    "midi": 73,
@@ -180,7 +180,7 @@ describe('An Arp test suite', () => {
 		    "note": "C#4",
 		    "time": 600,
 		  },
-		  Object {
+		  {
 		    "dur": 120,
 		    "isRest": false,
 		    "midi": 71,
@@ -188,61 +188,69 @@ describe('An Arp test suite', () => {
 		    "note": "B3",
 		    "time": 840,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 120,
 		    "isRest": false,
 		    "midi": 76,
-		    "next": 1200,
+		    "next": 1080,
 		    "note": "E4",
 		    "time": 960,
 		  },
-		  Object {
+		  {
 		    "dur": 120,
 		    "isRest": false,
 		    "midi": 73,
-		    "next": 1320,
+		    "next": 1200,
 		    "note": "C#4",
-		    "time": 1200,
+		    "time": 1080,
 		  },
-		  Object {
+		  {
 		    "dur": 120,
 		    "isRest": false,
 		    "midi": 71,
-		    "next": 1440,
+		    "next": 1320,
 		    "note": "B3",
-		    "time": 1320,
+		    "time": 1200,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 120,
 		    "isRest": false,
 		    "midi": 76,
-		    "next": 1680,
+		    "next": 1440,
 		    "note": "E4",
-		    "time": 1440,
+		    "time": 1320,
 		  },
-		  Object {
+		  {
 		    "dur": 120,
 		    "isRest": false,
 		    "midi": 73,
-		    "next": 1800,
+		    "next": 1560,
 		    "note": "C#4",
-		    "time": 1680,
+		    "time": 1440,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 480,
 		    "isRest": false,
 		    "midi": 71,
 		    "next": 2040,
 		    "note": "B3",
-		    "time": 1800,
+		    "time": 1560,
 		  },
-		  Object {
-		    "dur": 120,
+		  {
+		    "dur": 240,
 		    "isRest": false,
 		    "midi": 76,
-		    "next": 2160,
+		    "next": 2280,
 		    "note": "E4",
 		    "time": 2040,
+		  },
+		  {
+		    "dur": 120,
+		    "isRest": false,
+		    "midi": 73,
+		    "next": 2400,
+		    "note": "C#4",
+		    "time": 2280,
 		  },
 		]
 	`);
@@ -253,11 +261,11 @@ describe('An Arp test suite', () => {
 
 		const scale = new Scale('A', Scale.Major);
 
-		const arp = createArp(scale, [2, '+2', 3, '+3', 7, '--7'], ['4n', '8n', '2n']);
+		const arp = createArp(scale, ['2', '+2', 3, '+3', 7, '--7'] as any, ['4n', '8n', '2n']);
 
 		expect(arp).toMatchInlineSnapshot(`
-		Array [
-		  Object {
+		[
+		  {
 		    "dur": 480,
 		    "isRest": false,
 		    "midi": 71,
@@ -265,7 +273,7 @@ describe('An Arp test suite', () => {
 		    "note": "B3",
 		    "time": 0,
 		  },
-		  Object {
+		  {
 		    "dur": 240,
 		    "isRest": false,
 		    "midi": 83,
@@ -273,7 +281,7 @@ describe('An Arp test suite', () => {
 		    "note": "B4",
 		    "time": 480,
 		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
 		    "midi": 73,
@@ -281,7 +289,7 @@ describe('An Arp test suite', () => {
 		    "note": "C#4",
 		    "time": 720,
 		  },
-		  Object {
+		  {
 		    "dur": 480,
 		    "isRest": false,
 		    "midi": 85,
@@ -289,7 +297,7 @@ describe('An Arp test suite', () => {
 		    "note": "C#5",
 		    "time": 1680,
 		  },
-		  Object {
+		  {
 		    "dur": 240,
 		    "isRest": false,
 		    "midi": 80,
@@ -297,7 +305,7 @@ describe('An Arp test suite', () => {
 		    "note": "G#4",
 		    "time": 2160,
 		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
 		    "midi": 56,
@@ -305,6 +313,25 @@ describe('An Arp test suite', () => {
 		    "note": "G#2",
 		    "time": 2400,
 		  },
+		]
+	`);
+	});
+
+	it('should generate harmonic shift', () => {
+		random.setSeed('test');
+
+		expect(genHarmonicShift(10)).toMatchInlineSnapshot(`
+		[
+		  "+6",
+		  "4",
+		  "-4",
+		  "+3",
+		  "+4",
+		  "++5",
+		  "+4",
+		  "-4",
+		  "-3",
+		  "3",
 		]
 	`);
 	});

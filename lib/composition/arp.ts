@@ -8,8 +8,15 @@ import { Event } from '../core/Event';
 import { TimeFormat } from '../core/Time';
 import { HarmonicShift } from '../constants';
 import { parseHarmonicShift } from '../utils/harmonic';
+import { distribute, random, roll } from '../tools';
 
 // TODO: v2: snap elements to closest position (create utility)
+
+export function genHarmonicShift(count: number): HarmonicShift[] {
+	const shifts = ['', '+', '-', '++', '--'];
+
+	return R.times(() => (roll(shifts, distribute.decreasing(shifts), random.float) + random.int(1, 7)) as HarmonicShift, count);
+}
 
 /**
  * Creates an arpeggio sequence of notes
@@ -35,6 +42,7 @@ export function createArp<T extends Scale | Chord>(
 ): NoteEvent[] {
 	// [ 1, 5, 4 ]
 	const start = new Time(startTime);
+
 	const melody: Note[] = ring(
 		patt.map((shift) => {
 			const { position, octaveShift } = parseHarmonicShift(shift);
@@ -59,18 +67,18 @@ export function createArp<T extends Scale | Chord>(
 	}
 
 	const ringRhythm = ring(rhythm);
-	const pattern = [];
+	const arpeggio = [];
 
 	for (let idx = 0; idx < eventsCount; idx++) {
 		const note = melody[idx];
 		const rhythmEvent = ringRhythm[idx];
 
-		pattern.push({
+		arpeggio.push({
 			...rhythmEvent,
 			note: note.pitch,
 			midi: note.m,
 		});
 	}
 
-	return R.map(NoteEvent, expandDuration(pattern, start.ticks));
+	return R.map(NoteEvent, expandDuration(arpeggio, start.ticks));
 }
