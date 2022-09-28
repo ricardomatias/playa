@@ -5,7 +5,6 @@ import { isDefined } from '../utils/types-guards';
 import { filterHighestMatches, findMatchingKeys, MatchRanking } from './matches';
 import { Note } from '../core/Note';
 import { PlayaError } from '../utils/error';
-import { natural } from '../utils/note';
 import { NoteSymbol } from '../constants/note';
 import { Key } from '../core';
 
@@ -96,8 +95,7 @@ export class SongAnalysis {
 
 			next = noteEvent.next;
 
-			if (this.memory.notes.includes(note.note) || (note.enharmonic && this.memory.notes.includes(note.enharmonic)))
-				continue;
+			if (this.isInMemory(note)) continue;
 
 			this.memorise(noteEvent, note);
 
@@ -116,7 +114,8 @@ export class SongAnalysis {
 				continue;
 			}
 
-			if (newScore < this.score) {
+			// let foo =  || (typeof hasSharps === 'boolean' && note.isSharp && !hasSharps)
+			if (newScore < this.score || this.hasDifferentAccidental(note)) {
 				// set previous memory time
 				this.memory.end = noteEvent.time;
 				this.memory.notes.pop();
@@ -155,6 +154,24 @@ export class SongAnalysis {
 		});
 	}
 
+	private hasDifferentAccidental(note: Note) {
+		if (!note.isNatural && typeof this.hasSharps === 'boolean') {
+			const n = this.hasSharps !== note.isSharp ? note.enharmonic : note.note;
+			return this.memory.notes.includes(Note.stripAccidental(n as NoteSymbol) as NoteSymbol);
+		}
+
+		return false;
+	}
+
+	private isInMemory(note: Note): boolean {
+		const hasNote = this.memory.notes.includes(note.note);
+		const hasNoteEnh = !!(note.enharmonic && this.memory.notes.includes(note.enharmonic));
+
+		if (hasNote || hasNoteEnh) return true;
+
+		return false;
+	}
+
 	private memorise(noteEvent: NoteEvent, note: Note) {
 		this.memory.notes.push(note.note);
 		this.memory.events.push(noteEvent);
@@ -188,8 +205,8 @@ export class SongAnalysis {
 			})
 			.filter(isDefined);
 
-		const sharpsCount = R.uniq(sharps.map(natural)).length;
-		const flatsCount = R.uniq(flats.map(natural)).length;
+		const sharpsCount = R.uniq(sharps.map(Note.stripAccidental)).length;
+		const flatsCount = R.uniq(flats.map(Note.stripAccidental)).length;
 
 		if (sharpsCount > flatsCount) {
 			this.memory.notes = sharps;
