@@ -1,13 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-invalid-this */
 /* eslint-disable no-var, new-cap */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import Alea from 'alea';
-import SimplexNoise from 'simplex-noise';
+import { NoiseFunction2D, createNoise2D } from 'simplex-noise';
 import { PlayaError } from '../utils';
 
 const INITIAL_SEED = 'PLAYA';
 const INITIAL_X = 0;
-const INITIAL_Y = 999;
+const INITIAL_INCREMENT = 10;
 
 /**
  * It uses Simplex Noise in order for the Random numbers to follow a "more natural" progression.
@@ -25,17 +25,17 @@ const INITIAL_Y = 999;
 export class Random {
 	private static instance: Random;
 	#x = INITIAL_X;
-	#y = INITIAL_Y;
 	#prevX = 0;
-	#prevY = 0;
-	/*@ts-expect-error */
+	// @ts-ignore
 	#rng = new Alea(INITIAL_SEED);
-	#simplex: SimplexNoise = new SimplexNoise(this.#rng);
+	#simplex: NoiseFunction2D = createNoise2D(this.#rng);
 	#seed: string | number = INITIAL_SEED;
+	#prevSeed: string | number = INITIAL_SEED;
+	#prevIncrement = 0;
 	#state?: [number, number, number, number];
 	#seedCounter = 0;
 
-	public increment = 10;
+	public increment = INITIAL_INCREMENT;
 
 	public static getInstance(): Random {
 		if (!Random.instance) {
@@ -83,9 +83,10 @@ export class Random {
 	push(): void {
 		this.#state = this.#rng.exportState();
 		this.#prevX = this.#x;
-		this.#prevY = this.#y;
+		this.#prevSeed = this.#seed;
+		this.#prevIncrement = this.increment;
 
-		this.setSeed(this.seed, this.increment);
+		this.setSeed(this.#seed, this.increment);
 	}
 
 	/**
@@ -94,17 +95,22 @@ export class Random {
 	 * @memberof Tools.Random
 	 */
 	pop(): void {
+		this.#seed = this.#prevSeed;
+		this.increment = this.#prevIncrement;
 		this.#x = this.#prevX;
-		this.#y = this.#prevY;
-		this.#prevX = 0;
-		this.#prevY = 0;
 
 		if (this.#state) {
+			// @ts-ignore
 			this.#rng.importState(this.#state);
-			this.#simplex = new SimplexNoise(this.#rng);
+			// this.#simplex = createNoise2D(this.#rng);
 		} else {
 			throw new PlayaError('Random', 'Must use .push() before .pop()');
 		}
+
+		this.#prevX = 0;
+		this.#state = undefined;
+		this.#prevIncrement = 0;
+		this.#prevSeed = INITIAL_SEED;
 	}
 
 	/**
@@ -117,12 +123,31 @@ export class Random {
 	 */
 	setSeed = (seed: string | number, increment: number = this.increment): void => {
 		this.#x = 0;
-		this.#y = 999;
 		this.#seed = seed;
 		this.increment = increment;
-		/*@ts-ignore */
+		// @ts-ignore
 		this.#rng = new Alea(seed);
-		this.#simplex = new SimplexNoise(this.#rng);
+		this.#simplex = createNoise2D(this.#rng);
+	};
+
+	/**
+	 * Creates a fresh seed based
+	 * @function freshSeed
+	 * @memberof Tools.Random
+	 *
+	 * @param {Number} increment
+	 */
+	freshSeed = (increment: number = this.increment): void => {
+		this.setSeed(Math.floor(Math.random() * 9999999).toString(), increment);
+	};
+
+	/**
+	 * Resets to initial state with the defaults
+	 * @function reset
+	 * @memberof Tools.Random
+	 */
+	reset = () => {
+		this.setSeed(INITIAL_SEED, INITIAL_INCREMENT);
 	};
 
 	/**
@@ -153,9 +178,8 @@ export class Random {
 	 */
 	float = (max = 1.0, min = 0.0): number => {
 		this.#x += this.increment;
-		this.#y += this.increment;
 
-		const value = (this.#simplex.noise2D(this.#x, this.#y) + 1) / 2;
+		const value = (this.#simplex(this.#x, 1.0) + 1) / 2;
 		const result = min + value * (max - min);
 
 		return result;
