@@ -1,6 +1,7 @@
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
@@ -14,11 +15,6 @@ export default {
 	// The directory where Jest should store its cached dependency information
 	// cacheDirectory: "/private/var/folders/s4/ffqt6x516015rf37_gl41sqm0000gn/T/jest_dx",
 	preset: 'ts-jest',
-	globals: {
-		'ts-jest': {
-			tsconfig: 'tsconfig.test.json',
-		},
-	},
 	// Automatically clear mock calls and instances between every test
 	clearMocks: true,
 
@@ -64,9 +60,7 @@ export default {
 	// globals: { },
 
 	// An array of directory names to be searched recursively up from the requiring module's location
-	// moduleDirectories: [
-	//   "node_modules"
-	// ],
+	// moduleDirectories: ['node_modules', 'lib'],
 
 	// An array of file extensions your modules use
 	moduleFileExtensions: ['js', 'ts', 'node'],
@@ -156,11 +150,17 @@ export default {
 	// A map from regular expressions to paths to transformers
 	transform: {
 		'node_modules/@ricardomatias/ring/.+\\.(j|t)sx?$': 'ts-jest',
+		'^.+\\.tsx?$': [
+			'ts-jest',
+			{
+				tsconfig: 'tsconfig.test.json',
+			},
+		],
 	},
 
 	// An array of regexp pattern strings that are matched against
 	// all source file paths, matched files will skip transformation
-	transformIgnorePatterns: ['node_modules/(?!(@ricardomatias\/ring)/.*)'],
+	transformIgnorePatterns: ['node_modules/(?!(@ricardomatias/ring)/.*)'],
 	// An array of regexp pattern strings that are matched against
 	// all modules before the module loader will automatically return a mock for them
 	// unmockedModulePathPatterns: undefined,

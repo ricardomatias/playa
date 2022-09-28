@@ -20,9 +20,9 @@
 		"declarationDir": "./build/types",
 	},
 	"include": [
-		"./lib/**/*"
+		"lib/**/*"
 	],
 	"exclude": [
-		"./lib/types.js"
+		"lib/types.js"
 	]
 }
