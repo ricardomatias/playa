@@ -1,29 +1,38 @@
+import { mapRepeat } from '../../lib/tools';
 import { chooseRepeatable, choose, chooseMany } from '../../lib/tools/choose';
 import random from '../../lib/tools/random';
 
 const AM7 = ['A', 'C', 'E', 'G'];
 
 describe('A Choose test suite', () => {
+	beforeEach(random.reset);
+
 	it('should return a random element', () => {
 		random.setSeed('CHOOSE');
 
-		expect(choose(AM7)).toBe('E');
-		expect(choose(AM7)).toBe('E');
-		expect(choose(AM7)).toBe('E');
-		expect(choose(AM7)).toBe('E');
-		expect(choose(AM7)).toBe('E');
-		expect(choose(AM7)).toBe('G');
-		expect(choose(AM7)).toBe('E');
-		expect(choose(AM7)).toBe('C');
+		expect(mapRepeat(10, () => choose(AM7))).toMatchInlineSnapshot(`
+		[
+		  "E",
+		  "C",
+		  "C",
+		  "C",
+		  "C",
+		  "A",
+		  "C",
+		  "E",
+		  "C",
+		  "E",
+		]
+	`);
 	});
 
 	it('should return 2 random elements basic', () => {
 		random.setSeed('CHOOSE');
 
 		expect(chooseMany(AM7, 2)).toMatchInlineSnapshot(`
-		Array [
+		[
 		  "E",
-		  "G",
+		  "A",
 		]
 	`);
 	});
@@ -32,9 +41,9 @@ describe('A Choose test suite', () => {
 		random.setSeed('CHOOSE');
 
 		expect(chooseMany(AM7, 2, 'C')).toMatchInlineSnapshot(`
-		Array [
+		[
 		  "E",
-		  "G",
+		  "A",
 		]
 	`);
 	});
@@ -44,17 +53,17 @@ describe('A Choose test suite', () => {
 
 		const elements = chooseRepeatable(['A', 'C', 'E'], 10);
 		expect(elements).toMatchInlineSnapshot(`
-		Array [
+		[
+		  "C",
+		  "A",
+		  "C",
+		  "A",
 		  "C",
 		  "E",
 		  "C",
 		  "E",
 		  "C",
-		  "A",
-		  "C",
-		  "A",
-		  "C",
-		  "A",
+		  "E",
 		]
 	`);
 	});

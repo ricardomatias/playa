@@ -10,15 +10,15 @@ describe('A Percussion test suite', () => {
 
 		// then
 		expect(perc).toMatchInlineSnapshot(`
-		Object {
-		  "patterns": Array [
-		    Array [
+		{
+		  "patterns": [
+		    [
 		      1,
 		      0,
 		      1,
 		      0,
 		    ],
-		    Array [
+		    [
 		      1,
 		      0,
 		      0,
@@ -39,9 +39,9 @@ describe('A Percussion test suite', () => {
 		// then
 
 		expect(perc).toMatchInlineSnapshot(`
-		Object {
-		  "patterns": Array [
-		    Array [
+		{
+		  "patterns": [
+		    [
 		      1,
 		      0,
 		      1,
@@ -51,7 +51,7 @@ describe('A Percussion test suite', () => {
 		      1,
 		      0,
 		    ],
-		    Array [
+		    [
 		      1,
 		      0,
 		      0,
@@ -61,7 +61,7 @@ describe('A Percussion test suite', () => {
 		      0,
 		      0,
 		    ],
-		    Array [
+		    [
 		      1,
 		      1,
 		      1,
@@ -71,7 +71,7 @@ describe('A Percussion test suite', () => {
 		      1,
 		      1,
 		    ],
-		    Array [
+		    [
 		      1,
 		      0,
 		      1,
@@ -94,9 +94,9 @@ describe('A Percussion test suite', () => {
 		const perc = createPercussion(8, 4);
 		// then
 		expect(perc).toMatchInlineSnapshot(`
-		Object {
-		  "patterns": Array [
-		    Array [
+		{
+		  "patterns": [
+		    [
 		      1,
 		      0,
 		      1,
@@ -106,7 +106,7 @@ describe('A Percussion test suite', () => {
 		      1,
 		      0,
 		    ],
-		    Array [
+		    [
 		      1,
 		      0,
 		      1,
@@ -116,7 +116,7 @@ describe('A Percussion test suite', () => {
 		      1,
 		      1,
 		    ],
-		    Array [
+		    [
 		      1,
 		      0,
 		      0,
@@ -126,7 +126,7 @@ describe('A Percussion test suite', () => {
 		      1,
 		      0,
 		    ],
-		    Array [
+		    [
 		      1,
 		      0,
 		      1,
@@ -149,9 +149,9 @@ describe('A Percussion test suite', () => {
 		let perc = createPercussion(8, [5, 3]);
 
 		expect(perc).toMatchInlineSnapshot(`
-		Object {
-		  "patterns": Array [
-		    Array [
+		{
+		  "patterns": [
+		    [
 		      1,
 		      0,
 		      1,
@@ -161,7 +161,7 @@ describe('A Percussion test suite', () => {
 		      0,
 		      1,
 		    ],
-		    Array [
+		    [
 		      1,
 		      0,
 		      0,
@@ -180,9 +180,9 @@ describe('A Percussion test suite', () => {
 
 		// then
 		expect(perc).toMatchInlineSnapshot(`
-		Object {
-		  "patterns": Array [
-		    Array [
+		{
+		  "patterns": [
+		    [
 		      1,
 		      1,
 		      0,
@@ -192,7 +192,7 @@ describe('A Percussion test suite', () => {
 		      1,
 		      0,
 		    ],
-		    Array [
+		    [
 		      1,
 		      0,
 		      0,
@@ -216,15 +216,15 @@ describe('A Percussion test suite', () => {
 
 		// then
 		expect(perc).toMatchInlineSnapshot(`
-		Object {
-		  "patterns": Array [
-		    Array [
+		{
+		  "patterns": [
+		    [
 		      1,
 		      0,
 		      1,
 		      0,
 		    ],
-		    Array [
+		    [
 		      0,
 		      0,
 		      1,

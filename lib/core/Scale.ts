@@ -1,10 +1,9 @@
 import * as R from 'ramda';
-import HarmonyBase from './HarmonyBase';
+import { HarmonyBase } from './HarmonyBase';
 import { Note, NoteLike } from './Note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { Interval, HarmonicPosition, Semitones } from '../constants/intervals';
 import assignOctaves from '../utils/octaves';
-import { natural } from '../utils/note';
 import { PlayaError } from '../utils';
 import { isUndefined } from '../utils/types-guards';
 import { Octaves } from '../common/types';
@@ -197,8 +196,8 @@ export class Scale extends HarmonyBase {
 		}
 
 		// This is to figure out if flats is a better match than sharps when the root note is natural
-		const naturalNotesLenSharp = R.length(R.uniqBy((note) => natural(note), baseSharpNotes));
-		const naturalNotesLenFlat = R.length(R.uniqBy((note) => natural(note), baseFlatNotes));
+		const naturalNotesLenSharp = R.length(R.uniqBy((note) => Note.stripAccidental(note), baseSharpNotes));
+		const naturalNotesLenFlat = R.length(R.uniqBy((note) => Note.stripAccidental(note), baseFlatNotes));
 
 		if (rootNote.isFlat) {
 			this._hasFlats = true;

@@ -1,862 +1,862 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`An Octaves Test Suite should map - chromatic 1`] = `
-Array [
-  Object {
+[
+  {
     "C-2": 0,
   },
-  Object {
+  {
     "C#-2": 1,
   },
-  Object {
+  {
     "D-2": 2,
   },
-  Object {
+  {
     "D#-2": 3,
   },
-  Object {
+  {
     "E-2": 4,
   },
-  Object {
+  {
     "F-2": 5,
   },
-  Object {
+  {
     "F#-2": 6,
   },
-  Object {
+  {
     "G-2": 7,
   },
-  Object {
+  {
     "G#-2": 8,
   },
-  Object {
+  {
     "A-2": 9,
   },
-  Object {
+  {
     "A#-2": 10,
   },
-  Object {
+  {
     "B-2": 11,
   },
-  Object {
+  {
     "C-1": 12,
   },
-  Object {
+  {
     "C#-1": 13,
   },
-  Object {
+  {
     "D-1": 14,
   },
-  Object {
+  {
     "D#-1": 15,
   },
-  Object {
+  {
     "E-1": 16,
   },
-  Object {
+  {
     "F-1": 17,
   },
-  Object {
+  {
     "F#-1": 18,
   },
-  Object {
+  {
     "G-1": 19,
   },
-  Object {
+  {
     "G#-1": 20,
   },
-  Object {
+  {
     "A-1": 21,
   },
-  Object {
+  {
     "A#-1": 22,
   },
-  Object {
+  {
     "B-1": 23,
   },
-  Object {
+  {
     "C0": 24,
   },
-  Object {
+  {
     "C#0": 25,
   },
-  Object {
+  {
     "D0": 26,
   },
-  Object {
+  {
     "D#0": 27,
   },
-  Object {
+  {
     "E0": 28,
   },
-  Object {
+  {
     "F0": 29,
   },
-  Object {
+  {
     "F#0": 30,
   },
-  Object {
+  {
     "G0": 31,
   },
-  Object {
+  {
     "G#0": 32,
   },
-  Object {
+  {
     "A0": 33,
   },
-  Object {
+  {
     "A#0": 34,
   },
-  Object {
+  {
     "B0": 35,
   },
-  Object {
+  {
     "C1": 36,
   },
-  Object {
+  {
     "C#1": 37,
   },
-  Object {
+  {
     "D1": 38,
   },
-  Object {
+  {
     "D#1": 39,
   },
-  Object {
+  {
     "E1": 40,
   },
-  Object {
+  {
     "F1": 41,
   },
-  Object {
+  {
     "F#1": 42,
   },
-  Object {
+  {
     "G1": 43,
   },
-  Object {
+  {
     "G#1": 44,
   },
-  Object {
+  {
     "A1": 45,
   },
-  Object {
+  {
     "A#1": 46,
   },
-  Object {
+  {
     "B1": 47,
   },
-  Object {
+  {
     "C2": 48,
   },
-  Object {
+  {
     "C#2": 49,
   },
-  Object {
+  {
     "D2": 50,
   },
-  Object {
+  {
     "D#2": 51,
   },
-  Object {
+  {
     "E2": 52,
   },
-  Object {
+  {
     "F2": 53,
   },
-  Object {
+  {
     "F#2": 54,
   },
-  Object {
+  {
     "G2": 55,
   },
-  Object {
+  {
     "G#2": 56,
   },
-  Object {
+  {
     "A2": 57,
   },
-  Object {
+  {
     "A#2": 58,
   },
-  Object {
+  {
     "B2": 59,
   },
-  Object {
+  {
     "C3": 60,
   },
-  Object {
+  {
     "C#3": 61,
   },
-  Object {
+  {
     "D3": 62,
   },
-  Object {
+  {
     "D#3": 63,
   },
-  Object {
+  {
     "E3": 64,
   },
-  Object {
+  {
     "F3": 65,
   },
-  Object {
+  {
     "F#3": 66,
   },
-  Object {
+  {
     "G3": 67,
   },
-  Object {
+  {
     "G#3": 68,
   },
-  Object {
+  {
     "A3": 69,
   },
-  Object {
+  {
     "A#3": 70,
   },
-  Object {
+  {
     "B3": 71,
   },
-  Object {
+  {
     "C4": 72,
   },
-  Object {
+  {
     "C#4": 73,
   },
-  Object {
+  {
     "D4": 74,
   },
-  Object {
+  {
     "D#4": 75,
   },
-  Object {
+  {
     "E4": 76,
   },
-  Object {
+  {
     "F4": 77,
   },
-  Object {
+  {
     "F#4": 78,
   },
-  Object {
+  {
     "G4": 79,
   },
-  Object {
+  {
     "G#4": 80,
   },
-  Object {
+  {
     "A4": 81,
   },
-  Object {
+  {
     "A#4": 82,
   },
-  Object {
+  {
     "B4": 83,
   },
-  Object {
+  {
     "C5": 84,
   },
-  Object {
+  {
     "C#5": 85,
   },
-  Object {
+  {
     "D5": 86,
   },
-  Object {
+  {
     "D#5": 87,
   },
-  Object {
+  {
     "E5": 88,
   },
-  Object {
+  {
     "F5": 89,
   },
-  Object {
+  {
     "F#5": 90,
   },
-  Object {
+  {
     "G5": 91,
   },
-  Object {
+  {
     "G#5": 92,
   },
-  Object {
+  {
     "A5": 93,
   },
-  Object {
+  {
     "A#5": 94,
   },
-  Object {
+  {
     "B5": 95,
   },
-  Object {
+  {
     "C6": 96,
   },
-  Object {
+  {
     "C#6": 97,
   },
-  Object {
+  {
     "D6": 98,
   },
-  Object {
+  {
     "D#6": 99,
   },
-  Object {
+  {
     "E6": 100,
   },
-  Object {
+  {
     "F6": 101,
   },
-  Object {
+  {
     "F#6": 102,
   },
-  Object {
+  {
     "G6": 103,
   },
-  Object {
+  {
     "G#6": 104,
   },
-  Object {
+  {
     "A6": 105,
   },
-  Object {
+  {
     "A#6": 106,
   },
-  Object {
+  {
     "B6": 107,
   },
-  Object {
+  {
     "C7": 108,
   },
-  Object {
+  {
     "C#7": 109,
   },
-  Object {
+  {
     "D7": 110,
   },
-  Object {
+  {
     "D#7": 111,
   },
-  Object {
+  {
     "E7": 112,
   },
-  Object {
+  {
     "F7": 113,
   },
-  Object {
+  {
     "F#7": 114,
   },
-  Object {
+  {
     "G7": 115,
   },
-  Object {
+  {
     "G#7": 116,
   },
-  Object {
+  {
     "A7": 117,
   },
-  Object {
+  {
     "A#7": 118,
   },
-  Object {
+  {
     "B7": 119,
   },
-  Object {
+  {
     "C8": 120,
   },
-  Object {
+  {
     "C#8": 121,
   },
-  Object {
+  {
     "D8": 122,
   },
-  Object {
+  {
     "D#8": 123,
   },
-  Object {
+  {
     "E8": 124,
   },
-  Object {
+  {
     "F8": 125,
   },
-  Object {
+  {
     "F#8": 126,
   },
-  Object {
+  {
     "G8": 127,
   },
 ]
 `;
 
 exports[`An Octaves Test Suite should map - flat 1`] = `
-Array [
-  Object {
+[
+  {
     "Ab4": 80,
   },
-  Object {
+  {
     "Bb4": 82,
   },
-  Object {
+  {
     "C5": 84,
   },
-  Object {
+  {
     "Db5": 85,
   },
-  Object {
+  {
     "Eb5": 87,
   },
-  Object {
+  {
     "F5": 89,
   },
-  Object {
+  {
     "G5": 91,
   },
-  Object {
+  {
     "Ab5": 92,
   },
-  Object {
+  {
     "Bb5": 94,
   },
-  Object {
+  {
     "C6": 96,
   },
-  Object {
+  {
     "Db6": 97,
   },
-  Object {
+  {
     "Eb6": 99,
   },
-  Object {
+  {
     "F6": 101,
   },
-  Object {
+  {
     "G6": 103,
   },
-  Object {
+  {
     "Ab6": 104,
   },
-  Object {
+  {
     "Bb6": 106,
   },
-  Object {
+  {
     "C7": 108,
   },
-  Object {
+  {
     "Db7": 109,
   },
-  Object {
+  {
     "Eb7": 111,
   },
-  Object {
+  {
     "F7": 113,
   },
-  Object {
+  {
     "G7": 115,
   },
-  Object {
+  {
     "Ab7": 116,
   },
-  Object {
+  {
     "Bb7": 118,
   },
-  Object {
+  {
     "C8": 120,
   },
-  Object {
+  {
     "Db8": 121,
   },
-  Object {
+  {
     "Eb8": 123,
   },
-  Object {
+  {
     "F8": 125,
   },
-  Object {
+  {
     "G8": 127,
   },
 ]
 `;
 
 exports[`An Octaves Test Suite should map - major with flats 1`] = `
-Array [
-  Object {
+[
+  {
     "F-1": 17,
   },
-  Object {
+  {
     "G-1": 19,
   },
-  Object {
+  {
     "A-1": 21,
   },
-  Object {
+  {
     "Bb-1": 22,
   },
-  Object {
+  {
     "C0": 24,
   },
-  Object {
+  {
     "D0": 26,
   },
-  Object {
+  {
     "E0": 28,
   },
 ]
 `;
 
 exports[`An Octaves Test Suite should map - natural 1`] = `
-Array [
-  Object {
+[
+  {
     "C-2": 0,
   },
-  Object {
+  {
     "D-2": 2,
   },
-  Object {
+  {
     "E-2": 4,
   },
-  Object {
+  {
     "F-2": 5,
   },
-  Object {
+  {
     "G-2": 7,
   },
-  Object {
+  {
     "A-2": 9,
   },
-  Object {
+  {
     "B-2": 11,
   },
-  Object {
+  {
     "C-1": 12,
   },
-  Object {
+  {
     "D-1": 14,
   },
-  Object {
+  {
     "E-1": 16,
   },
-  Object {
+  {
     "F-1": 17,
   },
-  Object {
+  {
     "G-1": 19,
   },
-  Object {
+  {
     "A-1": 21,
   },
-  Object {
+  {
     "B-1": 23,
   },
-  Object {
+  {
     "C0": 24,
   },
-  Object {
+  {
     "D0": 26,
   },
-  Object {
+  {
     "E0": 28,
   },
-  Object {
+  {
     "F0": 29,
   },
-  Object {
+  {
     "G0": 31,
   },
-  Object {
+  {
     "A0": 33,
   },
-  Object {
+  {
     "B0": 35,
   },
-  Object {
+  {
     "C1": 36,
   },
-  Object {
+  {
     "D1": 38,
   },
-  Object {
+  {
     "E1": 40,
   },
-  Object {
+  {
     "F1": 41,
   },
-  Object {
+  {
     "G1": 43,
   },
-  Object {
+  {
     "A1": 45,
   },
-  Object {
+  {
     "B1": 47,
   },
-  Object {
+  {
     "C2": 48,
   },
-  Object {
+  {
     "D2": 50,
   },
-  Object {
+  {
     "E2": 52,
   },
-  Object {
+  {
     "F2": 53,
   },
-  Object {
+  {
     "G2": 55,
   },
-  Object {
+  {
     "A2": 57,
   },
-  Object {
+  {
     "B2": 59,
   },
-  Object {
+  {
     "C3": 60,
   },
-  Object {
+  {
     "D3": 62,
   },
-  Object {
+  {
     "E3": 64,
   },
-  Object {
+  {
     "F3": 65,
   },
-  Object {
+  {
     "G3": 67,
   },
-  Object {
+  {
     "A3": 69,
   },
-  Object {
+  {
     "B3": 71,
   },
-  Object {
+  {
     "C4": 72,
   },
-  Object {
+  {
     "D4": 74,
   },
-  Object {
+  {
     "E4": 76,
   },
-  Object {
+  {
     "F4": 77,
   },
-  Object {
+  {
     "G4": 79,
   },
-  Object {
+  {
     "A4": 81,
   },
-  Object {
+  {
     "B4": 83,
   },
-  Object {
+  {
     "C5": 84,
   },
-  Object {
+  {
     "D5": 86,
   },
-  Object {
+  {
     "E5": 88,
   },
-  Object {
+  {
     "F5": 89,
   },
-  Object {
+  {
     "G5": 91,
   },
-  Object {
+  {
     "A5": 93,
   },
-  Object {
+  {
     "B5": 95,
   },
-  Object {
+  {
     "C6": 96,
   },
-  Object {
+  {
     "D6": 98,
   },
-  Object {
+  {
     "E6": 100,
   },
-  Object {
+  {
     "F6": 101,
   },
-  Object {
+  {
     "G6": 103,
   },
-  Object {
+  {
     "A6": 105,
   },
-  Object {
+  {
     "B6": 107,
   },
-  Object {
+  {
     "C7": 108,
   },
-  Object {
+  {
     "D7": 110,
   },
-  Object {
+  {
     "E7": 112,
   },
-  Object {
+  {
     "F7": 113,
   },
-  Object {
+  {
     "G7": 115,
   },
-  Object {
+  {
     "A7": 117,
   },
-  Object {
+  {
     "B7": 119,
   },
-  Object {
+  {
     "C8": 120,
   },
-  Object {
+  {
     "D8": 122,
   },
-  Object {
+  {
     "E8": 124,
   },
-  Object {
+  {
     "F8": 125,
   },
-  Object {
+  {
     "G8": 127,
   },
 ]
 `;
 
 exports[`An Octaves Test Suite should map - pentatonic 1`] = `
-Array [
-  Object {
+[
+  {
     "Eb-2": 3,
   },
-  Object {
+  {
     "F-2": 5,
   },
-  Object {
+  {
     "G-2": 7,
   },
-  Object {
+  {
     "Bb-2": 10,
   },
-  Object {
+  {
     "C-1": 12,
   },
 ]
 `;
 
 exports[`An Octaves Test Suite should map - sharp 1`] = `
-Array [
-  Object {
+[
+  {
     "E3": 64,
   },
-  Object {
+  {
     "F#3": 66,
   },
-  Object {
+  {
     "G#3": 68,
   },
-  Object {
+  {
     "A3": 69,
   },
-  Object {
+  {
     "B3": 71,
   },
-  Object {
+  {
     "C#4": 73,
   },
-  Object {
+  {
     "D#4": 75,
   },
-  Object {
+  {
     "E4": 76,
   },
-  Object {
+  {
     "F#4": 78,
   },
-  Object {
+  {
     "G#4": 80,
   },
-  Object {
+  {
     "A4": 81,
   },
-  Object {
+  {
     "B4": 83,
   },
-  Object {
+  {
     "C#5": 85,
   },
-  Object {
+  {
     "D#5": 87,
   },
 ]
 `;
 
 exports[`An Octaves Test Suite should map 9m chord 1`] = `
-Array [
-  Object {
+[
+  {
     "Ab4": 80,
   },
-  Object {
+  {
     "B4": 83,
   },
-  Object {
+  {
     "Eb5": 87,
   },
-  Object {
+  {
     "Gb5": 90,
   },
-  Object {
+  {
     "Bb5": 94,
   },
 ]
 `;
 
 exports[`An Octaves Test Suite should map M13 chord 1`] = `
-Array [
-  Object {
+[
+  {
     "C4": 72,
   },
-  Object {
+  {
     "E4": 76,
   },
-  Object {
+  {
     "G4": 79,
   },
-  Object {
+  {
     "B4": 83,
   },
-  Object {
+  {
     "D5": 86,
   },
-  Object {
+  {
     "A5": 93,
   },
-  Object {
+  {
     "C6": 96,
   },
-  Object {
+  {
     "E6": 100,
   },
-  Object {
+  {
     "G6": 103,
   },
-  Object {
+  {
     "B6": 107,
   },
-  Object {
+  {
     "D7": 110,
   },
-  Object {
+  {
     "A7": 117,
   },
 ]

@@ -11,3 +11,8 @@ export enum RhythmType {
 }
 
 export type DistributionFunction = <T>(distribution: T | T[], precision?: number | undefined) => string[];
+
+export enum ChordChange {
+	Jump = 'Jump',
+	Closest = 'Closest',
+}

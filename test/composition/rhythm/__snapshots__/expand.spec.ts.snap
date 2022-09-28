@@ -1,190 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#expand should expand irregular rhythm 1`] = `
-Array [
-  Object {
+[
+  {
     "dur": 720,
     "isRest": false,
     "next": 720,
     "time": 0,
   },
-  Object {
-    "dur": 720,
+  {
+    "dur": 960,
     "isRest": false,
-    "next": 1440,
+    "next": 1680,
     "time": 720,
   },
-  Object {
+  {
     "dur": 720,
     "isRest": false,
-    "next": 2160,
-    "time": 1440,
+    "next": 2400,
+    "time": 1680,
   },
-  Object {
-    "dur": 720,
+  {
+    "dur": 480,
     "isRest": false,
     "next": 2880,
-    "time": 2160,
+    "time": 2400,
   },
-  Object {
+  {
     "dur": 720,
     "isRest": false,
     "next": 3600,
     "time": 2880,
   },
-  Object {
-    "dur": 720,
+  {
+    "dur": 960,
     "isRest": false,
-    "next": 4320,
+    "next": 4560,
     "time": 3600,
   },
-  Object {
+  {
     "dur": 720,
     "isRest": false,
-    "next": 5040,
-    "time": 4320,
+    "next": 5280,
+    "time": 4560,
   },
-  Object {
-    "dur": 720,
+  {
+    "dur": 480,
     "isRest": false,
     "next": 5760,
-    "time": 5040,
+    "time": 5280,
   },
-  Object {
+  {
     "dur": 720,
     "isRest": false,
     "next": 6480,
     "time": 5760,
   },
-  Object {
-    "dur": 720,
+  {
+    "dur": 960,
     "isRest": false,
-    "next": 7200,
+    "next": 7440,
     "time": 6480,
   },
-  Object {
+  {
     "dur": 720,
     "isRest": false,
-    "next": 7920,
-    "time": 7200,
+    "next": 8160,
+    "time": 7440,
   },
 ]
 `;
 
 exports[`#expand should expand late starter simple 1`] = `
-Array [
-  Object {
-    "dur": 720,
+[
+  {
+    "dur": 1440,
     "isRest": false,
     "midi": 69,
-    "next": 4560,
+    "next": 5280,
     "note": "A3",
     "time": 3840,
   },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "midi": 71,
-    "next": 5280,
-    "note": "B3",
-    "time": 4560,
-  },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
-    "midi": 69,
+    "midi": 71,
     "next": 5760,
-    "note": "A3",
+    "note": "B3",
     "time": 5280,
   },
-  Object {
-    "dur": 720,
+  {
+    "dur": 1440,
     "isRest": false,
     "midi": 69,
-    "next": 6480,
+    "next": 7200,
     "note": "A3",
     "time": 5760,
   },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "midi": 71,
-    "next": 7200,
-    "note": "B3",
-    "time": 6480,
-  },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
-    "midi": 69,
+    "midi": 71,
     "next": 7680,
-    "note": "A3",
+    "note": "B3",
     "time": 7200,
   },
 ]
 `;
 
 exports[`#expand should expand simple 1`] = `
-Array [
-  Object {
+[
+  {
     "dur": 720,
     "isRest": false,
     "next": 720,
     "time": 0,
   },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 1440,
-    "time": 720,
-  },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 2160,
-    "time": 1440,
-  },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 2880,
-    "time": 2160,
-  },
-  Object {
+  {
     "dur": 960,
     "isRest": false,
-    "next": 3840,
-    "time": 2880,
+    "next": 1680,
+    "time": 720,
   },
-  Object {
+  {
+    "dur": 720,
+    "isRest": false,
+    "next": 2400,
+    "time": 1680,
+  },
+  {
+    "dur": 1440,
+    "isRest": false,
+    "next": 3840,
+    "time": 2400,
+  },
+  {
     "dur": 720,
     "isRest": false,
     "next": 4560,
     "time": 3840,
   },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 5280,
-    "time": 4560,
-  },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 6000,
-    "time": 5280,
-  },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "next": 6720,
-    "time": 6000,
-  },
-  Object {
+  {
     "dur": 960,
     "isRest": false,
+    "next": 5520,
+    "time": 4560,
+  },
+  {
+    "dur": 720,
+    "isRest": false,
+    "next": 6240,
+    "time": 5520,
+  },
+  {
+    "dur": 1440,
+    "isRest": false,
     "next": 7680,
-    "time": 6720,
+    "time": 6240,
   },
 ]
 `;

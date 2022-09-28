@@ -16,7 +16,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('C', Scale.Intervals.Chromatic);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "C3",
 			  "C#3",
 			  "D3",
@@ -37,7 +37,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('C', Scale.Major);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "C3",
 			  "D3",
 			  "E3",
@@ -53,7 +53,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('G#', Scale.Minor);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "G#3",
 			  "A#3",
 			  "B3",
@@ -69,7 +69,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('Db', Scale.Lydian);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "Db3",
 			  "Eb3",
 			  "F3",
@@ -85,7 +85,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('A', Scale.Locrian);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "A3",
 			  "Bb3",
 			  "C4",
@@ -101,7 +101,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('G', Scale.Phrygian);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "G3",
 			  "Ab3",
 			  "Bb3",
@@ -117,7 +117,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('C', Scale.Intervals.MinorPentatonic);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "C3",
 			  "D#3",
 			  "F3",
@@ -131,7 +131,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('C', Scale.Intervals.MelodicMinor);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "C3",
 			  "D3",
 			  "Eb3",
@@ -147,7 +147,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('F#', Scale.Intervals.Altered);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "F#3",
 			  "G3",
 			  "A3",
@@ -163,7 +163,7 @@ describe('Scale Test Suite', () => {
 			const scale = new Scale('B', Scale.Lydian);
 
 			expect(scale.pitches).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "B3",
 			  "C#4",
 			  "D#4",

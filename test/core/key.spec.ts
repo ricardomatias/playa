@@ -159,11 +159,11 @@ describe('Key Test Suite', () => {
 			const key = new Key('C', Key.Ionian);
 
 			expect(testModulation(key.IV)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "FM7",
 			  "modePositionRoman": "IV",
 			  "name": "Lydian",
-			  "pitches": Array [
+			  "pitches": [
 			    "F3",
 			    "G3",
 			    "A3",
@@ -177,11 +177,11 @@ describe('Key Test Suite', () => {
 		`);
 
 			expect(testModulation(key.I)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "CM7",
 			  "modePositionRoman": "I",
 			  "name": "Ionian",
-			  "pitches": Array [
+			  "pitches": [
 			    "C3",
 			    "D3",
 			    "E3",
@@ -201,11 +201,11 @@ describe('Key Test Suite', () => {
 			const key = new Key('C', Key.Ionian);
 
 			expect(testModulation(key.getModeFromNote('F'))).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "FM7",
 			  "modePositionRoman": "IV",
 			  "name": "Lydian",
-			  "pitches": Array [
+			  "pitches": [
 			    "F3",
 			    "G3",
 			    "A3",
@@ -219,11 +219,11 @@ describe('Key Test Suite', () => {
 		`);
 
 			expect(testModulation(key.getModeFromNote('C'))).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "CM7",
 			  "modePositionRoman": "I",
 			  "name": "Ionian",
-			  "pitches": Array [
+			  "pitches": [
 			    "C3",
 			    "D3",
 			    "E3",
@@ -267,11 +267,11 @@ describe('Key Test Suite', () => {
 			key.modulateMode();
 
 			expect(testModulation(key)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "Cm7",
 			  "modePositionRoman": "III",
 			  "name": "Phrygian",
-			  "pitches": Array [
+			  "pitches": [
 			    "C3",
 			    "Db3",
 			    "Eb3",
@@ -291,20 +291,20 @@ describe('Key Test Suite', () => {
 			key.modulateMode({ direction: Key.ModulateDown });
 
 			expect(testModulation(key)).toMatchInlineSnapshot(`
-			Object {
-			  "chordName": "AbM7",
-			  "modePositionRoman": "I",
-			  "name": "Ionian",
-			  "pitches": Array [
-			    "Ab3",
+			{
+			  "chordName": "Bbm7",
+			  "modePositionRoman": "II",
+			  "name": "Dorian",
+			  "pitches": [
 			    "Bb3",
 			    "C4",
 			    "Db4",
 			    "Eb4",
 			    "F4",
 			    "G4",
+			    "Ab4",
 			  ],
-			  "root": "Ab",
+			  "root": "Bb",
 			}
 		`);
 		});
@@ -315,11 +315,11 @@ describe('Key Test Suite', () => {
 			key.modulateMode();
 
 			expect(testModulation(key)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "DbM7",
 			  "modePositionRoman": "IV",
 			  "name": "Lydian",
-			  "pitches": Array [
+			  "pitches": [
 			    "Db3",
 			    "Eb3",
 			    "F3",
@@ -339,11 +339,11 @@ describe('Key Test Suite', () => {
 			key.modulateMode({ direction: Key.ModulateUp });
 
 			expect(testModulation(key)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "Fm7",
 			  "modePositionRoman": "VI",
 			  "name": "Aeolian",
-			  "pitches": Array [
+			  "pitches": [
 			    "F3",
 			    "G3",
 			    "Ab3",
@@ -363,11 +363,11 @@ describe('Key Test Suite', () => {
 			key.modulateMode({ direction: Key.ModulateUp });
 
 			expect(testModulation(key)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "Gm7b5",
 			  "modePositionRoman": "VII",
 			  "name": "Locrian",
-			  "pitches": Array [
+			  "pitches": [
 			    "G3",
 			    "Ab3",
 			    "Bb3",
@@ -389,11 +389,11 @@ describe('Key Test Suite', () => {
 			newKey.modulateMode({ direction: Key.ModulateDown });
 
 			expect(testModulation(newKey)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "Em7",
 			  "modePositionRoman": "II",
 			  "name": "Dorian",
-			  "pitches": Array [
+			  "pitches": [
 			    "E3",
 			    "F#3",
 			    "G3",
@@ -415,11 +415,11 @@ describe('Key Test Suite', () => {
 			newKey.modulateMode({ direction: Key.ModulateDown, interval: 3 });
 
 			expect(testModulation(newKey)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "Em7",
 			  "modePositionRoman": "II",
 			  "name": "Dorian",
-			  "pitches": Array [
+			  "pitches": [
 			    "E3",
 			    "F#3",
 			    "G3",
@@ -441,11 +441,11 @@ describe('Key Test Suite', () => {
 			newKey.modulateMode({ direction: Key.ModulateUp, interval: 5 });
 
 			expect(testModulation(newKey)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "DM7",
 			  "modePositionRoman": "I",
 			  "name": "Ionian",
-			  "pitches": Array [
+			  "pitches": [
 			    "D3",
 			    "E3",
 			    "F#3",
@@ -467,11 +467,11 @@ describe('Key Test Suite', () => {
 			newKey.modulateMode({ interval: 5 });
 
 			expect(testModulation(newKey)).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "chordName": "DM7",
 			  "modePositionRoman": "I",
 			  "name": "Ionian",
-			  "pitches": Array [
+			  "pitches": [
 			    "D3",
 			    "E3",
 			    "F#3",

@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import { ChordStructure, Notevalue, Ticks } from '../constants';
-import { Chord, Time } from '../core';
+import { Chord, NoteLike, Time } from '../core';
 import { roll, distribute } from '@ricardomatias/roll';
 import { choose, random, Midi } from '../tools';
 import * as Rhythm from './rhythm';
@@ -8,13 +8,10 @@ import * as Rhythm from './rhythm';
 import { whilst, PlayaError, stripOctave, valuesToArr } from '../utils';
 import { ChordEvent } from '../core/ChordEvent';
 import { TimelineEvent } from './movement/types';
-import { DistributionFunction, Octaves, RhythmType } from '../common/types';
+import { DistributionFunction, Octaves, RhythmType, ChordChange } from '../common/types';
 import { isDefined } from '../utils/types-guards';
 import { Event } from '../core/Event';
 import { computeEventsNext, mapStartToEvent } from '../tools/event';
-
-const JUMP_STYLE = 'jump';
-const PRUDENT_STYLE = 'prudent';
 
 const PRECISION = 5;
 
@@ -31,6 +28,9 @@ type ChordProgressionOptions = Partial<{
 	restProb: number;
 	inversionProb: number;
 	rhythmType: RhythmType;
+	chordChangeStyle: ChordChange;
+	minNoteDist: number;
+	lowestNote: NoteLike;
 }>;
 
 export type ChordProgression = ChordEvent[];
@@ -76,7 +76,8 @@ export type ChordProgression = ChordEvent[];
  * @param {Array<Array<number>>} [options.octaves = [ [ 3, 1 ] ]] [starting, number of octaves] range of octaves to map notes to
  * @param {Array<Number>} [options.startingOctave = [ 3, 1 ]] starting octave
  * @param {number} [options.minChordNotes = 3] minimum number of notes within a chord
- * @param {RhythmType} [options.rhythmType = 'Free'] 'free' or 'turn' based rhythms
+ * @param {RhythmType} [options.rhythmType = 'Free'] 'Free' or 'Turn' based rhythms
+ * @param {ChordChange} [options.chordChangeStyle = 'Closest'] 'Closest' or 'Jump' style chord changes
  * @param {Array<Notevalue>} [options.rhythmValues = [ '4n', '2n', '4nt', '2nt' ]] the rhythm in notevalues - f.ex [ '4n', '2n', '4nt', '2nt' ]
  * @param {Array<Notevalue>} [options.rhythmDurations = []] the duration of each chord in notevalues - f.ex [ '4n', '2n' ]
  *
@@ -95,12 +96,14 @@ export function createChordProgression(
 		startingOctave = choose(octaves),
 		minChordNotes = 3,
 		rhythmType = RhythmType.Free,
+		chordChangeStyle = ChordChange.Closest,
+		minNoteDist = 2,
+		lowestNote = 'C2',
 	}: ChordProgressionOptions = {}
 ): ChordProgression {
 	const progression = [];
 	const chords = [];
 	const structuresProb = distribution(structures, PRECISION);
-	let chosenStyle;
 
 	random.push();
 
@@ -112,8 +115,6 @@ export function createChordProgression(
 		} = timeline[index];
 		const structure = roll(structures, structuresProb, random.float);
 		const isFirstChord = index === 0;
-
-		chosenStyle = choose([JUMP_STYLE, PRUDENT_STYLE]);
 
 		const length = new Time(dur).bbs;
 
@@ -151,7 +152,7 @@ export function createChordProgression(
 		let notes: number[] = [];
 		let chordNotes: number[] = [];
 
-		if (chosenStyle === JUMP_STYLE) {
+		if (chordChangeStyle === ChordChange.Jump) {
 			chord = Chord.fromIntervals(root, scale, structure, choose(octaves));
 			notes = chord.midi;
 			let nrOfNotes = notes.length;
@@ -187,7 +188,7 @@ export function createChordProgression(
 			}
 		}
 
-		if (chosenStyle === PRUDENT_STYLE) {
+		if (chordChangeStyle === ChordChange.Closest) {
 			if (isFirstChord) {
 				chord = Chord.fromIntervals(root, scale, structure, startingOctave);
 
@@ -197,9 +198,12 @@ export function createChordProgression(
 
 				chord = Chord.fromIntervals(root, scale, structure);
 
-				chordNotes = Midi.findNearestChord(prevChord, chord.pitches.map(stripOctave), { sort: true });
+				chordNotes = Midi.findNearestChord(prevChord, chord.noteSymbols, { sort: true });
 			}
 		}
+
+		chordNotes = Midi.spreadVoicing(chordNotes, minNoteDist);
+		chordNotes = Midi.transposeIfLower(chordNotes, lowestNote);
 
 		chords.push(chordNotes);
 

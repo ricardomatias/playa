@@ -1,7 +1,7 @@
 import * as R from 'ramda';
-import { distribute, roll } from '@ricardomatias/roll';
+import { roll } from '@ricardomatias/roll';
 
-import HarmonyBase from './HarmonyBase';
+import { HarmonyBase } from './HarmonyBase';
 import { Note, NoteLike } from './Note';
 import {
 	ChordSymbol,
@@ -16,7 +16,7 @@ import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals } from '../constants/scales';
 import { deconstructName, findNameFromIntervals, findNameFromSymbol } from './utils';
 import { PlayaError, whilst } from '../utils';
-import { distance, rotate, choose, random, interval } from '../tools';
+import { distance, rotate, choose, random } from '../tools';
 import { isDefined, isNull, isUndefined } from '../utils/types-guards';
 import assignOctaves from '../utils/octaves';
 import { Scale } from './Scale';
@@ -112,10 +112,6 @@ export class Chord extends HarmonyBase {
 		this._structure = structure;
 		let _intervals = intervals;
 
-		// this._symbol = symbol;
-		// this._intervals = intervals;
-		// this._structure = structure;
-
 		if (isDefined(description)) {
 			if (isChordIntervals(description)) {
 				_intervals = description;
@@ -182,7 +178,9 @@ export class Chord extends HarmonyBase {
 	}
 
 	/**
-	 * Create a chord from a Scale's intervals
+	 * Create a chord from a Scale's intervals.
+	 * This may not always generate the same chord.
+	 *
 	 * @function fromIntervals
 	 * @memberof Core#Chord
 	 * @static
@@ -573,6 +571,7 @@ const createChordWithStructure = (
 	let structureIntervals;
 
 	if (structure === ChordStructure.Triad) {
+		// less likely to give a P5 chord
 		structureIntervals = roll(defaultIntervals, ['0.700', '1.000'], random.float);
 	} else {
 		structureIntervals = defaultIntervals.length === 1 ? defaultIntervals[0] : choose(Array.from(defaultIntervals));

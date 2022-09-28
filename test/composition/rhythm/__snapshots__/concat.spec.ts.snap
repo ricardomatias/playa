@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#concat should concat 2 1`] = `
-Array [
-  Object {
+[
+  {
     "dur": 1280,
     "isRest": false,
     "next": 1280,
     "time": 0,
   },
-  Object {
+  {
     "dur": 1280,
     "isRest": false,
     "next": 2560,
     "time": 1280,
   },
-  Object {
+  {
     "dur": 1280,
     "isRest": false,
     "next": 3840,
@@ -24,68 +24,56 @@ Array [
 `;
 
 exports[`#concat should concat 3 1`] = `
-Array [
-  Object {
+[
+  {
     "dur": 480,
     "isRest": false,
     "next": 480,
     "time": 0,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
     "next": 960,
     "time": 480,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
     "next": 1440,
     "time": 960,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
     "next": 1920,
     "time": 1440,
   },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "next": 2400,
-    "time": 1920,
-  },
-  Object {
-    "dur": 480,
+  {
+    "dur": 960,
     "isRest": false,
     "next": 2880,
-    "time": 2400,
+    "time": 1920,
   },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "next": 3360,
-    "time": 2880,
-  },
-  Object {
-    "dur": 480,
+  {
+    "dur": 960,
     "isRest": false,
     "next": 3840,
-    "time": 3360,
+    "time": 2880,
   },
-  Object {
+  {
     "dur": 960,
     "isRest": false,
     "next": 4800,
     "time": 3840,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
     "next": 5280,
     "time": 4800,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
     "next": 5760,
@@ -95,86 +83,92 @@ Array [
 `;
 
 exports[`#concat should concat simple 1`] = `
-Array [
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 120,
-    "time": 0,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 360,
-    "time": 120,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 600,
-    "time": 360,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "next": 720,
-    "time": 600,
-  },
-  Object {
+[
+  {
     "dur": 480,
     "isRest": false,
-    "next": 1200,
-    "time": 720,
+    "next": 480,
+    "time": 0,
   },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 1440,
-    "time": 1200,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "next": 1680,
-    "time": 1440,
-  },
-  Object {
+  {
     "dur": 320,
     "isRest": false,
-    "next": 2000,
-    "time": 1680,
+    "next": 800,
+    "time": 480,
   },
-  Object {
+  {
     "dur": 320,
     "isRest": false,
-    "next": 2320,
-    "time": 2000,
+    "next": 1120,
+    "time": 800,
   },
-  Object {
-    "dur": 320,
+  {
+    "dur": 160,
     "isRest": false,
-    "next": 2640,
-    "time": 2320,
+    "next": 1280,
+    "time": 1120,
   },
-  Object {
+  {
     "dur": 120,
     "isRest": false,
-    "next": 2760,
-    "time": 2640,
+    "next": 1400,
+    "time": 1280,
   },
-  Object {
-    "dur": 720,
+  {
+    "dur": 120,
     "isRest": false,
-    "next": 3480,
-    "time": 2760,
+    "next": 1520,
+    "time": 1400,
   },
-  Object {
+  {
     "dur": 240,
     "isRest": false,
-    "next": 3720,
-    "time": 3480,
+    "next": 1760,
+    "time": 1520,
   },
-  Object {
+  {
+    "dur": 120,
+    "isRest": false,
+    "next": 1880,
+    "time": 1760,
+  },
+  {
+    "dur": 320,
+    "isRest": false,
+    "next": 2200,
+    "time": 1880,
+  },
+  {
+    "dur": 160,
+    "isRest": false,
+    "next": 2360,
+    "time": 2200,
+  },
+  {
+    "dur": 320,
+    "isRest": false,
+    "next": 2680,
+    "time": 2360,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "next": 2920,
+    "time": 2680,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 3400,
+    "time": 2920,
+  },
+  {
+    "dur": 320,
+    "isRest": false,
+    "next": 3720,
+    "time": 3400,
+  },
+  {
     "dur": 120,
     "isRest": false,
     "next": 3840,

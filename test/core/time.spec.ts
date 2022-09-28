@@ -108,7 +108,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  2880,
 			  2040,
@@ -125,7 +125,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  1920,
 			  2400,
@@ -144,7 +144,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  384,
 			  480,
@@ -163,7 +163,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  1440,
 			  1920,
@@ -182,7 +182,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  336,
 			  384,
@@ -203,7 +203,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "1:2:3",
 			  "1:3:1",
 			  "2:1:1",
@@ -225,7 +225,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "0:1:2",
 			  "0:2:0",
 			  "1:2:0",
@@ -245,7 +245,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "0:0:0",
 			  "1:0:0",
 			  "1:1:0",
@@ -262,7 +262,7 @@ describe('Time Test Suite', () => {
 			const scenarios = [0, 384, 480, 576, 408, 2448, 1536, 3072].map((ticks) => Time.ticksToBBS(ticks, { ppq: 96 }));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "0:0:0",
 			  "1:0:0",
 			  "1:1:0",
@@ -297,7 +297,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "0:0:0",
 			  "1:0:0",
 			  "1:1:0",
@@ -316,7 +316,7 @@ describe('Time Test Suite', () => {
 			const scenarios = [0, 0.5, 1, 1.5, 2.1875, 4, 4.125].map((seconds) => Time.secondsToTicks(seconds, 60));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  240,
 			  480,
@@ -335,7 +335,7 @@ describe('Time Test Suite', () => {
 			].map((seconds) => Time.secondsToTicks(seconds, 104));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  240,
 			  480,
@@ -353,7 +353,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  240,
 			  480,
@@ -380,7 +380,7 @@ describe('Time Test Suite', () => {
 			].map((seconds) => Time.ticksToSeconds(seconds, 60));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  0.5,
 			  1,
@@ -406,7 +406,7 @@ describe('Time Test Suite', () => {
 			].map((seconds) => Time.ticksToSeconds(seconds, 104));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  0.28846153846153844,
 			  0.5769230769230769,
@@ -432,7 +432,7 @@ describe('Time Test Suite', () => {
 			].map((seconds) => Time.ticksToSeconds(seconds, 160));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  0,
 			  0.1875,
 			  0.375,
@@ -451,7 +451,7 @@ describe('Time Test Suite', () => {
 			const scenarios = [0, 0.5, 1, 1.5, 2.1875, 4, 4.125, 4.25].map((seconds) => Time.secondsToBBS(seconds, 60));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "0:0:0",
 			  "0:0:2",
 			  "0:1:0",
@@ -471,7 +471,7 @@ describe('Time Test Suite', () => {
 			].map((seconds) => Time.secondsToBBS(seconds, 104));
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "0:0:0",
 			  "0:0:2",
 			  "0:1:0",
@@ -490,7 +490,7 @@ describe('Time Test Suite', () => {
 			);
 
 			expect(scenarios).toMatchInlineSnapshot(`
-			Array [
+			[
 			  "0:0:0",
 			  "0:0:2",
 			  "0:1:0",

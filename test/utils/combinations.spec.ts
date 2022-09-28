@@ -23,13 +23,13 @@ describe('A CombinationSum test suite', () => {
 		const combinations = findCombinationsSum(total, 3);
 
 		expect(combinations).toMatchInlineSnapshot(`
-		Array [
-		  Array [
+		[
+		  [
 		    1,
 		    1,
 		    1,
 		  ],
-		  Array [
+		  [
 		    1,
 		    2,
 		  ],

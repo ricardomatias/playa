@@ -17,6 +17,18 @@ describe('Chord Test Suite', () => {
 			expect(chord).toHaveMidiNotes([69, 72, 76, 79]);
 		});
 
+		it('should create C Major', () => {
+			const chord = Chord.fromName('Cmaj');
+
+			expect(chord.root.note).toBe('C');
+			expect(chord.symbol).toBe('maj');
+			expect(chord.toString()).toBe('[object Chord: C3,E3,G3]');
+			expect(chord.intervals).toBe('1P 3M 5P');
+			expect(chord.structure).toBe(Chord.Structures.Triad);
+			expect(chord.name).toBe('Cmaj');
+			expect(chord).toHaveMidiNotes([60, 64, 67]);
+		});
+
 		// TODO: v2.0
 		it.skip('should create Fm9add13', () => {
 			const chord = Chord.fromName('Fm9add13');
@@ -47,6 +59,7 @@ describe('Chord Test Suite', () => {
 			const chord = new Chord('A4', Chord.Symbols.MinorSeventh);
 
 			expect(chord.root.note).toBe('A');
+			expect(chord.root.octave).toBe(4);
 			expect(chord.symbol).toBe('m7');
 			expect(chord.intervals).toBe('1P 3m 5P 7m');
 			expect(chord.structure).toBe(Chord.Structures.Seventh);

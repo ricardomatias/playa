@@ -51,7 +51,7 @@ const calcDur = (grid: GridCell[], gridIndex: number, hitLength: number, totalRh
 type TurnOptions = Partial<{
 	minNoteValue: number;
 	combSorting: CombinationSorting;
-	debug: false;
+	debug: boolean;
 }>;
 
 /**

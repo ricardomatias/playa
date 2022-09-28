@@ -7,6 +7,8 @@ import '../../matchers';
 const ONE_BAR = Ticks['1n'];
 
 describe('#turn', () => {
+	beforeEach(random.reset);
+
 	it('should generate turn rhythm basic', () => {
 		// given
 		random.setSeed('test');
@@ -18,48 +20,48 @@ describe('#turn', () => {
 		expect(rhythm).toLastAround(ONE_BAR * 2);
 		expect(rhythm).toHaveLength(7);
 		expect(rhythm).toMatchInlineSnapshot(`
-		Array [
-		  Object {
-		    "dur": 240,
+		[
+		  {
+		    "dur": 160,
 		    "isRest": false,
-		    "next": 240,
+		    "next": 160,
 		    "time": 0,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 80,
 		    "isRest": false,
-		    "next": 480,
+		    "next": 240,
+		    "time": 160,
+		  },
+		  {
+		    "dur": 720,
+		    "isRest": false,
+		    "next": 960,
 		    "time": 240,
 		  },
-		  Object {
-		    "dur": 640,
+		  {
+		    "dur": 720,
 		    "isRest": false,
-		    "next": 1120,
-		    "time": 480,
+		    "next": 1680,
+		    "time": 960,
 		  },
-		  Object {
-		    "dur": 640,
+		  {
+		    "dur": 240,
 		    "isRest": false,
-		    "next": 1760,
-		    "time": 1120,
+		    "next": 1920,
+		    "time": 1680,
 		  },
-		  Object {
-		    "dur": 320,
-		    "isRest": false,
-		    "next": 2080,
-		    "time": 1760,
-		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
-		    "next": 3040,
-		    "time": 2080,
+		    "next": 2880,
+		    "time": 1920,
 		  },
-		  Object {
-		    "dur": 800,
+		  {
+		    "dur": 960,
 		    "isRest": false,
 		    "next": 3840,
-		    "time": 3040,
+		    "time": 2880,
 		  },
 		]
 	`);
@@ -78,42 +80,42 @@ describe('#turn', () => {
 		expect(rhythm).toLastAround(length.ticks);
 		expect(rhythm).toHaveLength(6);
 		expect(rhythm).toMatchInlineSnapshot(`
-		Array [
-		  Object {
-		    "dur": 240,
+		[
+		  {
+		    "dur": 160,
 		    "isRest": false,
-		    "next": 240,
+		    "next": 160,
 		    "time": 0,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 80,
 		    "isRest": false,
-		    "next": 480,
+		    "next": 240,
+		    "time": 160,
+		  },
+		  {
+		    "dur": 80,
+		    "isRest": false,
+		    "next": 320,
 		    "time": 240,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 960,
 		    "isRest": false,
-		    "next": 720,
-		    "time": 480,
+		    "next": 1280,
+		    "time": 320,
 		  },
-		  Object {
-		    "dur": 720,
+		  {
+		    "dur": 320,
 		    "isRest": false,
-		    "next": 1440,
-		    "time": 720,
+		    "next": 1600,
+		    "time": 1280,
 		  },
-		  Object {
-		    "dur": 240,
-		    "isRest": false,
-		    "next": 1680,
-		    "time": 1440,
-		  },
-		  Object {
-		    "dur": 1200,
+		  {
+		    "dur": 1280,
 		    "isRest": false,
 		    "next": 2880,
-		    "time": 1680,
+		    "time": 1600,
 		  },
 		]
 	`);
@@ -132,48 +134,48 @@ describe('#turn', () => {
 		expect(rhythm).toLastAround(ONE_BAR * 2);
 		expect(rhythm).toHaveLength(7);
 		expect(rhythm).toMatchInlineSnapshot(`
-		Array [
-		  Object {
-		    "dur": 240,
+		[
+		  {
+		    "dur": 160,
 		    "isRest": false,
-		    "next": 240,
+		    "next": 160,
 		    "time": 0,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 80,
 		    "isRest": false,
-		    "next": 480,
+		    "next": 240,
+		    "time": 160,
+		  },
+		  {
+		    "dur": 80,
+		    "isRest": false,
+		    "next": 320,
 		    "time": 240,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 160,
 		    "isRest": false,
-		    "next": 720,
+		    "next": 480,
+		    "time": 320,
+		  },
+		  {
+		    "dur": 1280,
+		    "isRest": false,
+		    "next": 1760,
 		    "time": 480,
 		  },
-		  Object {
-		    "dur": 240,
+		  {
+		    "dur": 1440,
 		    "isRest": false,
-		    "next": 960,
-		    "time": 720,
+		    "next": 3200,
+		    "time": 1760,
 		  },
-		  Object {
-		    "dur": 960,
-		    "isRest": false,
-		    "next": 1920,
-		    "time": 960,
-		  },
-		  Object {
-		    "dur": 960,
-		    "isRest": false,
-		    "next": 2880,
-		    "time": 1920,
-		  },
-		  Object {
-		    "dur": 960,
+		  {
+		    "dur": 640,
 		    "isRest": false,
 		    "next": 3840,
-		    "time": 2880,
+		    "time": 3200,
 		  },
 		]
 	`);
@@ -192,50 +194,50 @@ describe('#turn', () => {
 		expect(rhythm).toLastAround(ONE_BAR * 3);
 		expect(rhythm).toHaveLength(8);
 		expect(rhythm).toMatchInlineSnapshot(`
-		Array [
-		  Object {
+		[
+		  {
 		    "dur": 320,
 		    "isRest": false,
 		    "next": 320,
 		    "time": 0,
 		  },
-		  Object {
+		  {
 		    "dur": 160,
 		    "isRest": false,
 		    "next": 480,
 		    "time": 320,
 		  },
-		  Object {
+		  {
 		    "dur": 160,
 		    "isRest": false,
 		    "next": 640,
 		    "time": 480,
 		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
 		    "next": 1600,
 		    "time": 640,
 		  },
-		  Object {
+		  {
 		    "dur": 960,
 		    "isRest": false,
 		    "next": 2560,
 		    "time": 1600,
 		  },
-		  Object {
+		  {
 		    "dur": 640,
 		    "isRest": false,
 		    "next": 3200,
 		    "time": 2560,
 		  },
-		  Object {
+		  {
 		    "dur": 1280,
 		    "isRest": false,
 		    "next": 4480,
 		    "time": 3200,
 		  },
-		  Object {
+		  {
 		    "dur": 1280,
 		    "isRest": false,
 		    "next": 5760,
@@ -256,42 +258,43 @@ describe('#turn', () => {
 		});
 
 		// then
-		expect(rhythm).toLastAround(ONE_BAR * 3);
-		expect(rhythm).toHaveLength(5);
 		expect(rhythm).toMatchInlineSnapshot(`
-		Array [
-		  Object {
-		    "dur": 960,
+		[
+		  {
+		    "dur": 640,
 		    "isRest": false,
-		    "next": 960,
+		    "next": 640,
 		    "time": 0,
 		  },
-		  Object {
-		    "dur": 960,
+		  {
+		    "dur": 320,
 		    "isRest": false,
-		    "next": 1920,
+		    "next": 960,
+		    "time": 640,
+		  },
+		  {
+		    "dur": 320,
+		    "isRest": false,
+		    "next": 1280,
 		    "time": 960,
 		  },
-		  Object {
-		    "dur": 960,
+		  {
+		    "dur": 1920,
 		    "isRest": false,
-		    "next": 2880,
-		    "time": 1920,
+		    "next": 3200,
+		    "time": 1280,
 		  },
-		  Object {
-		    "dur": 1600,
+		  {
+		    "dur": 1920,
 		    "isRest": false,
-		    "next": 4480,
-		    "time": 2880,
-		  },
-		  Object {
-		    "dur": 1280,
-		    "isRest": false,
-		    "next": 5760,
-		    "time": 4480,
+		    "next": 5120,
+		    "time": 3200,
 		  },
 		]
 	`);
+
+		expect(rhythm).toLastAround(5120);
+		expect(rhythm).toHaveLength(5);
 	});
 
 	it('should generate turn rhythm long bar', () => {
@@ -305,26 +308,26 @@ describe('#turn', () => {
 		expect(rhythm).toLastAround(ONE_BAR * 8);
 		expect(rhythm).toHaveLength(4);
 		expect(rhythm).toMatchInlineSnapshot(`
-		Array [
-		  Object {
+		[
+		  {
 		    "dur": 3840,
 		    "isRest": false,
 		    "next": 3840,
 		    "time": 0,
 		  },
-		  Object {
+		  {
 		    "dur": 3840,
 		    "isRest": false,
 		    "next": 7680,
 		    "time": 3840,
 		  },
-		  Object {
+		  {
 		    "dur": 3840,
 		    "isRest": false,
 		    "next": 11520,
 		    "time": 7680,
 		  },
-		  Object {
+		  {
 		    "dur": 3840,
 		    "isRest": false,
 		    "next": 15360,
@@ -350,20 +353,20 @@ describe('#turn', () => {
 		expect(rhythm).toLastAround(960);
 		expect(rhythm).toHaveLength(3);
 		expect(rhythm).toMatchInlineSnapshot(`
-		Array [
-		  Object {
+		[
+		  {
 		    "dur": 320,
 		    "isRest": false,
 		    "next": 320,
 		    "time": 0,
 		  },
-		  Object {
+		  {
 		    "dur": 160,
 		    "isRest": false,
 		    "next": 480,
 		    "time": 320,
 		  },
-		  Object {
+		  {
 		    "dur": 480,
 		    "isRest": false,
 		    "next": 960,

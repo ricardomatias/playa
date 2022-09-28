@@ -1,159 +1,159 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`A Movement test suite Turn should generate a simple movement 1`] = `
-Object {
-  "events": Array [
-    Object {
+{
+  "events": [
+    {
       "key": "C",
       "position": "IV",
       "root": "F",
       "scaleName": "Lydian",
-      "turn": Object {
+      "turn": {
         "interval": "Free",
         "type": "Start",
       },
       "type": "mode",
     },
-    Object {
+    {
       "key": "C",
       "position": "I",
       "root": "C",
       "scaleName": "Ionian",
-      "turn": Object {
+      "turn": {
         "interval": 5,
         "type": "ModeUp",
       },
       "type": "mode",
     },
-    Object {
-      "key": "D",
+    {
+      "key": "C",
       "position": "I",
-      "root": "D",
+      "root": "C",
       "scaleName": "Ionian",
-      "turn": Object {
-        "interval": "2M",
-        "type": "ModulateUp",
+      "turn": {
+        "interval": "Free",
+        "type": "Free",
       },
-      "type": "key",
+      "type": "mode",
     },
-    Object {
-      "key": "G",
+    {
+      "key": "F",
       "position": "I",
-      "root": "G",
+      "root": "F",
       "scaleName": "Ionian",
-      "turn": Object {
+      "turn": {
         "interval": "5P",
         "type": "ModulateDown",
       },
       "type": "key",
     },
-    Object {
+    {
       "key": "C",
-      "position": "III",
-      "root": "E",
-      "scaleName": "Phrygian",
-      "turn": Object {
+      "position": "IV",
+      "root": "F",
+      "scaleName": "Lydian",
+      "turn": {
         "interval": "Free",
         "type": "Start",
       },
       "type": "mode",
     },
-    Object {
+    {
       "key": "C",
-      "position": "VI",
-      "root": "A",
-      "scaleName": "Aeolian",
-      "turn": Object {
+      "position": "VII",
+      "root": "B",
+      "scaleName": "Locrian",
+      "turn": {
         "interval": 5,
         "type": "ModeDown",
       },
       "type": "mode",
     },
-    Object {
-      "key": "D",
-      "position": "VI",
-      "root": "D",
-      "scaleName": "Aeolian",
-      "turn": Object {
+    {
+      "key": "E",
+      "position": "VII",
+      "root": "E",
+      "scaleName": "Locrian",
+      "turn": {
         "interval": "4P",
         "type": "ModulateUp",
       },
       "type": "key",
     },
-    Object {
-      "key": "D",
-      "position": "II",
-      "root": "G",
-      "scaleName": "Dorian",
-      "turn": Object {
+    {
+      "key": "E",
+      "position": "III",
+      "root": "A",
+      "scaleName": "Phrygian",
+      "turn": {
         "interval": 5,
         "type": "ModeDown",
       },
       "type": "mode",
     },
   ],
-  "timeline": Array [
-    Object {
+  "timeline": [
+    {
       "dur": 960,
-      "key": Object {
+      "key": {
         "root": "F",
         "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "time": 0,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
+      "key": {
         "root": "C",
         "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
       "time": 960,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "D",
+      "key": {
+        "root": "C",
         "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
       "time": 1920,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "G",
+      "key": {
+        "root": "F",
         "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
       "time": 2880,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "E",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+      "key": {
+        "root": "F",
+        "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "time": 3840,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "A",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+      "key": {
+        "root": "B",
+        "scale": "1P 2m 3m 4P 5d 6m 7m",
       },
       "time": 4800,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "D",
-        "scale": "1P 2M 3m 4P 5P 6m 7m",
+      "key": {
+        "root": "E",
+        "scale": "1P 2m 3m 4P 5d 6m 7m",
       },
       "time": 5760,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "G",
-        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      "key": {
+        "root": "A",
+        "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "time": 6720,
     },
@@ -162,282 +162,282 @@ Object {
 `;
 
 exports[`A Movement test suite Turn should generate a turn rhythm movement 1`] = `
-Object {
-  "events": Array [
-    Object {
+{
+  "events": [
+    {
       "key": "A",
-      "position": "I",
-      "root": "C",
-      "scaleName": "Ionian",
-      "turn": Object {
+      "position": "II",
+      "root": "D",
+      "scaleName": "Dorian",
+      "turn": {
         "interval": "Free",
         "type": "Start",
       },
       "type": "mode",
     },
-    Object {
+    {
       "key": "A",
-      "position": "V",
-      "root": "G",
-      "scaleName": "Mixolydian",
-      "turn": Object {
+      "position": "VI",
+      "root": "A",
+      "scaleName": "Aeolian",
+      "turn": {
         "interval": 5,
         "type": "ModeUp",
       },
       "type": "mode",
     },
-    Object {
+    {
       "key": "A",
-      "position": "V",
-      "root": "G",
-      "scaleName": "Mixolydian",
-      "turn": Object {
+      "position": "II",
+      "root": "D",
+      "scaleName": "Dorian",
+      "turn": {
         "interval": "Free",
         "type": "Free",
       },
       "type": "mode",
     },
-    Object {
-      "key": "C",
-      "position": "V",
-      "root": "C",
-      "scaleName": "Mixolydian",
-      "turn": Object {
+    {
+      "key": "G",
+      "position": "II",
+      "root": "G",
+      "scaleName": "Dorian",
+      "turn": {
         "interval": "5P",
         "type": "ModulateDown",
       },
       "type": "key",
     },
-    Object {
-      "key": "C",
-      "position": "I",
-      "root": "F",
-      "scaleName": "Ionian",
-      "turn": Object {
+    {
+      "key": "G",
+      "position": "V",
+      "root": "C",
+      "scaleName": "Mixolydian",
+      "turn": {
         "interval": 4,
         "type": "ModeUp",
       },
       "type": "mode",
     },
-    Object {
-      "key": "C",
-      "position": "IV",
-      "root": "Bb",
-      "scaleName": "Lydian",
-      "turn": Object {
+    {
+      "key": "G",
+      "position": "I",
+      "root": "F",
+      "scaleName": "Ionian",
+      "turn": {
         "interval": 5,
         "type": "ModeDown",
       },
       "type": "mode",
     },
   ],
-  "timeline": Array [
-    Object {
-      "dur": 320,
-      "key": Object {
-        "root": "C",
-        "scale": "1P 2M 3M 4P 5P 6M 7M",
+  "timeline": [
+    {
+      "dur": 160,
+      "key": {
+        "root": "D",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
       "time": 0,
     },
-    Object {
-      "dur": 480,
-      "key": Object {
-        "root": "G",
-        "scale": "1P 2M 3M 4P 5P 6M 7m",
+    {
+      "dur": 80,
+      "key": {
+        "root": "A",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
-      "time": 320,
+      "time": 160,
     },
-    Object {
+    {
       "dur": 1920,
-      "key": Object {
-        "root": "G",
-        "scale": "1P 2M 3M 4P 5P 6M 7m",
+      "key": {
+        "root": "D",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
       },
-      "time": 800,
+      "time": 240,
     },
-    Object {
+    {
       "dur": 480,
-      "key": Object {
+      "key": {
+        "root": "G",
+        "scale": "1P 2M 3m 4P 5P 6M 7m",
+      },
+      "time": 2160,
+    },
+    {
+      "dur": 2880,
+      "key": {
         "root": "C",
         "scale": "1P 2M 3M 4P 5P 6M 7m",
       },
-      "time": 2720,
+      "time": 2640,
     },
-    Object {
-      "dur": 2880,
-      "key": Object {
+    {
+      "dur": 2160,
+      "key": {
         "root": "F",
         "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
-      "time": 3200,
-    },
-    Object {
-      "dur": 1600,
-      "key": Object {
-        "root": "Bb",
-        "scale": "1P 2M 3M 4A 5P 6M 7M",
-      },
-      "time": 6080,
+      "time": 5520,
     },
   ],
 }
 `;
 
 exports[`A Movement test suite Turn should generate non buggy 1`] = `
-Object {
-  "events": Array [
-    Object {
+{
+  "events": [
+    {
       "key": "C",
       "position": "I",
       "root": "G",
       "scaleName": "Ionian",
-      "turn": Object {
+      "turn": {
         "interval": 5,
         "type": "Start",
       },
       "type": "mode",
     },
-    Object {
+    {
       "key": "C",
       "position": "IV",
       "root": "C",
       "scaleName": "Lydian",
-      "turn": Object {
+      "turn": {
         "interval": 4,
         "type": "ModeUp",
       },
       "type": "mode",
     },
-    Object {
-      "key": "A",
+    {
+      "key": "Ab",
       "position": "IV",
-      "root": "A",
+      "root": "Ab",
       "scaleName": "Lydian",
-      "turn": Object {
-        "interval": "3m",
+      "turn": {
+        "interval": "3M",
         "type": "ModulateDown",
       },
       "type": "key",
     },
-    Object {
-      "key": "A",
+    {
+      "key": "Ab",
       "position": "IV",
-      "root": "A",
+      "root": "Ab",
       "scaleName": "Lydian",
-      "turn": Object {
+      "turn": {
         "interval": 2,
         "type": "Keep",
       },
       "type": "mode",
     },
-    Object {
-      "key": "A",
+    {
+      "key": "Ab",
       "position": "VII",
-      "root": "D#",
+      "root": "D",
       "scaleName": "Locrian",
-      "turn": Object {
+      "turn": {
         "interval": 4,
         "type": "ModeUp",
       },
       "type": "mode",
     },
-    Object {
-      "key": "A",
+    {
+      "key": "Ab",
       "position": "III",
-      "root": "G#",
+      "root": "G",
       "scaleName": "Phrygian",
-      "turn": Object {
+      "turn": {
         "interval": 5,
         "type": "ModeDown",
       },
       "type": "mode",
     },
-    Object {
-      "key": "Bb",
+    {
+      "key": "A",
       "position": "III",
-      "root": "Bb",
+      "root": "A",
       "scaleName": "Phrygian",
-      "turn": Object {
+      "turn": {
         "interval": "2M",
         "type": "ModulateUp",
       },
       "type": "key",
     },
-    Object {
-      "key": "D",
-      "position": "III",
+    {
+      "key": "A",
+      "position": "VI",
       "root": "D",
-      "scaleName": "Phrygian",
-      "turn": Object {
-        "interval": "3M",
-        "type": "ModulateUp",
+      "scaleName": "Aeolian",
+      "turn": {
+        "interval": 2,
+        "type": "Free",
       },
-      "type": "key",
+      "type": "mode",
     },
   ],
-  "timeline": Array [
-    Object {
+  "timeline": [
+    {
       "dur": 960,
-      "key": Object {
+      "key": {
         "root": "G",
         "scale": "1P 2M 3M 4P 5P 6M 7M",
       },
       "time": 0,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
+      "key": {
         "root": "C",
         "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "time": 960,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "A",
+      "key": {
+        "root": "Ab",
         "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "time": 1920,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "A",
+      "key": {
+        "root": "Ab",
         "scale": "1P 2M 3M 4A 5P 6M 7M",
       },
       "time": 2880,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "D#",
+      "key": {
+        "root": "D",
         "scale": "1P 2m 3m 4P 5d 6m 7m",
       },
       "time": 3840,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "G#",
+      "key": {
+        "root": "G",
         "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "time": 4800,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
-        "root": "Bb",
+      "key": {
+        "root": "A",
         "scale": "1P 2m 3m 4P 5P 6m 7m",
       },
       "time": 5760,
     },
-    Object {
+    {
       "dur": 960,
-      "key": Object {
+      "key": {
         "root": "D",
-        "scale": "1P 2m 3m 4P 5P 6m 7m",
+        "scale": "1P 2M 3m 4P 5P 6m 7m",
       },
       "time": 6720,
     },

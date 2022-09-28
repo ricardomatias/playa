@@ -26,6 +26,7 @@ describe('Note Test Suite', () => {
 		const note = new Note(60);
 
 		expect(note.pitch).toBe('C3');
+		expect(note.note).toBe('C');
 		expect(note.toString()).toEqual('[object Note: C3]');
 		expect(note.m).toBe(60);
 		expect(note.note).toBe('C');
@@ -35,12 +36,16 @@ describe('Note Test Suite', () => {
 	it('should strip octave from note', () => {
 		const note = new Note('F#6');
 		const note2 = new Note('Gb8');
+		const note3 = new Note('A4');
 
 		expect(note.pitch).toBe('F#6');
 		expect(note.note).toBe('F#');
 
 		expect(note2.pitch).toBe('Gb8');
 		expect(note2.note).toBe('Gb');
+
+		expect(note3.pitch).toBe('A4');
+		expect(note3.note).toBe('A');
 	});
 
 	it('should have unstateful regexp', () => {

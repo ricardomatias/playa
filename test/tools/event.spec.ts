@@ -7,20 +7,20 @@ describe('An Event tools test suite', () => {
 			const patt = ['8n', '4n', '2nt'];
 
 			expect(expandDuration(patt)).toMatchInlineSnapshot(`
-			Array [
-			  Object {
+			[
+			  {
 			    "dur": 240,
 			    "isRest": false,
 			    "next": 240,
 			    "time": 0,
 			  },
-			  Object {
+			  {
 			    "dur": 480,
 			    "isRest": false,
 			    "next": 720,
 			    "time": 240,
 			  },
-			  Object {
+			  {
 			    "dur": 640,
 			    "isRest": false,
 			    "next": 1360,
@@ -53,20 +53,20 @@ describe('An Event tools test suite', () => {
 			];
 
 			expect(expandDuration(patt)).toMatchInlineSnapshot(`
-			Array [
-			  Object {
+			[
+			  {
 			    "dur": 480,
 			    "isRest": false,
 			    "next": 240,
 			    "time": 0,
 			  },
-			  Object {
+			  {
 			    "dur": 600,
 			    "isRest": false,
 			    "next": 720,
 			    "time": 240,
 			  },
-			  Object {
+			  {
 			    "dur": 640,
 			    "isRest": false,
 			    "next": 1360,
@@ -105,7 +105,7 @@ describe('An Event tools test suite', () => {
 
 			// then
 			expect(mapd).toMatchInlineSnapshot(`
-			Object {
+			{
 			  "dur": 480,
 			  "isRest": false,
 			  "next": 720,
@@ -120,20 +120,20 @@ describe('An Event tools test suite', () => {
 
 			// then
 			expect(mapd).toMatchInlineSnapshot(`
-			Array [
-			  Object {
+			[
+			  {
 			    "dur": 480,
 			    "isRest": false,
 			    "next": 720,
 			    "time": 480,
 			  },
-			  Object {
+			  {
 			    "dur": 600,
 			    "isRest": false,
 			    "next": 1200,
 			    "time": 720,
 			  },
-			  Object {
+			  {
 			    "dur": 640,
 			    "isRest": false,
 			    "next": 1840,

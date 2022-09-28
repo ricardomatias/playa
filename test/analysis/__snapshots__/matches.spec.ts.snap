@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`A Friendly test suite #rank should return an ordered list of scales based on intervals ranking 1`] = `
-Object {
-  "2M": Array [
+{
+  "2M": [
     "1P 2M 3M 4A 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
@@ -15,12 +15,12 @@ Object {
     "1P 2M 3m 4P 5P 6M 7M",
     "1P 2M 3m 4P 5P 6m 7M",
   ],
-  "2m": Array [
+  "2m": [
     "1P 2m 3m 4P 5P 6m 7m",
     "1P 2m 3m 4P 5d 6m 7m",
     "1P 2m 3m 3M 5d 6m 7m",
   ],
-  "3M": Array [
+  "3M": [
     "1P 2M 3M 4A 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
@@ -28,7 +28,7 @@ Object {
     "1P 2M 3M 5P 6M",
     "1P 2m 3m 3M 5d 6m 7m",
   ],
-  "3m": Array [
+  "3m": [
     "1P 2M 3m 4P 5P 6m 7m",
     "1P 2M 3m 4P 5P 6m 7m",
     "1P 2M 3m 4P 5P 6M 7m",
@@ -39,10 +39,10 @@ Object {
     "1P 2m 3m 3M 5d 6m 7m",
     "1P 2M 3m 4P 5P 6m 7M",
   ],
-  "4A": Array [
+  "4A": [
     "1P 2M 3M 4A 5P 6M 7M",
   ],
-  "4P": Array [
+  "4P": [
     "1P 2M 3M 4P 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7m",
@@ -51,31 +51,31 @@ Object {
     "1P 2M 3m 4P 5P 6M 7m",
     "1P 2m 3m 4P 5P 6m 7m",
     "1P 2m 3m 4P 5d 6m 7m",
-    "1P 3m 4P 5P 7m",
-    "1P 2M 4P 5P 7m",
-    "1P 2M 3m 4P 5P 6M 7M",
-    "1P 2M 3m 4P 5P 6m 7M",
-  ],
-  "5P": Array [
-    "1P 2M 3M 4A 5P 6M 7M",
-    "1P 2M 3M 4P 5P 6M 7M",
-    "1P 2M 3M 4P 5P 6M 7M",
-    "1P 2M 3M 4P 5P 6M 7m",
-    "1P 2M 3m 4P 5P 6m 7m",
-    "1P 2M 3m 4P 5P 6m 7m",
-    "1P 2M 3m 4P 5P 6M 7m",
-    "1P 2m 3m 4P 5P 6m 7m",
-    "1P 2M 3M 5P 6M",
     "1P 3m 4P 5P 7m",
     "1P 2M 4P 5P 7m",
     "1P 2M 3m 4P 5P 6M 7M",
     "1P 2M 3m 4P 5P 6m 7M",
   ],
-  "5d": Array [
+  "5P": [
+    "1P 2M 3M 4A 5P 6M 7M",
+    "1P 2M 3M 4P 5P 6M 7M",
+    "1P 2M 3M 4P 5P 6M 7M",
+    "1P 2M 3M 4P 5P 6M 7m",
+    "1P 2M 3m 4P 5P 6m 7m",
+    "1P 2M 3m 4P 5P 6m 7m",
+    "1P 2M 3m 4P 5P 6M 7m",
+    "1P 2m 3m 4P 5P 6m 7m",
+    "1P 2M 3M 5P 6M",
+    "1P 3m 4P 5P 7m",
+    "1P 2M 4P 5P 7m",
+    "1P 2M 3m 4P 5P 6M 7M",
+    "1P 2M 3m 4P 5P 6m 7M",
+  ],
+  "5d": [
     "1P 2m 3m 4P 5d 6m 7m",
     "1P 2m 3m 3M 5d 6m 7m",
   ],
-  "6M": Array [
+  "6M": [
     "1P 2M 3M 4A 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
@@ -84,7 +84,7 @@ Object {
     "1P 2M 3M 5P 6M",
     "1P 2M 3m 4P 5P 6M 7M",
   ],
-  "6m": Array [
+  "6m": [
     "1P 2M 3m 4P 5P 6m 7m",
     "1P 2M 3m 4P 5P 6m 7m",
     "1P 2m 3m 4P 5P 6m 7m",
@@ -92,14 +92,14 @@ Object {
     "1P 2m 3m 3M 5d 6m 7m",
     "1P 2M 3m 4P 5P 6m 7M",
   ],
-  "7M": Array [
+  "7M": [
     "1P 2M 3M 4A 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
     "1P 2M 3M 4P 5P 6M 7M",
     "1P 2M 3m 4P 5P 6M 7M",
     "1P 2M 3m 4P 5P 6m 7M",
   ],
-  "7m": Array [
+  "7m": [
     "1P 2M 3M 4P 5P 6M 7m",
     "1P 2M 3m 4P 5P 6m 7m",
     "1P 2M 3m 4P 5P 6m 7m",
@@ -114,316 +114,316 @@ Object {
 `;
 
 exports[`A Friendly test suite classified list of neighboring scales should return [ \`A\`, \`C#\`, \`G\`, \`B\` ]  1`] = `
-Array [
-  Object {
+[
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 1,
     "root": "B",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 1,
     "root": "A",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 1,
     "root": "C#",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 1,
     "root": "C#",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 1,
     "root": "G",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.6666666666666666,
     "root": "B",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.6666666666666666,
     "root": "B",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.6666666666666666,
     "root": "B",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.6666666666666666,
     "root": "B",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.6666666666666666,
     "root": "B",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.6666666666666666,
     "root": "B",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.6666666666666666,
     "root": "B",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 0.6666666666666666,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 0.6666666666666666,
     "root": "C#",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.6666666666666666,
     "root": "G",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.6666666666666666,
     "root": "G",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.6666666666666666,
     "root": "G",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.3333333333333333,
     "root": "B",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.3333333333333333,
     "root": "B",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.3333333333333333,
     "root": "B",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.3333333333333333,
     "root": "B",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 7m",
     "match": 0.3333333333333333,
     "root": "B",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.3333333333333333,
     "root": "A",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.3333333333333333,
     "root": "A",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.3333333333333333,
     "root": "A",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.3333333333333333,
     "root": "A",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m",
     "match": 0.3333333333333333,
     "root": "A",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 0.3333333333333333,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 0.3333333333333333,
     "root": "C#",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 0.3333333333333333,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 0.3333333333333333,
     "root": "C#",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 5d 6m 7m",
     "match": 0.3333333333333333,
     "root": "C#",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.3333333333333333,
     "root": "G",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.3333333333333333,
     "root": "G",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.3333333333333333,
     "root": "G",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.3333333333333333,
     "root": "G",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.3333333333333333,
     "root": "G",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A",
     "match": 0.3333333333333333,
     "root": "G",
@@ -434,435 +434,435 @@ Array [
 `;
 
 exports[`A Friendly test suite classified list of neighboring scales should return [ \`B\`, \`D\`, \`Eb\`, \`F\`, \`Ab\` ] 1`] = `
-Array [
-  Object {
+[
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.75,
     "root": "Ab",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.75,
     "root": "Ab",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.75,
     "root": "Ab",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.75,
     "root": "Eb",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.75,
     "root": "Eb",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.75,
     "root": "Eb",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.75,
     "root": "F",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.75,
     "root": "B",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.75,
     "root": "D",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.75,
     "root": "D",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.5,
     "root": "Ab",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.5,
     "root": "Ab",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.5,
     "root": "Ab",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.5,
     "root": "Ab",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.5,
     "root": "Ab",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.5,
     "root": "Ab",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.5,
     "root": "Ab",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.5,
     "root": "Eb",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.5,
     "root": "Eb",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.5,
     "root": "Eb",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.5,
     "root": "Eb",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.5,
     "root": "Eb",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.5,
     "root": "F",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.5,
     "root": "B",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.5,
     "root": "B",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.5,
     "root": "B",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.5,
     "root": "B",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.5,
     "root": "B",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.5,
     "root": "B",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.5,
     "root": "B",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.25,
     "root": "Ab",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.25,
     "root": "Ab",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 5P 6M",
     "match": 0.25,
     "root": "Ab",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.25,
     "root": "Eb",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.25,
     "root": "Eb",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.25,
     "root": "Eb",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 4P 5A 7M",
     "match": 0.25,
     "root": "Eb",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.25,
     "root": "F",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.25,
     "root": "F",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.25,
     "root": "F",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 3m 4A 6M 7m",
     "match": 0.25,
     "root": "F",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.25,
     "root": "B",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.25,
     "root": "B",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.25,
     "root": "B",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 3m 3M 5d 6M",
     "match": 0.25,
     "root": "B",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 5d 6M",
     "match": 0.25,
     "root": "D",
@@ -873,442 +873,442 @@ Array [
 `;
 
 exports[`A Friendly test suite classified list of neighboring scales should return [ \`F#\`, \`C#\`, \`D\`, \`D\`, \`E\`, \`C\` ] 1`] = `
-Array [
-  Object {
+[
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.75,
     "root": "E",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.75,
     "root": "E",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.75,
     "root": "E",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.75,
     "root": "F#",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.75,
     "root": "F#",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.75,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.75,
     "root": "F#",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.75,
     "root": "D",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.75,
     "root": "D",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.75,
     "root": "D",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.75,
     "root": "C#",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.75,
     "root": "C#",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.75,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.75,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.75,
     "root": "C",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.5,
     "root": "F#",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.5,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.5,
     "root": "F#",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.5,
     "root": "F#",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.5,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.5,
     "root": "C#",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.5,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.5,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.5,
     "root": "C#",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.5,
     "root": "C#",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.5,
     "root": "C",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.5,
     "root": "C",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.5,
     "root": "C",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.5,
     "root": "C",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 6m 6M 7m",
     "match": 0.25,
     "root": "E",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.25,
     "root": "F#",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.25,
     "root": "F#",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.25,
     "root": "F#",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 5d 5P 6m 7m",
     "match": 0.25,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 7m 7M",
     "match": 0.25,
     "root": "D",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.25,
     "root": "C#",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.25,
     "root": "C#",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 7M",
     "match": 0.25,
     "root": "C#",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.25,
     "root": "C",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.25,
     "root": "C",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.25,
     "root": "C",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.25,
     "root": "C",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.25,
     "root": "C",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.25,
     "root": "C",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 2M 3M 4A",
     "match": 0.25,
     "root": "C",
@@ -1319,71 +1319,71 @@ Array [
 `;
 
 exports[`A Friendly test suite classified list of neighboring scales should return 2 notes - [D, F#] 1`] = `
-Array [
-  Object {
+[
+  {
     "intervals": "1P 6m",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 6m",
     "match": 1,
     "root": "F#",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 6m",
     "match": 1,
     "root": "F#",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 6m",
     "match": 1,
     "root": "F#",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 6m",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 3M",
     "match": 1,
     "root": "D",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 3M",
     "match": 1,
     "root": "D",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 3M",
     "match": 1,
     "root": "D",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 3M",
     "match": 1,
     "root": "D",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 3M",
     "match": 1,
     "root": "D",
@@ -1394,617 +1394,617 @@ Array [
 `;
 
 exports[`A Friendly test suite classified list of neighboring scales should return D Aeolian  1`] = `
-Array [
-  Object {
+[
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 1,
     "root": "G",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 1,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 1,
     "root": "C",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 1,
     "root": "F",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 1,
     "root": "A",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 1,
     "root": "E",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 1,
     "root": "Bb",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.8333333333333334,
     "root": "G",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.8333333333333334,
     "root": "G",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.8333333333333334,
     "root": "G",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.8333333333333334,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.8333333333333334,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.8333333333333334,
     "root": "D",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.8333333333333334,
     "root": "C",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.8333333333333334,
     "root": "C",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.8333333333333334,
     "root": "F",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.8333333333333334,
     "root": "F",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.8333333333333334,
     "root": "F",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.8333333333333334,
     "root": "A",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.8333333333333334,
     "root": "A",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.8333333333333334,
     "root": "E",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.8333333333333334,
     "root": "E",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.8333333333333334,
     "root": "Bb",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "G",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "G",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "G",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "G",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "G",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "D",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "D",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "D",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "D",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "D",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "C",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "C",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "C",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "C",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.6666666666666666,
     "root": "C",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.6666666666666666,
     "root": "F",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.6666666666666666,
     "root": "F",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.6666666666666666,
     "root": "F",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.6666666666666666,
     "root": "A",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.6666666666666666,
     "root": "E",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.6666666666666666,
     "root": "Bb",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.6666666666666666,
     "root": "Bb",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.6666666666666666,
     "root": "Bb",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.5,
     "root": "G",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.5,
     "root": "G",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.5,
     "root": "G",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.5,
     "root": "D",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.5,
     "root": "C",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.5,
     "root": "C",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.5,
     "root": "C",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.5,
     "root": "F",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.5,
     "root": "A",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.5,
     "root": "A",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.5,
     "root": "A",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.5,
     "root": "E",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.5,
     "root": "Bb",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.5,
     "root": "Bb",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6M 7m",
     "match": 0.3333333333333333,
     "root": "G",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.3333333333333333,
     "root": "D",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3m 4P 5P 6m 7m",
     "match": 0.3333333333333333,
     "root": "D",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.3333333333333333,
     "root": "C",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7m",
     "match": 0.3333333333333333,
     "root": "C",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.3333333333333333,
     "root": "F",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.3333333333333333,
     "root": "F",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.3333333333333333,
     "root": "A",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.3333333333333333,
     "root": "E",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.3333333333333333,
     "root": "E",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.3333333333333333,
     "root": "E",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.3333333333333333,
     "root": "Bb",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.3333333333333333,
     "root": "Bb",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.16666666666666666,
     "root": "F",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4P 5P 6M 7M",
     "match": 0.16666666666666666,
     "root": "F",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.16666666666666666,
     "root": "A",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5P 6m 7m",
     "match": 0.16666666666666666,
     "root": "A",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 2m 3m 4P 5d 6m 7m",
     "match": 0.16666666666666666,
     "root": "E",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.16666666666666666,
     "root": "Bb",
     "scale": "1P 2m 3m 3M 5d 6m 7m",
     "type": "Altered",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.16666666666666666,
     "root": "Bb",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 2M 3M 4A 5P 6M 7M",
     "match": 0.16666666666666666,
     "root": "Bb",
@@ -2015,148 +2015,148 @@ Array [
 `;
 
 exports[`A Friendly test suite classified list of neighboring scales should still return neighbours when given just 2 notes 1`] = `
-Array [
-  Object {
+[
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3M 4A 5P 6M 7M",
     "type": "Lydian",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3M 5P 6M",
     "type": "MajorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 5P",
     "match": 1,
     "root": "F#",
     "scale": "1P 2M 3m 4P 5P 6m 7M",
     "type": "HarmonicMinor",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 2M 3M 4P 5P 6M 7M",
     "type": "Major",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 2M 3M 4P 5P 6M 7m",
     "type": "Mixolydian",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6m 7m",
     "type": "Minor",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6M 7m",
     "type": "Dorian",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 2m 3m 4P 5P 6m 7m",
     "type": "Phrygian",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 2m 3m 4P 5d 6m 7m",
     "type": "Locrian",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 3m 4P 5P 7m",
     "type": "MinorPentatonic",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 2M 4P 5P 7m",
     "type": "Egyptian",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",
     "scale": "1P 2M 3m 4P 5P 6M 7M",
     "type": "MelodicMinor",
   },
-  Object {
+  {
     "intervals": "1P 4P",
     "match": 1,
     "root": "C#",

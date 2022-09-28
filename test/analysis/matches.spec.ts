@@ -12,8 +12,8 @@ import { Scale } from '../../lib/core/Scale';
 import { stripOctave, valuesToArr } from '../../lib/utils';
 import { ScaleIntervals } from '../../lib/constants';
 import { Pull } from '../../lib/utils/types-guards';
-import '../matchers';
 import { shuffle } from '../../lib/tools';
+// import '../matchers';
 
 const Cmaj = new Scale('C', Scale.Major);
 const Abmaj = new Scale('Ab', Scale.Major);

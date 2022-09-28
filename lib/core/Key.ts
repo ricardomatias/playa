@@ -16,7 +16,6 @@ import { ModeIntervals, Modes, ModePosition } from '../constants/modes';
 import { isNotNull, isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
 import { Octaves } from '../common/types';
-import { assureNote } from '../utils';
 
 const LOCRIAN_PROB = 0.01;
 const PRECISION = 4;
@@ -463,7 +462,7 @@ export class Key extends Scale {
 	 * @return {Key | undefined} same key in a different mode
 	 */
 	getModeFromNote(note: NoteLike): Key | undefined {
-		const n = assureNote(note);
+		const n = new Note(note);
 		const modes = this.modes;
 		const position = modes.map((m) => m.root).indexOf(n.note);
 

@@ -1,4 +1,4 @@
-import { RhythmType } from '../../lib/common/types';
+import { ChordChange, RhythmType } from '../../lib/common/types';
 import { Key, Chord, Time } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/composition';
 import random from '../../lib/tools/random';
@@ -62,6 +62,7 @@ describe('A Chord Progression test suite', () => {
 		const prog = createChordProgression(movement.timeline, {
 			structures: [Chord.Structures.Sixth],
 			inversionProb: 0.5,
+			chordChangeStyle: ChordChange.Jump,
 			octaves: [
 				[4, 1],
 				[2, 2],

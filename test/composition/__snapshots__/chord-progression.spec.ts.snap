@@ -1,431 +1,411 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`A Chord Progression test suite should generate chords based on a movement timeline - free rhythm 1`] = `
-Array [
-  Object {
-    "chord": Array [
+[
+  {
+    "chord": [
       69,
-      71,
+      74,
       76,
     ],
-    "chordName": "Asus2",
-    "dur": 480,
-    "isRest": false,
-    "next": 480,
-    "time": 0,
-  },
-  Object {
-    "chord": Array [
-      69,
-      71,
-      76,
-    ],
-    "chordName": "Asus2",
-    "dur": 480,
+    "chordName": "Asus4",
+    "dur": 960,
     "isRest": false,
     "next": 960,
-    "time": 480,
+    "time": 0,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
       69,
-      71,
+      74,
       76,
     ],
-    "chordName": "Asus2",
+    "chordName": "Asus4",
     "dur": 480,
     "isRest": false,
     "next": 1440,
     "time": 960,
   },
-  Object {
-    "chord": Array [
-      70,
+  {
+    "chord": [
       71,
       73,
-      75,
-      76,
       78,
     ],
-    "chordName": "BM11",
-    "dur": 320,
-    "isRest": false,
-    "next": 1760,
-    "time": 1440,
-  },
-  Object {
-    "chord": Array [
-      70,
-      71,
-      73,
-      75,
-      76,
-      78,
-    ],
-    "chordName": "BM11",
+    "chordName": "Bsus2",
     "dur": 480,
     "isRest": false,
-    "next": 2240,
-    "time": 1760,
+    "next": 1920,
+    "time": 1440,
   },
-  Object {
-    "chord": Array [
-      70,
+  {
+    "chord": [
       71,
       73,
-      75,
-      76,
       78,
     ],
-    "chordName": "BM11",
-    "dur": 320,
-    "isRest": false,
-    "next": 2560,
-    "time": 2240,
-  },
-  Object {
-    "chord": Array [
-      70,
-      71,
-      73,
-      75,
-      76,
-      78,
-    ],
-    "chordName": "BM11",
-    "dur": 320,
-    "isRest": false,
-    "next": 2880,
-    "time": 2560,
-  },
-  Object {
-    "chord": Array [
-      66,
-      70,
-      73,
-    ],
-    "chordName": "F#maj",
+    "chordName": "Bsus2",
     "dur": 960,
     "isRest": false,
-    "next": 3840,
+    "next": 2880,
+    "time": 1920,
+  },
+  {
+    "chord": [
+      71,
+      76,
+      78,
+    ],
+    "chordName": "Esus2",
+    "dur": 480,
+    "isRest": false,
+    "next": 3360,
     "time": 2880,
   },
-  Object {
-    "chord": Array [
-      66,
+  {
+    "chord": [
       71,
-      75,
+      76,
+      78,
     ],
-    "chordName": "Bmaj",
+    "chordName": "Esus2",
+    "dur": 480,
+    "isRest": false,
+    "next": 3840,
+    "time": 3360,
+  },
+  {
+    "chord": [
+      71,
+      76,
+      80,
+    ],
+    "chordName": "Emaj",
     "dur": 480,
     "isRest": false,
     "next": 4320,
     "time": 3840,
   },
-  Object {
-    "chord": Array [
-      66,
+  {
+    "chord": [
       71,
-      75,
+      76,
+      80,
     ],
-    "chordName": "Bmaj",
+    "chordName": "Emaj",
     "dur": 960,
     "isRest": false,
     "next": 5280,
     "time": 4320,
   },
-  Object {
-    "chord": Array [
-      66,
+  {
+    "chord": [
+      64,
       71,
       75,
+      80,
     ],
-    "chordName": "Bmaj",
+    "chordName": "EM7",
     "dur": 960,
     "isRest": false,
     "next": 6240,
     "time": 5280,
   },
-  Object {
-    "chord": Array [
-      66,
+  {
+    "chord": [
+      64,
       71,
       75,
+      80,
     ],
-    "chordName": "Bmaj",
+    "chordName": "EM7",
     "dur": 480,
     "isRest": false,
     "next": 6720,
     "time": 6240,
   },
-  Object {
-    "chord": Array [
-      66,
-      70,
+  {
+    "chord": [
       73,
       75,
+      80,
     ],
-    "chordName": "D#m7",
-    "dur": 960,
+    "chordName": "C#sus2",
+    "dur": 480,
+    "isRest": false,
+    "next": 7200,
+    "time": 6720,
+  },
+  {
+    "chord": [
+      73,
+      75,
+      80,
+    ],
+    "chordName": "C#sus2",
+    "dur": 480,
     "isRest": false,
     "next": 7680,
-    "time": 6720,
+    "time": 7200,
   },
 ]
 `;
 
 exports[`A Chord Progression test suite should generate chords based on a movement timeline - turn rhythm 1`] = `
-Array [
-  Object {
-    "chord": Array [
+[
+  {
+    "chord": [
       69,
-      71,
+      74,
       76,
     ],
-    "chordName": "Asus2",
-    "dur": 240,
+    "chordName": "Asus4",
+    "dur": 160,
     "isRest": false,
-    "next": 240,
+    "next": 160,
     "time": 0,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
       69,
-      71,
+      74,
       76,
     ],
-    "chordName": "Asus2",
-    "dur": 240,
+    "chordName": "Asus4",
+    "dur": 80,
     "isRest": false,
-    "next": 480,
-    "time": 240,
+    "next": 240,
+    "time": 160,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
       69,
-      71,
+      74,
       76,
     ],
-    "chordName": "Asus2",
-    "dur": 480,
+    "chordName": "Asus4",
+    "dur": 720,
     "isRest": false,
     "next": 960,
-    "time": 480,
+    "time": 240,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
       69,
-      71,
+      74,
       76,
     ],
-    "chordName": "Asus2",
+    "chordName": "Asus4",
     "dur": 480,
     "isRest": false,
     "next": 1440,
     "time": 960,
   },
-  Object {
-    "chord": Array [
-      68,
+  {
+    "chord": [
       71,
-      75,
-      78,
-    ],
-    "chordName": "B6",
-    "dur": 240,
-    "isRest": false,
-    "next": 1680,
-    "time": 1440,
-  },
-  Object {
-    "chord": Array [
-      68,
-      71,
-      75,
-      78,
-    ],
-    "chordName": "B6",
-    "dur": 240,
-    "isRest": false,
-    "next": 1920,
-    "time": 1680,
-  },
-  Object {
-    "chord": Array [
-      68,
-      71,
-      75,
-      78,
-    ],
-    "chordName": "B6",
-    "dur": 480,
-    "isRest": false,
-    "next": 2400,
-    "time": 1920,
-  },
-  Object {
-    "chord": Array [],
-    "chordName": "",
-    "dur": 480,
-    "isRest": true,
-    "next": 2880,
-    "time": 2400,
-  },
-  Object {
-    "chord": Array [
-      70,
       73,
       78,
     ],
-    "chordName": "F#maj",
+    "chordName": "Bsus2",
+    "dur": 320,
+    "isRest": false,
+    "next": 1760,
+    "time": 1440,
+  },
+  {
+    "chord": [
+      71,
+      73,
+      78,
+    ],
+    "chordName": "Bsus2",
+    "dur": 480,
+    "isRest": false,
+    "next": 2240,
+    "time": 1760,
+  },
+  {
+    "chord": [
+      71,
+      73,
+      78,
+    ],
+    "chordName": "Bsus2",
+    "dur": 480,
+    "isRest": false,
+    "next": 2720,
+    "time": 2240,
+  },
+  {
+    "chord": [
+      71,
+      73,
+      78,
+    ],
+    "chordName": "Bsus2",
+    "dur": 160,
+    "isRest": false,
+    "next": 2880,
+    "time": 2720,
+  },
+  {
+    "chord": [
+      71,
+      73,
+      76,
+      80,
+    ],
+    "chordName": "E6",
     "dur": 160,
     "isRest": false,
     "next": 3040,
     "time": 2880,
   },
-  Object {
-    "chord": Array [],
+  {
+    "chord": [],
     "chordName": "",
-    "dur": 80,
+    "dur": 320,
     "isRest": true,
-    "next": 3120,
+    "next": 3360,
     "time": 3040,
   },
-  Object {
-    "chord": Array [
-      70,
+  {
+    "chord": [
+      71,
       73,
-      78,
+      76,
+      80,
     ],
-    "chordName": "F#maj",
-    "dur": 720,
+    "chordName": "E6",
+    "dur": 480,
     "isRest": false,
     "next": 3840,
-    "time": 3120,
+    "time": 3360,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
       71,
-      75,
-      78,
+      76,
     ],
-    "chordName": "Bmaj",
-    "dur": 160,
-    "isRest": false,
-    "next": 4000,
-    "time": 3840,
-  },
-  Object {
-    "chord": Array [
-      71,
-      75,
-      78,
-    ],
-    "chordName": "Bmaj",
-    "dur": 80,
+    "chordName": "E5",
+    "dur": 240,
     "isRest": false,
     "next": 4080,
-    "time": 4000,
+    "time": 3840,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
       71,
-      75,
-      78,
+      76,
     ],
-    "chordName": "Bmaj",
-    "dur": 720,
+    "chordName": "E5",
+    "dur": 240,
     "isRest": false,
-    "next": 4800,
+    "next": 4320,
     "time": 4080,
   },
-  Object {
-    "chord": Array [],
-    "chordName": "",
-    "dur": 480,
-    "isRest": true,
-    "next": 5280,
-    "time": 4800,
-  },
-  Object {
-    "chord": Array [
-      71,
-      77,
-      78,
-    ],
+  {
+    "chord": [],
     "chordName": "",
     "dur": 240,
+    "isRest": true,
+    "next": 4560,
+    "time": 4320,
+  },
+  {
+    "chord": [
+      71,
+      76,
+    ],
+    "chordName": "E5",
+    "dur": 720,
     "isRest": false,
-    "next": 5520,
+    "next": 5280,
+    "time": 4560,
+  },
+  {
+    "chord": [
+      68,
+      71,
+      76,
+    ],
+    "chordName": "Emaj",
+    "dur": 160,
+    "isRest": false,
+    "next": 5440,
     "time": 5280,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
+      68,
       71,
-      77,
-      78,
+      76,
     ],
-    "chordName": "",
-    "dur": 480,
+    "chordName": "Emaj",
+    "dur": 320,
     "isRest": false,
-    "next": 6000,
-    "time": 5520,
+    "next": 5760,
+    "time": 5440,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
+      68,
       71,
-      77,
-      78,
+      76,
     ],
-    "chordName": "",
-    "dur": 480,
-    "isRest": false,
-    "next": 6480,
-    "time": 6000,
-  },
-  Object {
-    "chord": Array [
-      71,
-      77,
-      78,
-    ],
-    "chordName": "",
+    "chordName": "Emaj",
     "dur": 240,
     "isRest": false,
-    "next": 6720,
-    "time": 6480,
+    "next": 6000,
+    "time": 5760,
   },
-  Object {
-    "chord": Array [
-      70,
-      75,
-      78,
+  {
+    "chord": [
+      68,
+      71,
+      76,
     ],
-    "chordName": "D#m",
+    "chordName": "Emaj",
+    "dur": 720,
+    "isRest": false,
+    "next": 6720,
+    "time": 6000,
+  },
+  {
+    "chord": [
+      68,
+      71,
+      73,
+      76,
+    ],
+    "chordName": "C#m7",
     "dur": 160,
     "isRest": false,
     "next": 6880,
     "time": 6720,
   },
-  Object {
-    "chord": Array [
-      70,
-      75,
-      78,
+  {
+    "chord": [
+      68,
+      71,
+      73,
+      76,
     ],
-    "chordName": "D#m",
+    "chordName": "C#m7",
     "dur": 320,
     "isRest": false,
     "next": 7200,
     "time": 6880,
   },
-  Object {
-    "chord": Array [
-      70,
-      75,
-      78,
+  {
+    "chord": [
+      68,
+      71,
+      73,
+      76,
     ],
-    "chordName": "D#m",
+    "chordName": "C#m7",
     "dur": 480,
     "isRest": false,
     "next": 7680,
@@ -435,11 +415,12 @@ Array [
 `;
 
 exports[`A Chord Progression test suite should generate progression with defined structures 1`] = `
-Array [
-  Object {
-    "chord": Array [
+[
+  {
+    "chord": [
       73,
-      77,
+      82,
+      80,
     ],
     "chordName": "Db6",
     "dur": 480,
@@ -447,10 +428,11 @@ Array [
     "next": 320,
     "time": 0,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
       73,
-      77,
+      82,
+      80,
     ],
     "chordName": "Db6",
     "dur": 480,
@@ -458,10 +440,11 @@ Array [
     "next": 640,
     "time": 320,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
       73,
-      77,
+      82,
+      80,
     ],
     "chordName": "Db6",
     "dur": 480,
@@ -469,265 +452,230 @@ Array [
     "next": 960,
     "time": 640,
   },
-  Object {
-    "chord": Array [
-      54,
-      70,
+  {
+    "chord": [
+      75,
+      78,
+      84,
     ],
-    "chordName": "Gb6",
+    "chordName": "Ebm6",
     "dur": 480,
     "isRest": false,
     "next": 1280,
     "time": 960,
   },
-  Object {
-    "chord": Array [
-      54,
-      70,
+  {
+    "chord": [
+      75,
+      78,
+      84,
     ],
-    "chordName": "Gb6",
+    "chordName": "Ebm6",
     "dur": 480,
     "isRest": false,
     "next": 1600,
     "time": 1280,
   },
-  Object {
-    "chord": Array [
-      54,
-      70,
+  {
+    "chord": [
+      75,
+      78,
+      84,
     ],
-    "chordName": "Gb6",
+    "chordName": "Ebm6",
     "dur": 480,
     "isRest": false,
     "next": 1920,
     "time": 1600,
   },
-  Object {
-    "chord": Array [
-      53,
-      54,
-      70,
-      73,
+  {
+    "chord": [
+      56,
+      65,
     ],
-    "chordName": "Bbm6m",
+    "chordName": "Ab6",
     "dur": 480,
     "isRest": false,
     "next": 2240,
     "time": 1920,
   },
-  Object {
-    "chord": Array [
-      53,
-      54,
-      70,
-      73,
+  {
+    "chord": [
+      56,
+      65,
     ],
-    "chordName": "Bbm6m",
+    "chordName": "Ab6",
     "dur": 480,
     "isRest": false,
     "next": 2560,
     "time": 2240,
   },
-  Object {
-    "chord": Array [
-      53,
-      54,
-      70,
-      73,
+  {
+    "chord": [
+      56,
+      65,
     ],
-    "chordName": "Bbm6m",
+    "chordName": "Ab6",
     "dur": 480,
     "isRest": false,
     "next": 2880,
     "time": 2560,
   },
-  Object {
-    "chord": Array [
-      51,
-      55,
-      56,
-      72,
+  {
+    "chord": [
+      75,
+      82,
     ],
-    "chordName": "Cm6m",
+    "chordName": "Eb6",
     "dur": 480,
     "isRest": false,
-    "next": 3200,
+    "next": 3360,
     "time": 2880,
   },
-  Object {
-    "chord": Array [
-      51,
-      55,
-      56,
-      72,
+  {
+    "chord": [
+      75,
+      82,
     ],
-    "chordName": "Cm6m",
-    "dur": 480,
-    "isRest": false,
-    "next": 3520,
-    "time": 3200,
-  },
-  Object {
-    "chord": Array [
-      51,
-      55,
-      56,
-      72,
-    ],
-    "chordName": "Cm6m",
+    "chordName": "Eb6",
     "dur": 480,
     "isRest": false,
     "next": 3840,
-    "time": 3520,
+    "time": 3360,
   },
-  Object {
-    "chord": Array [
-      51,
-      52,
-      56,
-      71,
+  {
+    "chord": [
+      49,
+      61,
+      65,
+      58,
     ],
-    "chordName": "Abm6m",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 4160,
     "time": 3840,
   },
-  Object {
-    "chord": Array [
-      51,
-      52,
-      56,
-      71,
+  {
+    "chord": [
+      49,
+      61,
+      65,
+      58,
     ],
-    "chordName": "Abm6m",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 4480,
     "time": 4160,
   },
-  Object {
-    "chord": Array [
-      51,
-      52,
-      56,
-      71,
+  {
+    "chord": [
+      49,
+      61,
+      65,
+      58,
     ],
-    "chordName": "Abm6m",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 4800,
     "time": 4480,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
+      73,
+      80,
+      77,
       82,
-      89,
-      85,
-      90,
     ],
-    "chordName": "Bbm6m",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 5120,
     "time": 4800,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
+      73,
+      80,
+      77,
       82,
-      89,
-      85,
-      90,
     ],
-    "chordName": "Bbm6m",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 5440,
     "time": 5120,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
+      73,
+      80,
+      77,
       82,
-      89,
-      85,
-      90,
     ],
-    "chordName": "Bbm6m",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 5760,
     "time": 5440,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
+      73,
+      77,
       80,
-      83,
-      87,
-      89,
     ],
-    "chordName": "Abm6",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
-    "next": 6080,
+    "next": 6240,
     "time": 5760,
   },
-  Object {
-    "chord": Array [
+  {
+    "chord": [
+      73,
+      77,
       80,
-      83,
-      87,
-      89,
     ],
-    "chordName": "Abm6",
-    "dur": 480,
-    "isRest": false,
-    "next": 6400,
-    "time": 6080,
-  },
-  Object {
-    "chord": Array [
-      80,
-      83,
-      87,
-      89,
-    ],
-    "chordName": "Abm6",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 6720,
-    "time": 6400,
+    "time": 6240,
   },
-  Object {
-    "chord": Array [
-      54,
-      61,
-      66,
+  {
+    "chord": [
+      49,
+      58,
+      56,
     ],
-    "chordName": "Gbm6",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 7040,
     "time": 6720,
   },
-  Object {
-    "chord": Array [
-      54,
-      61,
-      66,
+  {
+    "chord": [
+      49,
+      58,
+      56,
     ],
-    "chordName": "Gbm6",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 7360,
     "time": 7040,
   },
-  Object {
-    "chord": Array [
-      54,
-      61,
-      66,
+  {
+    "chord": [
+      49,
+      58,
+      56,
     ],
-    "chordName": "Gbm6",
+    "chordName": "Db6",
     "dur": 480,
     "isRest": false,
     "next": 7840,

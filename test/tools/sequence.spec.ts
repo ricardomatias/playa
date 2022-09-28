@@ -45,18 +45,18 @@ describe('A Sequence test suite', () => {
 
 		expect(chords.string).toEqual(['Bm', 'Emaj', 'F#m']);
 		expect(chords.midi).toMatchInlineSnapshot(`
-		Array [
-		  Array [
+		[
+		  [
 		    71,
 		    74,
 		    78,
 		  ],
-		  Array [
+		  [
 		    64,
 		    68,
 		    71,
 		  ],
-		  Array [
+		  [
 		    66,
 		    69,
 		    73,

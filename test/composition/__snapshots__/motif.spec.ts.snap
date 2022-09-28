@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`A Motif test suite should generate createMotif based on chord 1`] = `
-Array [
-  Object {
+[
+  {
     "dur": 240,
     "isRest": false,
     "midi": 64,
@@ -10,182 +10,198 @@ Array [
     "note": "E3",
     "time": 0,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
-    "midi": 64,
+    "midi": 68,
     "next": 720,
-    "note": "E3",
+    "note": "Ab3",
     "time": 240,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
-    "midi": 68,
+    "midi": 70,
     "next": 1200,
-    "note": "Ab3",
+    "note": "Bb3",
     "time": 720,
   },
-  Object {
+  {
     "dur": 240,
     "isRest": false,
-    "midi": 68,
+    "midi": 64,
     "next": 1440,
-    "note": "Ab3",
+    "note": "E3",
     "time": 1200,
   },
-  Object {
-    "dur": 480,
+  {
+    "dur": 320,
     "isRest": false,
     "midi": 68,
-    "next": 1920,
+    "next": 1760,
     "note": "Ab3",
     "time": 1440,
+  },
+  {
+    "dur": 160,
+    "isRest": false,
+    "midi": 64,
+    "next": 1920,
+    "note": "E3",
+    "time": 1760,
   },
 ]
 `;
 
 exports[`A Motif test suite should generate createMotif based on chord 2`] = `
-Array [
-  Object {
+[
+  {
     "dur": 240,
-    "isRest": false,
-    "midi": 70,
-    "next": 240,
-    "note": "Bb3",
-    "time": 0,
-  },
-  Object {
-    "dur": 720,
-    "isRest": false,
-    "midi": 70,
-    "next": 960,
-    "note": "Bb3",
-    "time": 240,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "midi": 64,
-    "next": 1440,
-    "note": "E3",
-    "time": 960,
-  },
-  Object {
-    "dur": 240,
-    "isRest": false,
-    "midi": 64,
-    "next": 1680,
-    "note": "E3",
-    "time": 1440,
-  },
-  Object {
-    "dur": 480,
     "isRest": false,
     "midi": 61,
-    "next": 2160,
+    "next": 240,
     "note": "Db3",
-    "time": 1680,
+    "time": 0,
   },
-  Object {
+  {
+    "dur": 720,
+    "isRest": false,
+    "midi": 68,
+    "next": 960,
+    "note": "Ab3",
+    "time": 240,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "midi": 68,
+    "next": 1440,
+    "note": "Ab3",
+    "time": 960,
+  },
+  {
     "dur": 240,
+    "isRest": false,
+    "midi": 70,
+    "next": 1680,
+    "note": "Bb3",
+    "time": 1440,
+  },
+  {
+    "dur": 720,
     "isRest": false,
     "midi": 68,
     "next": 2400,
     "note": "Ab3",
-    "time": 2160,
+    "time": 1680,
   },
-  Object {
-    "dur": 480,
+  {
+    "dur": 720,
     "isRest": false,
-    "midi": 68,
-    "next": 2880,
-    "note": "Ab3",
+    "midi": 64,
+    "next": 3120,
+    "note": "E3",
     "time": 2400,
   },
-  Object {
-    "dur": 480,
+  {
+    "dur": 240,
     "isRest": false,
-    "midi": 61,
+    "midi": 64,
     "next": 3360,
-    "note": "Db3",
-    "time": 2880,
+    "note": "E3",
+    "time": 3120,
   },
-  Object {
-    "dur": 480,
+  {
+    "dur": 240,
     "isRest": false,
     "midi": 68,
-    "next": 3840,
+    "next": 3600,
     "note": "Ab3",
     "time": 3360,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "midi": 64,
+    "next": 3840,
+    "note": "E3",
+    "time": 3600,
   },
 ]
 `;
 
 exports[`A Motif test suite should generate motif based on scale 1`] = `
-Array [
-  Object {
+[
+  {
     "dur": 240,
     "isRest": false,
-    "midi": 73,
+    "midi": 74,
     "next": 240,
-    "note": "C#4",
+    "note": "D4",
     "time": 0,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
-    "midi": 71,
+    "midi": 74,
     "next": 720,
-    "note": "B3",
+    "note": "D4",
     "time": 240,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
-    "midi": 74,
+    "midi": 80,
     "next": 1200,
-    "note": "D4",
+    "note": "G#4",
     "time": 720,
   },
-  Object {
+  {
     "dur": 240,
     "isRest": false,
-    "midi": 74,
+    "midi": 71,
     "next": 1440,
-    "note": "D4",
+    "note": "B3",
     "time": 1200,
   },
-  Object {
-    "dur": 480,
+  {
+    "dur": 320,
     "isRest": false,
-    "midi": 76,
-    "next": 1920,
-    "note": "E4",
+    "midi": 74,
+    "next": 1760,
+    "note": "D4",
     "time": 1440,
+  },
+  {
+    "dur": 160,
+    "isRest": false,
+    "midi": 73,
+    "next": 1920,
+    "note": "C#4",
+    "time": 1760,
   },
 ]
 `;
 
 exports[`A Motif test suite should generate motif based on scale 2`] = `
-Array [
-  Object {
+[
+  {
     "dur": 240,
     "isRest": false,
-    "midi": 78,
+    "midi": 69,
     "next": 240,
-    "note": "F#4",
+    "note": "A3",
     "time": 0,
   },
-  Object {
+  {
     "dur": 720,
     "isRest": false,
-    "midi": 80,
+    "midi": 74,
     "next": 960,
-    "note": "G#4",
+    "note": "D4",
     "time": 240,
   },
-  Object {
+  {
     "dur": 480,
     "isRest": false,
     "midi": 74,
@@ -193,60 +209,60 @@ Array [
     "note": "D4",
     "time": 960,
   },
-  Object {
+  {
+    "dur": 240,
+    "isRest": false,
+    "midi": 78,
+    "next": 1680,
+    "note": "F#4",
+    "time": 1440,
+  },
+  {
+    "dur": 720,
+    "isRest": false,
+    "midi": 78,
+    "next": 2400,
+    "note": "F#4",
+    "time": 1680,
+  },
+  {
+    "dur": 720,
+    "isRest": false,
+    "midi": 73,
+    "next": 3120,
+    "note": "C#4",
+    "time": 2400,
+  },
+  {
     "dur": 240,
     "isRest": false,
     "midi": 73,
-    "next": 1680,
+    "next": 3360,
     "note": "C#4",
-    "time": 1440,
+    "time": 3120,
   },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "midi": 71,
-    "next": 2160,
-    "note": "B3",
-    "time": 1680,
-  },
-  Object {
+  {
     "dur": 240,
     "isRest": false,
-    "midi": 76,
-    "next": 2400,
-    "note": "E4",
-    "time": 2160,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "midi": 76,
-    "next": 2880,
-    "note": "E4",
-    "time": 2400,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "midi": 71,
-    "next": 3360,
-    "note": "B3",
-    "time": 2880,
-  },
-  Object {
-    "dur": 480,
-    "isRest": false,
-    "midi": 76,
-    "next": 3840,
-    "note": "E4",
+    "midi": 78,
+    "next": 3600,
+    "note": "F#4",
     "time": 3360,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "midi": 73,
+    "next": 3840,
+    "note": "C#4",
+    "time": 3600,
   },
 ]
 `;
 
 exports[`A Motif test suite should generate motif with given durations 1`] = `
-Array [
-  Object {
+[
+  {
     "dur": 480,
     "isRest": false,
     "midi": 74,
@@ -254,15 +270,15 @@ Array [
     "note": "D4",
     "time": 0,
   },
-  Object {
+  {
     "dur": 960,
     "isRest": false,
-    "midi": 71,
+    "midi": 69,
     "next": 1440,
-    "note": "B3",
+    "note": "A3",
     "time": 480,
   },
-  Object {
+  {
     "dur": 360,
     "isRest": false,
     "midi": 71,
@@ -274,64 +290,56 @@ Array [
 `;
 
 exports[`A Motif test suite should generate motif with rests 1`] = `
-Array [
-  Object {
-    "dur": 320,
-    "isRest": false,
-    "midi": 71,
-    "next": 320,
-    "note": "B3",
-    "time": 0,
-  },
-  Object {
+[
+  {
     "dur": 160,
     "isRest": true,
     "midi": -1,
-    "next": 480,
+    "next": 160,
     "note": "",
-    "time": 320,
+    "time": 0,
   },
-  Object {
-    "dur": 240,
+  {
+    "dur": 320,
     "isRest": false,
-    "midi": 78,
-    "next": 720,
-    "note": "F#4",
+    "midi": 76,
+    "next": 480,
+    "note": "E4",
+    "time": 160,
+  },
+  {
+    "dur": 160,
+    "isRest": false,
+    "midi": 73,
+    "next": 640,
+    "note": "C#4",
     "time": 480,
   },
-  Object {
-    "dur": 240,
+  {
+    "dur": 320,
     "isRest": true,
     "midi": -1,
     "next": 960,
     "note": "",
-    "time": 720,
+    "time": 640,
   },
-  Object {
-    "dur": 160,
+  {
+    "dur": 480,
     "isRest": false,
-    "midi": 74,
-    "next": 1120,
-    "note": "D4",
+    "midi": 78,
+    "next": 1440,
+    "note": "F#4",
     "time": 960,
   },
-  Object {
-    "dur": 320,
-    "isRest": true,
-    "midi": -1,
-    "next": 1440,
-    "note": "",
-    "time": 1120,
-  },
-  Object {
+  {
     "dur": 160,
     "isRest": false,
-    "midi": 71,
+    "midi": 73,
     "next": 1600,
-    "note": "B3",
+    "note": "C#4",
     "time": 1440,
   },
-  Object {
+  {
     "dur": 80,
     "isRest": true,
     "midi": -1,
@@ -339,11 +347,11 @@ Array [
     "note": "",
     "time": 1600,
   },
-  Object {
-    "dur": 240,
+  {
+    "dur": 480,
     "isRest": false,
     "midi": 73,
-    "next": 1920,
+    "next": 2160,
     "note": "C#4",
     "time": 1680,
   },
@@ -351,56 +359,24 @@ Array [
 `;
 
 exports[`A Motif test suite should return pattern with time = start time 1`] = `
-Array [
-  Object {
-    "dur": 120,
+[
+  {
+    "dur": 720,
     "isRest": false,
     "midi": 68,
-    "next": 600,
+    "next": 1200,
     "note": "Ab3",
     "time": 480,
   },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 70,
-    "next": 720,
-    "note": "Bb3",
-    "time": 600,
-  },
-  Object {
-    "dur": 320,
+  {
+    "dur": 480,
     "isRest": false,
     "midi": 68,
-    "next": 1040,
-    "note": "Ab3",
-    "time": 720,
-  },
-  Object {
-    "dur": 360,
-    "isRest": false,
-    "midi": 68,
-    "next": 1400,
-    "note": "Ab3",
-    "time": 1040,
-  },
-  Object {
-    "dur": 120,
-    "isRest": false,
-    "midi": 61,
-    "next": 1520,
-    "note": "Db3",
-    "time": 1400,
-  },
-  Object {
-    "dur": 160,
-    "isRest": false,
-    "midi": 64,
     "next": 1680,
-    "note": "E3",
-    "time": 1520,
+    "note": "Ab3",
+    "time": 1200,
   },
-  Object {
+  {
     "dur": 240,
     "isRest": false,
     "midi": 68,
