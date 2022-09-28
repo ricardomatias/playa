@@ -4,21 +4,24 @@ describe('Note Test Suite', () => {
 	it('should set natural', () => {
 		const note = new Note('A');
 
-		expect(note.pitch).toBe('A');
+		expect(note.pitch).toBe('A3');
+		expect(note.midi).toBe(69);
 		expect(note.e).toBeUndefined();
 	});
 
 	it('should set sharp', () => {
 		const note = new Note('D#');
 
-		expect(note.pitch).toBe('D#');
+		expect(note.pitch).toBe('D#3');
+		expect(note.midi).toBe(63);
 		expect(note.e).toBe('Eb');
 	});
 
 	it('should set flat', () => {
 		const note = new Note('Gb');
 
-		expect(note.pitch).toBe('Gb');
+		expect(note.pitch).toBe('Gb3');
+		expect(note.midi).toBe(66);
 		expect(note.e).toBe('F#');
 	});
 
@@ -49,15 +52,15 @@ describe('Note Test Suite', () => {
 	});
 
 	it('should have unstateful regexp', () => {
-		const a = new Note('D3').pitch;
-		const b = new Note('D3').pitch;
+		const a = new Note('D4').pitch;
+		const b = new Note('D4').pitch;
 		const c = new Note('D').pitch;
 		const d = new Note('D').pitch;
 
-		expect(a).toBe('D3');
-		expect(b).toBe('D3');
-		expect(c).toBe('D');
-		expect(d).toBe('D');
+		expect(a).toBe('D4');
+		expect(b).toBe('D4');
+		expect(c).toBe('D3');
+		expect(d).toBe('D3');
 	});
 
 	it('should get octave with MIDI', () => {
@@ -100,29 +103,29 @@ describe('Note Test Suite', () => {
 	it('should get neighbors as sharps by default', () => {
 		const note = new Note('A');
 
-		expect(note.next.pitch).toBe('A#');
-		expect(note.prev.pitch).toBe('G#');
+		expect(note.next.pitch).toBe('A#3');
+		expect(note.prev.pitch).toBe('G#3');
 	});
 
 	it('should get accident neighbors', () => {
 		const note = new Note('Gb');
 
-		expect(note.next.pitch).toBe('G');
-		expect(note.prev.pitch).toBe('F');
+		expect(note.next.pitch).toBe('G3');
+		expect(note.prev.pitch).toBe('F3');
 	});
 
 	it('should get edge "B" neighbors', () => {
 		const note = new Note('B');
 
-		expect(note.next.pitch).toBe('C');
-		expect(note.prev.pitch).toBe('A#');
+		expect(note.next.pitch).toBe('C4');
+		expect(note.prev.pitch).toBe('A#3');
 	});
 
 	it('should get edge "C" neighbors', () => {
 		const note = new Note('C');
 
-		expect(note.next.pitch).toBe('C#');
-		expect(note.prev.pitch).toBe('B');
+		expect(note.next.pitch).toBe('C#3');
+		expect(note.prev.pitch).toBe('B2');
 	});
 
 	it('should have next', () => {

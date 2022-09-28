@@ -49,7 +49,7 @@ export class Note {
 
 		if (Note.isNote(note)) {
 			midi = note.midi;
-			note = note.pitch;
+			note = note.note;
 		} else if (isNumber(note)) {
 			midi = note;
 			note = stripOctave(this.extractPitch(midi));
@@ -93,6 +93,10 @@ export class Note {
 			} else {
 				throw new Error(`[Note]: <${note}> isn't a recognized musical note`);
 			}
+
+			this.#midi = 60 + this.distC;
+			this.#octave = 3;
+			this.#freq = findFrequency(this.#midi);
 		}
 
 		if (isUndefined(this.#note)) {
@@ -272,7 +276,7 @@ export class Note {
 	 */
 	get distC(): number {
 		const note = this.#note;
-		const enh = this.e;
+		const enh = this.enharmonic;
 
 		if (this.isFlat && enh) {
 			return Sharps.indexOf(enh as Sharp);
