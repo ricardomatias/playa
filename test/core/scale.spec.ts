@@ -9,6 +9,13 @@ describe('Scale Test Suite', () => {
 			expect(scale.toString()).toEqual('[object Scale: C3,D3,E3,F3,G3,A3,B3]');
 			expect(scale).toHaveMidiNotes([60, 62, 64, 65, 67, 69, 71]);
 		});
+
+		it('should return SHARP MIDI', () => {
+			const scale = new Scale('D#', Scale.Major);
+
+			expect(scale.toString()).toEqual('[object Scale: Eb3,F3,G3,Ab3,Bb3,C4,D4]');
+			expect(scale).toHaveMidiNotes([63, 65, 67, 68, 70, 72, 74]);
+		});
 	});
 
 	describe('#_createScale', () => {

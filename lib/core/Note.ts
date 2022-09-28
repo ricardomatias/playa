@@ -17,9 +17,9 @@ export type NoteLike = string | number | Note | NoteSymbol;
  */
 export class Note {
 	#note: NoteSymbol;
-	#octave: number | undefined;
-	#midi: number | undefined;
-	#freq: number | undefined;
+	#octave: number;
+	#midi: number;
+	#freq: number;
 	#enharmonic: NoteSymbol | undefined;
 	#accident: string | undefined;
 	#next: NoteSymbol;
@@ -155,7 +155,7 @@ export class Note {
 	 * @readonly
 	 * @type {number}
 	 */
-	get octave(): number | undefined {
+	get octave(): number {
 		return this.#octave;
 	}
 
@@ -198,9 +198,6 @@ export class Note {
 	get eoct(): string | null {
 		// TODO: This can probably be removed
 		const octave = this.#octave;
-
-		if (!octave) return null;
-
 		const enh = this.e;
 
 		if (!enh) return null;
@@ -216,7 +213,7 @@ export class Note {
 	 * @example 60 // C3
 	 * @type {Number}
 	 */
-	get m(): number | undefined {
+	get m(): number {
 		return this.#midi;
 	}
 
@@ -227,7 +224,7 @@ export class Note {
 	 * @example 60 // C3
 	 * @type {Number}
 	 */
-	get midi(): number | undefined {
+	get midi(): number {
 		return this.#midi;
 	}
 
@@ -239,7 +236,7 @@ export class Note {
 	 * @example 440 // A3
 	 * @type {Number}
 	 */
-	get f(): number | undefined {
+	get f(): number {
 		return this.freq;
 	}
 
@@ -250,15 +247,11 @@ export class Note {
 	 * @example 440 // A3
 	 * @type {Number}
 	 */
-	get freq(): number | undefined {
+	get freq(): number {
 		const midi = this.#midi;
 
 		if (this.#freq) {
 			return this.#freq;
-		}
-
-		if (!midi) {
-			return undefined;
 		}
 
 		this.#freq = findFrequency(midi);

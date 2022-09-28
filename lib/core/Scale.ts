@@ -130,99 +130,46 @@ export class Scale extends HarmonyBase {
 	}
 
 	/**
-	 * Creates a chromatic scale
-	 *
-	 * @param {String} rootNote
-	 * @param {Boolean} withFlats
-	 * @return {Array<Note>} Chromatic notes
-	 * @private
-	 */
-	private createChromaticScale(rootNote: Note, withFlats?: boolean) {
-		const chromaticNotes = [];
-
-		let nextNote = rootNote;
-
-		for (let index = -1; index < 12; index++) {
-			let note = nextNote;
-
-			if (note.isSharp && withFlats && note.e) {
-				note = new Note(note.e);
-			}
-
-			nextNote = note.next;
-
-			chromaticNotes.push(note);
-		}
-
-		return chromaticNotes;
-	}
-
-	/**
 	 * Creates a scale
 	 *
 	 * @return {Array<Note>} The defined scale notes
 	 * @private
 	 */
 	protected createScale(): Note[] {
-		const baseSharpNotes = [];
-		const baseFlatNotes = [];
-
 		const rootNote = this.root;
 		const scaleIntervals = this._intervals.split(' ');
-
-		const chromaticSharpNotes = this.createChromaticScale(rootNote);
-		const chromaticFlatNotes = this.createChromaticScale(rootNote, true);
-
-		if (chromaticSharpNotes.length === scaleIntervals.length) {
-			return chromaticSharpNotes;
-		}
+		const scaleNotes = [rootNote];
 
 		for (let index = 0; index < scaleIntervals.length; index++) {
 			const interval = scaleIntervals[index] as Interval;
 			const semit = Semitones[interval];
 
-			if (semit != null && semit < chromaticSharpNotes.length) {
-				baseSharpNotes[index] = chromaticSharpNotes[semit];
+			if (semit) {
+				scaleNotes.push(new Note(rootNote.midi + semit));
 			}
 		}
 
-		for (let index = 0; index < scaleIntervals.length; index++) {
-			const interval = scaleIntervals[index] as Interval;
-			const semit = Semitones[interval];
-
-			if (semit != null && semit < chromaticFlatNotes.length) {
-				baseFlatNotes[index] = chromaticFlatNotes[semit];
-			}
-		}
+		const sharps = scaleNotes.map((note) =>
+			note.isNatural || note.isSharp ? note : new Note(note.enharmonic as NoteLike)
+		) as Note[];
+		const flats = scaleNotes.map((note) =>
+			note.isNatural || note.isFlat ? note : new Note(note.enharmonic as NoteLike)
+		) as Note[];
 
 		// This is to figure out if flats is a better match than sharps when the root note is natural
-		const naturalNotesLenSharp = R.length(R.uniqBy((note) => Note.stripAccidental(note), baseSharpNotes));
-		const naturalNotesLenFlat = R.length(R.uniqBy((note) => Note.stripAccidental(note), baseFlatNotes));
+		const naturalNotesLenSharp = R.length(R.uniqBy((note) => Note.stripAccidental(note), sharps));
+		const naturalNotesLenFlat = R.length(R.uniqBy((note) => Note.stripAccidental(note), flats));
 
-		if (rootNote.isFlat) {
+		if (rootNote.isFlat || naturalNotesLenFlat > naturalNotesLenSharp) {
 			this._hasFlats = true;
 			this._hasSharps = false;
 
-			return baseFlatNotes;
-		}
-
-		if (rootNote.isSharp) {
-			this._hasSharps = true;
-			this._hasFlats = false;
-
-			return baseSharpNotes;
-		}
-
-		if (naturalNotesLenSharp >= naturalNotesLenFlat) {
-			this._hasSharps = true;
-			this._hasFlats = false;
-
-			return baseSharpNotes;
+			return flats;
 		} else {
-			this._hasFlats = true;
-			this._hasSharps = false;
+			this._hasSharps = true;
+			this._hasFlats = false;
 
-			return baseFlatNotes;
+			return sharps;
 		}
 	}
 
