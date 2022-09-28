@@ -1,8 +1,7 @@
 /* eslint-disable no-dupe-class-members */
-import { whichAccident, stripOctave, isPitch, parseNote } from '../utils/note';
+import { whichAccident, stripOctave, isPitch, parseNote, findOctave, findFrequency, ACCIDENT_REGEXP } from '../utils/note';
 import { Sharp, Sharps, Flats, Enharmonics, DiatonicNote, DiatonicNotes, NoteSymbol } from '../constants/note';
 import { MidiNotes } from '../constants/midi';
-import { findOctave, findFrequency } from '../tools/midi';
 import { isNumber, isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
 
@@ -368,8 +367,21 @@ export class Note {
 		return note instanceof Note;
 	}
 
-	get [Symbol.toStringTag](): string {
-		return `Note: ${this.pitch}`;
+	/**
+	 * Returns a note without the accidental
+	 *
+	 * @function natural
+	 * @memberof Core#Note
+	 *
+	 * @param {String|Note} note
+	 * @return {String} Natural note
+	 */
+	static stripAccidental(note: NoteLike): DiatonicNote | null {
+		if (!note) return null;
+
+		const n = new Note(note);
+
+		return <DiatonicNote>n.note.replace(new RegExp(ACCIDENT_REGEXP), '');
 	}
 
 	private extractPitch(midi: number): string {
@@ -447,5 +459,9 @@ export class Note {
 			prev: Sharps[prevIndex === -1 ? 11 : prevIndex],
 			next: Sharps[nextIndex === 12 ? 0 : nextIndex],
 		};
+	}
+
+	get [Symbol.toStringTag](): string {
+		return `Note: ${this.pitch}`;
 	}
 }

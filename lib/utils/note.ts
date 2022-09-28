@@ -1,8 +1,8 @@
-import { DiatonicNote, NoteSymbol } from '../constants/note';
+import { NoteSymbol } from '../constants/note';
 import { Note, NoteLike } from '../core/Note';
 
-const ACCIDENT_REGEXP = new RegExp('#|b');
-const OCTAVE_REGEXP = /-?\d{1,}/;
+export const ACCIDENT_REGEXP = /#|b/;
+export const OCTAVE_REGEXP = /-?\d{1,}/;
 
 /**
  * Returns a note's accidental [# | b]
@@ -19,24 +19,6 @@ export const whichAccident = (note: string): string | undefined => {
 	const exec = ACCIDENT_REGEXP.exec(note);
 
 	return exec ? exec[0] : undefined;
-};
-
-/**
- * Returns a note without the accidental
- * @private
- *
- * @function natural
- * @memberof Utils
- *
- * @param {String|Note} note
- * @return {String} Natural note
- */
-export const natural = (note: NoteLike): DiatonicNote | null => {
-	if (!note) return null;
-
-	const n = assureNote(note);
-
-	return <DiatonicNote>n.note.replace(ACCIDENT_REGEXP, '');
 };
 
 /**
@@ -72,4 +54,28 @@ export const parseNote = (note: string): ParsedNote | null => {
 	};
 };
 
-export const assureNote = (note: NoteLike): Note => (note instanceof Note ? note : new Note(note));
+//  * For middle C to be C3 -> 2
+//  * For middle C to be C4 -> 1
+const MIDI_OCTAVE_OFFSET = 2;
+
+/**
+ * Finds the octave based on the MIDI
+ * @private
+ * @param {Number} midi
+ * @return {Number} An octave
+ */
+export const findOctave = (midi: number): number => {
+	return Math.floor(11 * (midi / 132)) - MIDI_OCTAVE_OFFSET;
+};
+
+const TUNING = 440;
+
+/**
+ * Finds the octave based on the MIDI
+ * @private
+ * @param {Number} midi
+ * @return {Number} An octave
+ */
+export const findFrequency = (midi: number): number => {
+	return Math.pow(2, (midi - 69) / 12) * TUNING;
+};

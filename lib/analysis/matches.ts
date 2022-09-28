@@ -6,10 +6,10 @@ import { Sharps, Flats, DiatonicNotes, NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { Interval } from '../constants/intervals';
 import distance from '../tools/distance';
-import { assureNote, stripOctave } from '../utils/note';
+import { stripOctave } from '../utils/note';
 import whilst from '../utils/whilst';
 import { valuesToArr, convObj, rotate } from '../utils/functional';
-import { hasKeyValue, isDefined, isNotNull, isNumber, isString, Pull } from '../utils/types-guards';
+import { hasKeyValue, isDefined, isNotNull, Pull } from '../utils/types-guards';
 
 const __ = R.__;
 
@@ -227,7 +227,7 @@ export const findMatchingKeys = (notes: NoteLike[]): MatchRanking[] => {
 		return [];
 	}
 
-	const parsedNotes = notes.map((n) => assureNote(n).note);
+	const parsedNotes = notes.map((n) => new Note(n).note);
 
 	// => ["C#", "G", "A", "B"]
 	let orderedNotes = orderNotes(R.uniq(parsedNotes));
