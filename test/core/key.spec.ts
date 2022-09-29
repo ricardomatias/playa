@@ -148,7 +148,7 @@ describe('Key Test Suite', () => {
 
 			key.modulate(Key.ModulateUp, '7m');
 
-			expect(key).toHaveStringNotes(['B3', 'C#4', 'D#4', 'F4', 'F#4', 'G#4', 'A#4']);
+			expect(key).toHaveStringNotes(['B3', 'Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4']);
 		});
 	});
 

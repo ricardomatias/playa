@@ -1,24 +1,8 @@
 import { Note } from '../core/Note';
-import { Flats, Sharps } from '../constants';
 import { CoreClassType } from '../core/Types';
 import { Octaves } from '../common/types';
-
-//  * For middle C to be C3 - 2
-//  * For middle C to be C4 - 1
-const MIDI_OCTAVE_OFFSET = 2;
-
-const calcScaleInterval = (firstOct: number, numOctaves: number, distC: number) => {
-	const midi = firstOct * 12 + distC;
-
-	const midiLenMax = Math.min((firstOct + numOctaves) * 12 + distC, 127);
-
-	const midiLen = Math.max(midiLenMax, 12);
-
-	return {
-		midi,
-		midiLen,
-	};
-};
+import { findBaseMidiByOctave } from './note';
+import { distance } from '../tools';
 
 interface AssignOctavesOpts {
 	type: CoreClassType;
@@ -46,65 +30,37 @@ interface AssignOctavesOpts {
 const assignOctaves = (
 	notes: Note[],
 	octaves: Octaves = [-2, 11],
-	{ type = 'scale', hasFlats = false }: Partial<AssignOctavesOpts> = {}
+	{ hasFlats = false }: Partial<AssignOctavesOpts> = {}
 ): Note[] => {
-	const firstNote = notes[0];
-	const chromaticNotes = firstNote.isFlat || hasFlats ? Flats : Sharps;
-	const map: Note[] = [];
-
-	const allMidiNotes = [];
-	let chromaticIndex = 0;
-
-	if (!notes.length) {
-		return [];
-	}
-
 	const [firstOct, numOctaves = 1] = octaves;
 
-	let { midi, midiLen } = calcScaleInterval(firstOct + MIDI_OCTAVE_OFFSET, numOctaves, firstNote.distC);
+	const root = notes[0];
+	const map: Note[] = [];
 
-	if (type === 'chord') {
-		midiLen += 24;
+	let pointer = findBaseMidiByOctave(firstOct);
 
-		midiLen = Math.min(midiLen, 127);
-	}
+	for (let i = 0; i < numOctaves; i++) {
+		const oct = firstOct + i;
+		const baseOct = i === 0 ? pointer : findBaseMidiByOctave(oct);
+		const base = baseOct + root.distC;
 
-	if (midi < 1) {
-		allMidiNotes.push(new Note(0));
-		midi = 1;
-	}
+		notes.forEach((note, j) => {
+			let midi = j === 0 ? base : base + distance.semitones(root, note);
 
-	for (midi; midi <= midiLen; midi++) {
-		chromaticIndex = midi % 12;
-
-		const chromaticNote = chromaticNotes[chromaticIndex];
-
-		allMidiNotes.push(new Note(chromaticNote, midi));
-	}
-
-	let notesIndex = 0;
-
-	// This garantees that the notes are on the right octaves
-	allMidiNotes.forEach((midiNote) => {
-		const midi = midiNote.m;
-		const note = notes[notesIndex].note;
-
-		if (midiNote.equals(notes[notesIndex])) {
-			const mappedNote = new Note(note, midi as number);
-
-			map.push(mappedNote);
-
-			notesIndex++;
-
-			if (notesIndex > notes.length - 1) {
-				notesIndex = 0;
+			while (midi < pointer) {
+				midi += 12;
 			}
-		}
-	});
 
-	const mapLen = notes.length * numOctaves;
+			if (midi > 127) return false;
 
-	return map.slice(0, mapLen);
+			const newNote = root.isFlat || hasFlats ? new Note(midi).toEnharmonic() : new Note(midi);
+
+			map.push(newNote);
+
+			pointer = midi;
+		});
+	}
+	return map;
 };
 
 export default assignOctaves;

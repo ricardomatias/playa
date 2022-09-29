@@ -2,7 +2,8 @@ import * as R from 'ramda';
 import { HarmonyBase } from './HarmonyBase';
 import { Note, NoteLike } from './Note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
-import { Interval, HarmonicPosition, Semitones } from '../constants/intervals';
+import { HarmonicPosition } from '../constants/intervals';
+import * as interval from '../tools/interval';
 import assignOctaves from '../utils/octaves';
 import { PlayaError } from '../utils';
 import { isUndefined } from '../utils/types-guards';
@@ -70,7 +71,7 @@ export class Scale extends HarmonyBase {
 
 		this._intervals = intervals;
 
-		this._notes = this.createScale() || [];
+		this.createNotes(interval.separate(this._intervals));
 
 		this.assignOctaves();
 	}
@@ -124,53 +125,9 @@ export class Scale extends HarmonyBase {
 			this._octaves = octaves;
 		}
 
-		this._notes = assignOctaves(this._notes, this.octaves, { type: 'scale', hasFlats: this.hasFlats });
+		this._notes = assignOctaves(this._notes, this._octaves, { hasFlats: this._hasFlats });
 
 		return this;
-	}
-
-	/**
-	 * Creates a scale
-	 *
-	 * @return {Array<Note>} The defined scale notes
-	 * @private
-	 */
-	protected createScale(): Note[] {
-		const rootNote = this.root;
-		const scaleIntervals = this._intervals.split(' ');
-		const scaleNotes = [rootNote];
-
-		for (let index = 0; index < scaleIntervals.length; index++) {
-			const interval = scaleIntervals[index] as Interval;
-			const semit = Semitones[interval];
-
-			if (semit) {
-				scaleNotes.push(new Note(rootNote.midi + semit));
-			}
-		}
-
-		const sharps = scaleNotes.map((note) =>
-			note.isNatural || note.isSharp ? note : new Note(note.enharmonic as NoteLike)
-		) as Note[];
-		const flats = scaleNotes.map((note) =>
-			note.isNatural || note.isFlat ? note : new Note(note.enharmonic as NoteLike)
-		) as Note[];
-
-		// This is to figure out if flats is a better match than sharps when the root note is natural
-		const naturalNotesLenSharp = R.length(R.uniqBy((note) => Note.stripAccidental(note), sharps));
-		const naturalNotesLenFlat = R.length(R.uniqBy((note) => Note.stripAccidental(note), flats));
-
-		if (rootNote.isFlat || naturalNotesLenFlat > naturalNotesLenSharp) {
-			this._hasFlats = true;
-			this._hasSharps = false;
-
-			return flats;
-		} else {
-			this._hasSharps = true;
-			this._hasFlats = false;
-
-			return sharps;
-		}
 	}
 
 	/**

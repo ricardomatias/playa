@@ -219,7 +219,7 @@ export class Key extends Scale {
 			this._root = new Note(root);
 		}
 
-		this._notes = this.createScale();
+		this.createNotes(this._intervals.split(' ') as Interval[]);
 
 		this.assignOctaves();
 

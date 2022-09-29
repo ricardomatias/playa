@@ -6,7 +6,7 @@ describe('Note Test Suite', () => {
 
 		expect(note.pitch).toBe('A3');
 		expect(note.midi).toBe(69);
-		expect(note.e).toBeUndefined();
+		expect(note.e).toBe('A');
 	});
 
 	it('should set sharp', () => {
@@ -33,7 +33,7 @@ describe('Note Test Suite', () => {
 		expect(note.toString()).toEqual('[object Note: C3]');
 		expect(note.m).toBe(60);
 		expect(note.note).toBe('C');
-		expect(note.e).toBeUndefined();
+		expect(note.e).toBe('C');
 	});
 
 	it('should strip octave from note', () => {
@@ -96,7 +96,7 @@ describe('Note Test Suite', () => {
 
 		expect(next.pitch).toBe('G3');
 		expect(next.note).toBe('G');
-		expect(next.e).toBeUndefined();
+		expect(next.e).toBe('G');
 		expect((next.midi ?? 0) - (note.midi ?? 0)).toBe(1);
 	});
 

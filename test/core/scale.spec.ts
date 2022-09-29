@@ -8,13 +8,19 @@ describe('Scale Test Suite', () => {
 
 			expect(scale.toString()).toEqual('[object Scale: C3,D3,E3,F3,G3,A3,B3]');
 			expect(scale).toHaveMidiNotes([60, 62, 64, 65, 67, 69, 71]);
+
+			scale.assignOctaves([0, 2]);
+			expect(scale.toString()).toEqual('[object Scale: C0,D0,E0,F0,G0,A0,B0,C1,D1,E1,F1,G1,A1,B1]');
 		});
 
-		it('should return SHARP MIDI', () => {
+		it('should return flat MIDI', () => {
 			const scale = new Scale('D#', Scale.Major);
 
 			expect(scale.toString()).toEqual('[object Scale: Eb3,F3,G3,Ab3,Bb3,C4,D4]');
 			expect(scale).toHaveMidiNotes([63, 65, 67, 68, 70, 72, 74]);
+
+			scale.assignOctaves([-2, 2]);
+			expect(scale.toString()).toEqual('[object Scale: Eb-2,F-2,G-2,Ab-2,Bb-2,C-1,D-1,Eb-1,F-1,G-1,Ab-1,Bb-1,C0,D0]');
 		});
 	});
 
@@ -25,16 +31,16 @@ describe('Scale Test Suite', () => {
 			expect(scale.pitches).toMatchInlineSnapshot(`
 			[
 			  "C3",
-			  "C#3",
+			  "Db3",
 			  "D3",
-			  "D#3",
+			  "Eb3",
 			  "E3",
 			  "F3",
-			  "F#3",
+			  "Gb3",
 			  "G3",
-			  "G#3",
+			  "Ab3",
 			  "A3",
-			  "A#3",
+			  "Bb3",
 			  "B3",
 			]
 		`);
@@ -126,10 +132,10 @@ describe('Scale Test Suite', () => {
 			expect(scale.pitches).toMatchInlineSnapshot(`
 			[
 			  "C3",
-			  "D#3",
+			  "Eb3",
 			  "F3",
 			  "G3",
-			  "A#3",
+			  "Bb3",
 			]
 		`);
 		});

@@ -182,9 +182,9 @@ describe('Chord Test Suite', () => {
 				expect(chord.intervals).toBe('1P 5P 8P');
 				expect(chord.structure).toBe(Chord.Structures.Triad);
 				expect(chord.name).toBe('A5');
+				expect(chord).toHaveStringNotes(['A3', 'E4', 'A4']);
 				expect(chord.hasFlats).toBeFalsy();
 				expect(chord.hasSharps).toBeFalsy();
-				expect(chord).toHaveStringNotes(['A3', 'E4', 'A4']);
 			});
 
 			it('should set sixth', () => {

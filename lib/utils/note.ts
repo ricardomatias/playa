@@ -68,6 +68,16 @@ export const findOctave = (midi: number): number => {
 	return Math.floor(11 * (midi / 132)) - MIDI_OCTAVE_OFFSET;
 };
 
+/**
+ * Finds the octave based on the MIDI
+ * @private
+ * @param {Number} midi
+ * @return {Number} An octave
+ */
+export const findBaseMidiByOctave = (octave: number): number => {
+	return 12 * octave + MIDI_OCTAVE_OFFSET * 12;
+};
+
 const TUNING = 440;
 
 /**

@@ -139,6 +139,12 @@ describe('A Distance test suite', () => {
 			expect(newNote).toBe('D');
 		});
 
+		it('should return the transposed of: C, 3m', () => {
+			const newNote = transposeUp('C', '3m');
+
+			expect(newNote).toBe('Eb');
+		});
+
 		it('should return the transposed of: A, 3m', () => {
 			const newNote = transposeUp('A4', '3m');
 

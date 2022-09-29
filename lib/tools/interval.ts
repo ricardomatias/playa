@@ -10,14 +10,14 @@ const TOTAL_INTERVALS = 21;
 
 /**
  * Gets one or several intervals from a number of semitones
- * @function interval
+ * @function fromSemitones
  * @memberof Tools.Interval
- * @example interval(4) => ['3M']
+ * @example fromSemitones(4) => ['3M']
  *
  * @param {Number} semitones
  * @return {Array<Interval>|null}
  */
-export const interval = (semitones: number): Interval[] | null => {
+export const fromSemitones = (semitones: number): Interval[] | null => {
 	const intervals: Interval[] = [];
 
 	for (const [interv, semit] of Object.entries(Semitones)) {
@@ -49,7 +49,7 @@ export const invert = (interv: Interval): Interval[] | null => {
 		return null;
 	}
 
-	return interval(12 - semit);
+	return fromSemitones(12 - semit);
 };
 
 /**
@@ -77,7 +77,7 @@ export const add = (a: Interval, b: Interval): Interval[] | null => {
 			return null;
 		}
 
-		return interval(result);
+		return fromSemitones(result);
 	}
 
 	return null;
@@ -108,7 +108,7 @@ export const subtract = (a: Interval, b: Interval): Interval[] | null => {
 			return null;
 		}
 
-		return interval(result);
+		return fromSemitones(result);
 	}
 
 	return null;
@@ -124,6 +124,26 @@ export const subtract = (a: Interval, b: Interval): Interval[] | null => {
  * @example
  * exists("55m") => false
  *
- * @return {Array<Interval>|null} How many semitones are they apart or null if not possible
+ * @return {bool}
  */
 export const exists = (interval: Interval): boolean => Object.keys(Semitones).includes(interval);
+
+/**
+ * Separates an intervals string into an array, filtering out any invalid interval
+ *
+ * @function separate
+ * @memberof Tools.Interval
+ *
+ * @param {Interval} intervals
+ *
+ * @example
+ * separate("1P 3M 5P") => ["1P", "3M", "5P"]
+ * separate("1P 98M 5P") => ["1P", "5P"]
+ *
+ * @return {Array<Interval>|null} How many semitones are they apart or null if not possible
+ */
+export const separate = (intervals: string): Interval[] => {
+	const arr = intervals.split(' ') as Interval[];
+
+	return arr.filter(exists);
+};

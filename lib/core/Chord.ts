@@ -16,7 +16,7 @@ import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals } from '../constants/scales';
 import { deconstructName, findNameFromIntervals, findNameFromSymbol } from './utils';
 import { PlayaError, whilst } from '../utils';
-import { distance, rotate, choose, random } from '../tools';
+import { distance, rotate, choose, random, interval } from '../tools';
 import { isDefined, isNull, isUndefined } from '../utils/types-guards';
 import assignOctaves from '../utils/octaves';
 import { Scale } from './Scale';
@@ -143,17 +143,7 @@ export class Chord extends HarmonyBase {
 			this._chordName = `${this._root.note}${this._symbol}`;
 		}
 
-		const notes = this.createChord();
-
-		if (isUndefined(notes) || !notes.length) {
-			throw new PlayaError('Chord', `Could create chord with <${description}>`);
-		}
-
-		this._notes = notes;
-
-		this.discoverAccident();
-
-		this.assignOctaves();
+		this.createChord(description);
 	}
 
 	/**
@@ -439,9 +429,7 @@ export class Chord extends HarmonyBase {
 	 * @param {String} chordName
 	 * @return {Array<Note>}
 	 */
-	private createChord(): Note[] | undefined {
-		const root = this._root;
-
+	private createChord(description: ChordSymbol | ChordIntervals) {
 		// this._intervals will exist in `fromScale`
 		if (isDefined(this._name)) {
 			this._intervals = ChordDefinition[this._name].intervals;
@@ -451,19 +439,15 @@ export class Chord extends HarmonyBase {
 			return;
 		}
 
-		const intervals = <Interval[]>this._intervals.split(' ');
+		this.createNotes(interval.separate(this._intervals));
 
-		const notes = [root];
-
-		for (let idx = 1; idx < intervals.length; idx++) {
-			const interval = intervals[idx];
-
-			const note = distance.transposeUp(root, interval) as string;
-
-			notes.push(new Note(note));
+		if (isUndefined(this._notes) || !this._notes.length) {
+			throw new PlayaError('Chord', `Could create chord with <${description}>`);
 		}
 
-		return notes;
+		this.discoverAccident();
+
+		this.assignOctaves();
 	}
 }
 

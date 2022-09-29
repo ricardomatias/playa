@@ -1,5 +1,7 @@
+import * as R from 'ramda';
 import { Octaves } from '../common/types';
-import { NoteSymbol } from '../constants';
+import { Interval, NoteSymbol, Semitones } from '../constants';
+import { distance } from '../tools';
 import { mapNotesToFreq, mapNotesToMidi, mapNotesToString, mapNotesToSymbol } from '../utils/map';
 import { Note, NoteLike } from './Note';
 
@@ -182,10 +184,64 @@ export abstract class HarmonyBase {
 	 *
 	 * @private
 	 * @function assignOctaves
-	 * @memberof Core.Scale#
+	 * @memberof Core.HarmonyBase#
 	 *
 	 * @param {Array<Number>} octaves
 	 * @return {this}
 	 */
 	abstract assignOctaves(octaves?: Octaves): this;
+
+	/**
+	 * Transforms the intervals into notes
+	 *
+	 * @private
+	 * @function createNotes
+	 * @memberof Core.HarmonyBase#
+	 *
+	 * @return {Array<Note>}
+	 */
+	protected createNotes(intervals: Interval[]) {
+		const rootNote = this.root;
+		const notes = [rootNote];
+
+		for (let index = 0; index < intervals.length; index++) {
+			const interval = intervals[index] as Interval;
+			const semit = Semitones[interval];
+
+			if (semit) {
+				notes.push(new Note(distance.transposeUp(rootNote, interval), rootNote.midi + semit));
+			}
+		}
+
+		if (R.length(R.filter((n) => n.isNatural, notes)) === notes.length) {
+			this._notes = notes;
+			return;
+		}
+
+		const sharps = notes.map((note) => (note.isNatural || note.isSharp ? note : note.toEnharmonic())) as Note[];
+		const flats = notes.map((note) => (note.isNatural || note.isFlat ? note : note.toEnharmonic())) as Note[];
+
+		// This is to figure out if flats is a better match than sharps when the root note is natural
+		const naturalNotesLenSharp = R.length(R.uniqBy(Note.stripAccidental, sharps));
+		const naturalNotesLenFlat = R.length(R.uniqBy(Note.stripAccidental, flats));
+
+		if (
+			rootNote.isFlat ||
+			naturalNotesLenFlat > naturalNotesLenSharp ||
+			(naturalNotesLenFlat === naturalNotesLenSharp &&
+				R.length(R.filter((n) => n.isFlat, notes)) > R.length(R.filter((n) => n.isSharp, notes)))
+		) {
+			this._hasFlats = true;
+			this._hasSharps = false;
+
+			this._notes = flats;
+		} else if (naturalNotesLenSharp > 0 && naturalNotesLenSharp > notes.length) {
+			this._hasSharps = true;
+			this._hasFlats = false;
+
+			this._notes = sharps;
+		} else {
+			this._notes = notes;
+		}
+	}
 }

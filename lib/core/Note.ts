@@ -20,7 +20,7 @@ export class Note {
 	#octave: number;
 	#midi: number;
 	#freq: number;
-	#enharmonic: NoteSymbol | undefined;
+	#enharmonic: NoteSymbol;
 	#accident: string | undefined;
 	#next: NoteSymbol;
 	#prev: NoteSymbol;
@@ -76,6 +76,7 @@ export class Note {
 		if (typeof midi !== 'undefined') {
 			if (midi >= 0 && midi <= 127) {
 				this.#note = note as NoteSymbol;
+				this.#enharmonic = this.resolveEnharmonic(this.#note);
 				this.#midi = midi;
 				this.#octave = findOctave(midi);
 				this.#freq = findFrequency(midi);
@@ -85,11 +86,15 @@ export class Note {
 			}
 		} else {
 			const diatonicIndex = DiatonicNotes.indexOf(note as DiatonicNote);
+			const enh = this.resolveEnharmonic(note as NoteSymbol);
 
 			if (diatonicIndex !== -1) {
 				this.#note = DiatonicNotes[diatonicIndex];
-			} else if (this.hasAccident(note as NoteSymbol) && this.resolveEnharmonic(note as NoteSymbol)) {
+				this.#enharmonic = this.#note;
+				// enh !== note - tests that it's a valid note and not something like Cb
+			} else if (this.hasAccident(note as NoteSymbol) && enh !== note) {
 				this.#note = note as NoteSymbol;
+				this.#enharmonic = enh;
 			} else {
 				throw new Error(`[Note]: <${note}> isn't a recognized musical note`);
 			}
@@ -179,7 +184,7 @@ export class Note {
 	 * @example 'D#' => 'Eb'
 	 * @type {String}
 	 */
-	get enharmonic(): NoteSymbol | undefined {
+	get enharmonic(): NoteSymbol {
 		if (!this.#enharmonic) {
 			this.#enharmonic = this.resolveEnharmonic(this.#note);
 		}
@@ -196,7 +201,6 @@ export class Note {
 	 * @type {string}
 	 */
 	get eoct(): string | null {
-		// TODO: This can probably be removed
 		const octave = this.#octave;
 		const enh = this.e;
 
@@ -360,6 +364,10 @@ export class Note {
 		return new Note(this.#note, this.#midi);
 	}
 
+	toEnharmonic(): Note {
+		return new Note(this.enharmonic, this.midi);
+	}
+
 	static isNote(note: NoteLike): note is Note {
 		return note instanceof Note;
 	}
@@ -398,7 +406,7 @@ export class Note {
 	 * @return {String} enharmonic
 	 * @memberof Note
 	 */
-	private resolveEnharmonic(note: NoteSymbol): NoteSymbol | undefined {
+	private resolveEnharmonic(note: NoteSymbol): NoteSymbol {
 		let enharmonic = '';
 
 		for (let index = 0; index < Enharmonics.length; index++) {
@@ -414,7 +422,7 @@ export class Note {
 		}
 
 		if (!enharmonic) {
-			return;
+			return note;
 		}
 
 		return <NoteSymbol>enharmonic;

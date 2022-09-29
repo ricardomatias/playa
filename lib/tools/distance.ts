@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { Note, NoteLike } from '../core/Note';
 import ring from '@ricardomatias/ring';
-import { interval as getInterval } from './interval';
+import { fromSemitones as getInterval } from './interval';
 import { Sharps, Flats, Semitones, DiatonicNotes, DiatonicNote, NoteSymbol, Interval, Sharp, Flat } from '../constants';
 import { isDefined, isNotNull } from '../utils/types-guards';
 
@@ -125,8 +125,12 @@ const transpose = (note: NoteLike, int: Interval, operation: 'add' | 'subtract')
 	const transposedNote = new Note(ringedIntervals[interval]);
 	const transposedNatural = ring(Array.from(DiatonicNotes))[diatonicInterval];
 
-	if (!transposedNote.isNatural && Note.stripAccidental(transposedNote.note) !== transposedNatural && isDefined(transposedNote.e)) {
-		return transposedNote.e;
+	if (
+		!transposedNote.isNatural &&
+		Note.stripAccidental(transposedNote.note) !== transposedNatural &&
+		isDefined(transposedNote.enharmonic)
+	) {
+		return transposedNote.enharmonic;
 	}
 
 	return transposedNote.note;
