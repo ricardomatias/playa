@@ -1,4 +1,4 @@
-import { findBaseMidiByOctave, findOctave } from '../../lib/utils/note';
+import { findCMidiByOctave, findOctave } from '../../lib/utils/note';
 
 describe('A Notes Util Test Suite', () => {
 	it('should find octave for C3', () => {
@@ -6,9 +6,9 @@ describe('A Notes Util Test Suite', () => {
 	});
 
 	it('should find midi by octave', () => {
-		expect(findBaseMidiByOctave(-2)).toEqual(0);
-		expect(findBaseMidiByOctave(0)).toEqual(24);
-		expect(findBaseMidiByOctave(3)).toEqual(60);
-		expect(findBaseMidiByOctave(7)).toEqual(108);
+		expect(findCMidiByOctave(-2)).toEqual(0);
+		expect(findCMidiByOctave(0)).toEqual(24);
+		expect(findCMidiByOctave(3)).toEqual(60);
+		expect(findCMidiByOctave(7)).toEqual(108);
 	});
 });

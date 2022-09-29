@@ -5,7 +5,7 @@ import { Note, NoteLike } from '../core/Note';
 import { Sharps, Flats, DiatonicNotes, NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { Interval } from '../constants/intervals';
-import distance from '../tools/distance';
+import * as distance from '../tools/distance';
 import { stripOctave } from '../utils/note';
 import whilst from '../utils/whilst';
 import { valuesToArr, convObj, rotate } from '../utils/functional';

@@ -5,7 +5,7 @@ export { next } from './next';
 export { ping } from './ping';
 export { zigzag } from './zigzag';
 export { mapRepeat } from './map-repeat';
-export { default as distance } from './distance';
+export * as distance from './distance';
 export * as interval from './interval';
 export * as Euclidean from './euclidean';
 export { default as random, Random } from './random';

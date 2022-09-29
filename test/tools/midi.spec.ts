@@ -1,9 +1,12 @@
-import { MidiNotes } from '../../lib/constants';
-import { Chord } from '../../lib/core';
+import { Chord, Note } from '../../lib/core';
 import { findNearest, findNearestChord, findNearestVoicings, spreadVoicing, transposeIfLower } from '../../lib/tools/midi';
 
 const toNotes = (midiNotes: number[]) => {
-	return midiNotes.map((midi) => MidiNotes[midi]);
+	return midiNotes.map((midi) => {
+		const note = new Note(midi);
+
+		return !note.isSharp ? note.toEnharmonic().pitch : note.pitch;
+	});
 };
 
 const assureSeparation = (midiNotes: number[], min: number) => {

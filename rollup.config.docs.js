@@ -5,10 +5,7 @@ import cleanup from 'rollup-plugin-cleanup';
 import typescript from 'rollup-plugin-typescript2';
 import del from 'rollup-plugin-delete';
 
-
-const extensions = [
-	'.js', '.ts',
-];
+const extensions = ['.js', '.ts'];
 
 const baseConfig = {
 	input: './lib/index.ts',
@@ -19,7 +16,7 @@ const baseConfig = {
 		},
 	],
 	manualChunks: {
-		vendor: [ 'ramda', 'simplex-noise', 'alea' ],
+		vendor: ['ramda', 'simplex-noise', 'alea'],
 	},
 	plugins: [
 		del({ targets: 'build/*' }),
@@ -30,7 +27,9 @@ const baseConfig = {
 			compactComments: false,
 		}),
 		typescript({
-			target: 'ESNext',
+			tsconfigOverride: {
+				target: 'ESNext',
+			},
 		}),
 		progress(),
 	],

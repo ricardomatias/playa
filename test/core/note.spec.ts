@@ -74,7 +74,7 @@ describe('Note Test Suite', () => {
 	it('should get enharmonic with MIDI', () => {
 		const note = new Note(102);
 
-		expect(note.eoct).toBe('Gb6');
+		expect(note.enharmonicPitch).toBe('Gb6');
 		expect(note.e).toBe('Gb');
 	});
 
@@ -186,5 +186,113 @@ describe('Note Test Suite', () => {
 		const b = new Note('Db4');
 
 		expect(a.equals(b)).toBeTruthy();
+	});
+
+	describe('#position', () => {
+		it('should return C position', () => {
+			const dist = Note.position('C');
+
+			expect(dist).toBe(0);
+		});
+
+		it('should return Eb position', () => {
+			const dist = Note.position('Eb');
+
+			expect(dist).toBe(3);
+		});
+
+		it('should return A# position', () => {
+			const dist = Note.position('A#');
+
+			expect(dist).toBe(10);
+		});
+	});
+
+	describe('#transposeUp', () => {
+		it('should return the transposed of: C, 2M', () => {
+			const newNote = Note.transposeUp('C', '2M');
+
+			expect(newNote).toBe('D');
+		});
+
+		it('should return the transposed of: C, 3m', () => {
+			const newNote = Note.transposeUp('C', '3m');
+
+			expect(newNote).toBe('Eb');
+		});
+
+		it('should return the transposed of: A, 3m', () => {
+			const newNote = Note.transposeUp('A4', '3m');
+
+			expect(newNote).toBe('C');
+		});
+
+		it('should return the transposed of: Db, 4P', () => {
+			const newNote = Note.transposeUp('Db', '4P');
+
+			expect(newNote).toBe('Gb');
+		});
+
+		it('should return the transposed of: F#, A#', () => {
+			const newNote = Note.transposeUp('F#', '3M');
+
+			expect(newNote).toBe('A#');
+		});
+
+		it('should return the transposed of: Gb, Db', () => {
+			const newNote = Note.transposeUp('Gb', '5P');
+
+			expect(newNote).toBe('Db');
+		});
+
+		it('should return the transposed of: B, C', () => {
+			const newNote = Note.transposeUp('B', '2m');
+
+			expect(newNote).toBe('C');
+		});
+
+		it('should return the transposed of: Gb, E', () => {
+			const newNote = Note.transposeUp('Gb', '7m');
+
+			expect(newNote).toBe('E');
+		});
+	});
+
+	describe('#transposeDown', () => {
+		it('should return the transposed of: C, 2M', () => {
+			const newNote = Note.transposeDown('C', '2M');
+
+			expect(newNote).toBe('Bb');
+		});
+
+		it('should return the transposed of: Db, 4P', () => {
+			const newNote = Note.transposeDown('Db', '4P');
+
+			expect(newNote).toBe('Ab');
+		});
+
+		it('should return the transposed of: F#, 3M', () => {
+			const newNote = Note.transposeDown('F#', '3M');
+
+			expect(newNote).toBe('D');
+		});
+
+		it('should return the transposed of: Gb, 5P', () => {
+			const newNote = Note.transposeDown('Gb', '5P');
+
+			expect(newNote).toBe('B');
+		});
+
+		it('should return the transposed of: B, 2m', () => {
+			const newNote = Note.transposeDown('B', '2m');
+
+			expect(newNote).toBe('A#');
+		});
+
+		it('should return the transposed of: Gb, 7m', () => {
+			const newNote = Note.transposeDown('Gb', '7m');
+
+			expect(newNote).toBe('Ab');
+		});
 	});
 });

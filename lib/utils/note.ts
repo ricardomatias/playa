@@ -69,12 +69,12 @@ export const findOctave = (midi: number): number => {
 };
 
 /**
- * Finds the octave based on the MIDI
+ * Finds the C from which the octave is based
  * @private
  * @param {Number} midi
  * @return {Number} An octave
  */
-export const findBaseMidiByOctave = (octave: number): number => {
+export const findCMidiByOctave = (octave: number): number => {
 	return 12 * octave + MIDI_OCTAVE_OFFSET * 12;
 };
 

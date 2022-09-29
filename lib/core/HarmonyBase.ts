@@ -1,9 +1,8 @@
 import * as R from 'ramda';
 import { Octaves } from '../common/types';
 import { Interval, NoteSymbol, Semitones } from '../constants';
-import { distance } from '../tools';
 import { mapNotesToFreq, mapNotesToMidi, mapNotesToString, mapNotesToSymbol } from '../utils/map';
-import { Note, NoteLike } from './Note';
+import { Note, NoteLike, NoteType } from './Note';
 
 /**
  * Abstract base class for harmonic structures
@@ -17,8 +16,7 @@ export abstract class HarmonyBase {
 	protected _root: Note;
 	protected _notes: Note[] = [];
 	protected _octaves: Octaves;
-	protected _hasFlats = false;
-	protected _hasSharps = false;
+	protected _notesType = NoteType.Natural;
 
 	/**
 	 * Creates an instance of HarmonyBase.
@@ -165,7 +163,7 @@ export abstract class HarmonyBase {
 	 * @type {boolean}
 	 */
 	get hasFlats(): boolean {
-		return this._hasFlats;
+		return this._notesType === NoteType.Flat;
 	}
 
 	/**
@@ -176,7 +174,18 @@ export abstract class HarmonyBase {
 	 * @type {boolean}
 	 */
 	get hasSharps(): boolean {
-		return this._hasSharps;
+		return this._notesType === NoteType.Sharp;
+	}
+
+	/**
+	 * Gets the type of notes (Sharp/Flat include natural notes)
+	 * @member notesType
+	 * @memberof Core.HarmonyBase#
+	 *
+	 * @type {NoteType}
+	 */
+	get notesType(): NoteType {
+		return this._notesType;
 	}
 
 	/**
@@ -209,7 +218,7 @@ export abstract class HarmonyBase {
 			const semit = Semitones[interval];
 
 			if (semit) {
-				notes.push(new Note(distance.transposeUp(rootNote, interval), rootNote.midi + semit));
+				notes.push(new Note(Note.transposeUp(rootNote, interval), rootNote.midi + semit));
 			}
 		}
 
@@ -231,16 +240,15 @@ export abstract class HarmonyBase {
 			(naturalNotesLenFlat === naturalNotesLenSharp &&
 				R.length(R.filter((n) => n.isFlat, notes)) > R.length(R.filter((n) => n.isSharp, notes)))
 		) {
-			this._hasFlats = true;
-			this._hasSharps = false;
-
 			this._notes = flats;
-		} else if (naturalNotesLenSharp > 0 && naturalNotesLenSharp > notes.length) {
-			this._hasSharps = true;
-			this._hasFlats = false;
+			this._notesType = NoteType.Flat;
+		} else if (naturalNotesLenSharp > 0 && naturalNotesLenSharp >= notes.length) {
+			this._notesType = NoteType.Sharp;
 
 			this._notes = sharps;
 		} else {
+			this._notesType = NoteType.Natural;
+
 			this._notes = notes;
 		}
 	}

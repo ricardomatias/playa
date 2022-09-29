@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import { roll } from '@ricardomatias/roll';
 
 import { HarmonyBase } from './HarmonyBase';
-import { Note, NoteLike } from './Note';
+import { Note, NoteLike, NoteType } from './Note';
 import {
 	ChordSymbol,
 	ChordStructure,
@@ -336,7 +336,7 @@ export class Chord extends HarmonyBase {
 			this._octaves = octaves;
 		}
 
-		this._notes = assignOctaves(this._notes, this.octaves, { type: 'chord', hasFlats: this.hasFlats });
+		this._notes = assignOctaves(this._notes, this.octaves);
 
 		return this;
 	}
@@ -414,11 +414,11 @@ export class Chord extends HarmonyBase {
 		const flatNotes = R.length(R.filter(R.prop<'isFlat', boolean>('isFlat'), notes));
 
 		if (rootNote.isFlat || flatNotes > 0) {
-			this._hasFlats = true;
+			this._notesType = NoteType.Flat;
 		}
 
 		if (rootNote.isSharp || sharpNotes > 0) {
-			this._hasSharps = true;
+			this._notesType = NoteType.Sharp;
 		}
 	}
 

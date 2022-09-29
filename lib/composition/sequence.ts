@@ -3,7 +3,7 @@ import { Scale } from '../core/Scale';
 import { Key } from '../core/Key';
 import { Chord } from '../core/Chord';
 import { Note } from '../core/Note';
-import distance from '../tools/distance';
+import * as distance from '../tools/distance';
 import { mapNotesToString, mapNotesToMidi, mapNotesToFreq } from '../utils';
 import { isDefined } from '../utils/types-guards';
 import { Interval } from '../constants';
@@ -159,7 +159,7 @@ export class Sequence {
 
 		if (!interval) return this;
 
-		const notes: Note[] = scale.notes.filter((note) => note.note === distance.transposeUp(root, interval as Interval));
+		const notes: Note[] = scale.notes.filter((note) => note.note === Note.transposeUp(root, interval as Interval));
 
 		this._notes = this._notes.concat(notes);
 

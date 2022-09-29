@@ -1,18 +1,16 @@
 import * as R from 'ramda';
 import { Note, NoteLike } from '../core/Note';
-import { MidiNotes, NoteSymbol } from '../constants';
-import { stripOctave } from '../utils/note';
+import { NoteSymbol } from '../constants';
 import { isDefined, isUndefined } from '../utils/types-guards';
-import type { Chord } from '../core/Chord';
 import { NoteEvent } from '../core/NoteEvent';
+
+type NearestVoice = { voice: number; midi: number; distance: number };
 
 /**
  * MIDI tools
  * @namespace Midi
  * @memberof Tools
  */
-
-type NearestVoice = { voice: number; midi: number; distance: number };
 
 /**
  * Find the nearest MIDI note to a given base midi note
@@ -22,37 +20,25 @@ type NearestVoice = { voice: number; midi: number; distance: number };
  *
  * @param {Number} base
  * @param {NoteSymbol|string} note
- * @param {Number} [range=12] the range of notes to find the distance to
  * @example
  * const A = 69 // 'A3'
  * findNearest(A, 'C') => 72 // 'C4'
  *
  * @return {Number} midi note
  */
-export const findNearest = (base: number, note: NoteSymbol | string, range = 12): number[] => {
+export const findNearest = (base: number, note: NoteSymbol | string): number[] => {
 	const n = new Note(note);
 
-	const from = Math.max(base - range, 0);
-	const to = Math.min(base + range, 127);
+	const candidates = [-1, 0, 1].map((inc) => Note.fromOctave(n, n.octave + inc).midi);
 
-	const intervalNotes = R.slice(from, to + 1, MidiNotes);
-
-	const realNote = n.isNatural || n.isSharp ? n.note : n.e;
-
-	const filterByOctaves = (noteOctave: string) => stripOctave(noteOctave) === realNote;
-
-	const noteByOcts = R.filter(filterByOctaves, intervalNotes).map((noteOct) => {
-		return MidiNotes.indexOf(noteOct);
-	});
-
-	return R.sort((a, b) => Math.abs(base - a) - Math.abs(base - b), noteByOcts);
+	return R.sort((a, b) => Math.abs(base - a) - Math.abs(base - b), candidates);
 };
 
-const findNearestVoice = (voices: number[], target: NoteSymbol, range = 12): NearestVoice[] =>
+const findNearestVoice = (voices: number[], target: NoteSymbol): NearestVoice[] =>
 	R.sortBy(
 		R.prop('distance'),
 		voices
-			.map((midi) => ({ voice: midi, midi: R.head(findNearest(midi, target, range)) }))
+			.map((midi) => ({ voice: midi, midi: R.head(findNearest(midi, target)) }))
 			.map(({ voice, midi = 0 }) => ({ voice, midi, distance: Math.abs(voice - midi) }))
 	);
 
@@ -119,7 +105,7 @@ export const findNearestChord = (
 		if (new Note(first).note !== target) {
 			midiChord.splice(midiChord.indexOf(firstNote), 1);
 
-			const nearestVoices = findNearest(midiChord[0], target, 12);
+			const nearestVoices = findNearest(midiChord[0], target);
 			const lowest = nearestVoices.find((newVoice) => newVoice < midiChord[0]);
 
 			if (lowest) midiChord.unshift(lowest);
@@ -160,8 +146,8 @@ const closestToEdge = (base: number[], midi: number, minDist: number) => {
 	const first = base[0];
 	const last = base[base.length - 1];
 
-	const lowA = findNearest(first, a, 24);
-	const highA = findNearest(last, a, 24);
+	const lowA = findNearest(first, a);
+	const highA = findNearest(last, a);
 
 	// excluse self after combining results
 	const alternatives = R.uniq(lowA.concat(highA)).filter((note) => note !== midi);
@@ -172,6 +158,17 @@ const closestToEdge = (base: number[], midi: number, minDist: number) => {
 	).filter(({ distance }) => distance >= minDist);
 };
 
+/**
+ * Spread the notes further apart from each other in respect to a minimum distance in semitones
+ *
+ * @function spreadVoicing
+ * @memberof Tools.Midi
+ *
+ * @param {Array<number>} base midi notes
+ * @param {number} minDist minimum distance in semitones
+ *
+ * @return {Array<number>}
+ */
 export const spreadVoicing = (base: number[], minDist = 2): number[] => {
 	if (base.length === 0) return [];
 
@@ -214,6 +211,17 @@ export const spreadVoicing = (base: number[], minDist = 2): number[] => {
 	return voices;
 };
 
+/**
+ * Transpose every note that is lower than the given one
+ *
+ * @function transposeIfLower
+ * @memberof Tools.Midi
+ *
+ * @param {Array<number>} base midi notes
+ * @param {NoteLike} note
+ *
+ * @return {Array<number>}
+ */
 export const transposeIfLower = (base: number[], note: NoteLike): number[] => {
 	const n = new Note(note);
 	const lowestNote = R.reduce(

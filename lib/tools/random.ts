@@ -3,7 +3,7 @@
 /* eslint-disable no-var, new-cap */
 import Alea from 'alea';
 import { NoiseFunction2D, createNoise2D } from 'simplex-noise';
-import { PlayaError } from '../utils';
+import { PlayaError } from '../utils/error';
 
 const INITIAL_SEED = 'PLAYA';
 const INITIAL_X = 0;

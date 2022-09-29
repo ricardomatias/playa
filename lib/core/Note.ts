@@ -1,11 +1,38 @@
 /* eslint-disable no-dupe-class-members */
-import { whichAccident, stripOctave, isPitch, parseNote, findOctave, findFrequency, ACCIDENT_REGEXP } from '../utils/note';
-import { Sharp, Sharps, Flats, Enharmonics, DiatonicNote, DiatonicNotes, NoteSymbol } from '../constants/note';
-import { MidiNotes } from '../constants/midi';
-import { isNumber, isUndefined } from '../utils/types-guards';
+import ring from '@ricardomatias/ring';
+
+import {
+	whichAccident,
+	stripOctave,
+	isPitch,
+	parseNote,
+	findOctave,
+	findFrequency,
+	ACCIDENT_REGEXP,
+	findCMidiByOctave,
+} from '../utils/note';
+import { Sharp, Sharps, Flats, Enharmonics, DiatonicNote, DiatonicNotes, NoteSymbol, Flat } from '../constants/note';
+import { isDefined, isNumber, isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
+import { Interval, Semitones } from '../constants';
+import { fromSemitones } from '../tools/interval';
 
 export type NoteLike = string | number | Note | NoteSymbol;
+
+/**
+ * Note Type
+ * @memberof Types
+ * @typedef NoteType
+ * @enum
+ * @param {string} Natural "natural"
+ * @param {string} Sharp "sharp"
+ * @param {string} Flat "flat"
+ */
+export enum NoteType {
+	Natural = 'natural',
+	Sharp = 'sharp',
+	Flat = 'flat',
+}
 
 /**
  * Defines a Note
@@ -24,15 +51,32 @@ export class Note {
 	#accident: string | undefined;
 	#next: NoteSymbol;
 	#prev: NoteSymbol;
+	#type: NoteType = NoteType.Natural;
 
 	static SHARP = '#';
 	static FLAT = 'b';
 	static Sharps = Sharps;
 	static Flats = Flats;
 
+	/**
+	 * Chord structures used to create chords
+	 *
+	 * @member Type
+	 * @memberof Core#Note
+	 * @enum
+	 * @static
+	 * @type {NoteType}
+	 *
+	 * @example NoteType.Flat => 'flat'
+	 */
+	static Type = NoteType;
+
 	// constructor(note: NoteSymbol | string, midi: number);
 
 	/**
+	 * @description
+	 * A note without midi, will be assigned a midi number from the middle (3rd) octave
+	 *
 	 * @constructs Note
 	 * @memberof Core#
 	 *
@@ -43,6 +87,7 @@ export class Note {
 	 * new Note('C', 60)
 	 * new Note('C')
 	 * new Note(60)
+	 * Note.fromOctave('C', 3)
 	 */
 	constructor(note: NoteLike, midi?: number) {
 		let octave = 0;
@@ -52,7 +97,7 @@ export class Note {
 			note = note.note;
 		} else if (isNumber(note)) {
 			midi = note;
-			note = stripOctave(this.extractPitch(midi));
+			note = stripOctave(Note.extractPitch(midi));
 		} else if (isPitch(note)) {
 			const parsed = parseNote(note);
 
@@ -60,17 +105,9 @@ export class Note {
 				throw new Error(`[Note]: <${note}> isn't a recognized musical note`);
 			}
 
-			midi = MidiNotes.indexOf(note as any);
 			note = parsed.note;
 			octave = parsed.octave;
-
-			if (midi === -1) {
-				const enh = this.resolveEnharmonic(note as NoteSymbol);
-
-				if (enh) {
-					midi = MidiNotes.indexOf((enh + parsed.octave) as any);
-				}
-			}
+			midi = findCMidiByOctave(octave) + Note.position(note);
 		}
 
 		if (typeof midi !== 'undefined') {
@@ -112,6 +149,12 @@ export class Note {
 
 		this.#next = next;
 		this.#prev = prev;
+
+		if (this.isFlat) {
+			this.#type = NoteType.Flat;
+		} else if (this.isSharp) {
+			this.#type = NoteType.Sharp;
+		}
 	}
 
 	/**
@@ -172,8 +215,20 @@ export class Note {
 	 * @example 'D#' => 'Eb'
 	 * @type {String}
 	 */
-	get e(): NoteSymbol | undefined {
+	get e(): NoteSymbol {
 		return this.enharmonic;
+	}
+
+	/**
+	 * Returns the enharmonic
+	 *
+	 * @member e
+	 * @memberof Core#Note#
+	 * @example 'D#' => 'Eb'
+	 * @type {String}
+	 */
+	get epitch(): NoteSymbol {
+		return this.enharmonicPitch;
 	}
 
 	/**
@@ -193,20 +248,18 @@ export class Note {
 	}
 
 	/**
-	 * Returns the enharmonic with oct
+	 * Returns the enharmonic pitch
 	 *
-	 * @member eoct
+	 * @member enharmonicPitch
 	 * @memberof Core#Note#
 	 * @example 'D#3' => 'Eb3'
 	 * @type {string}
 	 */
-	get eoct(): string | null {
+	get enharmonicPitch(): NoteSymbol {
 		const octave = this.#octave;
-		const enh = this.e;
+		const enh = this.#enharmonic;
 
-		if (!enh) return null;
-
-		return enh + octave;
+		return (enh + octave) as NoteSymbol;
 	}
 
 	/**
@@ -368,6 +421,10 @@ export class Note {
 		return new Note(this.enharmonic, this.midi);
 	}
 
+	ensureType(type: NoteType): Note {
+		return this.#type !== type ? this.toEnharmonic() : this;
+	}
+
 	static isNote(note: NoteLike): note is Note {
 		return note instanceof Note;
 	}
@@ -375,7 +432,7 @@ export class Note {
 	/**
 	 * Returns a note without the accidental
 	 *
-	 * @function natural
+	 * @function stripAccidental
 	 * @memberof Core#Note
 	 *
 	 * @param {String|Note} note
@@ -389,14 +446,78 @@ export class Note {
 		return <DiatonicNote>n.note.replace(new RegExp(ACCIDENT_REGEXP), '');
 	}
 
-	private extractPitch(midi: number): string {
-		const midiNote = MidiNotes[midi];
+	/**
+	 * Position in the {@link Flats} or {@link Sharps} collection
+	 * @function position
+	 * @memberof Core#Note
+	 *
+	 * @param {Note} note
+	 * @return {number}
+	 */
+	static position = (note: NoteLike): number => {
+		const n = new Note(note);
 
-		if (!midiNote) {
+		return n.isFlat ? Flats.indexOf(n.note as Flat) : Sharps.indexOf(n.note as Sharp);
+	};
+
+	/**
+	 * Transpose a note by an interval
+	 * @function transposeUp
+	 * @memberof Core#Note
+	 *
+	 * @param {Note | NoteSymbol | string} note
+	 * @param {String} int interval
+	 * @example transpose(C, "5P") // => "G"
+	 * @return {String} How many semitones are they apart
+	 */
+	static transposeUp = (note: NoteLike, int: Interval): NoteSymbol => Note.transpose(note, int, 'add');
+
+	/**
+	 * Transpose a note by an interval
+	 * @function transposeDown
+	 * @memberof Core#Note
+	 *
+	 * @param {Note | NoteSymbol | string} note
+	 * @param {String} int interval
+	 * @example transposeDown(C, "5P") // => "F"
+	 * @return {String} How many semitones are they apart
+	 */
+	static transposeDown = (note: NoteLike, int: Interval): NoteSymbol => Note.transpose(note, int, 'subtract');
+
+	/**
+	 * Creates a new Note from a given midi octave
+	 * @function withOctave
+	 * @memberof Core#Note
+	 *
+	 * @param {number} midi
+	 * @return {NoteSymbol}
+	 */
+	static fromOctave(note: Note | NoteSymbol, octave: number): Note {
+		const n = Note.isNote(note) ? note.note : note;
+
+		return new Note(`${n}${octave}`);
+	}
+
+	/**
+	 * Extract the pitch from midi
+	 * @function extractPitch
+	 * @memberof Core#Note
+	 *
+	 * @param {number} midi
+	 * @return {NoteSymbol}
+	 */
+	static extractPitch(midi: number): NoteSymbol {
+		if (midi < 0 || midi > 127) {
 			throw new Error(`[Note]: <${midi}> isn't a valid midi note number`);
 		}
 
-		return midiNote;
+		const octave = findOctave(midi);
+		const base = findCMidiByOctave(octave);
+		const c = new Note('C', base);
+
+		const interval = fromSemitones(midi - base)?.[0] as Interval;
+
+		return Note.transposeUp(c, interval);
 	}
 
 	/**
@@ -464,6 +585,48 @@ export class Note {
 			prev: Sharps[prevIndex === -1 ? 11 : prevIndex],
 			next: Sharps[nextIndex === 12 ? 0 : nextIndex],
 		};
+	}
+
+	private static transpose(note: NoteLike, int: Interval, operation: 'add' | 'subtract'): NoteSymbol {
+		const naturalNote = <DiatonicNote>Note.stripAccidental(note);
+		let interval = -1;
+		let diatonicInterval = -1;
+
+		const semit = Semitones[int];
+		const diatonicSemit = parseInt(int.replace(/\D/, ''), 10) - 1;
+
+		if (!semit) {
+			return new Note(note).note;
+		}
+
+		const n = new Note(note);
+
+		const ringedIntervals = n.isFlat ? ring(Array.from(Flats)) : ring(Array.from(Sharps));
+		const posNote = Note.position(n.note);
+		const posNaturalNote = DiatonicNotes.indexOf(naturalNote);
+
+		if (operation === 'add') {
+			interval = posNote + semit;
+			diatonicInterval = posNaturalNote + diatonicSemit;
+		}
+
+		if (operation === 'subtract') {
+			interval = posNote - semit;
+			diatonicInterval = posNaturalNote - diatonicSemit;
+		}
+
+		const transposedNote = new Note(ringedIntervals[interval]);
+		const transposedNatural = ring(Array.from(DiatonicNotes))[diatonicInterval];
+
+		if (
+			!transposedNote.isNatural &&
+			Note.stripAccidental(transposedNote.note) !== transposedNatural &&
+			isDefined(transposedNote.enharmonic)
+		) {
+			return transposedNote.enharmonic;
+		}
+
+		return transposedNote.note;
 	}
 
 	get [Symbol.toStringTag](): string {

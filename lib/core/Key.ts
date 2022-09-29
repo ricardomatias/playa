@@ -6,8 +6,8 @@ import { convert as convertToRoman } from 'roman-numeral';
 import { Note, NoteLike } from './Note';
 import { Scale } from './Scale';
 import { Chord } from './Chord';
-import distance from '../tools/distance';
 import random from '../tools/random';
+import { separate } from '../tools/interval';
 import { Interval } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
@@ -204,9 +204,9 @@ export class Key extends Scale {
 		let root: NoteSymbol | undefined;
 
 		if (direction === Key.ModulateUp) {
-			root = distance.transposeUp(notes[0].note, interval);
+			root = Note.transposeUp(notes[0].note, interval);
 		} else if (direction === Key.ModulateDown) {
-			root = distance.transposeDown(notes[0].note, interval);
+			root = Note.transposeDown(notes[0].note, interval);
 		} else {
 			return this;
 		}
@@ -219,7 +219,7 @@ export class Key extends Scale {
 			this._root = new Note(root);
 		}
 
-		this.createNotes(this._intervals.split(' ') as Interval[]);
+		this.createNotes(separate(this._intervals));
 
 		this.assignOctaves();
 

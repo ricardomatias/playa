@@ -49,7 +49,7 @@ export function createArp<T extends Scale | Chord>(
 
 			const midi = harmonic.noteAt(position).midi as number;
 
-			return new Note(midi + octaveShift * 12);
+			return new Note(midi + octaveShift * 12).ensureType(harmonic.notesType);
 		})
 	);
 	const eventsCount = Math.max(melody.length, rhythm.length);
