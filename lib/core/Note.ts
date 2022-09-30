@@ -521,6 +521,22 @@ export class Note {
 	}
 
 	/**
+	 * Get a range of notes between the interval [low, high]
+	 * @function range
+	 * @memberof Core#Note
+	 *
+	 * @param {NoteLike} low
+	 * @param {NoteLike} high
+	 * @return {NoteSymbol}
+	 */
+	static range(low: NoteLike, high: NoteLike): Note[] {
+		const l = new Note(low);
+		const h = new Note(high);
+
+		return Array.from({ length: h.midi - l.midi }).map((_, i) => new Note(l.midi + i).ensureType(NoteType.Sharp));
+	}
+
+	/**
 	 * Tries to find the enharmonic of the note
 	 * @private
 	 * @param {string} note

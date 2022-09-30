@@ -1,4 +1,5 @@
 import { Note } from '../../lib/core/Note';
+import { mapNotesToString } from '../../lib/utils/map';
 
 describe('Note Test Suite', () => {
 	it('should set natural', () => {
@@ -186,6 +187,27 @@ describe('Note Test Suite', () => {
 		const b = new Note('Db4');
 
 		expect(a.equals(b)).toBeTruthy();
+	});
+
+	it('should get range of notes', () => {
+		const range = mapNotesToString(Note.range('C2', 'C3'));
+
+		expect(range).toMatchInlineSnapshot(`
+		[
+		  "C2",
+		  "C#2",
+		  "D2",
+		  "D#2",
+		  "E2",
+		  "F2",
+		  "F#2",
+		  "G2",
+		  "G#2",
+		  "A2",
+		  "A#2",
+		  "B2",
+		]
+	`);
 	});
 
 	describe('#position', () => {
