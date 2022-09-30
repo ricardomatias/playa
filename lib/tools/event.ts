@@ -1,4 +1,7 @@
 import * as R from 'ramda';
+import { BinaryEvent } from '../common/types';
+import { NoteSymbol, Notevalue } from '../constants';
+import { Note, NoteEvent, NoteLike } from '../core';
 import { Event } from '../core/Event';
 import { Time, TimeFormat } from '../core/Time';
 import { toTicks } from '../utils';
@@ -135,5 +138,29 @@ export const convertEventsToNotevalues = (events: Event[]): string[] => {
 	return filteredEvents.map((evt, index) => {
 		// TODO: Switch to Notevalue and fix undefined issue
 		return new Time(index ? evt.next - evt.time : evt.next).notevalue as string;
+	});
+};
+
+/**
+ * Converts Event[] to notevalues (ie. 4n), ignores rests
+ *
+ * @function convertBinaryEvents
+ * @memberof Tools.Event
+ *
+ * @param {BinaryEvent[]} events
+ * @param {TimeFormat} subdivision
+ * @param {NoteLike} note
+ * @return {string[]}
+ */
+export const convertBinaryEvents = (events: BinaryEvent[], subdivision: TimeFormat, note: NoteLike) => {
+	const beat = new Time(subdivision).notevalue;
+
+	if (!beat) return [];
+
+	return expandDuration(R.repeat(beat, events.length)).map((evt, i) => {
+		const n = new Note(note);
+		const hit = events[i] ? { note: n.pitch, midi: n.midi } : {};
+
+		return NoteEvent({ ...evt, ...hit });
 	});
 };

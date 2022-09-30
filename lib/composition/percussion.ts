@@ -6,8 +6,6 @@ import { BinaryEvent } from '../common/types';
 import { isArray, isDefined, isUndefined } from '../utils/types-guards';
 import { rotate } from '../tools/rotate';
 
-// TODO: Create playa arp for drums return array
-
 /**
  * Percussion Type
  * @typedef {Object} Percussion
