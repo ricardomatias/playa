@@ -15,9 +15,10 @@ import { splitAt } from './split-at';
  *
  * @param {Array<Event>} pattern
  * @param {TimeFormat} interval
+ * @param {boolean} adjustRestTime will adjust the timing of the rest to begin from 0
  * @return {Array<Array<Event>>}
  */
-export const splitEvery = <T extends Event>(pattern: T[], interval: TimeFormat): T[][] => {
+export const splitEvery = <T extends Event>(pattern: T[], interval: TimeFormat, adjustRestTime = false): T[][] => {
 	if (R.isEmpty(pattern)) return [];
 
 	const t = new Time(interval);
@@ -28,7 +29,7 @@ export const splitEvery = <T extends Event>(pattern: T[], interval: TimeFormat):
 	const events: T[][] = [];
 
 	while (playhead <= totalDuration.ticks) {
-		const [first, rest] = splitAt(patt, playhead);
+		const [first, rest] = splitAt(patt, playhead, adjustRestTime);
 
 		events.push(R.isEmpty(first) ? rest : first);
 

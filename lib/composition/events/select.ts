@@ -1,6 +1,9 @@
 import * as R from 'ramda';
 import { splitEvery } from './split-every';
 import { Event, Time, TimeFormat } from '../../core';
+import { isUndefined } from '../../utils/types-guards';
+
+//TODO: Add insert something in selection
 
 /**
  * Events editing class
@@ -13,7 +16,9 @@ import { Event, Time, TimeFormat } from '../../core';
 class EventEditing<T extends Event> {
 	private _events: T[];
 	private _data: T[][];
-	private _selection: T[];
+	private _selection: T[][];
+	private _window: number[];
+	private _hasWindows: boolean;
 
 	/**
 	 * Creates an instance of EventEditing.
@@ -26,6 +31,8 @@ class EventEditing<T extends Event> {
 		this._events = events;
 		this._data = [];
 		this._selection = [];
+		this._window = [];
+		this._hasWindows = false;
 	}
 
 	/**
@@ -38,6 +45,7 @@ class EventEditing<T extends Event> {
 	 */
 	every(time: TimeFormat): EventEditing<T> {
 		this._data = splitEvery(this._events, time);
+		this._hasWindows = true;
 
 		return this;
 	}
@@ -67,6 +75,19 @@ class EventEditing<T extends Event> {
 	}
 
 	/**
+	 * Creates a selection of events within the provided time interval - [t0, t1[
+	 * If [t0, t1] is needed -> .after(t0).before(t1)
+	 *
+	 * @function between
+	 * @param {TimeFormat} time
+	 * @return {EventEditing}
+	 * @memberof Composition.Events#EventEditing
+	 */
+	between(t0: TimeFormat, t1: TimeFormat): EventEditing<T> {
+		return this.before(t1).after(t0);
+	}
+
+	/**
 	 * Returns the events
 	 *
 	 * @member events
@@ -80,29 +101,57 @@ class EventEditing<T extends Event> {
 	/**
 	 * Returns the events applying a function to the active selection
 	 *
-	 * @function apply
+	 * @function applyRest
 	 * @return {Function}
 	 * @memberof Composition.Events#EventEditing
 	 */
-	apply(fn: (event: T) => void): T[] {
-		this._selection.forEach(fn);
+	applyRest(fn: (event: T) => boolean): T[] {
+		this._selection.flat().forEach((event) => {
+			event.isRest = fn(event);
+		});
 
 		return this._events;
 	}
 
 	/**
-	 * Returns the events with silences applied to the active selection
+	 * Returns the events with rests applied to the active selection
 	 *
-	 * @function silence
+	 * @function rest
 	 * @return {Array<T>}
 	 * @memberof Composition.Events#EventEditing
 	 */
-	silence(): T[] {
-		this._selection.forEach((event) => {
+	rest(): T[] {
+		this._selection.flat().forEach((event) => {
 			event.isRest = true;
 		});
 
 		return this._events;
+	}
+
+	/**
+	 * Returns the events with rests applied to the active selection
+	 *
+	 * @function insert
+	 * @return {Array<T>}
+	 * @memberof Composition.Events#EventEditing
+	 */
+	insert(events: T[]): T[] {
+		const container: T[][] = [[]];
+
+		this._events.forEach((event) => {
+			// const sel = this._selection.find(R.equals(event));
+
+			// if (isUndefined(sel)) {
+			// 	container[container.length - 1].push(event);
+			// } else {
+			// 	container.push(events);
+			// 	container.push([]);
+			// }
+
+			return event;
+		});
+
+		return container.filter(R.flip(R.isEmpty)).flat();
 	}
 
 	private selectTimewindow(
@@ -111,19 +160,22 @@ class EventEditing<T extends Event> {
 	): EventEditing<T> {
 		const t = new Time(time);
 
-		if (R.isEmpty(this._data)) {
-			this._selection = this._events.filter((event) => fn(event.time, t));
+		if (R.isEmpty(this._data) && R.isEmpty(this._selection)) {
+			this._selection = [this._events.filter((event) => fn(event.time, t))];
+			this._window = this._events.filter((event) => fn(event.time, t)).map((event) => this._events.indexOf(event));
 
 			return this;
 		}
 
-		this._selection = this._data
-			.map((events) => {
-				const after = t.ticks + events[0].time;
+		const hasSelection = R.isEmpty(this._data);
 
-				return events.filter((event) => fn(event.time, after));
-			})
-			.flat();
+		const selection = R.isEmpty(this._selection) ? this._data : this._selection;
+
+		this._selection = selection.map((events, i) => {
+			const t1 = t.ticks;
+
+			return events.filter((event) => fn(event.time - (this._hasWindows ? events[0].time : 0), t1));
+		});
 
 		return this;
 	}
