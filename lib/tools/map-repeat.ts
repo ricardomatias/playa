@@ -10,6 +10,6 @@
  * @param {Array<T>} list
  * @return {Array<T>}
  */
-export const mapRepeat = <T>(nrOfTimes = 1, fn: (...args: any) => T): T[] => {
+export const mapRepeat = <T>(nrOfTimes = 1, fn: () => T): T[] => {
 	return Array.from({ length: nrOfTimes }).map(() => fn());
 };

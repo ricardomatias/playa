@@ -5,10 +5,79 @@ import { convertBinaryEvents, expandDuration, mapStartToEvent } from '../../lib/
 describe('An Event tools test suite', () => {
 	describe('#convertBinaryEvents', () => {
 		it('should convert', () => {
-			const perc = createPercussion(8, [4]);
-			const events = convertBinaryEvents(perc.patterns[0], perc.subdivision, 'C2');
+			const perc = createPercussion(8, [4, 2]);
+			const events = convertBinaryEvents(perc.patterns[0], perc.subdivision, 'C-2');
+			const events2 = convertBinaryEvents(perc.patterns[1], perc.subdivision, 'C2');
 
 			expect(events).toMatchInlineSnapshot(`
+			[
+			  {
+			    "dur": 240,
+			    "isRest": false,
+			    "midi": 0,
+			    "next": 240,
+			    "note": "C-2",
+			    "time": 0,
+			  },
+			  {
+			    "dur": 240,
+			    "isRest": true,
+			    "midi": -1,
+			    "next": 480,
+			    "note": "",
+			    "time": 240,
+			  },
+			  {
+			    "dur": 240,
+			    "isRest": false,
+			    "midi": 0,
+			    "next": 720,
+			    "note": "C-2",
+			    "time": 480,
+			  },
+			  {
+			    "dur": 240,
+			    "isRest": true,
+			    "midi": -1,
+			    "next": 960,
+			    "note": "",
+			    "time": 720,
+			  },
+			  {
+			    "dur": 240,
+			    "isRest": false,
+			    "midi": 0,
+			    "next": 1200,
+			    "note": "C-2",
+			    "time": 960,
+			  },
+			  {
+			    "dur": 240,
+			    "isRest": true,
+			    "midi": -1,
+			    "next": 1440,
+			    "note": "",
+			    "time": 1200,
+			  },
+			  {
+			    "dur": 240,
+			    "isRest": false,
+			    "midi": 0,
+			    "next": 1680,
+			    "note": "C-2",
+			    "time": 1440,
+			  },
+			  {
+			    "dur": 240,
+			    "isRest": true,
+			    "midi": -1,
+			    "next": 1920,
+			    "note": "",
+			    "time": 1680,
+			  },
+			]
+		`);
+			expect(events2).toMatchInlineSnapshot(`
 			[
 			  {
 			    "dur": 240,
@@ -20,7 +89,7 @@ describe('An Event tools test suite', () => {
 			  },
 			  {
 			    "dur": 240,
-			    "isRest": false,
+			    "isRest": true,
 			    "midi": -1,
 			    "next": 480,
 			    "note": "",
@@ -28,15 +97,15 @@ describe('An Event tools test suite', () => {
 			  },
 			  {
 			    "dur": 240,
-			    "isRest": false,
-			    "midi": 48,
+			    "isRest": true,
+			    "midi": -1,
 			    "next": 720,
-			    "note": "C2",
+			    "note": "",
 			    "time": 480,
 			  },
 			  {
 			    "dur": 240,
-			    "isRest": false,
+			    "isRest": true,
 			    "midi": -1,
 			    "next": 960,
 			    "note": "",
@@ -52,7 +121,7 @@ describe('An Event tools test suite', () => {
 			  },
 			  {
 			    "dur": 240,
-			    "isRest": false,
+			    "isRest": true,
 			    "midi": -1,
 			    "next": 1440,
 			    "note": "",
@@ -60,15 +129,15 @@ describe('An Event tools test suite', () => {
 			  },
 			  {
 			    "dur": 240,
-			    "isRest": false,
-			    "midi": 48,
+			    "isRest": true,
+			    "midi": -1,
 			    "next": 1680,
-			    "note": "C2",
+			    "note": "",
 			    "time": 1440,
 			  },
 			  {
 			    "dur": 240,
-			    "isRest": false,
+			    "isRest": true,
 			    "midi": -1,
 			    "next": 1920,
 			    "note": "",

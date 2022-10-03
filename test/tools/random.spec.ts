@@ -105,7 +105,7 @@ describe('A Random test suite', () => {
 	it('should create new random boolean', () => {
 		const rnd = new Random();
 
-		expect(rnd.boolean()).toBe(true);
+		expect(rnd.boolean()).toBe(false);
 	});
 
 	it('should return a fresh seed', () => {
@@ -158,5 +158,22 @@ describe('A Random test suite', () => {
 		expect(random.int(9999)).toEqual(5000);
 		expect(random.int(9999)).toEqual(2551);
 		expect(random.int(9999)).toEqual(2557);
+	});
+
+	it('should create new int array max', () => {
+		const rnd = new Random();
+
+		expect(rnd.intArrMax([10, 100])).toEqual([6, 31]);
+	});
+
+	it('should create new int array ', () => {
+		const rnd = new Random();
+
+		expect(
+			rnd.intArr([
+				[10, 5],
+				[100, 50],
+			])
+		).toEqual([8, 65]);
 	});
 });

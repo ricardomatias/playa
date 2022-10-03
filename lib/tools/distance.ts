@@ -78,5 +78,3 @@ export const interval = (a: NoteLike, b: NoteLike): Interval | null => {
 		return null;
 	}
 };
-
-

@@ -302,7 +302,7 @@ export class Chord extends HarmonyBase {
 	/**
 	 * Note at interval
 	 * @example
-	 * new Scale('A', Scale.MINOR).noteAt(5) => E
+	 * new Chord('A', 'm7').noteAt(5) => E
 	 *
 	 * @function noteAt
 	 * @memberof Core#Scale#

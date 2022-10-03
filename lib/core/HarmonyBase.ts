@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import { Octaves } from '../common/types';
-import { Interval, NoteSymbol, Semitones } from '../constants';
+import { HarmonicPosition, Interval, NoteSymbol, Semitones } from '../constants';
 import { mapNotesToFreq, mapNotesToMidi, mapNotesToString, mapNotesToSymbol } from '../utils/map';
 import { Note, NoteLike, NoteType } from './Note';
 
@@ -187,6 +187,30 @@ export abstract class HarmonyBase {
 	get notesType(): NoteType {
 		return this._notesType;
 	}
+
+	/**
+	 * Gets an array of notes by harmonic position
+	 * @member getNotesAt
+	 * @memberof Core.HarmonyBase#
+	 *
+	 * @param {HarmonicPosition[]} position
+	 * @return {Note[]}
+	 */
+	getNotesAt(position: HarmonicPosition[]): Note[] {
+		return position.map((p) => this.noteAt(p));
+	}
+
+	/**
+	 * Note at position
+	 * @example
+	 * new Scale('A', Scale.MINOR).noteAt(5) => E
+	 *
+	 * @function noteAt
+	 * @memberof Core#Scale#
+	 * @param {HarmonicPosition} position
+	 * @return {Note}
+	 */
+	abstract noteAt(position: HarmonicPosition): Note;
 
 	/**
 	 * Assigns a new octave range - [ 3, 1 ]

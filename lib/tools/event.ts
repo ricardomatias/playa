@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { BinaryEvent } from '../common/types';
-import { NoteSymbol, Notevalue } from '../constants';
-import { Note, NoteEvent, NoteLike } from '../core';
+import { Note, NoteLike } from '../core/Note';
+import { NoteEvent } from '../core/NoteEvent';
 import { Event } from '../core/Event';
 import { Time, TimeFormat } from '../core/Time';
 import { toTicks } from '../utils';
@@ -150,16 +150,16 @@ export const convertEventsToNotevalues = (events: Event[]): string[] => {
  * @param {BinaryEvent[]} events
  * @param {TimeFormat} subdivision
  * @param {NoteLike} note
- * @return {string[]}
+ * @return {NoteEvent[]}
  */
-export const convertBinaryEvents = (events: BinaryEvent[], subdivision: TimeFormat, note: NoteLike) => {
+export const convertBinaryEvents = (events: BinaryEvent[], subdivision: TimeFormat, note: NoteLike): NoteEvent[] => {
 	const beat = new Time(subdivision).notevalue;
 
 	if (!beat) return [];
 
 	return expandDuration(R.repeat(beat, events.length)).map((evt, i) => {
 		const n = new Note(note);
-		const hit = events[i] ? { note: n.pitch, midi: n.midi } : {};
+		const hit = events[i] ? { note: n.pitch, midi: n.midi } : { isRest: true };
 
 		return NoteEvent({ ...evt, ...hit });
 	});

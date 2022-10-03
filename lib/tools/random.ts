@@ -205,11 +205,36 @@ export class Random {
 	 * @function boolean
 	 * @memberof Tools.Random
 	 *
+	 * @param {number} probability
 	 * @return {boolean}
 	 */
-	boolean = (): boolean => {
-		return Boolean(this.int(1));
+	boolean = (probability = 0.5): boolean => {
+		return Boolean(this.float() <= probability);
 	};
+
+	/**
+	 * Generates random integers based on a number array with the MAXIMUM
+	 * number per entry
+	 *
+	 * @function boolean
+	 * @memberof Tools.Random
+	 *
+	 * @param {Array<number>} arr
+	 * @return {Array<number>}
+	 */
+	intArrMax = (arr: number[]) => arr.map((max) => this.int(max));
+
+	/**
+	 * Generates random integers based on a number array with [MAXIMUM, MINIMUM]
+	 * number per entry
+	 *
+	 * @function boolean
+	 * @memberof Tools.Random
+	 *
+	 * @param {Array<Array<number>>} arr
+	 * @return {Array<number>}
+	 */
+	intArr = (arr: [number, number][]) => arr.map(([max, min]) => this.int(max, min));
 }
 
 export default Random.getInstance();
