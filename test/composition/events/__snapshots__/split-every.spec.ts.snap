@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#splitEvery should splitEvery complex 1`] = `
+[
+  [
+    {
+      "dur": 240,
+      "isRest": false,
+      "next": 240,
+      "time": 0,
+    },
+    {
+      "dur": 120,
+      "isRest": false,
+      "next": 360,
+      "time": 240,
+    },
+    {
+      "dur": 240,
+      "isRest": false,
+      "next": 600,
+      "time": 360,
+    },
+  ],
+  [
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 760,
+      "time": 600,
+    },
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 920,
+      "time": 760,
+    },
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 1080,
+      "time": 920,
+    },
+  ],
+  [
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 1240,
+      "time": 1080,
+    },
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 1400,
+      "time": 1240,
+    },
+    {
+      "dur": 240,
+      "isRest": false,
+      "next": 1640,
+      "time": 1400,
+    },
+  ],
+  [
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 1800,
+      "time": 1640,
+    },
+    {
+      "dur": 80,
+      "isRest": false,
+      "next": 1880,
+      "time": 1800,
+    },
+    {
+      "dur": 240,
+      "isRest": false,
+      "next": 2120,
+      "time": 1880,
+    },
+  ],
+  [
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 2280,
+      "time": 2120,
+    },
+    {
+      "dur": 240,
+      "isRest": false,
+      "next": 2520,
+      "time": 2280,
+    },
+  ],
+  [
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 2680,
+      "time": 2520,
+    },
+    {
+      "dur": 240,
+      "isRest": false,
+      "next": 2920,
+      "time": 2680,
+    },
+  ],
+  [
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 3080,
+      "time": 2920,
+    },
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 3240,
+      "time": 3080,
+    },
+    {
+      "dur": 240,
+      "isRest": false,
+      "next": 3480,
+      "time": 3240,
+    },
+  ],
+  [
+    {
+      "dur": 160,
+      "isRest": false,
+      "next": 3640,
+      "time": 3480,
+    },
+    {
+      "dur": 120,
+      "isRest": false,
+      "next": 3760,
+      "time": 3640,
+    },
+    {
+      "dur": 80,
+      "isRest": false,
+      "next": 3840,
+      "time": 3760,
+    },
+  ],
+]
+`;

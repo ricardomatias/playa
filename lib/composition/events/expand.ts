@@ -7,7 +7,7 @@ import { concat } from './concat';
 /**
  * Expands a rhythm to a new length by repeating the events
  * @function expand
- * @memberof Composition.Rhythm
+ * @memberof Composition.Events
  *
  * @param {Array<Event>} pattern
  * @param {TimeFormat} length

@@ -4,9 +4,15 @@ import { expandDuration } from '../../tools/event';
 import { isUndefined } from '../../utils/types-guards';
 
 /**
+ * Rhythm tools
+ * @namespace Events
+ * @memberof Composition
+ */
+
+/**
  * Concats multiple rhythms ({@link Event}[]) together with the correct *time* and *next*
  * @function concat
- * @memberof Composition.Rhythm
+ * @memberof Composition.Events
  *
  * @param {Array<Array<Event>>} events
  * @return {Array<Event>}

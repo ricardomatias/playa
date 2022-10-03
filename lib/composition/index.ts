@@ -5,5 +5,6 @@ export { createPercussion } from './percussion';
 export { createArp, genHarmonicShift } from './arp';
 
 export * as Rhythm from './rhythm';
+export * as Events from './events';
 export * from './sequence';
 export * from './movement';

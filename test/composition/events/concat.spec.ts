@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { Rhythm } from '../../../lib/composition';
+import { Events, Rhythm } from '../../../lib/composition';
 import { NoteEvent, Time } from '../../../lib/core';
 import { mapStartToEvent, random } from '../../../lib/tools';
 import '../../matchers';
@@ -10,10 +10,10 @@ describe('#concat', () => {
 		random.setSeed('test');
 
 		const rhythm = Rhythm.free('2:0:0', Rhythm.Presets.Common);
-		const splitRhythm = Rhythm.splitAt(rhythm, '1:0:0');
+		const splitRhythm = Events.splitAt(rhythm, '1:0:0');
 
 		// when
-		const result = Rhythm.concat(...splitRhythm);
+		const result = Events.concat(...splitRhythm);
 
 		// then
 		expect(result).toLastAround(1920 * 2);
@@ -25,10 +25,10 @@ describe('#concat', () => {
 		random.setSeed('test');
 
 		const rhythm = Rhythm.free('2:0:0', ['1nt', '2nd']);
-		const splitRhythm = Rhythm.splitAt(rhythm, '1:0:0');
+		const splitRhythm = Events.splitAt(rhythm, '1:0:0');
 
 		// when
-		const result = Rhythm.concat(splitRhythm[0], splitRhythm[1]);
+		const result = Events.concat(splitRhythm[0], splitRhythm[1]);
 
 		// then
 		expect(result).toLastAround(1920 * 2);
@@ -44,7 +44,7 @@ describe('#concat', () => {
 		const rhy3 = Rhythm.free('1:0:0', ['4n', '2n']);
 
 		// when
-		const result = Rhythm.concat(rhy1, rhy2, rhy3);
+		const result = Events.concat(rhy1, rhy2, rhy3);
 
 		// then
 		expect(result).toLastAround(1920 * 3);
@@ -58,7 +58,7 @@ describe('#concat', () => {
 		const rhy1: NoteEvent[] = R.map(mapStartToEvent('2:0:0'), Rhythm.free('1:0:0', ['4n']));
 
 		// when
-		const result = Rhythm.concat(rhy1, R.clone(rhy1));
+		const result = Events.concat(rhy1, R.clone(rhy1));
 
 		// then
 		expect(result).toLastAround(Time.T('4m'));

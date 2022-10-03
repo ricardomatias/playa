@@ -8,16 +8,21 @@ import { isUndefined } from '../../utils/types-guards';
 * Splits an {@link Event} at a certain time
 
 * @function splitAt
-* @memberof Composition.Rhythm
+* @memberof Composition.Events
 *
 * @param {Array<Event>} pattern
 * @param {TimeFormat} at
+* @param {boolean} adjustRestTime will adjust the timing of the rest to begin from 0
 * @return {Array<Array<Event>>}
 */
-export const splitAt = <T extends Event>(pattern: T[], at: TimeFormat): T[][] => {
+export const splitAt = <T extends Event>(pattern: T[], at: TimeFormat, adjustRestTime = false): T[][] => {
 	const time = new Time(at);
 
 	const index = R.findIndex(R.lte(time.ticks), R.map(R.prop('time'), pattern));
+
+	if (index === -1) {
+		return [pattern];
+	}
 
 	const patterns = R.splitAt(index, pattern);
 
@@ -33,5 +38,9 @@ export const splitAt = <T extends Event>(pattern: T[], at: TimeFormat): T[][] =>
 		return [pattern];
 	}
 
-	return R.adjust(1, R.map(mapStartToEvent(-firstEventLatter.time)), patterns);
+	if (adjustRestTime) {
+		return R.adjust(1, R.map(mapStartToEvent(-firstEventLatter.time)), patterns);
+	}
+
+	return patterns;
 };
