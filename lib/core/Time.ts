@@ -63,7 +63,7 @@ export class Time {
 			this.#ticks = Ticks[time as Notevalue];
 			this.#bbs = Time.ticksToBBS(this.#ticks, { timeSignature });
 			// Transport
-		} else if (/:/.test(time)) {
+		} else if (/\d+:\d+:\d+/.test(time)) {
 			this.#bbs = time;
 			this.#ticks = Time.bbsToTicks(time, { timeSignature });
 			this.#notevalue = Ticks[this.#ticks] as Notevalue;

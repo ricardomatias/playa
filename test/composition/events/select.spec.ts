@@ -1,4 +1,4 @@
-import { Rhythm, Events, createMotif } from '../../../lib/composition';
+import { Rhythm, Events, createMotif, createArp } from '../../../lib/composition';
 import { Scale } from '../../../lib/core';
 import { convertEventsToNotevalues, random } from '../../../lib/tools';
 import '../../matchers';
@@ -65,7 +65,7 @@ describe('#select', () => {
 		expect(results3).toMatchSnapshot();
 	});
 
-	it('should insert', () => {
+	it('should insert simple', () => {
 		// given
 		random.setSeed('test');
 
@@ -94,5 +94,43 @@ describe('#select', () => {
 			'4n',
 			'4n',
 		]);
+	});
+
+	it('should insert complex', () => {
+		// given
+		random.setSeed('test');
+
+		const scale = new Scale('A', Scale.Major);
+
+		const motif = Events.expand(createArp(scale, [1, 3, '-7'], ['4n', '4nd']), '2m');
+		const rhythm2 = Rhythm.free('2n', Rhythm.Presets.Mixed);
+		const motif2 = createMotif(scale.notes, rhythm2);
+
+		// when
+		const results = Events.select(motif).before('1m').after('2n').insert(motif2);
+
+		expect(convertEventsToNotevalues(motif)).toMatchInlineSnapshot(`
+		[
+		  "4n",
+		  "4nd",
+		  "4n",
+		  "4n",
+		  "4nd",
+		  "4n",
+		  "4n",
+		]
+	`);
+		expect(convertEventsToNotevalues(results)).toMatchInlineSnapshot(`
+		[
+		  "4n",
+		  "4nd",
+		  "4nd",
+		  "16n",
+		  "16n",
+		  "4nd",
+		  "4n",
+		  "4n",
+		]
+	`);
 	});
 });

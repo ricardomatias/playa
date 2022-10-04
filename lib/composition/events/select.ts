@@ -1,7 +1,6 @@
 import * as R from 'ramda';
-import { splitEvery, splitEveryIndices } from './split-every';
+import { splitEveryIndices } from './split-every';
 import { Event, Time, TimeFormat } from '../../core';
-import { isUndefined } from '../../utils/types-guards';
 import { mapStartToEvent } from '../../tools';
 
 //TODO: Add insert something in selection
@@ -149,6 +148,7 @@ class EventEditing<T extends Event> {
 
 			this._events.splice(start, len, ...eventsAdj);
 		});
+
 		return this._events;
 	}
 

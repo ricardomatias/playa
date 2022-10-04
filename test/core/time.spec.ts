@@ -101,6 +101,14 @@ describe('Time Test Suite', () => {
 		expect((time as any) + (time as any)).toBe(1920);
 	});
 
+	it('should break with invalid time', () => {
+		const toThrow = () => {
+			new Time('1:0.0');
+		};
+
+		expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[Time] Unrecognized time format for -> 1:0.0"`);
+	});
+
 	describe('#bbsToTicks', () => {
 		it('should convert - position', () => {
 			const scenarios = ['1:1:0', '2:3:0', '2:1:1', '7:2:2', '5:1:3', '9:1:0'].map((transport) =>
