@@ -15,9 +15,10 @@ import { splitAt } from './split-at';
  *
  * @param {Array<Event>} pattern
  * @param {TimeFormat} interval
+ * @param {boolean} adjustRestTime will adjust the timing of the rest to begin from 0
  * @return {Array<Array<Event>>}
  */
-export const splitEvery = <T extends Event>(pattern: T[], interval: TimeFormat): T[][] => {
+export const splitEvery = <T extends Event>(pattern: T[], interval: TimeFormat, adjustRestTime = false): T[][] => {
 	if (R.isEmpty(pattern)) return [];
 
 	const t = new Time(interval);
@@ -28,13 +29,33 @@ export const splitEvery = <T extends Event>(pattern: T[], interval: TimeFormat):
 	const events: T[][] = [];
 
 	while (playhead <= totalDuration.ticks) {
-		const [first, rest] = splitAt(patt, playhead);
+		const [first, rest] = splitAt(patt, playhead, adjustRestTime);
 
-		events.push(R.isEmpty(first) ? rest : first);
+		const payload = R.isEmpty(first) ? rest : first;
+
+		events.push(payload);
 
 		patt = rest;
 		playhead += t.ticks;
 	}
 
 	return events;
+};
+
+/**
+ * Same as {@link Composition.Events.splitEvery} but it returns the indices
+ *
+ * @function splitEveryIndices
+ * @memberof Composition.Events
+ *
+ * @param {Array<Event>} pattern
+ * @param {TimeFormat} interval
+ * @return {Array<Array<number>>}
+ */
+export const splitEveryIndices = <T extends Event>(pattern: T[], interval: TimeFormat): number[][] => {
+	const split = splitEvery<T>(pattern, interval);
+
+	return split.map((bracket) => {
+		return bracket.map((event) => R.indexOf(event, pattern));
+	});
 };

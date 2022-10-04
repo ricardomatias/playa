@@ -114,7 +114,7 @@ export const computeEventsNext = <T extends Event>(events: T[]): T[] => {
  * @param {TimeFormat} startTime
  * @return {Event}
  */
-export const mapStartToEvent = R.curry((startTime: TimeFormat, event: Event): Event => {
+export const mapStartToEvent = R.curry(<T extends Event>(startTime: TimeFormat, event: T): T => {
 	const start = new Time(startTime);
 	return {
 		...event,

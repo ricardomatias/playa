@@ -1,5 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#select should select applyRest 1`] = `
+[
+  {
+    "dur": 240,
+    "isRest": true,
+    "next": 240,
+    "time": 0,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "next": 480,
+    "time": 240,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "next": 720,
+    "time": 480,
+  },
+  {
+    "dur": 240,
+    "isRest": true,
+    "next": 960,
+    "time": 720,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "next": 1200,
+    "time": 960,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "next": 1440,
+    "time": 1200,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "next": 1680,
+    "time": 1440,
+  },
+  {
+    "dur": 240,
+    "isRest": false,
+    "next": 1920,
+    "time": 1680,
+  },
+]
+`;
+
 exports[`#select should select before after 2n 1`] = `
 [
   {
@@ -106,108 +159,103 @@ exports[`#select should select before after 2n 2`] = `
 ]
 `;
 
-exports[`#select should select before after 2n 3`] = `
-[
-  {
-    "dur": 240,
-    "isRest": true,
-    "next": 240,
-    "time": 0,
-  },
-  {
-    "dur": 240,
-    "isRest": false,
-    "next": 480,
-    "time": 240,
-  },
-  {
-    "dur": 240,
-    "isRest": false,
-    "next": 720,
-    "time": 480,
-  },
-  {
-    "dur": 240,
-    "isRest": true,
-    "next": 960,
-    "time": 720,
-  },
-  {
-    "dur": 240,
-    "isRest": false,
-    "next": 1200,
-    "time": 960,
-  },
-  {
-    "dur": 240,
-    "isRest": false,
-    "next": 1440,
-    "time": 1200,
-  },
-  {
-    "dur": 240,
-    "isRest": false,
-    "next": 1680,
-    "time": 1440,
-  },
-  {
-    "dur": 240,
-    "isRest": false,
-    "next": 1920,
-    "time": 1680,
-  },
-]
-`;
-
 exports[`#select should select every 2n before after 4n 1`] = `
 [
   {
-    "dur": 240,
+    "dur": 480,
     "isRest": false,
-    "next": 240,
+    "next": 480,
     "time": 0,
   },
   {
-    "dur": 240,
-    "isRest": false,
-    "next": 480,
-    "time": 240,
-  },
-  {
-    "dur": 240,
+    "dur": 480,
     "isRest": true,
-    "next": 720,
+    "next": 960,
     "time": 480,
   },
   {
-    "dur": 240,
-    "isRest": true,
-    "next": 960,
-    "time": 720,
-  },
-  {
-    "dur": 240,
+    "dur": 480,
     "isRest": false,
-    "next": 1200,
+    "next": 1440,
     "time": 960,
   },
   {
-    "dur": 240,
-    "isRest": false,
-    "next": 1440,
-    "time": 1200,
-  },
-  {
-    "dur": 240,
+    "dur": 480,
     "isRest": true,
-    "next": 1680,
+    "next": 1920,
     "time": 1440,
   },
   {
-    "dur": 240,
+    "dur": 480,
+    "isRest": false,
+    "next": 2400,
+    "time": 1920,
+  },
+  {
+    "dur": 480,
     "isRest": true,
-    "next": 1920,
-    "time": 1680,
+    "next": 2880,
+    "time": 2400,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 3360,
+    "time": 2880,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 3840,
+    "time": 3360,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 4320,
+    "time": 3840,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 4800,
+    "time": 4320,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 5280,
+    "time": 4800,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 5760,
+    "time": 5280,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 6240,
+    "time": 5760,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 6720,
+    "time": 6240,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 7200,
+    "time": 6720,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 7680,
+    "time": 7200,
   },
 ]
 `;
@@ -215,38 +263,139 @@ exports[`#select should select every 2n before after 4n 1`] = `
 exports[`#select should select every 2n before after 4n 2`] = `
 [
   {
-    "dur": 240,
+    "dur": 480,
     "isRest": true,
+    "next": 480,
+    "time": 0,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 960,
+    "time": 480,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 1440,
+    "time": 960,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 1920,
+    "time": 1440,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 2400,
+    "time": 1920,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 2880,
+    "time": 2400,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 3360,
+    "time": 2880,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 3840,
+    "time": 3360,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 4320,
+    "time": 3840,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 4800,
+    "time": 4320,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 5280,
+    "time": 4800,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 5760,
+    "time": 5280,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 6240,
+    "time": 5760,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 6720,
+    "time": 6240,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 7200,
+    "time": 6720,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 7680,
+    "time": 7200,
+  },
+]
+`;
+
+exports[`#select should select multiple 1`] = `
+[
+  {
+    "dur": 240,
+    "isRest": false,
     "next": 240,
     "time": 0,
   },
   {
     "dur": 240,
-    "isRest": true,
+    "isRest": false,
     "next": 480,
     "time": 240,
   },
   {
     "dur": 240,
-    "isRest": false,
+    "isRest": true,
     "next": 720,
     "time": 480,
   },
   {
     "dur": 240,
-    "isRest": false,
+    "isRest": true,
     "next": 960,
     "time": 720,
   },
   {
     "dur": 240,
-    "isRest": true,
+    "isRest": false,
     "next": 1200,
     "time": 960,
   },
   {
     "dur": 240,
-    "isRest": true,
+    "isRest": false,
     "next": 1440,
     "time": 1200,
   },
@@ -261,6 +410,107 @@ exports[`#select should select every 2n before after 4n 2`] = `
     "isRest": false,
     "next": 1920,
     "time": 1680,
+  },
+]
+`;
+
+exports[`#select should select multiple 2`] = `
+[
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 480,
+    "time": 0,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 960,
+    "time": 480,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 1440,
+    "time": 960,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 1920,
+    "time": 1440,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 2400,
+    "time": 1920,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 2880,
+    "time": 2400,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 3360,
+    "time": 2880,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 3840,
+    "time": 3360,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 4320,
+    "time": 3840,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 4800,
+    "time": 4320,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 5280,
+    "time": 4800,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 5760,
+    "time": 5280,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 6240,
+    "time": 5760,
+  },
+  {
+    "dur": 480,
+    "isRest": true,
+    "next": 6720,
+    "time": 6240,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 7200,
+    "time": 6720,
+  },
+  {
+    "dur": 480,
+    "isRest": false,
+    "next": 7680,
+    "time": 7200,
   },
 ]
 `;

@@ -139,4 +139,19 @@ describe('#splitEvery', () => {
 		expect(result[0]).toLastAround(Ticks['4n']);
 		expect(result).toMatchSnapshot();
 	});
+
+	it('should splitEveryIndicies', () => {
+		// given
+		random.setSeed('test');
+
+		const rhythm = Rhythm.free('1:0:0', ['8n', '4nd']);
+
+		// when
+		const pattern = Events.splitEvery(rhythm, '4n');
+		const result = Events.splitEveryIndices(rhythm, '4n');
+		const convert = result.map((bracket) => bracket.map((i) => rhythm[i]));
+
+		// then
+		expect(convert).toEqual(expect.arrayContaining(pattern));
+	});
 });

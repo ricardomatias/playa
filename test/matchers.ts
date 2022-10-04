@@ -5,6 +5,7 @@ import { diff } from 'jest-diff';
 import { printExpected, printReceived, matcherHint } from 'jest-matcher-utils';
 import { NoteSymbol, ScaleIntervals } from '../lib/constants';
 import { Note } from '../lib/core';
+import { expect, jest, test } from '@jest/globals';
 
 type KeyMatch = { root: NoteSymbol; scale: ScaleIntervals };
 
