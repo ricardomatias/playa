@@ -5,7 +5,7 @@ import { roll, distribute } from '@ricardomatias/roll';
 import { choose, random, Midi } from '../tools';
 import * as Rhythm from './rhythm';
 
-import { whilst, PlayaError, stripOctave, valuesToArr } from '../utils';
+import { whilst, PlayaError, valuesToArr } from '../utils';
 import { ChordEvent } from '../core/ChordEvent';
 import { TimelineEvent } from './movement/types';
 import { DistributionFunction, Octaves, RhythmType, ChordChange } from '../common/types';

@@ -134,16 +134,34 @@ export const exists = (interval: Interval): boolean => Object.keys(Semitones).in
  * @function separate
  * @memberof Tools.Interval
  *
- * @param {Interval} intervals
+ * @param {string} intervals
  *
  * @example
  * separate("1P 3M 5P") => ["1P", "3M", "5P"]
  * separate("1P 98M 5P") => ["1P", "5P"]
  *
- * @return {Array<Interval>|null} How many semitones are they apart or null if not possible
+ * @return {Array<Interval>}
  */
 export const separate = (intervals: string): Interval[] => {
 	const arr = intervals.split(' ') as Interval[];
 
 	return arr.filter(exists);
+};
+
+/**
+ * Extracts the positions from an interval's string
+ *
+ * @function positions
+ * @memberof Tools.Interval
+ *
+ * @param {string} intervals
+ *
+ * @example
+ * positions("1P 3M 5P") => [1, 3, 5]
+ * positions("1P 98M 5P") => [1, 5]
+ *
+ * @return {Array<number>}
+ */
+export const positions = (intervals: string): number[] => {
+	return separate(intervals).map((interval) => parseInt(interval.replace(/\D*/, ''), 10));
 };

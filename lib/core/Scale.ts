@@ -109,7 +109,7 @@ export class Scale extends HarmonyBase {
 	 * @return {Note}
 	 */
 	noteAt(position: HarmonicPosition): Note {
-		const intervals = this._intervals.split(' ').map((interv) => parseInt(interv.replace(/[^\d]/, '')));
+		const intervals = interval.positions(this._intervals);
 
 		const noteIndex = intervals.indexOf(position);
 

@@ -96,4 +96,17 @@ describe('An Interval test suite', () => {
 			expect(result).toEqual(['1P', '9M']);
 		});
 	});
+
+	describe('#positions', () => {
+		it('should work', () => {
+			const result = interval.positions('1P 3m 4A 5d 9M 13M');
+
+			expect(result).toEqual([1, 3, 4, 5, 9, 13]);
+		});
+		it('should filter out invalid', () => {
+			const result = interval.positions('1P 55P 9M');
+
+			expect(result).toEqual([1, 9]);
+		});
+	});
 });

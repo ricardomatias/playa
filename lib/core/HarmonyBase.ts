@@ -193,10 +193,10 @@ export abstract class HarmonyBase {
 	 * @member getNotesAt
 	 * @memberof Core.HarmonyBase#
 	 *
-	 * @param {HarmonicPosition[]} position
+	 * @param {HarmonicPosition[] | number[]} position
 	 * @return {Note[]}
 	 */
-	getNotesAt(position: HarmonicPosition[]): Note[] {
+	getNotesAt(position: HarmonicPosition[] | number[]): Note[] {
 		return position.map((p) => this.noteAt(p));
 	}
 
@@ -207,10 +207,10 @@ export abstract class HarmonyBase {
 	 *
 	 * @function noteAt
 	 * @memberof Core#Scale#
-	 * @param {HarmonicPosition} position
+	 * @param {HarmonicPosition | number} position
 	 * @return {Note}
 	 */
-	abstract noteAt(position: HarmonicPosition): Note;
+	abstract noteAt(position: HarmonicPosition | number): Note;
 
 	/**
 	 * Assigns a new octave range - [ 3, 1 ]
