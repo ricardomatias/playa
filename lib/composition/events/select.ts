@@ -88,6 +88,18 @@ class EventEditing<T extends Event> {
 	}
 
 	/**
+	 * Creates a selection of events within the provided time interval - [t0, t0 + duration[
+	 *
+	 * @function betweenFor
+	 * @param {TimeFormat} time
+	 * @return {EventEditing}
+	 * @memberof Composition.Events#EventEditing
+	 */
+	betweenFor(t0: TimeFormat, duration: TimeFormat): EventEditing<T> {
+		return this.before(new Time(t0).add(duration)).after(t0);
+	}
+
+	/**
 	 * Returns the events
 	 *
 	 * @member events

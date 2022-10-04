@@ -210,11 +210,38 @@ export class Time {
 	 * toSeconds(120) =>
 	 *
 	 * @param {number} bpm beats per minute
-	 * @param {PPQ} [ppq] ppq
 	 * @return {number} seconds
 	 */
 	toSeconds(bpm: number): number {
 		return Time.ticksToSeconds(this.ticks, bpm);
+	}
+
+	/**
+	 * Add to the current time
+	 * @function add
+	 * @memberof Core#Time#
+	 * @example
+	 * new Time('4n').add('4n') => new Time('2n')
+	 *
+	 * @param {TimeFormat} time
+	 * @return {Time}
+	 */
+	add(time: TimeFormat): Time {
+		return new Time(this.valueOf() + new Time(time).valueOf());
+	}
+
+	/**
+	 * Subtract from the current time
+	 * @function sub
+	 * @memberof Core#Time#
+	 * @example
+	 * new Time('4n').sub('8n') => new Time('8n')
+	 *
+	 * @param {TimeFormat} time
+	 * @return {Time}
+	 */
+	sub(time: TimeFormat): Time {
+		return new Time(this.valueOf() - new Time(time).valueOf());
 	}
 
 	/**

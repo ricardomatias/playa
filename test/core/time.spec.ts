@@ -99,6 +99,14 @@ describe('Time Test Suite', () => {
 		const time = new Time('0:2:0');
 
 		expect((time as any) + (time as any)).toBe(1920);
+		expect(time.add(time).ticks).toBe(1920);
+	});
+
+	it('should allow subtracting', () => {
+		const time = new Time('0:2:0');
+
+		expect((new Time('1m') as any) - (time as any)).toBe(960);
+		expect(new Time('1m').sub(time).ticks).toBe(960);
 	});
 
 	it('should break with invalid time', () => {
