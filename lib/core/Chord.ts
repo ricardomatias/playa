@@ -410,8 +410,8 @@ export class Chord extends HarmonyBase {
 		const rootNote = this.root;
 
 		// This is to figure out if flats is a better match than sharps when the root note is natural
-		const sharpNotes = R.length(R.filter(R.prop<'isSharp', boolean>('isSharp'), notes));
-		const flatNotes = R.length(R.filter(R.prop<'isFlat', boolean>('isFlat'), notes));
+		const sharpNotes = R.length(R.filter(R.prop<boolean>('isSharp'), notes));
+		const flatNotes = R.length(R.filter(R.prop<boolean>('isFlat'), notes));
 
 		if (rootNote.isFlat || flatNotes > 0) {
 			this._notesType = NoteType.Flat;

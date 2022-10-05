@@ -90,7 +90,7 @@ const calcIntervalRankings = (list: Interval[][]): IntervalRanking => {
 };
 
 const findPossibleScales = (rankedScales: ScaleRanking, intervals: Interval[]): ScaleIntervals[] => {
-	const c = R.flatten(R.map(R.prop(__, rankedScales), intervals)) as ScaleIntervals[];
+	const c = R.flatten(R.map(R.prop(__, rankedScales), intervals)) as any as ScaleIntervals[];
 	return R.uniq(R.flatten(c).filter(isDefined));
 };
 

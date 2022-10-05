@@ -18,7 +18,7 @@ import { isUndefined } from '../../utils/types-guards';
 export const splitAt = <T extends Event>(pattern: T[], at: TimeFormat, adjustRestTime = false): T[][] => {
 	const time = new Time(at);
 
-	const index = R.findIndex(R.lte(time.ticks), R.map(R.prop('time'), pattern));
+	const index = R.findIndex(R.lte(time.ticks), R.map(R.prop<number>('time'), pattern));
 
 	if (index === -1) {
 		return [pattern];
