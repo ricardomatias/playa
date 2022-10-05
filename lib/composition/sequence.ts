@@ -3,7 +3,6 @@ import { Scale } from '../core/Scale';
 import { Key } from '../core/Key';
 import { Chord } from '../core/Chord';
 import { Note } from '../core/Note';
-import * as distance from '../tools/distance';
 import { mapNotesToString, mapNotesToMidi, mapNotesToFreq } from '../utils';
 import { isDefined } from '../utils/types-guards';
 import { Interval } from '../constants';
@@ -46,6 +45,16 @@ export class Sequence {
 	constructor(scale: Scale) {
 		this._scale = scale;
 		this._intervals = scale.intervals.split(' ');
+	}
+
+	/**
+	 * Get the base scale
+	 * @member scale
+	 * @readonly
+	 * @memberof Composition#Sequence#
+	 */
+	get scale() {
+		return this._scale;
 	}
 
 	/**
