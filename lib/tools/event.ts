@@ -114,14 +114,14 @@ export const computeEventsNext = <T extends Event>(events: T[]): T[] => {
  * @param {TimeFormat} startTime
  * @return {Event}
  */
-export const mapStartToEvent = R.curry(<T extends Event>(startTime: TimeFormat, event: T): T => {
+export const mapStartToEvent = <T extends Event>(startTime: TimeFormat, event: T): T => {
 	const start = new Time(startTime);
 	return {
 		...event,
 		time: start.ticks + event.time,
 		next: start.ticks + event.next,
 	};
-});
+};
 
 /**
  * Converts Event[] to notevalues (ie. 4n), ignores rests
@@ -133,7 +133,7 @@ export const mapStartToEvent = R.curry(<T extends Event>(startTime: TimeFormat, 
  * @return {string[]}
  */
 export const convertEventsToNotevalues = (events: Event[]): string[] => {
-	const filteredEvents = R.filter(R.propEq('isRest', false), events);
+	const filteredEvents = R.filter((event) => !event.isRest, events);
 
 	return filteredEvents.map((evt, index) => {
 		// TODO: Switch to Notevalue and fix undefined issue

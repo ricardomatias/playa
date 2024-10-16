@@ -276,7 +276,10 @@ export class Key extends Scale {
 			if (R.includes(Key.Locrian, R.pluck('scale', modes))) {
 				const modesLen = modes.length;
 
-				modes = R.sort(R.ascend(R.propEq('scale', Key.Locrian)), modes);
+				modes = R.sort(
+					R.ascend((mode) => mode.scale === Key.Locrian),
+					modes
+				);
 
 				const avgProb = ((1.0 - LOCRIAN_PROB) / (modesLen - 1.0)).toFixed(PRECISION);
 
@@ -306,7 +309,7 @@ export class Key extends Scale {
 		this._root = new Note(mode.root);
 		this._intervals = mode.scale;
 
-		const rootPos = R.findIndex(R.propEq('note', mode.root), this._notes);
+		const rootPos = this._notes.findIndex((note) => note.note === mode.root);
 		const notesSplit = R.splitAt(rootPos, this._notes);
 
 		this._notes = R.concat(<Note[]>R.last(notesSplit), <Note[]>R.head(notesSplit));
@@ -337,7 +340,7 @@ export class Key extends Scale {
 	 * @return {Number}
 	 */
 	get modePosition(): number {
-		return R.findIndex(R.propEq('root', this.root.note), this.modes);
+		return this.modes.findIndex((mode) => mode.root === this.root.note);
 	}
 
 	/**
@@ -441,7 +444,7 @@ export class Key extends Scale {
 		this._root = new Note(mode.root);
 		this._intervals = mode.scale;
 
-		const rootPos = R.findIndex(R.propEq('note', mode.root), this._notes);
+		const rootPos = this._notes.findIndex((note) => note.note === mode.root);
 		const notesSplit = R.splitAt(rootPos, this._notes);
 
 		this._notes = R.concat(<Note[]>R.last(notesSplit), <Note[]>R.head(notesSplit));

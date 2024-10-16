@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import * as R from 'ramda';
 import { Event } from '../../core/Event';
 import { Time, TimeFormat } from '../../core/Time';
@@ -18,7 +19,8 @@ import { isUndefined } from '../../utils/types-guards';
 export const splitAt = <T extends Event>(pattern: T[], at: TimeFormat, adjustRestTime = false): T[][] => {
 	const time = new Time(at);
 
-	const index = R.findIndex(R.lte(time.ticks), R.map(R.prop<number>('time'), pattern));
+	// const index = R.findIndex(R.lte(time.ticks), R.map(R.prop('time'), pattern));
+	const index = pattern.findIndex((p) => p.time >= time.ticks);
 
 	if (index === -1) {
 		return [pattern];
@@ -39,7 +41,15 @@ export const splitAt = <T extends Event>(pattern: T[], at: TimeFormat, adjustRes
 	}
 
 	if (adjustRestTime) {
-		return R.adjust(1, R.map(mapStartToEvent(-firstEventLatter.time)), patterns);
+		// @ts-expect-error
+		// because the time is not defined in the type
+		return R.adjust(
+			1,
+			// @ts-expect-error
+			// because the time is not defined in the type
+			R.map((patt) => mapStartToEvent(-firstEventLatter.time, patt)),
+			patterns
+		);
 	}
 
 	return patterns;

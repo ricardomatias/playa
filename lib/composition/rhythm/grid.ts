@@ -54,7 +54,7 @@ export function createGrid(totalRhythmDuration: TimeFormat, subDivision: number)
 
 	for (let index = 0; index < Math.floor(maxRhythmNotes); index++) {
 		const beat = index * normalTicks;
-		const beatIndex = R.findIndex(R.propEq('time', beat), grid);
+		const beatIndex = grid.findIndex((cell) => cell.time === beat);
 
 		if (beatIndex !== -1) {
 			grid[beatIndex].res.push(normal);
@@ -66,5 +66,5 @@ export function createGrid(totalRhythmDuration: TimeFormat, subDivision: number)
 		}
 	}
 
-	return ring(R.uniq(R.sortBy(R.prop('time'), grid)));
+	return ring(R.uniqBy(R.prop('time'), R.sortBy(R.prop('time'), grid)));
 }

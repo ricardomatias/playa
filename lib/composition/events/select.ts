@@ -156,7 +156,7 @@ class EventEditing<T extends Event> {
 			const len = bracket.length;
 			const start = i === 0 ? bracket[0] : bracket[0] - (len - events.length);
 
-			const eventsAdj = R.map(mapStartToEvent(this._events[start].time), events) as T[];
+			const eventsAdj = events.map((event) => mapStartToEvent(this._events[start].time, event));
 
 			this._events.splice(start, len, ...eventsAdj);
 		});
@@ -210,5 +210,5 @@ class EventEditing<T extends Event> {
  * @return {EventEditing}
  */
 export function select<T extends Event>(events: T[]): EventEditing<T> {
-	return new EventEditing(R.map(R.clone, events));
+	return new EventEditing(R.map(R.clone, events) as T[]);
 }

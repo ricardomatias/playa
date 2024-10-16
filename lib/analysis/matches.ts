@@ -315,13 +315,21 @@ export const findClosestMatches = (
 		return [R.intersection(notes, n).length, R.intersection(intervals, i).length, c, n];
 	});
 
-	const maxMatchingNotes = R.reduce(R.max, 0, R.map(R.nth(0), common));
+	const maxMatchingNotes = R.reduce(
+		R.max,
+		0,
+		R.map((ranking) => ranking[0], common)
+	);
 
 	const matchesNotes = common.filter((m) => {
 		return m[0] === maxMatchingNotes;
 	});
 
-	const maxMatchingIntervals = R.reduce(R.max, 0, R.map(R.nth(1), matchesNotes));
+	const maxMatchingIntervals = R.reduce(
+		R.max,
+		0,
+		R.map((ranking) => ranking[1], matchesNotes)
+	);
 
 	const closestMatch = matchesNotes.filter((m) => {
 		return m[1] === maxMatchingIntervals;
@@ -340,5 +348,5 @@ export const findClosestMatches = (
  */
 export const filterHighestMatches = (rankings: MatchRanking[]): MatchRanking[] => {
 	const maxMatch = R.reduce(R.max, 0, R.map(R.prop('match'), rankings));
-	return R.filter(R.propEq('match', maxMatch), rankings);
+	return R.filter((ranking) => ranking.match === maxMatch, rankings);
 };

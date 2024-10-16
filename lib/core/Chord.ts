@@ -201,10 +201,10 @@ export class Chord extends HarmonyBase {
 
 	/**
 	 * Create a chord from a Scale's intervals
-	 * @function fromIntervals
+	 * @function fromNotes
 	 * @memberof Core#Chord
 	 * @static
-	 * @example Chord.fromIntervals('A', Scale.Intervals.Dorian, Chord.Sructures.Sixth);
+	 * @example Chord.fromNotes(['A', 'C', 'E', 'G'])
 	 *
 	 * @param {Array<NoteSymbol>} notes
 	 * @param {Octaves} [octaves = [ 3, 1]]
@@ -389,7 +389,8 @@ export class Chord extends HarmonyBase {
 			);
 
 			chordType = `${chordType}add${last.replace(/\D/g, '')}`;
-		} catch (error) {
+		} catch {
+			console.error("[findChordSymbol] Couldn't find a chord symbol for", chord);
 			return;
 		}
 
@@ -410,8 +411,8 @@ export class Chord extends HarmonyBase {
 		const rootNote = this.root;
 
 		// This is to figure out if flats is a better match than sharps when the root note is natural
-		const sharpNotes = R.length(R.filter(R.prop<boolean>('isSharp'), notes));
-		const flatNotes = R.length(R.filter(R.prop<boolean>('isFlat'), notes));
+		const sharpNotes = R.length(R.filter((note) => note.isSharp, notes));
+		const flatNotes = R.length(R.filter((note) => note.isFlat, notes));
 
 		if (rootNote.isFlat || flatNotes > 0) {
 			this._notesType = NoteType.Flat;

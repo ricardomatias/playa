@@ -263,7 +263,7 @@ describe('An Event tools test suite', () => {
 
 		it('should map multiple', () => {
 			// when
-			const mapd = R.map(mapStartToEvent(480), events);
+			const mapd = R.map((e) => mapStartToEvent(480, e), events);
 
 			// then
 			expect(mapd).toMatchInlineSnapshot(`

@@ -13,11 +13,11 @@ const baseConfig = {
 		{
 			dir: 'build/esm',
 			format: 'esm',
+			manualChunks: {
+				vendor: ['ramda', 'simplex-noise', 'alea'],
+			},
 		},
 	],
-	manualChunks: {
-		vendor: ['ramda', 'simplex-noise', 'alea'],
-	},
 	plugins: [
 		del({ targets: 'build/*' }),
 		resolve({ extensions }),

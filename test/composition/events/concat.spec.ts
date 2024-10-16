@@ -56,7 +56,7 @@ describe('#concat', () => {
 		// given
 		random.setSeed('test');
 
-		const rhy1: NoteEvent[] = R.map(mapStartToEvent('2:0:0'), Rhythm.free('1:0:0', ['4n']));
+		const rhy1 = R.map((event) => mapStartToEvent('2:0:0', event), Rhythm.free('1:0:0', ['4n']));
 
 		// when
 		const result = Events.concat(rhy1, R.clone(rhy1));

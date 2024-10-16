@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import progress from 'rollup-plugin-progress';
 import typescript from 'rollup-plugin-typescript2';
 
