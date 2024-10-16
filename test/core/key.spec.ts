@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Chord, Key } from '../../lib/core';
 import random from '../../lib/tools/random';
 import '../matchers';

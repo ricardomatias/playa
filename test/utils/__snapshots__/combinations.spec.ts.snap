@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`A CombinationSum test suite should find combinations 1`] = `
+exports[`A CombinationSum test suite > should find combinations 1`] = `
 [
   [
     1,
@@ -49,7 +49,7 @@ exports[`A CombinationSum test suite should find combinations 1`] = `
 ]
 `;
 
-exports[`A CombinationSum test suite should find combinations with 3 max ones 1`] = `
+exports[`A CombinationSum test suite > should find combinations with 3 max ones 1`] = `
 [
   [
     1,

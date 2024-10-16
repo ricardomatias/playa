@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import whilst from '../../lib/utils/whilst';
 
 describe('A Whilst Test Suite', () => {

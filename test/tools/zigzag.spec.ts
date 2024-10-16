@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { mapRepeat, zigzag } from '../../lib/tools';
 
 const AM7 = ['A', 'C', 'E', 'G'];

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`A Movement test suite Turn should generate a simple movement 1`] = `
+exports[`A Movement test suite > Turn > should generate a simple movement 1`] = `
 {
   "events": [
     {
@@ -161,7 +161,7 @@ exports[`A Movement test suite Turn should generate a simple movement 1`] = `
 }
 `;
 
-exports[`A Movement test suite Turn should generate a turn rhythm movement 1`] = `
+exports[`A Movement test suite > Turn > should generate a turn rhythm movement 1`] = `
 {
   "events": [
     {
@@ -284,7 +284,7 @@ exports[`A Movement test suite Turn should generate a turn rhythm movement 1`] =
 }
 `;
 
-exports[`A Movement test suite Turn should generate non buggy 1`] = `
+exports[`A Movement test suite > Turn > should generate non buggy 1`] = `
 {
   "events": [
     {

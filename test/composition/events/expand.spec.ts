@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { createArp, Rhythm, Events } from '../../../lib/composition';
 import { Time, Scale } from '../../../lib/core';
 import { random } from '../../../lib/tools';

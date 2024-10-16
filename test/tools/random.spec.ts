@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import random, { Random } from '../../lib/tools/random';
 import { mapRepeat } from '../../lib/tools/map-repeat';
 

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`A Chord Progression test suite should generate chords based on a movement timeline - free rhythm 1`] = `
+exports[`A Chord Progression test suite > should generate chords based on a movement timeline - free rhythm 1`] = `
 [
   {
     "chord": [
@@ -151,7 +151,7 @@ exports[`A Chord Progression test suite should generate chords based on a moveme
 ]
 `;
 
-exports[`A Chord Progression test suite should generate chords based on a movement timeline - turn rhythm 1`] = `
+exports[`A Chord Progression test suite > should generate chords based on a movement timeline - turn rhythm 1`] = `
 [
   {
     "chord": [
@@ -414,7 +414,7 @@ exports[`A Chord Progression test suite should generate chords based on a moveme
 ]
 `;
 
-exports[`A Chord Progression test suite should generate progression with defined structures 1`] = `
+exports[`A Chord Progression test suite > should generate progression with defined structures 1`] = `
 [
   {
     "chord": [

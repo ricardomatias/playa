@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`An Octaves Test Suite should map - chromatic 1`] = `
+exports[`An Octaves Test Suite > should map - chromatic 1`] = `
 [
   {
     "C-2": 0,
@@ -389,7 +389,7 @@ exports[`An Octaves Test Suite should map - chromatic 1`] = `
 ]
 `;
 
-exports[`An Octaves Test Suite should map - flat 1`] = `
+exports[`An Octaves Test Suite > should map - flat 1`] = `
 [
   {
     "Ab4": 80,
@@ -478,7 +478,7 @@ exports[`An Octaves Test Suite should map - flat 1`] = `
 ]
 `;
 
-exports[`An Octaves Test Suite should map - major with flats 1`] = `
+exports[`An Octaves Test Suite > should map - major with flats 1`] = `
 [
   {
     "F-1": 17,
@@ -504,7 +504,7 @@ exports[`An Octaves Test Suite should map - major with flats 1`] = `
 ]
 `;
 
-exports[`An Octaves Test Suite should map - natural 1`] = `
+exports[`An Octaves Test Suite > should map - natural 1`] = `
 [
   {
     "C-2": 0,
@@ -734,7 +734,7 @@ exports[`An Octaves Test Suite should map - natural 1`] = `
 ]
 `;
 
-exports[`An Octaves Test Suite should map - pentatonic 1`] = `
+exports[`An Octaves Test Suite > should map - pentatonic 1`] = `
 [
   {
     "Eb-2": 3,
@@ -754,7 +754,7 @@ exports[`An Octaves Test Suite should map - pentatonic 1`] = `
 ]
 `;
 
-exports[`An Octaves Test Suite should map - sharp 1`] = `
+exports[`An Octaves Test Suite > should map - sharp 1`] = `
 [
   {
     "E3": 64,
@@ -801,7 +801,7 @@ exports[`An Octaves Test Suite should map - sharp 1`] = `
 ]
 `;
 
-exports[`An Octaves Test Suite should map 9m chord 1`] = `
+exports[`An Octaves Test Suite > should map 9m chord 1`] = `
 [
   {
     "Ab4": 80,
@@ -821,7 +821,7 @@ exports[`An Octaves Test Suite should map 9m chord 1`] = `
 ]
 `;
 
-exports[`An Octaves Test Suite should map M13 chord 1`] = `
+exports[`An Octaves Test Suite > should map M13 chord 1`] = `
 [
   {
     "C4": 72,

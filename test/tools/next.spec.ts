@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { next } from '../../lib/tools';
 
 const AM = ['A', 'C', 'E'];

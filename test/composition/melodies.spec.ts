@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import * as R from 'ramda';
 import { Key } from '../../lib/core';
 import { createMovement, createMelodies } from '../../lib/composition';

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { distance } from '../../lib/tools';
 
 const { semitones, interval, naturalPosition } = distance;

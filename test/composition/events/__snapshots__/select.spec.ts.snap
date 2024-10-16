@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`#select should select applyRest 1`] = `
+exports[`#select > should select applyRest 1`] = `
 [
   {
     "dur": 240,
@@ -53,7 +53,7 @@ exports[`#select should select applyRest 1`] = `
 ]
 `;
 
-exports[`#select should select before after 2n 1`] = `
+exports[`#select > should select before after 2n 1`] = `
 [
   {
     "dur": 240,
@@ -106,7 +106,7 @@ exports[`#select should select before after 2n 1`] = `
 ]
 `;
 
-exports[`#select should select before after 2n 2`] = `
+exports[`#select > should select before after 2n 2`] = `
 [
   {
     "dur": 240,
@@ -159,7 +159,7 @@ exports[`#select should select before after 2n 2`] = `
 ]
 `;
 
-exports[`#select should select every 2n before after 4n 1`] = `
+exports[`#select > should select every 2n before after 4n 1`] = `
 [
   {
     "dur": 480,
@@ -260,7 +260,7 @@ exports[`#select should select every 2n before after 4n 1`] = `
 ]
 `;
 
-exports[`#select should select every 2n before after 4n 2`] = `
+exports[`#select > should select every 2n before after 4n 2`] = `
 [
   {
     "dur": 480,
@@ -361,7 +361,7 @@ exports[`#select should select every 2n before after 4n 2`] = `
 ]
 `;
 
-exports[`#select should select multiple 1`] = `
+exports[`#select > should select multiple 1`] = `
 [
   {
     "dur": 240,
@@ -414,7 +414,7 @@ exports[`#select should select multiple 1`] = `
 ]
 `;
 
-exports[`#select should select multiple 2`] = `
+exports[`#select > should select multiple 2`] = `
 [
   {
     "dur": 480,

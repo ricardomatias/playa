@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import { Ticks } from '../../../lib/constants';
 import { Time } from '../../../lib/core';
 import { Rhythm } from '../../../lib/composition';

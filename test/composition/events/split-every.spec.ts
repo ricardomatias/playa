@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Events, Rhythm } from '../../../lib/composition';
 import { Ticks } from '../../../lib/constants';
 import { random } from '../../../lib/tools';

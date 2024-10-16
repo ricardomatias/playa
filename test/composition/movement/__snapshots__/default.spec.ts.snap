@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`A Movement test suite should generate a basic movement 1`] = `
+exports[`A Movement test suite > should generate a basic movement 1`] = `
 {
   "events": [
     {
@@ -69,7 +69,7 @@ exports[`A Movement test suite should generate a basic movement 1`] = `
 }
 `;
 
-exports[`A Movement test suite should generate a basic movement in 3/4 1`] = `
+exports[`A Movement test suite > should generate a basic movement in 3/4 1`] = `
 {
   "events": [
     {
@@ -168,7 +168,7 @@ exports[`A Movement test suite should generate a basic movement in 3/4 1`] = `
 }
 `;
 
-exports[`A Movement test suite should generate a long movement - turn rhythm 1`] = `
+exports[`A Movement test suite > should generate a long movement - turn rhythm 1`] = `
 {
   "events": [
     {
@@ -237,7 +237,7 @@ exports[`A Movement test suite should generate a long movement - turn rhythm 1`]
 }
 `;
 
-exports[`A Movement test suite should generate a simple movement - euclidean 1`] = `
+exports[`A Movement test suite > should generate a simple movement - euclidean 1`] = `
 {
   "events": [
     {
@@ -336,7 +336,7 @@ exports[`A Movement test suite should generate a simple movement - euclidean 1`]
 }
 `;
 
-exports[`A Movement test suite should generate a simple movement - turn rhythm 1`] = `
+exports[`A Movement test suite > should generate a simple movement - turn rhythm 1`] = `
 {
   "events": [
     {

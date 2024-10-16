@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import * as R from 'ramda';
 import assignOctaves from '../../lib/utils/octaves';
 import { Scale, Chord, Note } from '../../lib/core';

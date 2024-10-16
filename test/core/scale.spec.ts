@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Scale, Note } from '../../lib/core';
 import '../matchers';
 
@@ -215,7 +216,7 @@ describe('Scale Test Suite', () => {
 				scale.noteAt(11 as any);
 			};
 
-			expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[1P 2M 3m 4P 5P 6m 7m] structure doesn't contain interval: 11"`);
+			expect(toThrow).toThrowErrorMatchingInlineSnapshot(`[[PlayaError <Scale>]: [1P 2M 3m 4P 5P 6m 7m] structure doesn't contain interval: 11]`);
 		});
 	});
 });

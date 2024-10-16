@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { ChordChange, RhythmType } from '../../lib/common/types';
 import { Key, Chord, Time } from '../../lib/core';
 import { createMovement, createChordProgression } from '../../lib/composition';

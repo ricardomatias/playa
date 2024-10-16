@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import random from '../../lib/tools/random';
 import { createArp, genHarmonicShift } from '../../lib/composition/arp';
 import { Scale, Chord, Time } from '../../lib/core';

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { findCMidiByOctave, findOctave } from '../../lib/utils/note';
 
 describe('A Notes Util Test Suite', () => {

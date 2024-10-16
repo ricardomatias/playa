@@ -84,7 +84,7 @@ const calcIntervalsScore = R.reduce((acc, val) => R.add(acc, R.indexOf(val, DEFA
 
 const calcIntervalRankings = (list: Interval[][]): IntervalRanking => {
 	const intervals = R.map(R.join(' '), list);
-	const scores = R.map(calcIntervalsScore as any, list);
+	const scores = R.map(calcIntervalsScore, list);
 
 	return R.zipObj(intervals, scores) as IntervalRanking;
 };

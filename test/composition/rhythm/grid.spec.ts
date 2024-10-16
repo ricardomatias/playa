@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Time } from '../../../lib/core';
 import { createGrid } from '../../../lib/composition/rhythm';
 

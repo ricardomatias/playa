@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`#splitEvery should splitEvery complex 1`] = `
+exports[`#splitEvery > should splitEvery complex 1`] = `
 [
   [
     {

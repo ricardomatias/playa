@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import random from '../../lib/tools/random';
 import { Sequence } from '../../lib/composition';
 import { Key, Chord, Scale } from '../../lib/core';

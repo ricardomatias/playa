@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`A Melodies test suite should generate melodies based on a movement timeline - free rhythm 1`] = `
+exports[`A Melodies test suite > should generate melodies based on a movement timeline - free rhythm 1`] = `
 [
   {
     "dur": 240,
@@ -189,7 +189,7 @@ exports[`A Melodies test suite should generate melodies based on a movement time
 ]
 `;
 
-exports[`A Melodies test suite should generate melodies based on a movement timeline - turn rhythm 1`] = `
+exports[`A Melodies test suite > should generate melodies based on a movement timeline - turn rhythm 1`] = `
 [
   {
     "dur": 480,
@@ -378,7 +378,7 @@ exports[`A Melodies test suite should generate melodies based on a movement time
 ]
 `;
 
-exports[`A Melodies test suite should generate progression with defined structures 1`] = `
+exports[`A Melodies test suite > should generate progression with defined structures 1`] = `
 [
   {
     "dur": 320,

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Ticks } from '../../lib/constants';
 
 describe('Ticks Test Suite', () => {

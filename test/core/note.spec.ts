@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Note } from '../../lib/core/Note';
 import { mapNotesToString } from '../../lib/utils/map';
 

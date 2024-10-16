@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Chord, Note } from '../../lib/core';
 import { findNearest, findNearestChord, findNearestVoicings, spreadVoicing, transposeIfLower } from '../../lib/tools/midi';
 

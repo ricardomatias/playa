@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import random from '../../lib/tools/random';
 import { rotate } from '../../lib/tools';
 

@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { ScaleIntervals } from '../../lib/constants';
 import { Chord, Note } from '../../lib/core';
 import random from '../../lib/tools/random';
@@ -254,7 +256,7 @@ describe('Chord Test Suite', () => {
 					Chord.fromIntervals('A', '1P 100P', Chord.Structures.Ninth);
 				};
 
-				expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[1P 100P] has unrecognized intervals."`);
+				expect(toThrow).toThrowErrorMatchingInlineSnapshot(`[[PlayaError <Chord>]: [1P 100P] has unrecognized intervals.]`);
 			});
 		});
 
@@ -394,7 +396,7 @@ describe('Chord Test Suite', () => {
 				chord.noteAt(2);
 			};
 
-			expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[1,3,5,7] structure doesn't contain position: 2"`);
+			expect(toThrow).toThrowErrorMatchingInlineSnapshot(`[[PlayaError <Chord>]: [1,3,5,7] structure doesn't contain position: 2]`);
 		});
 	});
 

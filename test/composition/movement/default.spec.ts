@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Key, Time } from '../../../lib/core';
 import { createMovement } from '../../../lib/composition';
 import { MovementRhythm } from '../../../lib/composition/movement/types';

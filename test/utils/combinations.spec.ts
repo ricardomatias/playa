@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import findCombinationsSum from '../../lib/utils/combinations';
 
 describe('A CombinationSum test suite', () => {

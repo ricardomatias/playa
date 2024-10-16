@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import * as Euclidean from '../../lib/tools/euclidean';
 
 describe('An Euclidean test suite', () => {

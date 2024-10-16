@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import * as R from 'ramda';
 import { createChordProgression, createMelodies, createMovement } from '../../lib/composition';
 import { Key } from '../../lib/core';

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { TurnMoves } from '../../../lib/constants';
 import { Key } from '../../../lib/core';
 import { createTurnMovement } from '../../../lib/composition';

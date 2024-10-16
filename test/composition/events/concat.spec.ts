@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import * as R from 'ramda';
 import { Events, Rhythm } from '../../../lib/composition';
 import { NoteEvent, Time } from '../../../lib/core';

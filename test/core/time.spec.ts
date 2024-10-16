@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Time } from '../../lib/core/Time';
 
 describe('Time Test Suite', () => {
@@ -114,7 +115,7 @@ describe('Time Test Suite', () => {
 			new Time('1:0.0');
 		};
 
-		expect(toThrow).toThrowErrorMatchingInlineSnapshot(`"[Time] Unrecognized time format for -> 1:0.0"`);
+		expect(toThrow).toThrowErrorMatchingInlineSnapshot(`[Error: [Time] Unrecognized time format for -> 1:0.0]`);
 	});
 
 	describe('#bbsToTicks', () => {

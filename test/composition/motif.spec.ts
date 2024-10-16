@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import * as R from 'ramda';
 import { Scale, Chord } from '../../lib/core';
 import { createMotif } from '../../lib/composition/motif';

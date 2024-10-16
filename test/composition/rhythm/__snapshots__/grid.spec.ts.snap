@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`#createGrid should create a 4n grid - snapshot 1`] = `
+exports[`#createGrid > should create a 4n grid - snapshot 1`] = `
  [
   {
     "res": [
@@ -30,7 +30,7 @@ exports[`#createGrid should create a 4n grid - snapshot 1`] = `
 ]
 `;
 
-exports[`#createGrid should create a 4n grid 1`] = `
+exports[`#createGrid > should create a 4n grid 1`] = `
  [
   {
     "res": [
@@ -135,7 +135,7 @@ exports[`#createGrid should create a 4n grid 1`] = `
 ]
 `;
 
-exports[`#createGrid should create a 8n, 7/8 grid - snapshot 1`] = `
+exports[`#createGrid > should create a 8n, 7/8 grid - snapshot 1`] = `
  [
   {
     "res": [

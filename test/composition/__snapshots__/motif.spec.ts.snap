@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`A Motif test suite should generate createMotif based on chord 1`] = `
+exports[`A Motif test suite > should generate createMotif based on chord 1`] = `
 [
   {
     "dur": 240,
@@ -53,7 +53,7 @@ exports[`A Motif test suite should generate createMotif based on chord 1`] = `
 ]
 `;
 
-exports[`A Motif test suite should generate createMotif based on chord 2`] = `
+exports[`A Motif test suite > should generate createMotif based on chord 2`] = `
 [
   {
     "dur": 240,
@@ -130,7 +130,7 @@ exports[`A Motif test suite should generate createMotif based on chord 2`] = `
 ]
 `;
 
-exports[`A Motif test suite should generate motif based on scale 1`] = `
+exports[`A Motif test suite > should generate motif based on scale 1`] = `
 [
   {
     "dur": 240,
@@ -183,7 +183,7 @@ exports[`A Motif test suite should generate motif based on scale 1`] = `
 ]
 `;
 
-exports[`A Motif test suite should generate motif based on scale 2`] = `
+exports[`A Motif test suite > should generate motif based on scale 2`] = `
 [
   {
     "dur": 240,
@@ -260,7 +260,7 @@ exports[`A Motif test suite should generate motif based on scale 2`] = `
 ]
 `;
 
-exports[`A Motif test suite should generate motif with given durations 1`] = `
+exports[`A Motif test suite > should generate motif with given durations 1`] = `
 [
   {
     "dur": 480,
@@ -289,7 +289,7 @@ exports[`A Motif test suite should generate motif with given durations 1`] = `
 ]
 `;
 
-exports[`A Motif test suite should generate motif with rests 1`] = `
+exports[`A Motif test suite > should generate motif with rests 1`] = `
 [
   {
     "dur": 320,
@@ -358,7 +358,7 @@ exports[`A Motif test suite should generate motif with rests 1`] = `
 ]
 `;
 
-exports[`A Motif test suite should return pattern with time = start time 1`] = `
+exports[`A Motif test suite > should return pattern with time = start time 1`] = `
 [
   {
     "dur": 720,

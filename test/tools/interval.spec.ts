@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { interval } from '../../lib/tools';
 
 describe('An Interval test suite', () => {
