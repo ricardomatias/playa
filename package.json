@@ -19,7 +19,7 @@
 	"scripts": {
 		"test": "npm run lint:quiet && vitest run",
 		"test:watch": "vitest watch",
-		"test:update": "vitest -u",
+		"test:update": "vitest run -u",
 		"test:coverage": "vitest run --coverage",
 		"todos": "leasot -x lib/**/*.ts",
 		"lint": "eslint lib test",

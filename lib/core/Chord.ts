@@ -222,7 +222,7 @@ export class Chord extends HarmonyBase {
 		const intervals = `1P ${intervalsArray.join(' ')}`;
 		const symbol = this.findChordSymbol(intervals) as ChordSymbol | undefined;
 
-		return new Chord('A', intervals as ChordIntervals, octaves, { symbol });
+		return new Chord(root, intervals as ChordIntervals, octaves, { symbol });
 	}
 
 	/**

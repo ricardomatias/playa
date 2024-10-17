@@ -76,8 +76,8 @@ describe('Note Test Suite', () => {
 	it('should get enharmonic with MIDI', () => {
 		const note = new Note(102);
 
-		expect(note.enharmonicPitch).toBe('Gb6');
-		expect(note.e).toBe('Gb');
+		expect(note.enharmonicPitch).toBe('F#6');
+		expect(note.e).toBe('F#');
 	});
 
 	it('should get Gb freq based on MIDI', () => {
