@@ -1,8 +1,6 @@
-import * as R from 'ramda';
 import { Note, NoteLike } from '../core/Note';
-import { fromSemitones as getInterval } from './interval';
-import { DiatonicNotes, DiatonicNote, Interval } from '../constants';
-import { isNotNull } from '../utils/types-guards';
+import { DiatonicNotes, DiatonicNote } from '../constants';
+import { isNoteSymbol } from '../utils/note';
 
 /**
  * Note distance functions
@@ -43,38 +41,17 @@ export const semitones = (a: NoteLike, b: NoteLike): number => {
 	const noteA = new Note(a);
 	const noteB = new Note(b);
 
-	const posA = Note.position(noteA);
-	const posB = Note.position(noteB);
+	let posA = 0;
+	let posB = noteB.midi - noteA.midi;
+
+	if (posB > 21) {
+		posB = 12 + (posB % 12);
+	}
+
+	if (isNoteSymbol(a) && isNoteSymbol(b)) {
+		posA = Note.position(noteA);
+		posB = Note.position(noteB);
+	}
 
 	return posB > posA ? posB - posA : 12 - (posA - posB);
-};
-
-/**
- * Get the interval between 2 notes
- * @function interval
- * @memberof Tools.Distance
- *
- * @param {Note | NoteSymbol | string} a
- * @param {Note | NoteSymbol | string} b
- * @example interval(C, G) // => "5P"
- * @return {Interval|null} The interval between 2 notes
- */
-export const interval = (a: NoteLike, b: NoteLike): Interval | null => {
-	const noteA = new Note(a);
-	const noteB = new Note(b);
-
-	const semit = semitones(noteA, noteB);
-	const intervals = getInterval(semit);
-
-	if (isNotNull(intervals)) {
-		if (intervals.length > 1) {
-			const natSemit = naturalPosition(noteA, noteB);
-
-			return intervals.find(R.includes(`${natSemit}`)) || intervals[0];
-		} else {
-			return intervals[0];
-		}
-	} else {
-		return null;
-	}
 };

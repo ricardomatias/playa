@@ -32,7 +32,7 @@ const assignOctaves = (notes: Note[], octaves: Octaves = [-2, 11]): Note[] => {
 		const base = baseOct + root.distC;
 
 		notes.forEach((note, j) => {
-			let midi = j === 0 ? base : base + semitones(root, note);
+			let midi = j === 0 ? base : base + semitones(root.note, note.note);
 
 			while (midi < pointer) {
 				midi += 12;

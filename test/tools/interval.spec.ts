@@ -110,4 +110,92 @@ describe('An Interval test suite', () => {
 			expect(result).toEqual([1, 9]);
 		});
 	});
+
+	describe('#between', () => {
+		it('should return the interval between: C, D', () => {
+			const dist = interval.between('C', 'D');
+
+			expect(dist).toBe('2M');
+		});
+
+		it('should return the interval between: Db, Gb', () => {
+			const dist = interval.between('Db', 'Gb');
+
+			expect(dist).toBe('4P');
+		});
+
+		it('should return the interval between: F#, A#', () => {
+			const dist = interval.between('F#', 'A#');
+
+			expect(dist).toBe('3M');
+		});
+
+		it('should return the interval between: Gb, Db', () => {
+			const dist = interval.between('Gb', 'Db');
+
+			expect(dist).toBe('5P');
+		});
+
+		it('should return the interval between: B, C', () => {
+			const dist = interval.between('B', 'C');
+
+			expect(dist).toBe('2m');
+		});
+
+		it('should return the interval between: Gb, E', () => {
+			const dist = interval.between('Gb', 'E');
+
+			expect(dist).toBe('7m');
+		});
+
+		it('should return the interval between: F#, D', () => {
+			const dist = interval.between('F#', 'D');
+
+			expect(dist).toBe('6m');
+		});
+
+		it('should return the interval between: G, Eb', () => {
+			const dist = interval.between('G', 'Eb');
+
+			expect(dist).toBe('6m');
+		});
+
+		it('should return the interval between: D, Bb', () => {
+			const dist = interval.between('D', 'Bb');
+
+			expect(dist).toBe('6m');
+		});
+	});
+
+	describe('#detect', () => {
+		it('should detect CM', () => {
+			const result = interval.detect('C E G');
+
+			expect(result).toEqual(['1P', '3M', '5P']);
+		});
+
+		it('should detect Fm6', () => {
+			const result = interval.detect('F Ab C D');
+
+			expect(result).toEqual(['1P', '3m', '5P', '6M']);
+		});
+
+		it('should detect more', () => {
+			const result = interval.detect('Bb E A');
+
+			expect(result).toEqual(['1P', '4A', '7M']);
+		});
+
+		it('should detect pitches', () => {
+			const result = interval.detect('A3 E4 Bb4');
+
+			expect(result).toEqual(['1P', '5P', '9m']);
+		});
+
+		it('should detect pitches complex', () => {
+			const result = interval.detect('C3 Gb3 Ab3 D4');
+
+			expect(result).toEqual(['1P', '5d', '6m', '9M']);
+		});
+	});
 });

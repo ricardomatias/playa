@@ -5,7 +5,7 @@ import { Note, NoteLike } from '../core/Note';
 import { Sharps, Flats, DiatonicNotes, NoteSymbol } from '../constants/note';
 import { ScaleIntervals, ScaleName } from '../constants/scales';
 import { Interval } from '../constants/intervals';
-import * as distance from '../tools/distance';
+import * as interval from '../tools/interval';
 import { stripOctave } from '../utils/note';
 import whilst from '../utils/whilst';
 import { valuesToArr, convObj, rotate } from '../utils/functional';
@@ -62,7 +62,7 @@ const DEFAULT_RANKED_SCALES = rankScales(DEFAULT_RANKED_INTERVALS);
 // * [ '8P', '4A', '5A', '7m' ]
 const getIntervals = (notes: string[]): Interval[] => {
 	const root = R.head(notes) as NoteSymbol;
-	return notes.map((n) => distance.interval(root, n)).filter(isNotNull);
+	return notes.map((n) => interval.between(root, n)).filter(isNotNull);
 };
 
 // const getOrderedScoreRankings = R.compose(

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { distance } from '../../lib/tools';
 
-const { semitones, interval, naturalPosition } = distance;
+const { semitones, naturalPosition } = distance;
 
 describe('A Distance test suite', () => {
 	describe('#semitones', () => {
@@ -9,6 +9,12 @@ describe('A Distance test suite', () => {
 			const dist = semitones('C', 'D');
 
 			expect(dist).toBe(2);
+		});
+
+		it('should return the distance between: C, G', () => {
+			const dist = semitones('C', 'G');
+
+			expect(dist).toBe(7);
 		});
 
 		it('should return the distance between: Db, Gb', () => {
@@ -52,64 +58,26 @@ describe('A Distance test suite', () => {
 			expect(dist).toBe(12);
 		});
 
+		it('should return the distance between: A3, E4', () => {
+			const dist = semitones('A3', 'E4');
+
+			expect(dist).toBe(7);
+		});
+
+		it('should return the distance between: A3, Bb4', () => {
+			const dist = semitones('A3', 'Bb4');
+
+			expect(dist).toBe(13);
+		});
+
+		it('should return the distance between: A3, Bb7', () => {
+			const dist = semitones('A3', 'Bb7');
+
+			expect(dist).toBe(13);
+		});
+
 		it('should fail', () => {
 			expect(() => semitones('E', 'Z')).toThrowError("[Note]: <Z> isn't a recognized musical note");
-		});
-	});
-
-	describe('#interval', () => {
-		it('should return the interval between: C, D', () => {
-			const dist = interval('C', 'D');
-
-			expect(dist).toBe('2M');
-		});
-
-		it('should return the interval between: Db, Gb', () => {
-			const dist = interval('Db', 'Gb');
-
-			expect(dist).toBe('4P');
-		});
-
-		it('should return the interval between: F#, A#', () => {
-			const dist = interval('F#', 'A#');
-
-			expect(dist).toBe('3M');
-		});
-
-		it('should return the interval between: Gb, Db', () => {
-			const dist = interval('Gb', 'Db');
-
-			expect(dist).toBe('5P');
-		});
-
-		it('should return the interval between: B, C', () => {
-			const dist = interval('B', 'C');
-
-			expect(dist).toBe('2m');
-		});
-
-		it('should return the interval between: Gb, E', () => {
-			const dist = interval('Gb', 'E');
-
-			expect(dist).toBe('7m');
-		});
-
-		it('should return the interval between: F#, D', () => {
-			const dist = interval('F#', 'D');
-
-			expect(dist).toBe('6m');
-		});
-
-		it('should return the interval between: G, Eb', () => {
-			const dist = interval('G', 'Eb');
-
-			expect(dist).toBe('6m');
-		});
-
-		it('should return the interval between: D, Bb', () => {
-			const dist = interval('D', 'Bb');
-
-			expect(dist).toBe('6m');
 		});
 	});
 

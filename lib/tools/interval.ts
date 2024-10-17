@@ -1,4 +1,9 @@
+import * as R from 'ramda';
 import { Interval, Semitones } from '../constants';
+import { Note, NoteLike } from '../core/Note';
+import { isNoteLike } from '../utils/note';
+import { isNotNull } from '../utils/types-guards';
+import { naturalPosition, semitones } from './distance';
 
 const TOTAL_INTERVALS = 21;
 
@@ -164,4 +169,66 @@ export const separate = (intervals: string): Interval[] => {
  */
 export const positions = (intervals: string): number[] => {
 	return separate(intervals).map((interval) => parseInt(interval.replace(/\D*/, ''), 10));
+};
+
+/**
+ * Get the interval between 2 notes
+ * @function between
+ * @memberof Tools.Interval
+ *
+ * @param {Note | NoteSymbol | string} a
+ * @param {Note | NoteSymbol | string} b
+ * @example interval(C, G) // => "5P"
+ * @return {Interval|null} The interval between 2 notes
+ */
+export const between = (a: NoteLike, b: NoteLike): Interval | null => {
+	const semit = semitones(a, b);
+	const intervals = fromSemitones(semit);
+
+	if (isNotNull(intervals)) {
+		if (intervals.length > 1) {
+			const noteA = new Note(a);
+			const noteB = new Note(b);
+			const natSemit = naturalPosition(noteA, noteB);
+
+			return intervals.find(R.includes(`${natSemit}`)) || intervals[0];
+		} else {
+			return intervals[0];
+		}
+	} else {
+		return null;
+	}
+};
+
+/**
+ * Detects the intervals from a string of notes
+ *
+ * @function detect
+ * @memberof Tools.Interval
+ *
+ * @param {string} notes
+ *
+ * @example
+ * detect("C E G") => "1P 3M 5P"
+ *
+ * @return {string}
+ */
+export const detect = (notes: string): Interval[] | null => {
+	const arr = notes.split(' ').filter((note) => isNoteLike(note)) as NoteLike[];
+
+	if (arr.some((note) => !note)) {
+		return [];
+	}
+
+	const intervals = arr
+		.filter((note) => note !== null)
+		.map((note, index, arr) => {
+			if (index === 0) {
+				return '1P';
+			}
+
+			return between(arr[0], note)!;
+		});
+
+	return intervals;
 };
