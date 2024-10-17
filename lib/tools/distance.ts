@@ -1,6 +1,5 @@
 import { Note, NoteLike } from '../core/Note';
 import { DiatonicNotes, DiatonicNote } from '../constants';
-import { isNoteSymbol } from '../utils/note';
 
 /**
  * Note distance functions
@@ -48,7 +47,7 @@ export const semitones = (a: NoteLike, b: NoteLike): number => {
 		posB = 12 + (posB % 12);
 	}
 
-	if (isNoteSymbol(a) && isNoteSymbol(b)) {
+	if (Note.isNoteSymbol(a) && Note.isNoteSymbol(b)) {
 		posA = Note.position(noteA);
 		posB = Note.position(noteB);
 	}

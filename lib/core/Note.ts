@@ -15,7 +15,6 @@ import { Sharp, Sharps, Flats, Enharmonics, DiatonicNote, DiatonicNotes, NoteSym
 import { isDefined, isNumber, isUndefined } from '../utils/types-guards';
 import { PlayaError } from '../utils/error';
 import { Interval, Semitones } from '../constants';
-import { fromSemitones } from '../tools/interval';
 
 export type NoteLike = string | number | Note | NoteSymbol;
 
@@ -515,9 +514,15 @@ export class Note {
 		const base = findCMidiByOctave(octave);
 		const c = new Note('C', base);
 
-		const interval = fromSemitones(midi - base)?.[0] as Interval;
+		const semitones = midi - base;
+		let interval: Interval | undefined;
 
-		return Note.transposeUp(c, interval);
+		for (const [interv, semit] of Object.entries(Semitones)) {
+			if (semit === semitones) {
+				interval = interv as Interval;
+			}
+		}
+		return Note.transposeUp(c, interval!);
 	}
 
 	/**
@@ -535,6 +540,19 @@ export class Note {
 
 		return Array.from({ length: h.midi - l.midi }).map((_, i) => new Note(l.midi + i).ensureType(NoteType.Sharp));
 	}
+
+	static isNoteLike = (note: unknown): note is NoteLike => {
+		try {
+			new Note(<NoteLike>note);
+
+			return true;
+		} catch {
+			return false;
+		}
+	};
+
+	static isNoteSymbol = (note: NoteLike): note is NoteSymbol =>
+		!(note instanceof Note) && typeof note !== 'number' && !isPitch(note);
 
 	/**
 	 * Tries to find the enharmonic of the note

@@ -36,18 +36,6 @@ export const stripOctave = (note: string): NoteSymbol => <NoteSymbol>note.replac
 
 export const isPitch = (note: Exclude<NoteLike, Note | number>): boolean => new RegExp(OCTAVE_REGEXP).test(note);
 
-export const isNoteSymbol = (note: NoteLike): note is NoteSymbol =>
-	!(note instanceof Note) && typeof note !== 'number' && !isPitch(note);
-
-export const isNoteLike = (note: unknown): note is NoteLike => {
-	try {
-		new Note(<NoteLike>note);
-
-		return true;
-	} catch {
-		return false;
-	}
-};
 
 interface ParsedNote {
 	note: NoteSymbol;

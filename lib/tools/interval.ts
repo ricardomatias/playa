@@ -1,7 +1,6 @@
 import * as R from 'ramda';
 import { Interval, Semitones } from '../constants';
 import { Note, NoteLike } from '../core/Note';
-import { isNoteLike } from '../utils/note';
 import { isNotNull } from '../utils/types-guards';
 import { naturalPosition, semitones } from './distance';
 
@@ -214,7 +213,7 @@ export const between = (a: NoteLike, b: NoteLike): Interval | null => {
  * @return {string}
  */
 export const detect = (notes: string): Interval[] | null => {
-	const arr = notes.split(' ').filter((note) => isNoteLike(note)) as NoteLike[];
+	const arr = notes.split(' ').filter((note) => Note.isNoteLike(note)) as NoteLike[];
 
 	if (arr.some((note) => !note)) {
 		return [];
