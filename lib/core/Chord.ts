@@ -10,13 +10,14 @@ import {
 	ChordDefinition,
 	ChordName,
 	ChordIntervals,
+	ChordIntervalRelations,
 } from '../constants/chords';
 import { HarmonicPosition, Interval, Semitones } from '../constants/intervals';
 import { NoteSymbol } from '../constants/note';
 import { ScaleIntervals } from '../constants/scales';
 import { deconstructName, findNameFromIntervals, findNameFromSymbol } from './utils';
 import { PlayaError, whilst } from '../utils';
-import { distance, rotate, choose, random, interval } from '../tools';
+import { rotate, choose, random, interval } from '../tools';
 import { isDefined, isNull, isUndefined } from '../utils/types-guards';
 import assignOctaves from '../utils/octaves';
 import { Scale } from './Scale';
@@ -212,7 +213,7 @@ export class Chord extends HarmonyBase {
 	 */
 	static fromNotes(notes: NoteSymbol[], octaves?: Octaves): Chord {
 		const root = notes[0];
-		const intervalsArray = R.tail(notes.map((note) => distance.interval(root, note)));
+		const intervalsArray = R.tail(notes.map((note) => interval.between(root, note)));
 
 		if (intervalsArray.includes(null)) {
 			throw new PlayaError('Chord', `Could not recognize a valid chord from these notes: <${notes}>`);
@@ -354,13 +355,15 @@ export class Chord extends HarmonyBase {
 	static findChordSymbol(chord: ChordIntervals | string): ChordSymbol | string | undefined {
 		let chordType: ChordSymbol | string | undefined;
 		const chordIntervals = Object.entries(ChordIntervals);
+		let intervals = chord.split(' ') as Interval[];
 
 		for (const [name, symbol] of chordIntervals) {
-			// if (chordType) { // this is so we don't get the empty major
-			// 	break;
-			// }
+			const splitSymbol = symbol.split(' ') as Interval[];
 
-			if (symbol === chord) {
+			// figure out if all the intervals are present in the symbol
+			const allIntervals = R.all((interval) => R.includes(interval, splitSymbol), intervals);
+
+			if (allIntervals) {
 				chordType = ChordSymbol[name as ChordName];
 				break;
 			}
@@ -370,7 +373,6 @@ export class Chord extends HarmonyBase {
 			return chordType;
 		}
 
-		let intervals = chord.split(' ');
 		const last = R.last(intervals) as string;
 
 		try {
@@ -390,8 +392,118 @@ export class Chord extends HarmonyBase {
 
 			chordType = `${chordType}add${last.replace(/\D/g, '')}`;
 		} catch {
-			console.error("[findChordSymbol] Couldn't find a chord symbol for", chord);
-			return;
+			intervals = chord.split(' ') as Interval[];
+
+			const state: Record<string, Interval | null> = {
+				second: null,
+				third: null,
+				fourth: null,
+				fifth: null,
+				sixth: null,
+				seventh: null,
+				ninth: null,
+				eleventh: null,
+				thirteenth: null,
+			};
+
+			// verify state
+			intervals.forEach((interval) => {
+				if (['2m', '2M'].includes(interval)) {
+					state.second = interval;
+				} else if (['3m', '3M'].includes(interval)) {
+					state.third = interval;
+				} else if (['4P'].includes(interval)) {
+					state.fourth = interval;
+				} else if (['4A', '5d', '5P', '5A'].includes(interval)) {
+					state.fifth = interval;
+				} else if (['6m', '6M'].includes(interval)) {
+					state.sixth = interval;
+				} else if (['7m', '7M'].includes(interval)) {
+					state.seventh = interval;
+				} else if (['9m', '9M'].includes(interval)) {
+					state.ninth = interval;
+				} else if (['11P', '11A'].includes(interval)) {
+					state.eleventh = interval;
+				} else if (['13m', '13M'].includes(interval)) {
+					state.thirteenth = interval;
+				}
+			});
+
+			const altered: string[] = [];
+
+			chordType = '';
+
+			// check thirds
+			if (state.third) {
+				chordType = ChordIntervalRelations[state.third];
+			}
+
+			if (state.second) {
+				if (state.second === '2m') {
+					altered.push(ChordIntervalRelations[state.second]);
+				} else {
+					chordType = `${chordType}${ChordIntervalRelations[state.second]}`;
+				}
+			}
+
+			if (state.fourth) {
+				chordType = `${chordType}${ChordIntervalRelations[state.fourth]}`;
+			}
+
+			if (state.fifth) {
+				if (['4A', '5d'].includes(state.fifth)) {
+					if (!state.third) {
+						altered.push('#11');
+					} else {
+						chordType = `${chordType}${ChordIntervalRelations[state.fifth]}`;
+					}
+				}
+			}
+
+			if (state.sixth) {
+				if (state.seventh) {
+					state.thirteenth = interval.fromSemitones(Semitones[state.sixth] + 12) as any as Interval;
+				} else {
+					chordType = `${chordType}${ChordIntervalRelations[state.sixth]}`;
+				}
+			}
+
+			const hasTriad = !!state.third || !!state.fifth;
+			const hasExtensions = !!state.ninth || !!state.eleventh || !!state.thirteenth;
+			let hasSeventh = false;
+
+			if (state.seventh) {
+				if ((hasTriad && !hasExtensions) || (!hasTriad && hasExtensions)) {
+					chordType = `${chordType}${ChordIntervalRelations[state.seventh]}`;
+					hasSeventh = true;
+				}
+			}
+
+			if (state.ninth) {
+				if (hasSeventh) {
+					altered.push(ChordIntervalRelations[state.ninth]);
+				} else {
+					chordType = `${chordType}${ChordIntervalRelations[state.ninth]}`;
+				}
+			} else if (state.eleventh) {
+				if (hasSeventh) {
+					altered.push(ChordIntervalRelations[state.eleventh]);
+				} else {
+					chordType = `${chordType}${ChordIntervalRelations[state.eleventh]}`;
+				}
+			} else if (state.thirteenth) {
+				if (hasSeventh) {
+					altered.push(ChordIntervalRelations[state.thirteenth]);
+				} else {
+					chordType = `${chordType}${ChordIntervalRelations[state.thirteenth]}`;
+				}
+			}
+
+			if (!state.third) {
+				altered.push('no3');
+			}
+
+			return chordType != '' ? `${chordType}${altered.length > 0 ? `(${altered.join(',')})` : ''}` : undefined;
 		}
 
 		return chordType;

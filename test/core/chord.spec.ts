@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { ScaleIntervals } from '../../lib/constants';
 import { Chord, Note } from '../../lib/core';
 import random from '../../lib/tools/random';
+import * as interval from '../../lib/tools/interval';
 import '../matchers';
 
 describe('Chord Test Suite', () => {
@@ -219,7 +220,7 @@ describe('Chord Test Suite', () => {
 				expect(chord).toHaveStringNotes(['A3', 'C4', 'E4', 'G4', 'B4', 'F5']);
 			});
 
-			it('should create custom', () => {
+			it('should create custom simple', () => {
 				random.setSeed('test');
 
 				const chord = Chord.fromIntervals('C', '1P 2M 3M 4A 5P 6m 7m', ['1 3 5 6 7']);
@@ -240,10 +241,10 @@ describe('Chord Test Suite', () => {
 				const chord = Chord.fromIntervals('D', '1P 2m 3M 4A 5P 6m 7m', ['1 2 6 7']);
 
 				expect(chord.root.note).toBe('D');
-				expect(chord.symbol).toBeUndefined();
+				expect(chord.symbol).toBe('7(b9,b13,no3)');
 				expect(chord.intervals).toBe('1P 2m 6m 7m');
 				expect(chord.structure).toEqual(['1 2 6 7']);
-				expect(chord.name).toBeUndefined();
+				expect(chord.name).toBe('D7(b9,b13,no3)');
 				expect(chord.hasFlats).toBeTruthy();
 				expect(chord.hasSharps).toBeFalsy();
 				expect(chord).toHaveStringNotes(['D3', 'Eb3', 'Bb3', 'C4']);
@@ -256,7 +257,9 @@ describe('Chord Test Suite', () => {
 					Chord.fromIntervals('A', '1P 100P', Chord.Structures.Ninth);
 				};
 
-				expect(toThrow).toThrowErrorMatchingInlineSnapshot(`[[PlayaError <Chord>]: [1P 100P] has unrecognized intervals.]`);
+				expect(toThrow).toThrowErrorMatchingInlineSnapshot(
+					`[[PlayaError <Chord>]: [1P 100P] has unrecognized intervals.]`
+				);
 			});
 		});
 
@@ -319,11 +322,11 @@ describe('Chord Test Suite', () => {
 			const chord = Chord.fromNotes(['A', 'C', 'F#', 'G']);
 
 			expect(chord.root.note).toBe('A');
-			expect(chord.symbol).toBeUndefined();
+			expect(chord.symbol).toBe('m13');
 			expect(chord.toString()).toBe('[object Chord: A3,C4,F#4,G4]');
 			expect(chord.intervals).toBe('1P 3m 6M 7m');
 			expect(chord.structure).toBeUndefined();
-			expect(chord.name).toBeUndefined();
+			expect(chord.name).toBe('Am13');
 			expect(chord).toHaveMidiNotes([69, 72, 78, 79]);
 		});
 	});
@@ -396,7 +399,9 @@ describe('Chord Test Suite', () => {
 				chord.noteAt(2);
 			};
 
-			expect(toThrow).toThrowErrorMatchingInlineSnapshot(`[[PlayaError <Chord>]: [1,3,5,7] structure doesn't contain position: 2]`);
+			expect(toThrow).toThrowErrorMatchingInlineSnapshot(
+				`[[PlayaError <Chord>]: [1,3,5,7] structure doesn't contain position: 2]`
+			);
 		});
 	});
 
@@ -413,8 +418,18 @@ describe('Chord Test Suite', () => {
 			expect(Chord.findChordSymbol('1P 3M 5P 7m 9M 11m')).toBe('9add11');
 		});
 
+		it('should find relationships when missing from corpus', () => {
+			const intervals = interval.detect('Bb E A')!;
+			expect(Chord.findChordSymbol(intervals.join(' '))).toBe('maj7(#11,no3)');
+		});
+
+		it('should find relationships when missing from corpus complex', () => {
+			const intervals = interval.detect('C3 Gb3 Ab3 D4')!;
+			expect(Chord.findChordSymbol(intervals.join(' '))).toBe('augadd9(#11,no3)');
+		});
+
 		it('should not create for inexisting', () => {
-			expect(Chord.findChordSymbol('1P 2m 5P 7m 8M 11m')).toBeUndefined();
+			expect(Chord.findChordSymbol('1P 2m 8M 11M')).toBeUndefined();
 		});
 	});
 });

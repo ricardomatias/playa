@@ -3,6 +3,8 @@
 // CHORDS
 // *****************************************************************************
 
+import { Interval } from './intervals';
+
 /**
  * Chord Names
  * @memberof Constants
@@ -229,7 +231,7 @@ export const ChordName = <const>{
  * @memberof Types
  */
 
-export type ChordName = typeof ChordName[keyof typeof ChordName];
+export type ChordName = (typeof ChordName)[keyof typeof ChordName];
 
 /**
  * Chord Symbols
@@ -451,7 +453,7 @@ export const ChordSymbol = {
 	MajorThirteenth: 'M13',
 } as const;
 
-export type ChordSymbol = typeof ChordSymbol[ChordName];
+export type ChordSymbol = (typeof ChordSymbol)[ChordName];
 
 /**
  * Chord Intervals
@@ -672,7 +674,33 @@ export const ChordIntervals = <const>{
 	MajorThirteenth: '1P 3M 5P 7M 9M 13M',
 };
 
-export type ChordIntervals = typeof ChordIntervals[ChordName];
+export type ChordIntervals = (typeof ChordIntervals)[ChordName];
+
+export const ChordIntervalRelations = <const>{
+	'1P': '',
+	'2m': 'b9',
+	'2M': 'sus2',
+	'3m': 'm',
+	'3M': 'M',
+	'4P': 'sus4',
+	'4A': 'b5',
+	'5d': 'b5',
+	'5P': '5',
+	'5A': 'aug',
+	'6m': 'aug',
+	'6M': '6',
+	'7m': '7',
+	'7M': 'maj7',
+	'8P': '',
+	'9m': 'addb9',
+	'9M': 'add9',
+	'11P': '11',
+	'11A': 'add#11',
+	'13m': 'b13',
+	'13M': '13',
+};
+
+export type ChordIntervalRelations = (typeof ChordIntervalRelations)[Interval];
 
 /**
  * Chord Structure definition
@@ -758,7 +786,7 @@ export const ChordStructure = <const>{
 	Thirteenth: ['1 3 5 7 9 13'],
 };
 
-export type ChordStructure = typeof ChordStructure[keyof typeof ChordStructure];
+export type ChordStructure = (typeof ChordStructure)[keyof typeof ChordStructure];
 
 const toDefObj = (name: ChordName, symbol: ChordSymbol, intervals: ChordIntervals, structure: ChordStructure) => ({
 	name,
@@ -881,7 +909,7 @@ export const ChordDefinition = <const>{
 	),
 };
 
-export type ChordDefinition = typeof ChordDefinition[keyof typeof ChordDefinition];
+export type ChordDefinition = (typeof ChordDefinition)[keyof typeof ChordDefinition];
 
 export const SimilarChordsByStructure = new Map<ChordStructure, ChordName[]>([
 	[ChordStructure.Triad, [ChordName.Major, ChordName.Minor, ChordName.Aug, ChordName.Dim, ChordName.P5]],
